@@ -18,8 +18,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -48,9 +50,15 @@ public class TaxinvoiceServiceExample {
 	@Autowired
 	private TaxinvoiceService taxinvoiceService;
 	
-	private String testCorpNum = "1231212312";
-	private String testUserID = "userid";
+	@Value("#{EXAMPLE_CONFIG.TestCorpNum}")
+	private String testCorpNum;
+	@Value("#{EXAMPLE_CONFIG.TestUserID}")
+	private String testUserID;
 	
+	@RequestMapping(value = "", method = RequestMethod.GET)
+	public String home(Locale locale, Model model) {
+		return "Taxinvoice/index";
+	}
 	@RequestMapping(value = "checkMgtKeyInUse", method = RequestMethod.GET)
 	public String checkMgtKeyInUse( Model m) {
 		
@@ -280,7 +288,7 @@ public class TaxinvoiceServiceExample {
 			return "exception";
 		}
 		
-		return "Taxinvoice/taxinvoiceInfoResult";
+		return "Taxinvoice/TaxinvoiceInfo";
 	}
 	
 	@RequestMapping(value = "getInfos", method = RequestMethod.GET)
@@ -298,7 +306,7 @@ public class TaxinvoiceServiceExample {
 			return "exception";
 		}
 		
-		return "Taxinvoice/taxinvoiceInfoResult";
+		return "Taxinvoice/TaxinvoiceInfo";
 	}
 	
 	@RequestMapping(value = "getDetailInfo", method = RequestMethod.GET)
@@ -314,7 +322,7 @@ public class TaxinvoiceServiceExample {
 			return "exception";
 		}
 		
-		return "Taxinvoice/taxinvoiceResult";
+		return "Taxinvoice/Taxinvoice";
 	}
 	
 	@RequestMapping(value = "delete", method = RequestMethod.GET)
@@ -346,7 +354,7 @@ public class TaxinvoiceServiceExample {
 			return "exception";
 		}
 		
-		return "Taxinvoice/taxinvoiceLogResult";
+		return "Taxinvoice/TaxinvoiceLog";
 	}
 	
 
@@ -392,7 +400,7 @@ public class TaxinvoiceServiceExample {
 			return "exception";
 		}
 		
-		return "Taxinvoice/attachedFileResult";
+		return "Taxinvoice/AttachedFile";
 	}
 	
 	
@@ -772,6 +780,6 @@ public class TaxinvoiceServiceExample {
 			return "exception";
 		}
 		
-		return "Taxinvoice/emailPublicKeyResult";
+		return "Taxinvoice/EmailPublicKey";
 	}
 }

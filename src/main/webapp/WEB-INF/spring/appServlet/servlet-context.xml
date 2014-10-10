@@ -3,9 +3,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
@@ -24,17 +26,41 @@
 	<context:component-scan base-package="com.popbill.example" />
 	
 	<!-- 
-		세금계산서 Service Implementation Bean registration.
-		linkID : 링크허브에서 발급받은 파트너 링크아이디.
-		secretKey : 링크허브에서 발급받는 비밀키.
-		test : true이면 test.popbill.com으로 연결, 기본값은 false. 
+		LinkID : 링크허브에서 발급받은 파트너 링크아이디.
+		SecretKey : 링크허브에서 발급받는 비밀키.
+		IsTest : true이면 test.popbill.com으로 연결, 기본값은 false. 
 	-->
+	<util:properties id="EXAMPLE_CONFIG">
+		<beans:prop key="TestCorpNum">1231212312</beans:prop>
+		<beans:prop key="TestUserID">userid</beans:prop>
+		<beans:prop key="LinkID">TESTER</beans:prop>
+		<beans:prop key="SecretKey">wrp2mpJepBL9IQo7RWkfWbjMebyrwaEqu2NS7DQKEjg=</beans:prop>
+		<beans:prop key="IsTest">true</beans:prop>
+		
+	</util:properties>
+	
 	<beans:beans>
+		<!-- 세금계산서 Service Implementation Bean registration.	-->
 		<beans:bean id="taxinvoiceService" class="com.popbill.api.taxinvoice.TaxinvoiceServiceImp">
-			<beans:property name="linkID" value="TESTER"/>
-			<beans:property name="secretKey" value="7kihfXKTx3pVDIrxonnZd4Rj1NpZGOfuD2cAGb2aOdo="/>
-			<beans:property name="test" value="true"/>
+			<beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
+			<beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
+			<beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
 		</beans:bean>
+		
+		<!-- 	문자메시지 Service Implementation Bean registration.	-->
+		<beans:bean id="messageService" class="com.popbill.api.message.MessageServiceImp">
+			<beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
+			<beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
+			<beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
+		</beans:bean>
+		
+		<!-- 팩스 Service Implementation Bean registration.  -->
+		<beans:bean id="faxService" class="com.popbill.api.fax.FaxServiceImp">
+			<beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
+			<beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
+			<beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
+		</beans:bean>
+		
 	</beans:beans>
 	
 </beans:beans>

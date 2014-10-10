@@ -17,6 +17,7 @@ package com.popbill.example;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,9 +40,12 @@ public class BaseServiceExample {
 	@Autowired
 	private TaxinvoiceService taxinvoiceService;
 	
-	private String testCorpNum = "1231212312";
-	private String testUserID = "userid";
-	private String testLinkID = "TESTER";
+	@Value("#{EXAMPLE_CONFIG.TestCorpNum}")
+	private String testCorpNum;
+	@Value("#{EXAMPLE_CONFIG.TestUserID}")
+	private String testUserID;
+	@Value("#{EXAMPLE_CONFIG.LinkID}")
+	private String testLinkID;
 	
 	@RequestMapping(value = "checkIsMember", method = RequestMethod.GET)
 	public String checkIsMember(Model m) throws PopbillException {
