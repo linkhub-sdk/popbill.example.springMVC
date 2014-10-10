@@ -6,3 +6,5 @@ popbill.example.springMVC
 requirements 
  * jdk 1.6+
  
+reference
+ * https://github.com/linkhub-sdk/popbill.sdk.java
