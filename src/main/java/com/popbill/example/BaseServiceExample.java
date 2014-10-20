@@ -51,7 +51,7 @@ public class BaseServiceExample {
 	public String checkIsMember(Model m) throws PopbillException {
 		
 		try {
-			Response response = taxinvoiceService.checkIsMember(testCorpNum,"TESTER");
+			Response response = taxinvoiceService.checkIsMember(testCorpNum,testLinkID);
 			
 			m.addAttribute("Response",response);
 			
