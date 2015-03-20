@@ -31,10 +31,10 @@
 		IsTest : true이면 test.popbill.com으로 연결, 기본값은 false. 
 	-->
 	<util:properties id="EXAMPLE_CONFIG">
-		<beans:prop key="TestCorpNum">1231212312</beans:prop>
-		<beans:prop key="TestUserID">userid</beans:prop>
+		<beans:prop key="TestCorpNum">1234567890</beans:prop>
+		<beans:prop key="TestUserID">testkorea</beans:prop>
 		<beans:prop key="LinkID">TESTER</beans:prop>
-		<beans:prop key="SecretKey">wrp2mpJepBL9IQo7RWkfWbjMebyrwaEqu2NS7DQKEjg=</beans:prop>
+		<beans:prop key="SecretKey">3v5o87sx07SrQ1ao1207YKZT+Fcil9OkYPPYpbFslj8=</beans:prop>
 		<beans:prop key="IsTest">true</beans:prop>
 		
 	</util:properties>
@@ -42,6 +42,18 @@
 	<beans:beans>
 		<!-- 세금계산서 Service Implementation Bean registration.	-->
 		<beans:bean id="taxinvoiceService" class="com.popbill.api.taxinvoice.TaxinvoiceServiceImp">
+			<beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
+			<beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
+			<beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
+		</beans:bean>
+		
+		<beans:bean id="statementService" class="com.popbill.api.statement.StatementServiceImp">
+			<beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
+			<beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
+			<beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
+		</beans:bean>
+		
+		<beans:bean id="cashbillService" class="com.popbill.api.cashbill.CashbillServiceImp">
 			<beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
 			<beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
 			<beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
