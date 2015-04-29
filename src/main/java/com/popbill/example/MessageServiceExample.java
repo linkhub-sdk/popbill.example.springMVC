@@ -14,6 +14,7 @@
  */
 package com.popbill.example;
 
+import java.io.File;
 import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -186,6 +187,67 @@ public class MessageServiceExample {
 		try {
 			
 			String receiptNum = messageService.sendLMS(testCorpNum,messages,null,testUserID);
+			
+			m.addAttribute("Result",receiptNum);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "result";
+	}
+	
+	@RequestMapping(value = "sendMMS", method = RequestMethod.GET)
+	public String sendMMS( Model m) {
+		
+		String sender = "07075103710"; //발신번호
+		String receiver = "010111222"; //수신번호
+		String receiverName = "수신자"; //수신자 명칭.
+		String subject = "멀티 문자 제목."; 
+		String content = "멀티 문자메시지 내용."; //장문문자메시지는 2000Byte초과시 Cutting됨.
+		
+		File file = new File("C:/test2.jpg");
+		
+		try {
+			
+			String receiptNum = messageService.sendMMS(testCorpNum, sender, receiver, receiverName, subject, content, file, null, testUserID);
+			
+			m.addAttribute("Result",receiptNum);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "result";
+	}
+	
+	@RequestMapping(value = "sendMMS_Multi", method = RequestMethod.GET)
+	public String sendMMS_Multi( Model m) {
+		
+		//최대 1000건.
+		Message msg1 = new Message();
+		msg1.setSender("07075103710");
+		msg1.setReceiver("010111222");
+		msg1.setReceiverName("수신자1");
+		msg1.setSubject("멀티 메시지 제목");
+		msg1.setContent("메시지 내용1");
+		
+		Message msg2 = new Message();
+		msg2.setSender("07075103710");
+		msg2.setReceiver("010111222");
+		msg2.setReceiverName("수신자2");
+		msg2.setSubject("멀티 메시지 제목");
+		msg2.setContent("메시지 내용2");
+		
+		File file = new File("C:/test2.jpg");
+		
+		Message[] messages = new Message[] {msg1,msg2};
+		
+		try {
+			
+			String receiptNum = messageService.sendMMS(testCorpNum, messages, file, null, testUserID);
 			
 			m.addAttribute("Result",receiptNum);
 			

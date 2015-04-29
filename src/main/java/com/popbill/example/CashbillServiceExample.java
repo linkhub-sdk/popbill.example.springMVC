@@ -87,6 +87,7 @@ public class CashbillServiceExample {
 	
 		cashbill.setMgtKey("20150320-01");			// 문서관리번호, 최대 24자리, 영문, 숫자 '-', '_'로 구성
 		cashbill.setTradeType("승인거래");				// 현금영수증 형태, {승인거래, 취소거래} 중 기재
+		//cashbill.setOrgConfirmNum("");  			// 취소거래시 기재, 원본현금영수증 국세청 승인번호 - getInfo API를 통해 confirmNum 값 기재
 		cashbill.setTradeUsage("소득공제용");			// 거래유형, {소득공제용, 지출증빙용} 중 기재
 		cashbill.setTaxationType("과세");				// 과세형태, {과세, 비과세} 중 기재
 		
@@ -137,6 +138,7 @@ public class CashbillServiceExample {
 		
 		cashbill.setMgtKey("20150320-01");			// 수정시 문서관리번호를 다른값으로 입력하더라도 변경되지 않음
 		cashbill.setTradeType("승인거래");				// 현금영수증 형태, {승인거래, 취소거래} 중 기재
+		//cashbill.setOrgConfirmNum("");  			// 취소거래시 기재, 원본현금영수증 국세청 승인번호
 		cashbill.setTradeUsage("소득공제용");			// 거래유형, {소득공제용, 지출증빙용} 중 기재
 		cashbill.setTaxationType("과세");				// 과세형태, {과세, 비과세} 중 기재
 		

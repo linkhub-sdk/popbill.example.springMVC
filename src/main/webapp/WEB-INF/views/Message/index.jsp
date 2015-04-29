@@ -13,7 +13,7 @@
 
 		<div id="content">
 
-			<p class="heading1">팝빌 문자메시시 API SDK SpringMVC Example.</p>
+			<p class="heading1">팝빌 문자메시지 API SDK SpringMVC Example.</p>
 			
 			<br/>
 
@@ -61,6 +61,15 @@
 						<li><a href="MessageService/sendXMS_Multi">sendXMS</a> - 단/장문 문자메시지 다량(최대1000건) 전송</li>
 					</ul>
 				</fieldset>
+				
+				<fieldset class="fieldset2">
+					<legend>멀티 문자 전송</legend>
+					<ul>
+						<li><a href="MessageService/sendMMS">sendMMS</a> - 멀티 문자메시지 1건 전송</li>
+						<li><a href="MessageService/sendMMS_Multi">sendMMS</a> - 멀티 문자메시지 다량(최대1000건) 전송</li>
+					</ul>
+				</fieldset>
+				
 				
 				<fieldset class="fieldset2">
 					<legend>전송결과/예약취소</legend>
