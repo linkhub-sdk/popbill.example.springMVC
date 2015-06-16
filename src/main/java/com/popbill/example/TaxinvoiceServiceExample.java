@@ -80,7 +80,7 @@ public class TaxinvoiceServiceExample {
 		
 		Taxinvoice taxinvoice = new Taxinvoice();
 
-		taxinvoice.setWriteDate("20141002"); // 필수, 기재상 작성일자
+		taxinvoice.setWriteDate("20150616"); // 필수, 기재상 작성일자
 		taxinvoice.setChargeDirection("정과금"); // 필수, {정과금, 역과금}
 		taxinvoice.setIssueType("정발행"); // 필수, {정발행, 역발행, 위수탁}
 		taxinvoice.setPurposeType("영수"); // 필수, {영수, 청구}
@@ -91,7 +91,7 @@ public class TaxinvoiceServiceExample {
 		taxinvoice.setInvoicerCorpNum(testCorpNum);	
 		taxinvoice.setInvoicerTaxRegID(""); // 종사업자 식별번호. 필요시 기재. 형식은 숫자 4자리.
 		taxinvoice.setInvoicerCorpName("공급자 상호");  //필수
-		taxinvoice.setInvoicerMgtKey("1234"); // 공급자 발행까지 API로 발행하고자 할경우 정발행과 동일한 형태로 추가 기재.
+		taxinvoice.setInvoicerMgtKey("20150616-11"); // 공급자 발행까지 API로 발행하고자 할경우 정발행과 동일한 형태로 추가 기재.
 		taxinvoice.setInvoicerCEOName("공급자 대표자 성명"); //필수
 		taxinvoice.setInvoicerAddr("공급자 주소");
 		taxinvoice.setInvoicerBizClass("공급자 업종");
@@ -427,9 +427,11 @@ public class TaxinvoiceServiceExample {
 	
 	@RequestMapping(value = "send", method = RequestMethod.GET)
 	public String send( Model m) {
+		// 발행예정 제목, 공백으로 처리시 기본제목으로 전송
+		String emailSubject = "";
 		
 		try {
-			Response response = taxinvoiceService.send(testCorpNum,MgtKeyType.SELL,"1234","발행예정 메모");
+			Response response = taxinvoiceService.send(testCorpNum,MgtKeyType.SELL,"20150616-11","발행예정 메모",emailSubject,testUserID);
 			
 			m.addAttribute("Response",response);
 			

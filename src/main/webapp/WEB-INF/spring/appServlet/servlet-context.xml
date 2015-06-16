@@ -34,7 +34,7 @@
 		<beans:prop key="TestCorpNum">1234567890</beans:prop>
 		<beans:prop key="TestUserID">testkorea</beans:prop>
 		<beans:prop key="LinkID">TESTER</beans:prop>
-		<beans:prop key="SecretKey">3v5o87sx07SrQ1ao1207YKZT+Fcil9OkYPPYpbFslj8=</beans:prop>
+		<beans:prop key="SecretKey">SwWxqU+0TErBXy/9TVjIPEnI0VTUMMSQZtJf3Ed8q3I=</beans:prop>
 		<beans:prop key="IsTest">true</beans:prop>
 		
 	</util:properties>
