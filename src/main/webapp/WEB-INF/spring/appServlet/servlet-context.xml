@@ -47,12 +47,14 @@
 			<beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
 		</beans:bean>
 		
+		<!-- 전자명세서 Service Implementation Bean registration.  -->
 		<beans:bean id="statementService" class="com.popbill.api.statement.StatementServiceImp">
 			<beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
 			<beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
 			<beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
 		</beans:bean>
 		
+		<!-- 현금영수증 Service Implementation Bean registration.  -->
 		<beans:bean id="cashbillService" class="com.popbill.api.cashbill.CashbillServiceImp">
 			<beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
 			<beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
@@ -68,6 +70,13 @@
 		
 		<!-- 팩스 Service Implementation Bean registration.  -->
 		<beans:bean id="faxService" class="com.popbill.api.fax.FaxServiceImp">
+			<beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
+			<beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
+			<beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
+		</beans:bean>
+		
+		<!-- 휴폐업조회 Service Implementation Bean registration.  -->
+		<beans:bean id="closedownService" class="com.popbill.api.closedown.CloseDownServiceImp">
 			<beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
 			<beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
 			<beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
