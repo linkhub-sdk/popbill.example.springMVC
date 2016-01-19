@@ -29,9 +29,12 @@
 						<li>writeDate : ${StatementInfo.writeDate}</li>
 						<li>senderCorpName : ${StatementInfo.senderCorpName}</li>
 						<li>senderCorpNum : ${StatementInfo.senderCorpNum}</li>
+						<li>senderPrintYN : ${StatementInfo.senderPrintYN}</li>
+						
 						<li>receiverCorpName : ${StatementInfo.receiverCorpName}</li>
 						<li>receiverCorpNum : ${StatementInfo.receiverCorpNum}</li>
-
+						<li>receiverPrintYN : ${StatementInfo.receiverPrintYN}</li>
+						
 						<li>supplyCostTotal : ${StatementInfo.supplyCostTotal}</li>
 						<li>taxTotal : ${StatementInfo.taxTotal}</li>
 						<li>issueDT : ${StatementInfo.issueDT}</li>
@@ -61,9 +64,11 @@
 						<li>writeDate : ${StatementInfo.writeDate}</li>
 						<li>senderCorpName : ${StatementInfo.senderCorpName}</li>
 						<li>senderCorpNum : ${StatementInfo.senderCorpNum}</li>
+						<li>senderPrintYN : ${StatementInfo.senderPrintYN}</li>
 						<li>receiverCorpName : ${StatementInfo.receiverCorpName}</li>
 						<li>receiverCorpNum : ${StatementInfo.receiverCorpNum}</li>
-
+						<li>receiverPrintYN : ${StatementInfo.receiverPrintYN}</li>
+						
 						<li>supplyCostTotal : ${StatementInfo.supplyCostTotal}</li>
 						<li>taxTotal : ${StatementInfo.taxTotal}</li>
 						<li>issueDT : ${StatementInfo.issueDT}</li>

@@ -24,9 +24,11 @@
 						<li>invoicerCorpName : ${TaxinvoiceInfo.invoicerCorpName}</li>
 						<li>invoicerCorpNum : ${TaxinvoiceInfo.invoicerCorpNum}</li>
 						<li>invoicerMgtKey : ${TaxinvoiceInfo.invoicerMgtKey}</li>
+						<li>invoicerPrintYN : ${TaxinvoiceInfo.invoicerPrintYN}</li>
 						<li>invoiceeCorpName : ${TaxinvoiceInfo.invoiceeCorpName}</li>
 						<li>invoiceeCorpNum : ${TaxinvoiceInfo.invoiceeCorpNum}</li>
 						<li>invoiceeMgtKey : ${TaxinvoiceInfo.invoiceeMgtKey}</li>
+						<li>invoiceePrintYN : ${TaxinvoiceInfo.invoiceePrintYN}</li>
 						<li>trusteeCorpName : ${TaxinvoiceInfo.trusteeCorpName}</li>
 						<li>trusteeCorpNum : ${TaxinvoiceInfo.trusteeCorpNum}</li>
 						<li>trusteeMgtKey : ${TaxinvoiceInfo.trusteeMgtKey}</li>
@@ -36,6 +38,7 @@
 						<li>modifyCode : ${TaxinvoiceInfo.modifyCode}</li>
 						<li>issueType : ${TaxinvoiceInfo.issueType}</li>
 						<li>issueDT : ${TaxinvoiceInfo.issueDT}</li>
+						<li>lateIssueYN : ${TaxinvoiceInfo.lateIssueYN}</li>
 						<li>preIssueDT : ${TaxinvoiceInfo.preIssueDT}</li>
 						<li>stateCode : ${TaxinvoiceInfo.stateCode}</li>
 						<li>stateDT : ${TaxinvoiceInfo.stateDT}</li>
@@ -63,9 +66,11 @@
 						<li>invoicerCorpName : ${TaxinvoiceInfo.invoicerCorpName}</li>
 						<li>invoicerCorpNum : ${TaxinvoiceInfo.invoicerCorpNum}</li>
 						<li>invoicerMgtKey : ${TaxinvoiceInfo.invoicerMgtKey}</li>
+						<li>invoicerPrintYN : ${TaxinvoiceInfo.invoicerPrintYN}</li>
 						<li>invoiceeCorpName : ${TaxinvoiceInfo.invoiceeCorpName}</li>
 						<li>invoiceeCorpNum : ${TaxinvoiceInfo.invoiceeCorpNum}</li>
 						<li>invoiceeMgtKey : ${TaxinvoiceInfo.invoiceeMgtKey}</li>
+						<li>invoiceePrintYN : ${TaxinvoiceInfo.invoiceePrintYN}</li>
 						<li>trusteeCorpName : ${TaxinvoiceInfo.trusteeCorpName}</li>
 						<li>trusteeCorpNum : ${TaxinvoiceInfo.trusteeCorpNum}</li>
 						<li>trusteeMgtKey : ${TaxinvoiceInfo.trusteeMgtKey}</li>
@@ -75,6 +80,7 @@
 						<li>modifyCode : ${TaxinvoiceInfo.modifyCode}</li>
 						<li>issueType : ${TaxinvoiceInfo.issueType}</li>
 						<li>issueDT : ${TaxinvoiceInfo.issueDT}</li>
+						<li>lateIssueYN : ${TaxinvoiceInfo.lateIssueYN}</li>
 						<li>preIssueDT : ${TaxinvoiceInfo.preIssueDT}</li>
 						<li>stateCode : ${TaxinvoiceInfo.stateCode}</li>
 						<li>stateDT : ${TaxinvoiceInfo.stateDT}</li>

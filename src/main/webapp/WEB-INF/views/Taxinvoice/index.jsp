@@ -27,6 +27,12 @@
 						<li><a href="BaseService/getBalance">getBalance</a> - 연동회원사 잔여포인트 확인</li>
 						<li><a href="BaseService/getPartnerBalance">getPartnerBalance</a> - 파트너 잔여포인트 확인</li>
 						<li><a href="BaseService/getPopbillURL">getPopbillURL</a> - 팝빌 SSO URL 요청</li>
+						<li><a href="BaseService/listContact">listContact</a> - 담당자 목록 확인 </li>
+						<li><a href="BaseService/updateContact">updateContact</a> - 담당자 정보 수정 </li>
+						<li><a href="BaseService/registContact">registContact</a> - 담당자 추가 </li>
+						<li><a href="BaseService/checkID">checkID</a> - 연동회원 아이디 중복확인 </li>
+						<li><a href="BaseService/getCorpInfo">getCorpInfo</a> - 회사정보 확인 </li>
+						<li><a href="BaseService/updateCorpInfo">updateCorpInfo</a> - 회사정보 수정 </li>
 					</ul>
 				</fieldset>
 
@@ -51,12 +57,14 @@
 						<li><a href="TaxinvoiceService/attachFile">attachFile</a> - 세금계산서 첨부파일 추가</li>
 						<li><a href="TaxinvoiceService/getFiles">getFiles</a> - 세금계산서 첨부파일 목록확인</li>
 						<li><a href="TaxinvoiceService/deleteFile">deleteFile</a> - 세금계산서 첨부파일 1개 삭제</li>
+						<li><a href="TaxinvoiceService/search">search</a> - 세금계산서 목록 확인</li>
 					</ul>
 				</fieldset>
 				
 				<fieldset class="fieldset2">
 					<legend>처리 프로세스</legend>
 					<ul>
+						<li><a href="TaxinvoiceService/registIssue">registIssue</a> - 세금계산서 즉시발행 처리</li>
 						<li><a href="TaxinvoiceService/send">send</a> - 정발행/위수탁 세금계산서 발행예정 처리</li>
 						<li><a href="TaxinvoiceService/cancelSend">cancelSend</a> - 정발행/위수탁 세금계산서 발행예정 취소 처리</li>
 						<li><a href="TaxinvoiceService/accept">accept</a> - 정발행/위수탁 세금계산서 발행예정에 대한 공급받는자의 승인 처리</li>
@@ -76,6 +84,8 @@
 						<li><a href="TaxinvoiceService/sendEmail">sendEmail</a> - 처리 프로세스에 대한 이메일 재전송 요청</li>
 						<li><a href="TaxinvoiceService/sendSMS">sendSMS</a> - 발행예정/발행/역)발행요청 에 대한 문자메시지 안내 재전송 요청.</li>
 						<li><a href="TaxinvoiceService/sendFAX">sendFAX</a> - 세금계산서에 대한 팩스 전송 요청..</li>
+						<li><a href="TaxinvoiceService/attachStatement">attachStatement</a> - 전자명세서 첨부</li>
+						<li><a href="TaxinvoiceService/detachStatement">detachStatement</a> - 전자명세서 첨부해제</li>
 					</ul>
 				</fieldset>
 				

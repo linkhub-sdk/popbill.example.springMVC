@@ -26,9 +26,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.popbill.api.CashbillService;
 import com.popbill.api.PopbillException;
 import com.popbill.api.Response;
+import com.popbill.api.cashbill.CBSearchResult;
 import com.popbill.api.cashbill.Cashbill;
 import com.popbill.api.cashbill.CashbillInfo;
 import com.popbill.api.cashbill.CashbillLog;
+import com.popbill.api.statement.StmtSearchResult;
 
 /**
  * 팝빌 현금영수증 API 예제.
@@ -510,8 +512,8 @@ public class CashbillServiceExample {
 	public String getMassPrintURL( Model m) {
 		
 		// 다량 현금영수증 인쇄 화면 URL 확인, 최대 100건 
-		
 		// 문서관리번호 배열, 최대 100건
+		
 		String[] MgtKeyList = new String[] {"20150320-01", "20150320-02", "20150320-03"}; 
 		
 		try {
@@ -546,25 +548,86 @@ public class CashbillServiceExample {
 		
 		return "result";
 	}
+	
+	@RequestMapping(value = "registIssue", method = RequestMethod.GET)
+	public String registIssue( Model m) {
+		/*
+		 * 현금영수증 즉시발행
+		 * 현금영수증 입력항목에 관한 자세한 사항은 [현금영수증 API 연동매뉴얼> 4.1 현금영수증 구성] 참조  	
+		 */ 
+		
+		String Memo = "현금영수증 즉시발행 메모";
+
+		Cashbill cashbill = new Cashbill();
+	
+		cashbill.setMgtKey("20160119-02");			// 문서관리번호, 최대 24자리, 영문, 숫자 '-', '_'로 구성
+		cashbill.setTradeType("승인거래");				// 현금영수증 형태, {승인거래, 취소거래} 중 기재
+		//cashbill.setOrgConfirmNum("");  			// 취소거래시 기재, 원본현금영수증 국세청 승인번호 - getInfo API를 통해 confirmNum 값 기재
+		cashbill.setTradeUsage("소득공제용");			// 거래유형, {소득공제용, 지출증빙용} 중 기재
+		cashbill.setTaxationType("과세");				// 과세형태, {과세, 비과세} 중 기재
+		
+		cashbill.setIdentityNum("010-000-1234");			// 거래처 식별번호, 거래유형(TradeUsage) : 소득공제용인 경우 - (주민등록/휴대폰/카드)번호 기재
+														//					거래유형(TradeUsage) : 지출증빙용인 경우 - 사업자번호 기재
+	
+		cashbill.setFranchiseCorpNum("1234567890");		// 발행자 사업자번호, '-'제외 10자리 
+		cashbill.setFranchiseCorpName("발행자 상호");	
+		cashbill.setFranchiseCEOName("발행자 대표자");
+		cashbill.setFranchiseAddr("발행자 주소");
+		cashbill.setFranchiseTEL("07075103710");	
+		cashbill.setSmssendYN(false);					// 발행시 알림문자 자동전송여부
+	
+		cashbill.setCustomerName("고객명");
+		cashbill.setItemName("상품명");
+		cashbill.setOrderNumber("주문번호");
+		cashbill.setEmail("test@test.com");
+		cashbill.setHp("01043245117");
+		cashbill.setFax("07075103710");
+	
+		cashbill.setSupplyCost("10000");				// 공급가액, 숫자만 가능
+		cashbill.setTax("1000");						// 세액, 숫자만 가능
+		cashbill.setServiceFee("0");					// 봉사료, 숫자만 가능
+		cashbill.setTotalAmount("11000");				// 합계금액, 숫자만 가능, 봉사료 + 공급가액 + 세액
+			
+		try {
+			
+			Response response = cashbillService.registIssue(testCorpNum, cashbill, Memo);
+			
+			m.addAttribute("Response",response);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "response";
+	}
+	
+	@RequestMapping(value = "search", method = RequestMethod.GET)
+	public String search(Model m){
+		
+		// 현금영수증 목록조회
+		
+		String DType = "R"; 								// 일자유형, R-등록일자, T-거래일자, I-발행일자 
+		String SDate = "20151001"; 							// 시작일자, yyyyMMdd
+		String EDate = "20160118"; 							// 종료일자, yyyyMMdd
+		String[] State = {"100", "2**", "3**", "4**"};		// 현금영수증 상태코드 배열, 2,3번째 자리에 와일드카드(*) 사용 가능
+		String[] TradeType = {"N", "C"};					// 현금영수증 형태배열,  N-일반현금영수증, C-취소현금영수증
+		String[] TradeUsage = {"P", "C"};					// 거래용도 배열, P-소득공제용, C-지출증빙용
+		String[] TaxationType = {"T", "N"};					// 과세형태 배열, T-과세, N-비과세 
+		int Page = 1;										// 페이지 번호 
+		int PerPage = 20;									// 페이지당 목록개수, 최대 1000건 
+		String Order = "D";									// 정렬방향, A-오름차순,  D-내림차순 
+		
+		try {
+			
+			CBSearchResult searchResult = cashbillService.search(testCorpNum, DType, SDate, EDate, State, TradeType, TradeUsage, TaxationType, Page, PerPage, Order);
+			m.addAttribute("SearchResult", searchResult);
+			
+		} catch (PopbillException e){
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "Cashbill/SearchResult";
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

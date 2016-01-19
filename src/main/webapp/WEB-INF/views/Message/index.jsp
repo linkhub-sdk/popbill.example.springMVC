@@ -28,6 +28,12 @@
 						<li><a href="BaseService/getBalance">getBalance</a> - 연동회원사 잔여포인트 확인</li>
 						<li><a href="BaseService/getPartnerBalance">getPartnerBalance</a> - 파트너 잔여포인트 확인</li>
 						<li><a href="BaseService/getPopbillURL">getPopbillURL</a> - 팝빌 SSO URL 요청</li>
+						<li><a href="BaseService/listContact">listContact</a> - 담당자 목록 확인 </li>
+						<li><a href="BaseService/updateContact">updateContact</a> - 담당자 정보 수정 </li>
+						<li><a href="BaseService/registContact">registContact</a> - 담당자 추가 </li>
+						<li><a href="BaseService/checkID">checkID</a> - 연동회원 아이디 중복확인 </li>
+						<li><a href="BaseService/getCorpInfo">getCorpInfo</a> - 회사정보 확인 </li>
+						<li><a href="BaseService/updateCorpInfo">updateCorpInfo</a> - 회사정보 수정 </li>
 					</ul>
 				</fieldset>
 
@@ -75,6 +81,7 @@
 					<legend>전송결과/예약취소</legend>
 					<ul>
 						<li><a href="MessageService/getMessages">getMessages</a> - 접수번호에 해당하는 문자메시지 전송결과 확인</li>
+						<li><a href="MessageService/search">search</a> - 문자전송내역 조회</li>
 						<li><a href="MessageService/cancelReserve">cancelReserve</a> - 예약문자메시지의 예약 취소. 예약시간 10분전까지만 가능.</li>
 					</ul>
 				</fieldset>
@@ -83,7 +90,8 @@
 					<legend>기타</legend>
 					<ul>
 						<li><a href="MessageService/getURL">getURL</a> - 문자메시지 관련 SSO URL 확인</li>
-						<li><a href="MessageService/getUnitCost">getUnitCost</a> - 세금계산서 발행 단가 확인</li>
+						<li><a href="MessageService/getUnitCost">getUnitCost</a> - 문자전송 단가 확인</li>
+						<li><a href="MessageService/autoDenyList">autoDenyList</a> - 080수신거부 목록 확인</li>
 					</ul>
 				</fieldset>
 

@@ -29,8 +29,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.popbill.api.FaxService;
 import com.popbill.api.PopbillException;
 import com.popbill.api.Response;
+import com.popbill.api.fax.FAXSearchResult;
 import com.popbill.api.fax.FaxResult;
 import com.popbill.api.fax.Receiver;
+import com.popbill.api.message.MSGSearchResult;
 
 /**
  * 팝빌 팩스 API 예제.
@@ -162,7 +164,7 @@ public class FaxServiceExample {
 	@RequestMapping(value = "getFaxResult", method = RequestMethod.GET)
 	public String getFaxResult( Model m) {
 		
-		String receiptNum = "014101014353600001"; //전송시 접수번호.
+		String receiptNum = "015122413083700001"; //전송시 접수번호.
 		
 		try {
 			FaxResult[] faxResults = faxService.getFaxResult(testCorpNum,receiptNum);
@@ -193,6 +195,28 @@ public class FaxServiceExample {
 		}
 		
 		return "response";
+	}
+	
+	@RequestMapping(value = "search", method = RequestMethod.GET)
+	public String search(Model m) {
+		String SDate = "20151001";				// 시작일자, yyyyMMdd
+		String EDate = "20160118";				// 종료일자, yyyyMMdd
+		String[] State = {"1", "2", "3","4"};	// 전송상태 배열, 1-대기, 2-성공, 3-실패, 4-취소
+		Boolean ReserveYN = false;				// 예약여부, false-전체조회, true-예약전송건 조회 
+		Boolean SenderOnly = false;				// 개인조회 여부, false- 전체조회, true-개인조회 
+		int Page = 1;							// 페이지 번호 
+		int PerPage = 100;						// 페이지당 목록개수 (최대 1000건) 
+		String Order = "D";						// 정렬방향 D-내림차순, A-오름차순 
+
+		try {
+			FAXSearchResult response = faxService.search(testCorpNum, SDate, EDate, State, ReserveYN, SenderOnly, Page, PerPage, Order);
+			m.addAttribute("SearchResult",response);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		return "Fax/SearchResult";
 	}
 	
 }

@@ -36,6 +36,9 @@ import com.popbill.api.statement.Statement;
 import com.popbill.api.statement.StatementDetail;
 import com.popbill.api.statement.StatementInfo;
 import com.popbill.api.statement.StatementLog;
+import com.popbill.api.statement.StmtSearchResult;
+import com.popbill.api.taxinvoice.MgtKeyType;
+import com.popbill.api.taxinvoice.TISearchResult;
 
 /**
  * 팝빌 전자명세서 API 예제.
@@ -92,12 +95,12 @@ public class StatementServiceExample {
 		
 		Statement statement = new Statement();
 		
-		statement.setWriteDate("20150319");				// [필수] 작성일자, 형태 yyyyMmdd
+		statement.setWriteDate("20160119");				// [필수] 작성일자, 형태 yyyyMmdd
 		statement.setPurposeType("영수");				// [필수] {영수, 청구} 중 기재
 		statement.setTaxType("과세");					// [필수] {과세, 영세, 면세} 중 기재
 		statement.setFormCode("");						// 맞춤양식코드, 미기재시 기본양식으로 처리
 		statement.setItemCode((short) 121);				// [필수] 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]	int 
-		statement.setMgtKey("20150319-10");				// [필수] 문서관리번호, 최대 24자리 영문, 숫자, '-', '_'로 구성
+		statement.setMgtKey("20160119-002");				// [필수] 문서관리번호, 최대 24자리 영문, 숫자, '-', '_'로 구성
 		statement.setSenderCorpNum("1234567890");		// [필수] 공급자 사업자번호
 		statement.setSenderCorpName("공급자 상호");
 		statement.setSenderAddr("공급자 주소");
@@ -726,6 +729,260 @@ public class StatementServiceExample {
 		}
 		
 		return "result";
+	}
+	
+	@RequestMapping(value = "FAXSend", method = RequestMethod.GET)
+	public String FAXSend(Model m){
+		
+		// 전자명세서를 발송하지 않고 팩스만 전송한다
+		
+		String sendNum = "07075103710";			// 팩스전송 발신번호
+		String receiveNum = "00111222";			// 수신팩스번호 
+		
+		Statement statement = new Statement();
+		
+		statement.setWriteDate("20150319");				// [필수] 작성일자, 형태 yyyyMmdd
+		statement.setPurposeType("영수");				// [필수] {영수, 청구} 중 기재
+		statement.setTaxType("과세");					// [필수] {과세, 영세, 면세} 중 기재
+		statement.setFormCode("");						// 맞춤양식코드, 미기재시 기본양식으로 처리
+		statement.setItemCode((short) 121);				// [필수] 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]	int 
+		statement.setMgtKey("20160119-01");				// [필수] 문서관리번호, 최대 24자리 영문, 숫자, '-', '_'로 구성
+		statement.setSenderCorpNum("1234567890");		// [필수] 공급자 사업자번호
+		statement.setSenderCorpName("공급자 상호");
+		statement.setSenderAddr("공급자 주소");
+		statement.setSenderCEOName("공급자 대표자 성명");
+		statement.setSenderTaxRegID("");				// 공급자 종사업장 식별번호, 숫자 4자리, 필요시 기재
+		statement.setSenderBizClass("업종");
+		statement.setSenderBizType("업태");
+		statement.setSenderContactName("공급자 담당자명");
+		statement.setSenderEmail("test@test.com");
+		statement.setSenderTEL("070-7070-0707");
+		statement.setSenderHP("010-000-2222");
+		
+		statement.setReceiverCorpNum("8888888888");		// [필수] 공급받는자 사업자번호
+		statement.setReceiverCorpName("공급받는자 상호");
+		statement.setReceiverCEOName("공급받는자 대표자 성명");
+		statement.setReceiverAddr("공급받는자 주소");
+		statement.setReceiverBizClass("공급받는자 업종");
+		statement.setReceiverBizType("공급받는자 업태");
+		statement.setReceiverContactName("공급받는자 담당자명");
+		statement.setReceiverEmail("test@receiver.com");
+		statement.setSupplyCostTotal("400000");         // [필수] 공급가액 합계
+		statement.setTaxTotal("40000");                 // [필수] 세액 합계
+		statement.setTotalAmount("440000");             // [필수] 합계금액.  공급가액 + 세액
+		statement.setSerialNum("123");                  // 기재상 일련번호 항목
+		statement.setRemark1("비고1");
+		statement.setRemark2("비고2");
+		statement.setRemark3("비고3");
+		statement.setBusinessLicenseYN(false);			// 사업자등록증 이미지 첨부시 설정.
+		statement.setBankBookYN(false);					// 통장사본 이미지 첨부시 설정.
+				
+		// 추가속성, 추가속성에 관한 정보는 [전자명세서 API 연동매뉴얼 > [5.2 기본양식 추가속성 테이블] 참조
+		Map<String, String> propertyBag = new HashMap<String, String>();
+		
+		propertyBag.put("Balance", "15000");			// 전잔액
+		propertyBag.put("Deposit", "5000");				// 입금액
+		propertyBag.put("CBalance", "20000");			// 현잔액
+		statement.setPropertyBag(propertyBag);
+		
+		statement.setDetailList(new ArrayList<StatementDetail>());
+		
+		StatementDetail detail = new StatementDetail();		// 상세항목(품목) 배열
+		
+		detail.setSerialNum((short) 1);					// 일련번호, 1부터 순차기재
+		detail.setItemName("품명");						// 품목명
+		detail.setPurchaseDT("20150317");				// 거래일자
+		detail.setQty("1");								// 수량
+		detail.setSupplyCost("200000");					// 공급가액
+		detail.setTax("20000");							// 세액
+		
+		statement.getDetailList().add(detail);
+		
+		detail = new StatementDetail();					// 상세항목(품목) 배열
+		detail.setSerialNum((short) 2);					// 일련번호 1부터 순차기재
+		detail.setItemName("품명");						// 품목명
+		detail.setPurchaseDT("20150317");				// 거래일자
+		detail.setQty("1");								// 수량
+		detail.setSupplyCost("200000");					// 공급가액
+		detail.setTax("20000");							// 세액
+		
+		statement.getDetailList().add(detail);
+
+		
+		try {
+			// FAXSend ( 연동회원 사업자번호, 전자명세서 정보, 발신번호, 수신팩스번호 ) 
+			String receiptNum = statementService.FAXSend(testCorpNum, statement, sendNum, receiveNum);
+			
+			m.addAttribute("Result", receiptNum);
+			
+		} catch (PopbillException e){
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		return "result";
+	}
+	
+	@RequestMapping(value = "registIssue", method = RequestMethod.GET)
+	public String registIssue( Model m) {
+		/**
+		 * 전자명세서 즉시발행 
+		 * 전자명세서 구성항목에 대한 설명은 [전자명세서 API 연동매뉴얼 > 4.1 전자명세서 구성] 참조
+		 */
+		
+		String Memo = "전자명세서 즉시발행 메모";
+		
+		Statement statement = new Statement();
+		
+		statement.setWriteDate("20160119");				// [필수] 작성일자, 형태 yyyyMmdd
+		statement.setPurposeType("영수");				// [필수] {영수, 청구} 중 기재
+		statement.setTaxType("과세");					// [필수] {과세, 영세, 면세} 중 기재
+		statement.setFormCode("");						// 맞춤양식코드, 미기재시 기본양식으로 처리
+		statement.setItemCode((short) 121);				// [필수] 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]	int 
+		statement.setMgtKey("20160119-12");				// [필수] 문서관리번호, 최대 24자리 영문, 숫자, '-', '_'로 구성
+		statement.setSenderCorpNum("1234567890");		// [필수] 공급자 사업자번호
+		statement.setSenderCorpName("공급자 상호");
+		statement.setSenderAddr("공급자 주소");
+		statement.setSenderCEOName("공급자 대표자 성명");
+		statement.setSenderTaxRegID("");				// 공급자 종사업장 식별번호, 숫자 4자리, 필요시 기재
+		statement.setSenderBizClass("업종");
+		statement.setSenderBizType("업태");
+		statement.setSenderContactName("공급자 담당자명");
+		statement.setSenderEmail("test@test.com");
+		statement.setSenderTEL("070-7070-0707");
+		statement.setSenderHP("010-000-2222");
+		
+		statement.setReceiverCorpNum("8888888888");		// [필수] 공급받는자 사업자번호
+		statement.setReceiverCorpName("공급받는자 상호");
+		statement.setReceiverCEOName("공급받는자 대표자 성명");
+		statement.setReceiverAddr("공급받는자 주소");
+		statement.setReceiverBizClass("공급받는자 업종");
+		statement.setReceiverBizType("공급받는자 업태");
+		statement.setReceiverContactName("공급받는자 담당자명");
+		statement.setReceiverEmail("test@receiver.com");
+		statement.setSupplyCostTotal("400000");         // [필수] 공급가액 합계
+		statement.setTaxTotal("40000");                 // [필수] 세액 합계
+		statement.setTotalAmount("440000");             // [필수] 합계금액.  공급가액 + 세액
+		statement.setSerialNum("123");                  // 기재상 일련번호 항목
+		statement.setRemark1("비고1");
+		statement.setRemark2("비고2");
+		statement.setRemark3("비고3");
+		statement.setBusinessLicenseYN(false);			// 사업자등록증 이미지 첨부시 설정.
+		statement.setBankBookYN(false);					// 통장사본 이미지 첨부시 설정.
+				
+		// 추가속성, 추가속성에 관한 정보는 [전자명세서 API 연동매뉴얼 > [5.2 기본양식 추가속성 테이블] 참조
+		Map<String, String> propertyBag = new HashMap<String, String>();
+		
+		propertyBag.put("Balance", "15000");			// 전잔액
+		propertyBag.put("Deposit", "5000");				// 입금액
+		propertyBag.put("CBalance", "20000");			// 현잔액
+		statement.setPropertyBag(propertyBag);
+		
+		statement.setDetailList(new ArrayList<StatementDetail>());
+		
+		StatementDetail detail = new StatementDetail();		// 상세항목(품목) 배열
+		
+		detail.setSerialNum((short) 1);					// 일련번호, 1부터 순차기재
+		detail.setItemName("품명");						// 품목명
+		detail.setPurchaseDT("20150317");				// 거래일자
+		detail.setQty("1");								// 수량
+		detail.setSupplyCost("200000");					// 공급가액
+		detail.setTax("20000");							// 세액
+		
+		statement.getDetailList().add(detail);
+		
+		detail = new StatementDetail();					// 상세항목(품목) 배열
+		detail.setSerialNum((short) 2);					// 일련번호 1부터 순차기재
+		detail.setItemName("품명");						// 품목명
+		detail.setPurchaseDT("20150317");				// 거래일자
+		detail.setQty("1");								// 수량
+		detail.setSupplyCost("200000");					// 공급가액
+		detail.setTax("20000");							// 세액
+		
+		statement.getDetailList().add(detail);
+		
+		try {
+			Response response = statementService.registIssue(testCorpNum, statement, Memo);
+			
+			m.addAttribute("Response",response);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "response";
+	}
+	
+	@RequestMapping(value = "search", method = RequestMethod.GET)
+	public String search(Model m){
+		
+		// 전자명세서 목록조회
+		
+		String DType = "R"; 								// 일자유형, R-등록일자, W-작성일자, I-발행일자 
+		String SDate = "20160101"; 							// 시작일자, yyyyMMdd
+		String EDate = "20160118"; 							// 종료일자, yyyyMMdd
+		String[] State = {"100", "2**", "3**", "4**"};		// 전자명세서 상태코드 배열, 2,3번째 자리에 와일드카드(*) 사용 가능
+		int[] ItemCode = {121, 122, 123, 124, 125, 126}; 	// 전자명세서 코드, 121-명세서, 122-청구서, 123-견적서, 124-발주서, 125-입금표, 126-영수증
+		int Page = 1;										// 페이지 번호 
+		int PerPage = 20;									// 페이지당 목록개수, 최대 1000건 
+		String Order = "A";									// 정렬방향, A-오름차순,  D-내림차순 
+		
+		try {
+			
+			StmtSearchResult searchResult = statementService.search(testCorpNum, DType, SDate, EDate, State, ItemCode, Page, PerPage, Order);
+			
+			m.addAttribute("SearchResult", searchResult);
+			
+		} catch (PopbillException e){
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "Statement/SearchResult";
+	}
+	
+	@RequestMapping(value = "attachStatement", method = RequestMethod.GET)
+	public String attachStatement(Model m){
+		
+		// 다른 전자명세서 첨부 
+		
+		int itemCode = 121;					// 전자명세서 코드
+		String mgtKey = "20160119-002";		// 전자명세서 관리번호 
+		
+		int subItemCode = 121;				// 첨부할 전자명세서 코드 
+		String subMgtKey = "20160119-001";	// 첨부할 전자명세서 관리번호 
+		
+		try {
+			Response response = statementService.attachStatement(testCorpNum, itemCode, mgtKey, subItemCode, subMgtKey);
+			m.addAttribute("Response", response);
+		} catch (PopbillException e){
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "response";
+	}
+	
+	@RequestMapping(value = "detachStatement", method = RequestMethod.GET)
+	public String detachStatement(Model m){
+		
+		// 다른 전자명세서 첨부해제 
+		
+		int itemCode = 121;					// 전자명세서 코드
+		String mgtKey = "20160119-002";		// 전자명세서 관리번호 
+		
+		int subItemCode = 121;				// 첨부해제할 전자명세서 코드 
+		String subMgtKey = "20160119-001";	// 첨부해제할 전자명세서 관리번호 
+		
+		try {
+			Response response = statementService.detachStatement(testCorpNum, itemCode, mgtKey, subItemCode, subMgtKey);
+			m.addAttribute("Response", response);
+		} catch (PopbillException e){
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "response";
 	}
 }
 

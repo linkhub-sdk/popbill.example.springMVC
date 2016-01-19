@@ -16,36 +16,33 @@
 				<fieldset class="fieldset2">
 					<legend>Cashbill</legend>
 					<ul>
-						<li>mgtKey : ${Cashbill.mgtKey}</li>
-						<li>tradeDate : ${Cashbill.tradeDate}</li>
-						<li>tradeUsage : ${Cashbill.tradeUsage}</li>
-						<li>tradeType : ${Cashbill.tradeType}</li>
+						<li>mgtKey(파트너 관리번호) : ${Cashbill.mgtKey}</li>
+						<li>tradeDate(거래일자) : ${Cashbill.tradeDate}</li>
+						<li>tradeUsage(거래용도) : ${Cashbill.tradeUsage}</li>
+						<li>tradeType(현금영수증 형태) : ${Cashbill.tradeType}</li>
 						
-						<li>taxationType : ${Cashbill.taxationType}</li>
-						<li>supplyCost : ${Cashbill.supplyCost}</li>
-						<li>tax : ${Cashbill.tax}</li>
-						<li>serviceFee : ${Cashbill.serviceFee}</li>
-						<li>totalAmount : ${Cashbill.totalAmount}</li>
+						<li>taxationType(과세형태) : ${Cashbill.taxationType}</li>
+						<li>supplyCost(공급가액) : ${Cashbill.supplyCost}</li>
+						<li>tax(세액) : ${Cashbill.tax}</li>
+						<li>serviceFee(봉사료) : ${Cashbill.serviceFee}</li>
+						<li>totalAmount(거래금액) : ${Cashbill.totalAmount}</li>
 						
-						<li>franchiseCorpNum : ${Cashbill.franchiseCorpNum}</li>
-						<li>franchiseCorpName : ${Cashbill.franchiseCorpName}</li>
-						<li>franchiseCEOName : ${Cashbill.franchiseCEOName}</li>
-						<li>franchiseAddr : ${Cashbill.franchiseAddr}</li>
-						<li>franchiseTEL : ${Cashbill.franchiseTEL}</li>
+						<li>franchiseCorpNum(발행자 사업자번호) : ${Cashbill.franchiseCorpNum}</li>
+						<li>franchiseCorpName(발행자 상호) : ${Cashbill.franchiseCorpName}</li>
+						<li>franchiseCEOName(발행자 대표자성명) : ${Cashbill.franchiseCEOName}</li>
+						<li>franchiseAddr(가맹점 주소) : ${Cashbill.franchiseAddr}</li>
+						<li>franchiseTEL(가맹점 전화번호) : ${Cashbill.franchiseTEL}</li>
 
-						<li>identityNum : ${Cashbill.identityNum}</li>
-						<li>customerName : ${Cashbill.customerName}</li>
-						<li>itemName : ${Cashbill.itemName}</li>
-						<li>orderNumber : ${Cashbill.orderNumber}</li>
+						<li>identityNum(거래처 식별번호) : ${Cashbill.identityNum}</li>
+						<li>customerName(고객명) : ${Cashbill.customerName}</li>
+						<li>itemName(상품명) : ${Cashbill.itemName}</li>
+						<li>orderNumber(가맹점 주문번호) : ${Cashbill.orderNumber}</li>
 
-						<li>email : ${Cashbill.email}</li>
-						<li>hp : ${Cashbill.hp}</li>
-						<li>fax : ${Cashbill.fax}</li>
-						<li>faxsendYN : ${Cashbill.faxsendYN}</li>
-						<li>smssendYN : ${Cashbill.smssendYN}</li>
+						<li>email(이메일) : ${Cashbill.email}</li>
+						<li>hp(휴대폰) : ${Cashbill.hp}</li>
+						<li>smssendYN(발행시 안내문자 전송여부) : ${Cashbill.smssendYN}</li>
 
-						<li>confirmNum : ${Cashbill.confirmNum}</li>
-						<li>orgConfirmNum : ${Cashbill.orgConfirmNum}</li>
+						<li>orgConfirmNum(국세청 승인번호) : ${Cashbill.orgConfirmNum}</li>
 					</ul>
 					</fieldset>
 				</fieldset>

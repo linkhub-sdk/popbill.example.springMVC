@@ -27,6 +27,12 @@
 						<li><a href="BaseService/getBalance">getBalance</a> - 연동회원사 잔여포인트 확인</li>
 						<li><a href="BaseService/getPartnerBalance">getPartnerBalance</a> - 파트너 잔여포인트 확인</li>
 						<li><a href="BaseService/getPopbillURL">getPopbillURL</a> - 팝빌 SSO URL 요청</li>
+						<li><a href="BaseService/listContact">listContact</a> - 담당자 목록 확인 </li>
+						<li><a href="BaseService/updateContact">updateContact</a> - 담당자 정보 수정 </li>
+						<li><a href="BaseService/registContact">registContact</a> - 담당자 추가 </li>
+						<li><a href="BaseService/checkID">checkID</a> - 연동회원 아이디 중복확인 </li>
+						<li><a href="BaseService/getCorpInfo">getCorpInfo</a> - 회사정보 확인 </li>
+						<li><a href="BaseService/updateCorpInfo">updateCorpInfo</a> - 회사정보 수정 </li>
 					</ul>
 				</fieldset>
 
@@ -46,6 +52,7 @@
 						<li><a href="StatementService/getInfo">getInfo</a> - 전자명세서 상태/요약 정보 확인</li>
 						<li><a href="StatementService/getInfos">getInfos</a> - 다량(최대 1000건)의 전자명세서 상태/요약 정보 확인</li>
 						<li><a href="StatementService/getDetailInfo">getDetailInfo</a> - 전자명세서 상세 정보 확인</li>
+						<li><a href="StatementService/search">search</a> - 전자명세서 목록 조회</li>
 						<li><a href="StatementService/delete">delete</a> - 전자명세서 삭제</li>
 						<li><a href="StatementService/getLogs">getLogs</a> - 전자명세서 문서이력 확인</li>
 						<li><a href="StatementService/attachFile">attachFile</a> - 전자명세서 첨부파일 추가</li>
@@ -57,6 +64,7 @@
 				<fieldset class="fieldset2">
 					<legend>처리 프로세스</legend>
 					<ul>
+						<li><a href="StatementService/registIssue">registIssue</a> - 전자명세서 즉시발행 처리</li>
 						<li><a href="StatementService/issue">issue</a> - 전자명세서 발행 처리</li>
 						<li><a href="StatementService/cancelIssue">cancelIssue</a> - 전자명세서 발행취소 처리 </li>			
 					</ul>
@@ -68,6 +76,9 @@
 						<li><a href="StatementService/sendEmail">sendEmail</a> - 처리 프로세스에 대한 이메일 재전송 요청</li>
 						<li><a href="StatementService/sendSMS">sendSMS</a> - 안내 문자메시지 재전송 요청</li>
 						<li><a href="StatementService/sendFAX">sendFAX</a> - 전자명세서에 대한 팩스 전송 요청</li>
+						<li><a href="StatementService/FAXSend">FAXSend</a> - 선팩스전송 </li>
+						<li><a href="StatementService/attachStatement">attachStatement</a> - 다른 전자명세서 첨부 </li>
+						<li><a href="StatementService/detachStatement">detachStatement</a> - 다른 전자명세서 첨부해제 </li>
 					</ul>
 				</fieldset>
 				

@@ -27,6 +27,12 @@
 						<li><a href="BaseService/getBalance">getBalance</a> - 연동회원사 잔여포인트 확인</li>
 						<li><a href="BaseService/getPartnerBalance">getPartnerBalance</a> - 파트너 잔여포인트 확인</li>
 						<li><a href="BaseService/getPopbillURL">getPopbillURL</a> - 팝빌 SSO URL 요청</li>
+						<li><a href="BaseService/listContact">listContact</a> - 담당자 목록 확인 </li>
+						<li><a href="BaseService/updateContact">updateContact</a> - 담당자 정보 수정 </li>
+						<li><a href="BaseService/registContact">registContact</a> - 담당자 추가 </li>
+						<li><a href="BaseService/checkID">checkID</a> - 연동회원 아이디 중복확인 </li>
+						<li><a href="BaseService/getCorpInfo">getCorpInfo</a> - 회사정보 확인 </li>
+						<li><a href="BaseService/updateCorpInfo">updateCorpInfo</a> - 회사정보 수정 </li>
 					</ul>
 				</fieldset>
 
@@ -43,6 +49,7 @@
 						<li><a href="CashbillService/register">register</a> - 현금영수증 등록</li>
 						<li><a href="CashbillService/update">update</a> - 현금영수증 수정</li>
 						<li><a href="CashbillService/getInfo">getInfo</a> - 현금영수증 상태/요약 정보 확인</li>
+						<li><a href="CashbillService/search">search</a> - 현금영수증 목록 조회</li>
 						<li><a href="CashbillService/getInfos">getInfos</a> - 다량(최대 1000건)의 현금영수증 상태/요약 정보 확인</li>
 						<li><a href="CashbillService/getDetailInfo">getDetailInfo</a> - 현금영수증 상세 정보 확인</li>
 						<li><a href="CashbillService/delete">delete</a> - 현금영수증 삭제</li>
@@ -53,6 +60,7 @@
 				<fieldset class="fieldset2">
 					<legend>처리 프로세스</legend>
 					<ul>
+						<li><a href="CashbillService/registIssue">registIssue</a> - 현금영수증 즉시발행 처리</li>
 						<li><a href="CashbillService/issue">issue</a> - 현금영수증 발행 처리</li>
 						<li><a href="CashbillService/cancelIssue">cancelIssue</a> - 현금영수증 발행취소 처리 </li>			
 					</ul>

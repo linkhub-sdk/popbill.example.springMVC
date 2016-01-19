@@ -28,7 +28,7 @@
 						<li>sendDT : ${SentMessage.sendDT}</li>
 						<li>resultDT : ${SentMessage.resultDT}</li>
 						<li>sendResult : ${SentMessage.sendResult}</li>
-					
+						<li>receiptDT : ${SentMessage.receiptDT}</li>
 					</ul>
 				</fieldset>
 				</c:forEach>
