@@ -30,7 +30,6 @@ import com.popbill.api.cashbill.CBSearchResult;
 import com.popbill.api.cashbill.Cashbill;
 import com.popbill.api.cashbill.CashbillInfo;
 import com.popbill.api.cashbill.CashbillLog;
-import com.popbill.api.statement.StmtSearchResult;
 
 /**
  * 팝빌 현금영수증 API 예제.

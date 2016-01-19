@@ -32,7 +32,6 @@ import com.popbill.api.Response;
 import com.popbill.api.fax.FAXSearchResult;
 import com.popbill.api.fax.FaxResult;
 import com.popbill.api.fax.Receiver;
-import com.popbill.api.message.MSGSearchResult;
 
 /**
  * 팝빌 팩스 API 예제.

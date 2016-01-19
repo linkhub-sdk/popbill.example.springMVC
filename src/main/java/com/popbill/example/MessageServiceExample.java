@@ -393,7 +393,7 @@ public class MessageServiceExample {
 		String[] State = {"1", "2", "3","4"};	// 전송상태 배열, 1-대기, 2-성공, 3-실패, 4-취소
 		String[] Item = {"SMS", "LMS", "MMS"};	// 검색대상 배열, SMS-단문, LMS-장문, MMS-포토 
 		Boolean ReserveYN = false;				// 예약여부, false-전체조회, true-예약전송건 조회 
-		Boolean SenderYN = false;				// 개인조회 여부, false- 전체조회, true-개인조회 
+		Boolean SenderYN = false;				// 개인조회 여부, false-전체조회, true-개인조회 
 		int Page = 1;							// 페이지 번호 
 		int PerPage = 20;						// 페이지당 목록개수 (최대 1000건) 
 		String Order = "D";						// 정렬방향 D-내림차순, A-오름차순 

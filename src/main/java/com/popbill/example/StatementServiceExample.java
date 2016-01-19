@@ -37,8 +37,6 @@ import com.popbill.api.statement.StatementDetail;
 import com.popbill.api.statement.StatementInfo;
 import com.popbill.api.statement.StatementLog;
 import com.popbill.api.statement.StmtSearchResult;
-import com.popbill.api.taxinvoice.MgtKeyType;
-import com.popbill.api.taxinvoice.TISearchResult;
 
 /**
  * 팝빌 전자명세서 API 예제.
