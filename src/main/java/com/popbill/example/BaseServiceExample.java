@@ -175,6 +175,7 @@ public class BaseServiceExample {
 		contactInfo.setHp("010-1234-1234");				// 담당자 휴대폰번호 
 		contactInfo.setPersonName("담당지 수정 테스트");		// 담당자명 
 		contactInfo.setTel("070-1234-1234");			// 담당자 연락처 
+		contactInfo.setSearchAllAllowYN(true);			// 회사조회 권한여부, true-회사조회, false-개인조회 
 		
 		try {
 			// updateContact(팝빌회원 사업자번호, 담당자정보, 팝빌회원 아이디) 
