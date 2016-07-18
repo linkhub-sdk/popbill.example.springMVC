@@ -75,13 +75,27 @@
 			<beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
 		</beans:bean>
 		
+		<!-- 홈택스 전자세금계산서 연계 Service Implementation Bean registration.  -->
+		<beans:bean id="htTaxinvoiceService" class="com.popbill.api.hometax.HTTaxinvoiceServiceImp">
+			<beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
+			<beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
+			<beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
+		</beans:bean>
+
+		
+		<!-- 홈택스 현금영수증 연계 Service Implementation Bean registration.  -->
+		<beans:bean id="htCashbillService" class="com.popbill.api.hometax.HTCashbillServiceImp">
+			<beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
+			<beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
+			<beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
+		</beans:bean>
+		
 		<!-- 휴폐업조회 Service Implementation Bean registration.  -->
 		<beans:bean id="closedownService" class="com.popbill.api.closedown.CloseDownServiceImp">
 			<beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
 			<beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
 			<beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
 		</beans:bean>
-		
 	</beans:beans>
 	
 </beans:beans>

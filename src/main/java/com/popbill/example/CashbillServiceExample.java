@@ -343,7 +343,7 @@ public class CashbillServiceExample {
 		 * [임시저장(등록)] 상태인 경우 이메일 재전송 불가  
 		 */
 		
-		String mgtKey = "20150320-01";		// 현금영수증 문서관리번호
+		String mgtKey = "20160315-03";		// 현금영수증 문서관리번호
 		String receiver = "test@test.com";	// 수신자 이메일주소
 		
 		try {

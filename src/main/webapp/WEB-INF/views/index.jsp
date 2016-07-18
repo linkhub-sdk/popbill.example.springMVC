@@ -19,6 +19,8 @@
 						<li><a href="CashbillService">CashbillService</a> - 현금영수증 API</li>
 						<li><a href="MessageService">MessageService</a> - 문자메시지 API</li>
 						<li><a href="FaxService">FaxService</a> - 팩스 API</li>
+						<li><a href="HTTaxinvoiceService">HTTaxinvoiceService</a> - 홈택스 전자세금계산서 연계 API</li>
+						<li><a href="HTCashbillService">HTCashbillService</a> - 홈택스 현금영수증 연계 API</li>
 						<li><a href="CloseDownService">CloseDownService</a> - 휴폐업조회 API</li>
 					</ul>
 			</fieldset>

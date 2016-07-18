@@ -121,14 +121,13 @@ public class BaseServiceExample {
 		JoinForm joinInfo = new JoinForm();
 
 		joinInfo.setLinkID(testLinkID);
-		joinInfo.setCorpNum("1231212312"); // 사업자번호 "-" 제외
+		joinInfo.setCorpNum("1111111119"); // 사업자번호 "-" 제외
 		joinInfo.setCEOName("대표자성명");
 		joinInfo.setCorpName("상호");
 		joinInfo.setAddr("주소");
-		joinInfo.setZipCode("500-100");
 		joinInfo.setBizType("업태");
 		joinInfo.setBizClass("업종");
-		joinInfo.setID("userid"); // 6자 이상 20자 미만
+		joinInfo.setID("testkorea0328"); // 6자 이상 20자 미만
 		joinInfo.setPWD("pwd_must_be_long_enough"); // 6자 이상 20자 미만
 		joinInfo.setContactName("담당자명");
 		joinInfo.setContactTEL("02-999-9999");
