@@ -25,6 +25,7 @@
 					<ul>
 						<li><a href="BaseService/checkIsMember">checkIsMember</a> - 연동회원사 가입 여부 확인</li>
 						<li><a href="BaseService/joinMember">joinMember</a> - 연동회원사 가입 요청</li>
+						<li><a href="HTCashbillService/getChargeInfo">getChargeInfo</a> - 파트너 잔여포인트 확인</li>
 						<li><a href="BaseService/getBalance">getBalance</a> - 연동회원사 잔여포인트 확인</li>
 						<li><a href="BaseService/getPartnerBalance">getPartnerBalance</a> - 파트너 잔여포인트 확인</li>
 						<li><a href="BaseService/getPopbillURL">getPopbillURL</a> - 팝빌 SSO URL 요청</li>
@@ -47,27 +48,27 @@
 				<fieldset class="fieldset2">
 					<legend>매출/매입 내역 수집</legend>
 					<ul>
-						<li><a href="HTTaxinvoiceService/requestJob">requestJob</a> - 수집 요청</li>
-						<li><a href="HTTaxinvoiceService/getJobState">getJobState</a> - 수집 상태 확인</li>
-						<li><a href="HTTaxinvoiceService/listActiveJob">listActiveJob</a> -  수집 상태 목록 확인</li>
+						<li><a href="HTCashbillService/requestJob">requestJob</a> - 수집 요청</li>
+						<li><a href="HTCashbillService/getJobState">getJobState</a> - 수집 상태 확인</li>
+						<li><a href="HTCashbillService/listActiveJob">listActiveJob</a> -  수집 상태 목록 확인</li>
 					</ul>
 				</fieldset>
 				
 				<fieldset class="fieldset2">
 					<legend>매출/매입 내역 수집 결과 조회</legend>
 					<ul>
-						<li><a href="HTTaxinvoiceService/search">search</a> - 수집 결과 조회</li>
-						<li><a href="HTTaxinvoiceService/summary">summary</a> - 수집 결과 요약정보 조회</li>
+						<li><a href="HTCashbillService/search">search</a> - 수집 결과 조회</li>
+						<li><a href="HTCashbillService/summary">summary</a> - 수집 결과 요약정보 조회</li>
 					</ul>
 				</fieldset>
 				
 				<fieldset class="fieldset2">
 					<legend>부가 기능</legend>
 					<ul>
-						<li><a href="HTTaxinvoiceService/getFlatRatePopUpURL">getFlatRatePopUpURL</a> - 정액제 서비스 신청 URL</li>
-						<li><a href="HTTaxinvoiceService/getFlatRateState">getFlatRateState</a> - 정액제 서비스 상태 확인</li>
-						<li><a href="HTTaxinvoiceService/getCertificatePopUpURL">getCertificatePopUpURL</a> - 홈택스연계 공인인증서 등록 URL</li>
-						<li><a href="HTTaxinvoiceService/getCertificateExpireDate">getCertificateExpireDate</a> - 홈택스연계 공인인증서 만료일자 확인</li>
+						<li><a href="HTCashbillService/getFlatRatePopUpURL">getFlatRatePopUpURL</a> - 정액제 서비스 신청 URL</li>
+						<li><a href="HTCashbillService/getFlatRateState">getFlatRateState</a> - 정액제 서비스 상태 확인</li>
+						<li><a href="HTCashbillService/getCertificatePopUpURL">getCertificatePopUpURL</a> - 홈택스연계 공인인증서 등록 URL</li>
+						<li><a href="HTCashbillService/getCertificateExpireDate">getCertificateExpireDate</a> - 홈택스연계 공인인증서 만료일자 확인</li>
 					</ul>
 				</fieldset>
 				
