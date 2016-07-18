@@ -26,12 +26,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.popbill.api.ChargeInfo;
 import com.popbill.api.FaxService;
 import com.popbill.api.PopbillException;
 import com.popbill.api.Response;
 import com.popbill.api.fax.FAXSearchResult;
 import com.popbill.api.fax.FaxResult;
 import com.popbill.api.fax.Receiver;
+import com.popbill.api.message.MessageType;
 
 /**
  * 팝빌 팩스 API 예제.
@@ -68,6 +70,20 @@ public class FaxServiceExample {
 		}
 		
 		return "result";
+	}
+	
+	@RequestMapping(value = "getChargeInfo", method = RequestMethod.GET)
+	public String chargeInfo( Model m) {
+		try {
+			ChargeInfo chrgInfo = faxService.getChargeInfo(testCorpNum);	
+			m.addAttribute("ChargeInfo",chrgInfo);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "getChargeInfo";
 	}
 	
 	@RequestMapping(value = "getURL", method = RequestMethod.GET)

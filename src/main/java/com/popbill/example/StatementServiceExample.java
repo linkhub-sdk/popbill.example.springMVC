@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.popbill.api.AttachedFile;
+import com.popbill.api.ChargeInfo;
 import com.popbill.api.PopbillException;
 import com.popbill.api.Response;
 import com.popbill.api.StatementService;
@@ -82,6 +83,23 @@ public class StatementServiceExample {
 		}
 		
 		return "result";
+	}
+	
+	
+	@RequestMapping(value = "getChargeInfo", method = RequestMethod.GET)
+	public String chargeInfo( Model m) {
+		int itemCode = 121;				// 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+
+		try {
+			ChargeInfo chrgInfo = statementService.getChargeInfo(testCorpNum, itemCode);	
+			m.addAttribute("ChargeInfo",chrgInfo);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "getChargeInfo";
 	}
 	
 	@RequestMapping(value = "register", method = RequestMethod.GET)

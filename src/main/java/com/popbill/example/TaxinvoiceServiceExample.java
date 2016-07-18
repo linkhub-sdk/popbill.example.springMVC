@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.popbill.api.AttachedFile;
+import com.popbill.api.ChargeInfo;
 import com.popbill.api.PopbillException;
 import com.popbill.api.Response;
 import com.popbill.api.TaxinvoiceService;
@@ -737,6 +738,21 @@ public class TaxinvoiceServiceExample {
 		return "result";
 	}
 	
+	@RequestMapping(value = "getChargeInfo", method = RequestMethod.GET)
+	public String chargeInfo( Model m) {
+
+		try {
+			ChargeInfo chrgInfo = taxinvoiceService.getChargeInfo(testCorpNum);	
+			m.addAttribute("ChargeInfo",chrgInfo);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "getChargeInfo";
+	}	
+	
 	@RequestMapping(value = "getUnitCost", method = RequestMethod.GET)
 	public String getUnitCost( Model m) {
 		try {
@@ -789,13 +805,16 @@ public class TaxinvoiceServiceExample {
 	
 	@RequestMapping(value = "search", method = RequestMethod.GET)
 	public String search(Model m){
-		String DType = "R"; 							// 일자유형, R-등록일자, W-작성일자, I-발행일자 
-		String SDate = "20160101"; 						// 시작일자, yyyyMMdd
-		String EDate = "20160118"; 						// 종료일자, yyyyMMdd
-		String[] State = {"100", "2**", "3**", "4**"};	// 세금계산서 상태코드 배열, 2,3번째 자리에 와일드카드(*) 사용 가능
+		String DType = "W"; 							// 일자유형, R-등록일자, W-작성일자, I-발행일자 
+		String SDate = "20160601"; 						// 시작일자, yyyyMMdd
+		String EDate = "20160831"; 						// 종료일자, yyyyMMdd
+		String[] State = {"3**", "6**"};				// 세금계산서 상태코드 배열, 2,3번째 자리에 와일드카드(*) 사용 가능
 		String[] Type = {"N", "M"}; 					// 문서유형배열 N-일반세금계산서, M-수정세금계산서
 		String[] TaxType = {"T", "N", "Z"}; 			// 과세형태 배열, T-과세, N-면세, Z-영세
 		Boolean LateOnly = null; 						// 지연발행 여부, null 전체조회, true - 지연발행, false- 정상발행
+		String TaxRegIDType = "S";						// 종사업장번호 유형, S-공급자, B-공급받는자, T-수탁자
+		String[] TaxRegID = {""};						// 종사업장번호 배열
+		Boolean TaxRegIDYN = null;						// 종사업장번호 조회 유무
 		int Page = 1;									// 페이지 번호 
 		int PerPage = 20;								// 페이지당 목록개수
 		String Order = "D";								// 정렬방향,  A-오름차순,  D-내림차순 
@@ -803,7 +822,7 @@ public class TaxinvoiceServiceExample {
 		try {
 			
 			TISearchResult searchResult = taxinvoiceService.Search(testCorpNum, MgtKeyType.SELL, DType, SDate, EDate, 
-					State, Type, TaxType, LateOnly, Page, PerPage, Order);
+					State, Type, TaxType, LateOnly, TaxRegIDType, TaxRegID, TaxRegIDYN, Page, PerPage, Order);
 			
 			m.addAttribute("SearchResult", searchResult);
 			

@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.popbill.api.CashbillService;
+import com.popbill.api.ChargeInfo;
 import com.popbill.api.PopbillException;
 import com.popbill.api.Response;
 import com.popbill.api.cashbill.CBSearchResult;
@@ -51,6 +52,21 @@ public class CashbillServiceExample {
 	public String home(Locale locale, Model model) {
 		return "Cashbill/index";
 	}
+	
+	@RequestMapping(value = "getChargeInfo", method = RequestMethod.GET)
+	public String chargeInfo( Model m) {
+
+		try {
+			ChargeInfo chrgInfo = cashbillService.getChargeInfo(testCorpNum);	
+			m.addAttribute("ChargeInfo",chrgInfo);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "getChargeInfo";
+	}	
 	
 	@RequestMapping(value = "checkMgtKeyInUse", method = RequestMethod.GET)
 	public String checkMgtKeyInUse( Model m) {

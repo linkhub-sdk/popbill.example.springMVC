@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.popbill.api.ChargeInfo;
 import com.popbill.api.CloseDownService;
 import com.popbill.api.CorpState;
 import com.popbill.api.PopbillException;
@@ -62,6 +63,20 @@ public class ClosedownServiceExample {
 		}
 		
 		return "result";
+	}
+	
+	@RequestMapping(value = "getChargeInfo", method = RequestMethod.GET)
+	public String chargeInfo( Model m) {
+		try {
+			ChargeInfo chrgInfo = closedownService.getChargeInfo(testCorpNum);	
+			m.addAttribute("ChargeInfo",chrgInfo);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "getChargeInfo";
 	}
 	
 	@RequestMapping(value="checkCorpNum", method = RequestMethod.GET)

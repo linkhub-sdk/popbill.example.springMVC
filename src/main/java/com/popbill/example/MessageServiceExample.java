@@ -25,6 +25,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.popbill.api.ChargeInfo;
 import com.popbill.api.MessageService;
 import com.popbill.api.PopbillException;
 import com.popbill.api.Response;
@@ -69,6 +70,22 @@ public class MessageServiceExample {
 		}
 		
 		return "result";
+	}
+	
+	@RequestMapping(value = "getChargeInfo", method = RequestMethod.GET)
+	public String chargeInfo( Model m) {
+		MessageType msgType = MessageType.SMS; //전송형태, SMS-단문, LMS-장문, MMS-포토 
+
+		try {
+			ChargeInfo chrgInfo = messageService.getChargeInfo(testCorpNum, msgType);	
+			m.addAttribute("ChargeInfo",chrgInfo);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "getChargeInfo";
 	}
 	
 	@RequestMapping(value = "getURL", method = RequestMethod.GET)
