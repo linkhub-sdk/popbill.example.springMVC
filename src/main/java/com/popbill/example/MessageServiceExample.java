@@ -111,6 +111,7 @@ public class MessageServiceExample {
 	public String sendSMS( Model m) {
 		
 		String sender = "07075103710"; 		// 발신번호
+		String senderName = "발신자명";		// 발신자명
 		String receiver = "000111222"; 		// 수신번호
 		String receiverName = "수신자"; 		// 수신자명 
 		String content = "문자메시지 내용."; 	// 단문문자메시지는 90Byte초과시 초과된 내용은 제거되어 전송 
@@ -118,7 +119,7 @@ public class MessageServiceExample {
 		Boolean adsYN = false; 				// 광고문자 전송여부 
 		
 		try {
-			String receiptNum = messageService.sendSMS(testCorpNum, sender, receiver, receiverName, content, reserveDT, adsYN, testUserID);
+			String receiptNum = messageService.sendSMS(testCorpNum, sender, senderName, receiver, receiverName, content, reserveDT, adsYN, testUserID);
 			
 			m.addAttribute("Result",receiptNum);
 			
@@ -132,21 +133,24 @@ public class MessageServiceExample {
 	
 	@RequestMapping(value = "sendSMS_Multi", method = RequestMethod.GET)
 	public String sendSMS_Multi( Model m) {
-		
-		String content = "대량문자 메시지 내용";
+				
 		String sender = "07075103710"; 		// 대량문자 발신번호
+		String senderName = "발신자명";		// 대랑문자 발신자명
+		String content = "대량문자 메시지 내용";
 		Date reserveDT = null;				// 문자전송 예약일시 
 		Boolean adsYN = false;				// 광고문자 전송여부 
 		
 		//최대 1000건.
 		Message msg1 = new Message();
 		msg1.setSender("07075103710");
+		msg1.setSenderName("발신자명_SMS1");
 		msg1.setReceiver("000111222");
 		msg1.setReceiverName("수신자1");
 		msg1.setContent("메시지 내용1");
 		
 		Message msg2 = new Message();
 		msg2.setSender("07075103710");
+		msg2.setSenderName("발신자명_SMS2");
 		msg2.setReceiver("000111222");
 		msg2.setReceiverName("수신자2");
 		msg2.setContent("메시지 내용2");
@@ -154,7 +158,7 @@ public class MessageServiceExample {
 		Message[] messages = new Message[] {msg1,msg2};
 		
 		try {
-			String receiptNum = messageService.sendSMS(testCorpNum, sender, content, messages, reserveDT, adsYN, testUserID);
+			String receiptNum = messageService.sendSMS(testCorpNum, sender, senderName, content, messages, reserveDT, adsYN, testUserID);
 						
 			m.addAttribute("Result",receiptNum);
 			
@@ -169,17 +173,18 @@ public class MessageServiceExample {
 	@RequestMapping(value = "sendLMS", method = RequestMethod.GET)
 	public String sendLMS( Model m) {
 		
-		String sender = "07075103710"; 			//발신번호
-		String receiver = "000111222"; 		//수신번호
-		String receiverName = "수신자"; 			//수신자 명칭.
+		String sender = "07075103710"; 		// 발신번호
+		String senderName = "발신자명_LMS";	// 발신자명
+		String receiver = "000111222"; 		// 수신번호
+		String receiverName = "수신자"; 		// 수신자 명칭.
 		String subject = "장문문자 제목."; 
-		String content = "장문 문자메시지 내용.";		//장문문자메시지는 2000Byte초과시 Cutting됨.
+		String content = "장문 문자메시지 내용.";		// 장문문자메시지는 2000Byte초과시 Cutting됨.
 		Date reserveDT = null;					// 예약문자 전송일시
 		Boolean adsYN = true;					// 광고문자 전송여부 
 		
 		try {
 			
-			String receiptNum = messageService.sendLMS(testCorpNum, sender, receiver, receiverName, subject, content, reserveDT, adsYN, testUserID);
+			String receiptNum = messageService.sendLMS(testCorpNum, sender, senderName, receiver, receiverName, subject, content, reserveDT, adsYN, testUserID);
 			
 			m.addAttribute("Result",receiptNum);
 			
@@ -195,6 +200,7 @@ public class MessageServiceExample {
 	public String sendLMS_Multi( Model m) {
 		
 		String sender = "07075103710";
+		String senderName = "발신자명";
 		String subject = "대량전송 제목";
 		String content = "대량전송 내용";
 		Date reserveDT = null;		
@@ -203,6 +209,7 @@ public class MessageServiceExample {
 		//최대 1000건.
 		Message msg1 = new Message();
 		msg1.setSender("07075103710");
+		msg1.setSenderName("발신자명_LMS1");
 		msg1.setReceiver("000111222");
 		msg1.setReceiverName("수신자1");
 		msg1.setSubject("장문 제목");
@@ -210,6 +217,7 @@ public class MessageServiceExample {
 		
 		Message msg2 = new Message();
 		msg2.setSender("07075103710");
+		msg2.setSenderName("발신자명_lms2");
 		msg2.setReceiver("000111222");
 		msg2.setReceiverName("수신자2");
 		msg2.setSubject("장문 제목");
@@ -219,7 +227,7 @@ public class MessageServiceExample {
 		
 		try {
 			
-			String receiptNum = messageService.sendLMS(testCorpNum, sender, subject, content, messages, reserveDT, adsYN, testUserID);
+			String receiptNum = messageService.sendLMS(testCorpNum, sender, senderName, subject, content, messages, reserveDT, adsYN, testUserID);
 			
 			m.addAttribute("Result",receiptNum);
 			
@@ -234,6 +242,7 @@ public class MessageServiceExample {
 	@RequestMapping(value = "sendMMS", method = RequestMethod.GET)
 	public String sendMMS( Model m) {
 		String sender = "07075103710"; 			// 발신번호
+		String senderName = "발신자명";			// 발신자명
 		String receiver = "010111222"; 			// 수신번호
 		String receiverName = "수신자"; 			// 수신자 명칭.
 		String subject = "멀티 문자 제목."; 
@@ -244,7 +253,7 @@ public class MessageServiceExample {
 		
 		try {
 			
-			String receiptNum = messageService.sendMMS(testCorpNum, sender, receiver, receiverName, subject, content, file, reserveDT, adsYN, testUserID);
+			String receiptNum = messageService.sendMMS(testCorpNum, sender, senderName, receiver, receiverName, subject, content, file, reserveDT, adsYN, testUserID);
 			
 			m.addAttribute("Result",receiptNum);
 			
@@ -260,12 +269,14 @@ public class MessageServiceExample {
 	public String sendMMS_Multi( Model m) {
 		
 		String sender = "07075103710"; 		// 대량전송 발신번호
+		String senderName = "발신자명";		// 대량전송 발신자명
 		String subject = "대량전송 제목";
 		String content = "대량전송 메시지 내용";
 		
 		//최대 1000건.
 		Message msg1 = new Message();
 		msg1.setSender("07075103710");
+		msg1.setSenderName("발신자명_MMS_1");
 		msg1.setReceiver("010111222");
 		msg1.setReceiverName("수신자1");
 		msg1.setSubject("멀티 메시지 제목");
@@ -273,6 +284,7 @@ public class MessageServiceExample {
 		
 		Message msg2 = new Message();
 		msg2.setSender("07075103710");
+		msg2.setSenderName("발신자명_MMS_2");
 		msg2.setReceiver("010111222");
 		msg2.setReceiverName("수신자2");
 		msg2.setSubject("멀티 메시지 제목");
@@ -286,7 +298,7 @@ public class MessageServiceExample {
 		Message[] messages = new Message[] {msg1,msg2};
 		
 		try {
-			String receiptNum = messageService.sendMMS(testCorpNum, sender, subject, content, messages, file, reserveDT, adsYN, testUserID);
+			String receiptNum = messageService.sendMMS(testCorpNum, sender, senderName, subject, content, messages, file, reserveDT, adsYN, testUserID);
 			
 			m.addAttribute("Result",receiptNum);
 			
@@ -302,6 +314,7 @@ public class MessageServiceExample {
 	public String sendXMS( Model m) {
 		
 		String sender = "07075103710"; 		//발신번호
+		String senderName = "발신자명"; 		//발신자명
 		String receiver = "000111222"; 		//수신번호
 		String receiverName = "수신자"; 		//수신자 명칭.
 		String subject = "장문문자 제목."; 
@@ -311,7 +324,7 @@ public class MessageServiceExample {
 		
 		try {
 			
-			String receiptNum = messageService.sendXMS(testCorpNum, sender, receiver, receiverName, subject, content, reserveDT, adsYN, testUserID);
+			String receiptNum = messageService.sendXMS(testCorpNum, sender, senderName, receiver, receiverName, subject, content, reserveDT, adsYN, testUserID);
 			
 			m.addAttribute("Result",receiptNum);
 			
@@ -327,6 +340,7 @@ public class MessageServiceExample {
 	public String sendXMS_Multi( Model m) {
 
 		String sender = "07075103710"; 		//발신번호
+		String senderName = "발신자명";		//발신자명
 		String subject = "장문문자 제목."; 
 		String content = "문자메시지 내용."; 	//문자메시지의 길이에 따라 90Byte를 기준으로 단문과 장문을 선택하여 전송함.
 		Date reserveDT = null;			 	// 예약전송 일시
@@ -335,12 +349,14 @@ public class MessageServiceExample {
 		//최대 1000건.
 		Message msg1 = new Message();
 		msg1.setSender("07075103710");
+		msg1.setSenderName("발신자명_XMS");
 		msg1.setReceiver("000111222");
 		msg1.setReceiverName("수신자1");
 		msg1.setContent("메시지 내용1"); //단문으로 전송됨.
 		
 		Message msg2 = new Message();
 		msg2.setSender("07075103710");
+		msg2.setSenderName("발신자명_XMS");
 		msg2.setReceiver("000111222");
 		msg2.setReceiverName("수신자2");
 		msg2.setSubject("장문 제목");
@@ -351,7 +367,7 @@ public class MessageServiceExample {
 		
 		try {
 			
-			String receiptNum = messageService.sendXMS(testCorpNum, sender, subject, content, messages, reserveDT, adsYN, testUserID);
+			String receiptNum = messageService.sendXMS(testCorpNum, sender, senderName, subject, content, messages, reserveDT, adsYN, testUserID);
 						
 			m.addAttribute("Result",receiptNum);
 			
@@ -405,8 +421,8 @@ public class MessageServiceExample {
 		
 		// 문자전송내역 목록 조회 
 		
-		String SDate = "20160101";				// 시작일자, yyyyMMdd
-		String EDate = "20160119";				// 종료일자, yyyyMMdd
+		String SDate = "20160701";				// 시작일자, yyyyMMdd
+		String EDate = "20160831";				// 종료일자, yyyyMMdd
 		String[] State = {"1", "2", "3","4"};	// 전송상태 배열, 1-대기, 2-성공, 3-실패, 4-취소
 		String[] Item = {"SMS", "LMS", "MMS"};	// 검색대상 배열, SMS-단문, LMS-장문, MMS-포토 
 		Boolean ReserveYN = false;				// 예약여부, false-전체조회, true-예약전송건 조회 

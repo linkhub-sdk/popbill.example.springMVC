@@ -250,7 +250,7 @@ public class CashbillServiceExample {
 		 * 현금영수증 항목에 대한 설명은 [현금영수증 API 연동매뉴얼 > 4.1 현금영수증 구성] 참조  
 		 */
 		
-		String mgtKey = "20150320-01";	// 문서관리번호
+		String mgtKey = "20160719-219773-414600";	// 문서관리번호
 		
 		try {
 			
@@ -623,19 +623,20 @@ public class CashbillServiceExample {
 		// 현금영수증 목록조회
 		
 		String DType = "R"; 								// 일자유형, R-등록일자, T-거래일자, I-발행일자 
-		String SDate = "20151001"; 							// 시작일자, yyyyMMdd
-		String EDate = "20160118"; 							// 종료일자, yyyyMMdd
+		String SDate = "20160701"; 							// 시작일자, yyyyMMdd
+		String EDate = "20160831"; 							// 종료일자, yyyyMMdd
 		String[] State = {"100", "2**", "3**", "4**"};		// 현금영수증 상태코드 배열, 2,3번째 자리에 와일드카드(*) 사용 가능
 		String[] TradeType = {"N", "C"};					// 현금영수증 형태배열,  N-일반현금영수증, C-취소현금영수증
 		String[] TradeUsage = {"P", "C"};					// 거래용도 배열, P-소득공제용, C-지출증빙용
 		String[] TaxationType = {"T", "N"};					// 과세형태 배열, T-과세, N-비과세 
+		String QString = "";								// 식별번호 조회, 미기재시 전체조회
 		int Page = 1;										// 페이지 번호 
 		int PerPage = 20;									// 페이지당 목록개수, 최대 1000건 
 		String Order = "D";									// 정렬방향, A-오름차순,  D-내림차순 
 		
 		try {
 			
-			CBSearchResult searchResult = cashbillService.search(testCorpNum, DType, SDate, EDate, State, TradeType, TradeUsage, TaxationType, Page, PerPage, Order);
+			CBSearchResult searchResult = cashbillService.search(testCorpNum, DType, SDate, EDate, State, TradeType, TradeUsage, TaxationType, QString, Page, PerPage, Order);
 			m.addAttribute("SearchResult", searchResult);
 			
 		} catch (PopbillException e){

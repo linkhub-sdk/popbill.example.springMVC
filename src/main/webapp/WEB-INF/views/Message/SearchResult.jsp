@@ -36,6 +36,7 @@
 						<li> subject : ${SearchInfo.subject}</li>
 						<li> content : ${SearchInfo.content}</li>
 						<li> sendNum : ${SearchInfo.sendNum}</li>
+						<li> senderName : ${SearchInfo.senderName}</li>
 						<li> receiveNum : ${SearchInfo.receiveNum}</li>
 						<li> receiveName : ${SearchInfo.receiveName}</li>
 						<li> reserveDT : ${SearchInfo.reserveDT}</li>

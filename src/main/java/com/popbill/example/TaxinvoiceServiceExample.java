@@ -805,24 +805,25 @@ public class TaxinvoiceServiceExample {
 	
 	@RequestMapping(value = "search", method = RequestMethod.GET)
 	public String search(Model m){
-		String DType = "W"; 							// 일자유형, R-등록일자, W-작성일자, I-발행일자 
-		String SDate = "20160601"; 						// 시작일자, yyyyMMdd
-		String EDate = "20160831"; 						// 종료일자, yyyyMMdd
-		String[] State = {"3**", "6**"};				// 세금계산서 상태코드 배열, 2,3번째 자리에 와일드카드(*) 사용 가능
-		String[] Type = {"N", "M"}; 					// 문서유형배열 N-일반세금계산서, M-수정세금계산서
-		String[] TaxType = {"T", "N", "Z"}; 			// 과세형태 배열, T-과세, N-면세, Z-영세
-		Boolean LateOnly = null; 						// 지연발행 여부, null 전체조회, true - 지연발행, false- 정상발행
-		String TaxRegIDType = "S";						// 종사업장번호 유형, S-공급자, B-공급받는자, T-수탁자
-		String[] TaxRegID = {""};						// 종사업장번호 배열
-		Boolean TaxRegIDYN = null;						// 종사업장번호 조회 유무
-		int Page = 1;									// 페이지 번호 
-		int PerPage = 20;								// 페이지당 목록개수
-		String Order = "D";								// 정렬방향,  A-오름차순,  D-내림차순 
+		String DType = "W"; 					// 일자유형, R-등록일자, W-작성일자, I-발행일자 
+		String SDate = "20160701"; 				// 시작일자, yyyyMMdd
+		String EDate = "20160831"; 				// 종료일자, yyyyMMdd
+		String[] State = {"3**", "6**"};		// 세금계산서 상태코드 배열, 2,3번째 자리에 와일드카드(*) 사용 가능
+		String[] Type = {"N", "M"}; 			// 문서유형배열 N-일반세금계산서, M-수정세금계산서
+		String[] TaxType = {"T", "N", "Z"}; 	// 과세형태 배열, T-과세, N-면세, Z-영세
+		Boolean LateOnly = null; 				// 지연발행 여부, null 전체조회, true - 지연발행, false- 정상발행
+		String TaxRegIDType = "";				// 종사업장번호 유형, S-공급자, B-공급받는자, T-수탁자
+		String TaxRegID = "";					// 종사업장번호 배열
+		String TaxRegIDYN = "";					// 종사업장번호 조회 유무
+		String QString = "";					// 통합검색어, 공급받는자 거래처명 또는 사업자등록 번호로 조회, 공백시 전체조회 
+		int Page = 1;							// 페이지 번호 
+		int PerPage = 20;						// 페이지당 목록개수
+		String Order = "D";						// 정렬방향,  A-오름차순,  D-내림차순 
 		
 		try {
 			
 			TISearchResult searchResult = taxinvoiceService.Search(testCorpNum, MgtKeyType.SELL, DType, SDate, EDate, 
-					State, Type, TaxType, LateOnly, TaxRegIDType, TaxRegID, TaxRegIDYN, Page, PerPage, Order);
+					State, Type, TaxType, LateOnly, TaxRegIDType, TaxRegID, TaxRegIDYN, QString, Page, PerPage, Order);
 			
 			m.addAttribute("SearchResult", searchResult);
 			

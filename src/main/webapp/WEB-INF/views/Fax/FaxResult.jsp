@@ -21,6 +21,7 @@
 						<li>sendState : ${FaxResult.sendState}</li>
 						<li>convState : ${FaxResult.convState}</li>
 						<li>sendNum : ${FaxResult.sendNum}</li>
+						<li>senderName : ${FaxResult.senderName}</li>
 						<li>receiveNum : ${FaxResult.receiveNum}</li>
 						<li>receiveName : ${FaxResult.receiveName}</li>
 						<li>sendPageCnt : ${FaxResult.sendPageCnt}</li>

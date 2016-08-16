@@ -22,6 +22,7 @@
 						<li>messageType : ${SentMessage.messageType}</li>
 						<li>content : ${SentMessage.content}</li>
 						<li>sendNum : ${SentMessage.sendNum}</li>
+						<li>senderName : ${SentMessage.senderName}</li>
 						<li>receiveNum : ${SentMessage.receiveNum}</li>
 						<li>receiveName : ${SentMessage.receiveName}</li>
 						<li>reserveDT : ${SentMessage.reserveDT}</li>
