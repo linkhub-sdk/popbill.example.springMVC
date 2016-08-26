@@ -109,7 +109,6 @@ public class FaxServiceExample {
 	public String sendFAX( Model m) throws URISyntaxException {
 		
 		String sendNum = "07075106766"; //발신번호
-		String senderName = "발신자명";	//발신자명
 		String receiveNum = "11122223333"; //수신번호
 		String receiveName = "수신자 명칭";
 		
@@ -124,7 +123,7 @@ public class FaxServiceExample {
 		
 		try {
 			
-			String receiptNum = faxService.sendFAX(testCorpNum, sendNum, senderName, receiveNum, receiveName, file, reserveDT, testUserID);
+			String receiptNum = faxService.sendFAX(testCorpNum, sendNum, receiveNum, receiveName, file, reserveDT, testUserID);
 			
 			m.addAttribute("Result",receiptNum);
 			
@@ -140,7 +139,6 @@ public class FaxServiceExample {
 	public String sendFAX_Multi( Model m) throws URISyntaxException {
 		
 		String sendNum = "07075106766"; //발신번호
-		String senderName = "발신자명";	//발신자명
 		
 		Receiver receiver1 = new Receiver();
 		receiver1.setReceiveName("수신자1");
@@ -164,7 +162,7 @@ public class FaxServiceExample {
 		try {
 			
 			
-			String receiptNum = faxService.sendFAX(testCorpNum, sendNum, senderName, receivers, file, reserveDT, testUserID);
+			String receiptNum = faxService.sendFAX(testCorpNum, sendNum, receivers, file, reserveDT, testUserID);
 			
 			m.addAttribute("Result",receiptNum);
 			
