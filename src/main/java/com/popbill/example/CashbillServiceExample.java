@@ -147,7 +147,7 @@ public class CashbillServiceExample {
 		// 거래처 식별번호, 거래유형에 따라 작성
 	    // 소득공제용 - 주민등록/휴대폰/카드번호 기재가능
 	    // 지출증빙용 - 사업자번호/주민등록/휴대폰/카드번호 기재가능
-		cashbill.setIdentityNum("01043245117");
+		cashbill.setIdentityNum("01011112222");
 		
 		// 거래유형, {소득공제용, 지출증빙용} 중 기재
 		cashbill.setTradeUsage("소득공제용");
@@ -800,7 +800,7 @@ public class CashbillServiceExample {
 		// 거래처 식별번호, 거래유형에 따라 작성
 	    // 소득공제용 - 주민등록/휴대폰/카드번호 기재가능
 	    // 지출증빙용 - 사업자번호/주민등록/휴대폰/카드번호 기재가능
-		cashbill.setIdentityNum("01043245117");
+		cashbill.setIdentityNum("01011112222");
 		
 		// 거래유형, {소득공제용, 지출증빙용} 중 기재
 		cashbill.setTradeUsage("소득공제용");
