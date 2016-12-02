@@ -94,20 +94,16 @@ public class TaxinvoiceServiceExample {
 		// 조회할 문서관리번호
 		String mgtKey = "20161201-01";
 		
-		String responseString;
+		String isUseStr;
 		
 		try {
 			
 			boolean IsUse = taxinvoiceService.checkMgtKeyInUse(testCorpNum, 
 					keyType, mgtKey);
 			
-			if ( IsUse ) {				
-				responseString = "문서관리번호 사용중";
-			} else {
-				responseString = "문서관리번호 미사용중";
-			}
+			isUseStr = (IsUse) ?  "사용중" : "미사용중";
 			
-			m.addAttribute("Result", responseString);
+			m.addAttribute("Result", isUseStr);
 			
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
