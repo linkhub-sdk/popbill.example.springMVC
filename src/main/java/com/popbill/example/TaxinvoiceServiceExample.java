@@ -631,8 +631,8 @@ public class TaxinvoiceServiceExample {
 		MgtKeyType mgtKeyType = MgtKeyType.SELL;
 		
 		// 세금계산서 문서관리번호
-		String mgtKey = "20161201-02";
-				
+		String mgtKey = "20161205-01";
+		
 		try {
 			
 			TaxinvoiceInfo taxinvoiceInfo = taxinvoiceService.getInfo(testCorpNum, 
@@ -690,7 +690,7 @@ public class TaxinvoiceServiceExample {
 		MgtKeyType mgtKeyType = MgtKeyType.SELL;
 		
 		// 세금계산서 문서관리번호
-		String mgtKey = "20161201-01";
+		String mgtKey = "20161205-01";
 		
 		try {
 			
@@ -720,7 +720,7 @@ public class TaxinvoiceServiceExample {
 		MgtKeyType mgtKeyType = MgtKeyType.SELL;
 		
 		// 세금계산서 문서관리번호
-		String mgtKey = "20161201-01";
+		String mgtKey = "20161205-01";
 		
 		try {
 			
@@ -748,7 +748,7 @@ public class TaxinvoiceServiceExample {
 		MgtKeyType mgtKeyType = MgtKeyType.SELL;
 		
 		// 세금계산서 문서관리번호
-		String mgtKey = "20161201-01";
+		String mgtKey = "20161205-01";
 		
 		try {
 			
