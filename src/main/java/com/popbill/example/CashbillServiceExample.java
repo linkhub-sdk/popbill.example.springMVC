@@ -1,7 +1,7 @@
 /*
  * 팝빌 현금영수증 API Java SDK SpringMVC Example
  *
- * - SpringMVC SDK 연동환경 설정방법 안내 : http://http://blog.linkhub.co.kr/591/
+ * - SpringMVC SDK 연동환경 설정방법 안내 : http://blog.linkhub.co.kr/591/
  * - 업데이트 일자 : 2016-12-02
  * - 연동 기술지원 연락처 : 1600-8536 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
