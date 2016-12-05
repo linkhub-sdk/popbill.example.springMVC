@@ -1,4 +1,11 @@
 /*
+ * 팝빌 휴폐업조회 API Java SDK SpringMVC Example
+ *
+ * - SpringMVC SDK 연동환경 설정방법 안내 : http://blog.linkhub.co.kr/591/
+ * - 업데이트 일자 : 2016-12-02
+ * - 연동 기술지원 연락처 : 1600-8536 / 070-4304-2991~2
+ * - 연동 기술지원 이메일 : code@linkhub.co.kr
+ * 
  * Copyright 2006-2014 linkhub.co.kr, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
@@ -39,8 +46,11 @@ public class ClosedownServiceExample {
 	@Autowired
 	private CloseDownService closedownService;
 	
+	// 팝빌회원 사업자번호
 	@Value("#{EXAMPLE_CONFIG.TestCorpNum}")
 	private String testCorpNum;
+	
+	// 팝빌회원 아이디
 	@Value("#{EXAMPLE_CONFIG.TestUserID}")
 	private String testUserID;
 	
@@ -51,8 +61,12 @@ public class ClosedownServiceExample {
 	
 	@RequestMapping(value = "getUnitCost", method = RequestMethod.GET)
 	public String getUnitCost( Model m) {
+		/**
+		 * 휴폐업조회 단가를 확인합니다.
+		 */
+		
 		try {
-			//조회단가 확인
+
 			float unitCost = closedownService.getUnitCost(testCorpNum);
 			
 			m.addAttribute("Result",unitCost);
@@ -67,6 +81,10 @@ public class ClosedownServiceExample {
 	
 	@RequestMapping(value = "getChargeInfo", method = RequestMethod.GET)
 	public String chargeInfo( Model m) {
+		/**
+		 * 연동회원의 휴폐업조회 API 서비스 과금정보를 확인합니다.
+		 */
+		
 		try {
 			ChargeInfo chrgInfo = closedownService.getChargeInfo(testCorpNum);	
 			m.addAttribute("ChargeInfo",chrgInfo);
@@ -81,11 +99,13 @@ public class ClosedownServiceExample {
 	
 	@RequestMapping(value="checkCorpNum", method = RequestMethod.GET)
 	public String checkCorpNum(@RequestParam(required=false) String CorpNum, Model m){ 
+		/**
+		 * 1건의 사업자에 대한 휴폐업여부를 조회합니다.
+		 */
 		
-		if(CorpNum !=null && CorpNum != ""){
+		if ( CorpNum != null && CorpNum != "" ) {
 			
 			try {
-				// CheckCorpNum(팝빌회원 사업자번호, 조회할 사업자번호)
 				CorpState corpState = closedownService.CheckCorpNum(testCorpNum, CorpNum);
 				
 				m.addAttribute("CorpState", corpState);
@@ -104,13 +124,15 @@ public class ClosedownServiceExample {
 	
 	@RequestMapping(value="checkCorpNums", method = RequestMethod.GET)
 	public String checkCorpNums(Model m)  {
+		/**
+		 * 다수의 사업자에 대한 휴폐업여부를 조회합니다.
+		 */
 		
-		//사업자번호 배열, 최대 1000건
-		String[] CorpNumList = new String[] {"1234567890", "4108600477", "122-31-81200"};
+		// 조회할 사업자번호 배열, 최대 1000건
+		String[] CorpNumList = new String[] {"1234567890", "6798700433"};
 		
 		try {
 			
-			// CheckCorpNum(팝빌회원 사업자번호, 조회할 사업자번호 배열)
 			CorpState[] corpStates = closedownService.CheckCorpNum(testCorpNum, CorpNumList);
 						
 			m.addAttribute("CorpStates", corpStates);
