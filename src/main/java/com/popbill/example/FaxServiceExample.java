@@ -155,7 +155,8 @@ public class FaxServiceExample {
 			throw e1;
 		}
 		
-		Date reserveDT = null; //전송 예약일시
+		//전송 예약일시
+		Date reserveDT = null; 
 		
 		try {
 			
@@ -180,11 +181,11 @@ public class FaxServiceExample {
 		
 		Receiver receiver1 = new Receiver();
 		receiver1.setReceiveName("수신자1");		// 수신자명
-		receiver1.setReceiveNum("010111222");	// 수신번호
+		receiver1.setReceiveNum("010111222");	// 수신팩스번호
 		
 		Receiver receiver2 = new Receiver();
-		receiver2.setReceiveName("수신자2");		// 수신자
-		receiver2.setReceiveNum("010333444");	// 수신번호
+		receiver2.setReceiveName("수신자2");		// 수신자명
+		receiver2.setReceiveNum("010333444");	// 수신팩스번호
 		
 		
 		// 팩스전송정보 배열, 최대 1000건
@@ -245,7 +246,7 @@ public class FaxServiceExample {
 		 * - 예약전송 취소는 예약전송시간 10분전까지 가능합니다.
 		 */
 		
-		// 팩스전송 접수번호
+		// 예약전송 취소할 팩스전송 접수번호
 		String receiptNum = "016120511390400001";
 		
 		try {
