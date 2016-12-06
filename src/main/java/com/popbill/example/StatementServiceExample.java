@@ -87,7 +87,7 @@ public class StatementServiceExample {
 		int itemCode = 121;				
 		
 		// 문서관리번호, 최대 24자리 영문, 숫자 , '-', '_'로 사업자별로 중복되지 않도록 구성
-		String mgtKey = "20161202-01";
+		String mgtKey = "20161206-01";
 		String isUseStr;
 		
 		try {
@@ -145,7 +145,7 @@ public class StatementServiceExample {
 		Statement statement = new Statement();
 		
 		// [필수] 작성일자, 형태 yyyyMmdd
-		statement.setWriteDate("20161202");				
+		statement.setWriteDate("20161206");				
 		
 		// [필수] {영수, 청구} 중 기재
 		statement.setPurposeType("영수");				
@@ -160,7 +160,7 @@ public class StatementServiceExample {
 		statement.setItemCode((short) 121);				
 		
 		// [필수] 문서관리번호, 최대 24자리 영문, 숫자, '-', '_'로 구성
-		statement.setMgtKey("20160119-002");				
+		statement.setMgtKey("20161206-01");				
 		
 		
 		/**********************************************************************
@@ -326,13 +326,13 @@ public class StatementServiceExample {
 		int itemCode = 121;				
 		
 		// 문서관리번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
-		String mgtKey = "20161202-01";	
+		String mgtKey = "20161206-01";	
 		
 		//  전자명세서 정보 객체
 		Statement statement = new Statement();
 		
 		// [필수] 작성일자, 형태 yyyyMmdd
-		statement.setWriteDate("20161202");				
+		statement.setWriteDate("20161206");				
 		
 		// [필수] {영수, 청구} 중 기재
 		statement.setPurposeType("영수");				
@@ -361,10 +361,10 @@ public class StatementServiceExample {
 		statement.setSenderCorpName("공급자 상호");
 		
 		// 공급자 주소
-		statement.setSenderAddr("공급자 주소");
+		statement.setSenderAddr("공급자 주소_수정");
 		
 		// [필수] 공급자 대표자 성명
-		statement.setSenderCEOName("공급자 대표자 성명");
+		statement.setSenderCEOName("공급자 대표자 성명_수정");
 		
 		// 공급자 종사업장 식별번호, 숫자 4자리, 필요시 기재
 		statement.setSenderTaxRegID("");				
@@ -514,7 +514,7 @@ public class StatementServiceExample {
 		int itemCode = 121;				
 		
 		// 문서관리번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
-		String mgtKey = "20150319-10";	
+		String mgtKey = "20161206-01";	
 		
 		try {
 			
@@ -544,7 +544,7 @@ public class StatementServiceExample {
 		int itemCode = 121;		
 
 		// 전자명세서 문서관리번호 배열(최대 1000건)
-		String[] MgtKeyList = new String[] {"20150318-01", "20150318-02", "20150318-03", "20150319-01"};
+		String[] MgtKeyList = new String[] {"20161206-01", "20150318-02", "20150318-03", "20150319-01"};
 		
 		try {
 			
@@ -573,7 +573,7 @@ public class StatementServiceExample {
 		int itemCode = 121;		
 		
 		// 문서관리번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
-		String mgtKey = "20161202-01";	
+		String mgtKey = "20161206-01";	
 		
 		try {
 			
@@ -602,7 +602,7 @@ public class StatementServiceExample {
 		int itemCode = 121;		
 		
 		// 문서관리번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
-		String mgtKey = "20161202-01";	
+		String mgtKey = "20161206-01";	
 		
 		try {
 			
@@ -631,7 +631,7 @@ public class StatementServiceExample {
 		int itemCode = 121;		
 		
 		// 문서관리번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
-		String mgtKey = "20161202-01";	
+		String mgtKey = "20161206-01";	
 		
 		try {
 			
@@ -660,7 +660,7 @@ public class StatementServiceExample {
 		int itemCode = 121;		
 		
 		// 문서관리번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
-		String mgtKey = "20150319-10";	
+		String mgtKey = "20161206-01";	
 		
 		// 첨부파일 표시명
 		String displayName = "첨부파일.jpg";  
@@ -704,7 +704,7 @@ public class StatementServiceExample {
 		int itemCode = 121;		
 		
 		// 문서관리번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
-		String mgtKey = "20161202-10";	
+		String mgtKey = "20161206-01";	
 		
 		try {
 			
@@ -734,7 +734,7 @@ public class StatementServiceExample {
 		int itemCode = 121;		
 		
 		// 문서관리번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
-		String mgtKey = "20161202-01";
+		String mgtKey = "20161206-01";
 
 		// getFiles()로 확인한 AttachedFile의 attachedFile 참조.
 		String FileID = "57C0A91A-BF5A-494A-8E0D-B46FC9B5C8E2.PBF";
@@ -765,7 +765,7 @@ public class StatementServiceExample {
 		int itemCode = 121;		
 		
 		// 문서관리번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
-		String mgtKey = "20161202-01";	
+		String mgtKey = "20161206-02";	
 		
 		// 메모
 		String memo = "발행메모";
@@ -795,7 +795,7 @@ public class StatementServiceExample {
 		int itemCode = 121;		
 		
 		// 문서관리번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
-		String mgtKey = "20161202-01";
+		String mgtKey = "20161206-02";
 		
 		// 메모
 		String memo = "발행취소 메모";
@@ -825,7 +825,7 @@ public class StatementServiceExample {
 		int itemCode = 121;					
 		
 		// 전자명세서 문서관리번호
-		String mgtKey = "20161202-01";		
+		String mgtKey = "20161206-02";		
 		
 		// 수신자 이메일주소
 		String receiver = "test@test.com";	
@@ -859,13 +859,13 @@ public class StatementServiceExample {
 		int itemCode = 121;							
 		
 		// 전자명세서 문서관리번호
-		String mgtKey = "20150318-02";				
+		String mgtKey = "20161206-02";				
 		
 		// 발신번호
 		String sender = "07043042991";			
 		
 		// 수신번호
-		String receiver = "010111222";			 
+		String receiver = "010111222";
 		
 		// 문자 전송 내용 (90Byte 초과시 길이가 조정되어 전송)
 		String contents = "전자명세서 문자메시지 전송 테스트입니다.";		
@@ -899,7 +899,7 @@ public class StatementServiceExample {
 		int itemCode = 121;							
 		
 		// 전자명세서 문서관리번호
-		String mgtKey = "20161202-01";
+		String mgtKey = "20161206-02";
 		
 		// 발신자 번호
 		String sender = "07043042991";				
@@ -957,7 +957,7 @@ public class StatementServiceExample {
 		int itemCode = 121;						
 		
 		// 전자명세서 문서관리번호
-		String mgtKey = "20161202-01";			
+		String mgtKey = "20161206-02";			
 		
 		try {
 			
@@ -985,7 +985,7 @@ public class StatementServiceExample {
 		int itemCode = 121;						
 		
 		// 전자명세서 문서관리번호
-		String mgtKey = "20161202-01";			
+		String mgtKey = "20161206-02";			
 		
 		try {
 			
@@ -1013,7 +1013,7 @@ public class StatementServiceExample {
 		int itemCode = 121;						
 		
 		// 전자명세서 문서관리번호
-		String mgtKey = "20161202-01";			
+		String mgtKey = "20161206-02";			
 		
 		try {
 			
@@ -1041,7 +1041,7 @@ public class StatementServiceExample {
 		int itemCode = 121;		
 		
 		// 전자명세서 문서관리번호
-		String mgtKey = "20161202-01";			
+		String mgtKey = "20161206-02";			
 		
 		try {
 			String url = statementService.getMailURL(testCorpNum, itemCode, mgtKey, testUserID);
@@ -1067,7 +1067,7 @@ public class StatementServiceExample {
 		int itemCode = 121;		
 		
 		// 문서관리번호 배열, 최대 100건
-		String[] mgtKeyList = new String[] {"20150318-01", "20150318-01", "20150318-02", "20150319-01"}; 
+		String[] mgtKeyList = new String[] {"20161206-02", "20150318-01", "20150318-02", "20150319-01"}; 
 		
 		try {
 			
@@ -1122,16 +1122,16 @@ public class StatementServiceExample {
 		String sendNum = "07043042991";			
 		
 		// 수신팩스번호
-		String receiveNum = "00111222";			 
+		String receiveNum = "00111222";
 		
 		//  전자명세서 정보 객체
 		Statement statement = new Statement();
 		
 		// [필수] 작성일자, 형태 yyyyMmdd
-		statement.setWriteDate("20161202");				
+		statement.setWriteDate("20161206");
 		
 		// [필수] {영수, 청구} 중 기재
-		statement.setPurposeType("영수");				
+		statement.setPurposeType("영수");
 		
 		// [필수] {과세, 영세, 면세} 중 기재
 		statement.setTaxType("과세");					
@@ -1143,7 +1143,7 @@ public class StatementServiceExample {
 		statement.setItemCode((short) 121);				
 		
 		// [필수] 문서관리번호, 최대 24자리 영문, 숫자, '-', '_'로 구성
-		statement.setMgtKey("20160119-002");				
+		statement.setMgtKey("20161206-03");				
 		
 		
 		/**********************************************************************
@@ -1311,7 +1311,7 @@ public class StatementServiceExample {
 		Statement statement = new Statement();
 		
 		// [필수] 작성일자, 형태 yyyyMmdd
-		statement.setWriteDate("20161202");				
+		statement.setWriteDate("20161206");				
 		
 		// [필수] {영수, 청구} 중 기재
 		statement.setPurposeType("영수");				
@@ -1326,7 +1326,7 @@ public class StatementServiceExample {
 		statement.setItemCode((short) 121);				
 		
 		// [필수] 문서관리번호, 최대 24자리 영문, 숫자, '-', '_'로 구성
-		statement.setMgtKey("20160119-002");				
+		statement.setMgtKey("20161206-02");				
 		
 		
 		/**********************************************************************
@@ -1540,7 +1540,7 @@ public class StatementServiceExample {
 		int itemCode = 121;					
 		
 		// 전자명세서 관리번호
-		String mgtKey = "20160119-002";		 
+		String mgtKey = "20161206-02";		 
 		
 		
 		// 첨부할 전자명세서 코드
@@ -1574,7 +1574,7 @@ public class StatementServiceExample {
 		int itemCode = 121;					
 		
 		// 전자명세서 관리번호
-		String mgtKey = "20160119-002";		 
+		String mgtKey = "20161206-02";		 
 		
 		
 		// 첨부해제할 전자명세서 코드
