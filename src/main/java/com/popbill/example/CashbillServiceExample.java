@@ -132,7 +132,7 @@ public class CashbillServiceExample {
 		Cashbill cashbill = new Cashbill();
 	
 		// 문서관리번호, 최대 24자리, 영문, 숫자 '-', '_'로 구성
-		cashbill.setMgtKey("20161202-01");			
+		cashbill.setMgtKey("20161206-01");			
 		
 		// 현금영수증 형태, {승인거래, 취소거래} 중 기재
 		cashbill.setTradeType("승인거래");				
@@ -229,14 +229,14 @@ public class CashbillServiceExample {
 		
 		
 		// 수정할 현금영수증 문서관리번호
-		String mgtKey = "20161202-01";	
+		String mgtKey = "20161206-01";	
 		
 		
 		// 현금영수증 정보 객체
 		Cashbill cashbill = new Cashbill();
 	
 		// 문서관리번호, 최대 24자리, 영문, 숫자 '-', '_'로 구성
-		cashbill.setMgtKey("20161202-01");			
+		cashbill.setMgtKey("20161206-01");			
 		
 		// 현금영수증 형태, {승인거래, 취소거래} 중 기재
 		cashbill.setTradeType("승인거래");				
@@ -273,10 +273,10 @@ public class CashbillServiceExample {
 		cashbill.setFranchiseCorpNum("1234567890");
 		
 		// 발행자 상호
-		cashbill.setFranchiseCorpName("발행자 상호");	
+		cashbill.setFranchiseCorpName("발행자 상호_수정");	
 		
 		// 발행자 대표자명
-		cashbill.setFranchiseCEOName("발행자 대표자");
+		cashbill.setFranchiseCEOName("발행자 대표자_수정");
 		
 		// 발행자 주소
 		cashbill.setFranchiseAddr("발행자 주소");
@@ -331,7 +331,7 @@ public class CashbillServiceExample {
 		 */
 		
 		// 현금영수증 문서관리번호
-		String mgtKey = "20150320-01";	
+		String mgtKey = "20161206-01";	
 		
 		try {
 			
@@ -356,7 +356,7 @@ public class CashbillServiceExample {
 		 */
 
 		// 현금영수증 문서관리번호 배열 최대(1000건)
-		String[] mgtKeyList = new String[] {"20150317-01", "20150317-02", "20150318-02", "20150319-01"};
+		String[] mgtKeyList = new String[] {"20161206-01", "20150317-02", "20150318-02", "20150319-01"};
 		
 		try {
 			
@@ -383,7 +383,7 @@ public class CashbillServiceExample {
 		 */
 		
 		// 현금영수증 문서관리번호
-		String mgtKey = "20160719-219773-414600";	
+		String mgtKey = "20161206-01";	
 		
 		try {
 			
@@ -408,7 +408,7 @@ public class CashbillServiceExample {
 		 */
 		
 		// 현금영수증 문서관리번호
-		String mgtKey = "20161202-01";	
+		String mgtKey = "20161206-01";	
 		
 		try {
 			
@@ -435,7 +435,7 @@ public class CashbillServiceExample {
 		 */
 		
 		// 현금영수증 문서관리번호
-		String mgtKey = "20150320-01";	
+		String mgtKey = "20161206-01";	
 		
 		try {
 			CashbillLog[] cashbillLogs = cashbillService.getLogs(testCorpNum, mgtKey);
@@ -459,7 +459,7 @@ public class CashbillServiceExample {
 		 */
 		
 		// 현금영수증 문서관리번호
-		String mgtKey = "20150320-01";
+		String mgtKey = "20161206-01";
 		
 		// 메모
 		String memo = "발행메모";
@@ -488,7 +488,7 @@ public class CashbillServiceExample {
 		 */
 		
 		// 문서관리번호
-		String mgtKey = "20150320-01";
+		String mgtKey = "20161206-01";
 		
 		// 메모
 		String memo = "발행취소 메모";
@@ -513,7 +513,7 @@ public class CashbillServiceExample {
 		 */
 		
 		// 현금영수증 문서관리번호
-		String mgtKey = "20160315-03";		
+		String mgtKey = "20161206-01";		
 		
 		// 수신자 메일주소
 		String receiver = "test@test.com";	
@@ -541,7 +541,7 @@ public class CashbillServiceExample {
 		
 		
 		// 현금영수증 문서관리번호
-		String mgtKey = "20161202-01";				
+		String mgtKey = "20161206-01";				
 		
 		// 발신번호
 		String sender = "07043042991";			
@@ -578,7 +578,7 @@ public class CashbillServiceExample {
 		
 		
 		// 현금영수증 문서관리번호
-		String mgtKey = "20161202-01";				
+		String mgtKey = "20161206-01";				
 		
 		// 발신자 번호
 		String sender = "07043042991";				
@@ -634,7 +634,7 @@ public class CashbillServiceExample {
 		 */
 		
 		// 현금영수증 문서관리번호
-		String mgtKey = "20161202-01";			
+		String mgtKey = "20161206-01";			
 		
 		try {
 			
@@ -658,7 +658,7 @@ public class CashbillServiceExample {
 		 */
 		
 		// 현금영수증 문서관리번호
-		String mgtKey = "20161202-01";			
+		String mgtKey = "20161206-01";			
 		
 		try {
 			
@@ -682,7 +682,7 @@ public class CashbillServiceExample {
 		 */
 		
 		// 현금영수증 문서관리번호
-		String mgtKey = "20161202-01";
+		String mgtKey = "20161206-01";
 		
 		try {
 			
@@ -706,7 +706,7 @@ public class CashbillServiceExample {
 		 */
 		
 		// 현금영수증 문서관리번호
-		String mgtKey = "20161202-01";			
+		String mgtKey = "20161206-01";			
 		
 		try {
 			
@@ -730,7 +730,7 @@ public class CashbillServiceExample {
 		 */
 		
 		// 문서관리번호 배열, 최대 100건
-		String[] mgtKeyList = new String[] {"20150320-01", "20150320-02", "20150320-03"}; 
+		String[] mgtKeyList = new String[] {"20161206-01", "20150320-02", "20150320-03"}; 
 		
 		try {
 			
@@ -785,7 +785,7 @@ public class CashbillServiceExample {
 		Cashbill cashbill = new Cashbill();
 	
 		// 문서관리번호, 최대 24자리, 영문, 숫자 '-', '_'로 구성
-		cashbill.setMgtKey("20161202-01");			
+		cashbill.setMgtKey("20161206-01");			
 		
 		// 현금영수증 형태, {승인거래, 취소거래} 중 기재
 		cashbill.setTradeType("승인거래");				
