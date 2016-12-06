@@ -106,10 +106,10 @@ public class HTCashbillServiceExample {
 		QueryType TIType = QueryType.SELL;
 				
 		// 시작일자, 표시형식(yyyyMMdd)
-		String SDate = "20160501";
+		String SDate = "20161001";
 		
 		// 종료일자, 표시형식(yyyyMMdd)
-		String EDate = "20160801";
+		String EDate = "20161231";
 		
 		try {
 			String jobID = htCashbillService.requestJob(testCorpNum, TIType, SDate, EDate);
@@ -132,7 +132,7 @@ public class HTCashbillServiceExample {
 		 */
 		
 		// 수집요청(requestJob)시 반환받은 작업아이디
-		String jobID = "016071815000000010";
+		String jobID = "016120614000000002";
 		
 		try {
 			HTCashbillJobState jobState = htCashbillService.getJobState(testCorpNum, jobID, testUserID);
@@ -176,7 +176,7 @@ public class HTCashbillServiceExample {
 		 */
 		
 		// 수집 요청시 발급받은 작업아이디
-		String jobID = "016071815000000010";	
+		String jobID = "016120614000000002";	
 		
 		// 거래용도, P-소득공제용, C-지출증빙용
 		String[] TradeUsage = {"P", "C"};		
@@ -216,7 +216,7 @@ public class HTCashbillServiceExample {
 		 */
 		
 		// 수집 요청시 발급받은 작업아이디
-		String jobID = "016071815000000010";	
+		String jobID = "016120614000000002";	
 		
 		// 거래용도, P-소득공제용, C-지출증빙용
 		String[] TradeUsage = {"P", "C"};		

@@ -112,10 +112,10 @@ public class HTTaxinvoiceExample {
 		String DType = "W";
 		
 		// 시작일자, 날짜형식(yyyyMMdd)
-		String SDate = "20160501";
+		String SDate = "20161001";
 		
 		// 종료일자, 닐짜형식(yyyyMMdd)
-		String EDate = "20160801";
+		String EDate = "20161231";
 		
 		try {
 			String jobID = htTaxinvoiceService.requestJob(testCorpNum, TIType, 
@@ -140,7 +140,7 @@ public class HTTaxinvoiceExample {
 		 */
 		
 		// 수집요청(requestJob)시 반환받은 작업아이디
-		String jobID = "016071811000000010";
+		String jobID = "016120614000000001";
 		
 		try {
 			HTTaxinvoiceJobState jobState = htTaxinvoiceService.getJobState(testCorpNum, jobID, testUserID);
@@ -184,7 +184,7 @@ public class HTTaxinvoiceExample {
 		 */
 		
 		// 수집 요청시 발급받은 작업아이디
-		String jobID = "016071813000000001";  
+		String jobID = "016120614000000001";  
 		
 		// 문서형태, N-일반, M-수정
 		String[] Type = {"N", "M"};           
@@ -236,7 +236,7 @@ public class HTTaxinvoiceExample {
 		 */
 		
 		// 수집 요청시 발급받은 작업아이디
-		String jobID = "016071812000000001";  
+		String jobID = "016120614000000001";  
 		
 		// 문서형태, N-일반, M-수정
 		String[] Type = {"N", "M"};           
@@ -278,7 +278,7 @@ public class HTTaxinvoiceExample {
 		 */
 		
 		// 전자세금계산서 국세청승인번호
-		String ntsconfirmNum = "20160707410000290000030e";
+		String ntsconfirmNum = "20161202410002030000196d";
 		
 		try {
 			HTTaxinvoice taxinvoiceInfo = htTaxinvoiceService.getTaxinvoice(testCorpNum, 
@@ -303,7 +303,7 @@ public class HTTaxinvoiceExample {
 		 */
 		
 		// 전자세금계산서 국세청승인번호
-		String ntsconfirmNum = "20160707410000290000030e";
+		String ntsconfirmNum = "20161202410002030000196d";
 		
 		try {
 			HTTaxinvoiceXMLResponse xmlResponse = htTaxinvoiceService.getXML(testCorpNum,
