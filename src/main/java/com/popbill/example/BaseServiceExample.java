@@ -280,7 +280,7 @@ public class BaseServiceExample {
 		ContactInfo contactInfo = new ContactInfo();
 		
 		// 담당자 아이디
-		contactInfo.setId("testkorea1234");				
+		contactInfo.setId("testkorea");				
 		
 		// 담당자 비밀번호
 		contactInfo.setPwd("test12341234");				
