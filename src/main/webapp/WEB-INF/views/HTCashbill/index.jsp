@@ -10,23 +10,19 @@
 	</head>
 
 	<body>
-
 		<div id="content">
-
 			<p class="heading1">팝빌 홈택스 현금영수증 연계 SDK SpringMVC Example.</p>
-			
 			<br/>
-
 			<fieldset class="fieldset1">
 				<legend>팝빌 기본 API</legend>
 
 				<fieldset class="fieldset2">
 					<legend>회원사 정보</legend>
 					<ul>
-						<li><a href="BaseService/checkIsMember">checkIsMember</a> - 연동회원사 가입 여부 확인</li>
-						<li><a href="BaseService/joinMember">joinMember</a> - 연동회원사 가입 요청</li>
+						<li><a href="BaseService/checkIsMember">checkIsMember</a> - 연동회원 가입 여부 확인</li>
+						<li><a href="BaseService/joinMember">joinMember</a> - 연동회원 가입 요청</li>
 						<li><a href="HTCashbillService/getChargeInfo">getChargeInfo</a> - 파트너 잔여포인트 확인</li>
-						<li><a href="BaseService/getBalance">getBalance</a> - 연동회원사 잔여포인트 확인</li>
+						<li><a href="BaseService/getBalance">getBalance</a> - 연동회원 잔여포인트 확인</li>
 						<li><a href="BaseService/getPartnerBalance">getPartnerBalance</a> - 파트너 잔여포인트 확인</li>
 						<li><a href="BaseService/getPopbillURL">getPopbillURL</a> - 팝빌 SSO URL 요청</li>
 						<li><a href="BaseService/listContact">listContact</a> - 담당자 목록 확인 </li>
@@ -71,14 +67,8 @@
 						<li><a href="HTCashbillService/getCertificateExpireDate">getCertificateExpireDate</a> - 홈택스연계 공인인증서 만료일자 확인</li>
 					</ul>
 				</fieldset>
-				
 			</fieldset>
-
-			
-
 		 </div>
-
 	</body>
-
 </html>
 

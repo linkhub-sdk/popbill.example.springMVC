@@ -29,6 +29,8 @@
 						<li>invoiceeCorpNum : ${TaxinvoiceInfo.invoiceeCorpNum}</li>
 						<li>invoiceeMgtKey : ${TaxinvoiceInfo.invoiceeMgtKey}</li>
 						<li>invoiceePrintYN : ${TaxinvoiceInfo.invoiceePrintYN}</li>
+						<li>closeDownState : ${TaxinvoiceInfo.closeDownState}</li>
+						<li>closeDownStateDate : ${TaxinvoiceInfo.closeDownStateDate}</li>
 						<li>trusteeCorpName : ${TaxinvoiceInfo.trusteeCorpName}</li>
 						<li>trusteeCorpNum : ${TaxinvoiceInfo.trusteeCorpNum}</li>
 						<li>trusteeMgtKey : ${TaxinvoiceInfo.trusteeMgtKey}</li>
@@ -71,6 +73,8 @@
 						<li>invoiceeCorpNum : ${TaxinvoiceInfo.invoiceeCorpNum}</li>
 						<li>invoiceeMgtKey : ${TaxinvoiceInfo.invoiceeMgtKey}</li>
 						<li>invoiceePrintYN : ${TaxinvoiceInfo.invoiceePrintYN}</li>
+						<li>closeDownState : ${TaxinvoiceInfo.closeDownState}</li>
+						<li>closeDownStateDate : ${TaxinvoiceInfo.closeDownStateDate}</li>
 						<li>trusteeCorpName : ${TaxinvoiceInfo.trusteeCorpName}</li>
 						<li>trusteeCorpNum : ${TaxinvoiceInfo.trusteeCorpNum}</li>
 						<li>trusteeMgtKey : ${TaxinvoiceInfo.trusteeMgtKey}</li>

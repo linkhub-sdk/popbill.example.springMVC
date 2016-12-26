@@ -57,6 +57,8 @@
 						<li>invoiceeHP2 : ${Taxinvoice.invoiceeHP2}</li>
 						<li>invoiceeEmail2 : ${Taxinvoice.invoiceeEmail2}</li>
 						<li>invoiceeSMSSendYN : ${Taxinvoice.invoiceeSMSSendYN}</li>
+						<li>closeDownState : ${Taxinvoice.closeDownState}</li>
+						<li>closeDownStateDate : ${Taxinvoice.closeDownStateDate}</li>
 						
 						<li>trusteeCorpNum : ${Taxinvoice.trusteeCorpNum}</li>
 						<li>trusteeCorpName : ${Taxinvoice.trusteeCorpName}</li>

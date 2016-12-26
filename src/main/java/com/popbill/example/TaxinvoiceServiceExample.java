@@ -631,7 +631,7 @@ public class TaxinvoiceServiceExample {
 		MgtKeyType mgtKeyType = MgtKeyType.SELL;
 		
 		// 세금계산서 문서관리번호
-		String mgtKey = "20161205-01";
+		String mgtKey = "20161221-03";
 		
 		try {
 			
@@ -661,7 +661,7 @@ public class TaxinvoiceServiceExample {
 		
 		
 		// 세금계산서 관리번호 배열, 최대 1000건
-		String[] MgtKeyList = new String[] {"20160119-04","12345","123456"};
+		String[] MgtKeyList = new String[] {"20161221-03","12345","123456"};
 		
 		try {
 			
@@ -690,7 +690,7 @@ public class TaxinvoiceServiceExample {
 		MgtKeyType mgtKeyType = MgtKeyType.SELL;
 		
 		// 세금계산서 문서관리번호
-		String mgtKey = "20161205-01";
+		String mgtKey = "20161221-03";
 		
 		try {
 			
@@ -1578,7 +1578,7 @@ public class TaxinvoiceServiceExample {
 		String SDate = "20160701"; 				
 		
 		// 종료일자, 날짜형식(yyyyMMdd)
-		String EDate = "20160831"; 				
+		String EDate = "20161231"; 				
 		
 		// 세금계산서 상태코드 배열, 2,3번째 자리에 와일드카드(*) 사용 가능
 		String[] State = {"3**", "6**"};		
