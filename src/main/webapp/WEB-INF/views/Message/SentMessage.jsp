@@ -28,7 +28,7 @@
 						<li>reserveDT : ${SentMessage.reserveDT}</li>
 						<li>sendDT : ${SentMessage.sendDT}</li>
 						<li>resultDT : ${SentMessage.resultDT}</li>
-						<li>sendResult : ${SentMessage.sendResult}</li>
+						<li>sendResult : ${SentMessage.result}</li>
 						<li>receiptDT : ${SentMessage.receiptDT}</li>
 					</ul>
 				</fieldset>

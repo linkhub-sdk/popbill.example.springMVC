@@ -553,7 +553,7 @@ public class MessageServiceExample {
 		String SDate = "20161001";				
 		
 		// 종료일자, 날짜형식(yyyyMMdd)
-		String EDate = "20161231";				
+		String EDate = "20170213";				
 		
 		// 전송상태 배열, 1-대기, 2-성공, 3-실패, 4-취소
 		String[] State = {"1", "2", "3","4"};	
