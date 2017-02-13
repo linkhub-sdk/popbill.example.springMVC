@@ -42,7 +42,7 @@
 						<li> reserveDT : ${SearchInfo.reserveDT}</li>
 						<li> sendDT : ${SearchInfo.sendDT}</li>
 						<li> resultDT : ${SearchInfo.resultDT}</li>
-						<li> sendResult : ${SearchInfo.result}</li>
+						<li> result : ${SearchInfo.result}</li>
 						<li> tranNet : ${SearchInfo.tranNet}</li>
 						<li> receiptDT : ${SearchInfo.receiptDT}</li>
 						<li> messageType : ${SearchInfo.messageType}</li>
