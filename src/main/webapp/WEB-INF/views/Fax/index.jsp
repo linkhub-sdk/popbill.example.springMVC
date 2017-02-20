@@ -49,6 +49,8 @@
 					<ul>
 						<li><a href="FaxService/sendFAX">sendFAX</a> - 팩스 전송. 1파일 1건 전송</li>
 						<li><a href="FaxService/sendFAX_Multi">sendFAX</a> - 팩스 전송. 1파일 동보 전송(수신번호 최대 1000개)</li>
+						<li><a href="FaxService/resendFAX">resendFAX</a> - 팩스 재전송</li>
+						<li><a href="FaxService/resendFAX_Multi">resendFAX</a> - 팩스 동보 재전송</li>
 					</ul>
 				</fieldset>
 			

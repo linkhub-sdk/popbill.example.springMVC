@@ -217,6 +217,100 @@ public class FaxServiceExample {
 		return "result";
 	}
 	
+	@RequestMapping(value = "resendFAX", method = RequestMethod.GET)
+	public String resendFAX( Model m) throws URISyntaxException {
+		/**
+		 * 팩스를 재전송합니다.
+		 * - 전송일로부터 180일이 경과되지 않은 전송건만 재전송할 수 있습니다.
+		 */
+				
+		// 팩스 접수번호
+		String orgReceiptNum = "017022015210400001";
+		
+		// 발신번호, 공백처리시 기존전송정보로 재전송 
+		String sendNum = "07043042991"; 
+		
+		// 발신자명, 공백처리시 기존전송정보로 재전송 
+		String sendName = "발신자명";
+		
+		// 수신번호/수신자명 모두 공백처리시 기존전송정보로 재전송
+		// 수신번호
+		String receiveNum = "";
+		
+		// 수신자명
+		String receiveName = "";
+		
+		// 전송 예약일시
+		Date reserveDT = null; 
+		
+		try {
+			
+			String receiptNum = faxService.resendFAX(testCorpNum, orgReceiptNum, sendNum, 
+					sendName, receiveNum, receiveName, reserveDT, testUserID);
+			
+			m.addAttribute("Result",receiptNum);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "result";
+	}
+	
+	@RequestMapping(value = "resendFAX_Multi", method = RequestMethod.GET)
+	public String resendFAX_Multi( Model m) throws URISyntaxException {
+		/**
+		 * 팩스를 재전송합니다.
+		 * - 전송일로부터 180일이 경과되지 않은 전송건만 재전송할 수 있습니다.
+		 */
+				
+		// 팩스 접수번호
+		String orgReceiptNum = "017022015210400001";
+		
+		// 발신번호, 공백처리시 기존전송정보로 재전송 
+		String sendNum = "07043042991"; 
+		
+		// 발신자명, 공백처리시 기존전송정보로 재전송 
+		String sendName = "발신자명";
+		
+		
+		// 팩스수신정보를 기존전송정보와 동일하게 재전송하는 경우, 아래의 코드 적용 
+		Receiver[] receivers = null;
+		
+		
+		// 팩스수신정보를 기존전송정보와 다르게 재전송하는 경우, 아래의 코드 적용
+		
+//		Receiver receiver1 = new Receiver();
+//		receiver1.setReceiveName("수신자1");		// 수신자명
+//		receiver1.setReceiveNum("010111222");	// 수신팩스번호
+//		
+//		Receiver receiver2 = new Receiver();
+//		receiver2.setReceiveName("수신자2");		// 수신자명
+//		receiver2.setReceiveNum("010333444");	// 수신팩스번호
+				
+		// 팩스전송정보 배열, 최대 1000건
+//		Receiver[] receivers = new Receiver[] {receiver1 , receiver2};
+		
+		
+		// 전송 예약일시
+		Date reserveDT = null;
+				
+		try {
+			
+			String receiptNum = faxService.resendFAX(testCorpNum, orgReceiptNum, sendNum, 
+					sendName, receivers, reserveDT, testUserID);
+			
+			m.addAttribute("Result",receiptNum);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "result";
+	}
+	
 	@RequestMapping(value = "getFaxResult", method = RequestMethod.GET)
 	public String getFaxResult( Model m) {
 		/**
