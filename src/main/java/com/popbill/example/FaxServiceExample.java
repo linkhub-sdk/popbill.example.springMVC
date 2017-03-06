@@ -123,7 +123,7 @@ public class FaxServiceExample {
 		
 		try {
 			
-			String url = faxService.getURL(testCorpNum, testUserID, TOGO);
+			String url = faxService.getURL(testCorpNum, TOGO);
 			
 			m.addAttribute("Result",url);
 			
@@ -344,8 +344,7 @@ public class FaxServiceExample {
 		String receiptNum = "016120511390400001";
 		
 		try {
-			Response response = faxService.cancelReserve(testCorpNum, receiptNum, 
-					testUserID);
+			Response response = faxService.cancelReserve(testCorpNum, receiptNum);
 			
 			m.addAttribute("Response",response);
 			
