@@ -135,7 +135,7 @@ public class HTCashbillServiceExample {
 		String jobID = "016120614000000002";
 		
 		try {
-			HTCashbillJobState jobState = htCashbillService.getJobState(testCorpNum, jobID, testUserID);
+			HTCashbillJobState jobState = htCashbillService.getJobState(testCorpNum, jobID);
 			m.addAttribute("JobState",jobState);
 			
 		} catch (PopbillException e) {
@@ -156,7 +156,7 @@ public class HTCashbillServiceExample {
 		 */
 		
 		try {
-			HTCashbillJobState[] jobStates = htCashbillService.listActiveJob(testCorpNum, testUserID);
+			HTCashbillJobState[] jobStates = htCashbillService.listActiveJob(testCorpNum);
 			m.addAttribute("JobStates", jobStates);
 			
 		} catch (PopbillException e) {
@@ -176,7 +176,7 @@ public class HTCashbillServiceExample {
 		 */
 		
 		// 수집 요청시 발급받은 작업아이디
-		String jobID = "016120614000000002";	
+		String jobID = "017030618000000004";	
 		
 		// 거래용도, P-소득공제용, C-지출증빙용
 		String[] TradeUsage = {"P", "C"};		
@@ -216,7 +216,7 @@ public class HTCashbillServiceExample {
 		 */
 		
 		// 수집 요청시 발급받은 작업아이디
-		String jobID = "016120614000000002";	
+		String jobID = "017030618000000004";	
 		
 		// 거래용도, P-소득공제용, C-지출증빙용
 		String[] TradeUsage = {"P", "C"};		
@@ -244,7 +244,7 @@ public class HTCashbillServiceExample {
 		 */
 		try {
 			
-			String url = htCashbillService.getFlatRatePopUpURL(testCorpNum, testUserID);
+			String url = htCashbillService.getFlatRatePopUpURL(testCorpNum);
 			
 			m.addAttribute("Result",url);
 			
@@ -265,7 +265,7 @@ public class HTCashbillServiceExample {
 		
 		try {
 			
-			String url = htCashbillService.getCertificatePopUpURL(testCorpNum, testUserID);
+			String url = htCashbillService.getCertificatePopUpURL(testCorpNum);
 			
 			m.addAttribute("Result",url);
 			
