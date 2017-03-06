@@ -130,7 +130,7 @@ public class TaxinvoiceServiceExample {
 		Taxinvoice taxinvoice = new Taxinvoice();
 
 		// 작성일자, 날짜형식(yyyyMMdd)
-		taxinvoice.setWriteDate("20161206"); 
+		taxinvoice.setWriteDate("20170306"); 
 		
 		// 과금방향, [정과금, 역과금] 중 선택기재, 역과금의 경우 역발행세금계산서 발행시에만 가
 		taxinvoice.setChargeDirection("정과금");
@@ -163,7 +163,7 @@ public class TaxinvoiceServiceExample {
 		taxinvoice.setInvoicerCorpName("공급자 상호");  
 		
 		// 공급자 문서관리번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
-		taxinvoice.setInvoicerMgtKey("20161206-01");
+		taxinvoice.setInvoicerMgtKey("20170306-11");
 		
 		// 공급자 대표자성명
 		taxinvoice.setInvoicerCEOName("공급자 대표자 성명");
@@ -352,7 +352,7 @@ public class TaxinvoiceServiceExample {
 		
 		try {
 			
-			Response response = taxinvoiceService.register(testCorpNum, taxinvoice, testUserID);
+			Response response = taxinvoiceService.register(testCorpNum, taxinvoice);
 			
 			m.addAttribute("Response", response);
 			
@@ -889,7 +889,7 @@ public class TaxinvoiceServiceExample {
 		MgtKeyType mgtKeyType = MgtKeyType.SELL;
 		
 		// 세금계산서 문서관리번호
-		String mgtKey = "20161206-02";
+		String mgtKey = "20170306-11";
 				
 		// 메모
 		String memo = "발행예정 메모";
@@ -900,7 +900,7 @@ public class TaxinvoiceServiceExample {
 		try {
 			
 			Response response = taxinvoiceService.send(testCorpNum, mgtKeyType, 
-					mgtKey, memo, emailSubject, testUserID);
+					mgtKey, memo, emailSubject);
 			
 			m.addAttribute("Response",response);
 			
@@ -1323,7 +1323,7 @@ public class TaxinvoiceServiceExample {
 		
 		try {
 			
-			String url = taxinvoiceService.getURL(testCorpNum, testUserID, TOGO);
+			String url = taxinvoiceService.getURL(testCorpNum, TOGO);
 			
 			m.addAttribute("Result",url);
 			
@@ -1346,12 +1346,12 @@ public class TaxinvoiceServiceExample {
 		MgtKeyType mgtKeyType = MgtKeyType.SELL;
 		
 		// 세금계산서 문서관리번호
-		String mgtKey = "20161201-01";
+		String mgtKey = "20170306-11";
 				
 		try {
 			
 			String url = taxinvoiceService.getPopUpURL(testCorpNum, mgtKeyType, 
-					mgtKey,testUserID);
+					mgtKey);
 			
 			m.addAttribute("Result",url);
 			
@@ -1374,12 +1374,12 @@ public class TaxinvoiceServiceExample {
 		MgtKeyType mgtKeyType = MgtKeyType.SELL;
 		
 		// 세금계산서 문서관리번호
-		String mgtKey = "20161201-01";
+		String mgtKey = "20170306-11";
 				
 		try {
 			
 			String url = taxinvoiceService.getPrintURL(testCorpNum, mgtKeyType, 
-					mgtKey, testUserID);
+					mgtKey);
 			
 			m.addAttribute("Result",url);
 			
@@ -1402,12 +1402,12 @@ public class TaxinvoiceServiceExample {
 		MgtKeyType mgtKeyType = MgtKeyType.SELL;
 		
 		// 세금계산서 문서관리번호
-		String mgtKey = "20161201-01";
+		String mgtKey = "20170306-11";
 				
 		try {
 			
 			String url = taxinvoiceService.getEPrintURL(testCorpNum, mgtKeyType, 
-					mgtKey, testUserID);
+					mgtKey);
 			
 			m.addAttribute("Result",url);
 			
@@ -1430,13 +1430,13 @@ public class TaxinvoiceServiceExample {
 		MgtKeyType mgtKeyType = MgtKeyType.SELL;
 		
 		// 세금계산서 문서관리번호
-		String mgtKey = "20161201-01";
+		String mgtKey = "20170306-11";
 				
 				
 		try {
 			
 			String url = taxinvoiceService.getMailURL(testCorpNum, mgtKeyType, 
-					mgtKey, testUserID);
+					mgtKey);
 			
 			m.addAttribute("Result",url);
 			
@@ -1459,12 +1459,12 @@ public class TaxinvoiceServiceExample {
 		MgtKeyType mgtKeyType = MgtKeyType.SELL;
 		
 		// 문서관리번호 배열, 최대 100건
-		String[] MgtKeyList = new String[] {"1234","12345","123456"};
+		String[] MgtKeyList = new String[] {"20170306-11","12345","123456"};
 		
 		try {
 			
 			String url = taxinvoiceService.getMassPrintURL(testCorpNum ,mgtKeyType, 
-					MgtKeyList,testUserID);
+					MgtKeyList);
 			
 			m.addAttribute("Result",url);
 			
