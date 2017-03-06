@@ -134,7 +134,7 @@ public class BaseServiceExample {
 		
 		try {
 			
-			String url = taxinvoiceService.getPopbillURL(testCorpNum,testUserID , TOGO);
+			String url = taxinvoiceService.getPopbillURL(testCorpNum, TOGO);
 			
 			m.addAttribute("Result",url);
 			
@@ -218,7 +218,7 @@ public class BaseServiceExample {
 		 */
 		
 		try {
-			ContactInfo[] response = taxinvoiceService.listContact(testCorpNum, testUserID);
+			ContactInfo[] response = taxinvoiceService.listContact(testCorpNum);
 			
 			m.addAttribute("ContactInfos", response);
 		} catch (PopbillException e){
@@ -303,7 +303,7 @@ public class BaseServiceExample {
 		try {
 
 			Response response = taxinvoiceService.registContact(testCorpNum, 
-					contactInfo, testUserID);
+					contactInfo);
 			
 			m.addAttribute("Response",response);
 			
@@ -341,7 +341,7 @@ public class BaseServiceExample {
 		 */
 		
 		try {
-			CorpInfo response = taxinvoiceService.getCorpInfo(testCorpNum, testUserID);
+			CorpInfo response = taxinvoiceService.getCorpInfo(testCorpNum);
 			m.addAttribute("CorpInfo", response);
 		} catch (PopbillException e){
 			m.addAttribute("Exception", e);
@@ -376,7 +376,7 @@ public class BaseServiceExample {
 		
 		try {
 			Response response = taxinvoiceService.updateCorpInfo(testCorpNum, 
-					corpInfo, testUserID);
+					corpInfo);
 			m.addAttribute("Response", response);
 		} catch (PopbillException e){
 			m.addAttribute("Exception", e);
