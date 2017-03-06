@@ -132,7 +132,7 @@ public class CashbillServiceExample {
 		Cashbill cashbill = new Cashbill();
 	
 		// 문서관리번호, 최대 24자리, 영문, 숫자 '-', '_'로 구성
-		cashbill.setMgtKey("20161206-01");			
+		cashbill.setMgtKey("20170306-11");			
 		
 		// 현금영수증 형태, {승인거래, 취소거래} 중 기재
 		cashbill.setTradeType("승인거래");				
@@ -205,7 +205,7 @@ public class CashbillServiceExample {
 			
 		try {
 			
-			Response response = cashbillService.register(testCorpNum, cashbill, testUserID);
+			Response response = cashbillService.register(testCorpNum, cashbill);
 			
 			m.addAttribute("Response",response);
 			
@@ -229,14 +229,14 @@ public class CashbillServiceExample {
 		
 		
 		// 수정할 현금영수증 문서관리번호
-		String mgtKey = "20161206-01";	
+		String mgtKey = "20170306-11";	
 		
 		
 		// 현금영수증 정보 객체
 		Cashbill cashbill = new Cashbill();
 	
 		// 문서관리번호, 최대 24자리, 영문, 숫자 '-', '_'로 구성
-		cashbill.setMgtKey("20161206-01");			
+		cashbill.setMgtKey(mgtKey);			
 		
 		// 현금영수증 형태, {승인거래, 취소거래} 중 기재
 		cashbill.setTradeType("승인거래");				
@@ -310,7 +310,7 @@ public class CashbillServiceExample {
 		try {
 			
 			Response response = cashbillService.update(testCorpNum, mgtKey, 
-					cashbill, testUserID);
+					cashbill);
 			
 			m.addAttribute("Response",response);
 			
@@ -408,7 +408,7 @@ public class CashbillServiceExample {
 		 */
 		
 		// 현금영수증 문서관리번호
-		String mgtKey = "20161206-01";	
+		String mgtKey = "20170306-11";	
 		
 		try {
 			
@@ -459,14 +459,14 @@ public class CashbillServiceExample {
 		 */
 		
 		// 현금영수증 문서관리번호
-		String mgtKey = "20161206-01";
+		String mgtKey = "20170306-11";
 		
 		// 메모
 		String memo = "발행메모";
 		
 		try {
 			
-			Response response = cashbillService.issue(testCorpNum, mgtKey, memo, testUserID);
+			Response response = cashbillService.issue(testCorpNum, mgtKey, memo);
 			
 			m.addAttribute("Response",response);
 			
@@ -488,13 +488,13 @@ public class CashbillServiceExample {
 		 */
 		
 		// 문서관리번호
-		String mgtKey = "20161206-01";
+		String mgtKey = "20170306-11";
 		
 		// 메모
 		String memo = "발행취소 메모";
 		
 		try {
-			Response response = cashbillService.cancelIssue(testCorpNum, mgtKey, memo, testUserID);
+			Response response = cashbillService.cancelIssue(testCorpNum, mgtKey, memo);
 			
 			m.addAttribute("Response",response);
 			
@@ -513,13 +513,13 @@ public class CashbillServiceExample {
 		 */
 		
 		// 현금영수증 문서관리번호
-		String mgtKey = "20161206-01";		
+		String mgtKey = "20170306-11";		
 		
 		// 수신자 메일주소
 		String receiver = "test@test.com";	
 		
 		try {
-			Response response = cashbillService.sendEmail(testCorpNum, mgtKey, receiver, testUserID);
+			Response response = cashbillService.sendEmail(testCorpNum, mgtKey, receiver);
 			
 			m.addAttribute("Response",response);
 			
@@ -541,7 +541,7 @@ public class CashbillServiceExample {
 		
 		
 		// 현금영수증 문서관리번호
-		String mgtKey = "20161206-01";				
+		String mgtKey = "20170306-11";				
 		
 		// 발신번호
 		String sender = "07043042991";			
@@ -555,7 +555,7 @@ public class CashbillServiceExample {
 		try {
 			
 			Response response = cashbillService.sendSMS(testCorpNum, mgtKey, 
-					sender, receiver, contents, testUserID);
+					sender, receiver, contents);
 			
 			m.addAttribute("Response",response);
 			
@@ -578,7 +578,7 @@ public class CashbillServiceExample {
 		
 		
 		// 현금영수증 문서관리번호
-		String mgtKey = "20161206-01";				
+		String mgtKey = "20170306-11";				
 		
 		// 발신자 번호
 		String sender = "07043042991";				
@@ -589,7 +589,7 @@ public class CashbillServiceExample {
 		try {
 			
 			Response response = cashbillService.sendFAX(testCorpNum, mgtKey, 
-					sender, receiver, testUserID);
+					sender, receiver);
 			
 			m.addAttribute("Response",response);
 			
@@ -614,7 +614,7 @@ public class CashbillServiceExample {
 		
 		try {
 			
-			String url = cashbillService.getURL(testCorpNum, testUserID, TOGO);
+			String url = cashbillService.getURL(testCorpNum, TOGO);
 			
 			m.addAttribute("Result",url);
 			
@@ -634,11 +634,11 @@ public class CashbillServiceExample {
 		 */
 		
 		// 현금영수증 문서관리번호
-		String mgtKey = "20161206-01";			
+		String mgtKey = "20170306-11";			
 		
 		try {
 			
-			String url = cashbillService.getPopUpURL(testCorpNum, mgtKey, testUserID);
+			String url = cashbillService.getPopUpURL(testCorpNum, mgtKey);
 			
 			m.addAttribute("Result",url);
 			
@@ -658,11 +658,11 @@ public class CashbillServiceExample {
 		 */
 		
 		// 현금영수증 문서관리번호
-		String mgtKey = "20161206-01";			
+		String mgtKey = "20170306-12";			
 		
 		try {
 			
-			String url = cashbillService.getPrintURL(testCorpNum, mgtKey, testUserID);
+			String url = cashbillService.getPrintURL(testCorpNum, mgtKey);
 			
 			m.addAttribute("Result",url);
 			
@@ -682,11 +682,11 @@ public class CashbillServiceExample {
 		 */
 		
 		// 현금영수증 문서관리번호
-		String mgtKey = "20161206-01";
+		String mgtKey = "20170306-12";
 		
 		try {
 			
-			String url = cashbillService.getEPrintURL(testCorpNum, mgtKey, testUserID);
+			String url = cashbillService.getEPrintURL(testCorpNum, mgtKey);
 			
 			m.addAttribute("Result",url);
 			
@@ -706,11 +706,11 @@ public class CashbillServiceExample {
 		 */
 		
 		// 현금영수증 문서관리번호
-		String mgtKey = "20161206-01";			
+		String mgtKey = "20170306-12";			
 		
 		try {
 			
-			String url = cashbillService.getMailURL(testCorpNum, mgtKey, testUserID);
+			String url = cashbillService.getMailURL(testCorpNum, mgtKey);
 			
 			m.addAttribute("Result",url);
 			
@@ -730,11 +730,11 @@ public class CashbillServiceExample {
 		 */
 		
 		// 문서관리번호 배열, 최대 100건
-		String[] mgtKeyList = new String[] {"20161206-01", "20150320-02", "20150320-03"}; 
+		String[] mgtKeyList = new String[] {"20170306-12", "20150320-02", "20150320-03"}; 
 		
 		try {
 			
-			String url = cashbillService.getMassPrintURL(testCorpNum, mgtKeyList, testUserID);
+			String url = cashbillService.getMassPrintURL(testCorpNum, mgtKeyList);
 			
 			m.addAttribute("Result",url);
 			
@@ -785,7 +785,7 @@ public class CashbillServiceExample {
 		Cashbill cashbill = new Cashbill();
 	
 		// 문서관리번호, 최대 24자리, 영문, 숫자 '-', '_'로 구성
-		cashbill.setMgtKey("20161206-01");			
+		cashbill.setMgtKey("20170306-12");			
 		
 		// 현금영수증 형태, {승인거래, 취소거래} 중 기재
 		cashbill.setTradeType("승인거래");				
