@@ -67,11 +67,7 @@ public class HTTaxinvoiceExample {
 	// 팝빌회원 사업자번호
 	@Value("#{EXAMPLE_CONFIG.TestCorpNum}")
 	private String testCorpNum;
-	
-	// 팝빌회원 아이디
-	@Value("#{EXAMPLE_CONFIG.TestUserID}")
-	private String testUserID;
-	
+		
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		return "HTTaxinvoice/index";
@@ -143,7 +139,7 @@ public class HTTaxinvoiceExample {
 		String jobID = "016120614000000001";
 		
 		try {
-			HTTaxinvoiceJobState jobState = htTaxinvoiceService.getJobState(testCorpNum, jobID, testUserID);
+			HTTaxinvoiceJobState jobState = htTaxinvoiceService.getJobState(testCorpNum, jobID);
 			m.addAttribute("JobState",jobState);
 			
 		} catch (PopbillException e) {
@@ -164,7 +160,7 @@ public class HTTaxinvoiceExample {
 		 */
 		
 		try {
-			HTTaxinvoiceJobState[] jobStates = htTaxinvoiceService.listActiveJob(testCorpNum, testUserID);
+			HTTaxinvoiceJobState[] jobStates = htTaxinvoiceService.listActiveJob(testCorpNum);
 			m.addAttribute("JobStates", jobStates);
 			
 		} catch (PopbillException e) {
@@ -184,7 +180,7 @@ public class HTTaxinvoiceExample {
 		 */
 		
 		// 수집 요청시 발급받은 작업아이디
-		String jobID = "016120614000000001";  
+		String jobID = "017030618000000002";  
 		
 		// 문서형태, N-일반, M-수정
 		String[] Type = {"N", "M"};           
@@ -236,7 +232,7 @@ public class HTTaxinvoiceExample {
 		 */
 		
 		// 수집 요청시 발급받은 작업아이디
-		String jobID = "016120614000000001";  
+		String jobID = "017030618000000002";  
 		
 		// 문서형태, N-일반, M-수정
 		String[] Type = {"N", "M"};           
@@ -282,7 +278,7 @@ public class HTTaxinvoiceExample {
 		
 		try {
 			HTTaxinvoice taxinvoiceInfo = htTaxinvoiceService.getTaxinvoice(testCorpNum, 
-					ntsconfirmNum, testUserID);
+					ntsconfirmNum);
 			
 			m.addAttribute("Taxinvoice", taxinvoiceInfo);
 			
@@ -307,7 +303,7 @@ public class HTTaxinvoiceExample {
 		
 		try {
 			HTTaxinvoiceXMLResponse xmlResponse = htTaxinvoiceService.getXML(testCorpNum,
-						ntsconfirmNum, testUserID);
+						ntsconfirmNum);
 			
 			m.addAttribute("TaxinvoiceXML", xmlResponse);
 			
@@ -328,7 +324,7 @@ public class HTTaxinvoiceExample {
 		
 		try {
 			
-			String url = htTaxinvoiceService.getFlatRatePopUpURL(testCorpNum, testUserID);
+			String url = htTaxinvoiceService.getFlatRatePopUpURL(testCorpNum);
 			
 			m.addAttribute("Result",url);
 			
@@ -349,7 +345,7 @@ public class HTTaxinvoiceExample {
 		
 		try {
 			
-			String url = htTaxinvoiceService.getCertificatePopUpURL(testCorpNum,testUserID);
+			String url = htTaxinvoiceService.getCertificatePopUpURL(testCorpNum);
 			
 			m.addAttribute("Result",url);
 			
