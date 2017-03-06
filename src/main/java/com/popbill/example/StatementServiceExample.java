@@ -145,7 +145,7 @@ public class StatementServiceExample {
 		Statement statement = new Statement();
 		
 		// [필수] 작성일자, 형태 yyyyMmdd
-		statement.setWriteDate("20161206");				
+		statement.setWriteDate("20170306");				
 		
 		// [필수] {영수, 청구} 중 기재
 		statement.setPurposeType("영수");				
@@ -160,7 +160,7 @@ public class StatementServiceExample {
 		statement.setItemCode((short) 121);				
 		
 		// [필수] 문서관리번호, 최대 24자리 영문, 숫자, '-', '_'로 구성
-		statement.setMgtKey("20161206-01");				
+		statement.setMgtKey("20170306-11");				
 		
 		
 		/**********************************************************************
@@ -303,7 +303,7 @@ public class StatementServiceExample {
 		
 		try {
 			
-			Response response = statementService.register(testCorpNum, statement, testUserID);
+			Response response = statementService.register(testCorpNum, statement);
 			
 			m.addAttribute("Response",response);
 			
@@ -490,7 +490,7 @@ public class StatementServiceExample {
 		try {
 			
 			Response response = statementService.update(testCorpNum, itemCode, 
-					mgtKey, statement, testUserID);
+					mgtKey, statement);
 			
 			m.addAttribute("Response",response);
 			
@@ -514,7 +514,7 @@ public class StatementServiceExample {
 		int itemCode = 121;				
 		
 		// 문서관리번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
-		String mgtKey = "20161206-01";	
+		String mgtKey = "20170306-11";	
 		
 		try {
 			
@@ -573,12 +573,12 @@ public class StatementServiceExample {
 		int itemCode = 121;		
 		
 		// 문서관리번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
-		String mgtKey = "20161206-01";	
+		String mgtKey = "20170306-11";	
 		
 		try {
 			
 			Statement statement = statementService.getDetailInfo(testCorpNum, 
-					itemCode, mgtKey, testUserID);
+					itemCode, mgtKey);
 			
 			m.addAttribute("Statement",statement);
 			
@@ -673,7 +673,7 @@ public class StatementServiceExample {
 		try {
 			
 			Response response = statementService.attachFile(testCorpNum, itemCode,
-					mgtKey, displayName, stream, testUserID);
+					mgtKey, displayName, stream);
 			
 			m.addAttribute("Response",response);
 			
@@ -742,7 +742,7 @@ public class StatementServiceExample {
 		try {
 			
 			Response response = statementService.deleteFile(testCorpNum, itemCode,
-					mgtKey, FileID, testUserID);
+					mgtKey, FileID);
 			
 			m.addAttribute("Response",response);
 			
@@ -773,7 +773,7 @@ public class StatementServiceExample {
 		try {
 			
 			Response response = statementService.issue(testCorpNum, itemCode, 
-					mgtKey, memo, testUserID);
+					mgtKey, memo);
 			
 			m.addAttribute("Response",response);
 			
@@ -803,7 +803,7 @@ public class StatementServiceExample {
 		try {
 			
 			Response response = statementService.cancel(testCorpNum, itemCode, 
-					mgtKey, memo, testUserID);
+					mgtKey, memo);
 			
 			m.addAttribute("Response",response);
 			
@@ -833,7 +833,7 @@ public class StatementServiceExample {
 		try {
 			
 			Response response = statementService.sendEmail(testCorpNum, itemCode,
-					mgtKey, receiver, testUserID);
+					mgtKey, receiver);
 			
 			m.addAttribute("Response",response);
 			
@@ -873,7 +873,7 @@ public class StatementServiceExample {
 		try {
 			
 			Response response = statementService.sendSMS(testCorpNum, itemCode, 
-					mgtKey, sender, receiver, contents, testUserID);
+					mgtKey, sender, receiver, contents);
 			
 			m.addAttribute("Response",response);
 			
@@ -910,7 +910,7 @@ public class StatementServiceExample {
 		try {
 			
 			Response response = statementService.sendFAX(testCorpNum, itemCode, 
-					mgtKey, sender, receiver, testUserID);
+					mgtKey, sender, receiver);
 			
 			m.addAttribute("Response",response);
 			
@@ -934,7 +934,7 @@ public class StatementServiceExample {
 		
 		try {
 			
-			String url = statementService.getURL(testCorpNum, testUserID, TOGO);
+			String url = statementService.getURL(testCorpNum, TOGO);
 			
 			m.addAttribute("Result",url);
 			
@@ -962,7 +962,7 @@ public class StatementServiceExample {
 		try {
 			
 			String url = statementService.getPopUpURL(testCorpNum, itemCode, 
-					mgtKey, testUserID);
+					mgtKey);
 			
 			m.addAttribute("Result",url);
 			
@@ -990,7 +990,7 @@ public class StatementServiceExample {
 		try {
 			
 			String url = statementService.getPrintURL(testCorpNum, itemCode, 
-					mgtKey, testUserID);
+					mgtKey);
 			
 			m.addAttribute("Result",url);
 			
@@ -1018,7 +1018,7 @@ public class StatementServiceExample {
 		try {
 			
 			String url = statementService.getEPrintURL(testCorpNum, itemCode, 
-					mgtKey, testUserID);
+					mgtKey);
 			
 			m.addAttribute("Result",url);
 			
@@ -1044,7 +1044,7 @@ public class StatementServiceExample {
 		String mgtKey = "20161206-02";			
 		
 		try {
-			String url = statementService.getMailURL(testCorpNum, itemCode, mgtKey, testUserID);
+			String url = statementService.getMailURL(testCorpNum, itemCode, mgtKey);
 			
 			m.addAttribute("Result",url);
 			
@@ -1072,7 +1072,7 @@ public class StatementServiceExample {
 		try {
 			
 			String url = statementService.getMassPrintURL(testCorpNum, itemCode, 
-					mgtKeyList, testUserID);
+					mgtKeyList);
 			
 			m.addAttribute("Result",url);
 			
