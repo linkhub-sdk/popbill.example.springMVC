@@ -127,7 +127,7 @@ public class MessageServiceExample {
 		
 		try {
 			
-			String url = messageService.getURL(testCorpNum, testUserID, TOGO);
+			String url = messageService.getURL(testCorpNum, TOGO);
 			
 			m.addAttribute("Result",url);
 			
@@ -531,7 +531,7 @@ public class MessageServiceExample {
 		String receiptNum = "014101011000000006"; 
 		
 		try {
-			Response response = messageService.cancelReserve(testCorpNum, receiptNum, testUserID);
+			Response response = messageService.cancelReserve(testCorpNum, receiptNum);
 			
 			m.addAttribute("Response",response);
 			
