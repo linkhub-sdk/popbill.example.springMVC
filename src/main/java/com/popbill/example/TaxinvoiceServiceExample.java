@@ -1613,11 +1613,15 @@ public class TaxinvoiceServiceExample {
 		// 정렬방향,  A-오름차순,  D-내림차순
 		String Order = "D";						 
 		
+		// 연동문서 여부, 공백-전체조회, 0-일반문서, 1-연동문서
+		// 일반문서 - 세금계산서 작성시 API가 아닌 팝빌 사이트를 통해 등록한 문서
+		String InterOPYN = "";
+		
 		try {
 			
 			TISearchResult searchResult = taxinvoiceService.Search(testCorpNum, 
 					mgtKeyType, DType, SDate, EDate, State, Type, TaxType, LateOnly, 
-					TaxRegIDType, TaxRegID, TaxRegIDYN, QString, Page, PerPage, Order);
+					TaxRegIDType, TaxRegID, TaxRegIDYN, QString, Page, PerPage, Order, InterOPYN);
 			
 			m.addAttribute("SearchResult", searchResult);
 			
