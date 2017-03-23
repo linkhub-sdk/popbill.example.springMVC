@@ -5,7 +5,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="/resources/main.css" media="screen" />
 		
-		<title>팝빌 SDK SpringMVC Example.</title>
+		<title>íë¹ SDK SpringMVC Example.</title>
 	</head>
 	<body>
 		<div id="content">
@@ -21,6 +21,7 @@
 						<li>taxType : ${TaxinvoiceInfo.taxType}</li>
 						<li>writeDate : ${TaxinvoiceInfo.writeDate}</li>
 						<li>regDT : ${TaxinvoiceInfo.regDT}</li>
+						<li>interOPYN : ${TaxinvoiceInfo.interOPYN}</li>
 						<li>invoicerCorpName : ${TaxinvoiceInfo.invoicerCorpName}</li>
 						<li>invoicerCorpNum : ${TaxinvoiceInfo.invoicerCorpNum}</li>
 						<li>invoicerMgtKey : ${TaxinvoiceInfo.invoicerMgtKey}</li>

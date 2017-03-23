@@ -49,6 +49,7 @@
 						<li>stateMemo(상태메모) : ${SearchInfo.stateMemo}</li>
 						<li>stateDT(상태 변경일시) : ${SearchInfo.stateDT}</li>
 						<li>modifyCode(수정사유코드) : ${SearchInfo.modifyCode}</li>
+						<li>interOPYN(연동문서 여부) : ${SearchInfo.interOPYN}</li>
 						<li>invoicerCorpName(공급자 상호) : ${SearchInfo.invoicerCorpName}</li>
 						<li>invoicerCorpNum(공급자 사업자번호) : ${SearchInfo.invoicerCorpNum}</li>
 						<li>invoicerMgtKey(공급자 관리번호) : ${SearchInfo.invoicerMgtKey}</li>
