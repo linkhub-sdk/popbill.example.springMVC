@@ -16,115 +16,101 @@
 				<fieldset class="fieldset2">
 					<legend>Taxinvoice</legend>
 					<ul>
-						<li>writeDate : ${Taxinvoice.writeDate}</li>
-						<li>chargeDirection : ${Taxinvoice.chargeDirection}</li>
-						<li>issueType : ${Taxinvoice.issueType}</li>
-						<li>issueTiming : ${Taxinvoice.issueTiming}</li>
-						<li>taxType : ${Taxinvoice.taxType}</li>
+						<li>writeDate (작성일자) : ${Taxinvoice.writeDate}</li>
+						<li>chargeDirection (과금방향) : ${Taxinvoice.chargeDirection}</li>
+						<li>issueType (발행형태) : ${Taxinvoice.issueType}</li>
+						<li>issueTiming (발행시점) : ${Taxinvoice.issueTiming}</li>
+						<li>taxType (과세형태) : ${Taxinvoice.taxType}</li>
 						
-						<li>invoicerCorpNum : ${Taxinvoice.invoicerCorpNum}</li>
-						<li>invoicerCorpName : ${Taxinvoice.invoicerCorpName}</li>
-						<li>invoicerMgtKey : ${Taxinvoice.invoicerMgtKey}</li>
-						<li>invoicerTaxRegID : ${Taxinvoice.invoicerTaxRegID}</li>
-						<li>invoicerCEOName : ${Taxinvoice.invoicerCEOName}</li>
-						<li>invoicerAddr : ${Taxinvoice.invoicerAddr}</li>
-						<li>invoicerBizClass : ${Taxinvoice.invoicerBizClass}</li>
-						<li>invoicerBizType : ${Taxinvoice.invoicerBizType}</li>
-						<li>invoicerContactName : ${Taxinvoice.invoicerContactName}</li>
-						<li>invoicerDeptName : ${Taxinvoice.invoicerDeptName}</li>
-						<li>invoicerTEL : ${Taxinvoice.invoicerTEL}</li>
-						<li>invoicerHP : ${Taxinvoice.invoicerHP}</li>
-						<li>invoicerEmail : ${Taxinvoice.invoicerEmail}</li>
-						<li>invoicerSMSSendYN : ${Taxinvoice.invoicerSMSSendYN}</li>
+						<li>invoicerCorpNum (공급자 사업자번호) : ${Taxinvoice.invoicerCorpNum}</li>
+						<li>invoicerCorpName (공급자 상호) : ${Taxinvoice.invoicerCorpName}</li>
+						<li>invoicerMgtKey (공급자 문서관리번호) : ${Taxinvoice.invoicerMgtKey}</li>
+						<li>invoicerTaxRegID (공급자 종사업장 식별번호) : ${Taxinvoice.invoicerTaxRegID}</li>
+						<li>invoicerCEOName (공급자 대표자 성명) : ${Taxinvoice.invoicerCEOName}</li>
+						<li>invoicerAddr (공급자 주소) : ${Taxinvoice.invoicerAddr}</li>
+						<li>invoicerBizClass (공급자 종목) : ${Taxinvoice.invoicerBizClass}</li>
+						<li>invoicerBizType (공급자 업태) : ${Taxinvoice.invoicerBizType}</li>
+						<li>invoicerContactName (공급자 담당자명) : ${Taxinvoice.invoicerContactName}</li>
+						<li>invoicerTEL (공급자 담당자 연락처) : ${Taxinvoice.invoicerTEL}</li>
+						<li>invoicerHP (공급자 담당자 휴대폰번호) : ${Taxinvoice.invoicerHP}</li>
+						<li>invoicerEmail (공급자 담당자 메일) : ${Taxinvoice.invoicerEmail}</li>
+						<li>invoicerSMSSendYN (발행안내문자 전송여부) : ${Taxinvoice.invoicerSMSSendYN}</li>
 						
-						<li>invoiceeType : ${Taxinvoice.invoiceeType}</li>
-						<li>invoiceeCorpNum : ${Taxinvoice.invoiceeCorpNum}</li>
-						<li>invoiceeMgtKey : ${Taxinvoice.invoiceeMgtKey}</li>
-						<li>invoiceeTaxRegID : ${Taxinvoice.invoiceeTaxRegID}</li>
-						<li>invoiceeCorpName : ${Taxinvoice.invoiceeCorpName}</li>
-						<li>invoiceeCEOName : ${Taxinvoice.invoiceeCEOName}</li>
-						<li>invoiceeAddr : ${Taxinvoice.invoiceeAddr}</li>
-						<li>invoiceeBizClass : ${Taxinvoice.invoiceeBizClass}</li>
-						<li>invoiceeBizType : ${Taxinvoice.invoiceeBizType}</li>
-						<li>invoiceeContactName1 : ${Taxinvoice.invoiceeContactName1}</li>
-						<li>invoiceeDeptName1 : ${Taxinvoice.invoiceeDeptName1}</li>
-						<li>invoiceeTEL1 : ${Taxinvoice.invoiceeTEL1}</li>
-						<li>invoiceeHP1 : ${Taxinvoice.invoiceeHP1}</li>
-						<li>invoiceeEmail1 : ${Taxinvoice.invoiceeEmail1}</li>
-						<li>invoiceeContactName2 : ${Taxinvoice.invoiceeContactName2}</li>
-						<li>invoiceeDeptName2 : ${Taxinvoice.invoiceeDeptName2}</li>
-						<li>invoiceeTEL2 : ${Taxinvoice.invoiceeTEL2}</li>
-						<li>invoiceeHP2 : ${Taxinvoice.invoiceeHP2}</li>
-						<li>invoiceeEmail2 : ${Taxinvoice.invoiceeEmail2}</li>
-						<li>invoiceeSMSSendYN : ${Taxinvoice.invoiceeSMSSendYN}</li>
-						<li>closeDownState : ${Taxinvoice.closeDownState}</li>
-						<li>closeDownStateDate : ${Taxinvoice.closeDownStateDate}</li>
+						<li>invoiceeType (공급받는자 구분) : ${Taxinvoice.invoiceeType}</li>
+						<li>invoiceeCorpNum (공급받는자 사업자번호) : ${Taxinvoice.invoiceeCorpNum}</li>
+						<li>invoiceeMgtKey (공급받는자 문서관리번호) : ${Taxinvoice.invoiceeMgtKey}</li>
+						<li>invoiceeTaxRegID (공급받는자 종사업장 식별번호) : ${Taxinvoice.invoiceeTaxRegID}</li>
+						<li>invoiceeCorpName (공급받는자 상호) : ${Taxinvoice.invoiceeCorpName}</li>
+						<li>invoiceeCEOName (공급받는자 대표자 성명) : ${Taxinvoice.invoiceeCEOName}</li>
+						<li>invoiceeAddr (공급받는자 주소) : ${Taxinvoice.invoiceeAddr}</li>
+						<li>invoiceeBizClass (공급받는자 종목) : ${Taxinvoice.invoiceeBizClass}</li>
+						<li>invoiceeBizType (공급받는자 업태) : ${Taxinvoice.invoiceeBizType}</li>
+						<li>invoiceeContactName1 (공급받는자 담당자명) : ${Taxinvoice.invoiceeContactName1}</li>
+						<li>invoiceeTEL1 (공급받는자 담당자 연락처) : ${Taxinvoice.invoiceeTEL1}</li>
+						<li>invoiceeHP1 (공급받는자 담당자 휴대폰) : ${Taxinvoice.invoiceeHP1}</li>
+						<li>invoiceeEmail1 (공급받는자 담당자 메일) : ${Taxinvoice.invoiceeEmail1}</li>
+						<li>invoiceeSMSSendYN (역발행안내문자 전송여부) : ${Taxinvoice.invoiceeSMSSendYN}</li>
+						<li>closeDownState (공급받는자 휴폐업상태) : ${Taxinvoice.closeDownState}</li>
+						<li>closeDownStateDate (공급받는자 휴폐업일자) : ${Taxinvoice.closeDownStateDate}</li>
 						
-						<li>trusteeCorpNum : ${Taxinvoice.trusteeCorpNum}</li>
-						<li>trusteeCorpName : ${Taxinvoice.trusteeCorpName}</li>
-						<li>trusteeMgtKey : ${Taxinvoice.trusteeMgtKey}</li>
-						<li>trusteeTaxRegID : ${Taxinvoice.trusteeTaxRegID}</li>
-						<li>trusteeCEOName : ${Taxinvoice.trusteeCEOName}</li>
-						<li>trusteeAddr : ${Taxinvoice.trusteeAddr}</li>
-						<li>trusteeBizClass : ${Taxinvoice.trusteeBizClass}</li>
-						<li>trusteeBizType : ${Taxinvoice.trusteeBizType}</li>
-						<li>trusteeContactName : ${Taxinvoice.trusteeContactName}</li>
-						<li>trusteeDeptName : ${Taxinvoice.trusteeDeptName}</li>
-						<li>trusteeTEL : ${Taxinvoice.trusteeTEL}</li>
-						<li>trusteeHP : ${Taxinvoice.trusteeHP}</li>
-						<li>trusteeEmail : ${Taxinvoice.trusteeEmail}</li>
-						<li>trusteeSMSSendYN : ${Taxinvoice.trusteeSMSSendYN}</li>
+						<li>trusteeCorpNum (수탁자 사업자번호) : ${Taxinvoice.trusteeCorpNum}</li>
+						<li>trusteeCorpName (수탁자 상호) : ${Taxinvoice.trusteeCorpName}</li>
+						<li>trusteeMgtKey (수탁자 문서관리번호) : ${Taxinvoice.trusteeMgtKey}</li>
+						<li>trusteeTaxRegID (수탁자 종사업장 식별번호) : ${Taxinvoice.trusteeTaxRegID}</li>
+						<li>trusteeCEOName (수탁자 대표자 성명) : ${Taxinvoice.trusteeCEOName}</li>
+						<li>trusteeAddr (수탁자 주소) : ${Taxinvoice.trusteeAddr}</li>
+						<li>trusteeBizClass (수탁자 종목) : ${Taxinvoice.trusteeBizClass}</li>
+						<li>trusteeBizType (수탁자 업태) : ${Taxinvoice.trusteeBizType}</li>
+						<li>trusteeContactName (수탁자 담당자명) : ${Taxinvoice.trusteeContactName}</li>
+						<li>trusteeTEL (수탁자 담당자 연락처) : ${Taxinvoice.trusteeTEL}</li>
+						<li>trusteeHP (수탁자 담당자 휴대폰) : ${Taxinvoice.trusteeHP}</li>
+						<li>trusteeEmail (수탁자 메일) : ${Taxinvoice.trusteeEmail}</li>
+						<li>trusteeSMSSendYN (안내문자 전송여부) : ${Taxinvoice.trusteeSMSSendYN}</li>
 						
-						<li>supplyCostTotal : ${Taxinvoice.supplyCostTotal}</li>
-						<li>taxTotal : ${Taxinvoice.taxTotal}</li>
-						<li>totalAmount : ${Taxinvoice.totalAmount}</li>
-						
-						<li>modifyCode : ${Taxinvoice.modifyCode}</li>
-						<li>orgNTSConfirmNum : ${Taxinvoice.orgNTSConfirmNum}</li>
-						<li>purposeType : ${Taxinvoice.purposeType}</li>
-						
-						<li>serialNum : ${Taxinvoice.serialNum}</li>
-						<li>cash : ${Taxinvoice.cash}</li>
-						<li>chkBill : ${Taxinvoice.chkBill}</li>
-						<li>credit : ${Taxinvoice.credit}</li>
-						<li>note : ${Taxinvoice.note}</li>
-						
-						<li>remark1 : ${Taxinvoice.remark1}</li>
-						<li>remark2 : ${Taxinvoice.remark2}</li>
-						<li>remark3 : ${Taxinvoice.remark3}</li>
-						
-						<li>kwon : ${Taxinvoice.kwon}</li>
-						<li>ho : ${Taxinvoice.ho}</li>
-						
-						<li>businessLicenseYN : ${Taxinvoice.businessLicenseYN}</li>
-						<li>bankBookYN : ${Taxinvoice.bankBookYN}</li>
-						<li>NTSConfirmNum : ${Taxinvoice.NTSConfirmNum}</li>
-						<li>originalTaxinvoiceKey : ${Taxinvoice.originalTaxinvoiceKey}</li>
-						
+						<li>supplyCostTotal (공급가액 합계) : ${Taxinvoice.supplyCostTotal}</li>
+						<li>taxTotal (세액 합계) : ${Taxinvoice.taxTotal}</li>
+						<li>totalAmount (합계금액) : ${Taxinvoice.totalAmount}</li>
+						<li>modifyCode (수정사유코드) : ${Taxinvoice.modifyCode}</li>
+						<li>orgNTSConfirmNum (원본세금계산서 국세청승인번호) : ${Taxinvoice.orgNTSConfirmNum}</li>
+						<li>purposeType (영수/청구) : ${Taxinvoice.purposeType}</li>
+						<li>serialNum (일련번호) : ${Taxinvoice.serialNum}</li>
+						<li>cash (현금) : ${Taxinvoice.cash}</li>
+						<li>chkBill (수표) : ${Taxinvoice.chkBill}</li>
+						<li>credit (외상) : ${Taxinvoice.credit}</li>
+						<li>note (어음) : ${Taxinvoice.note}</li>
+						<li>remark1 (비고1) : ${Taxinvoice.remark1}</li>
+						<li>remark2 (비고2) : ${Taxinvoice.remark2}</li>
+						<li>remark3 (비고3) : ${Taxinvoice.remark3}</li>
+						<li>kwon (권) : ${Taxinvoice.kwon}</li>
+						<li>ho (호) : ${Taxinvoice.ho}</li>
+						<li>businessLicenseYN (사업자등록증 이미지 첨부여부) : ${Taxinvoice.businessLicenseYN}</li>
+						<li>bankBookYN (통장사본 이미지 첨부여부) : ${Taxinvoice.bankBookYN}</li>
+						<li>NTSConfirmNum (국세청승인번호) : ${Taxinvoice.NTSConfirmNum}</li>
+						<li>originalTaxinvoiceKey (원본세금계산서 아이템키) : ${Taxinvoice.originalTaxinvoiceKey}</li>
 					</ul>
 					<fieldset class="fieldset3">
-						<legend>detailList</legend>
+						<legend>detailList (상세항목 배열)</legend>
 						<c:forEach items="${Taxinvoice.detailList}" var="TaxinvoiceDetail">
-						<legend>SerialNum : ${TaxinvoiceDetail.serialNum}</legend>
 						<ul>
-							<li>purchaseDT : ${TaxinvoiceDetail.purchaseDT}</li>
-							<li>itemName : ${TaxinvoiceDetail.itemName}</li>
-							<li>spec : ${TaxinvoiceDetail.spec}</li>
-							<li>qty : ${TaxinvoiceDetail.qty}</li>
-							<li>unitCost : ${TaxinvoiceDetail.unitCost}</li>
-							<li>supplyCost : ${TaxinvoiceDetail.supplyCost}</li>
-							<li>tax : ${TaxinvoiceDetail.tax}</li>
-							<li>remark : ${TaxinvoiceDetail.remark}</li>
+							<li>serialNum (일련번호) : ${TaxinvoiceDetail.serialNum}</li>
+							<li>purchaseDT (거래일자) : ${TaxinvoiceDetail.purchaseDT}</li>
+							<li>itemName (품명) : ${TaxinvoiceDetail.itemName}</li>
+							<li>spec (규격) : ${TaxinvoiceDetail.spec}</li>
+							<li>qty (수량) : ${TaxinvoiceDetail.qty}</li>
+							<li>unitCost (단가) : ${TaxinvoiceDetail.unitCost}</li>
+							<li>supplyCost (공급가액) : ${TaxinvoiceDetail.supplyCost}</li>
+							<li>tax (세액) : ${TaxinvoiceDetail.tax}</li>
+							<li>remark (비고) : ${TaxinvoiceDetail.remark}</li>
 						</ul>
 						</c:forEach>
 					</fieldset>
 					<fieldset class="fieldset3">
-						<legend>addContactList</legend>
+						<legend>addContactList (추가담당자 배열)</legend>
 						<c:forEach items="${Taxinvoice.addContactList}" var="TaxinvoiceAddContact">
-						<legend>SerialNum : ${TaxinvoiceAddContact.serialNum}</legend>
 						<ul>
-							<li>contactName : ${TaxinvoiceAddContact.contactName}</li>
-							<li>email : ${TaxinvoiceAddContact.email}</li>
+							<li>serialNum (일련번호) : ${TaxinvoiceAddContact.serialNum}</li>
+							<li>contactName (담당자명) : ${TaxinvoiceAddContact.contactName}</li>
+							<li>email (메일주소) : ${TaxinvoiceAddContact.email}</li>
 						</ul>
 						</c:forEach>
 					</fieldset>

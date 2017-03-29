@@ -5,7 +5,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="/resources/main.css" media="screen" />
 		
-		<title>íë¹ SDK SpringMVC Example.</title>
+		<title>팝빌 SDK SpringMVC Example.</title>
 	</head>
 	<body>
 		<div id="content">
@@ -17,42 +17,46 @@
 				<fieldset class="fieldset2">
 					<legend>TaxinvoiceInfo</legend>
 					<ul>
-						<li>itemKey : ${TaxinvoiceInfo.itemKey}</li>
-						<li>taxType : ${TaxinvoiceInfo.taxType}</li>
-						<li>writeDate : ${TaxinvoiceInfo.writeDate}</li>
-						<li>regDT : ${TaxinvoiceInfo.regDT}</li>
-						<li>interOPYN : ${TaxinvoiceInfo.interOPYN}</li>
-						<li>invoicerCorpName : ${TaxinvoiceInfo.invoicerCorpName}</li>
-						<li>invoicerCorpNum : ${TaxinvoiceInfo.invoicerCorpNum}</li>
-						<li>invoicerMgtKey : ${TaxinvoiceInfo.invoicerMgtKey}</li>
-						<li>invoicerPrintYN : ${TaxinvoiceInfo.invoicerPrintYN}</li>
-						<li>invoiceeCorpName : ${TaxinvoiceInfo.invoiceeCorpName}</li>
-						<li>invoiceeCorpNum : ${TaxinvoiceInfo.invoiceeCorpNum}</li>
-						<li>invoiceeMgtKey : ${TaxinvoiceInfo.invoiceeMgtKey}</li>
-						<li>invoiceePrintYN : ${TaxinvoiceInfo.invoiceePrintYN}</li>
-						<li>closeDownState : ${TaxinvoiceInfo.closeDownState}</li>
-						<li>closeDownStateDate : ${TaxinvoiceInfo.closeDownStateDate}</li>
-						<li>trusteeCorpName : ${TaxinvoiceInfo.trusteeCorpName}</li>
-						<li>trusteeCorpNum : ${TaxinvoiceInfo.trusteeCorpNum}</li>
-						<li>trusteeMgtKey : ${TaxinvoiceInfo.trusteeMgtKey}</li>
-						<li>supplyCostTotal : ${TaxinvoiceInfo.supplyCostTotal}</li>
-						<li>taxTotal : ${TaxinvoiceInfo.taxTotal}</li>
-						<li>purposeType : ${TaxinvoiceInfo.purposeType}</li>
-						<li>modifyCode : ${TaxinvoiceInfo.modifyCode}</li>
-						<li>issueType : ${TaxinvoiceInfo.issueType}</li>
-						<li>issueDT : ${TaxinvoiceInfo.issueDT}</li>
-						<li>lateIssueYN : ${TaxinvoiceInfo.lateIssueYN}</li>
-						<li>preIssueDT : ${TaxinvoiceInfo.preIssueDT}</li>
-						<li>stateCode : ${TaxinvoiceInfo.stateCode}</li>
-						<li>stateDT : ${TaxinvoiceInfo.stateDT}</li>
-						<li>stateMemo : ${TaxinvoiceInfo.stateMemo}</li>
-						<li>openYN : ${TaxinvoiceInfo.openYN}</li>
-						<li>openDT : ${TaxinvoiceInfo.openDT}</li>
-						<li>ntsresult : ${TaxinvoiceInfo.NTSResult}</li>
-						<li>ntsconfirmNum : ${TaxinvoiceInfo.NTSConfirmNum}</li>
-						<li>ntssendDT : ${TaxinvoiceInfo.NTSSendDT}</li>
-						<li>ntsresultDT : ${TaxinvoiceInfo.NTSResultDT}</li>
-						<li>ntssendErrCode : ${TaxinvoiceInfo.NTSSendErrCode}</li>
+						<li>itemKey (팝빌 아이템키) : ${TaxinvoiceInfo.itemKey}</li>
+						<li>taxType (과세형태) : ${TaxinvoiceInfo.taxType}</li>
+						<li>writeDate (작성일자) : ${TaxinvoiceInfo.writeDate}</li>
+						<li>regDT (임시저장 일자) : ${TaxinvoiceInfo.regDT}</li>
+						<li>interOPYN (연동문서 여부) : ${TaxinvoiceInfo.interOPYN}</li>
+						
+						<li>invoicerCorpName (공급자 상호) : ${TaxinvoiceInfo.invoicerCorpName}</li>
+						<li>invoicerCorpNum (공급자 사업자번호) : ${TaxinvoiceInfo.invoicerCorpNum}</li>
+						<li>invoicerMgtKey (공급자 문서관리번호) : ${TaxinvoiceInfo.invoicerMgtKey}</li>
+						<li>invoicerPrintYN (공급자 인쇄여부) : ${TaxinvoiceInfo.invoicerPrintYN}</li>
+						
+						<li>invoiceeCorpName (공급받는자 상호) : ${TaxinvoiceInfo.invoiceeCorpName}</li>
+						<li>invoiceeCorpNum (공급받는자 사업자번호) : ${TaxinvoiceInfo.invoiceeCorpNum}</li>
+						<li>invoiceeMgtKey (공급받는자 문서관리번호) : ${TaxinvoiceInfo.invoiceeMgtKey}</li>
+						<li>invoiceePrintYN (공급받는자 인쇄여부) : ${TaxinvoiceInfo.invoiceePrintYN}</li>
+						<li>closeDownState (공급받는자 휴폐업상태) : ${TaxinvoiceInfo.closeDownState}</li>
+						<li>closeDownStateDate (공급받는자 휴폐업일자) : ${TaxinvoiceInfo.closeDownStateDate}</li>
+						
+						<li>trusteeCorpName (수탁자 상호) : ${TaxinvoiceInfo.trusteeCorpName}</li>
+						<li>trusteeCorpNum (수탁사 사업자번호) : ${TaxinvoiceInfo.trusteeCorpNum}</li>
+						<li>trusteeMgtKey (수탁자 문서관리번호) : ${TaxinvoiceInfo.trusteeMgtKey}</li>
+						
+						<li>supplyCostTotal (공급가액 합계) : ${TaxinvoiceInfo.supplyCostTotal}</li>
+						<li>taxTotal (세액 합계) : ${TaxinvoiceInfo.taxTotal}</li>
+						<li>purposeType (영수/청구) : ${TaxinvoiceInfo.purposeType}</li>
+						<li>modifyCode (수정 사유코드) : ${TaxinvoiceInfo.modifyCode}</li>
+						<li>issueType (발행형태) : ${TaxinvoiceInfo.issueType}</li>
+						<li>issueDT (발행일시) : ${TaxinvoiceInfo.issueDT}</li>
+						<li>lateIssueYN (지연발행 여부) : ${TaxinvoiceInfo.lateIssueYN}</li>
+						<li>preIssueDT (발행예정일시) : ${TaxinvoiceInfo.preIssueDT}</li>
+						<li>stateCode (상태코드) : ${TaxinvoiceInfo.stateCode}</li>
+						<li>stateDT (상태변경일시) : ${TaxinvoiceInfo.stateDT}</li>
+						<li>stateMemo (상태메모) : ${TaxinvoiceInfo.stateMemo}</li>
+						<li>openYN (개봉 여부) : ${TaxinvoiceInfo.openYN}</li>
+						<li>openDT (개봉 일시) : ${TaxinvoiceInfo.openDT}</li>
+						<li>ntsresult (국세청 전송결과) : ${TaxinvoiceInfo.NTSResult}</li>
+						<li>ntsconfirmNum (국세청승인번호) : ${TaxinvoiceInfo.NTSConfirmNum}</li>
+						<li>ntssendDT (국세청 전송일시) : ${TaxinvoiceInfo.NTSSendDT}</li>
+						<li>ntsresultDT (국세청 결과 수신일시) : ${TaxinvoiceInfo.NTSResultDT}</li>
+						<li>ntssendErrCode (전송실패 사유코드) : ${TaxinvoiceInfo.NTSSendErrCode}</li>
 					</ul>
 				</fieldset>
 				</c:if>
@@ -60,43 +64,49 @@
 				<c:if test="${TaxinvoiceInfos != null}">
 				<c:forEach items="${TaxinvoiceInfos}" var="TaxinvoiceInfo">
 				<fieldset class="fieldset2">
-					<legend>TaxinvoiceInfo : ${TaxinvoiceInfo.invoicerMgtKey}</legend>
+					<legend>세금계산서 공급자 문서관리번호 : ${TaxinvoiceInfo.invoicerMgtKey}</legend>
 					<ul>
-						<li>itemKey : ${TaxinvoiceInfo.itemKey}</li>
-						<li>taxType : ${TaxinvoiceInfo.taxType}</li>
-						<li>writeDate : ${TaxinvoiceInfo.writeDate}</li>
-						<li>regDT : ${TaxinvoiceInfo.regDT}</li>
-						<li>invoicerCorpName : ${TaxinvoiceInfo.invoicerCorpName}</li>
-						<li>invoicerCorpNum : ${TaxinvoiceInfo.invoicerCorpNum}</li>
-						<li>invoicerMgtKey : ${TaxinvoiceInfo.invoicerMgtKey}</li>
-						<li>invoicerPrintYN : ${TaxinvoiceInfo.invoicerPrintYN}</li>
-						<li>invoiceeCorpName : ${TaxinvoiceInfo.invoiceeCorpName}</li>
-						<li>invoiceeCorpNum : ${TaxinvoiceInfo.invoiceeCorpNum}</li>
-						<li>invoiceeMgtKey : ${TaxinvoiceInfo.invoiceeMgtKey}</li>
-						<li>invoiceePrintYN : ${TaxinvoiceInfo.invoiceePrintYN}</li>
-						<li>closeDownState : ${TaxinvoiceInfo.closeDownState}</li>
-						<li>closeDownStateDate : ${TaxinvoiceInfo.closeDownStateDate}</li>
-						<li>trusteeCorpName : ${TaxinvoiceInfo.trusteeCorpName}</li>
-						<li>trusteeCorpNum : ${TaxinvoiceInfo.trusteeCorpNum}</li>
-						<li>trusteeMgtKey : ${TaxinvoiceInfo.trusteeMgtKey}</li>
-						<li>supplyCostTotal : ${TaxinvoiceInfo.supplyCostTotal}</li>
-						<li>taxTotal : ${TaxinvoiceInfo.taxTotal}</li>
-						<li>purposeType : ${TaxinvoiceInfo.purposeType}</li>
-						<li>modifyCode : ${TaxinvoiceInfo.modifyCode}</li>
-						<li>issueType : ${TaxinvoiceInfo.issueType}</li>
-						<li>issueDT : ${TaxinvoiceInfo.issueDT}</li>
-						<li>lateIssueYN : ${TaxinvoiceInfo.lateIssueYN}</li>
-						<li>preIssueDT : ${TaxinvoiceInfo.preIssueDT}</li>
-						<li>stateCode : ${TaxinvoiceInfo.stateCode}</li>
-						<li>stateDT : ${TaxinvoiceInfo.stateDT}</li>
-						<li>stateMemo : ${TaxinvoiceInfo.stateMemo}</li>
-						<li>openYN : ${TaxinvoiceInfo.openYN}</li>
-						<li>openDT : ${TaxinvoiceInfo.openDT}</li>
-						<li>ntsresult : ${TaxinvoiceInfo.NTSResult}</li>
-						<li>ntsconfirmNum : ${TaxinvoiceInfo.NTSConfirmNum}</li>
-						<li>ntssendDT : ${TaxinvoiceInfo.NTSSendDT}</li>
-						<li>ntsresultDT : ${TaxinvoiceInfo.NTSResultDT}</li>
-						<li>ntssendErrCode : ${TaxinvoiceInfo.NTSSendErrCode}</li>
+						<li>itemKey (팝빌 아이템키) : ${TaxinvoiceInfo.itemKey}</li>
+						<li>taxType (과세형태) : ${TaxinvoiceInfo.taxType}</li>
+						<li>writeDate (작성일자) : ${TaxinvoiceInfo.writeDate}</li>
+						<li>regDT (임시저장 일자) : ${TaxinvoiceInfo.regDT}</li>
+						<li>interOPYN (연동문서 여부) : ${TaxinvoiceInfo.interOPYN}</li>
+						
+						<li>invoicerCorpName (공급자 상호) : ${TaxinvoiceInfo.invoicerCorpName}</li>
+						<li>invoicerCorpNum (공급자 사업자번호) : ${TaxinvoiceInfo.invoicerCorpNum}</li>
+						<li>invoicerMgtKey (공급자 문서관리번호) : ${TaxinvoiceInfo.invoicerMgtKey}</li>
+						<li>invoicerPrintYN (공급자 인쇄여부) : ${TaxinvoiceInfo.invoicerPrintYN}</li>
+						
+						<li>invoiceeCorpName (공급받는자 상호) : ${TaxinvoiceInfo.invoiceeCorpName}</li>
+						<li>invoiceeCorpNum (공급받는자 사업자번호) : ${TaxinvoiceInfo.invoiceeCorpNum}</li>
+						<li>invoiceeMgtKey (공급받는자 문서관리번호) : ${TaxinvoiceInfo.invoiceeMgtKey}</li>
+						<li>invoiceePrintYN (공급받는자 인쇄여부) : ${TaxinvoiceInfo.invoiceePrintYN}</li>
+						<li>closeDownState (공급받는자 휴폐업상태) : ${TaxinvoiceInfo.closeDownState}</li>
+						<li>closeDownStateDate (공급받는자 휴폐업일자) : ${TaxinvoiceInfo.closeDownStateDate}</li>
+						
+						<li>trusteeCorpName (수탁자 상호) : ${TaxinvoiceInfo.trusteeCorpName}</li>
+						<li>trusteeCorpNum (수탁사 사업자번호) : ${TaxinvoiceInfo.trusteeCorpNum}</li>
+						<li>trusteeMgtKey (수탁자 문서관리번호) : ${TaxinvoiceInfo.trusteeMgtKey}</li>
+						
+						<li>supplyCostTotal (공급가액 합계) : ${TaxinvoiceInfo.supplyCostTotal}</li>
+						<li>taxTotal (세액 합계) : ${TaxinvoiceInfo.taxTotal}</li>
+						<li>purposeType (영수/청구) : ${TaxinvoiceInfo.purposeType}</li>
+						<li>modifyCode (수정 사유코드) : ${TaxinvoiceInfo.modifyCode}</li>
+						<li>issueType (발행형태) : ${TaxinvoiceInfo.issueType}</li>
+						<li>issueDT (발행일시) : ${TaxinvoiceInfo.issueDT}</li>
+						<li>lateIssueYN (지연발행 여부) : ${TaxinvoiceInfo.lateIssueYN}</li>
+						<li>preIssueDT (발행예정일시) : ${TaxinvoiceInfo.preIssueDT}</li>
+						<li>stateCode (상태코드) : ${TaxinvoiceInfo.stateCode}</li>
+						<li>stateDT (상태변경일시) : ${TaxinvoiceInfo.stateDT}</li>
+						<li>stateMemo (상태메모) : ${TaxinvoiceInfo.stateMemo}</li>
+						<li>openYN (개봉 여부) : ${TaxinvoiceInfo.openYN}</li>
+						<li>openDT (개봉 일시) : ${TaxinvoiceInfo.openDT}</li>
+						<li>ntsresult (국세청 전송결과) : ${TaxinvoiceInfo.NTSResult}</li>
+						<li>ntsconfirmNum (국세청승인번호) : ${TaxinvoiceInfo.NTSConfirmNum}</li>
+						<li>ntssendDT (국세청 전송일시) : ${TaxinvoiceInfo.NTSSendDT}</li>
+						<li>ntsresultDT (국세청 결과 수신일시) : ${TaxinvoiceInfo.NTSResultDT}</li>
+						<li>ntssendErrCode (전송실패 사유코드) : ${TaxinvoiceInfo.NTSSendErrCode}</li>
+
 					</ul>
 				</fieldset>
 				</c:forEach>
