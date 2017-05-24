@@ -237,6 +237,9 @@ public class BaseServiceExample {
 		
 		ContactInfo contactInfo = new ContactInfo();
 		
+		// 담당자 아이디
+		contactInfo.setId(testUserID);
+		
 		// 담당자 이메일주소
 		contactInfo.setEmail("test1234@test.com");		
 		
