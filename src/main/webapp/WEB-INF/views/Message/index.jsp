@@ -93,6 +93,7 @@
 						<li><a href="MessageService/getURL">getURL</a> - 문자메시지 관련 SSO URL 확인</li>
 						<li><a href="MessageService/getUnitCost">getUnitCost</a> - 문자전송 단가 확인</li>
 						<li><a href="MessageService/autoDenyList">autoDenyList</a> - 080수신거부 목록 확인</li>
+						<li><a href="MessageService/getSenderNumberList">getSenderNumberList</a> - 발신번호 목록 확인</li>
 					</ul>
 				</fieldset>
 

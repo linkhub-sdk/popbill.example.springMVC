@@ -46,6 +46,7 @@ import com.popbill.api.Response;
 import com.popbill.api.fax.FAXSearchResult;
 import com.popbill.api.fax.FaxResult;
 import com.popbill.api.fax.Receiver;
+import com.popbill.api.fax.SenderNumber;
 
 /**
  * 팝빌 팩스 API 예제.
@@ -114,12 +115,12 @@ public class FaxServiceExample {
 	@RequestMapping(value = "getURL", method = RequestMethod.GET)
 	public String getURL( Model m) {
 		/**
-		 * 팩스 전송내역 목록 팝업 URL을 반환합니다.
-		 * 보안정책으로 인해 반환된 URL은 30초의 유효시간을 갖습니다.
+		 * 팩스 서비스 관련 팝업 URL을 반환합니다.
+		 * - 보안정책으로 인해 반환된 URL은 30초의 유효시간을 갖습니다.
 		 */
 		
-		// TBOX : 팩스 전송 내역 조회 팝업
-		String TOGO = "BOX"; 
+		// BOX : 팩스 전송내역 조회 / SENDER : 발신번호 관리 팝업
+		String TOGO = "SENDER"; 
 		
 		try {
 			
@@ -398,5 +399,21 @@ public class FaxServiceExample {
 			return "exception";
 		}
 		return "Fax/SearchResult";
+	}
+	
+	@RequestMapping(value = "getSenderNumberList", method = RequestMethod.GET)
+	public String getSenderNumberList(Model m){
+		/**
+		 * 발신번호 목록을 확인합니다.
+		 */
+		
+		try {
+			SenderNumber[] senderNumberList = faxService.getSenderNumberList(testCorpNum);
+			m.addAttribute("SenderNumberList", senderNumberList);
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		return "Fax/SenderNumber";
 	}
 }

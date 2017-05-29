@@ -46,6 +46,7 @@ import com.popbill.api.message.AutoDeny;
 import com.popbill.api.message.MSGSearchResult;
 import com.popbill.api.message.Message;
 import com.popbill.api.message.MessageType;
+import com.popbill.api.message.SenderNumber;
 import com.popbill.api.message.SentMessage;
 
 /**
@@ -118,12 +119,12 @@ public class MessageServiceExample {
 	@RequestMapping(value = "getURL", method = RequestMethod.GET)
 	public String getURL( Model m) {
 		/**
-		 * 문자메시지 전송내역 팝업 URL을 반환합니다.
+		 * 문자 서비스 관련 팝업 URL을 반환합니다.
 		 * - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
 		 */
 		
-		// BOX : 문자 전송 내역 조회 팝업
-		String TOGO = "BOX"; 
+		// BOX - 문자 전송내역 조회 / SENDER - 발신번호 관리 팝업
+		String TOGO = "SENDER"; 
 		
 		try {
 			
@@ -604,6 +605,22 @@ public class MessageServiceExample {
 			return "exception";
 		}
 		return "Message/AutoDeny";
+	}
+	
+	@RequestMapping(value = "getSenderNumberList", method = RequestMethod.GET)
+	public String getSenderNumberList(Model m){
+		/**
+		 * 발신번호 목록을 확인합니다.
+		 */
+		
+		try {
+			SenderNumber[] senderNumberList = messageService.getSenderNumberList(testCorpNum);
+			m.addAttribute("SenderNumberList", senderNumberList);
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		return "Message/SenderNumber";
 	}
 	
 }
