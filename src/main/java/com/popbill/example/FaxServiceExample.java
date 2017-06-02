@@ -2,7 +2,7 @@
  * 팝빌 팩스 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : http://blog.linkhub.co.kr/591/
- * - 업데이트 일자 : 2016-12-05
+ * - 업데이트 일자 : 2017-06-02
  * - 연동 기술지원 연락처 : 1600-8536 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
  *
@@ -140,7 +140,7 @@ public class FaxServiceExample {
 	public String sendFAX( Model m) throws URISyntaxException {
 		
 		// 발신번호
-		String sendNum = "07043042991"; 
+		String sendNum = "07043042992"; 
 		
 		// 수신번호
 		String receiveNum = "070111222";
@@ -156,13 +156,16 @@ public class FaxServiceExample {
 			throw e1;
 		}
 		
-		//전송 예약일시
-		Date reserveDT = null; 
+		// 전송 예약일시
+		Date reserveDT = null;
+		
+		// 광고팩스 전송여부
+		Boolean adsYN = false;
 		
 		try {
 			
 			String receiptNum = faxService.sendFAX(testCorpNum, sendNum, receiveNum, 
-					receiveName, file, reserveDT, testUserID);
+					receiveName, file, reserveDT, testUserID, adsYN);
 			
 			m.addAttribute("Result",receiptNum);
 			
@@ -178,15 +181,17 @@ public class FaxServiceExample {
 	public String sendFAX_Multi( Model m) throws URISyntaxException {
 		
 		// 발신번호
-		String sendNum = "07043042991"; 
+		String sendNum = "07043042992"; 
 		
+		
+		// 수신자 정보
 		Receiver receiver1 = new Receiver();
 		receiver1.setReceiveName("수신자1");		// 수신자명
 		receiver1.setReceiveNum("010111222");	// 수신팩스번호
 		
 		Receiver receiver2 = new Receiver();
 		receiver2.setReceiveName("수신자2");		// 수신자명
-		receiver2.setReceiveNum("010333444");	// 수신팩스번호
+		receiver2.setReceiveNum("07043042991");	// 수신팩스번호
 		
 		
 		// 팩스전송정보 배열, 최대 1000건
@@ -203,10 +208,13 @@ public class FaxServiceExample {
 		// 전송예약일시
 		Date reserveDT = null; 
 		
+		// 광고팩스 전송여부 
+		Boolean adsYN = false;
+		
 		try {
 			
 			String receiptNum = faxService.sendFAX(testCorpNum, sendNum, receivers,
-					file, reserveDT, testUserID);
+					file, reserveDT, testUserID, adsYN);
 			
 			m.addAttribute("Result",receiptNum);
 			
