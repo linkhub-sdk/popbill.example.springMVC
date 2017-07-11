@@ -2,7 +2,7 @@
  * 팝빌 현금영수증 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : http://blog.linkhub.co.kr/591/
- * - 업데이트 일자 : 2017-06-02
+ * - 업데이트 일자 : 2017-07-11
  * - 연동 기술지원 연락처 : 1600-8536 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
  *
@@ -137,8 +137,11 @@ public class CashbillServiceExample {
 		// 현금영수증 형태, {승인거래, 취소거래} 중 기재
 		cashbill.setTradeType("승인거래");				
 		
-		// 취소거래시 기재, 원본현금영수증 국세청 승인번호 - getInfo API를 통해 confirmNum 값 기재
+		// 취소거래시 기재, 원본 현금영수증 국세청 승인번호 - getInfo API를 통해 confirmNum 값 기재
 		//cashbill.setOrgConfirmNum("");  			
+
+		// 취소거래시 기재, 원본 현금영수증 거래일자 - getInfo API를 통해 tradeDate 값 기재
+		//cashbill.setOrgTradeDate("");	
 				
 		
 		// 과세형태, {과세, 비과세} 중 기재
@@ -790,9 +793,12 @@ public class CashbillServiceExample {
 		// 현금영수증 형태, {승인거래, 취소거래} 중 기재
 		cashbill.setTradeType("승인거래");				
 		
-		// 취소거래시 기재, 원본현금영수증 국세청 승인번호 - getInfo API를 통해 confirmNum 값 기재
+		// 취소거래시 기재, 원본 현금영수증 국세청 승인번호 - getInfo API를 통해 confirmNum 값 기재
 		//cashbill.setOrgConfirmNum("");  			
-				
+
+		// 취소거래시 기재, 원본 현금영수증 거래일자 - getInfo API를 통해 tradeDate 값 기재
+		//cashbill.setOrgTradeDate("");
+		
 		
 		// 과세형태, {과세, 비과세} 중 기재
 		cashbill.setTaxationType("과세");				
