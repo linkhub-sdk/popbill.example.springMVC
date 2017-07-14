@@ -15,21 +15,22 @@
 				<legend>${requestScope['javax.servlet.forward.request_uri']}</legend>
 				<c:forEach items="${SentMessages}" var="SentMessage" varStatus="status">
 				<fieldset class="fieldset2">
-					<legend>SentMessage : ${status.index}</legend>
+					<legend>문자 전송결과</legend>
 					<ul>
-						<li>sendState : ${SentMessage.state}</li>
-						<li>subject : ${SentMessage.subject}</li>
-						<li>messageType : ${SentMessage.messageType}</li>
-						<li>content : ${SentMessage.content}</li>
-						<li>sendNum : ${SentMessage.sendNum}</li>
-						<li>senderName : ${SentMessage.senderName}</li>
-						<li>receiveNum : ${SentMessage.receiveNum}</li>
-						<li>receiveName : ${SentMessage.receiveName}</li>
-						<li>reserveDT : ${SentMessage.reserveDT}</li>
-						<li>sendDT : ${SentMessage.sendDT}</li>
-						<li>resultDT : ${SentMessage.resultDT}</li>
-						<li>result : ${SentMessage.result}</li>
-						<li>receiptDT : ${SentMessage.receiptDT}</li>
+						<li>state (전송상태 코드) : ${SentMessage.state}</li>
+						<li>result (전송결과 코드) : ${SentMessage.result}</li>
+						<li>subject (메시지 제목) : ${SentMessage.subject}</li>
+						<li>messageType (메시지타입) : ${SentMessage.messageType}</li>
+						<li>content (메시지 내용) : ${SentMessage.content}</li>
+						<li>sendNum (발신번호) : ${SentMessage.sendNum}</li>
+						<li>senderName (발신자명) : ${SentMessage.senderName}</li>
+						<li>receiveNum (수신번호) : ${SentMessage.receiveNum}</li>
+						<li>receiveName (수신자명) : ${SentMessage.receiveName}</li>
+						<li>receiptDT (접수일시) : ${SentMessage.receiptDT}</li>
+						<li>sendDT (전송일시) : ${SentMessage.sendDT}</li>
+						<li>resultDT (전송결과 수신일시) : ${SentMessage.resultDT}</li>
+						<li>reserveDT (예약일시) : ${SentMessage.reserveDT}</li>
+						<li>tranNet (전송처리 이동통신사명) : ${SentMessage.tranNet}</li>
 					</ul>
 				</fieldset>
 				</c:forEach>

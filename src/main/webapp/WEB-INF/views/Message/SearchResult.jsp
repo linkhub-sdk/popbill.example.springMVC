@@ -32,20 +32,20 @@
 				<fieldset class="fieldset2">
 					<legend>[ ${status.index+1} / ${SearchResult.perPage} ]</legend>
 					<ul>
-						<li> state : ${SearchInfo.state}</li>
-						<li> subject : ${SearchInfo.subject}</li>
-						<li> content : ${SearchInfo.content}</li>
-						<li> sendNum : ${SearchInfo.sendNum}</li>
-						<li> senderName : ${SearchInfo.senderName}</li>
-						<li> receiveNum : ${SearchInfo.receiveNum}</li>
-						<li> receiveName : ${SearchInfo.receiveName}</li>
-						<li> reserveDT : ${SearchInfo.reserveDT}</li>
-						<li> sendDT : ${SearchInfo.sendDT}</li>
-						<li> resultDT : ${SearchInfo.resultDT}</li>
-						<li> result : ${SearchInfo.result}</li>
-						<li> tranNet : ${SearchInfo.tranNet}</li>
-						<li> receiptDT : ${SearchInfo.receiptDT}</li>
-						<li> messageType : ${SearchInfo.messageType}</li>
+						<li> state (전송상태 코드) : ${SearchInfo.state}</li>
+						<li> result (전송결과 코드) : ${SearchInfo.result}</li>
+						<li> subject (메시지 제목) : ${SearchInfo.subject}</li>
+						<li> messageType (메시지 유형) : ${SearchInfo.messageType}</li>
+						<li> content (메시지 내용) : ${SearchInfo.content}</li>
+						<li> sendNum (발신번호) : ${SearchInfo.sendNum}</li>
+						<li> senderName (발신자명) : ${SearchInfo.senderName}</li>
+						<li> receiveNum (수신번호) : ${SearchInfo.receiveNum}</li>
+						<li> receiveName (수신자명) : ${SearchInfo.receiveName}</li>
+						<li> receiptDT (접수일시) : ${SearchInfo.receiptDT}</li>
+						<li> sendDT (전송일시) : ${SearchInfo.sendDT}</li>
+						<li> resultDT (전송결과 수신일시) : ${SearchInfo.resultDT}</li>
+						<li> reserveDT (예약일시) : ${SearchInfo.reserveDT}</li>
+						<li> tranNet (전송처리 이동통신사명) : ${SearchInfo.tranNet}</li>
 					</ul>
 				</fieldset>
 				</c:forEach>

@@ -33,6 +33,7 @@
 						<li>franchiseAddr (가맹점 주소) : ${Cashbill.franchiseAddr}</li>
 						<li>franchiseTEL (가맹점 전화번호) : ${Cashbill.franchiseTEL}</li>
 
+						<li>confirmNum (현금영수증 승인번호) : ${Cashbill.confirmNum}</li>
 						<li>identityNum (거래처 식별번호) : ${Cashbill.identityNum}</li>
 						<li>customerName (고객명) : ${Cashbill.customerName}</li>
 						<li>itemName (상품명) : ${Cashbill.itemName}</li>
@@ -40,7 +41,8 @@
 						<li>email (이메일) : ${Cashbill.email}</li>
 						<li>hp (휴대폰) : ${Cashbill.hp}</li>
 						<li>smssendYN (발행시 안내문자 전송여부) : ${Cashbill.smssendYN}</li>
-						<li>orgConfirmNum (국세청 승인번호) : ${Cashbill.orgConfirmNum}</li>
+						<li>orgConfirmNum (원본 현금영수증 승인번호) : ${Cashbill.orgConfirmNum}</li>
+						<li>orgTradeDate (원본 현금영수증 거래일자) : ${Cashbill.orgTradeDate}</li>
 					</ul>
 					</fieldset>
 				</fieldset>

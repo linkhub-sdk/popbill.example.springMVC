@@ -47,6 +47,14 @@
 						<li>stateCode (상태코드) : ${SearchInfo.stateCode}</li>
 						<li>stateDT (상태변경일시) : ${SearchInfo.stateDT}</li>
 						<li>printYN (인쇄여부) : ${SearchInfo.printYN}</li>
+						
+						<li>ntssendDT (국세청 전송일시) : ${SearchInfo.ntssendDT}</li>
+						<li>ntsresultDT (국세청 처리결과 수신일시) : ${SearchInfo.ntsresultDT}</li>
+						<li>ntsresultCode (국세청 처리결과 상태코드) : ${SearchInfo.ntsresultCode}</li>
+						<li>ntsresultMessage (국세청 처리결과 메시지) : ${SearchInfo.ntsresultMessage}</li>
+						
+						<li>orgConfirmNum (원본 현금영수증 승인번호) : ${SearchInfo.orgConfirmNum}</li>
+						<li>orgTradeDate (원본 현금영수증 거래일자) : ${SearchInfo.orgTradeDate}</li>
 					</ul>
 				</fieldset>
 				</c:forEach>

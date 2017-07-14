@@ -32,24 +32,24 @@
 				<c:forEach items="${SearchResult.list}" var="SearchInfo" varStatus="status">
 				<fieldset class="fieldset2">
 					<legend>[ ${status.index+1} / ${SearchResult.perPage} ]</legend>
-					<ul>
-						<li> sendState : ${SearchInfo.sendState}</li>
-						<li> convState : ${SearchInfo.convState}</li>
-						<li> sendNum : ${SearchInfo.sendNum}</li>
-						<li> senderName : ${SearchInfo.senderName}</li>
-						<li> receiveNum : ${SearchInfo.receiveNum}</li>
-						<li> receiveName : ${SearchInfo.receiveName}</li>
-						<li> sendPageCnt : ${SearchInfo.sendPageCnt}</li>
-						<li> successPageCnt : ${SearchInfo.successPageCnt}</li>
-						<li> failPageCnt : ${SearchInfo.failPageCnt}</li>
-						<li> refundPageCnt : ${SearchInfo.refundPageCnt}</li>
-						<li> cancelPageCnt : ${SearchInfo.cancelPageCnt}</li>
-						<li> reserveDT : ${SearchInfo.reserveDT}</li>
-						<li> sendDT : ${SearchInfo.sendDT}</li>
-						<li> resultDT : ${SearchInfo.resultDT}</li>
-						<li> sendResult : ${SearchInfo.sendResult}</li>
-						<li> fileNames : ${fn:join(SearchInfo.fileNames,", ")}</li>
-						<li> receiptDT : ${SearchInfo.receiptDT}</li>
+					<ul>		
+						<li>state (전송상태 코드) : ${SearchInfo.state}</li>
+						<li>result (전송결과 코드) : ${SearchInfo.result}</li>
+						<li>sendNum (발신번호) : ${SearchInfo.sendNum}</li>
+						<li>senderName (발신자명) : ${SearchInfo.senderName}</li>
+						<li>receiveNum (수신번호) : ${SearchInfo.receiveNum}</li>
+						<li>receiveName (수신자명) : ${SearchInfo.receiveName}</li>
+						<li>title (팩스제목) : ${SearchInfo.title}</li>
+						<li>sendPageCnt (전체 페이지수) : ${SearchInfo.sendPageCnt}</li>
+						<li>successPageCnt (성공 페이지수) : ${SearchInfo.successPageCnt}</li>
+						<li>failPageCnt (실패 페이지수) : ${SearchInfo.failPageCnt}</li>
+						<li>refundPageCnt (환불 페이지수) : ${SearchInfo.refundPageCnt}</li>
+						<li>cancelPageCnt (취소 페이지수) : ${SearchInfo.cancelPageCnt}</li>
+						<li>receiptDT (접수일시) : ${SearchInfo.receiptDT}</li>
+						<li>reserveDT (예약일시) : ${SearchInfo.reserveDT}</li>
+						<li>sendDT (전송일시) : ${SearchInfo.sendDT}</li>
+						<li>resultDT (전송결과 수신일시) : ${SearchInfo.resultDT}</li>
+						<li>fileNames (전송 파일명 리스트) : ${fn:join(SearchInfo.fileNames,", ")}</li>
 					</ul>
 				</fieldset>
 				</c:forEach>

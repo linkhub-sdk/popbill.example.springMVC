@@ -6,7 +6,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="/resources/main.css" media="screen" />
 		
-		<title>팝빌 SDK SpringMVC Example.</title>
+		<title>팝빌 SDK SpringMVC Example.</title>
 	</head>
 	<body>
 		<div id="content">
@@ -16,25 +16,25 @@
 				<legend>${requestScope['javax.servlet.forward.request_uri']}</legend>
 				<c:forEach items="${FaxResults}" var="FaxResult" varStatus="status">
 				<fieldset class="fieldset2">
-					<legend>FaxResult : ${status.index}</legend>
+					<legend>팩스전송 상태정보</legend>
 					<ul>
-						<li>sendState : ${FaxResult.sendState}</li>
-						<li>convState : ${FaxResult.convState}</li>
-						<li>sendNum : ${FaxResult.sendNum}</li>
-						<li>senderName : ${FaxResult.senderName}</li>
-						<li>receiveNum : ${FaxResult.receiveNum}</li>
-						<li>receiveName : ${FaxResult.receiveName}</li>
-						<li>sendPageCnt : ${FaxResult.sendPageCnt}</li>
-						<li>successPageCnt : ${FaxResult.successPageCnt}</li>
-						<li>failPageCnt : ${FaxResult.failPageCnt}</li>
-						<li>refundPageCnt : ${FaxResult.refundPageCnt}</li>
-						<li>cancelPageCnt : ${FaxResult.cancelPageCnt}</li>
-						<li>reserveDT : ${FaxResult.reserveDT}</li>
-						<li>sendDT : ${FaxResult.sendDT}</li>
-						<li>resultDT : ${FaxResult.resultDT}</li>
-						<li>sendResult : ${FaxResult.sendResult}</li>
-						<li>fileNames : ${fn:join(FaxResult.fileNames,", ")}</li>
-						<li>receiptDT : ${FaxResult.receiptDT}</li>
+						<li>state (전송상태 코드) : ${FaxResult.state}</li>
+						<li>result (전송결과 코드) : ${FaxResult.result}</li>
+						<li>sendNum (발신번호) : ${FaxResult.sendNum}</li>
+						<li>senderName (발신자명) : ${FaxResult.senderName}</li>
+						<li>receiveNum (수신번호) : ${FaxResult.receiveNum}</li>
+						<li>receiveName (수신자명) : ${FaxResult.receiveName}</li>
+						<li>title (팩스제목) : ${FaxResult.title}</li>
+						<li>sendPageCnt (전체 페이지수) : ${FaxResult.sendPageCnt}</li>
+						<li>successPageCnt (성공 페이지수) : ${FaxResult.successPageCnt}</li>
+						<li>failPageCnt (실패 페이지수) : ${FaxResult.failPageCnt}</li>
+						<li>refundPageCnt (환불 페이지수) : ${FaxResult.refundPageCnt}</li>
+						<li>cancelPageCnt (취소 페이지수) : ${FaxResult.cancelPageCnt}</li>
+						<li>receiptDT (접수일시) : ${FaxResult.receiptDT}</li>
+						<li>reserveDT (예약일시) : ${FaxResult.reserveDT}</li>
+						<li>sendDT (전송일시) : ${FaxResult.sendDT}</li>
+						<li>resultDT (전송결과 수신일시) : ${FaxResult.resultDT}</li>
+						<li>fileNames (전송 파일명 리스트) : ${fn:join(FaxResult.fileNames,", ")}</li>
 					</ul>
 				</fieldset>
 				</c:forEach>

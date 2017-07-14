@@ -2,7 +2,7 @@
  * 팝빌 팩스 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : http://blog.linkhub.co.kr/591/
- * - 업데이트 일자 : 2017-06-02
+ * - 업데이트 일자 : 2017-07-14
  * - 연동 기술지원 연락처 : 1600-8536 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
  *
@@ -140,7 +140,7 @@ public class FaxServiceExample {
 	public String sendFAX( Model m) throws URISyntaxException {
 		
 		// 발신번호
-		String sendNum = "07043042992"; 
+		String sendNum = "07043042991"; 
 		
 		// 수신번호
 		String receiveNum = "070111222";
@@ -148,10 +148,10 @@ public class FaxServiceExample {
 		// 수신자명
 		String receiveName = "수신자 명칭";
 		
-		File file;
-		
+		File file;	
 		try {
-			file = new File(getClass().getClassLoader().getResource("사업자등록증.jpg").toURI());
+			// 팩스전송 파일포맷 안내 : http://blog.linkhub.co.kr/2561/
+			file = new File(getClass().getClassLoader().getResource("nonbg_statement.pdf").toURI());
 		} catch (URISyntaxException e1) {
 			throw e1;
 		}
@@ -161,11 +161,14 @@ public class FaxServiceExample {
 		
 		// 광고팩스 전송여부
 		Boolean adsYN = false;
+
+		// 팩스제목
+		String title = "팩스 제목";
 		
 		try {
 			
 			String receiptNum = faxService.sendFAX(testCorpNum, sendNum, receiveNum, 
-					receiveName, file, reserveDT, testUserID, adsYN);
+					receiveName, file, reserveDT, testUserID, adsYN, title);
 			
 			m.addAttribute("Result",receiptNum);
 			
@@ -181,8 +184,7 @@ public class FaxServiceExample {
 	public String sendFAX_Multi( Model m) throws URISyntaxException {
 		
 		// 발신번호
-		String sendNum = "07043042992"; 
-		
+		String sendNum = "07043042991"; 
 		
 		// 수신자 정보
 		Receiver receiver1 = new Receiver();
@@ -191,16 +193,16 @@ public class FaxServiceExample {
 		
 		Receiver receiver2 = new Receiver();
 		receiver2.setReceiveName("수신자2");		// 수신자명
-		receiver2.setReceiveNum("07043042991");	// 수신팩스번호
+		receiver2.setReceiveNum("070111222");	// 수신팩스번호
 		
 		
 		// 팩스전송정보 배열, 최대 1000건
 		Receiver[] receivers = new Receiver[] {receiver1 , receiver2};
 		
 		File file;
-		
 		try {
-			file = new File(getClass().getClassLoader().getResource("사업자등록증.jpg").toURI());
+			// 팩스전송 파일포맷 안내 : http://blog.linkhub.co.kr/2561/
+			file = new File(getClass().getClassLoader().getResource("nonbg_statement.pdf").toURI());
 		} catch (URISyntaxException e1) {
 			throw e1;
 		}
@@ -211,10 +213,13 @@ public class FaxServiceExample {
 		// 광고팩스 전송여부 
 		Boolean adsYN = false;
 		
+		// 팩스제목
+		String title = "팩스 동보전송 제목";
+		
 		try {
 			
 			String receiptNum = faxService.sendFAX(testCorpNum, sendNum, receivers,
-					file, reserveDT, testUserID, adsYN);
+					file, reserveDT, testUserID, adsYN, title);
 			
 			m.addAttribute("Result",receiptNum);
 			
@@ -234,7 +239,7 @@ public class FaxServiceExample {
 		 */
 				
 		// 팩스 접수번호
-		String orgReceiptNum = "017022015210400001";
+		String orgReceiptNum = "017071415441300001";
 		
 		// 발신번호, 공백처리시 기존전송정보로 재전송 
 		String sendNum = "07043042991"; 
@@ -250,12 +255,15 @@ public class FaxServiceExample {
 		String receiveName = "";
 		
 		// 전송 예약일시
-		Date reserveDT = null; 
+		Date reserveDT = null;
+		
+		// 팩스 제목
+		String title = "팩스 재전송 제목";
 		
 		try {
 			
 			String receiptNum = faxService.resendFAX(testCorpNum, orgReceiptNum, sendNum, 
-					sendName, receiveNum, receiveName, reserveDT, testUserID);
+					sendName, receiveNum, receiveName, reserveDT, testUserID, title);
 			
 			m.addAttribute("Result",receiptNum);
 			
@@ -275,7 +283,7 @@ public class FaxServiceExample {
 		 */
 				
 		// 팩스 접수번호
-		String orgReceiptNum = "017022015210400001";
+		String orgReceiptNum = "017071415441300001";
 		
 		// 발신번호, 공백처리시 기존전송정보로 재전송 
 		String sendNum = "07043042991"; 
@@ -284,12 +292,11 @@ public class FaxServiceExample {
 		String sendName = "발신자명";
 		
 		
-		// 팩스수신정보를 기존전송정보와 동일하게 재전송하는 경우, 아래의 코드 적용 
+		// 팩스수신정보를 기존전송정보와 동일하게 재전송하는 경우, receivers 변수 null 처리 
 		Receiver[] receivers = null;
 		
 		
 		// 팩스수신정보를 기존전송정보와 다르게 재전송하는 경우, 아래의 코드 적용
-		
 //		Receiver receiver1 = new Receiver();
 //		receiver1.setReceiveName("수신자1");		// 수신자명
 //		receiver1.setReceiveNum("010111222");	// 수신팩스번호
@@ -304,11 +311,14 @@ public class FaxServiceExample {
 		
 		// 전송 예약일시
 		Date reserveDT = null;
-				
+		
+		// 팩스제목
+		String title = "팩스 재전송(동보) 제목";
+		
 		try {
 			
 			String receiptNum = faxService.resendFAX(testCorpNum, orgReceiptNum, sendNum, 
-					sendName, receivers, reserveDT, testUserID);
+					sendName, receivers, reserveDT, testUserID, title);
 			
 			m.addAttribute("Result",receiptNum);
 			
@@ -327,7 +337,7 @@ public class FaxServiceExample {
 		 */
 		
 		// 팩스전송 접수번호
-		String receiptNum = "016120511390400001";
+		String receiptNum = "017071415492400001";
 		
 		try {
 			FaxResult[] faxResults = faxService.getFaxResult(testCorpNum, receiptNum);
@@ -372,10 +382,10 @@ public class FaxServiceExample {
 		 */
 		
 		// 시작일자, 날짜형식(yyyyMMdd)
-		String SDate = "20161001";				
+		String SDate = "20170601";				
 		
 		// 종료일자, 날짜형식(yyyyMMdd)
-		String EDate = "20161231";				
+		String EDate = "20170730";				
 		
 		// 전송상태 배열, 1-대기, 2-성공, 3-실패, 4-취소
 		String[] State = {"1", "2", "3","4"};	

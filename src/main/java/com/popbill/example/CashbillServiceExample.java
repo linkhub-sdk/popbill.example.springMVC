@@ -132,16 +132,16 @@ public class CashbillServiceExample {
 		Cashbill cashbill = new Cashbill();
 	
 		// 문서관리번호, 최대 24자리, 영문, 숫자 '-', '_'로 구성
-		cashbill.setMgtKey("20170306-11");			
+		cashbill.setMgtKey("20170714-05");			
 		
 		// 현금영수증 형태, {승인거래, 취소거래} 중 기재
 		cashbill.setTradeType("승인거래");				
 		
 		// 취소거래시 기재, 원본 현금영수증 국세청 승인번호 - getInfo API를 통해 confirmNum 값 기재
-		//cashbill.setOrgConfirmNum("");  			
+		cashbill.setOrgConfirmNum("");  			
 
 		// 취소거래시 기재, 원본 현금영수증 거래일자 - getInfo API를 통해 tradeDate 값 기재
-		//cashbill.setOrgTradeDate("");	
+		cashbill.setOrgTradeDate("");	
 				
 		
 		// 과세형태, {과세, 비과세} 중 기재
@@ -202,9 +202,6 @@ public class CashbillServiceExample {
 		// 고객 휴대폰 번호
 		cashbill.setHp("010111222");
 		
-		// 고객 연락처
-		cashbill.setFax("07043042991");
-	
 			
 		try {
 			
@@ -305,10 +302,7 @@ public class CashbillServiceExample {
 		
 		// 고객 휴대폰 번호
 		cashbill.setHp("010111222");
-		
-		// 고객 연락처
-		cashbill.setFax("07043042991");
-		
+				
 		
 		try {
 			
@@ -334,7 +328,7 @@ public class CashbillServiceExample {
 		 */
 		
 		// 현금영수증 문서관리번호
-		String mgtKey = "20161206-01";	
+		String mgtKey = "20170711-11";	
 		
 		try {
 			
@@ -359,7 +353,7 @@ public class CashbillServiceExample {
 		 */
 
 		// 현금영수증 문서관리번호 배열 최대(1000건)
-		String[] mgtKeyList = new String[] {"20161206-01", "20150317-02", "20150318-02", "20150319-01"};
+		String[] mgtKeyList = new String[] {"20170714-01", "20170711-11", "20150318-02", "20170714-05"};
 		
 		try {
 			
@@ -386,7 +380,7 @@ public class CashbillServiceExample {
 		 */
 		
 		// 현금영수증 문서관리번호
-		String mgtKey = "20161206-01";	
+		String mgtKey = "20170711-09";	
 		
 		try {
 			
@@ -788,16 +782,16 @@ public class CashbillServiceExample {
 		Cashbill cashbill = new Cashbill();
 	
 		// 문서관리번호, 최대 24자리, 영문, 숫자 '-', '_'로 구성
-		cashbill.setMgtKey("20170306-12");			
+		cashbill.setMgtKey("20170714-05");			
 		
 		// 현금영수증 형태, {승인거래, 취소거래} 중 기재
 		cashbill.setTradeType("승인거래");				
 		
 		// 취소거래시 기재, 원본 현금영수증 국세청 승인번호 - getInfo API를 통해 confirmNum 값 기재
-		//cashbill.setOrgConfirmNum("");  			
+		cashbill.setOrgConfirmNum("");  			
 
 		// 취소거래시 기재, 원본 현금영수증 거래일자 - getInfo API를 통해 tradeDate 값 기재
-		//cashbill.setOrgTradeDate("");
+		cashbill.setOrgTradeDate("");
 		
 		
 		// 과세형태, {과세, 비과세} 중 기재
@@ -806,7 +800,7 @@ public class CashbillServiceExample {
 		// 거래처 식별번호, 거래유형에 따라 작성
 	    // 소득공제용 - 주민등록/휴대폰/카드번호 기재가능
 	    // 지출증빙용 - 사업자번호/주민등록/휴대폰/카드번호 기재가능
-		cashbill.setIdentityNum("01011112222");
+		cashbill.setIdentityNum("0101112222");
 		
 		// 거래유형, {소득공제용, 지출증빙용} 중 기재
 		cashbill.setTradeUsage("소득공제용");
@@ -857,9 +851,6 @@ public class CashbillServiceExample {
 		
 		// 고객 휴대폰 번호
 		cashbill.setHp("010111222");
-		
-		// 고객 연락처
-		cashbill.setFax("07043042991");
 			
 		try {
 			
@@ -884,13 +875,13 @@ public class CashbillServiceExample {
 		 */
 		
 		// 일자유형, R-등록일자, T-거래일자, I-발행일자
-		String DType = "R"; 								
+		String DType = "T"; 								
 		
 		// 시작일자, 날짜형식(yyyyMMdd)
-		String SDate = "20161001"; 							
+		String SDate = "20170501"; 							
 		
 		// 종료일자, 날짜형식(yyyyMMdd)
-		String EDate = "20161231"; 							
+		String EDate = "20170801"; 							
 		
 		// 현금영수증 상태코드 배열, 2,3번째 자리에 와일드카드(*) 사용 가능
 		String[] State = {"100", "2**", "3**", "4**"};		
