@@ -27,9 +27,9 @@
 				<ul>
 					<li>corpNum [사업자번호] : ${CorpState.corpNum}</li>
 					<li>type [사업 유형] : ${CorpState.type}</li>
-					
 					<li>state [휴폐업 상태] : ${CorpState.state}</li>
 					<li>stateDate [휴폐업일자] : ${CorpState.stateDate}</li>
+					<li>typeDate [과세유형 전환일자] : ${CorpState.typeDate}</li>
 					<li>checkDate [확인일자] : ${CorpState.checkDate}</li>
 				</ul>
 				<p class="info"> type : null (알수없음), 1 (부가가치세 일반과세자), 2 (부가가치세 면세과세자), 3 (부가치세 간이과세자) 4 (비영리법인 또는 국가기관, 고유번호가 부여된 단체)</p>

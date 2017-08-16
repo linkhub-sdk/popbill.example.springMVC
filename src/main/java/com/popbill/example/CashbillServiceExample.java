@@ -2,8 +2,8 @@
  * 팝빌 현금영수증 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : http://blog.linkhub.co.kr/591/
- * - 업데이트 일자 : 2017-07-11
- * - 연동 기술지원 연락처 : 1600-8536 / 070-4304-2991~2
+ * - 업데이트 일자 : 2017-08-16
+ * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
  *
  * <테스트 연동개발 준비사항>
@@ -380,7 +380,7 @@ public class CashbillServiceExample {
 		 */
 		
 		// 현금영수증 문서관리번호
-		String mgtKey = "20170711-09";	
+		String mgtKey = "20170816-22";	
 		
 		try {
 			
@@ -855,6 +855,79 @@ public class CashbillServiceExample {
 		try {
 			
 			Response response = cashbillService.registIssue(testCorpNum, cashbill, Memo);
+			
+			m.addAttribute("Response",response);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "response";
+	}
+	
+	@RequestMapping(value = "revokeRegister", method = RequestMethod.GET)
+	public String revokeRegister( Model m) {
+		/**
+		 * 1건의 취소현금영수증을 임시저장합니다.
+		 * - [임시저장] 상태의 현금영수증은 발행(Issue API)을 호출해야만 국세청에 전송됩니다.
+		 * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청
+		 *   전송결과를 확인할 수 있습니다.
+		 * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼]
+		 *   > 1.4. 국세청 전송정책"을 참조하시기 바랍니다.
+		 * - 취소현금영수증 작성방법 안내 - http://blog.linkhub.co.kr/702
+		 */
+		
+		// 문서관리번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로 
+		// 중복되지 않도록 구성
+		String mgtKey = "20170816-21";
+		
+		// 원본현금영수증 승인번호
+		String orgConfirmNum = "820116333";
+		
+		// 원본현금영수증 거래일자
+		String orgTradeDate = "20170711";
+		
+			
+		try {
+			
+			Response response = cashbillService.revokeRegister(testCorpNum, mgtKey, orgConfirmNum, orgTradeDate);
+			
+			m.addAttribute("Response",response);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "response";
+	}
+	
+	@RequestMapping(value = "revokeRegistIssue", method = RequestMethod.GET)
+	public String revokeRegistIssue( Model m) {
+		/**
+		 * 1건의 취소현금영수증을 즉시발행합니다.
+		 * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청
+		 *   전송결과를 확인할 수 있습니다.
+		 * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼]
+		 *   > 1.4. 국세청 전송정책"을 참조하시기 바랍니다.
+		 * - 취소현금영수증 작성방법 안내 - http://blog.linkhub.co.kr/702
+		 */
+		
+		// 문서관리번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로 
+		// 중복되지 않도록 구성
+		String mgtKey = "20170816-22";
+		
+		// 원본현금영수증 승인번호
+		String orgConfirmNum = "820116333";
+		
+		// 원본현금영수증 거래일자
+		String orgTradeDate = "20170711";
+		
+			
+		try {
+			
+			Response response = cashbillService.revokeRegistIssue(testCorpNum, mgtKey, orgConfirmNum, orgTradeDate);
 			
 			m.addAttribute("Response",response);
 			
