@@ -50,7 +50,7 @@
 						<li> customerName (고객명) : ${SearchInfo.customerName}</li>
 						<li> cardOwnerName (카드소유자명) : ${SearchInfo.cardOwnerName}</li>
 						<li> deductionType (공제유형) : ${SearchInfo.deductionType}</li>
-						
+						<li> invoiceType (구분) : ${SearchInfo.invoiceType}</li>
 					</ul>
 				</fieldset>
 				</c:forEach>

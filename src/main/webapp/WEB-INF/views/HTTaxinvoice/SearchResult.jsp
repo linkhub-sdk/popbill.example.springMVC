@@ -42,6 +42,7 @@
 						<li> taxTotal (세액 합계) : ${SearchInfo.totalAmount}</li>
 						<li> totalAmount (합계금액) : ${SearchInfo.totalAmount}</li>
 						<li> remark1 (비고) : ${SearchInfo.remark1}</li>
+						<li> invoiceType (구분) : ${SearchInfo.invoiceType}</li>
 						
 						<li> modifyYN (수정 전자세금계산서 여부) : ${SearchInfo.modifyYN}</li>
 						<li> orgNTSConfirmNum (원본 전자세금계산서 국세청승인번호) : ${SearchInfo.orgNTSConfirmNum}</li>

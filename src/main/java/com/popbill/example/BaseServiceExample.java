@@ -122,6 +122,30 @@ public class BaseServiceExample {
 		return "result";
 	}
 	
+	@RequestMapping(value = "getPartnerURL", method = RequestMethod.GET)
+	public String getPartnerURL(Model m) throws PopbillException {
+		/**
+		 * 파트너 포인트 충전 팝업 URL을 반환합니다.
+		 * - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
+		 */
+		
+		// CHRG : 포인트 충전
+		String TOGO = "CHRG";  
+		
+		try {
+			
+			String url = taxinvoiceService.getPartnerURL(testCorpNum, TOGO);
+			
+			m.addAttribute("Result",url);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "result";
+	}
+	
 	@RequestMapping(value = "getPopbillURL", method = RequestMethod.GET)
 	public String getPopbillURL(Model m) throws PopbillException {
 		/**
