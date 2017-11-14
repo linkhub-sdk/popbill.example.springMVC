@@ -1647,7 +1647,7 @@ public class TaxinvoiceServiceExample {
 		// 작성일자, 날짜형식(yyyyMMdd)
 		taxinvoice.setWriteDate("20161206"); 
 		
-		// 과금방향, [정과금, 역과금] 중 선택기재, 역과금의 경우 역발행세금계산서 발행시에만 가
+		// 과금방향, [정과금, 역과금] 중 선택기재, "역과금"은 역발행세금계산서 발행에만 가능
 		taxinvoice.setChargeDirection("정과금");
 		
 		// 발행유형, [정발행, 역발행, 위수탁] 중 기재

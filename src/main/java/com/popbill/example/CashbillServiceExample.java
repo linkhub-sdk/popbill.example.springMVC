@@ -2,7 +2,7 @@
  * 팝빌 현금영수증 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : http://blog.linkhub.co.kr/591/
- * - 업데이트 일자 : 2017-08-16
+ * - 업데이트 일자 : 2017-11-14
  * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
  *
@@ -903,6 +903,65 @@ public class CashbillServiceExample {
 		return "response";
 	}
 	
+	@RequestMapping(value = "revokeRegister_part", method = RequestMethod.GET)
+	public String revokeRegister_part( Model m) {
+		/**
+		 * 1건의 [부분]취소 현금영수증을 임시저장합니다.
+		 * - [임시저장] 상태의 현금영수증은 발행(Issue API)을 호출해야만 국세청에 전송됩니다.
+		 * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청
+		 *   전송결과를 확인할 수 있습니다.
+		 * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼]
+		 *   > 1.4. 국세청 전송정책"을 참조하시기 바랍니다.
+		 * - 취소현금영수증 작성방법 안내 - http://blog.linkhub.co.kr/702
+		 */
+		
+		// 문서관리번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로 
+		// 중복되지 않도록 구성
+		String mgtKey = "20171114-31";
+		
+		// 원본현금영수증 승인번호
+		String orgConfirmNum = "820116333";
+		
+		// 원본현금영수증 거래일자
+		String orgTradeDate = "20170711";
+		
+		// 안내문자 전송여부
+		Boolean smssendYN = false;
+		
+		// 부분취소 여부, false 기재시
+		Boolean isPartCancel = true;
+		
+		// 취소사유 (integer 타입) / 1-거래취소, 2-오류발급취소 3-기타
+		Integer cancelType = 1;
+		
+		// [취소] 공급가액
+		String supplyCost = "3000";
+		
+		// [취소] 세액
+		String tax = "300";
+		
+		// [취소] 봉사료
+		String serviceFee = "0";
+		
+		// [취소] 합계금액
+		String totalAmount = "3300";
+			
+		try {
+			
+			Response response = cashbillService.revokeRegister(testCorpNum, mgtKey, 
+					orgConfirmNum, orgTradeDate, smssendYN, isPartCancel, cancelType, 
+					supplyCost, tax, serviceFee, totalAmount);
+			
+			m.addAttribute("Response",response);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "response";
+	}
+	
 	@RequestMapping(value = "revokeRegistIssue", method = RequestMethod.GET)
 	public String revokeRegistIssue( Model m) {
 		/**
@@ -916,7 +975,42 @@ public class CashbillServiceExample {
 		
 		// 문서관리번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로 
 		// 중복되지 않도록 구성
-		String mgtKey = "20170816-22";
+		String mgtKey = "20171114-23";
+		
+		// 원본현금영수증 승인번호
+		String orgConfirmNum = "820116333";
+		
+		// 원본현금영수증 거래일자
+		String orgTradeDate = "20170711";
+			
+		try {
+			
+			Response response = cashbillService.revokeRegistIssue(testCorpNum, mgtKey, orgConfirmNum, orgTradeDate);
+			
+			m.addAttribute("Response",response);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "response";
+	}
+	
+	@RequestMapping(value = "revokeRegistIssue_part", method = RequestMethod.GET)
+	public String revokeRegistIssue_part( Model m) {
+		/**
+		 * 1건의 [부분] 취소현금영수증을 즉시발행합니다.
+		 * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청
+		 *   전송결과를 확인할 수 있습니다.
+		 * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼]
+		 *   > 1.4. 국세청 전송정책"을 참조하시기 바랍니다.
+		 * - 취소현금영수증 작성방법 안내 - http://blog.linkhub.co.kr/702
+		 */
+		
+		// 문서관리번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로 
+		// 중복되지 않도록 구성
+		String mgtKey = "20171114-22";
 		
 		// 원본현금영수증 승인번호
 		String orgConfirmNum = "820116333";
@@ -924,10 +1018,35 @@ public class CashbillServiceExample {
 		// 원본현금영수증 거래일자
 		String orgTradeDate = "20170711";
 		
-			
+		// 안내문자 전송여부
+		Boolean smssendYN = false;
+		
+		// 발행 메모
+		String memo = "취소 현금영수증 발행 메모";
+		
+		// 부분취소 여부
+		Boolean isPartCancel = true;
+		
+		// 취소사유 (integer 타입) / 1-거래취소, 2-오류발급취소 3-기타
+		Integer cancelType = 1;
+		
+		// [취소] 공급가액
+		String supplyCost = "3000";
+		
+		// [취소] 세액
+		String tax = "300";
+		
+		// [취소] 봉사료
+		String serviceFee = "0";
+		
+		// [취소] 합계금액
+		String totalAmount = "3300";
+				
 		try {
 			
-			Response response = cashbillService.revokeRegistIssue(testCorpNum, mgtKey, orgConfirmNum, orgTradeDate);
+			Response response = cashbillService.revokeRegistIssue(testCorpNum, mgtKey, 
+					orgConfirmNum, orgTradeDate, smssendYN, memo, isPartCancel, cancelType,
+					supplyCost, tax, serviceFee, totalAmount);
 			
 			m.addAttribute("Response",response);
 			
