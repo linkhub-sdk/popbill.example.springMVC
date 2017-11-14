@@ -43,6 +43,7 @@
 						<li>smssendYN (발행시 안내문자 전송여부) : ${Cashbill.smssendYN}</li>
 						<li>orgConfirmNum (원본 현금영수증 승인번호) : ${Cashbill.orgConfirmNum}</li>
 						<li>orgTradeDate (원본 현금영수증 거래일자) : ${Cashbill.orgTradeDate}</li>
+						<li>cancelType (취소사유) : ${Cashbill.cancelType}</li>
 					</ul>
 					</fieldset>
 				</fieldset>

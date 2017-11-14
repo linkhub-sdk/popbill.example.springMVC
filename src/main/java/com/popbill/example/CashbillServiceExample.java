@@ -380,7 +380,7 @@ public class CashbillServiceExample {
 		 */
 		
 		// 현금영수증 문서관리번호
-		String mgtKey = "20170816-22";	
+		String mgtKey = "20171113-13";
 		
 		try {
 			
