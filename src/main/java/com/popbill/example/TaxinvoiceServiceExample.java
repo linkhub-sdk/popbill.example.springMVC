@@ -2,7 +2,7 @@
  * 팝빌 전자세금계산서 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : http://blog.linkhub.co.kr/591/
- * - 업데이트 일자 : 2017-11-15
+ * - 업데이트 일자 : 2017-12-07
  * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
  *
@@ -1575,10 +1575,10 @@ public class TaxinvoiceServiceExample {
 		String DType = "W"; 					
 		
 		// 시작일자, 날짜형식(yyyyMMdd)
-		String SDate = "20160701"; 				
+		String SDate = "20171101"; 				
 		
 		// 종료일자, 날짜형식(yyyyMMdd)
-		String EDate = "20161231"; 				
+		String EDate = "20171231"; 				
 		
 		// 세금계산서 상태코드 배열, 2,3번째 자리에 와일드카드(*) 사용 가능
 		String[] State = {"3**", "6**"};		
@@ -1588,6 +1588,9 @@ public class TaxinvoiceServiceExample {
 		
 		// 과세형태 배열, T-과세, N-면세, Z-영세
 		String[] TaxType = {"T", "N", "Z"}; 	
+		
+		// 발행형태 배열, N-정발행, R-역발행, T-위수탁
+		String[] IssueType = {"N", "R", "T"};
 		
 		// 지연발행 여부, null 전체조회, true - 지연발행, false- 정상발행
 		Boolean LateOnly = null; 				
@@ -1620,7 +1623,7 @@ public class TaxinvoiceServiceExample {
 		try {
 			
 			TISearchResult searchResult = taxinvoiceService.Search(testCorpNum, 
-					mgtKeyType, DType, SDate, EDate, State, Type, TaxType, LateOnly, 
+					mgtKeyType, DType, SDate, EDate, State, Type, TaxType, IssueType, LateOnly, 
 					TaxRegIDType, TaxRegID, TaxRegIDYN, QString, Page, PerPage, Order, InterOPYN);
 			
 			m.addAttribute("SearchResult", searchResult);
