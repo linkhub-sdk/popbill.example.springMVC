@@ -5,7 +5,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="/resources/main.css" media="screen" />
 		
-		<title>íë¹ SDK SpringMVC Example.</title>
+		<title>팝빌 SDK SpringMVC Example.</title>
 	</head>
 	<body>
 		<div id="content">

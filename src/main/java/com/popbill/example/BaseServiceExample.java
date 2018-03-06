@@ -146,6 +146,52 @@ public class BaseServiceExample {
 		return "result";
 	}
 	
+	@RequestMapping(value = "getPopbillURL_LOGIN", method = RequestMethod.GET)
+	public String getPopbillURL_LOGIN(Model m) throws PopbillException {
+		/**
+		 * 팝빌 로그인 URL을 반환합니다.
+		 * - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
+		 */
+
+		String TOGO = "LOGIN";  
+		
+		try {
+			
+			String url = taxinvoiceService.getPopbillURL(testCorpNum, TOGO);
+			
+			m.addAttribute("Result",url);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "result";
+	}
+	
+	@RequestMapping(value = "getPopbillURL_CHRG", method = RequestMethod.GET)
+	public String getPopbillURL_CHRG(Model m) throws PopbillException {
+		/**
+		 * 팝빌 연동회원 포인트충전 팝업 URL을 반환합니다.
+		 * - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
+		 */
+
+		String TOGO = "CHRG";  
+		
+		try {
+			
+			String url = taxinvoiceService.getPopbillURL(testCorpNum, TOGO);
+			
+			m.addAttribute("Result",url);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "result";
+	}
+	
 	@RequestMapping(value = "getPopbillURL", method = RequestMethod.GET)
 	public String getPopbillURL(Model m) throws PopbillException {
 		/**
