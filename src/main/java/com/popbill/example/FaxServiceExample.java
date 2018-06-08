@@ -148,8 +148,9 @@ public class FaxServiceExample {
 		// 수신자명
 		String receiveName = "수신자 명칭";
 		
-		File file;	
+		File file;
 		try {
+			// 파일 전송 개수 최대 20개
 			// 팩스전송 파일포맷 안내 : http://blog.linkhub.co.kr/2561/
 			file = new File(getClass().getClassLoader().getResource("nonbg_statement.pdf").toURI());
 		} catch (URISyntaxException e1) {
@@ -201,6 +202,7 @@ public class FaxServiceExample {
 		
 		File file;
 		try {
+			// 파일 전송 개수 최대 20개
 			// 팩스전송 파일포맷 안내 : http://blog.linkhub.co.kr/2561/
 			file = new File(getClass().getClassLoader().getResource("nonbg_statement.pdf").toURI());
 		} catch (URISyntaxException e1) {
