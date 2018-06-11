@@ -148,13 +148,13 @@ public class FaxServiceExample {
 		// 수신자명
 		String receiveName = "수신자 명칭";
 
-		File[] files = new File[20];
+		File[] files = new File[2];
 		try {
 			// 파일 전송 개수 최대 20개
 			// 팩스전송 파일포맷 안내 : http://blog.linkhub.co.kr/2561/
 			File file = new File(getClass().getClassLoader().getResource("nonbg_statement.pdf").toURI());
 
-			for(int i=0; i<20; i++){
+			for(int i=0; i<2; i++){
 				files[i] = file;
 			}
 
@@ -205,13 +205,13 @@ public class FaxServiceExample {
 		// 팩스전송정보 배열, 최대 1000건
 		Receiver[] receivers = new Receiver[] {receiver1 , receiver2};
 
-		File[] files = new File[20];
+		File[] files = new File[2];
 		try {
 			// 파일 전송 개수 최대 20개
 			// 팩스전송 파일포맷 안내 : http://blog.linkhub.co.kr/2561/
 			File file = new File(getClass().getClassLoader().getResource("nonbg_statement.pdf").toURI());
 
-			for(int i=0; i<20; i++){
+			for(int i=0; i<2; i++){
 				files[i] = file;
 			}
 		} catch (URISyntaxException e1) {
