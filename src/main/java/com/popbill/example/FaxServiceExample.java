@@ -147,12 +147,17 @@ public class FaxServiceExample {
 		
 		// 수신자명
 		String receiveName = "수신자 명칭";
-		
-		File file;
+
+		File[] files = new File[20];
 		try {
 			// 파일 전송 개수 최대 20개
 			// 팩스전송 파일포맷 안내 : http://blog.linkhub.co.kr/2561/
-			file = new File(getClass().getClassLoader().getResource("nonbg_statement.pdf").toURI());
+			File file = new File(getClass().getClassLoader().getResource("nonbg_statement.pdf").toURI());
+
+			for(int i=0; i<20; i++){
+				files[i] = file;
+			}
+
 		} catch (URISyntaxException e1) {
 			throw e1;
 		}
@@ -169,7 +174,7 @@ public class FaxServiceExample {
 		try {
 			
 			String receiptNum = faxService.sendFAX(testCorpNum, sendNum, receiveNum, 
-					receiveName, file, reserveDT, testUserID, adsYN, title);
+					receiveName, files, reserveDT, testUserID, adsYN, title);
 			
 			m.addAttribute("Result",receiptNum);
 			
@@ -199,12 +204,16 @@ public class FaxServiceExample {
 		
 		// 팩스전송정보 배열, 최대 1000건
 		Receiver[] receivers = new Receiver[] {receiver1 , receiver2};
-		
-		File file;
+
+		File[] files = new File[20];
 		try {
 			// 파일 전송 개수 최대 20개
 			// 팩스전송 파일포맷 안내 : http://blog.linkhub.co.kr/2561/
-			file = new File(getClass().getClassLoader().getResource("nonbg_statement.pdf").toURI());
+			File file = new File(getClass().getClassLoader().getResource("nonbg_statement.pdf").toURI());
+
+			for(int i=0; i<20; i++){
+				files[i] = file;
+			}
 		} catch (URISyntaxException e1) {
 			throw e1;
 		}
@@ -221,7 +230,7 @@ public class FaxServiceExample {
 		try {
 			
 			String receiptNum = faxService.sendFAX(testCorpNum, sendNum, receivers,
-					file, reserveDT, testUserID, adsYN, title);
+					files, reserveDT, testUserID, adsYN, title);
 			
 			m.addAttribute("Result",receiptNum);
 			
