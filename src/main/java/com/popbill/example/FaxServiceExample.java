@@ -152,12 +152,8 @@ public class FaxServiceExample {
 		try {
 			// 파일 전송 개수 최대 20개
 			// 팩스전송 파일포맷 안내 : http://blog.linkhub.co.kr/2561/
-			File file = new File(getClass().getClassLoader().getResource("nonbg_statement.pdf").toURI());
-
-			for(int i=0; i<2; i++){
-				files[i] = file;
-			}
-
+			files[0] = new File(getClass().getClassLoader().getResource("nonbg_statement.pdf").toURI());
+			files[1] = new File(getClass().getClassLoader().getResource("nonbg_statement.pdf").toURI());
 		} catch (URISyntaxException e1) {
 			throw e1;
 		}
@@ -209,11 +205,8 @@ public class FaxServiceExample {
 		try {
 			// 파일 전송 개수 최대 20개
 			// 팩스전송 파일포맷 안내 : http://blog.linkhub.co.kr/2561/
-			File file = new File(getClass().getClassLoader().getResource("nonbg_statement.pdf").toURI());
-
-			for(int i=0; i<2; i++){
-				files[i] = file;
-			}
+			files[0] = new File(getClass().getClassLoader().getResource("nonbg_statement.pdf").toURI());
+			files[1] = new File(getClass().getClassLoader().getResource("nonbg_statement.pdf").toURI());
 		} catch (URISyntaxException e1) {
 			throw e1;
 		}
