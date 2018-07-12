@@ -62,6 +62,7 @@
 						<li><a href="HTTaxinvoiceService/summary">summary</a> - 수집 결과 요약정보 조회</li>
 						<li><a href="HTTaxinvoiceService/getTaxinvoice">getTaxinvoice</a> - 상세정보 확인</li>
 						<li><a href="HTTaxinvoiceService/getXML">getXML</a> - 상세정보 확인 - XML</li>
+						<li><a href="HTTaxinvoiceService/getPopUpURL">getPopUpURL</a> - 세금계산서 보기 팝업 URL</li>
 					</ul>
 				</fieldset>
 				

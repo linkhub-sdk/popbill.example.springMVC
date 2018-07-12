@@ -2,7 +2,7 @@
  * 팝빌 홈택스 전자세금계산서 연계 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : http://blog.linkhub.co.kr/591/
- * - 업데이트 일자 : 2017-11-15
+ * - 업데이트 일자 : 2018-07-12
  * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
  *
@@ -396,5 +396,30 @@ public class HTTaxinvoiceExample {
 		
 		return "HTTaxinvoice/GetFlatRateState";
 	}
+	
+	@RequestMapping(value = "getPopUpURL", method = RequestMethod.GET)
+	public String getPopUpURL( Model m) {
+		/**
+		 *  세금계산서 1건의 팝업 보기 URL을 반환합니다.
+		 * - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
+		 */
+		
+		// 조회할 전자세금계산서 국세청승인번호
+		String NTSConfirmNum = "20161202410002030000196d";
+		
+		try {
+			
+			String url = htTaxinvoiceService.getPopUpURL(testCorpNum, NTSConfirmNum);
+			
+			m.addAttribute("Result",url);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "result";
+	}
+	
 }
 
