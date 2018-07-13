@@ -62,7 +62,7 @@
 					</ul>
 				</fieldset>
 				
-				<fieldset class="fieldset2">
+				<fieldset class="fieldset2">-
 					<legend>처리 프로세스</legend>
 					<ul>
 						<li><a href="TaxinvoiceService/registIssue">registIssue</a> - 세금계산서 즉시발행</li>
@@ -87,6 +87,8 @@
 						<li><a href="TaxinvoiceService/sendFAX">sendFAX</a> - 세금계산서 팩스 전송</li>
 						<li><a href="TaxinvoiceService/attachStatement">attachStatement</a> - 전자명세서 첨부</li>
 						<li><a href="TaxinvoiceService/detachStatement">detachStatement</a> - 전자명세서 첨부해제</li>
+						<li><a href="TaxinvoiceService/listEmailConfig">listEmailConfig</a> - 알림메일 전송목록 확인</li>
+						<li><a href="TaxinvoiceService/updateEmailConfig">updateEmailConfig</a> - 알림메일 전송설정 수정</li>
 					</ul>
 				</fieldset>
 				
@@ -111,11 +113,6 @@
 					</ul>
 				</fieldset>
 			</fieldset>
-
-			
-
 		 </div>
-
 	</body>
-
 </html>

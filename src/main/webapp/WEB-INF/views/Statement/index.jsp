@@ -81,6 +81,8 @@
 						<li><a href="StatementService/FAXSend">FAXSend</a> - 선팩스 전송 </li>
 						<li><a href="StatementService/attachStatement">attachStatement</a> - 다른 전자명세서 첨부 </li>
 						<li><a href="StatementService/detachStatement">detachStatement</a> - 다른 전자명세서 첨부해제 </li>
+						<li><a href="StatementService/listEmailConfig">listEmailConfig</a> - 알림메일 전송목록 확인</li>						
+						<li><a href="StatementService/updateEmailConfig">updateEmailConfig</a> - 알림메일 전송설정 수정</li>
 					</ul>
 				</fieldset>
 				

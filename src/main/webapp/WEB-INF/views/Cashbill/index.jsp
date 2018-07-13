@@ -84,6 +84,8 @@
 						<li><a href="CashbillService/sendEmail">sendEmail</a> - 발행 안내메일 전송</li>
 						<li><a href="CashbillService/sendSMS">sendSMS</a> - 알림문자 전송</li>
 						<li><a href="CashbillService/sendFAX">sendFAX</a> - 현금영수증 팩스 전송</li>
+						<li><a href="CashbillService/listEmailConfig">listEmailConfig</a> - 알림메일 전송목록 확인</li>						
+						<li><a href="CashbillService/updateEmailConfig">updateEmailConfig</a> - 알림메일 전송설정 수정</li>
 					</ul>
 				</fieldset>
 				

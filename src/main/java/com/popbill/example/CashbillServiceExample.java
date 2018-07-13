@@ -2,7 +2,7 @@
  * 팝빌 현금영수증 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : http://blog.linkhub.co.kr/591/
- * - 업데이트 일자 : 2017-11-14
+ * - 업데이트 일자 : 2018-07-13
  * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
  *
@@ -38,6 +38,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.popbill.api.CashbillService;
 import com.popbill.api.ChargeInfo;
+import com.popbill.api.EmailSendConfig;
 import com.popbill.api.PopbillException;
 import com.popbill.api.Response;
 import com.popbill.api.cashbill.CBSearchResult;
@@ -1115,4 +1116,55 @@ public class CashbillServiceExample {
 		
 		return "Cashbill/SearchResult";
 	}
+
+	@RequestMapping(value = "updateEmailConfig", method = RequestMethod.GET)
+	public String updateEmailConfig(Model m){
+		  /**
+		  * 현금영수증 관련 메일전송 항목에 대한 전송여부를 수정한다.
+		  *
+		  * 메일전송유형
+		  * CSH_ISSUE : 고객에게 현금영수증이 발행 되었음을 알려주는 메일 입니다.
+		  * CSH_CANCEL : 고객에게 현금영수증이 발행취소 되었음을 알려주는 메일 입니다.
+		  */
+			
+		// 메일 전송 유형
+		String emailType = "CSH_CANCEL";	
+		
+		// 전송 여부 (True = 전송, False = 미전송)
+		Boolean sendYN = true;		 
+		
+		try {
+			
+			Response response = cashbillService.updateEmailConfig(testCorpNum, 
+					emailType, sendYN);
+			
+			m.addAttribute("Response", response);
+			
+		} catch (PopbillException e){
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "response";
+	}	
+	
+	@RequestMapping(value = "listEmailConfig", method = RequestMethod.GET)
+	public String listEmailConfig( Model m) {
+		/**
+		 * 현금영수증 관련 메일전송 항목에 대한 전송여부를 목록을 반환한다
+		 */
+
+		try {
+			
+			EmailSendConfig[] emailSendConfigs = cashbillService.listEmailConfig(testCorpNum);
+			
+			m.addAttribute("EmailSendConfigs",emailSendConfigs);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "Cashbill/EmailSendConfig";
+	}	
 }
