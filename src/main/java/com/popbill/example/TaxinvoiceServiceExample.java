@@ -2056,5 +2056,34 @@ public class TaxinvoiceServiceExample {
 		return "Taxinvoice/EmailSendConfig";
 	}	
 	
+	@RequestMapping(value = "assignMgtKey", method = RequestMethod.GET)
+	public String assignMgtKey( Model m) {
+		/**
+		 * 팝빌 사이트에서 작성한 세금계산서에 파트너의 문서관리번호를 할당한다.
+		 */
+				
+		// 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
+		MgtKeyType mgtKeyType = MgtKeyType.SELL;
+		
+		// 세금계산서 아이템키, 문서 목록조회(Search) API의 반환항목중 ItemKey 참조
+		String itemKey = "";
+		
+		// 할당할 문서관리번호, 숫자, 영문 '-', '_' 조합으로 1~24자리까지
+		// 사업자번호별 중복없는 고유번호 할당
+		String mgtKey = "";			
+		
+		try {
+			
+			Response response = taxinvoiceService.assignMgtKey(testCorpNum,	mgtKeyType, itemKey, mgtKey);
+			
+			m.addAttribute("Response", response);
+			
+		} catch (PopbillException e){
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "response";
+	}		
 	
 }

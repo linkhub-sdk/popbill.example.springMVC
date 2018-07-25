@@ -87,6 +87,7 @@
 						<li><a href="TaxinvoiceService/sendFAX">sendFAX</a> - 세금계산서 팩스 전송</li>
 						<li><a href="TaxinvoiceService/attachStatement">attachStatement</a> - 전자명세서 첨부</li>
 						<li><a href="TaxinvoiceService/detachStatement">detachStatement</a> - 전자명세서 첨부해제</li>
+						<li><a href="TaxinvoiceService/assignMgtKey">assignMgtKey</a> - 문서관리번호 할당</li>
 						<li><a href="TaxinvoiceService/listEmailConfig">listEmailConfig</a> - 알림메일 전송목록 확인</li>
 						<li><a href="TaxinvoiceService/updateEmailConfig">updateEmailConfig</a> - 알림메일 전송설정 수정</li>
 					</ul>
