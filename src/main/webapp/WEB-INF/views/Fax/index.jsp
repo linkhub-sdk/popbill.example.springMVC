@@ -49,21 +49,37 @@
 					<legend>팩스 전송</legend>
 					<ul>
 						<li><a href="FaxService/sendFAX">sendFAX</a> - 팩스 단건 전송</li>
-						<li><a href="FaxService/sendFAX_Multi">sendFAX</a> - 팩스 동보 전송(수신번호 최대 1000개)</li>
-						<li><a href="FaxService/resendFAX">resendFAX</a> - 팩스 재전송</li>
-						<li><a href="FaxService/resendFAX_Multi">resendFAX</a> - 팩스 동보 재전송</li>
+						<li><a href="FaxService/sendFAX_Multi">sendFAX_Multi</a> - 팩스 동보 전송(수신번호 최대 1000개)</li>
 					</ul>
 				</fieldset>
 			
 				<fieldset class="fieldset2">
-					<legend>전송결과/예약취소</legend>
+					<legend>전송내역조회</legend>
 					<ul>
-						<li><a href="FaxService/getFaxResult">getFaxResult</a> - 접수번호에 해당하는 팩스전송 전송결과 확인</li>
 						<li><a href="FaxService/search">search</a> - 팩스전송내역 조회</li>
-						<li><a href="FaxService/cancelReserve">cancelReserve</a> - 예약 전송 팩스의 예약 취소. 예약시간 10분전까지만 가능.</li>
+					</ul>
+				</fieldset>
+
+				<fieldset class="fieldset2">
+					<legend>접수번호 관련 기능 (요청번호 미할당)</legend>
+					<ul>
+						<li><a href="FaxService/getFaxResult">getFaxResult</a> - 팩스전송 전송결과 확인</li>
+						<li><a href="FaxService/cancelReserve">cancelReserve</a> - 예약전송 팩스 취소</li>
+						<li><a href="FaxService/resendFAX">resendFAX</a> - 팩스 재전송</li>
+						<li><a href="FaxService/resendFAX_Multi">resendFAX_Multi</a> - 팩스 동보 재전송</li>
 					</ul>
 				</fieldset>
 				
+				<fieldset class="fieldset2">
+					<legend>요청번호 할당 전송건 관련 기능</legend>
+					<ul>
+						<li><a href="FaxService/getFaxResultRN">getFaxResultRN</a> - 팩스전송 전송결과 확인</li>
+						<li><a href="FaxService/cancelReserveRN">cancelReserveRN</a> - 예약전송 팩스 취소</li>
+						<li><a href="FaxService/resendFAXRN">resendFAXRN</a> - 팩스 재전송</li>
+						<li><a href="FaxService/resendFAXRN_Multi">resendFAXRN_Multi</a> - 팩스 동보 재전송</li>
+					</ul>
+				</fieldset>
+
 				<fieldset class="fieldset2">
 					<legend>기타</legend>
 					<ul>

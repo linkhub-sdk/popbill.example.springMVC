@@ -2,7 +2,7 @@
  * 팝빌 팩스 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : http://blog.linkhub.co.kr/591/
- * - 업데이트 일자 : 2017-11-15
+ * - 업데이트 일자 : 2018-07-26
  * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
  *
@@ -143,7 +143,7 @@ public class FaxServiceExample {
 		String sendNum = "07043042991"; 
 		
 		// 수신번호
-		String receiveNum = "070111222";
+		String receiveNum = "010111222";
 		
 		// 수신자명
 		String receiveName = "수신자 명칭";
@@ -167,10 +167,15 @@ public class FaxServiceExample {
 		// 팩스제목
 		String title = "팩스 제목";
 		
+	    // 전송요청번호
+	  	// 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+	  	// 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
+	    String requestNum = "";		
+		
 		try {
 			
 			String receiptNum = faxService.sendFAX(testCorpNum, sendNum, receiveNum, 
-					receiveName, files, reserveDT, testUserID, adsYN, title);
+					receiveName, files, reserveDT, testUserID, adsYN, title, requestNum);
 			
 			m.addAttribute("Result",receiptNum);
 			
@@ -195,7 +200,7 @@ public class FaxServiceExample {
 		
 		Receiver receiver2 = new Receiver();
 		receiver2.setReceiveName("수신자2");		// 수신자명
-		receiver2.setReceiveNum("070111222");	// 수신팩스번호
+		receiver2.setReceiveNum("010111222");	// 수신팩스번호
 		
 		
 		// 팩스전송정보 배열, 최대 1000건
@@ -220,10 +225,15 @@ public class FaxServiceExample {
 		// 팩스제목
 		String title = "팩스 동보전송 제목";
 		
+	    // 전송요청번호
+	  	// 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+	  	// 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
+	    String requestNum = "";			
+		
 		try {
 			
 			String receiptNum = faxService.sendFAX(testCorpNum, sendNum, receivers,
-					files, reserveDT, testUserID, adsYN, title);
+					files, reserveDT, testUserID, adsYN, title, requestNum);
 			
 			m.addAttribute("Result",receiptNum);
 			
@@ -242,8 +252,8 @@ public class FaxServiceExample {
 		 * - 전송일로부터 180일이 경과되지 않은 전송건만 재전송할 수 있습니다.
 		 */
 				
-		// 팩스 접수번호
-		String orgReceiptNum = "017071415441300001";
+		// 원본 팩스 접수번호
+		String orgReceiptNum = "";
 		
 		// 발신번호, 공백처리시 기존전송정보로 재전송 
 		String sendNum = "07043042991"; 
@@ -264,10 +274,16 @@ public class FaxServiceExample {
 		// 팩스 제목
 		String title = "팩스 재전송 제목";
 		
+		// 재전송 팩스의 전송요청번호
+		// 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+		// 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
+		// 재전송 팩스의 전송상태확인(GetSendDetailRN) / 예약전송취소(CancelReserveRN) 에 이용됩니다.
+		String requestNum = "";		
+		
 		try {
 			
 			String receiptNum = faxService.resendFAX(testCorpNum, orgReceiptNum, sendNum, 
-					sendName, receiveNum, receiveName, reserveDT, testUserID, title);
+					sendName, receiveNum, receiveName, reserveDT, testUserID, title, requestNum);
 			
 			m.addAttribute("Result",receiptNum);
 			
@@ -279,6 +295,57 @@ public class FaxServiceExample {
 		return "result";
 	}
 	
+	@RequestMapping(value = "resendFAXRN", method = RequestMethod.GET)
+	public String resendFAXRN( Model m) throws URISyntaxException {
+		/**
+		 * 전송요청번호(requestNum)을 할당한 팩스를 재전송합니다.
+		 * - 전송일로부터 180일이 경과된 경우 재전송할 수 없습니다.
+		 */
+				
+		// 재전송 팩스의 전송요청번호
+		// 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+		// 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
+		// 재전송 팩스의 전송상태확인(GetSendDetailRN) / 예약전송취소(CancelReserveRN) 에 이용됩니다.
+		String requestNum = "";			
+		
+		// 발신번호, 공백처리시 기존전송정보로 재전송 
+		String sendNum = "07043042991"; 
+		
+		// 발신자명, 공백처리시 기존전송정보로 재전송 
+		String sendName = "발신자명";
+		
+		// 수신번호/수신자명 모두 공백처리시 기존전송정보로 재전송
+		// 수신번호
+		String receiveNum = "";
+		
+		// 수신자명
+		String receiveName = "";
+		
+		// 전송 예약일시
+		Date reserveDT = null;
+		
+		// 팩스 제목
+		String title = "팩스 재전송 제목";
+		
+		// 원본 팩스 전송시 할당한 전송요청번호(requestNum)
+		String orgRequestNum = "";
+	
+		
+		try {
+			
+			String receiptNum = faxService.resendFAXRN(testCorpNum, requestNum, sendNum, 
+					sendName, receiveNum, receiveName, reserveDT, testUserID, title, orgRequestNum);
+			
+			m.addAttribute("Result",receiptNum);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "result";
+	}	
+	
 	@RequestMapping(value = "resendFAX_Multi", method = RequestMethod.GET)
 	public String resendFAX_Multi( Model m) throws URISyntaxException {
 		/**
@@ -286,8 +353,8 @@ public class FaxServiceExample {
 		 * - 전송일로부터 180일이 경과되지 않은 전송건만 재전송할 수 있습니다.
 		 */
 				
-		// 팩스 접수번호
-		String orgReceiptNum = "017071415441300001";
+		// 원본 팩스 접수번호
+		String orgReceiptNum = "";
 		
 		// 발신번호, 공백처리시 기존전송정보로 재전송 
 		String sendNum = "07043042991"; 
@@ -319,10 +386,16 @@ public class FaxServiceExample {
 		// 팩스제목
 		String title = "팩스 재전송(동보) 제목";
 		
+		// 재전송 팩스의 전송요청번호
+		// 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+		// 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
+		// 재전송 팩스의 전송상태확인(GetSendDetailRN) / 예약전송취소(CancelReserveRN) 에 이용됩니다.
+		String requestNum = "";				
+		
 		try {
 			
 			String receiptNum = faxService.resendFAX(testCorpNum, orgReceiptNum, sendNum, 
-					sendName, receivers, reserveDT, testUserID, title);
+					sendName, receivers, reserveDT, testUserID, title, requestNum);
 			
 			m.addAttribute("Result",receiptNum);
 			
@@ -334,14 +407,77 @@ public class FaxServiceExample {
 		return "result";
 	}
 	
+	@RequestMapping(value = "resendFAXRN_Multi", method = RequestMethod.GET)
+	public String resendFAXRN_Multi( Model m) throws URISyntaxException {
+		/**
+		 * 전송요청번호(requestNum)을 할당한 팩스를 재전송합니다.
+		 * - 전송일로부터 180일이 경과된 경우 재전송할 수 없습니다.
+		 */
+		
+		// 재전송 팩스의 전송요청번호
+		// 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+		// 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
+		// 재전송 팩스의 전송상태확인(GetSendDetailRN) / 예약전송취소(CancelReserveRN) 에 이용됩니다.
+		String requestNum = "";			
+		
+		// 발신번호, 공백처리시 기존전송정보로 재전송 
+		String sendNum = "07043042991"; 
+		
+		// 발신자명, 공백처리시 기존전송정보로 재전송 
+		String sendName = "발신자명";
+		
+		
+		// 팩스수신정보를 기존전송정보와 동일하게 재전송하는 경우, receivers 변수 null 처리 
+		Receiver[] receivers = null;
+		
+		
+		// 팩스수신정보를 기존전송정보와 다르게 재전송하는 경우, 아래의 코드 적용
+//		Receiver receiver1 = new Receiver();
+//		receiver1.setReceiveName("수신자1");		// 수신자명
+//		receiver1.setReceiveNum("010111222");	// 수신팩스번호
+//		
+//		Receiver receiver2 = new Receiver();
+//		receiver2.setReceiveName("수신자2");		// 수신자명
+//		receiver2.setReceiveNum("010333444");	// 수신팩스번호
+				
+		// 팩스전송정보 배열, 최대 1000건
+//		Receiver[] receivers = new Receiver[] {receiver1 , receiver2};
+		
+		
+		// 전송 예약일시
+		Date reserveDT = null;
+		
+		// 팩스제목
+		String title = "팩스 재전송(동보) 제목";		
+		
+		// 원본 팩스 전송시 할당한 전송요청번호(requestNum)
+		String orgRequestNum = "";		
+		
+		try {
+			
+			String receiptNum = faxService.resendFAXRN(testCorpNum, requestNum, sendNum, 
+					sendName, receivers, reserveDT, testUserID, title, orgRequestNum);
+			
+			m.addAttribute("Result",receiptNum);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "result";
+	}	
+	
 	@RequestMapping(value = "getFaxResult", method = RequestMethod.GET)
 	public String getFaxResult( Model m) {
 		/**
-		 * 팩스 전송요청시 반환받은 접수번호(receiptNum)을 사용하여 팩스전송 결과를 확인합니다.
+		 * 팩스전송요청시 발급받은 접수번호(receiptNum)로 전송결과를 확인합니다
+		 * - 응답항목에 대한 자세한 사항은 "[팩스 API 연동매뉴얼] >  3.3.1
+		 *   GetFaxDetail (전송내역 및 전송상태 확인)을 참조하시기 바랍니다.
 		 */
 		
-		// 팩스전송 접수번호
-		String receiptNum = "017071415492400001";
+		// 전송요청(sendFAX)시 발급받은 접수번호
+		String receiptNum = "";
 		
 		try {
 			FaxResult[] faxResults = faxService.getFaxResult(testCorpNum, receiptNum);
@@ -356,15 +492,39 @@ public class FaxServiceExample {
 		return "Fax/FaxResult";
 	}
 	
+	@RequestMapping(value = "getFaxResultRN", method = RequestMethod.GET)
+	public String getFaxResultRN( Model m) {
+		/**
+		 * 팩스전송요청시 할당한 전송요청번호(requestNum)으로 전송결과를 확인합니다
+		 * - 응답항목에 대한 자세한 사항은 "[팩스 API 연동매뉴얼] >  3.3.2
+		 *   GetFaxDetailRN (전송내역 및 전송상태 확인 - 요청번호 할당)을 참조하시기 바랍니다.
+		 */
+		
+		// 팩스전송 요청시 할당한 전송요청번호
+		String requestNum = "";
+		
+		try {
+			FaxResult[] faxResults = faxService.getFaxResultRN(testCorpNum, requestNum);
+			
+			m.addAttribute("FaxResults",faxResults);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "Fax/FaxResult";
+	}	
+	
 	@RequestMapping(value = "cancelReserve", method = RequestMethod.GET)
 	public String cancelReserve( Model m) {
 		/**
-		 * 예약전송 팩스요청건을 취소합니다.
-		 * - 예약전송 취소는 예약전송시간 10분전까지 가능합니다.
+		 * 팩스전송요청시 발급받은 접수번호(receiptNum)로 팩스 예약전송건을 취소합니다.
+		 * - 예약전송 취소는 예약전송시간 10분전까지 가능하며, 팩스변환 이후 가능합니다.
 		 */
 		
-		// 예약전송 취소할 팩스전송 접수번호
-		String receiptNum = "016120511390400001";
+		// 전송요청(sendFAX)시 발급받은 팩스접수번호
+		String receiptNum = "";
 		
 		try {
 			Response response = faxService.cancelReserve(testCorpNum, receiptNum);
@@ -378,6 +538,29 @@ public class FaxServiceExample {
 		
 		return "response";
 	}
+	
+	@RequestMapping(value = "cancelReserveRN", method = RequestMethod.GET)
+	public String cancelReserveRN( Model m) {
+		/**
+		 * 팩스전송요청시 할당한 전송요청번호(requestNum)로 팩스 예약전송건을 취소합니다.
+		 * - 예약전송 취소는 예약전송시간 10분전까지 가능하며, 팩스변환 이후 가능합니다.
+		 */
+		
+		// 예약팩스전송 요청시 할당한 전송요청번호
+		String requestNum = "";
+		
+		try {
+			Response response = faxService.cancelReserveRN(testCorpNum, requestNum);
+			
+			m.addAttribute("Response",response);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "response";
+	}	
 	
 	@RequestMapping(value = "search", method = RequestMethod.GET)
 	public String search(Model m) {

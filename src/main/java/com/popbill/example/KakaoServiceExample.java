@@ -1,3 +1,30 @@
+/*
+ * 팝빌 카카오톡 API Java SDK SpringMVC Example
+ *
+ * - SpringMVC SDK 연동환경 설정방법 안내 : http://blog.linkhub.co.kr/591/
+ * - 업데이트 일자 : 2018-07-26
+ * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
+ * - 연동 기술지원 이메일 : code@linkhub.co.kr
+ *
+ * <테스트 연동개발 준비사항>
+ * 1) src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml 파일에 선언된
+ * 	  util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 링크허브 가입시 메일로 
+ *    발급받은 인증정보를 참조하여 변경합니다.
+ * 2) 팝빌 개발용 사이트(test.popbill.com)에 연동회원으로 가입합니다.
+ * 
+ * Copyright 2006-2014 linkhub.co.kr, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License").
+ * You may not use this file except in compliance with the License.
+ * A copy of the License is located at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0.txt
+ *
+ * or in the "license" file accompanying this file. This file is distributed
+ * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
 package com.popbill.example;
 
 import java.io.File;
@@ -244,34 +271,40 @@ public class KakaoServiceExample {
 		 * 알림톡 전송을 요청합니다. (1건)
 		 */
 		
-		// 알림톡 템플릿코드 / ListATSTemplate API 의 반환 항목 중 templateCode 기재
-		String templateCode = "018020000001";
+	    // 알림톡 템플릿코드
+	    // 승인된 알림톡 템플릿 코드는 ListATStemplate API, GetURL(TEMPLATE) API, 또는 팝빌사이트에서 확인 가능합니다.
+		String templateCode = "018060000179";
 		
-		// 팝빌에 등록된 발신번호
-		String senderNum = "07043042993";
+		// 발신번호 (팝빌에 등록된 발신번호만 이용가능)
+		String senderNum = "07043042991";
 		
-		// 알림톡 템플릿 내용, 최대 1000자
+		// 알림톡 내용 (최대 1000자)
 		String content = "[테스트] 테스트 템플릿입니다.";
 				
-		// 대체문자 내용
+		// 대체문자 내용 (최대 2000byte)
 		String altContent = "대체문자 내용";
 		
 		// 대체문자 전송유형, 공백-미전송, C-알림톡 내용전송, A-대체문자 내용 전송
 		String altSendType = "C";
 		
 		// 수신번호
-		String receiverNum = "010000111";
+		String receiverNum = "010111222";
 		
 		// 수신자명
 		String receiverName = "수신자명";
 		
 		// 예약전송일시, 형태(yyyyMMddHHmmss)
 		String sndDT = "";
+	    
+	    // 전송요청번호
+	  	// 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+	  	// 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
+	    String requestNum = "";	    
 		
 		try {
 			
 			String receiptNum = kakaoService.sendATS(testCorpNum, templateCode, senderNum, content, altContent, altSendType, 
-					receiverNum, receiverName, sndDT);	
+					receiverNum, receiverName, sndDT, testUserID, requestNum);	
 			
 			m.addAttribute("Result",receiptNum);
 			
@@ -289,16 +322,17 @@ public class KakaoServiceExample {
 		 * 알림톡 동일내용 대량전송을 요청합니다. 
 		 */
 		
-		// 알림톡 템플릿코드 / ListATSTemplate API 의 반환 항목 중 templateCode 기재
-		String templateCode = "018020000001";
+	    // 알림톡 템플릿코드
+	    // 승인된 알림톡 템플릿 코드는 ListATStemplate API, GetURL(TEMPLATE) API, 또는 팝빌사이트에서 확인 가능합니다.
+		String templateCode = "018060000179";
 		
-		// 팝빌에 등록된 발신번호
-		String senderNum = "07043042993";
+		// 발신번호 (팝빌에 등록된 발신번호만 이용가능)
+		String senderNum = "07043042991";
 		
-		// 알림톡 템플릿 내용, 최대 1000자
+		// 알림톡 내용 (최대 1000자)
 		String content = "[테스트] 테스트 템플릿입니다.";
-				
-		// 대체문자 내용
+
+		// 대체문자 내용 (최대 2000byte)
 		String altContent = "대체문자 내용";
 		
 		// 대체문자 전송유형, 공백-미전송, C-알림톡 내용전송, A-대체문자 내용 전송
@@ -308,18 +342,23 @@ public class KakaoServiceExample {
 		KakaoReceiver[] receivers = new KakaoReceiver[100];
 		for(int i=0; i<100; i++) {
 			KakaoReceiver message = new KakaoReceiver();
-			message.setReceiverNum("010000111"); // 수신번호
+			message.setReceiverNum("010111222"); // 수신번호
 			message.setReceiverName("수신자명"+i); // 수신자명
 			receivers[i] = message;
 		}
 		
 		// 예약전송일시, 형태(yyyyMMddHHmmss)
 		String sndDT = "";
+
+	    // 전송요청번호
+	    // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+	    // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
+	    String requestNum = "";		
 		
 		try {
 			
 			String receiptNum = kakaoService.sendATS(testCorpNum, templateCode, senderNum, 
-					content, altContent, altSendType, receivers, sndDT);
+					content, altContent, altSendType, receivers, sndDT, testUserID, requestNum);
 			m.addAttribute("Result",receiptNum);
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
@@ -334,11 +373,12 @@ public class KakaoServiceExample {
 		 * 알림톡 개별내용 대량전송을 요청합니다. 
 		 */
 		
-		// 알림톡 템플릿코드 / ListATSTemplate API 의 반환 항목 중 templateCode 기재
-		String templateCode = "018020000001";
+	    // 알림톡 템플릿코드
+	    // 승인된 알림톡 템플릿 코드는 ListATStemplate API, GetURL(TEMPLATE) API, 또는 팝빌사이트에서 확인 가능합니다.
+		String templateCode = "018060000179";
 		
-		// 팝빌에 등록된 발신번호
-		String senderNum = "07043042993";
+		// 발신번호 (팝빌에 등록된 발신번호만 이용가능)
+		String senderNum = "07043042991";
 		
 		// 대체문자 전송유형, 공백-미전송, C-알림톡 내용전송, A-대체문자 내용 전송
 		String altSendType = "C";
@@ -347,7 +387,7 @@ public class KakaoServiceExample {
 		KakaoReceiver[] receivers = new KakaoReceiver[100];
 		for(int i=0; i<100; i++) {
 			KakaoReceiver message = new KakaoReceiver();
-			message.setReceiverNum("010000111");	// 수신번호
+			message.setReceiverNum("010111222");	// 수신번호
 			message.setReceiverName("수신자명"+i);	// 수신자명
 			message.setMessage("[테스트] 템플릿입니다"+i);	// 알림톡 템플릿 내용, 최대 1000자
 			message.setAltMessage("대체문자 개별내용입니다."+i); // 대체문자 내용
@@ -357,9 +397,15 @@ public class KakaoServiceExample {
 		// 예약전송일시, 형태(yyyyMMddHHmmss)
 		String sndDT = "";
 		
+	    // 전송요청번호
+	  	// 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+	  	// 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
+	    String requestNum = "";		
+		
 		try {
 			
-			String receiptNum = kakaoService.sendATS(testCorpNum, templateCode, senderNum, altSendType, receivers, sndDT);
+			String receiptNum = kakaoService.sendATS(testCorpNum, templateCode, senderNum, altSendType, receivers, sndDT,
+					testUserID, requestNum);
 			m.addAttribute("Result",receiptNum);
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
@@ -377,8 +423,8 @@ public class KakaoServiceExample {
 		// 팝빌에 등록된 플러스친구 아이디
 		String plusFriendID = "@팝빌";
 		
-		// 팝빌에 등록된 발신번호
-		String senderNum = "07043042993";
+		// 발신번호 (팝빌에 등록된 발신번호만 이용가능)
+		String senderNum = "07043042991";
 		
 		// 친구톡 내용 (최대 1000자)
 		String content = "친구톡 메시지 내용";
@@ -390,7 +436,7 @@ public class KakaoServiceExample {
 		String altSendType = "A";
 		
 		// 수신번호
-		String receiverNum = "01043245117";
+		String receiverNum = "010111222";
 		
 		// 수신자명
 		String receiverName = "수신자명";
@@ -419,10 +465,16 @@ public class KakaoServiceExample {
 		button.setU2("http://test.popbill.com");
 		btns[1] = button;
 		
+	    // 전송요청번호
+	    // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+	    // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
+	    String requestNum = "";		
+		
 		try {
 			
 			String receiptNum = kakaoService.sendFTS(testCorpNum, plusFriendID, senderNum, content, 
-					altContent, altSendType, btns, receiverNum, receiverName, sndDT, adsYN);	
+					altContent, altSendType, btns, receiverNum, receiverName, sndDT, adsYN,
+					testUserID, requestNum);	
 			
 			m.addAttribute("Result",receiptNum);
 			
@@ -443,8 +495,8 @@ public class KakaoServiceExample {
 		// 팝빌에 등록된 플러스친구 아이디
 		String plusFriendID = "@팝빌";
 		
-		// 팝빌에 등록된 발신번호
-		String senderNum = "07043042993";
+		// 발신번호 (팝빌에 등록된 발신번호만 이용가능)
+		String senderNum = "07043042991";
 		
 		// 친구톡 내용 (최대 1000자)
 		String content = "친구톡 메시지 내용";
@@ -466,7 +518,7 @@ public class KakaoServiceExample {
 		KakaoReceiver[] receivers = new KakaoReceiver[100];
 		for(int i=0; i<100; i++) {
 			KakaoReceiver message = new KakaoReceiver();
-			message.setReceiverNum("010000111");
+			message.setReceiverNum("010111222");
 			message.setReceiverName("수신자명"+i);
 			receivers[i] = message;
 		}
@@ -489,10 +541,15 @@ public class KakaoServiceExample {
 		button.setU2("http://test.popbill.com");
 		btns[1] = button;
 		
+	    // 전송요청번호
+	    // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+	    // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
+	    String requestNum = "";		
+		
 		try {
 			
 			String receiptNum = kakaoService.sendFTS(testCorpNum, plusFriendID, senderNum, content, 
-					altContent, altSendType, receivers, btns, sndDT, adsYN);	
+					altContent, altSendType, receivers, btns, sndDT, adsYN, testUserID, requestNum);	
 			
 			m.addAttribute("Result",receiptNum);
 			
@@ -514,8 +571,8 @@ public class KakaoServiceExample {
 		// 팝빌에 등록된 플러스친구 아이디
 		String plusFriendID = "@팝빌";
 		
-		// 팝빌에 등록된 발신번호
-		String senderNum = "07043042993";
+		// 발신번호 (팝빌에 등록된 발신번호만 이용가능)
+		String senderNum = "07043042991";
 		
 		// 대체문자 전송유형, 공백-미전송, C-친구톡내용 전송, A-알림톡 내용 전송
 		String altSendType = "A";
@@ -531,7 +588,7 @@ public class KakaoServiceExample {
 		KakaoReceiver[] receivers = new KakaoReceiver[100];
 		for(int i=0; i<100; i++) {
 			KakaoReceiver message = new KakaoReceiver();
-			message.setReceiverNum("010000111"); // 수신번호
+			message.setReceiverNum("010111222"); // 수신번호
 			message.setReceiverName("수신자명"+i);	// 수신자명
 			message.setMessage("친구톡 개별내용"+i); // 친구톡 내용, 최대 1000자
 			message.setAltMessage("대체문자 개별내용"+i); // 대체문자 내용
@@ -556,10 +613,15 @@ public class KakaoServiceExample {
 		button.setU2("http://test.popbill.com");
 		btns[1] = button;
 		
+	    // 전송요청번호
+	    // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+	    // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
+	    String requestNum = "";		
+		
 		try {
 			
 			String receiptNum = kakaoService.sendFTS(testCorpNum, plusFriendID, senderNum, altSendType, 
-					receivers, btns, sndDT, adsYN);	
+					receivers, btns, sndDT, adsYN, testUserID, requestNum);	
 			
 			m.addAttribute("Result",receiptNum);
 			
@@ -580,20 +642,20 @@ public class KakaoServiceExample {
 		// 팝빌에 등록된 플러스친구 아이디
 		String plusFriendID = "@팝빌";
 		
-		// 팝빌에 등록된 발신번호
-		String senderNum = "07043042993";
+		// 발신번호 (팝빌에 등록된 발신번호만 이용가능)
+		String senderNum = "07043042991";
 		
 		// 친구톡 내용 (최대 400자)
 		String content = "친구톡 메시지 내용";
 		
-		// 대체문자 내용
+		// 대체문자 내용 (최대 2000byte)
 		String altContent = "대체문자 내용";
 		
 		// 대체문자 전송유형, 공백-미전송, C-친구톡내용 전송, A-알림톡 내용 전송
 		String altSendType = "A";
 		
 		// 수신번호
-		String receiverNum = "01043245117";
+		String receiverNum = "010111222";
 		
 		// 수신자명
 		String receiverName = "수신자명";
@@ -628,10 +690,16 @@ public class KakaoServiceExample {
 		// 이미지 파일 링크
 		String imageURL = "http://test.popbill.com";
 		
+	    // 전송요청번호
+	    // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+	    // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
+	    String requestNum = "";		
+		
 		try {
 			
 			String receiptNum = kakaoService.sendFMS(testCorpNum, plusFriendID, senderNum, content, 
-					altContent, altSendType, btns, receiverNum, receiverName, sndDT, adsYN, file, imageURL);	
+					altContent, altSendType, btns, receiverNum, receiverName, sndDT, adsYN, file, imageURL,
+					testUserID, requestNum);	
 			
 			m.addAttribute("Result",receiptNum);
 			
@@ -652,13 +720,13 @@ public class KakaoServiceExample {
 		// 팝빌에 등록된 플러스친구 아이디
 		String plusFriendID = "@팝빌";
 		
-		// 팝빌에 등록된 발신번호
-		String senderNum = "07043042993";
+		// 발신번호 (팝빌에 등록된 발신번호만 이용가능)
+		String senderNum = "07043042991";
 		
 		// 친구톡 내용 (최대 400자)
 		String content = "친구톡 메시지 내용";
 		
-		// 대체문자 내용
+		// 대체문자 내용 (최대 2000byte)
 		String altContent = "대체문자 내용";
 		
 		// 대체문자 전송유형, 공백-미전송, C-친구톡내용 전송, A-알림톡 내용 전송
@@ -675,7 +743,7 @@ public class KakaoServiceExample {
 		KakaoReceiver[] receivers = new KakaoReceiver[100];
 		for(int i=0; i<100; i++) {
 			KakaoReceiver message = new KakaoReceiver();
-			message.setReceiverNum("010000111"); // 수신번호
+			message.setReceiverNum("010111222"); // 수신번호
 			message.setReceiverName("수신자명"+i); // 수신자명
 			receivers[i] = message;
 		}
@@ -701,13 +769,20 @@ public class KakaoServiceExample {
 		// 첨부이미지 파일 
 		File file = new File("/Users/John/Desktop/tmp/test03.jpg");
 		
+		
 		// 이미지 파일 링크
 		String imageURL = "http://test.popbill.com";
+		
+	    // 전송요청번호
+	    // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+	    // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
+	    String requestNum = "";		
 		
 		try {
 			
 			String receiptNum = kakaoService.sendFMS(testCorpNum, plusFriendID, senderNum, content, 
-					altContent, altSendType, receivers, btns, sndDT, adsYN, file, imageURL);	
+					altContent, altSendType, receivers, btns, sndDT, adsYN, file, imageURL,
+					testUserID, requestNum);	
 			
 			m.addAttribute("Result",receiptNum);
 			
@@ -728,14 +803,14 @@ public class KakaoServiceExample {
 		// 팝빌에 등록된 플러스친구 아이디
 		String plusFriendID = "@팝빌";
 		
-		// 팝빌에 등록된 발신번호
-		String senderNum = "07043042993";
+		// 발신번호 (팝빌에 등록된 발신번호만 이용가능)
+		String senderNum = "07043042991";
 		
 		// 대체문자 전송유형, 공백-미전송, C-친구톡내용 전송, A-알림톡 내용 전송
 		String altSendType = "A";
 		
 		// 예약전송일시, 형태(yyyyMmddHHmmss)
-		String sndDT = "20180306200000";
+		String sndDT = "";
 		
 		// 광고전송여부
 		Boolean adsYN = false;
@@ -745,7 +820,7 @@ public class KakaoServiceExample {
 		KakaoReceiver[] receivers = new KakaoReceiver[100];
 		for(int i=0; i<100; i++) {
 			KakaoReceiver message = new KakaoReceiver();
-			message.setReceiverNum("010000111"); // 수신번호
+			message.setReceiverNum("010111222"); // 수신번호
 			message.setReceiverName("수신자명"+i); // 수신자명
 			message.setMessage("친구톡 개별내용"+i); // 친구톡 내용, 최대 400자
 			message.setAltMessage("대체문자 개별내용"+i); // 대체문자 내용
@@ -777,10 +852,15 @@ public class KakaoServiceExample {
 		// 이미지 파일 링크
 		String imageURL = "http://test.popbill.com";
 		
+	    // 전송요청번호
+	    // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+	    // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
+	    String requestNum = "";		
+		
 		try {
 			
 			String receiptNum = kakaoService.sendFMS(testCorpNum, plusFriendID, senderNum, altSendType, 
-					receivers, btns, sndDT, adsYN, file, imageURL);	
+					receivers, btns, sndDT, adsYN, file, imageURL, testUserID, requestNum);	
 			
 			m.addAttribute("Result",receiptNum);
 			
@@ -795,12 +875,12 @@ public class KakaoServiceExample {
 	@RequestMapping(value = "cancelReserve", method = RequestMethod.GET)
 	public String cancelReserve( Model m) {
 		/**
-		 * 예약전송을 취소합니다.
+		 * 카카오톡 전송요청시 발급받은 접수번호(receiptNum)로 예약전송건을 취소합니다.
 		 * - 예약취소는 예약전송시간 10분전까지만 가능합니다.
 		 */
 		
 		// 예약전송 접수번호
-		String receiptNum = "018030610185600001"; 
+		String receiptNum = ""; 
 		
 		try {
 			Response response = kakaoService.cancelReserve(testCorpNum, receiptNum);
@@ -815,15 +895,37 @@ public class KakaoServiceExample {
 		return "response";
 	}
 	
+	@RequestMapping(value = "cancelReserveRN", method = RequestMethod.GET)
+	public String cancelReserveRN( Model m) {
+		/**
+		 * 전송요청번호(requestNum)를 할당한 알림톡/친구톡 예약전송건을 취소합니다.
+		 * - 예약취소는 예약전송시간 10분전까지만 가능합니다.
+		 */
+		
+		// 예약전송 요청시 할당한 전송요청번호
+		String requestNum = ""; 
+		
+		try {
+			Response response = kakaoService.cancelReserveRN(testCorpNum, requestNum);
+			
+			m.addAttribute("Response",response);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "response";
+	}
 	
 	@RequestMapping(value = "getMessages", method = RequestMethod.GET)
 	public String getMessages( Model m) {
 		/**
-		 * 카카오톡 전송결과 상세정보를 확인합니다.
+		 * 카카오톡 전송요청시 발급받은 접수번호(receiptNum)로 전송결과를 확인합니다
 		 */
 		
 		// 카카오톡 접수번호
-		String receiptNum = "018030609572900001"; 
+		String receiptNum = ""; 
 		
 		try {
 			
@@ -838,6 +940,29 @@ public class KakaoServiceExample {
 		
 		return "Kakao/getMessage";
 	}
+	
+	@RequestMapping(value = "getMessagesRN", method = RequestMethod.GET)
+	public String getMessagesRN( Model m) {
+		/**
+		 * 전송요청번호(requestNum)를 할당한 알림톡/친구톡 전송내역 및 전송상태를 확인한다.
+		 */
+		
+		// 카카오톡 접수번호
+		String requestNum = ""; 
+		
+		try {
+			
+			KakaoSentInfo sentInfos = kakaoService.getMessagesRN(testCorpNum, requestNum);
+			
+			m.addAttribute("sentInfos",sentInfos);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "Kakao/getMessage";
+	}	
 	
 	@RequestMapping(value = "search", method = RequestMethod.GET)
 	public String search(Model m) {

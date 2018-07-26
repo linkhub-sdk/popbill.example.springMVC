@@ -77,17 +77,30 @@
 						<li><a href="MessageService/sendMMS_Multi">sendMMS</a> - 멀티 문자메시지 다량(최대1000건) 전송</li>
 					</ul>
 				</fieldset>
-				
-				
+								
 				<fieldset class="fieldset2">
-					<legend>전송결과/예약취소</legend>
+					<legend>전송내역조회</legend>
 					<ul>
-						<li><a href="MessageService/getMessages">getMessages</a> - 접수번호에 해당하는 문자메시지 전송결과 확인</li>
 						<li><a href="MessageService/search">search</a> - 문자전송내역 조회</li>
-						<li><a href="MessageService/cancelReserve">cancelReserve</a> - 예약문자메시지의 예약 취소. 예약시간 10분전까지만 가능.</li>
 					</ul>
 				</fieldset>
 				
+				<fieldset class="fieldset2">
+					<legend>접수번호 관련 기능 (요청번호 미할당)</legend>
+					<ul>
+						<li><a href="MessageService/getMessages">getMessages</a> - 문자메시지 전송결과 확인</li>
+						<li><a href="MessageService/cancelReserve">cancelReserve</a> - 예약문자 메시지 예약취소</li>
+					</ul>
+				</fieldset>
+
+				<fieldset class="fieldset2">
+					<legend>요청번호 할당 전송건 관련 기능</legend>
+					<ul>
+						<li><a href="MessageService/getMessagesRN">getMessagesRN</a> - 문자메시지 전송결과 확인</li>
+						<li><a href="MessageService/cancelReserveRN">cancelReserveRN</a> - 예약문자 메시지 예약취소</li>
+					</ul>
+				</fieldset>
+
 				<fieldset class="fieldset2">
 					<legend>기타</legend>
 					<ul>
