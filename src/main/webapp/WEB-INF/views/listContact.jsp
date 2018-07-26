@@ -17,14 +17,16 @@
 				<c:forEach items="${ContactInfos}" var="ContactInfo">
 				<fieldset class="fieldset2">
 					<ul>
-						<li>id : ${ContactInfo.id}</li>
-						<li>email : ${ContactInfo.email}</li>
-						<li>personName : ${ContactInfo.personName}</li>
-						<li>searchAllAllowYN : ${ContactInfo.searchAllAllowYN}</li>
-						<li>tel : ${ContactInfo.tel}</li>
-						<li>fax : ${ContactInfo.fax}</li>
-						<li>mgrYN : ${ContactInfo.mgrYN}</li>
-						<li>regDT : ${ContactInfo.regDT}</li>
+						<li>id (아이디) : ${ContactInfo.id}</li>
+						<li>personName (담당자 섬영) : ${ContactInfo.personName}</li>
+						<li>email (이메일) : ${ContactInfo.email}</li>
+						<li>hp (휴대폰번호) : ${ContactInfo.hp}</li>
+						<li>fax (팩스번호) : ${ContactInfo.fax}</li>
+						<li>tel (연락처) : ${ContactInfo.tel}</li>
+						<li>regDT (등록일시) : ${ContactInfo.regDT}</li>
+						<li>searchAllAllowYN (회사조회 권한여부) : ${ContactInfo.searchAllAllowYN}</li>
+						<li>mgrYN (관리자 권한여부) : ${ContactInfo.mgrYN}</li>
+						<li>state (상태) : ${ContactInfo.state}</li>
 					</ul>
 				</fieldset>
 				</c:forEach>
