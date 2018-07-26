@@ -967,14 +967,15 @@ public class KakaoServiceExample {
 	@RequestMapping(value = "search", method = RequestMethod.GET)
 	public String search(Model m) {
 		/**
-		 * 검색조건에 따른 카카오톡 전송내역을 조회합니다.
+		 * 검색조건을 사용하여 친구톡/알림톡 내역을 조회합니다.
+		 * - 최대 검색기간 : 6개월 이내
 		 */
 		
 		// 시작일자, 날짜형식(yyyyMMdd)
-		String SDate = "20180306";				
+		String SDate = "20180701";				
 		
 		// 종료일자, 날짜형식(yyyyMMdd)
-		String EDate = "20180306";				
+		String EDate = "20180720";				
 		
 		// 전송상태 배열, 0-대기, 1-전송중, 2-성공, 3-대체, 4-실패, 5-취소
 		String[] State = {"0", "1", "2", "3","4"};	
@@ -995,12 +996,17 @@ public class KakaoServiceExample {
 		int PerPage = 20;						
 		
 		// 정렬방향 D-내림차순, A-오름차순
-		String Order = "D";						 
+		String Order = "D";		
+		
+	    // 조회 검색어.
+	  	// 카카오톡 전송시 입력한 수신자명 기재.
+	  	// 조회 검색어를 포함한 수신자명을 검색합니다.
+	  	String QString = "";		
 		
 		try {
 			
 			KakaoSearchResult response = kakaoService.search(testCorpNum, SDate, 
-					EDate, State, Item, ReserveYN, SenderYN, Page, PerPage, Order);
+					EDate, State, Item, ReserveYN, SenderYN, Page, PerPage, Order, testUserID, QString);
 			
 			m.addAttribute("SearchResult",response);
 			

@@ -34,6 +34,8 @@
 						<li>reserveDT (예약일시) : ${FaxResult.reserveDT}</li>
 						<li>sendDT (전송일시) : ${FaxResult.sendDT}</li>
 						<li>resultDT (전송결과 수신일시) : ${FaxResult.resultDT}</li>
+						<li>receiptNum (접수번호) : ${FaxResult.receiptNum}</li>
+						<li>requestNum (요청번호) : ${FaxResult.requestNum}</li>
 						<li>fileNames (전송 파일명 리스트) : ${fn:join(FaxResult.fileNames,", ")}</li>
 					</ul>
 				</fieldset>

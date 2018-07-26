@@ -639,13 +639,14 @@ public class MessageServiceExample {
 	public String search(Model m) {
 		/**
 		 * 검색조건을 사용하여 문자전송 내역을 조회합니다.
+		 * - 최대 검색기간 : 6개월 이내
 		 */
 		
 		// 시작일자, 날짜형식(yyyyMMdd)
-		String SDate = "20161001";				
+		String SDate = "20180701";				
 		
 		// 종료일자, 날짜형식(yyyyMMdd)
-		String EDate = "20170213";				
+		String EDate = "20180720";				
 		
 		// 전송상태 배열, 1-대기, 2-성공, 3-실패, 4-취소
 		String[] State = {"1", "2", "3","4"};	
@@ -666,12 +667,17 @@ public class MessageServiceExample {
 		int PerPage = 20;						
 		
 		// 정렬방향 D-내림차순, A-오름차순
-		String Order = "D";						 
+		String Order = "D";		
+		
+		// 조회 검색어.
+		// 문자 전송시 입력한 발신자명 또는 수신자명 기재.
+		// 조회 검색어를 포함한 발신자명 또는 수신자명을 검색합니다.
+		String QString = "";		
 		
 		try {
 			
 			MSGSearchResult response = messageService.search(testCorpNum, SDate, 
-					EDate, State, Item, ReserveYN, SenderYN, Page, PerPage, Order);
+					EDate, State, Item, ReserveYN, SenderYN, Page, PerPage, Order, QString);
 			
 			m.addAttribute("SearchResult",response);
 			

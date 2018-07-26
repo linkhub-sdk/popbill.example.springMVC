@@ -46,6 +46,8 @@
 						<li> resultDT (전송결과 수신일시) : ${SearchInfo.resultDT}</li>
 						<li> reserveDT (예약일시) : ${SearchInfo.reserveDT}</li>
 						<li> tranNet (전송처리 이동통신사명) : ${SearchInfo.tranNet}</li>
+						<li>receiptNum (접수번호) : ${SentMessage.receiptNum}</li>
+						<li>requestNum (요청번호) : ${SentMessage.requestNum}</li>
 					</ul>
 				</fieldset>
 				</c:forEach>
