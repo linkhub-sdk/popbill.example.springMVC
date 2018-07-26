@@ -68,7 +68,7 @@
 				</fieldset>
 				
 				<fieldset class="fieldset2">
-					<legend>부가 기능</legend>
+					<legend>홈택스 인증관련 기능</legend>
 					<ul>
 						<li><a href="HTCashbillService/getCertificatePopUpURL">getCertificatePopUpURL</a> - 홈택스연동 인증관리 팝업 URL</li>
 						<li><a href="HTCashbillService/getCertificateExpireDate">getCertificateExpireDate</a> - 홈택스연계 공인인증서 만료일자 확인</li>
