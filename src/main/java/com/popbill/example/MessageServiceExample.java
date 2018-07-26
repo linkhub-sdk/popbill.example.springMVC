@@ -45,6 +45,7 @@ import com.popbill.api.Response;
 import com.popbill.api.message.AutoDeny;
 import com.popbill.api.message.MSGSearchResult;
 import com.popbill.api.message.Message;
+import com.popbill.api.message.MessageBriefInfo;
 import com.popbill.api.message.MessageType;
 import com.popbill.api.message.SenderNumber;
 import com.popbill.api.message.SentMessage;
@@ -712,5 +713,28 @@ public class MessageServiceExample {
 		}
 		return "Message/SenderNumber";
 	}
+	
+	@RequestMapping(value = "getStates", method = RequestMethod.GET)
+	public String getStates( Model m) {
+		/**
+		 * 문자전송요청에 대한 전송결과를 확인합니다.
+		 */
+		
+		// 문자전송 접수번호 배열
+		String[] ReceiptNumList = new String[] {"018072610000000023"};		
+		
+		try {
+			
+			MessageBriefInfo[] messageBriefInfos = messageService.getStates(testCorpNum, ReceiptNumList);
+			
+			m.addAttribute("MessageBriefInfos",messageBriefInfos);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "Message/MessageBriefInfo";
+	}	
 	
 }

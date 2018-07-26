@@ -79,9 +79,10 @@
 				</fieldset>
 								
 				<fieldset class="fieldset2">
-					<legend>전송내역조회</legend>
+					<legend>전송내역조회/요약정보확인</legend>
 					<ul>
 						<li><a href="MessageService/search">search</a> - 문자전송내역 조회</li>
+						<li><a href="MessageService/getStates">getStates</a> - 문자메시지 전송결과 요약정보 확인</li>
 					</ul>
 				</fieldset>
 				
