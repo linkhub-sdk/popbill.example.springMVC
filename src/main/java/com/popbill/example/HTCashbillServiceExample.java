@@ -2,7 +2,7 @@
  *  * 팝빌 홈택스 현금영수증 연계 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : http://blog.linkhub.co.kr/591/
- * - 업데이트 일자 : 2017-11-15
+ * - 업데이트 일자 : 2018-07-26
  * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
  *
@@ -45,6 +45,7 @@ import com.popbill.api.ChargeInfo;
 import com.popbill.api.FlatRateState;
 import com.popbill.api.HTCashbillService;
 import com.popbill.api.PopbillException;
+import com.popbill.api.Response;
 import com.popbill.api.hometax.HTCashbillJobState;
 import com.popbill.api.hometax.HTCashbillSearchResult;
 import com.popbill.api.hometax.HTCashbillSummary;
@@ -315,5 +316,108 @@ public class HTCashbillServiceExample {
 		
 		return "HTTaxinvoice/GetFlatRateState";
 	}
+	
+	@RequestMapping(value = "checkCertValidation", method = RequestMethod.GET)
+	public String checkCertValidation( Model m) {
+		/**
+		 * 팝빌에 등록된 공인인증서의 홈택스 로그인을 테스트한다.
+		 */
+		try {
+			
+			Response response = htCashbillService.checkCertValidation(testCorpNum);
+			
+			m.addAttribute("Response",response);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "response";	
+	}	
+	
+	@RequestMapping(value = "registDeptUser", method = RequestMethod.GET)
+	public String registDeptUser( Model m) {
+		/**
+		 * 홈택스 현금영수증 부서사용자 계정을 등록한다.
+		 */
+		
+		// 홈택스에서 생성한 현금영수증 부서사용자 아이디
+		String deptUserID = "userid";
+
+		// 홈택스에서 생성한 현금영수증 부서사용자 비밀번호
+		String deptUserPWD = "passwd";	
+		
+		try {
+			
+			Response response = htCashbillService.registDeptUser(testCorpNum, deptUserID, deptUserPWD);
+			
+			m.addAttribute("Response",response);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "response";	
+	}	
+	
+	@RequestMapping(value = "checkDeptUser", method = RequestMethod.GET)
+	public String checkDeptUser( Model m) {
+		/**
+		 * 팝빌에 등록된 현금영수증 부서사용자 아이디를 확인한다.
+		 */
+		try {
+			
+			Response response = htCashbillService.checkDeptUser(testCorpNum);
+			
+			m.addAttribute("Response",response);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "response";	
+	}	
+	
+	@RequestMapping(value = "checkLoginDeptUser", method = RequestMethod.GET)
+	public String checkLoginDeptUser( Model m) {
+		/**
+		 * 팝빌에 등록된 현금영수증 부서사용자 계정정보를 이용하여 홈택스 로그인을 테스트한다.
+		 */
+		try {
+			
+			Response response = htCashbillService.checkLoginDeptUser(testCorpNum);
+			
+			m.addAttribute("Response",response);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "response";	
+	}	
+	
+	@RequestMapping(value = "deleteDeptUser", method = RequestMethod.GET)
+	public String deleteDeptUser( Model m) {
+		/**
+		 * 팝빌에 등록된 현금영수증 부서사용자 계정정보를 삭제한다.
+		 */
+		try {
+			
+			Response response = htCashbillService.deleteDeptUser(testCorpNum);
+			
+			m.addAttribute("Response",response);
+			
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+		
+		return "response";	
+	}	
+
 }
 

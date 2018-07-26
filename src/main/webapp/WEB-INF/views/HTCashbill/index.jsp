@@ -64,8 +64,19 @@
 					<ul>
 						<li><a href="HTCashbillService/getFlatRatePopUpURL">getFlatRatePopUpURL</a> - 정액제 서비스 신청 URL</li>
 						<li><a href="HTCashbillService/getFlatRateState">getFlatRateState</a> - 정액제 서비스 상태 확인</li>
+					</ul>
+				</fieldset>
+				
+				<fieldset class="fieldset2">
+					<legend>부가 기능</legend>
+					<ul>
 						<li><a href="HTCashbillService/getCertificatePopUpURL">getCertificatePopUpURL</a> - 홈택스연동 인증관리 팝업 URL</li>
 						<li><a href="HTCashbillService/getCertificateExpireDate">getCertificateExpireDate</a> - 홈택스연계 공인인증서 만료일자 확인</li>
+						<li><a href="HTCashbillService/checkCertValidation">checkCertValidation</a> - 홈택스 공인인증서 로그인 테스트</li>
+						<li><a href="HTCashbillService/registDeptUser">registDeptUser</a> - 홈택스 현금영수증 부서사용자 계정등록</li>
+						<li><a href="HTCashbillService/checkDeptUser">checkDeptUser</a> - 홈택스 부서사용자 등록정보 확인</li>
+						<li><a href="HTCashbillService/checkLoginDeptUser">checkLoginDeptUser</a> - 홈택스 부서사용자 로그인 테스트</li>
+						<li><a href="HTCashbillService/deleteDeptUser">deleteDeptUser</a> - 홈택스 부서사용자 등록정보 삭제</li>
 					</ul>
 				</fieldset>
 			</fieldset>
