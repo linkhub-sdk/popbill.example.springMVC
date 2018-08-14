@@ -37,7 +37,7 @@
 						<li>identityNum (거래처 식별번호) : ${Cashbill.identityNum}</li>
 						<li>customerName (거래처 고객명) : ${Cashbill.customerName}</li>
 						<li>itemName (거래처 상품명) : ${Cashbill.itemName}</li>
-						<li>orderNumber (가맹점 주문번호) : ${Cashbill.orderNumber}</li>
+						<li>orderNumber (거래처 주문번호) : ${Cashbill.orderNumber}</li>
 						<li>email (거래처 이메일) : ${Cashbill.email}</li>
 						<li>hp (거래처 휴대폰) : ${Cashbill.hp}</li>
 						<li>smssendYN (발행시 안내문자 전송여부) : ${Cashbill.smssendYN}</li>
