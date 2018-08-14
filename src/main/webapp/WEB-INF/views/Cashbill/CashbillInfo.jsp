@@ -18,26 +18,26 @@
 					<legend>CashbillInfo</legend>
 					<ul>
 						<li>itemKey (팝빌 관리번호) : ${CashbillInfo.itemKey}</li>
-						<li>mgtKey (파트너 관리번호) : ${CashbillInfo.mgtKey}</li>
+						<li>mgtKey (관리번호) : ${CashbillInfo.mgtKey}</li>
 						<li>tradeDate (거래일자) : ${CashbillInfo.tradeDate}</li>
 						<li>issueDT (발행일시) : ${CashbillInfo.issueDT}</li>
-						<li>customerName (고객명) : ${CashbillInfo.customerName}</li>
-						<li>itemName (상품명) : ${CashbillInfo.itemName}</li>
-						<li>identityNum (거래처 식별번호) : ${CashbillInfo.identityNum}</li>
+						<li>regDT (등록일시) : ${CashbillInfo.regDT}</li>
 						<li>taxationType (과세형태) : ${CashbillInfo.taxationType}</li>
 						<li>totalAmount (거래금액) : ${CashbillInfo.totalAmount}</li>
-						<li>tradeUsage (거래용도) : ${CashbillInfo.tradeUsage}</li>
-						<li>tradeType (현금영수증 형태) : ${CashbillInfo.tradeType}</li>
+						<li>tradeUsage (거래구분) : ${CashbillInfo.tradeUsage}</li>
+						<li>tradeOpt (거래유형) : ${CashbillInfo.tradeOpt}</li>
+						<li>tradeType (문서형태) : ${CashbillInfo.tradeType}</li>
+						<li>identityNum (거래처 식별번호) : ${CashbillInfo.identityNum}</li>
+						<li>itemName (거래처 주문상품명) : ${CashbillInfo.itemName}</li>
+						<li>customerName (거래처 고객명) : ${CashbillInfo.customerName}</li>
 						<li>stateCode (상태코드) : ${CashbillInfo.stateCode}</li>
 						<li>stateDT (상태변경일시) : ${CashbillInfo.stateDT}</li>
 						<li>printYN (인쇄여부) : ${CashbillInfo.printYN}</li>
-						<li>regDT (등록일시) : ${CashbillInfo.regDT}</li>
-							
+						<li>stateMemo (상태메모) : ${CashbillInfo.stateMemo}</li>
 						<li>ntssendDT (국세청 전송일시) : ${CashbillInfo.ntssendDT}</li>
 						<li>ntsresultDT (국세청 처리결과 수신일시) : ${CashbillInfo.ntsresultDT}</li>
 						<li>ntsresultCode (국세청 처리결과 상태코드) : ${CashbillInfo.ntsresultCode}</li>
 						<li>ntsresultMessage (국세청 처리결과 메시지) : ${CashbillInfo.ntsresultMessage}</li>
-						
 						<li>orgConfirmNum (원본 현금영수증 승인번호) : ${CashbillInfo.orgConfirmNum}</li>
 						<li>orgTradeDate (원본 현금영수증 거래일자) : ${CashbillInfo.orgTradeDate}</li>
 					</ul>
@@ -50,26 +50,26 @@
 					<legend>CashbillInfo : ${CashbillInfo.mgtKey}</legend>
 					<ul>
 						<li>itemKey (팝빌 관리번호) : ${CashbillInfo.itemKey}</li>
-						<li>mgtKey (파트너 관리번호) : ${CashbillInfo.mgtKey}</li>
+						<li>mgtKey (관리번호) : ${CashbillInfo.mgtKey}</li>
 						<li>tradeDate (거래일자) : ${CashbillInfo.tradeDate}</li>
 						<li>issueDT (발행일시) : ${CashbillInfo.issueDT}</li>
-						<li>customerName (고객명) : ${CashbillInfo.customerName}</li>
-						<li>itemName (상품명) : ${CashbillInfo.itemName}</li>
-						<li>identityNum (거래처 식별번호) : ${CashbillInfo.identityNum}</li>
+						<li>regDT (등록일시) : ${CashbillInfo.regDT}</li>
 						<li>taxationType (과세형태) : ${CashbillInfo.taxationType}</li>
 						<li>totalAmount (거래금액) : ${CashbillInfo.totalAmount}</li>
-						<li>tradeUsage (거래용도) : ${CashbillInfo.tradeUsage}</li>
-						<li>tradeType (현금영수증 형태) : ${CashbillInfo.tradeType}</li>
+						<li>tradeUsage (거래구분) : ${CashbillInfo.tradeUsage}</li>
+						<li>tradeOpt (거래유형) : ${CashbillInfo.tradeOpt}</li>
+						<li>tradeType (문서형태) : ${CashbillInfo.tradeType}</li>
+						<li>identityNum (거래처 식별번호) : ${CashbillInfo.identityNum}</li>
+						<li>itemName (거래처 주문상품명) : ${CashbillInfo.itemName}</li>
+						<li>customerName (거래처 고객명) : ${CashbillInfo.customerName}</li>
 						<li>stateCode (상태코드) : ${CashbillInfo.stateCode}</li>
 						<li>stateDT (상태변경일시) : ${CashbillInfo.stateDT}</li>
 						<li>printYN (인쇄여부) : ${CashbillInfo.printYN}</li>
-						<li>regDT (등록일시) : ${CashbillInfo.regDT}</li>
-						
+						<li>stateMemo (상태메모) : ${CashbillInfo.stateMemo}</li>
 						<li>ntssendDT (국세청 전송일시) : ${CashbillInfo.ntssendDT}</li>
 						<li>ntsresultDT (국세청 처리결과 수신일시) : ${CashbillInfo.ntsresultDT}</li>
 						<li>ntsresultCode (국세청 처리결과 상태코드) : ${CashbillInfo.ntsresultCode}</li>
 						<li>ntsresultMessage (국세청 처리결과 메시지) : ${CashbillInfo.ntsresultMessage}</li>
-						
 						<li>orgConfirmNum (원본 현금영수증 승인번호) : ${CashbillInfo.orgConfirmNum}</li>
 						<li>orgTradeDate (원본 현금영수증 거래일자) : ${CashbillInfo.orgTradeDate}</li>
 					</ul>

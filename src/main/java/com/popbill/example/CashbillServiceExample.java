@@ -133,9 +133,9 @@ public class CashbillServiceExample {
 		Cashbill cashbill = new Cashbill();
 	
 		// 문서관리번호, 최대 24자리, 영문, 숫자 '-', '_'로 구성
-		cashbill.setMgtKey("20170714-05");			
+		cashbill.setMgtKey("20180814-001");
 		
-		// 현금영수증 형태, {승인거래, 취소거래} 중 기재
+		// 문서형태, {승인거래, 취소거래} 중 기재
 		cashbill.setTradeType("승인거래");				
 		
 		// 취소거래시 기재, 원본 현금영수증 국세청 승인번호 - getInfo API를 통해 confirmNum 값 기재
@@ -143,8 +143,7 @@ public class CashbillServiceExample {
 
 		// 취소거래시 기재, 원본 현금영수증 거래일자 - getInfo API를 통해 tradeDate 값 기재
 		cashbill.setOrgTradeDate("");	
-				
-		
+
 		// 과세형태, {과세, 비과세} 중 기재
 		cashbill.setTaxationType("과세");				
 		
@@ -153,19 +152,22 @@ public class CashbillServiceExample {
 	    // 지출증빙용 - 사업자번호/주민등록/휴대폰/카드번호 기재가능
 		cashbill.setIdentityNum("01011112222");
 		
-		// 거래유형, {소득공제용, 지출증빙용} 중 기재
+		// 거래구분, {소득공제용, 지출증빙용} 중 기재
 		cashbill.setTradeUsage("소득공제용");
+
+		// 거래유형, {일반, 도서공연, 대중교통} 중 기재
+		cashbill.setTradeOpt("일반");
 
 		// 공급가액, 숫자만 가능
 		cashbill.setSupplyCost("10000");				
 		
-		// 세액, 숫자만 가능
+		// 부가세, 숫자만 가능
 		cashbill.setTax("1000");						
 		
 		// 봉사료, 숫자만 가능
 		cashbill.setServiceFee("0");					
 		
-		// 합계금액, 숫자만 가능, 봉사료 + 공급가액 + 세액
+		// 합계금액, 숫자만 가능, 봉사료 + 공급가액 + 부가세
 		cashbill.setTotalAmount("11000");				
 
 		
@@ -188,19 +190,19 @@ public class CashbillServiceExample {
 		cashbill.setSmssendYN(false);					
 	
 		
-		// 고객명
+		// 거래처 고객명
 		cashbill.setCustomerName("고객명");
 		
-		// 상품명
+		// 거래처 주문상품명
 		cashbill.setItemName("상품명");
 		
-		// 주문번호
+		// 거래처 주문번호
 		cashbill.setOrderNumber("주문번호");
 		
-		// 고객 메일주소
+		// 거래처 이메일
 		cashbill.setEmail("test@test.com");
 		
-		// 고객 휴대폰 번호
+		// 거래처 휴대폰
 		cashbill.setHp("010111222");
 		
 			
@@ -239,7 +241,7 @@ public class CashbillServiceExample {
 		// 문서관리번호, 최대 24자리, 영문, 숫자 '-', '_'로 구성
 		cashbill.setMgtKey(mgtKey);			
 		
-		// 현금영수증 형태, {승인거래, 취소거래} 중 기재
+		// 문서형태, {승인거래, 취소거래} 중 기재
 		cashbill.setTradeType("승인거래");				
 		
 		// 취소거래시 기재, 원본현금영수증 국세청 승인번호 - getInfo API를 통해 confirmNum 값 기재
@@ -260,15 +262,14 @@ public class CashbillServiceExample {
 		// 공급가액, 숫자만 가능
 		cashbill.setSupplyCost("10000");				
 		
-		// 세액, 숫자만 가능
+		// 부가세, 숫자만 가능
 		cashbill.setTax("1000");						
 		
 		// 봉사료, 숫자만 가능
 		cashbill.setServiceFee("0");					
 		
-		// 합계금액, 숫자만 가능, 봉사료 + 공급가액 + 세액
-		cashbill.setTotalAmount("11000");				
-
+		// 합계금액, 숫자만 가능, 봉사료 + 공급가액 + 부가세
+		cashbill.setTotalAmount("11000");
 		
 		// 발행자 사업자번호, '-'제외 10자리
 		cashbill.setFranchiseCorpNum("1234567890");
@@ -286,22 +287,21 @@ public class CashbillServiceExample {
 		cashbill.setFranchiseTEL("07043042991");	
 		
 		// 발행안내 문자 전송여부
-		cashbill.setSmssendYN(false);					
-	
+		cashbill.setSmssendYN(false);
 		
-		// 고객명
+		// 거래처 고객명
 		cashbill.setCustomerName("고객명");
 		
-		// 상품명
+		// 거래처 주문상품명
 		cashbill.setItemName("상품명");
 		
-		// 주문번호
+		// 거래처 주문번호
 		cashbill.setOrderNumber("주문번호");
 		
-		// 고객 메일주소
+		// 거래처 이메일
 		cashbill.setEmail("test@test.com");
 		
-		// 고객 휴대폰 번호
+		// 거래처 휴대폰
 		cashbill.setHp("010111222");
 				
 		
@@ -457,7 +457,7 @@ public class CashbillServiceExample {
 		 */
 		
 		// 현금영수증 문서관리번호
-		String mgtKey = "20170306-11";
+		String mgtKey = "20180814-001";
 		
 		// 메모
 		String memo = "발행메모";
@@ -783,9 +783,9 @@ public class CashbillServiceExample {
 		Cashbill cashbill = new Cashbill();
 	
 		// 문서관리번호, 최대 24자리, 영문, 숫자 '-', '_'로 구성
-		cashbill.setMgtKey("20170714-05");			
+		cashbill.setMgtKey("20180814-002");
 		
-		// 현금영수증 형태, {승인거래, 취소거래} 중 기재
+		// 문서형태, {승인거래, 취소거래} 중 기재
 		cashbill.setTradeType("승인거래");				
 		
 		// 취소거래시 기재, 원본 현금영수증 국세청 승인번호 - getInfo API를 통해 confirmNum 값 기재
@@ -793,8 +793,7 @@ public class CashbillServiceExample {
 
 		// 취소거래시 기재, 원본 현금영수증 거래일자 - getInfo API를 통해 tradeDate 값 기재
 		cashbill.setOrgTradeDate("");
-		
-		
+
 		// 과세형태, {과세, 비과세} 중 기재
 		cashbill.setTaxationType("과세");				
 		
@@ -803,19 +802,22 @@ public class CashbillServiceExample {
 	    // 지출증빙용 - 사업자번호/주민등록/휴대폰/카드번호 기재가능
 		cashbill.setIdentityNum("0101112222");
 		
-		// 거래유형, {소득공제용, 지출증빙용} 중 기재
+		// 거래구분, {소득공제용, 지출증빙용} 중 기재
 		cashbill.setTradeUsage("소득공제용");
+
+		// 거래유형, {읿반, 도서공연, 대중교통} 중 기재
+		cashbill.setTradeOpt("대중교통");
 
 		// 공급가액, 숫자만 가능
 		cashbill.setSupplyCost("10000");				
 		
-		// 세액, 숫자만 가능
+		// 부가세, 숫자만 가능
 		cashbill.setTax("1000");						
 		
 		// 봉사료, 숫자만 가능
 		cashbill.setServiceFee("0");					
 		
-		// 합계금액, 숫자만 가능, 봉사료 + 공급가액 + 세액
+		// 합계금액, 숫자만 가능, 봉사료 + 공급가액 + 부가세
 		cashbill.setTotalAmount("11000");				
 
 		
@@ -838,19 +840,19 @@ public class CashbillServiceExample {
 		cashbill.setSmssendYN(false);					
 	
 		
-		// 고객명
+		// 거래처 고객명
 		cashbill.setCustomerName("고객명");
 		
-		// 상품명
+		// 거래처 주문상품명
 		cashbill.setItemName("상품명");
 		
-		// 주문번호
+		// 거래처 주문번호
 		cashbill.setOrderNumber("주문번호");
 		
-		// 고객 메일주소
+		// 거래처 이메일
 		cashbill.setEmail("test@test.com");
 		
-		// 고객 휴대폰 번호
+		// 거래처 휴대폰
 		cashbill.setHp("010111222");
 			
 		try {
@@ -938,7 +940,7 @@ public class CashbillServiceExample {
 		// [취소] 공급가액
 		String supplyCost = "3000";
 		
-		// [취소] 세액
+		// [취소] 부가세
 		String tax = "300";
 		
 		// [취소] 봉사료
@@ -1034,7 +1036,7 @@ public class CashbillServiceExample {
 		// [취소] 공급가액
 		String supplyCost = "3000";
 		
-		// [취소] 세액
+		// [취소] 부가세
 		String tax = "300";
 		
 		// [취소] 봉사료
@@ -1071,20 +1073,23 @@ public class CashbillServiceExample {
 		String DType = "T"; 								
 		
 		// 시작일자, 날짜형식(yyyyMMdd)
-		String SDate = "20170501"; 							
+		String SDate = "20180813";
 		
 		// 종료일자, 날짜형식(yyyyMMdd)
-		String EDate = "20170801"; 							
+		String EDate = "20180813";
 		
-		// 현금영수증 상태코드 배열, 2,3번째 자리에 와일드카드(*) 사용 가능
+		// 상태코드 배열, 2,3번째 자리에 와일드카드(*) 사용 가능
 		String[] State = {"100", "2**", "3**", "4**"};		
 		
-		// 현금영수증 형태배열,  N-일반현금영수증, C-취소현금영수증
+		// 문서형태 배열,  N-승인거래, C-취소거래
 		String[] TradeType = {"N", "C"};					
 		
-		// 거래용도 배열, P-소득공제용, C-지출증빙용
-		String[] TradeUsage = {"P", "C"};					
-		
+		// 거래구분 배열, P-소득공제용, C-지출증빙용
+		String[] TradeUsage = {"P", "C"};
+
+		// 거래유형 배열, N-일반, B-도서공연, T-대중교통
+		String[] TradeOpt = {"N", "B", "T"};
+
 		// 과세형태 배열, T-과세, N-비과세
 		String[] TaxationType = {"T", "N"};					
 		
@@ -1103,9 +1108,9 @@ public class CashbillServiceExample {
 		
 		try {
 			
-			CBSearchResult searchResult = cashbillService.search(testCorpNum, 
-					DType, SDate, EDate, State, TradeType, TradeUsage, TaxationType, 
-					QString, Page, PerPage, Order);
+			CBSearchResult searchResult = cashbillService.search(testCorpNum,DType, SDate, EDate,
+					State, TradeType, TradeUsage, TradeOpt, TaxationType, QString,
+					Page, PerPage, Order);
 			
 			m.addAttribute("SearchResult", searchResult);
 			
