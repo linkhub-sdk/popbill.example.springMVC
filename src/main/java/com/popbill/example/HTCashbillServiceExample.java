@@ -177,7 +177,7 @@ public class HTCashbillServiceExample {
 		 */
 		
 		// 수집 요청시 발급받은 작업아이디
-		String jobID = "017030618000000004";	
+		String jobID = "018100115000000002";
 		
 		// 거래용도, P-소득공제용, C-지출증빙용
 		String[] TradeUsage = {"P", "C"};		
@@ -196,7 +196,7 @@ public class HTCashbillServiceExample {
 		String Order = "D";				
   		  
 		try {
-			HTCashbillSearchResult searchInfo = htCashbillService.search(testCorpNum, 
+			HTCashbillSearchResult searchInfo = htCashbillService.search(testCorpNum,
 					jobID, TradeUsage, TradeType, Page, PerPage, Order);
 			m.addAttribute("SearchResult", searchInfo);
 			

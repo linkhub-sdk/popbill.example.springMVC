@@ -33,24 +33,23 @@
 				<fieldset class="fieldset2">
 					<ul>
 						<li> ntsconfirmNum (국세청승인번호) : ${SearchInfo.ntsconfirmNum}</li>
+						<li> tradeDate (거래일자) : ${SearchInfo.tradeDate}</li>
 						<li> tradeDT (거래일시) : ${SearchInfo.tradeDT}</li>
-						<li> tradeUsage (거래유형) : ${SearchInfo.tradeUsage}</li>
-						<li> tradeType (현금영수증 형태) : ${SearchInfo.tradeType}</li>
-						<li> supplyCost (공급가액) : ${SearchInfo.supplyCost}</li>
-						<li> tax (세액) : ${SearchInfo.tax}</li>
-						<li> serviceFee (봉사료) : ${SearchInfo.serviceFee}</li>
+						<li> tradeUsage (거래구분) : ${SearchInfo.tradeUsage}</li>
+						<li> tradeType (문서형태) : ${SearchInfo.tradeType}</li>
 						<li> totalAmount (거래금액) : ${SearchInfo.totalAmount}</li>
-						
+						<li> supplyCost (공급가액) : ${SearchInfo.supplyCost}</li>
+						<li> tax (부가세) : ${SearchInfo.tax}</li>
+						<li> serviceFee (봉사료) : ${SearchInfo.serviceFee}</li>
+						<li> invoiceType (매입/매출) : ${SearchInfo.invoiceType}</li>
 						<li> franchiseCorpNum (발행자 사업자번호) : ${SearchInfo.franchiseCorpNum}</li>
 						<li> franchiseCorpName (발행자 상호) : ${SearchInfo.franchiseCorpName}</li>
 						<li> franchiseCorpType (발행자 사업자유형) : ${SearchInfo.franchiseCorpType}</li>
-						
 						<li> identityNum (거래처 식별번호) : ${SearchInfo.identityNum}</li>
 						<li> identityNumType (식별번호유형) : ${SearchInfo.identityNumType}</li>
 						<li> customerName (고객명) : ${SearchInfo.customerName}</li>
 						<li> cardOwnerName (카드소유자명) : ${SearchInfo.cardOwnerName}</li>
 						<li> deductionType (공제유형) : ${SearchInfo.deductionType}</li>
-						<li> invoiceType (구분) : ${SearchInfo.invoiceType}</li>
 					</ul>
 				</fieldset>
 				</c:forEach>
