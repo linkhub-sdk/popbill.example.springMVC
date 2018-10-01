@@ -477,7 +477,7 @@ public class FaxServiceExample {
 		 */
 		
 		// 전송요청(sendFAX)시 발급받은 접수번호
-		String receiptNum = "";
+		String receiptNum = "018092814090700001";
 		
 		try {
 			FaxResult[] faxResults = faxService.getFaxResult(testCorpNum, receiptNum);
@@ -501,7 +501,7 @@ public class FaxServiceExample {
 		 */
 		
 		// 팩스전송 요청시 할당한 전송요청번호
-		String requestNum = "";
+		String requestNum = "20181001144926";
 		
 		try {
 			FaxResult[] faxResults = faxService.getFaxResultRN(testCorpNum, requestNum);
@@ -570,10 +570,10 @@ public class FaxServiceExample {
 		 */
 		
 		// 시작일자, 날짜형식(yyyyMMdd)
-		String SDate = "20180701";				
+		String SDate = "20180920";
 		
 		// 종료일자, 날짜형식(yyyyMMdd)
-		String EDate = "20180720";				
+		String EDate = "20181001";
 		
 		// 전송상태 배열, 1-대기, 2-성공, 3-실패, 4-취소
 		String[] State = {"1", "2", "3","4"};	

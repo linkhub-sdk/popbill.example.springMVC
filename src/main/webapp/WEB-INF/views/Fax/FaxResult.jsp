@@ -37,6 +37,8 @@
 						<li>receiptNum (접수번호) : ${FaxResult.receiptNum}</li>
 						<li>requestNum (요청번호) : ${FaxResult.requestNum}</li>
 						<li>fileNames (전송 파일명 리스트) : ${fn:join(FaxResult.fileNames,", ")}</li>
+						<li>chargePageCnt (과금 페이지수) : ${FaxResult.chargePageCnt}</li>
+						<li>tiffFileSize (변환파일용량 (단위:byte) ) : ${FaxResult.tiffFileSize}</li>
 					</ul>
 				</fieldset>
 				</c:forEach>
