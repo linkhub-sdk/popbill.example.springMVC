@@ -24,6 +24,7 @@
 						<li>sDT (전송일시) : ${MessageBriefInfo.rDT}</li>
 						<li>rDT (결과코드 수신일시) : ${MessageBriefInfo.rlt}</li>
 						<li>net (전송 이동통신사명) : ${MessageBriefInfo.net}</li>
+						<li>srt (구 전송결과 코드) : ${MessageBriefInfo.srt}</li>
 					</ul>
 				</fieldset>
 				</c:forEach>

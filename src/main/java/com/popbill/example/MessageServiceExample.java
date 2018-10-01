@@ -727,7 +727,7 @@ public class MessageServiceExample {
 		 */
 		
 		// 문자전송 접수번호 배열
-		String[] ReceiptNumList = new String[] {"018072610000000023"};		
+		String[] ReceiptNumList = new String[] {"018041717000000018"};
 		
 		try {
 			
