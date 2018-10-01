@@ -11,7 +11,7 @@
 
 	<body>
 		<div id="content">
-			<p class="heading1">팝빌 홈택스 현금영수증 연계 SDK SpringMVC Example.</p>
+			<p class="heading1">팝빌 홈택스연동(현금영수증) SDK SpringMVC Example.</p>
 			<br/>
 			<fieldset class="fieldset1">
 				<legend>팝빌 기본 API</legend>

@@ -13,7 +13,7 @@
 
 		<div id="content">
 
-			<p class="heading1">팝빌 홈택스 전자세금계산서 연계 SDK SpringMVC Example.</p>
+			<p class="heading1">팝빌 홈택스연동(전자세금계산서) SDK SpringMVC Example.</p>
 			
 			<br/>
 
