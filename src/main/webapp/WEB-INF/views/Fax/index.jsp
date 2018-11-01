@@ -86,6 +86,7 @@
 						<li><a href="FaxService/getURL">getURL</a> - 팩스 관련 SSO URL 확인</li>
 						<li><a href="FaxService/getUnitCost">getUnitCost</a> - 팩스 전송단가 확인</li>
 						<li><a href="FaxService/getSenderNumberList">getSenderNumberList</a> - 발신번호 목록 확인</li>
+						<li><a href="FaxService/getPreviewURL">getPreviewURL</a> - 팩스 미리보기 팝업 URL</li>
 					</ul>
 				</fieldset>
 			</fieldset>

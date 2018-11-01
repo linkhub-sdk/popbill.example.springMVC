@@ -627,4 +627,27 @@ public class FaxServiceExample {
 		}
 		return "Fax/SenderNumber";
 	}
+	
+    @RequestMapping(value = "getPreviewURL", method = RequestMethod.GET)
+    public String getPrevewURL(Model m) {
+        /**
+         * 접수한 팩스 전송건에 대한 미리보기 팝업 URL을 반환합니다.
+         * 보안정책으로 인해  반한된 URL의 제한시간은 30초이며, 제한시간 이후에는 정상적으로 표시되지 않습니다.
+         */
+        try {
+
+            // 팩스 접수번호
+            String receiptNum = "018102609383900001";
+
+            String url = faxService.getPreviewURL(testCorpNum, receiptNum);
+
+            m.addAttribute("Result", url);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "result";
+    }
 }
