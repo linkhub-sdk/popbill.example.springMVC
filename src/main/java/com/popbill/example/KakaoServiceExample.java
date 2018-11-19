@@ -118,19 +118,16 @@ public class KakaoServiceExample {
         return "getChargeInfo";
     }
 
-    @RequestMapping(value = "getURL_BOX", method = RequestMethod.GET)
-    public String getURL(Model m) {
+    @RequestMapping(value = "getSentListURL", method = RequestMethod.GET)
+    public String getSentListURL(Model m) {
         /**
          * 카카오톡 전송내역 팝업 URL을 반환합니다.
          * - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
          */
 
-        // BOX - 카카오톡 전송내역 조회
-        String TOGO = "BOX";
-
         try {
 
-            String url = kakaoService.getURL(testCorpNum, TOGO, testUserID);
+            String url = kakaoService.getSentListURL(testCorpNum,testUserID);
 
             m.addAttribute("Result", url);
 
@@ -142,19 +139,15 @@ public class KakaoServiceExample {
         return "result";
     }
 
-    @RequestMapping(value = "getURL_PLUSFRIEND", method = RequestMethod.GET)
-    public String getURL_PLUSFRIEND(Model m) {
+    @RequestMapping(value = "getPlusFriendMgtURL", method = RequestMethod.GET)
+    public String getPlusFriendMgtURL(Model m) {
         /**
          * 플러스친구 계정관리 팝업 URL을 반환합니다.
          * - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
          */
-
-        // PLUSFRIEND - 플러스친구 계정관리 팝업
-        String TOGO = "PLUSFRIEND";
-
         try {
 
-            String url = kakaoService.getURL(testCorpNum, TOGO, testUserID);
+            String url = kakaoService.getPlusFriendMgtURL(testCorpNum, testUserID);
 
             m.addAttribute("Result", url);
 
@@ -184,19 +177,15 @@ public class KakaoServiceExample {
         return "Kakao/listPlusFriend";
     }
 
-    @RequestMapping(value = "getURL_SENDER", method = RequestMethod.GET)
-    public String getURL_SENDER(Model m) {
+    @RequestMapping(value = "getSenderNumberMgtURL", method = RequestMethod.GET)
+    public String getSenderNumberMgtURL(Model m) {
         /**
          *  발신번호 관리 팝업 URL을 반환합니다.
          * - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
          */
-
-        // SENDER - 발신번호 관리 팝업
-        String TOGO = "SENDER";
-
         try {
 
-            String url = kakaoService.getURL(testCorpNum, TOGO, testUserID);
+            String url = kakaoService.getSenderNumberMgtURL(testCorpNum,testUserID);
 
             m.addAttribute("Result", url);
 
@@ -224,19 +213,15 @@ public class KakaoServiceExample {
         return "Kakao/SenderNumber";
     }
 
-    @RequestMapping(value = "getURL_TEMPLATE", method = RequestMethod.GET)
-    public String getURL_TEMPLATE(Model m) {
+    @RequestMapping(value = "getATSTemplateMgtURL", method = RequestMethod.GET)
+    public String getATSTemplateMgtURL(Model m) {
         /**
          * 알림톡 템플릿 관리 팝업 URL을 반환합니다.
          * - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
          */
-
-        // TEMPLATE - 알림톡 템플릿 관리 팝업
-        String TOGO = "TEMPLATE";
-
         try {
 
-            String url = kakaoService.getURL(testCorpNum, TOGO, testUserID);
+            String url = kakaoService.getATSTemplateMgtURL(testCorpNum, testUserID);
 
             m.addAttribute("Result", url);
 
@@ -273,7 +258,7 @@ public class KakaoServiceExample {
          */
 
         // 알림톡 템플릿코드
-        // 승인된 알림톡 템플릿 코드는 ListATStemplate API, GetURL(TEMPLATE) API, 또는 팝빌사이트에서 확인 가능합니다.
+        // 승인된 알림톡 템플릿 코드는 ListATStemplate API, GetATSTemplateMgtURL API, 또는 팝빌사이트에서 확인 가능합니다.
         String templateCode = "018060000179";
 
         // 발신번호 (팝빌에 등록된 발신번호만 이용가능)
@@ -324,7 +309,7 @@ public class KakaoServiceExample {
          */
 
         // 알림톡 템플릿코드
-        // 승인된 알림톡 템플릿 코드는 ListATStemplate API, GetURL(TEMPLATE) API, 또는 팝빌사이트에서 확인 가능합니다.
+        // 승인된 알림톡 템플릿 코드는 ListATStemplate API, GetATSTemplateMgtURL API, 또는 팝빌사이트에서 확인 가능합니다.
         String templateCode = "018060000179";
 
         // 발신번호 (팝빌에 등록된 발신번호만 이용가능)
@@ -375,7 +360,7 @@ public class KakaoServiceExample {
          */
 
         // 알림톡 템플릿코드
-        // 승인된 알림톡 템플릿 코드는 ListATStemplate API, GetURL(TEMPLATE) API, 또는 팝빌사이트에서 확인 가능합니다.
+        // 승인된 알림톡 템플릿 코드는 ListATStemplate API, GetATSTemplateMgtURL API, 또는 팝빌사이트에서 확인 가능합니다.
         String templateCode = "018060000179";
 
         // 발신번호 (팝빌에 등록된 발신번호만 이용가능)

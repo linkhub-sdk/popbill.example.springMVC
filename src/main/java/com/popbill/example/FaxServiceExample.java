@@ -111,19 +111,35 @@ public class FaxServiceExample {
         return "getChargeInfo";
     }
 
-    @RequestMapping(value = "getURL", method = RequestMethod.GET)
-    public String getURL(Model m) {
+    @RequestMapping(value = "getSentListURL", method = RequestMethod.GET)
+    public String getSentListURL(Model m) {
         /**
-         * 팩스 서비스 관련 팝업 URL을 반환합니다.
-         * - 보안정책으로 인해 반환된 URL은 30초의 유효시간을 갖습니다.
+         * 팩스 전송내역 팝업 URL을 반환합니다.
+         * - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
          */
-
-        // BOX : 팩스 전송내역 조회 / SENDER : 발신번호 관리 팝업
-        String TOGO = "SENDER";
-
         try {
 
-            String url = faxService.getURL(testCorpNum, TOGO);
+            String url = faxService.getSentListURL(testCorpNum, testUserID);
+
+            m.addAttribute("Result", url);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "result";
+    }
+
+    @RequestMapping(value = "getSenderNumberMgtURL", method = RequestMethod.GET)
+    public String getSenderNumberMgtURL(Model m) {
+        /**
+         * 발신번호 관리 팝업 URL을 반환합니다.
+         * - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
+         */
+        try {
+
+            String url = faxService.getSenderNumberMgtURL(testCorpNum, testUserID);
 
             m.addAttribute("Result", url);
 
@@ -248,7 +264,7 @@ public class FaxServiceExample {
     public String resendFAX(Model m) throws URISyntaxException {
         /**
          * 팩스를 재전송합니다.
-         * - 전송일로부터 180일이 경과되지 않은 전송건만 재전송할 수 있습니다.
+         * - 전송일로부터 60일이 경과되지 않은 전송건만 재전송할 수 있습니다.
          */
 
         // 원본 팩스 접수번호
@@ -298,7 +314,7 @@ public class FaxServiceExample {
     public String resendFAXRN(Model m) throws URISyntaxException {
         /**
          * 전송요청번호(requestNum)을 할당한 팩스를 재전송합니다.
-         * - 전송일로부터 180일이 경과된 경우 재전송할 수 없습니다.
+         * - 전송일로부터 60일이 경과된 경우 재전송할 수 없습니다.
          */
 
         // 재전송 팩스의 전송요청번호
@@ -349,7 +365,7 @@ public class FaxServiceExample {
     public String resendFAX_Multi(Model m) throws URISyntaxException {
         /**
          * 팩스를 재전송합니다.
-         * - 전송일로부터 180일이 경과되지 않은 전송건만 재전송할 수 있습니다.
+         * - 전송일로부터 60일이 경과되지 않은 전송건만 재전송할 수 있습니다.
          */
 
         // 원본 팩스 접수번호
@@ -410,7 +426,7 @@ public class FaxServiceExample {
     public String resendFAXRN_Multi(Model m) throws URISyntaxException {
         /**
          * 전송요청번호(requestNum)을 할당한 팩스를 재전송합니다.
-         * - 전송일로부터 180일이 경과된 경우 재전송할 수 없습니다.
+         * - 전송일로부터 60일이 경과된 경우 재전송할 수 없습니다.
          */
 
         // 재전송 팩스의 전송요청번호

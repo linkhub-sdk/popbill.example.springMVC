@@ -58,7 +58,7 @@
     <fieldset class="fieldset1">
         <legend>부가기능</legend>
         <ul>
-            <li><a href="CashbillService/getAccessURL">getAccessURL</a> -팝빌 로그인 URL</li>
+            <li><a href="BaseService/getAccessURL">getAccessURL</a> -팝빌 로그인 URL</li>
             <li><a href="CashbillService/sendEmail">sendEmail</a> -메일 전송</li>
             <li><a href="CashbillService/sendSMS">sendSMS</a> -문자 전송</li>
             <li><a href="CashbillService/sendFAX">sendFAX</a> -팩스 전송</li>

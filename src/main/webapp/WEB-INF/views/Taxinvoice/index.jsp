@@ -63,7 +63,7 @@
     <fieldset class="fieldset1">
         <legend>부가기능</legend>
         <ul>
-            <li><a href="TaxinvoiceService/getAccessURL">GetAccessURL</a> - 팝빌 로그인 URL</li>
+            <li><a href="BaseService/getAccessURL">GetAccessURL</a> - 팝빌 로그인 URL</li>
             <li><a href="TaxinvoiceService/getSealURL"> GetSealURL</a> - 인감 및 첨부문서 등록 URL</li>
             <li><a href="TaxinvoiceService/attachFile">AttachFile</a> - 첨부파일 추가</li>
             <li><a href="TaxinvoiceService/deleteFile">DeleteFile</a> - 첨부파일 삭제</li>

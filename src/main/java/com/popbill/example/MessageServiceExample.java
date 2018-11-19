@@ -116,19 +116,15 @@ public class MessageServiceExample {
         return "getChargeInfo";
     }
 
-    @RequestMapping(value = "getURL", method = RequestMethod.GET)
-    public String getURL(Model m) {
+    @RequestMapping(value = "getSentListURL", method = RequestMethod.GET)
+    public String getSentListURL(Model m) {
         /**
-         * 문자 서비스 관련 팝업 URL을 반환합니다.
+         * 문자 전송내역 팝업 URL을 반환합니다.
          * - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
          */
-
-        // BOX - 문자 전송내역 조회 / SENDER - 발신번호 관리 팝업
-        String TOGO = "SENDER";
-
         try {
 
-            String url = messageService.getURL(testCorpNum, TOGO);
+            String url = messageService.getSentListURL(testCorpNum, testUserID);
 
             m.addAttribute("Result", url);
 
@@ -139,6 +135,27 @@ public class MessageServiceExample {
 
         return "result";
     }
+
+    @RequestMapping(value = "getSenderNumberMgtURL", method = RequestMethod.GET)
+    public String getSenderNumberMgtURL(Model m) {
+        /**
+         * 발신번호 관리 팝업 URL을 반환합니다.
+         * - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
+         */
+        try {
+
+            String url = messageService.getSenderNumberMgtURL(testCorpNum, testUserID);
+
+            m.addAttribute("Result", url);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "result";
+    }
+
 
     @RequestMapping(value = "sendSMS", method = RequestMethod.GET)
     public String sendSMS(Model m) {

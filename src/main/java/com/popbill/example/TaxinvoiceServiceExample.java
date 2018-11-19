@@ -2,7 +2,7 @@
  * 팝빌 전자세금계산서 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : http://blog.linkhub.co.kr/591/
- * - 업데이트 일자 : 2018-07-26
+ * - 업데이트 일자 : 2018-11-19
  * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
  *
@@ -13,7 +13,7 @@
  * 2) 팝빌 개발용 사이트(test.popbill.com)에 연동회원으로 가입합니다.
  * 3) 전자세금계산서 발행을 위해 공인인증서를 등록합니다.
  *    - 팝빌사이트 로그인 > [전자세금계산서] > [환경설정] > [공인인증서 관리]
- *    - 공인인증서 등록 팝업 URL (GetPopbillURL API)을 이용하여 등록
+ *    - 공인인증서 등록 팝업 URL (getTaxCertURL API)을 이용하여 등록
  *
  * Copyright 2006-2014 linkhub.co.kr, Inc. or its affiliates. All Rights Reserved.
  *
@@ -2082,6 +2082,49 @@ public class TaxinvoiceServiceExample {
         }
 
         return "response";
+    }
+
+
+    @RequestMapping(value = "getSealURL", method = RequestMethod.GET)
+    public String getSealURL(Model m) throws PopbillException {
+        /**
+         * 팝빌 인감 및 첨부문서 등록 URL을 반환합니다.
+         * - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
+         */
+
+        try {
+
+            String url = taxinvoiceService.getSealURL(testCorpNum, testUserID);
+
+            m.addAttribute("Result", url);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "result";
+    }
+
+    @RequestMapping(value = "getTaxCertURL", method = RequestMethod.GET)
+    public String getTaxCertURL(Model m) throws PopbillException {
+        /**
+         * 공인인증서 등록 URL을 반환합니다.
+         * - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
+         */
+
+        try {
+
+            String url = taxinvoiceService.getTaxCertURL(testCorpNum, testUserID);
+
+            m.addAttribute("Result", url);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "result";
     }
 
 }
