@@ -264,7 +264,7 @@ public class FaxServiceExample {
     public String resendFAX(Model m) throws URISyntaxException {
         /**
          * 팩스를 재전송합니다.
-         * - 접수일로부터 180일이 경과되지 않은 전송건만 재전송할 수 있습니다.
+         * - 접수일로부터 60일이 경과되지 않은 전송건만 재전송할 수 있습니다.
          */
 
         // 원본 팩스 접수번호
@@ -314,7 +314,7 @@ public class FaxServiceExample {
     public String resendFAXRN(Model m) throws URISyntaxException {
         /**
          * 전송요청번호(requestNum)을 할당한 팩스를 재전송합니다.
-         * - 접수일로부터 180일 경과된 경우 재전송할 수 없습니다.
+         * - 접수일로부터 60일 경과된 경우 재전송할 수 없습니다.
          */
 
         // 재전송 팩스의 전송요청번호
@@ -365,7 +365,7 @@ public class FaxServiceExample {
     public String resendFAX_Multi(Model m) throws URISyntaxException {
         /**
          * 팩스를 재전송합니다.
-         * - 접수일로부터 180일이 경과되지 않은 전송건만 재전송할 수 있습니다.
+         * - 접수일로부터 60일이 경과되지 않은 전송건만 재전송할 수 있습니다.
          */
 
         // 원본 팩스 접수번호
@@ -426,7 +426,7 @@ public class FaxServiceExample {
     public String resendFAXRN_Multi(Model m) throws URISyntaxException {
         /**
          * 전송요청번호(requestNum)을 할당한 팩스를 재전송합니다.
-         * - 접수일로부터 180일이 경과된 경우 재전송할 수 없습니다.
+         * - 접수일로부터 60일이 경과된 경우 재전송할 수 없습니다.
          */
 
         // 재전송 팩스의 전송요청번호
