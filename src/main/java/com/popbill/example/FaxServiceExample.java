@@ -264,7 +264,7 @@ public class FaxServiceExample {
     public String resendFAX(Model m) throws URISyntaxException {
         /**
          * 팩스를 재전송합니다.
-         * - 전송일로부터 60일이 경과되지 않은 전송건만 재전송할 수 있습니다.
+         * - 접수일로부터 180일이 경과되지 않은 전송건만 재전송할 수 있습니다.
          */
 
         // 원본 팩스 접수번호
@@ -314,7 +314,7 @@ public class FaxServiceExample {
     public String resendFAXRN(Model m) throws URISyntaxException {
         /**
          * 전송요청번호(requestNum)을 할당한 팩스를 재전송합니다.
-         * - 전송일로부터 60일이 경과된 경우 재전송할 수 없습니다.
+         * - 접수일로부터 180일 경과된 경우 재전송할 수 없습니다.
          */
 
         // 재전송 팩스의 전송요청번호
@@ -365,7 +365,7 @@ public class FaxServiceExample {
     public String resendFAX_Multi(Model m) throws URISyntaxException {
         /**
          * 팩스를 재전송합니다.
-         * - 전송일로부터 60일이 경과되지 않은 전송건만 재전송할 수 있습니다.
+         * - 접수일로부터 180일이 경과되지 않은 전송건만 재전송할 수 있습니다.
          */
 
         // 원본 팩스 접수번호
@@ -382,16 +382,16 @@ public class FaxServiceExample {
         Receiver[] receivers = null;
 
 
-        // 팩스수신정보를 기존전송정보와 다르게 재전송하는 경우, 아래의 코드 적용
+//        // 팩스수신정보를 기존전송정보와 다르게 재전송하는 경우, 아래의 코드 적용
 //		Receiver receiver1 = new Receiver();
 //		receiver1.setReceiveName("수신자1");		// 수신자명
 //		receiver1.setReceiveNum("010111222");	// 수신팩스번호
-//		
+//
 //		Receiver receiver2 = new Receiver();
 //		receiver2.setReceiveName("수신자2");		// 수신자명
 //		receiver2.setReceiveNum("010333444");	// 수신팩스번호
-
-        // 팩스전송정보 배열, 최대 1000건
+//
+//        // 팩스전송정보 배열, 최대 1000건
 //		Receiver[] receivers = new Receiver[] {receiver1 , receiver2};
 
 
@@ -426,7 +426,7 @@ public class FaxServiceExample {
     public String resendFAXRN_Multi(Model m) throws URISyntaxException {
         /**
          * 전송요청번호(requestNum)을 할당한 팩스를 재전송합니다.
-         * - 전송일로부터 60일이 경과된 경우 재전송할 수 없습니다.
+         * - 접수일로부터 180일이 경과된 경우 재전송할 수 없습니다.
          */
 
         // 재전송 팩스의 전송요청번호
