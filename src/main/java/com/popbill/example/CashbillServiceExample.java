@@ -46,7 +46,7 @@ import com.popbill.api.cashbill.Cashbill;
 import com.popbill.api.cashbill.CashbillInfo;
 import com.popbill.api.cashbill.CashbillLog;
 
-/**
+/*
  * 팝빌 현금영수증 API 예제.
  */
 
@@ -70,35 +70,15 @@ public class CashbillServiceExample {
         return "Cashbill/index";
     }
 
-    @RequestMapping(value = "getChargeInfo", method = RequestMethod.GET)
-    public String chargeInfo(Model m) {
-        /**
-         * 연동회원의 전자명세서 API 서비스 과금정보를 확인합니다.
-         */
-
-        try {
-
-            ChargeInfo chrgInfo = cashbillService.getChargeInfo(testCorpNum);
-
-            m.addAttribute("ChargeInfo", chrgInfo);
-
-        } catch (PopbillException e) {
-            m.addAttribute("Exception", e);
-            return "exception";
-        }
-
-        return "getChargeInfo";
-    }
-
     @RequestMapping(value = "checkMgtKeyInUse", method = RequestMethod.GET)
     public String checkMgtKeyInUse(Model m) {
-        /**
+        /*
          * 현금영수증 관리번호 중복여부를 확인합니다.
          * - 관리번호는 1~24자리로 숫자, 영문 '-', '_' 조합으로 구성할 수 있습니다.
          */
 
         // 문서관리번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
-        String mgtKey = "20150320-01";
+        String mgtKey = "20190104-001";
 
         String isUseStr;
 
@@ -117,15 +97,115 @@ public class CashbillServiceExample {
         return "result";
     }
 
+    @RequestMapping(value = "registIssue", method = RequestMethod.GET)
+    public String registIssue(Model m) {
+        /*
+         * 1건의 현금영수증을 [즉시발행]합니다.
+         * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청 전송결과를 확인할 수 있습니다.
+         * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼] > 1.3. 국세청 전송정책"을 참조하시기 바랍니다.
+         * - 취소현금영수증 작성방법 안내 - http://blog.linkhub.co.kr/702
+         */
+
+        // 메모
+        String Memo = "현금영수증 즉시발행 메모";
+
+        // 현금영수증 정보 객체
+        Cashbill cashbill = new Cashbill();
+
+        // 문서관리번호, 최대 24자리, 영문, 숫자 '-', '_'로 구성
+        cashbill.setMgtKey("20190104-001");
+
+        // 문서형태, {승인거래, 취소거래} 중 기재
+        cashbill.setTradeType("승인거래");
+
+        // 취소거래시 기재, 원본 현금영수증 국세청 승인번호 - getInfo API를 통해 confirmNum 값 기재
+        cashbill.setOrgConfirmNum("");
+
+        // 취소거래시 기재, 원본 현금영수증 거래일자 - getInfo API를 통해 tradeDate 값 기재
+        cashbill.setOrgTradeDate("");
+
+        // 과세형태, {과세, 비과세} 중 기재
+        cashbill.setTaxationType("과세");
+
+        // 거래처 식별번호, 거래유형에 따라 작성
+        // 소득공제용 - 주민등록/휴대폰/카드번호 기재가능
+        // 지출증빙용 - 사업자번호/주민등록/휴대폰/카드번호 기재가능
+        cashbill.setIdentityNum("0101112222");
+
+        // 거래구분, {소득공제용, 지출증빙용} 중 기재
+        cashbill.setTradeUsage("소득공제용");
+
+        // 거래유형, {읿반, 도서공연, 대중교통} 중 기재
+        cashbill.setTradeOpt("대중교통");
+
+        // 공급가액, 숫자만 가능
+        cashbill.setSupplyCost("10000");
+
+        // 부가세, 숫자만 가능
+        cashbill.setTax("1000");
+
+        // 봉사료, 숫자만 가능
+        cashbill.setServiceFee("0");
+
+        // 합계금액, 숫자만 가능, 봉사료 + 공급가액 + 부가세
+        cashbill.setTotalAmount("11000");
+
+
+        // 발행자 사업자번호, '-'제외 10자리
+        cashbill.setFranchiseCorpNum("1234567890");
+
+        // 발행자 상호
+        cashbill.setFranchiseCorpName("발행자 상호");
+
+        // 발행자 대표자명
+        cashbill.setFranchiseCEOName("발행자 대표자");
+
+        // 발행자 주소
+        cashbill.setFranchiseAddr("발행자 주소");
+
+        // 발행자 연락처
+        cashbill.setFranchiseTEL("07043042991");
+
+        // 발행안내 문자 전송여부
+        cashbill.setSmssendYN(false);
+
+
+        // 거래처 고객명
+        cashbill.setCustomerName("고객명");
+
+        // 거래처 주문상품명
+        cashbill.setItemName("상품명");
+
+        // 거래처 주문번호
+        cashbill.setOrderNumber("주문번호");
+
+        // 거래처 이메일
+        cashbill.setEmail("test@test.com");
+
+        // 거래처 휴대폰
+        cashbill.setHp("010111222");
+
+        try {
+
+            Response response = cashbillService.registIssue(testCorpNum, cashbill, Memo);
+
+            m.addAttribute("Response", response);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "response";
+    }
+
     @RequestMapping(value = "register", method = RequestMethod.GET)
     public String register(Model m) {
-        /**
-         * 1건의 현금영수증을 임시저장 합니다.
+        /*
+         * 1건의 현금영수증을 [임시저장]합니다.
          * - [임시저장] 상태의 현금영수증은 발행(Issue API)을 호출해야만 국세청에 전송됩니다.
-         * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청
-         *   전송결과를 확인할 수 있습니다.
-         * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼]
-         *   > 1.4. 국세청 전송정책"을 참조하시기 바랍니다.
+         * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청 전송결과를 확인할 수 있습니다.
+         * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼] > 1.3. 국세청 전송정책"을 참조하시기 바랍니다.
          * - 취소현금영수증 작성방법 안내 - http://blog.linkhub.co.kr/702
          */
 
@@ -133,7 +213,7 @@ public class CashbillServiceExample {
         Cashbill cashbill = new Cashbill();
 
         // 문서관리번호, 최대 24자리, 영문, 숫자 '-', '_'로 구성
-        cashbill.setMgtKey("20180814-001");
+        cashbill.setMgtKey("20190104-001");
 
         // 문서형태, {승인거래, 취소거래} 중 기재
         cashbill.setTradeType("승인거래");
@@ -222,18 +302,15 @@ public class CashbillServiceExample {
 
     @RequestMapping(value = "update", method = RequestMethod.GET)
     public String update(Model m) {
-        /**
-         * 1건의 현금영수증을 수정합니다.
+        /*
+         * 1건의 현금영수증을 [수정]합니다.
          * - [임시저장] 상태의 현금영수증만 수정할 수 있습니다.
-         * - 국세청에 신고된 현금영수증은 수정할 수 없으며, 취소 현금영수증을 발행하여
-         *   취소처리 할 수 있습니다.
+         * - 국세청에 신고된 현금영수증은 수정할 수 없으며, 취소 현금영수증을 발행하여 취소처리 할 수 있습니다.
          * - 취소현금영수증 작성방법 안내 - http://blog.linkhub.co.kr/702
          */
-
-
+        
         // 수정할 현금영수증 문서관리번호
-        String mgtKey = "20170306-11";
-
+        String mgtKey = "20190104-001";
 
         // 현금영수증 정보 객체
         Cashbill cashbill = new Cashbill();
@@ -320,143 +397,16 @@ public class CashbillServiceExample {
         return "response";
     }
 
-    @RequestMapping(value = "getInfo", method = RequestMethod.GET)
-    public String getInfo(Model m) {
-        /**
-         * 1건의 현금영수증 상태/요약 정보를 확인합니다.
-         * - 응답항목에 대한 자세한 정보는 "[현금영수증 API 연동매뉴얼] > 4.2.
-         *   현금영수증 상태정보 구성"을 참조하시기 바랍니다.
-         */
-
-        // 현금영수증 문서관리번호
-        String mgtKey = "20170711-11";
-
-        try {
-
-            CashbillInfo cashbillInfo = cashbillService.getInfo(testCorpNum, mgtKey);
-
-            m.addAttribute("CashbillInfo", cashbillInfo);
-
-        } catch (PopbillException e) {
-            m.addAttribute("Exception", e);
-            return "exception";
-        }
-
-        return "Cashbill/CashbillInfo";
-    }
-
-    @RequestMapping(value = "getInfos", method = RequestMethod.GET)
-    public String getInfos(Model m) {
-        /**
-         * 다수건의 현금영수증 상태/요약 정보를 확인합니다.
-         * - 응답항목에 대한 자세한 정보는 "[현금영수증 API 연동매뉴얼] > 4.2.
-         *   현금영수증 상태정보 구성"을 참조하시기 바랍니다.
-         */
-
-        // 현금영수증 문서관리번호 배열 최대(1000건)
-        String[] mgtKeyList = new String[]{"20170714-01", "20170711-11", "20150318-02", "20170714-05"};
-
-        try {
-
-            CashbillInfo[] cashbillInfos = cashbillService.getInfos(testCorpNum, mgtKeyList);
-
-            m.addAttribute("CashbillInfos", cashbillInfos);
-
-        } catch (PopbillException e) {
-            m.addAttribute("Exception", e);
-            return "exception";
-        }
-
-        return "Cashbill/CashbillInfo";
-    }
-
-
-    @RequestMapping(value = "getDetailInfo", method = RequestMethod.GET)
-    public String getDetailInfo(Model m) {
-        /**
-         * 현금영수증 1건의 상세정보를 조회합니다.
-         * - 응답항목에 대한 자세한 사항은 "[현금영수증 API 연동매뉴얼] > 4.1.
-         *   현금영수증 구성" 을 참조하시기 바랍니다.
-         */
-
-        // 현금영수증 문서관리번호
-        String mgtKey = "20171113-13";
-
-        try {
-
-            Cashbill cashbill = cashbillService.getDetailInfo(testCorpNum, mgtKey);
-
-            m.addAttribute("Cashbill", cashbill);
-
-        } catch (PopbillException e) {
-            m.addAttribute("Exception", e);
-            return "exception";
-        }
-
-        return "Cashbill/Cashbill";
-    }
-
-    @RequestMapping(value = "delete", method = RequestMethod.GET)
-    public String delete(Model m) {
-        /**
-         * 1건의 현금영수증을 삭제합니다.
-         * - 현금영수증을 삭제하면 사용된 문서관리번호(mgtKey)를 재사용할 수 있습니다.
-         * - 삭제가능한 문서 상태 : [임시저장], [발행취소]
-         */
-
-        // 현금영수증 문서관리번호
-        String mgtKey = "20170306-11";
-
-        try {
-
-            Response response = cashbillService.delete(testCorpNum, mgtKey);
-
-            m.addAttribute("Response", response);
-
-        } catch (PopbillException e) {
-            m.addAttribute("Exception", e);
-            return "exception";
-        }
-
-        return "response";
-    }
-
-
-    @RequestMapping(value = "getLogs", method = RequestMethod.GET)
-    public String getLogs(Model m) {
-        /**
-         * 현금영수증 상태 변경이력을 확인합니다.
-         * - 상태 변경이력 확인(GetLogs API) 응답항목에 대한 자세한 정보는
-         *   "[현금영수증 API 연동매뉴얼] > 3.4.4 상태 변경이력 확인"
-         *   을 참조하시기 바랍니다.
-         */
-
-        // 현금영수증 문서관리번호
-        String mgtKey = "20161206-01";
-
-        try {
-            CashbillLog[] cashbillLogs = cashbillService.getLogs(testCorpNum, mgtKey);
-
-            m.addAttribute("CashbillLogs", cashbillLogs);
-
-        } catch (PopbillException e) {
-            m.addAttribute("Exception", e);
-            return "exception";
-        }
-
-        return "Cashbill/CashbillLog";
-    }
-
     @RequestMapping(value = "issue", method = RequestMethod.GET)
     public String issue(Model m) {
-        /**
-         * [발행완료] 상태의 현금영수증을 [발행취소] 합니다.
-         * - 발행취소는 국세청 전송전에만 가능합니다.
-         * - 발행취소된 형금영수증은 국세청에 전송되지 않습니다.
+        /*
+         * 1건의 [임시저장] 현금영수증을 [발행]합니다.
+         * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청 전송결과를 확인할 수 있습니다.
+         * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼] > 1.3. 국세청 전송정책"을 참조하시기 바랍니다.
          */
 
         // 현금영수증 문서관리번호
-        String mgtKey = "20180814-001";
+        String mgtKey = "20190104-001";
 
         // 메모
         String memo = "발행메모";
@@ -475,17 +425,16 @@ public class CashbillServiceExample {
         return "response";
     }
 
-
     @RequestMapping(value = "cancelIssue", method = RequestMethod.GET)
     public String cancelIssue(Model m) {
-        /**
-         * [발행완료] 상태의 현금영수증을 [발행취소] 합니다.
+        /*
+         * [발행완료] 상태의 현금영수증을 [발행취소]합니다.
          * - 발행취소는 국세청 전송전에만 가능합니다.
          * - 발행취소된 형금영수증은 국세청에 전송되지 않습니다.
          */
 
         // 문서관리번호
-        String mgtKey = "20170306-11";
+        String mgtKey = "20190104-001";
 
         // 메모
         String memo = "발행취소 메모";
@@ -503,360 +452,20 @@ public class CashbillServiceExample {
         return "response";
     }
 
-    @RequestMapping(value = "sendEmail", method = RequestMethod.GET)
-    public String sendEmail(Model m) {
-        /**
-         * 발행 안내메일을 재전송합니다.
+    @RequestMapping(value = "delete", method = RequestMethod.GET)
+    public String delete(Model m) {
+        /*
+         * 1건의 현금영수증을 [삭제]합니다.
+         * - 현금영수증을 삭제하면 사용된 문서관리번호(mgtKey)를 재사용할 수 있습니다.
+         * - 삭제가능한 문서 상태 : [임시저장], [발행취소]
          */
 
         // 현금영수증 문서관리번호
-        String mgtKey = "20170306-11";
-
-        // 수신자 메일주소
-        String receiver = "test@test.com";
-
-        try {
-            Response response = cashbillService.sendEmail(testCorpNum, mgtKey, receiver);
-
-            m.addAttribute("Response", response);
-
-        } catch (PopbillException e) {
-            m.addAttribute("Exception", e);
-            return "exception";
-        }
-
-        return "response";
-    }
-
-    @RequestMapping(value = "sendSMS", method = RequestMethod.GET)
-    public String sendSMS(Model m) {
-        /**
-         * 알림문자를 전송합니다. (단문/SMS- 한글 최대 45자)
-         * - 알림문자 전송시 포인트가 차감됩니다. (전송실패시 환불처리)
-         * - 전송내역 확인은 "팝빌 로그인" > [문자 팩스] > [전송내역] 탭에서 전송결과를 확인할 수 있습니다.
-         */
-
-
-        // 현금영수증 문서관리번호
-        String mgtKey = "20170306-11";
-
-        // 발신번호
-        String sender = "07043042991";
-
-        // 수신번호
-        String receiver = "010111222";
-
-        // 문자 전송 내용 (90Byte 초과시 길이가 조정되어 전송)
-        String contents = "현금영수증 문자메시지 전송 테스트입니다.";
+        String mgtKey = "20190104-001";
 
         try {
 
-            Response response = cashbillService.sendSMS(testCorpNum, mgtKey,
-                    sender, receiver, contents);
-
-            m.addAttribute("Response", response);
-
-        } catch (PopbillException e) {
-            m.addAttribute("Exception", e);
-            return "exception";
-        }
-
-        return "response";
-    }
-
-    @RequestMapping(value = "sendFAX", method = RequestMethod.GET)
-    public String sendFAX(Model m) {
-        /**
-         * 현금영수증을 팩스전송합니다.
-         * - 팩스 전송 요청시 포인트가 차감됩니다. (전송실패시 환불처리)
-         * - 전송내역 확인은 "팝빌 로그인" > [문자 팩스] > [팩스] > [전송내역]
-         *   메뉴에서 전송결과를 확인할 수 있습니다.
-         */
-
-
-        // 현금영수증 문서관리번호
-        String mgtKey = "20170306-11";
-
-        // 발신자 번호
-        String sender = "07043042991";
-
-        // 수신자 팩스번호
-        String receiver = "010111222";
-
-        try {
-
-            Response response = cashbillService.sendFAX(testCorpNum, mgtKey,
-                    sender, receiver);
-
-            m.addAttribute("Response", response);
-
-        } catch (PopbillException e) {
-            m.addAttribute("Exception", e);
-            return "exception";
-        }
-
-        return "response";
-    }
-
-    @RequestMapping(value = "getURL", method = RequestMethod.GET)
-    public String getURL(Model m) {
-        /**
-         * 팝빌 문서함 관련 팝업 URL을 반환합니다.
-         * - 보안정책으로 인해 반환된 URL의 유효시간은 30초입니다.
-         */
-
-
-        // TBOX : 임시문서함 , PBOX : 매출문서함, WRITE : 현금영수증 작성
-        String TOGO = "WRITE";
-
-        try {
-
-            String url = cashbillService.getURL(testCorpNum, TOGO);
-
-            m.addAttribute("Result", url);
-
-        } catch (PopbillException e) {
-            m.addAttribute("Exception", e);
-            return "exception";
-        }
-
-        return "result";
-    }
-
-    @RequestMapping(value = "getPopUpURL", method = RequestMethod.GET)
-    public String getPopUpURL(Model m) {
-        /**
-         * 1건의 현금영수증 보기 팝업 URL을 반환합니다.
-         * - 보안정책으로 인해 반환된 URL의 유효시간은 30초입니다.
-         */
-
-        // 현금영수증 문서관리번호
-        String mgtKey = "20170306-11";
-
-        try {
-
-            String url = cashbillService.getPopUpURL(testCorpNum, mgtKey);
-
-            m.addAttribute("Result", url);
-
-        } catch (PopbillException e) {
-            m.addAttribute("Exception", e);
-            return "exception";
-        }
-
-        return "result";
-    }
-
-    @RequestMapping(value = "getPrintURL", method = RequestMethod.GET)
-    public String getPrintURL(Model m) {
-        /**
-         * 1건의 현금영수증 인쇄팝업 URL을 반환합니다.
-         * - 보안정책으로 인해 반환된 URL의 유효시간은 30초입니다.
-         */
-
-        // 현금영수증 문서관리번호
-        String mgtKey = "20170306-12";
-
-        try {
-
-            String url = cashbillService.getPrintURL(testCorpNum, mgtKey);
-
-            m.addAttribute("Result", url);
-
-        } catch (PopbillException e) {
-            m.addAttribute("Exception", e);
-            return "exception";
-        }
-
-        return "result";
-    }
-
-    @RequestMapping(value = "getEPrintURL", method = RequestMethod.GET)
-    public String getEPrintURL(Model m) {
-        /**
-         * 현금영수증 인쇄(공급받는자) URL을 반환합니다.
-         * - URL 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
-         */
-
-        // 현금영수증 문서관리번호
-        String mgtKey = "20170306-12";
-
-        try {
-
-            String url = cashbillService.getEPrintURL(testCorpNum, mgtKey);
-
-            m.addAttribute("Result", url);
-
-        } catch (PopbillException e) {
-            m.addAttribute("Exception", e);
-            return "exception";
-        }
-
-        return "result";
-    }
-
-    @RequestMapping(value = "getMailURL", method = RequestMethod.GET)
-    public String getMailURL(Model m) {
-        /**
-         * 공급받는자 메일링크 URL을 반환합니다.
-         * - 메일링크 URL은 유효시간이 존재하지 않습니다.
-         */
-
-        // 현금영수증 문서관리번호
-        String mgtKey = "20170306-12";
-
-        try {
-
-            String url = cashbillService.getMailURL(testCorpNum, mgtKey);
-
-            m.addAttribute("Result", url);
-
-        } catch (PopbillException e) {
-            m.addAttribute("Exception", e);
-            return "exception";
-        }
-
-        return "result";
-    }
-
-    @RequestMapping(value = "getMassPrintURL", method = RequestMethod.GET)
-    public String getMassPrintURL(Model m) {
-        /**
-         * 다수건의 현금영수증 인쇄팝업 URL을 반환합니다.
-         * - 보안정책으로 인해 반환된 URL의 유효시간은 30초입니다.
-         */
-
-        // 문서관리번호 배열, 최대 100건
-        String[] mgtKeyList = new String[]{"20170306-12", "20150320-02", "20150320-03"};
-
-        try {
-
-            String url = cashbillService.getMassPrintURL(testCorpNum, mgtKeyList);
-
-            m.addAttribute("Result", url);
-
-        } catch (PopbillException e) {
-            m.addAttribute("Exception", e);
-            return "exception";
-        }
-
-        return "result";
-    }
-
-    @RequestMapping(value = "getUnitCost", method = RequestMethod.GET)
-    public String getUnitCost(Model m) {
-        /**
-         * 현금영수증 발행단가를 확인합니다.
-         */
-
-        try {
-
-            float unitCost = cashbillService.getUnitCost(testCorpNum);
-
-            m.addAttribute("Result", unitCost);
-
-        } catch (PopbillException e) {
-            m.addAttribute("Exception", e);
-            return "exception";
-        }
-
-        return "result";
-    }
-
-    @RequestMapping(value = "registIssue", method = RequestMethod.GET)
-    public String registIssue(Model m) {
-        /**
-         * 1건의 현금영수증을 즉시발행합니다.
-         * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청
-         *   전송결과를 확인할 수 있습니다.
-         * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼]
-         *   > 1.4. 국세청 전송정책"을 참조하시기 바랍니다.
-         * - 취소현금영수증 작성방법 안내 - http://blog.linkhub.co.kr/702
-         */
-
-
-        // 메모
-        String Memo = "현금영수증 즉시발행 메모";
-
-        // 현금영수증 정보 객체
-        Cashbill cashbill = new Cashbill();
-
-        // 문서관리번호, 최대 24자리, 영문, 숫자 '-', '_'로 구성
-        cashbill.setMgtKey("20180814-002");
-
-        // 문서형태, {승인거래, 취소거래} 중 기재
-        cashbill.setTradeType("승인거래");
-
-        // 취소거래시 기재, 원본 현금영수증 국세청 승인번호 - getInfo API를 통해 confirmNum 값 기재
-        cashbill.setOrgConfirmNum("");
-
-        // 취소거래시 기재, 원본 현금영수증 거래일자 - getInfo API를 통해 tradeDate 값 기재
-        cashbill.setOrgTradeDate("");
-
-        // 과세형태, {과세, 비과세} 중 기재
-        cashbill.setTaxationType("과세");
-
-        // 거래처 식별번호, 거래유형에 따라 작성
-        // 소득공제용 - 주민등록/휴대폰/카드번호 기재가능
-        // 지출증빙용 - 사업자번호/주민등록/휴대폰/카드번호 기재가능
-        cashbill.setIdentityNum("0101112222");
-
-        // 거래구분, {소득공제용, 지출증빙용} 중 기재
-        cashbill.setTradeUsage("소득공제용");
-
-        // 거래유형, {읿반, 도서공연, 대중교통} 중 기재
-        cashbill.setTradeOpt("대중교통");
-
-        // 공급가액, 숫자만 가능
-        cashbill.setSupplyCost("10000");
-
-        // 부가세, 숫자만 가능
-        cashbill.setTax("1000");
-
-        // 봉사료, 숫자만 가능
-        cashbill.setServiceFee("0");
-
-        // 합계금액, 숫자만 가능, 봉사료 + 공급가액 + 부가세
-        cashbill.setTotalAmount("11000");
-
-
-        // 발행자 사업자번호, '-'제외 10자리
-        cashbill.setFranchiseCorpNum("1234567890");
-
-        // 발행자 상호
-        cashbill.setFranchiseCorpName("발행자 상호");
-
-        // 발행자 대표자명
-        cashbill.setFranchiseCEOName("발행자 대표자");
-
-        // 발행자 주소
-        cashbill.setFranchiseAddr("발행자 주소");
-
-        // 발행자 연락처
-        cashbill.setFranchiseTEL("07043042991");
-
-        // 발행안내 문자 전송여부
-        cashbill.setSmssendYN(false);
-
-
-        // 거래처 고객명
-        cashbill.setCustomerName("고객명");
-
-        // 거래처 주문상품명
-        cashbill.setItemName("상품명");
-
-        // 거래처 주문번호
-        cashbill.setOrderNumber("주문번호");
-
-        // 거래처 이메일
-        cashbill.setEmail("test@test.com");
-
-        // 거래처 휴대폰
-        cashbill.setHp("010111222");
-
-        try {
-
-            Response response = cashbillService.registIssue(testCorpNum, cashbill, Memo);
+            Response response = cashbillService.delete(testCorpNum, mgtKey);
 
             m.addAttribute("Response", response);
 
@@ -870,25 +479,22 @@ public class CashbillServiceExample {
 
     @RequestMapping(value = "revokeRegister", method = RequestMethod.GET)
     public String revokeRegister(Model m) {
-        /**
-         * 1건의 취소현금영수증을 임시저장합니다.
-         * - [임시저장] 상태의 현금영수증은 발행(Issue API)을 호출해야만 국세청에 전송됩니다.
-         * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청
-         *   전송결과를 확인할 수 있습니다.
-         * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼]
-         *   > 1.4. 국세청 전송정책"을 참조하시기 바랍니다.
+        /*
+         * 1건의 취소현금영수증을 [즉시발행]합니다.
+         * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청 전송결과를 확인할 수 있습니다.
+         * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼] > 1.3. 국세청 전송정책"을 참조하시기 바랍니다.
          * - 취소현금영수증 작성방법 안내 - http://blog.linkhub.co.kr/702
          */
 
         // 문서관리번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로
         // 중복되지 않도록 구성
-        String mgtKey = "20170816-21";
+        String mgtKey = "20190104-001";
 
         // 원본현금영수증 승인번호
         String orgConfirmNum = "820116333";
 
         // 원본현금영수증 거래일자
-        String orgTradeDate = "20170711";
+        String orgTradeDate = "20190102";
 
 
         try {
@@ -907,25 +513,22 @@ public class CashbillServiceExample {
 
     @RequestMapping(value = "revokeRegister_part", method = RequestMethod.GET)
     public String revokeRegister_part(Model m) {
-        /**
-         * 1건의 [부분]취소 현금영수증을 임시저장합니다.
-         * - [임시저장] 상태의 현금영수증은 발행(Issue API)을 호출해야만 국세청에 전송됩니다.
-         * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청
-         *   전송결과를 확인할 수 있습니다.
-         * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼]
-         *   > 1.4. 국세청 전송정책"을 참조하시기 바랍니다.
+        /*
+         * 1건의 (부분)취소현금영수증을 [즉시발행]합니다.
+         * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청 전송결과를 확인할 수 있습니다.
+         * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼] > 1.3. 국세청 전송정책"을 참조하시기 바랍니다.
          * - 취소현금영수증 작성방법 안내 - http://blog.linkhub.co.kr/702
          */
 
         // 문서관리번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로
         // 중복되지 않도록 구성
-        String mgtKey = "20171114-31";
+        String mgtKey = "20190104-001";
 
         // 원본현금영수증 승인번호
         String orgConfirmNum = "820116333";
 
         // 원본현금영수증 거래일자
-        String orgTradeDate = "20170711";
+        String orgTradeDate = "20190103";
 
         // 안내문자 전송여부
         Boolean smssendYN = false;
@@ -966,24 +569,23 @@ public class CashbillServiceExample {
 
     @RequestMapping(value = "revokeRegistIssue", method = RequestMethod.GET)
     public String revokeRegistIssue(Model m) {
-        /**
-         * 1건의 취소현금영수증을 즉시발행합니다.
-         * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청
-         *   전송결과를 확인할 수 있습니다.
-         * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼]
-         *   > 1.4. 국세청 전송정책"을 참조하시기 바랍니다.
+        /*
+         * 1건의 취소현금영수증을 [임시저장]합니다.
+         * - [임시저장] 상태의 현금영수증은 발행(Issue API)을 호출해야만 국세청에 전송됩니다.
+         * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청 전송결과를 확인할 수 있습니다.
+         * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼] > 1.3. 국세청 전송정책"을 참조하시기 바랍니다.
          * - 취소현금영수증 작성방법 안내 - http://blog.linkhub.co.kr/702
          */
 
         // 문서관리번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로
         // 중복되지 않도록 구성
-        String mgtKey = "20171114-23";
+        String mgtKey = "20190104-001";
 
         // 원본현금영수증 승인번호
         String orgConfirmNum = "820116333";
 
         // 원본현금영수증 거래일자
-        String orgTradeDate = "20170711";
+        String orgTradeDate = "201901003";
 
         try {
 
@@ -1001,24 +603,23 @@ public class CashbillServiceExample {
 
     @RequestMapping(value = "revokeRegistIssue_part", method = RequestMethod.GET)
     public String revokeRegistIssue_part(Model m) {
-        /**
-         * 1건의 [부분] 취소현금영수증을 즉시발행합니다.
-         * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청
-         *   전송결과를 확인할 수 있습니다.
-         * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼]
-         *   > 1.4. 국세청 전송정책"을 참조하시기 바랍니다.
+        /*
+         * 1건의 (부분)취소현금영수증을 [임시저장]합니다.
+         * - [임시저장] 상태의 현금영수증은 발행(Issue API)을 호출해야만 국세청에 전송됩니다.
+         * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청 전송결과를 확인할 수 있습니다.
+         * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼] > 1.3. 국세청 전송정책"을 참조하시기 바랍니다.
          * - 취소현금영수증 작성방법 안내 - http://blog.linkhub.co.kr/702
          */
 
         // 문서관리번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로
         // 중복되지 않도록 구성
-        String mgtKey = "20171114-22";
+        String mgtKey = "20190104-001";
 
         // 원본현금영수증 승인번호
         String orgConfirmNum = "820116333";
 
         // 원본현금영수증 거래일자
-        String orgTradeDate = "20170711";
+        String orgTradeDate = "20190103";
 
         // 안내문자 전송여부
         Boolean smssendYN = false;
@@ -1060,22 +661,93 @@ public class CashbillServiceExample {
         return "response";
     }
 
+    @RequestMapping(value = "getInfo", method = RequestMethod.GET)
+    public String getInfo(Model m) {
+        /*
+         * 1건의 현금영수증 상태/요약 정보를 확인합니다.
+         * - 응답항목에 대한 자세한 정보는 "[현금영수증 API 연동매뉴얼] > 4.2. 현금영수증 상태정보 구성"을 참조하시기 바랍니다.
+         */
+
+        // 현금영수증 문서관리번호
+        String mgtKey = "20190104-001";
+
+        try {
+
+            CashbillInfo cashbillInfo = cashbillService.getInfo(testCorpNum, mgtKey);
+
+            m.addAttribute("CashbillInfo", cashbillInfo);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "Cashbill/CashbillInfo";
+    }
+
+    @RequestMapping(value = "getInfos", method = RequestMethod.GET)
+    public String getInfos(Model m) {
+        /*
+         * 대량의 현금영수증 상태/요약 정보를 확인합니다. (최대 1000건)
+         * - 응답항목에 대한 자세한 정보는 "[현금영수증 API 연동매뉴얼] > 4.2. 현금영수증 상태정보 구성"을 참조하시기 바랍니다.
+         */
+
+        // 현금영수증 문서관리번호 배열 최대(1000건)
+        String[] mgtKeyList = new String[]{"20190104-001", "20190104-002", "20190104-003"};
+
+        try {
+
+            CashbillInfo[] cashbillInfos = cashbillService.getInfos(testCorpNum, mgtKeyList);
+
+            m.addAttribute("CashbillInfos", cashbillInfos);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "Cashbill/CashbillInfo";
+    }
+
+    @RequestMapping(value = "getDetailInfo", method = RequestMethod.GET)
+    public String getDetailInfo(Model m) {
+        /*
+         * 현금영수증 1건의 상세정보를 조회합니다.
+         * - 응답항목에 대한 자세한 사항은 "[현금영수증 API 연동매뉴얼] > 4.1. 현금영수증 구성" 을 참조하시기 바랍니다.
+         */
+
+        // 현금영수증 문서관리번호
+        String mgtKey = "20190104-001";
+
+        try {
+
+            Cashbill cashbill = cashbillService.getDetailInfo(testCorpNum, mgtKey);
+
+            m.addAttribute("Cashbill", cashbill);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "Cashbill/Cashbill";
+    }
+
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String search(Model m) {
-        /**
+        /*
          * 검색조건을 사용하여 현금영수증 목록을 조회합니다.
-         * - 응답항목에 대한 자세한 사항은 "[현금영수증 API 연동매뉴얼] >
-         *   4.2. 현금영수증 상태정보 구성" 을 참조하시기 바랍니다.
+         * - 응답항목에 대한 자세한 사항은 "[현금영수증 API 연동매뉴얼] > 4.2. 현금영수증 상태정보 구성" 을 참조하시기 바랍니다.
          */
 
         // 일자유형, R-등록일자, T-거래일자, I-발행일자
         String DType = "T";
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20180813";
+        String SDate = "20181201";
 
         // 종료일자, 날짜형식(yyyyMMdd)
-        String EDate = "20180813";
+        String EDate = "20190103";
 
         // 상태코드 배열, 2,3번째 자리에 와일드카드(*) 사용 가능
         String[] State = {"100", "2**", "3**", "4**"};
@@ -1121,14 +793,295 @@ public class CashbillServiceExample {
         return "Cashbill/SearchResult";
     }
 
+    @RequestMapping(value = "getLogs", method = RequestMethod.GET)
+    public String getLogs(Model m) {
+        /*
+         * 현금영수증 상태 변경이력을 확인합니다.
+         * - 상태 변경이력 확인(GetLogs API) 응답항목에 대한 자세한 정보는
+         *   "[현금영수증 API 연동매뉴얼] > 3.3.5 상태 변경이력 확인" 을 참조하시기 바랍니다.
+         */
+
+        // 현금영수증 문서관리번호
+        String mgtKey = "20190104-001";
+
+        try {
+            CashbillLog[] cashbillLogs = cashbillService.getLogs(testCorpNum, mgtKey);
+
+            m.addAttribute("CashbillLogs", cashbillLogs);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "Cashbill/CashbillLog";
+    }
+
+    @RequestMapping(value = "getURL", method = RequestMethod.GET)
+    public String getURL(Model m) {
+        /*
+         * 팝빌 현금영수증 문서함 팝업 URL을 반환합니다.
+         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         */
+
+        // TBOX : 임시문서함 , PBOX : 매출문서함, WRITE : 현금영수증 작성
+        String TOGO = "WRITE";
+
+        try {
+
+            String url = cashbillService.getURL(testCorpNum, TOGO);
+
+            m.addAttribute("Result", url);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "result";
+    }
+
+    @RequestMapping(value = "getPopUpURL", method = RequestMethod.GET)
+    public String getPopUpURL(Model m) {
+        /*
+         * 1건의 현금영수증 보기 팝업 URL을 반환합니다.
+         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         */
+
+        // 현금영수증 문서관리번호
+        String mgtKey = "20190104-001";
+
+        try {
+
+            String url = cashbillService.getPopUpURL(testCorpNum, mgtKey);
+
+            m.addAttribute("Result", url);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "result";
+    }
+
+    @RequestMapping(value = "getPrintURL", method = RequestMethod.GET)
+    public String getPrintURL(Model m) {
+        /*
+         * 1건의 현금영수증 인쇄팝업 URL을 반환합니다.
+         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         */
+
+        // 현금영수증 문서관리번호
+        String mgtKey = "20190104-001";
+
+        try {
+
+            String url = cashbillService.getPrintURL(testCorpNum, mgtKey);
+
+            m.addAttribute("Result", url);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "result";
+    }
+
+    @RequestMapping(value = "getEPrintURL", method = RequestMethod.GET)
+    public String getEPrintURL(Model m) {
+        /*
+         * 현금영수증 인쇄(공급받는자) URL을 반환합니다.
+         * - URL 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
+         */
+
+        // 현금영수증 문서관리번호
+        String mgtKey = "20190104-001";
+
+        try {
+
+            String url = cashbillService.getEPrintURL(testCorpNum, mgtKey);
+
+            m.addAttribute("Result", url);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "result";
+    }
+
+    @RequestMapping(value = "getMassPrintURL", method = RequestMethod.GET)
+    public String getMassPrintURL(Model m) {
+        /*
+         * 대량의 현금영수증 인쇄팝업 URL을 반환합니다. (최대 100건)
+         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         */
+
+        // 문서관리번호 배열, 최대 100건
+        String[] mgtKeyList = new String[]{"20190104-001", "20190104-002", "20190104-003"};
+
+        try {
+
+            String url = cashbillService.getMassPrintURL(testCorpNum, mgtKeyList);
+
+            m.addAttribute("Result", url);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "result";
+    }
+
+    @RequestMapping(value = "getMailURL", method = RequestMethod.GET)
+    public String getMailURL(Model m) {
+        /*
+         * 현금영수증 수신메일 링크주소를 반환합니다.
+         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         */
+
+        // 현금영수증 문서관리번호
+        String mgtKey = "20190104-001";
+
+        try {
+
+            String url = cashbillService.getMailURL(testCorpNum, mgtKey);
+
+            m.addAttribute("Result", url);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "result";
+    }
+
+    @RequestMapping(value = "sendEmail", method = RequestMethod.GET)
+    public String sendEmail(Model m) {
+        /*
+         * 현금영수증 발행 안내메일을 재전송합니다.
+         */
+
+        // 현금영수증 문서관리번호
+        String mgtKey = "20190104-001";
+
+        // 수신자 메일주소
+        String receiver = "test@test.com";
+
+        try {
+            Response response = cashbillService.sendEmail(testCorpNum, mgtKey, receiver);
+
+            m.addAttribute("Response", response);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "response";
+    }
+
+    @RequestMapping(value = "sendSMS", method = RequestMethod.GET)
+    public String sendSMS(Model m) {
+        /*
+         * 알림문자를 전송합니다. (단문/SMS - 한글 최대 45자)
+         * - 알림문자 전송시 포인트가 차감됩니다. (전송실패시 환불처리)
+         * - 전송내역 확인은 "팝빌 로그인" > [문자 팩스] > [문자] > [전송내역] 탭에서 전송결과를 확인할 수 있습니다.
+         */
+
+
+        // 현금영수증 문서관리번호
+        String mgtKey = "20190104-001";
+
+        // 발신번호
+        String sender = "07043042991";
+
+        // 수신번호
+        String receiver = "010111222";
+
+        // 문자 전송 내용 (90Byte 초과시 길이가 조정되어 전송)
+        String contents = "현금영수증 문자메시지 전송 테스트입니다.";
+
+        try {
+
+            Response response = cashbillService.sendSMS(testCorpNum, mgtKey,
+                    sender, receiver, contents);
+
+            m.addAttribute("Response", response);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "response";
+    }
+
+    @RequestMapping(value = "sendFAX", method = RequestMethod.GET)
+    public String sendFAX(Model m) {
+        /*
+         * 현금영수증을 팩스전송합니다.
+         * - 팩스 전송 요청시 포인트가 차감됩니다. (전송실패시 환불처리)
+         * - 전송내역 확인은 "팝빌 로그인" > [문자 팩스] > [팩스] > [전송내역] 메뉴에서 전송결과를 확인할 수 있습니다.
+         */
+
+        // 현금영수증 문서관리번호
+        String mgtKey = "20190104-001";
+
+        // 발신자 번호
+        String sender = "07043042991";
+
+        // 수신자 팩스번호
+        String receiver = "010111222";
+
+        try {
+
+            Response response = cashbillService.sendFAX(testCorpNum, mgtKey,
+                    sender, receiver);
+
+            m.addAttribute("Response", response);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "response";
+    }
+
+    @RequestMapping(value = "listEmailConfig", method = RequestMethod.GET)
+    public String listEmailConfig(Model m) {
+        /*
+         * 현금영수증 관련 메일전송 항목에 대한 전송여부를 목록을 반환합니다.
+         */
+
+        try {
+
+            EmailSendConfig[] emailSendConfigs = cashbillService.listEmailConfig(testCorpNum);
+
+            m.addAttribute("EmailSendConfigs", emailSendConfigs);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "Cashbill/EmailSendConfig";
+    }
+
     @RequestMapping(value = "updateEmailConfig", method = RequestMethod.GET)
     public String updateEmailConfig(Model m) {
-        /**
-         * 현금영수증 관련 메일전송 항목에 대한 전송여부를 수정한다.
+        /*
+         * 현금영수증 관련 메일전송 항목에 대한 전송여부를 수정합니다.
          *
          * 메일전송유형
          * CSH_ISSUE : 고객에게 현금영수증이 발행 되었음을 알려주는 메일 입니다.
-         * CSH_CANCELISSUE : 고객에게 현금영수증이 발행취소 되었음을 알려주는 메일 입니다.
+         * CSH_CANCEL : 고객에게 현금영수증이 발행취소 되었음을 알려주는 메일 입니다.
          */
 
         // 메일 전송 유형
@@ -1152,23 +1105,44 @@ public class CashbillServiceExample {
         return "response";
     }
 
-    @RequestMapping(value = "listEmailConfig", method = RequestMethod.GET)
-    public String listEmailConfig(Model m) {
-        /**
-         * 현금영수증 관련 메일전송 항목에 대한 전송여부를 목록을 반환한다
+    @RequestMapping(value = "getUnitCost", method = RequestMethod.GET)
+    public String getUnitCost(Model m) {
+        /*
+         * 현금영수증 발행단가를 확인합니다.
          */
 
         try {
 
-            EmailSendConfig[] emailSendConfigs = cashbillService.listEmailConfig(testCorpNum);
+            float unitCost = cashbillService.getUnitCost(testCorpNum);
 
-            m.addAttribute("EmailSendConfigs", emailSendConfigs);
+            m.addAttribute("Result", unitCost);
 
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
         }
 
-        return "Cashbill/EmailSendConfig";
+        return "result";
     }
+
+    @RequestMapping(value = "getChargeInfo", method = RequestMethod.GET)
+    public String chargeInfo(Model m) {
+        /*
+         * 현금영수증 API 서비스 과금정보를 확인합니다.
+         */
+
+        try {
+
+            ChargeInfo chrgInfo = cashbillService.getChargeInfo(testCorpNum);
+
+            m.addAttribute("ChargeInfo", chrgInfo);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "getChargeInfo";
+    }
+
 }

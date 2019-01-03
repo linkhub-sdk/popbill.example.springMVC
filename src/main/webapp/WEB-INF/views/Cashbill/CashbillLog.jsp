@@ -14,13 +14,13 @@
         <legend>${requestScope['javax.servlet.forward.request_uri']}</legend>
         <c:forEach items="${CashbillLogs}" var="CashbillLog">
             <fieldset class="fieldset2">
-                <legend>CashbillLog.docLogType : ${CashbillLog.docLogType}</legend>
                 <ul>
-                    <li>log : ${CashbillLog.log}</li>
-                    <li>procType : ${CashbillLog.procType}</li>
-                    <li>procMemo : ${CashbillLog.procMemo}</li>
-                    <li>regDT : ${CashbillLog.regDT}</li>
-                    <li>ip : ${CashbillLog.ip}</li>
+                    <li>docLogType(로그타입) : ${CashbillLog.docLogType}</li>
+                    <li>log(이력정보) : ${CashbillLog.log}</li>
+                    <li>procType(처리형태) : ${CashbillLog.procType}</li>
+                    <li>procMemo(처리메모) : ${CashbillLog.procMemo}</li>
+                    <li>regDT(등록일시) : ${CashbillLog.regDT}</li>
+                    <li>ip(아이피) : ${CashbillLog.ip}</li>
                 </ul>
             </fieldset>
         </c:forEach>
