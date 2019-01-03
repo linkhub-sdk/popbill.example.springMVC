@@ -59,7 +59,7 @@ public class BaseServiceExample {
 
     @RequestMapping(value = "checkIsMember", method = RequestMethod.GET)
     public String checkIsMember(Model m) throws PopbillException {
-        /**
+        /*
          *  해당 사업자의 파트너 연동회원 가입여부를 확인합니다.
          * - LinkID는 인증정보로 설정되어 있는 링크아이디 값입니다.
          */
@@ -82,7 +82,7 @@ public class BaseServiceExample {
 
     @RequestMapping(value = "getBalance", method = RequestMethod.GET)
     public String getBalance(Model m) throws PopbillException {
-        /**
+        /*
          * 연동회원의 잔여포인트를 확인합니다.
          * - 과금방식이 파트너과금인 경우 파트너 잔여포인트(GetPartnerBalance API)
          *   를 통해 확인하시기 바랍니다.
@@ -103,7 +103,7 @@ public class BaseServiceExample {
 
     @RequestMapping(value = "getPartnerBalance", method = RequestMethod.GET)
     public String getPartnerBalance(Model m) throws PopbillException {
-        /**
+        /*
          * 파트너의 잔여포인트를 확인합니다.
          * - 과금방식이 연동과금인 경우 연동회원 잔여포인트(GetBalance API)를
          *   이용하시기 바랍니다.
@@ -124,7 +124,7 @@ public class BaseServiceExample {
 
     @RequestMapping(value = "getPartnerURL", method = RequestMethod.GET)
     public String getPartnerURL(Model m) throws PopbillException {
-        /**
+        /*
          * 파트너 포인트 충전 팝업 URL을 반환합니다.
          * - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
          */
@@ -148,7 +148,7 @@ public class BaseServiceExample {
 
     @RequestMapping(value = "getAccessURL", method = RequestMethod.GET)
     public String getAccessURL(Model m) throws PopbillException {
-        /**
+        /*
          * 팝빌 로그인 URL을 반환합니다.
          * - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
          */
@@ -168,7 +168,7 @@ public class BaseServiceExample {
 
     @RequestMapping(value = "getChargeURL", method = RequestMethod.GET)
     public String getChargeURL(Model m) throws PopbillException {
-        /**
+        /*
          * 팝빌 연동회원 포인트충전 팝업 URL을 반환합니다.
          * - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
          */
@@ -188,10 +188,9 @@ public class BaseServiceExample {
 
     @RequestMapping(value = "joinMember", method = RequestMethod.GET)
     public String joinMember(Model m) throws PopbillException {
-        /**
+        /*
          * 파트너의 연동회원으로 회원가입을 요청합니다.
          */
-
 
         JoinForm joinInfo = new JoinForm();
 
@@ -253,7 +252,7 @@ public class BaseServiceExample {
 
     @RequestMapping(value = "listContact", method = RequestMethod.GET)
     public String listContact(Model m) throws PopbillException {
-        /**
+        /*
          * 연동회원의 담당자 목록을 확인합니다.
          */
 
@@ -271,7 +270,7 @@ public class BaseServiceExample {
 
     @RequestMapping(value = "updateContact", method = RequestMethod.GET)
     public String updateContact(Model m) throws PopbillException {
-        /**
+        /*
          * 연동회원의 담당자 정보를 수정합니다.
          */
 
@@ -318,7 +317,6 @@ public class BaseServiceExample {
         /**
          * 연동회원의 담당자를 신규로 등록합니다.
          */
-
 
         ContactInfo contactInfo = new ContactInfo();
 
