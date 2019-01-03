@@ -14,13 +14,13 @@
         <legend>${requestScope['javax.servlet.forward.request_uri']}</legend>
         <c:forEach items="${StatementLogs}" var="StatementLog">
             <fieldset class="fieldset2">
-                <legend>StatementLog.docLogType : ${StatementLog.docLogType}</legend>
                 <ul>
-                    <li>log : ${StatementLog.log}</li>
-                    <li>procType : ${StatementLog.procType}</li>
-                    <li>procMemo : ${StatementLog.procMemo}</li>
-                    <li>regDT : ${StatementLog.regDT}</li>
-                    <li>ip : ${StatementLog.ip}</li>
+                    <li>docLogType(로그타입) : ${StatementLog.docLogType}</li>
+                    <li>log(이력정보) : ${StatementLog.log}</li>
+                    <li>procType(처리형태) : ${StatementLog.procType}</li>
+                    <li>procMemo(처리메모) : ${StatementLog.procMemo}</li>
+                    <li>regDT(등록일시) : ${StatementLog.regDT}</li>
+                    <li>ip(아이피) : ${StatementLog.ip}</li>
                 </ul>
             </fieldset>
         </c:forEach>

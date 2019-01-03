@@ -16,32 +16,28 @@
             <fieldset class="fieldset2">
                 <legend>StatementInfo</legend>
                 <ul>
-                    <li>itemKey : ${StatementInfo.itemKey}</li>
-                    <li>itemCode : ${StatementInfo.itemCode}</li>
-                    <li>invoiceNum : ${StatementInfo.invoiceNum}</li>
-                    <li>mgtKey : ${StatementInfo.mgtKey}</li>
-
-                    <li>stateCode : ${StatementInfo.stateCode}</li>
-                    <li>taxType : ${StatementInfo.taxType}</li>
-                    <li>purposeType : ${StatementInfo.purposeType}</li>
-
-                    <li>writeDate : ${StatementInfo.writeDate}</li>
-                    <li>senderCorpName : ${StatementInfo.senderCorpName}</li>
-                    <li>senderCorpNum : ${StatementInfo.senderCorpNum}</li>
-                    <li>senderPrintYN : ${StatementInfo.senderPrintYN}</li>
-
-                    <li>receiverCorpName : ${StatementInfo.receiverCorpName}</li>
-                    <li>receiverCorpNum : ${StatementInfo.receiverCorpNum}</li>
-                    <li>receiverPrintYN : ${StatementInfo.receiverPrintYN}</li>
-
-                    <li>supplyCostTotal : ${StatementInfo.supplyCostTotal}</li>
-                    <li>taxTotal : ${StatementInfo.taxTotal}</li>
-                    <li>issueDT : ${StatementInfo.issueDT}</li>
-                    <li>stateDT : ${StatementInfo.stateDT}</li>
-                    <li>openYN : ${StatementInfo.openYN}</li>
-                    <li>openDT : ${StatementInfo.openDT}</li>
-                    <li>stateMemo : ${StatementInfo.stateMemo}</li>
-                    <li>regDT : ${StatementInfo.regDT}</li>
+                    <li> itemCode (문서종류코드) : ${StatementInfo.itemCode}</li>
+                    <li> itemKey (팝빌 관리번호) : ${StatementInfo.itemKey}</li>
+                    <li> invoiceNum (문서고유번호) : ${StatementInfo.invoiceNum}</li>
+                    <li> mgtKey (문서관리번호) : ${StatementInfo.mgtKey}</li>
+                    <li> taxType (세금형태) : ${StatementInfo.taxType}</li>
+                    <li> writeDate (작성일자) : ${StatementInfo.writeDate}</li>
+                    <li> regDT (임시저장일시) : ${StatementInfo.regDT}</li>
+                    <li> senderCorpName (발신자 상호) : ${StatementInfo.senderCorpName}</li>
+                    <li> senderCorpNum (발신자 사업자등록번호) : ${StatementInfo.senderCorpNum}</li>
+                    <li> senderPrintYN (발신자 인쇄여부) : ${StatementInfo.senderPrintYN}</li>
+                    <li> receiverCorpName (수신자 상호): ${StatementInfo.receiverCorpName}</li>
+                    <li> receiverCorpNum (수신자 사업자등록번호) : ${StatementInfo.receiverCorpNum}</li>
+                    <li> receiverPrintYN (수신자 인쇄여부) : ${StatementInfo.receiverPrintYN}</li>
+                    <li> supplyCostTotal (공급가액 합계) : ${StatementInfo.supplyCostTotal}</li>
+                    <li> taxTotal (세액 합계) : ${StatementInfo.taxTotal}</li>
+                    <li> purposeType (영수/청구) : ${StatementInfo.purposeType}</li>
+                    <li> issueDT (발행일시) : ${StatementInfo.issueDT}</li>
+                    <li> stateCode (상태코드) : ${StatementInfo.stateCode}</li>
+                    <li> stateDT (상태 변경일시) : ${StatementInfo.stateDT}</li>
+                    <li> stateMemo (상태메모) : ${StatementInfo.stateMemo}</li>
+                    <li> openYN (개봉 여부) : ${StatementInfo.openYN}</li>
+                    <li> openDT (개봉 일시) : ${StatementInfo.openDT}</li>
                 </ul>
             </fieldset>
         </c:if>
@@ -49,34 +45,29 @@
         <c:if test="${StatementInfos != null}">
             <c:forEach items="${StatementInfos}" var="StatementInfo">
                 <fieldset class="fieldset2">
-                    <legend>StatementInfo : ${StatementInfo.mgtKey}</legend>
                     <ul>
-                        <li>itemKey : ${StatementInfo.itemKey}</li>
-                        <li>itemCode : ${StatementInfo.itemCode}</li>
-                        <li>invoiceNum : ${StatementInfo.invoiceNum}</li>
-                        <li>mgtKey : ${StatementInfo.mgtKey}</li>
-
-                        <li>stateCode : ${StatementInfo.stateCode}</li>
-                        <li>taxType : ${StatementInfo.taxType}</li>
-                        <li>purposeType : ${StatementInfo.purposeType}</li>
-
-                        <li>writeDate : ${StatementInfo.writeDate}</li>
-                        <li>senderCorpName : ${StatementInfo.senderCorpName}</li>
-                        <li>senderCorpNum : ${StatementInfo.senderCorpNum}</li>
-                        <li>senderPrintYN : ${StatementInfo.senderPrintYN}</li>
-                        <li>receiverCorpName : ${StatementInfo.receiverCorpName}</li>
-                        <li>receiverCorpNum : ${StatementInfo.receiverCorpNum}</li>
-                        <li>receiverPrintYN : ${StatementInfo.receiverPrintYN}</li>
-
-                        <li>supplyCostTotal : ${StatementInfo.supplyCostTotal}</li>
-                        <li>taxTotal : ${StatementInfo.taxTotal}</li>
-                        <li>issueDT : ${StatementInfo.issueDT}</li>
-                        <li>stateDT : ${StatementInfo.stateDT}</li>
-                        <li>openYN : ${StatementInfo.openYN}</li>
-                        <li>openDT : ${StatementInfo.openDT}</li>
-                        <li>stateMemo : ${StatementInfo.stateMemo}</li>
-                        <li>regDT : ${StatementInfo.regDT}</li>
-
+                        <li> itemCode (문서종류코드) : ${StatementInfo.itemCode}</li>
+                        <li> itemKey (팝빌 관리번호) : ${StatementInfo.itemKey}</li>
+                        <li> invoiceNum (문서고유번호) : ${StatementInfo.invoiceNum}</li>
+                        <li> mgtKey (문서관리번호) : ${StatementInfo.mgtKey}</li>
+                        <li> taxType (세금형태) : ${StatementInfo.taxType}</li>
+                        <li> writeDate (작성일자) : ${StatementInfo.writeDate}</li>
+                        <li> regDT (임시저장일시) : ${StatementInfo.regDT}</li>
+                        <li> senderCorpName (발신자 상호) : ${StatementInfo.senderCorpName}</li>
+                        <li> senderCorpNum (발신자 사업자등록번호) : ${StatementInfo.senderCorpNum}</li>
+                        <li> senderPrintYN (발신자 인쇄여부) : ${StatementInfo.senderPrintYN}</li>
+                        <li> receiverCorpName (수신자 상호): ${StatementInfo.receiverCorpName}</li>
+                        <li> receiverCorpNum (수신자 사업자등록번호) : ${StatementInfo.receiverCorpNum}</li>
+                        <li> receiverPrintYN (수신자 인쇄여부) : ${StatementInfo.receiverPrintYN}</li>
+                        <li> supplyCostTotal (공급가액 합계) : ${StatementInfo.supplyCostTotal}</li>
+                        <li> taxTotal (세액 합계) : ${StatementInfo.taxTotal}</li>
+                        <li> purposeType (영수/청구) : ${StatementInfo.purposeType}</li>
+                        <li> issueDT (발행일시) : ${StatementInfo.issueDT}</li>
+                        <li> stateCode (상태코드) : ${StatementInfo.stateCode}</li>
+                        <li> stateDT (상태 변경일시) : ${StatementInfo.stateDT}</li>
+                        <li> stateMemo (상태메모) : ${StatementInfo.stateMemo}</li>
+                        <li> openYN (개봉 여부) : ${StatementInfo.openYN}</li>
+                        <li> openDT (개봉 일시) : ${StatementInfo.openDT}</li>
                     </ul>
                 </fieldset>
             </c:forEach>
