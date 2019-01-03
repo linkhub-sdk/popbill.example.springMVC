@@ -17,19 +17,17 @@
             <li><a href="CloseDownService/checkCorpNums">checkCorpNums</a> - 휴폐업 대량조회</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>포인트 관리</legend>
         <ul>
-            <li><a href="BaseService/getChargeURL">getChargeURL</a> - 연동회원 포인트충전 URL</li>
-            <li><a href="CloseDownService/getChargeInfo">getChargeInfo</a> - 과금정보 확인</li>
-            <li><a href="CloseDownService/getUnitCost">getUnitCost</a> - 전송 단가 확인</li>
             <li><a href="BaseService/getBalance">getBalance</a> - 연동회원 잔여포인트 확인</li>
+            <li><a href="BaseService/getChargeURL">getChargeURL</a> - 연동회원 포인트충전 URL</li>
             <li><a href="BaseService/getPartnerBalance">getPartnerBalance</a> - 파트너 잔여포인트 확인</li>
             <li><a href="BaseService/getPartnerURL">getPartnerURL</a> - 파트너 포인트충전 URL</li>
+            <li><a href="CloseDownService/getChargeInfo">getChargeInfo</a> - 과금정보 확인</li>
+            <li><a href="CloseDownService/getUnitCost">getUnitCost</a> - 조회단가 확인</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>회원정보</legend>
         <ul>

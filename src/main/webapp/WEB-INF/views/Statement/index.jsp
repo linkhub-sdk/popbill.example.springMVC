@@ -22,7 +22,6 @@
             <li><a href="StatementService/delete">delete</a> - 삭제</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>전자명세서 정보확인</legend>
         <ul>
@@ -34,7 +33,6 @@
             <li><a href="StatementService/getURL">getURL</a> - 전자명세서 문서함 관련 URL</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>전자명세서 보기/인쇄</legend>
         <ul>
@@ -45,7 +43,6 @@
             <li><a href="StatementService/getMailURL">getMailURL</a> - (전자명세서 메일링크 URL</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>부가기능</legend>
         <ul>
@@ -63,7 +60,6 @@
             <li><a href="StatementService/updateEmailConfig">updateEmailConfig</a> - 전자명세서 알림메일 전송설정 수정</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>포인트관리</legend>
         <ul>
@@ -71,11 +67,10 @@
             <li><a href="BaseService/getChargeURL">getChargeURL</a> - 연동회원 포인트충전 URL</li>
             <li><a href="BaseService/getPartnerBalance">getPartnerBalance</a> - 파트너 잔여포인트 확인</li>
             <li><a href="BaseService/getPartnerURL">getPartnerURL</a> - 파트너 포인트충전 URL</li>
-            <li><a href="StatementService/getUnitCost">getUnitCost</a> - 발행 단가 확인</li>
+            <li><a href="StatementService/getUnitCost">getUnitCost</a> - 발행단가 확인</li>
             <li><a href="StatementService/getChargeInfo">getChargeInfo</a> - 과금정보 확인</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>회원정보</legend>
         <ul>

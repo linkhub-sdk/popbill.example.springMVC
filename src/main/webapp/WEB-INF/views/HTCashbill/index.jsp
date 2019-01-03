@@ -18,7 +18,6 @@
             <li><a href="HTCashbillService/listActiveJob">listActiveJob</a> - 수집 상태 목록 확인</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>홈택스 현금영수증 매입/매출 내역 수집 결과 조회</legend>
         <ul>
@@ -26,7 +25,6 @@
             <li><a href="HTCashbillService/summary">summary</a> - 수집 결과 요약정보 조회</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>홈택스연동 인증 관리</legend>
         <ul>
@@ -39,7 +37,6 @@
             <li><a href="HTCashbillService/deleteDeptUser">deleteDeptUser</a> - 부서사용자 등록정보 삭제</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>포인트 관리 / 정액제 신청</legend>
         <ul>
@@ -52,14 +49,13 @@
             <li><a href="HTCashbillService/getFlatRateState">getFlatRateState</a> - 정액제 서비스 상태 확인</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>회원정보</legend>
         <ul>
-            <li><a href="BaseService/getAccessURL">getAccessURL</a> - 팝빌 로그인 URL</li>
             <li><a href="BaseService/checkIsMember">checkIsMember</a> - 연동회원 가입여부 확인</li>
             <li><a href="BaseService/checkID">checkID</a> - 아이디 중복 확인</li>
             <li><a href="BaseService/joinMember">joinMember</a> - 연동회원 신규가입</li>
+            <li><a href="BaseService/getAccessURL">getAccessURL</a> - 팝빌 로그인 URL</li>
             <li><a href="BaseService/getCorpInfo">getCorpInfo</a> - 회사정보 확인</li>
             <li><a href="BaseService/updateCorpInfo">updateCorpInfo</a> - 회사정보 수정</li>
             <li><a href="BaseService/registContact">registContact</a> - 담당자 등록</li>

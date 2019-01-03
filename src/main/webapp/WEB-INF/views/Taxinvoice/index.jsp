@@ -30,14 +30,12 @@
             <li><a href="TaxinvoiceService/refuse">Refuse</a> - 역발행요청 거부</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>국세청 즉시 전송</legend>
         <ul>
             <li><a href="TaxinvoiceService/sendToNTS">SendToNTS</a> - 국세청 즉시전송</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>세금계산서 정보확인</legend>
         <ul>
@@ -55,11 +53,10 @@
             <li><a href="TaxinvoiceService/getPopUpURL">GetPopUpURL</a> - 세금계산서 보기 URL</li>
             <li><a href="TaxinvoiceService/getPrintURL">GetPrintURL</a> - 세금계산서 인쇄 [공급자/공급받는자] URL</li>
             <li><a href="TaxinvoiceService/getEPrintURL">GetEPrintURL</a> - 세금계산서 인쇄 [공급받는자용] URL</li>
-            <li><a href="TaxinvoiceService/getMassPrintURL">GetMassPrintURL</a> - (세금계산서 대량 인쇄 URL</li>
+            <li><a href="TaxinvoiceService/getMassPrintURL">GetMassPrintURL</a> - 세금계산서 대량 인쇄 URL</li>
             <li><a href="TaxinvoiceService/getMailURL">GetMailURL</a> - 세금계산서 메일링크 URL</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>부가기능</legend>
         <ul>
@@ -79,7 +76,6 @@
             <li><a href="TaxinvoiceService/updateEmailConfig">UpdateEmailConfig</a> - 세금계산서 알림메일 전송설정 수정</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>공인인증서 관리</legend>
         <ul>
@@ -88,7 +84,6 @@
             <li><a href="TaxinvoiceService/checkCertValidation">CheckCertValidation</a> - 공인인증서 유효성 확인</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>포인트 관리</legend>
         <ul>
@@ -96,11 +91,10 @@
             <li><a href="BaseService/getChargeURL">GetChargeURL</a> - 연동회원 포인트충전 URL</li>
             <li><a href="BaseService/getPartnerBalance">GetPartnerBalance</a> - 파트너 잔여포인트 확인</li>
             <li><a href="BaseService/getPartnerURL">GetPartnerURL</a> - 파트너 포인트충전 URL</li>
-            <li><a href="TaxinvoiceService/getUnitCost">GetUnitCost</a> - 발행 단가 확인</li>
+            <li><a href="TaxinvoiceService/getUnitCost">GetUnitCost</a> - 발행단가 확인</li>
             <li><a href="TaxinvoiceService/getChargeInfo">GetChargeInfo</a> - 과금정보 확인</li>
         </ul>
     </fieldset>
-    <br/>
     <fieldset class="fieldset1">
         <legend>회원정보</legend>
         <ul>
