@@ -14,11 +14,11 @@
         <legend>${requestScope['javax.servlet.forward.request_uri']}</legend>
         <c:forEach items="${AttachedFiles}" var="AttachedFile">
             <fieldset class="fieldset2">
-                <legend>serialNum : ${AttachedFile.serialNum}</legend>
                 <ul>
-                    <li>attachedFile : ${AttachedFile.attachedFile}</li>
-                    <li>displayName : ${AttachedFile.displayName}</li>
-                    <li>regDT : ${AttachedFile.regDT}</li>
+                    <li>serialNum(첨부파일 일련번호) : ${AttachedFile.serialNum}</li>
+                    <li>attachedFile(파일아이디-첨부파일 삭제시 사용) : ${AttachedFile.attachedFile}</li>
+                    <li>displayName(첨부파일명) : ${AttachedFile.displayName}</li>
+                    <li>regDT(첨부일시) : ${AttachedFile.regDT}</li>
                 </ul>
             </fieldset>
         </c:forEach>

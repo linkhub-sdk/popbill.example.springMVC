@@ -14,9 +14,9 @@
         <legend>${requestScope['javax.servlet.forward.request_uri']}</legend>
         <c:forEach items="${EmailPublicKeys}" var="EmailPublicKey">
             <fieldset class="fieldset2">
-                <legend>ConfirmNum : ${EmailPublicKey.confirmNum}</legend>
                 <ul>
-                    <li>email : ${EmailPublicKey.email}</li>
+                    <li>ConfirmNum(유통사업자 승인번호) : ${EmailPublicKey.confirmNum}</li>
+                    <li>email(유통사업자 이메일) : ${EmailPublicKey.email}</li>
                 </ul>
             </fieldset>
         </c:forEach>
