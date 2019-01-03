@@ -19,7 +19,7 @@
                         : ${EmailSendConfig.sendYN}</li>
                 </c:if>
 
-                <c:if test="${EmailSendConfig.emailType == 'CSH_CANCELISSUE'}">
+                <c:if test="${EmailSendConfig.emailType == 'CSH_CANCEL'}">
                     <li>${EmailSendConfig.emailType} (고객에게 현금영수증이 발행취소 되었음을 알려주는 메일 전송 여부)
                         : ${EmailSendConfig.sendYN}</li>
                 </c:if>
