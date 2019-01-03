@@ -63,7 +63,6 @@
         <c:if test="${TaxinvoiceInfos != null}">
             <c:forEach items="${TaxinvoiceInfos}" var="TaxinvoiceInfo">
                 <fieldset class="fieldset2">
-                    <legend>세금계산서 공급자 문서관리번호 : ${TaxinvoiceInfo.invoicerMgtKey}</legend>
                     <ul>
                         <li>itemKey (팝빌 아이템키) : ${TaxinvoiceInfo.itemKey}</li>
                         <li>taxType (과세형태) : ${TaxinvoiceInfo.taxType}</li>
