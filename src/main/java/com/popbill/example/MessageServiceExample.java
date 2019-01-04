@@ -11,6 +11,9 @@
  * 	  util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 링크허브 가입시 메일로
  *    발급받은 인증정보를 참조하여 변경합니다.
  * 2) 팝빌 개발용 사이트(test.popbill.com)에 연동회원으로 가입합니다.
+ * 3) 발신번호 사전등록을 합니다. (등록방법은 사이트/API 두가지 방식이 있습니다.)
+ *    - 1. 팝빌 사이트 로그인 > [문자/팩스] > [카카오톡] > [발신번호 사전등록] 메뉴에서 등록
+ *    - 2. getSenderNumberMgtURL API를 통해 반환된 URL을 이용하여 발신번호 등록
  *
  * Copyright 2006-2014 linkhub.co.kr, Inc. or its affiliates. All Rights Reserved.
  *
@@ -651,7 +654,7 @@ public class MessageServiceExample {
     @RequestMapping(value = "getStates", method = RequestMethod.GET)
     public String getStates(Model m) {
         /*
-         * 문자전송요청에 대한 전송결과를 확인합니다.
+         * 문자전송요청에 대한 전송요약정보 결과를 확인합니다.
          */
 
         // 문자전송 접수번호 배열

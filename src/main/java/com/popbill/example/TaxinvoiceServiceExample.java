@@ -1917,7 +1917,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "sendEmail", method = RequestMethod.GET)
     public String sendEmail(Model m) {
         /*
-         * 세금계산서 발행안내 메일을 재전송합니다.
+         * 세금계산서 안내메일을 재전송합니다.
          */
 
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
