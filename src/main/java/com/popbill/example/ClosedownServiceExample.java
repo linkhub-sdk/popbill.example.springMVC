@@ -2,7 +2,7 @@
  * 팝빌 휴폐업조회 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : http://blog.linkhub.co.kr/591/
- * - 업데이트 일자 : 2017-11-14
+ * - 업데이트 일자 : 2019-01-04
  * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
  *
@@ -36,7 +36,7 @@ import com.popbill.api.CloseDownService;
 import com.popbill.api.CorpState;
 import com.popbill.api.PopbillException;
 
-/**
+/*
  * 팝빌 휴폐업조회 API 예제.
  */
 @Controller
@@ -59,51 +59,13 @@ public class ClosedownServiceExample {
         return "Closedown/index";
     }
 
-    @RequestMapping(value = "getUnitCost", method = RequestMethod.GET)
-    public String getUnitCost(Model m) {
-        /**
-         * 휴폐업조회 단가를 확인합니다.
-         */
-
-        try {
-
-            float unitCost = closedownService.getUnitCost(testCorpNum);
-
-            m.addAttribute("Result", unitCost);
-
-        } catch (PopbillException e) {
-            m.addAttribute("Exception", e);
-            return "exception";
-        }
-
-        return "result";
-    }
-
-    @RequestMapping(value = "getChargeInfo", method = RequestMethod.GET)
-    public String chargeInfo(Model m) {
-        /**
-         * 연동회원의 휴폐업조회 API 서비스 과금정보를 확인합니다.
-         */
-
-        try {
-            ChargeInfo chrgInfo = closedownService.getChargeInfo(testCorpNum);
-            m.addAttribute("ChargeInfo", chrgInfo);
-
-        } catch (PopbillException e) {
-            m.addAttribute("Exception", e);
-            return "exception";
-        }
-
-        return "getChargeInfo";
-    }
-
     @RequestMapping(value = "checkCorpNum", method = RequestMethod.GET)
     public String checkCorpNum(@RequestParam(required = false) String CorpNum, Model m) {
-        /**
+        /*
          * 1건의 사업자에 대한 휴폐업여부를 조회합니다.
          */
 
-        if (CorpNum != null && CorpNum != "") {
+        if (CorpNum != null && !CorpNum.equals("")) {
 
             try {
                 CorpState corpState = closedownService.CheckCorpNum(testCorpNum, CorpNum);
@@ -124,7 +86,7 @@ public class ClosedownServiceExample {
 
     @RequestMapping(value = "checkCorpNums", method = RequestMethod.GET)
     public String checkCorpNums(Model m) {
-        /**
+        /*
          * 다수의 사업자에 대한 휴폐업여부를 조회합니다.
          */
 
@@ -144,4 +106,43 @@ public class ClosedownServiceExample {
 
         return "Closedown/checkCorpNums";
     }
+
+    @RequestMapping(value = "getUnitCost", method = RequestMethod.GET)
+    public String getUnitCost(Model m) {
+        /*
+         * 휴폐업조회 단가를 확인합니다.
+         */
+
+        try {
+
+            float unitCost = closedownService.getUnitCost(testCorpNum);
+
+            m.addAttribute("Result", unitCost);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "result";
+    }
+
+    @RequestMapping(value = "getChargeInfo", method = RequestMethod.GET)
+    public String chargeInfo(Model m) {
+        /*
+         * 휴폐업조회 API 서비스 과금정보를 확인합니다.
+         */
+
+        try {
+            ChargeInfo chrgInfo = closedownService.getChargeInfo(testCorpNum);
+            m.addAttribute("ChargeInfo", chrgInfo);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "getChargeInfo";
+    }
+
 }
