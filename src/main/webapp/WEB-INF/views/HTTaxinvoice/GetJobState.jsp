@@ -13,10 +13,9 @@
     <br/>
     <fieldset class="fieldset1">
         <legend>${requestScope['javax.servlet.forward.request_uri']}</legend>
-
         <fieldset class="fieldset2">
-            <legend>JobID (작업아이디) : ${JobState.jobID}</legend>
             <ul>
+                <li>JobID (작업아이디) : ${JobState.jobID}</li>
                 <li>jobState (수집상태) : ${JobState.jobState}</li>
                 <li>queryType (수집유형) : ${JobState.queryType}</li>
                 <li>queryDateType (일자유형) : ${JobState.queryDateType}</li>
