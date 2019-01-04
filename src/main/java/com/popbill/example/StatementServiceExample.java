@@ -137,69 +137,69 @@ public class StatementServiceExample {
 
 
         /*********************************************************************
-         *								공급자 정보
+         *								발신자 정보
          *********************************************************************/
 
-        // [필수] 공급자 사업자번호
+        // [필수] 발신자 사업자번호
         statement.setSenderCorpNum("1234567890");
 
-        // [필수] 공급자 상호
-        statement.setSenderCorpName("공급자 상호");
+        // [필수] 발신자 상호
+        statement.setSenderCorpName("발신자 상호");
 
-        // 공급자 주소
-        statement.setSenderAddr("공급자 주소");
+        // 발신자 주소
+        statement.setSenderAddr("발신자 주소");
 
-        // [필수] 공급자 대표자 성명
-        statement.setSenderCEOName("공급자 대표자 성명");
+        // [필수] 발신자 대표자 성명
+        statement.setSenderCEOName("발신자 대표자 성명");
 
-        // 공급자 종사업장 식별번호, 숫자 4자리, 필요시 기재
+        // 발신자 종사업장 식별번호, 숫자 4자리, 필요시 기재
         statement.setSenderTaxRegID("");
 
-        // 공급자 종목
+        // 발신자 종목
         statement.setSenderBizClass("업종");
 
-        // 공급자 업태
+        // 발신자 업태
         statement.setSenderBizType("업태");
 
-        // 공급자 담당자명
-        statement.setSenderContactName("공급자 담당자명");
+        // 발신자 담당자명
+        statement.setSenderContactName("발신자 담당자명");
 
-        // 공급자 담당자 메일주소
+        // 발신자 담당자 메일주소
         statement.setSenderEmail("test@test.com");
 
-        // 공급자 담당자 연락처
+        // 발신자 담당자 연락처
         statement.setSenderTEL("070-7070-0707");
 
-        // 공급자 담당자 휴대폰번호
+        // 발신자 담당자 휴대폰번호
         statement.setSenderHP("010-000-2222");
 
 
         /*********************************************************************
-         *							공급받는자 정보
+         *							수신자 정보
          *********************************************************************/
 
-        // [필수] 공급받는자 사업자번호
+        // [필수] 수신자 사업자번호
         statement.setReceiverCorpNum("8888888888");
 
-        // [필수] 공급받는자 상호
-        statement.setReceiverCorpName("공급받는자 상호");
+        // [필수] 수신자 상호
+        statement.setReceiverCorpName("수신자 상호");
 
-        // [필수] 공급받는자 대표자명
-        statement.setReceiverCEOName("공급받는자 대표자 성명");
+        // [필수] 수신자 대표자명
+        statement.setReceiverCEOName("수신자 대표자 성명");
 
-        // 공급받는자 주소
-        statement.setReceiverAddr("공급받는자 주소");
+        // 수신자 주소
+        statement.setReceiverAddr("수신자 주소");
 
-        // 공급받는자 종목
-        statement.setReceiverBizClass("공급받는자 종목");
+        // 수신자 종목
+        statement.setReceiverBizClass("수신자 종목");
 
-        // 공급받는자 업태
-        statement.setReceiverBizType("공급받는자 업태");
+        // 수신자 업태
+        statement.setReceiverBizType("수신자 업태");
 
-        // 공급받는자 담당자명
-        statement.setReceiverContactName("공급받는자 담당자명");
+        // 수신자 담당자명
+        statement.setReceiverContactName("수신자 담당자명");
 
-        // 공급받는자 메일주소
+        // 수신자 메일주소
         statement.setReceiverEmail("test@receiver.com");
 
 
@@ -315,69 +315,69 @@ public class StatementServiceExample {
 
 
         /*********************************************************************
-         *								공급자 정보
+         *								발신자 정보
          *********************************************************************/
 
-        // [필수] 공급자 사업자번호
+        // [필수] 발신자 사업자번호
         statement.setSenderCorpNum("1234567890");
 
-        // [필수] 공급자 상호
-        statement.setSenderCorpName("공급자 상호");
+        // [필수] 발신자 상호
+        statement.setSenderCorpName("발신자 상호");
 
-        // 공급자 주소
-        statement.setSenderAddr("공급자 주소");
+        // 발신자 주소
+        statement.setSenderAddr("발신자 주소");
 
-        // [필수] 공급자 대표자 성명
-        statement.setSenderCEOName("공급자 대표자 성명");
+        // [필수] 발신자 대표자 성명
+        statement.setSenderCEOName("발신자 대표자 성명");
 
-        // 공급자 종사업장 식별번호, 숫자 4자리, 필요시 기재
+        // 발신자 종사업장 식별번호, 숫자 4자리, 필요시 기재
         statement.setSenderTaxRegID("");
 
-        // 공급자 종목
+        // 발신자 종목
         statement.setSenderBizClass("업종");
 
-        // 공급자 업태
+        // 발신자 업태
         statement.setSenderBizType("업태");
 
-        // 공급자 담당자명
-        statement.setSenderContactName("공급자 담당자명");
+        // 발신자 담당자명
+        statement.setSenderContactName("발신자 담당자명");
 
-        // 공급자 담당자 메일주소
+        // 발신자 담당자 메일주소
         statement.setSenderEmail("test@test.com");
 
-        // 공급자 담당자 연락처
+        // 발신자 담당자 연락처
         statement.setSenderTEL("070-7070-0707");
 
-        // 공급자 담당자 휴대폰번호
+        // 발신자 담당자 휴대폰번호
         statement.setSenderHP("010-000-2222");
 
 
         /*********************************************************************
-         *							공급받는자 정보
+         *							수신자 정보
          *********************************************************************/
 
-        // [필수] 공급받는자 사업자번호
+        // [필수] 수신자 사업자번호
         statement.setReceiverCorpNum("8888888888");
 
-        // [필수] 공급받는자 상호
-        statement.setReceiverCorpName("공급받는자 상호");
+        // [필수] 수신자 상호
+        statement.setReceiverCorpName("수신자 상호");
 
-        // [필수] 공급받는자 대표자명
-        statement.setReceiverCEOName("공급받는자 대표자 성명");
+        // [필수] 수신자 대표자명
+        statement.setReceiverCEOName("수신자 대표자 성명");
 
-        // 공급받는자 주소
-        statement.setReceiverAddr("공급받는자 주소");
+        // 수신자 주소
+        statement.setReceiverAddr("수신자 주소");
 
-        // 공급받는자 종목
-        statement.setReceiverBizClass("공급받는자 종목");
+        // 수신자 종목
+        statement.setReceiverBizClass("수신자 종목");
 
-        // 공급받는자 업태
-        statement.setReceiverBizType("공급받는자 업태");
+        // 수신자 업태
+        statement.setReceiverBizType("수신자 업태");
 
-        // 공급받는자 담당자명
-        statement.setReceiverContactName("공급받는자 담당자명");
+        // 수신자 담당자명
+        statement.setReceiverContactName("수신자 담당자명");
 
-        // 공급받는자 메일주소
+        // 수신자 메일주소
         statement.setReceiverEmail("test@receiver.com");
 
 
@@ -502,69 +502,69 @@ public class StatementServiceExample {
 
 
         /*********************************************************************
-         *								공급자 정보
+         *								발신자 정보
          *********************************************************************/
 
-        // [필수] 공급자 사업자번호
+        // [필수] 발신자 사업자번호
         statement.setSenderCorpNum("1234567890");
 
-        // [필수] 공급자 상호
-        statement.setSenderCorpName("공급자 상호");
+        // [필수] 발신자 상호
+        statement.setSenderCorpName("발신자 상호");
 
-        // 공급자 주소
-        statement.setSenderAddr("공급자 주소_수정");
+        // 발신자 주소
+        statement.setSenderAddr("발신자 주소_수정");
 
-        // [필수] 공급자 대표자 성명
-        statement.setSenderCEOName("공급자 대표자 성명_수정");
+        // [필수] 발신자 대표자 성명
+        statement.setSenderCEOName("발신자 대표자 성명_수정");
 
-        // 공급자 종사업장 식별번호, 숫자 4자리, 필요시 기재
+        // 발신자 종사업장 식별번호, 숫자 4자리, 필요시 기재
         statement.setSenderTaxRegID("");
 
-        // 공급자 종목
+        // 발신자 종목
         statement.setSenderBizClass("업종");
 
-        // 공급자 업태
+        // 발신자 업태
         statement.setSenderBizType("업태");
 
-        // 공급자 담당자명
-        statement.setSenderContactName("공급자 담당자명");
+        // 발신자 담당자명
+        statement.setSenderContactName("발신자 담당자명");
 
-        // 공급자 담당자 메일주소
+        // 발신자 담당자 메일주소
         statement.setSenderEmail("test@test.com");
 
-        // 공급자 담당자 연락처
+        // 발신자 담당자 연락처
         statement.setSenderTEL("070-7070-0707");
 
-        // 공급자 담당자 휴대폰번호
+        // 발신자 담당자 휴대폰번호
         statement.setSenderHP("010-000-2222");
 
 
         /*********************************************************************
-         *							공급받는자 정보
+         *							수신자 정보
          *********************************************************************/
 
-        // [필수] 공급받는자 사업자번호
+        // [필수] 수신자 사업자번호
         statement.setReceiverCorpNum("8888888888");
 
-        // [필수] 공급받는자 상호
-        statement.setReceiverCorpName("공급받는자 상호");
+        // [필수] 수신자 상호
+        statement.setReceiverCorpName("수신자 상호");
 
-        // [필수] 공급받는자 대표자명
-        statement.setReceiverCEOName("공급받는자 대표자 성명");
+        // [필수] 수신자 대표자명
+        statement.setReceiverCEOName("수신자 대표자 성명");
 
-        // 공급받는자 주소
-        statement.setReceiverAddr("공급받는자 주소");
+        // 수신자 주소
+        statement.setReceiverAddr("수신자 주소");
 
-        // 공급받는자 종목
-        statement.setReceiverBizClass("공급받는자 종목");
+        // 수신자 종목
+        statement.setReceiverBizClass("수신자 종목");
 
-        // 공급받는자 업태
-        statement.setReceiverBizType("공급받는자 업태");
+        // 수신자 업태
+        statement.setReceiverBizType("수신자 업태");
 
-        // 공급받는자 담당자명
-        statement.setReceiverContactName("공급받는자 담당자명");
+        // 수신자 담당자명
+        statement.setReceiverContactName("수신자 담당자명");
 
-        // 공급받는자 메일주소
+        // 수신자 메일주소
         statement.setReceiverEmail("test@receiver.com");
 
 
@@ -958,7 +958,7 @@ public class StatementServiceExample {
     @RequestMapping(value = "getPrintURL", method = RequestMethod.GET)
     public String getPrintURL(Model m) {
         /*
-         * 1건의 전자명세서 인쇄팝업 URL을 반환합니다. (공급자/공급받는자용)
+         * 1건의 전자명세서 인쇄팝업 URL을 반환합니다. (발신자/수신자용)
          * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
          */
 
@@ -986,7 +986,7 @@ public class StatementServiceExample {
     @RequestMapping(value = "getEPrintURL", method = RequestMethod.GET)
     public String getEPrintURL(Model m) {
         /*
-         * 1건의 전자명세서 인쇄팝업 URL을 반환합니다. (공급받는자용)
+         * 1건의 전자명세서 인쇄팝업 URL을 반환합니다. (수신자용)
          * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
          */
 
@@ -1042,7 +1042,7 @@ public class StatementServiceExample {
     @RequestMapping(value = "getMailURL", method = RequestMethod.GET)
     public String getMailURL(Model m) {
         /*
-         * 공급받는자 메일링크 URL을 반환합니다.
+         * 수신자 메일링크 URL을 반환합니다.
          * - 메일링크 URL은 유효시간이 존재하지 않습니다.
          */
 
@@ -1276,7 +1276,7 @@ public class StatementServiceExample {
     @RequestMapping(value = "FAXSend", method = RequestMethod.GET)
     public String FAXSend(Model m) {
         /*
-         * 팝빌에 전자명세서를 등록하지 않고 공급받는자에게 팩스전송합니다.
+         * 팝빌에 전자명세서를 등록하지 않고 수신자에게 팩스전송합니다.
          * - 팩스 전송 요청시 포인트가 차감됩니다. (전송실패시 환불처리)
          * - 팩스 발행 요청시 작성한 문서관리번호는 팩스전송 파일명으로 사용됩니다.
          * - 전송내역 확인은 "팝빌 로그인" > [문자 팩스] > [팩스] > [전송내역] 메뉴에서 전송결과를 확인할 수 있습니다.
@@ -1313,69 +1313,69 @@ public class StatementServiceExample {
 
 
         /*********************************************************************
-         *								공급자 정보
+         *								발신자 정보
          *********************************************************************/
 
-        // [필수] 공급자 사업자번호
+        // [필수] 발신자 사업자번호
         statement.setSenderCorpNum("1234567890");
 
-        // [필수] 공급자 상호
-        statement.setSenderCorpName("공급자 상호");
+        // [필수] 발신자 상호
+        statement.setSenderCorpName("발신자 상호");
 
-        // 공급자 주소
-        statement.setSenderAddr("공급자 주소");
+        // 발신자 주소
+        statement.setSenderAddr("발신자 주소");
 
-        // [필수] 공급자 대표자 성명
-        statement.setSenderCEOName("공급자 대표자 성명");
+        // [필수] 발신자 대표자 성명
+        statement.setSenderCEOName("발신자 대표자 성명");
 
-        // 공급자 종사업장 식별번호, 숫자 4자리, 필요시 기재
+        // 발신자 종사업장 식별번호, 숫자 4자리, 필요시 기재
         statement.setSenderTaxRegID("");
 
-        // 공급자 종목
+        // 발신자 종목
         statement.setSenderBizClass("업종");
 
-        // 공급자 업태
+        // 발신자 업태
         statement.setSenderBizType("업태");
 
-        // 공급자 담당자명
-        statement.setSenderContactName("공급자 담당자명");
+        // 발신자 담당자명
+        statement.setSenderContactName("발신자 담당자명");
 
-        // 공급자 담당자 메일주소
+        // 발신자 담당자 메일주소
         statement.setSenderEmail("test@test.com");
 
-        // 공급자 담당자 연락처
+        // 발신자 담당자 연락처
         statement.setSenderTEL("070-7070-0707");
 
-        // 공급자 담당자 휴대폰번호
+        // 발신자 담당자 휴대폰번호
         statement.setSenderHP("010-000-2222");
 
 
         /*********************************************************************
-         *							공급받는자 정보
+         *							수신자 정보
          *********************************************************************/
 
-        // [필수] 공급받는자 사업자번호
+        // [필수] 수신자 사업자번호
         statement.setReceiverCorpNum("8888888888");
 
-        // [필수] 공급받는자 상호
-        statement.setReceiverCorpName("공급받는자 상호");
+        // [필수] 수신자 상호
+        statement.setReceiverCorpName("수신자 상호");
 
-        // [필수] 공급받는자 대표자명
-        statement.setReceiverCEOName("공급받는자 대표자 성명");
+        // [필수] 수신자 대표자명
+        statement.setReceiverCEOName("수신자 대표자 성명");
 
-        // 공급받는자 주소
-        statement.setReceiverAddr("공급받는자 주소");
+        // 수신자 주소
+        statement.setReceiverAddr("수신자 주소");
 
-        // 공급받는자 종목
-        statement.setReceiverBizClass("공급받는자 종목");
+        // 수신자 종목
+        statement.setReceiverBizClass("수신자 종목");
 
-        // 공급받는자 업태
-        statement.setReceiverBizType("공급받는자 업태");
+        // 수신자 업태
+        statement.setReceiverBizType("수신자 업태");
 
-        // 공급받는자 담당자명
-        statement.setReceiverContactName("공급받는자 담당자명");
+        // 수신자 담당자명
+        statement.setReceiverContactName("수신자 담당자명");
 
-        // 공급받는자 메일주소
+        // 수신자 메일주소
         statement.setReceiverEmail("test@receiver.com");
 
 
@@ -1558,11 +1558,11 @@ public class StatementServiceExample {
          * 전자명세서 관련 메일전송 항목에 대한 전송여부를 수정한다.
          *
          * 메일전송유형
-         * SMT_ISSUE : 공급받는자에게 전자명세서가 발행 되었음을 알려주는 메일입니다.
-         * SMT_ACCEPT : 공급자에게 전자명세서가 승인 되었음을 알려주는 메일입니다.
-         * SMT_DENY : 공급자에게 전자명세서가 거부 되었음을 알려주는 메일입니다.
-         * SMT_CANCEL : 공급받는자에게 전자명세서가 취소 되었음을 알려주는 메일입니다.
-         * SMT_CANCEL_ISSUE : 공급받는자에게 전자명세서가 발행취소 되었음을 알려주는 메일입니다.
+         * SMT_ISSUE : 수신자에게 전자명세서가 발행 되었음을 알려주는 메일입니다.
+         * SMT_ACCEPT : 발신자에게 전자명세서가 승인 되었음을 알려주는 메일입니다.
+         * SMT_DENY : 발신자에게 전자명세서가 거부 되었음을 알려주는 메일입니다.
+         * SMT_CANCEL : 수신자에게 전자명세서가 취소 되었음을 알려주는 메일입니다.
+         * SMT_CANCEL_ISSUE : 수신자에게 전자명세서가 발행취소 되었음을 알려주는 메일입니다.
          */
 
         // 메일 전송 유형
