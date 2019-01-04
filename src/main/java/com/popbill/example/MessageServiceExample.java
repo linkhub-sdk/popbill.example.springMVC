@@ -597,7 +597,7 @@ public class MessageServiceExample {
          */
 
         // 문자전송 접수번호
-        String receiptNum = "019010413000000001";
+        String receiptNum = "019010413000000003";
 
         try {
 
@@ -621,7 +621,7 @@ public class MessageServiceExample {
          */
 
         // 문자전송 요청 시 할당한 전송요청번호(requestNum)
-        String requestNum = "20190104-001";
+        String requestNum = "20190104-100";
 
         try {
 
@@ -644,7 +644,7 @@ public class MessageServiceExample {
          */
 
         // 문자전송 접수번호 배열
-        String[] ReceiptNumList = new String[]{"019010413000000001"};
+        String[] ReceiptNumList = new String[]{"019010413000000002"};
 
         try {
 
