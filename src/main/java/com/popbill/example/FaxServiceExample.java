@@ -173,16 +173,17 @@ public class FaxServiceExample {
         String sendNum = "07043042991";
 
         // 수신자 정보 (최대 1000건)
+        Receiver[] receivers = new Receiver[2];
+
         Receiver receiver1 = new Receiver();
-        receiver1.setReceiveName("수신자1");        // 수신자명
-        receiver1.setReceiveNum("010111222");    // 수신팩스번호
+        receiver1.setReceiveName("수신자1");		// 수신자명
+        receiver1.setReceiveNum("010111222");	// 수신팩스번호
+        receivers[0] = receiver1;
 
         Receiver receiver2 = new Receiver();
-        receiver2.setReceiveName("수신자2");        // 수신자명
-        receiver2.setReceiveNum("010111222");    // 수신팩스번호
-
-        // 팩스전송정보 배열, 최대 1000건
-        Receiver[] receivers = new Receiver[]{receiver1, receiver2};
+        receiver2.setReceiveName("수신자2");		// 수신자명
+        receiver2.setReceiveNum("010333444");	// 수신팩스번호
+        receivers[1] = receiver1;
 
         File[] files = new File[2];
         try {
@@ -294,18 +295,18 @@ public class FaxServiceExample {
         // 팩스수신정보를 기존전송정보와 동일하게 재전송하는 경우, receivers 변수 null 처리
         Receiver[] receivers = null;
 
-        //팩스수신정보를 기존전송정보와 다르게 재전송하는 경우, 아래의 코드 적용 (최대 1000건)
-		//Receiver receiver1 = new Receiver();
-		//receiver1.setReceiveName("수신자1");		// 수신자명
-		//receiver1.setReceiveNum("010111222");	// 수신팩스번호
+//      팩스수신정보를 기존전송정보와 다르게 재전송하는 경우, 아래의 코드 적용 (최대 1000건)
+//      Receiver[] receivers = new Receiver[2];
 
-		//Receiver receiver2 = new Receiver();
-		//receiver2.setReceiveName("수신자2");		// 수신자명
-		//receiver2.setReceiveNum("010333444");	// 수신팩스번호
+//		Receiver receiver1 = new Receiver();
+//		receiver1.setReceiveName("수신자1");		// 수신자명
+//		receiver1.setReceiveNum("010111222");	// 수신팩스번호
+//      receivers[0] = receiver1;
 
-        // 팩스전송정보 배열, 최대 1000건
-		//Receiver[] receivers = new Receiver[] {receiver1 , receiver2};
-
+//		Receiver receiver2 = new Receiver();
+//		receiver2.setReceiveName("수신자2");		// 수신자명
+//		receiver2.setReceiveNum("010333444");	// 수신팩스번호
+//      receivers[1] = receiver1;
 
         // 전송 예약일시
         Date reserveDT = null;
@@ -408,17 +409,18 @@ public class FaxServiceExample {
         // 팩스수신정보를 기존전송정보와 동일하게 재전송하는 경우, receivers 변수 null 처리
         Receiver[] receivers = null;
 
-        // 팩스수신정보를 기존전송정보와 다르게 재전송하는 경우, 아래의 코드 적용 (최대 1000건)
-		//Receiver receiver1 = new Receiver();
-		//receiver1.setReceiveName("수신자1");		// 수신자명
-		//receiver1.setReceiveNum("010111222");	// 수신팩스번호
+//      팩스수신정보를 기존전송정보와 다르게 재전송하는 경우, 아래의 코드 적용 (최대 1000건)
+//      Receiver[] receivers = new Receiver[2];
 
-		//Receiver receiver2 = new Receiver();
-		//receiver2.setReceiveName("수신자2");		// 수신자명
-		//receiver2.setReceiveNum("010333444");	// 수신팩스번호
+//		Receiver receiver1 = new Receiver();
+//		receiver1.setReceiveName("수신자1");		// 수신자명
+//		receiver1.setReceiveNum("010111222");	// 수신팩스번호
+//      receivers[0] = receiver1;
 
-        // 팩스전송정보 배열, 최대 1000건
-		//Receiver[] receivers = new Receiver[] {receiver1 , receiver2};
+//		Receiver receiver2 = new Receiver();
+//		receiver2.setReceiveName("수신자2");		// 수신자명
+//		receiver2.setReceiveNum("010333444");	// 수신팩스번호
+//      receivers[1] = receiver1;
 
         // 전송 예약일시
         Date reserveDT = null;

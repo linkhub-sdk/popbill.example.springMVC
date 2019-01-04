@@ -168,28 +168,30 @@ public class MessageServiceExample {
         // [동보전송] 메시지 내용, 개별문자 전송정보에 문자내용이 없는 경우 적용
         String content = "대량문자 메시지 내용";
 
+        // 수신정보배열, 최대 1000건.
+        Message[] messages = new Message[2];
+
+        Message msg1 = new Message();
+        msg1.setSender("07043042991");      //발신번호
+        msg1.setSenderName("발신자1");        //발신자명
+        msg1.setReceiver("010111222");      //수신번호
+        msg1.setReceiverName("수신자1");      //수신자명
+        msg1.setContent("메시지 내용1");       //메시지내용
+        messages[0] = msg1;
+
+        Message msg2 = new Message();
+        msg2.setSender("07043042991");
+        msg2.setSenderName("발신자2");
+        msg2.setReceiver("010333444");
+        msg2.setReceiverName("수신자2");
+        msg2.setContent("메시지 내용2");
+        messages[1] = msg1;
+
         // 문자전송 예약일시
         Date reserveDT = null;
 
         // 광고문자 전송여부
         Boolean adsYN = false;
-
-        // 개별문자 전송정보, 최대 1000건.
-        Message msg1 = new Message();
-        msg1.setSender("07043042991");
-        msg1.setSenderName("발신자1");
-        msg1.setReceiver("000111222");
-        msg1.setReceiverName("수신자1");
-        msg1.setContent("메시지 내용1");
-
-        Message msg2 = new Message();
-        msg2.setSender("07043042991");
-        msg2.setSenderName("발신자2");
-        msg2.setReceiver("000111222");
-        msg2.setReceiverName("수신자2");
-        msg2.setContent("메시지 내용2");
-
-        Message[] messages = new Message[]{msg1, msg2};
 
         // 전송요청번호
         // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
@@ -274,27 +276,33 @@ public class MessageServiceExample {
 
         // [동보전송] 메시지 내용, 개별 전송정보의 메시지 내용이 없는 경우 적용
         String content = "대량전송 내용";
-        Date reserveDT = null;
-        Boolean adsYN = true;
 
-        // 개별 전송정보, 최대 1000건.
+        // 수신정보배열, 최대 1000건.
+        Message[] messages = new Message[2];
+
         Message msg1 = new Message();
-        msg1.setSender("07043042991");
-        msg1.setSenderName("발신자1");
-        msg1.setReceiver("000111222");
-        msg1.setReceiverName("수신자1");
-        msg1.setSubject("장문 제목");
-        msg1.setContent("메시지 내용1");
+        msg1.setSender("07043042991");      //발신번호
+        msg1.setSenderName("발신자1");        //발신자명
+        msg1.setReceiver("010111222");      //수신번호
+        msg1.setReceiverName("수신자1");      //수신자명
+        msg1.setSubject("장문 메시지 제목");    //문자제목
+        msg1.setContent("메시지 내용1");       //메시지내용
+        messages[0] = msg1;
 
         Message msg2 = new Message();
         msg2.setSender("07043042991");
         msg2.setSenderName("발신자2");
-        msg2.setReceiver("000111222");
+        msg2.setReceiver("010333444");
         msg2.setReceiverName("수신자2");
-        msg2.setSubject("장문 제목");
+        msg2.setSubject("장문 메시지 제목");
         msg2.setContent("메시지 내용2");
+        messages[1] = msg1;
 
-        Message[] messages = new Message[]{msg1, msg2};
+        // 예약문자 전송일시
+        Date reserveDT = null;
+
+        // 광고문자 전송여부
+        Boolean adsYN = false;
 
         // 전송요청번호
         // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
@@ -385,14 +393,18 @@ public class MessageServiceExample {
         // [동보전송] 메시지 내용, 개별 전송정보의 메시지 내용이 없는 경우 적용
         String content = "대량전송 메시지 내용";
 
-        // 개별 전송정보, 최대 1000건.
+        // 수신정보배열, 최대 1000건.
+        Message[] messages = new Message[2];
+
         Message msg1 = new Message();
-        msg1.setSender("07043042991");
-        msg1.setSenderName("발신자1");
-        msg1.setReceiver("010111222");
-        msg1.setReceiverName("수신자1");
-        msg1.setSubject("멀티 메시지 제목");
-        msg1.setContent("메시지 내용1");
+        msg1.setSender("07043042991");      //발신번호
+        msg1.setSenderName("발신자1");        //발신자명
+        msg1.setReceiver("010111222");      //수신번호
+        msg1.setReceiverName("수신자1");      //수신자명
+        msg1.setSubject("멀티 메시지 제목");    //문자제목
+        msg1.setContent("메시지 내용1");       //메시지내용
+
+        messages[0] = msg1;
 
         Message msg2 = new Message();
         msg2.setSender("07043042991");
@@ -401,8 +413,7 @@ public class MessageServiceExample {
         msg2.setReceiverName("수신자2");
         msg2.setSubject("멀티 메시지 제목");
         msg2.setContent("메시지 내용2");
-
-        Message[] messages = new Message[]{msg1, msg2};
+        messages[1] = msg1;
 
         // 전송할 이미지 파일, 300KByte 이하 JPG 포맷전송 가능.
         File file = new File("C:/test.jpg");
@@ -412,7 +423,6 @@ public class MessageServiceExample {
 
         // 광고문자 전송여부
         Boolean adsYN = false;
-
 
         // 전송요청번호
         // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
@@ -499,29 +509,30 @@ public class MessageServiceExample {
         // [동보전송용] 문자메시지 내용, 90Byte를 기준으로 단문과 장문을 자동인식하여 전송됨.
         String content = "문자메시지 내용";
 
+        // 수신정보배열, 최대 1000건.
+        Message[] messages = new Message[2];
+
+        Message msg1 = new Message();
+        msg1.setSender("07043042991");      //발신번호
+        msg1.setSenderName("발신자1");        //발신자명
+        msg1.setReceiver("010111222");      //수신번호
+        msg1.setReceiverName("수신자1");      //수신자명
+        msg1.setContent("메시지 내용1");       //메시지내용
+        messages[0] = msg1;
+
+        Message msg2 = new Message();
+        msg2.setSender("07043042991");
+        msg2.setSenderName("발신자2");
+        msg2.setReceiver("010333444");
+        msg2.setReceiverName("수신자2");
+        msg2.setContent("메시지 내용2");
+        messages[1] = msg1;
+
         // 예약전송 일시
         Date reserveDT = null;
 
         // 광고문자 전송여부
         Boolean adsYN = true;
-
-        // 개별 전송정보, 최대 1000건.
-        Message msg1 = new Message();
-        msg1.setSender("07043042991");
-        msg1.setSenderName("발신자1");
-        msg1.setReceiver("000111222");
-        msg1.setReceiverName("수신자1");
-        msg1.setContent("메시지 내용1");
-
-        Message msg2 = new Message();
-        msg2.setSender("07043042991");
-        msg2.setSenderName("발신자2");
-        msg2.setReceiver("000111222");
-        msg2.setReceiverName("수신자2");
-        msg2.setSubject("장문 제목");
-        msg2.setContent("메시지 내용2");
-
-        Message[] messages = new Message[]{msg1, msg2};
 
         // 전송요청번호
         // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
