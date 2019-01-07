@@ -1815,7 +1815,7 @@ public class TaxinvoiceServiceExample {
     public String attachFile(Model m) {
         /*
          * 세금계산서에 첨부파일을 등록합니다.
-         * - [임시저장] 상태의 세금계산서만 파일을 첨부할수 있습니다.
+         * - [임시저장] 상태의 세금계산서만 파일을 첨부할 수 있습니다.
          * - 첨부파일은 최대 5개까지 등록할 수 있습니다.
          */
 
@@ -2107,7 +2107,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "assignMgtKey", method = RequestMethod.GET)
     public String assignMgtKey(Model m) {
         /*
-         * 팝빌 사이트에서 작성한 세금계산서에 파트너의 문서관리번호를 할당한다.
+         * 팝빌 사이트에서 작성한 세금계산서에 파트너의 문서관리번호를 할당합니다.
          */
 
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
@@ -2137,7 +2137,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "listEmailConfig", method = RequestMethod.GET)
     public String listEmailConfig(Model m) {
         /*
-         * 전자세금계산서 관련 메일전송 항목에 대한 전송여부를 목록으로 반환한다.
+         * 전자세금계산서 관련 메일전송 항목에 대한 전송여부를 목록으로 반환합니다.
          */
 
         try {
@@ -2157,7 +2157,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "updateEmailConfig", method = RequestMethod.GET)
     public String updateEmailConfig(Model m) {
         /*
-         * 전자세금계산서 관련 메일전송 항목에 대한 전송여부를 수정한다.
+         * 전자세금계산서 관련 메일전송 항목에 대한 전송여부를 수정합니다.
          *
          * 메일전송유형
          * [정발행]
