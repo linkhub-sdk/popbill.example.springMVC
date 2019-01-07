@@ -1293,7 +1293,7 @@ public class TaxinvoiceServiceExample {
          */
 
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
-        MgtKeyType mgtKeyType = MgtKeyType.SELL;
+        MgtKeyType mgtKeyType = MgtKeyType.BUY;
 
         // 세금계산서 문서관리번호
         String mgtKey = "20190104-001";
@@ -1324,7 +1324,7 @@ public class TaxinvoiceServiceExample {
          */
 
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
-        MgtKeyType mgtKeyType = MgtKeyType.SELL;
+        MgtKeyType mgtKeyType = MgtKeyType.BUY;
 
         // 세금계산서 문서관리번호
         String mgtKey = "20190104-001";
