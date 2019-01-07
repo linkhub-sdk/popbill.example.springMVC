@@ -254,7 +254,7 @@ public class TaxinvoiceServiceExample {
         // 기재 상 수표
         taxinvoice.setChkBill("");
 
-        // 기재 상 어움
+        // 기재 상 어음
         taxinvoice.setNote("");
 
         // 기재 상 외상미수금
@@ -280,7 +280,7 @@ public class TaxinvoiceServiceExample {
          & - [참고] 수정세금계산서 작성방법 안내 [http://blog.linkhub.co.kr/650]
          *********************************************************************/
 
-        // 수정사유코드, 수정사우에 따라 1~6 중 선택기재.
+        // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
         taxinvoice.setModifyCode(null);
 
         // 원본세금계산서 ItemKey, 문서확인 (GetInfo API)의 응답결과 항목 중 ItemKey 확인
@@ -384,7 +384,7 @@ public class TaxinvoiceServiceExample {
         // 작성일자, 날짜형식(yyyyMMdd)
         taxinvoice.setWriteDate("20190104");
 
-        // 과금방향, [정과금, 역과금] 중 선택기재, 역과금의 경우 역발행세금계산서 발행시에만 가
+        // 과금방향, [정과금, 역과금] 중 선택기재, 역과금의 경우 역발행세금계산서 발행시에만 가능
         taxinvoice.setChargeDirection("정과금");
 
         // 발행유형, [정발행, 역발행, 위수탁] 중 기재
@@ -512,7 +512,7 @@ public class TaxinvoiceServiceExample {
         // 기재 상 수표
         taxinvoice.setChkBill("");
 
-        // 기재 상 어움
+        // 기재 상 어음
         taxinvoice.setNote("");
 
         // 기재 상 외상미수금
@@ -538,7 +538,7 @@ public class TaxinvoiceServiceExample {
          & - [참고] 수정세금계산서 작성방법 안내 [http://blog.linkhub.co.kr/650]
          *********************************************************************/
 
-        // 수정사유코드, 수정사우에 따라 1~6 중 선택기재.
+        // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
         taxinvoice.setModifyCode(null);
 
         // 원본세금계산서 ItemKey, 문서확인 (GetInfo API)의 응답결과 항목 중 ItemKey 확인
@@ -628,7 +628,7 @@ public class TaxinvoiceServiceExample {
         // 작성일자, 날짜형식(yyyyMMdd)
         taxinvoice.setWriteDate("20190104");
 
-        // 과금방향, [정과금, 역과금] 중 선택기재, 역과금의 경우 역발행세금계산서 발행시에만 가
+        // 과금방향, [정과금, 역과금] 중 선택기재, 역과금의 경우 역발행세금계산서 발행시에만 가능
         taxinvoice.setChargeDirection("정과금");
 
         // 발행유형, [정발행, 역발행, 위수탁] 중 기재
@@ -756,7 +756,7 @@ public class TaxinvoiceServiceExample {
         // 기재 상 수표
         taxinvoice.setChkBill("");
 
-        // 기재 상 어움
+        // 기재 상 어음
         taxinvoice.setNote("");
 
         // 기재 상 외상미수금
@@ -938,7 +938,7 @@ public class TaxinvoiceServiceExample {
         // 메모
         String memo = "발행예정 메모";
 
-        // 발행예정 제목, 공백으로 처리시 기본제목으로 전송
+        // 발행예정 안내메일 제목, 공백으로 처리시 기본제목으로 전송
         String emailSubject = "";
 
         try {
@@ -1192,7 +1192,7 @@ public class TaxinvoiceServiceExample {
         // 기재 상 수표
         taxinvoice.setChkBill("");
 
-        // 기재 상 어움
+        // 기재 상 어음
         taxinvoice.setNote("");
 
         // 기재 상 외상미수금
