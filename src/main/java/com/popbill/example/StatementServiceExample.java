@@ -117,7 +117,7 @@ public class StatementServiceExample {
         //  전자명세서 정보 객체
         Statement statement = new Statement();
 
-        // [필수] 작성일자, 형태 yyyyMmdd
+        // [필수] 작성일자, 형태 yyyyMMdd
         statement.setWriteDate("20191004");
 
         // [필수] {영수, 청구} 중 기재
@@ -295,7 +295,7 @@ public class StatementServiceExample {
         //  전자명세서 정보 객체
         Statement statement = new Statement();
 
-        // [필수] 작성일자, 형태 yyyyMmdd
+        // [필수] 작성일자, 형태 yyyyMMdd
         statement.setWriteDate("20190104");
 
         // [필수] {영수, 청구} 중 기재
@@ -1123,7 +1123,7 @@ public class StatementServiceExample {
         // 문서관리번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
         String mgtKey = "20191004-01";
 
-        // getFiles()로 확인한 AttachedFile의 attachedFile 참조.
+        // getFiles()로 해당 파일의 attachedFile 필드값 기재.
         String FileID = "57C0A91A-BF5A-494A-8E0D-B46FC9B5C8E2.PBF";
 
         try {
@@ -1535,7 +1535,7 @@ public class StatementServiceExample {
     @RequestMapping(value = "listEmailConfig", method = RequestMethod.GET)
     public String listEmailConfig(Model m) {
         /*
-         * 전자명세서 관련 메일전송 항목에 대한 전송여부를 목록으로 반환한다.
+         * 전자명세서 관련 메일전송 항목에 대한 전송여부를 목록으로 반환합니다.
          */
 
         try {
@@ -1555,7 +1555,7 @@ public class StatementServiceExample {
     @RequestMapping(value = "updateEmailConfig", method = RequestMethod.GET)
     public String updateEmailConfig(Model m) {
         /*
-         * 전자명세서 관련 메일전송 항목에 대한 전송여부를 수정한다.
+         * 전자명세서 관련 메일전송 항목에 대한 전송여부를 수정합니다.
          *
          * 메일전송유형
          * SMT_ISSUE : 수신자에게 전자명세서가 발행 되었음을 알려주는 메일입니다.
