@@ -12,7 +12,7 @@
  *    발급받은 인증정보를 참조하여 변경합니다.
  * 2) 팝빌 개발용 사이트(test.popbill.com)에 연동회원으로 가입합니다.
  * 3) 발신번호 사전등록을 합니다. (등록방법은 사이트/API 두가지 방식이 있습니다.)
- *    - 1. 팝빌 사이트 로그인 > [문자/팩스] > [문자] > [발신번호 사전등록] 메뉴에서 등록
+ *    - 1. 팝빌 사이트 로그인 > [문자/팩스] > [카카오톡] > [발신번호 사전등록] 메뉴에서 등록
  *    - 2. getSenderNumberMgtURL API를 통해 반환된 URL을 이용하여 발신번호 등록
  * Copyright 2006-2014 linkhub.co.kr, Inc. or its affiliates. All Rights Reserved.
  *
@@ -369,7 +369,7 @@ public class KakaoServiceExample {
         // 수신자명
         String receiverName = "수신자명";
 
-        // 예약전송일시, 형태(yyyyMmddHHmmss)
+        // 예약전송일시, 형태(yyyyMMddHHmmss)
         String sndDT = "";
 
         // 광고전송여부
@@ -430,7 +430,7 @@ public class KakaoServiceExample {
         // 대체문자 전송유형, 공백-미전송, C-친구톡내용 전송, A-알림톡 내용 전송
         String altSendType = "A";
 
-        // 예약전송일시, 형태(yyyyMmddHHmmss)
+        // 예약전송일시, 형태(yyyyMMddHHmmss)
         String sndDT = "";
 
         // 광고전송여부
@@ -508,7 +508,7 @@ public class KakaoServiceExample {
         // 대체문자 전송유형, 공백-미전송, C-친구톡내용 전송, A-알림톡 내용 전송
         String altSendType = "A";
 
-        // 예약전송일시, 형태(yyyyMmddHHmmss)
+        // 예약전송일시, 형태(yyyyMMddHHmmss)
         String sndDT = "";
 
         // 광고전송여부
@@ -591,7 +591,7 @@ public class KakaoServiceExample {
         // 수신자명
         String receiverName = "수신자명";
 
-        // 예약전송일시, 형태(yyyyMmddHHmmss)
+        // 예약전송일시, 형태(yyyyMMddHHmmss)
         String sndDT = "";
 
         // 광고전송여부
@@ -659,7 +659,7 @@ public class KakaoServiceExample {
         // 대체문자 전송유형, 공백-미전송, C-친구톡내용 전송, A-알림톡 내용 전송
         String altSendType = "A";
 
-        // 예약전송일시, 형태(yyyyMmddHHmmss)
+        // 예약전송일시, 형태(yyyyMMddHHmmss)
         String sndDT = "";
 
         // 광고전송여부
@@ -745,7 +745,7 @@ public class KakaoServiceExample {
         // 대체문자 전송유형, 공백-미전송, C-친구톡내용 전송, A-알림톡 내용 전송
         String altSendType = "A";
 
-        // 예약전송일시, 형태(yyyyMmddHHmmss)
+        // 예약전송일시, 형태(yyyyMMddHHmmss)
         String sndDT = "";
 
         // 광고전송여부
