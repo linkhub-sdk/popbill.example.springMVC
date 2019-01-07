@@ -480,7 +480,8 @@ public class CashbillServiceExample {
     @RequestMapping(value = "revokeRegister", method = RequestMethod.GET)
     public String revokeRegister(Model m) {
         /*
-         * 1건의 취소현금영수증을 [즉시발행]합니다.
+         * 1건의 취소현금영수증을 [임시저장]합니다.
+         * - [임시저장] 상태의 현금영수증은 [발행(Issue API)]을 해야만 국세청에 전송됩니다.
          * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청 전송결과를 확인할 수 있습니다.
          * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼] > 1.3. 국세청 전송정책"을 참조하시기 바랍니다.
          * - 취소현금영수증 작성방법 안내 - http://blog.linkhub.co.kr/702
@@ -514,7 +515,8 @@ public class CashbillServiceExample {
     @RequestMapping(value = "revokeRegister_part", method = RequestMethod.GET)
     public String revokeRegister_part(Model m) {
         /*
-         * 1건의 (부분)취소현금영수증을 [즉시발행]합니다.
+         * 1건의 (부분)취소현금영수증을 [임시저장]합니다.
+         * - [임시저장] 상태의 현금영수증은 [발행(Issue API)]을 해야만 국세청에 전송됩니다.
          * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청 전송결과를 확인할 수 있습니다.
          * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼] > 1.3. 국세청 전송정책"을 참조하시기 바랍니다.
          * - 취소현금영수증 작성방법 안내 - http://blog.linkhub.co.kr/702
@@ -570,11 +572,9 @@ public class CashbillServiceExample {
     @RequestMapping(value = "revokeRegistIssue", method = RequestMethod.GET)
     public String revokeRegistIssue(Model m) {
         /*
-         * 1건의 취소현금영수증을 [임시저장]합니다.
-         * - [임시저장] 상태의 현금영수증은 발행(Issue API)을 호출해야만 국세청에 전송됩니다.
+         * 1건의 취소현금영수증을 [즉시발행]합니다.
          * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청 전송결과를 확인할 수 있습니다.
          * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼] > 1.3. 국세청 전송정책"을 참조하시기 바랍니다.
-         * - 취소현금영수증 작성방법 안내 - http://blog.linkhub.co.kr/702
          */
 
         // 문서관리번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로
@@ -604,11 +604,9 @@ public class CashbillServiceExample {
     @RequestMapping(value = "revokeRegistIssue_part", method = RequestMethod.GET)
     public String revokeRegistIssue_part(Model m) {
         /*
-         * 1건의 (부분)취소현금영수증을 [임시저장]합니다.
-         * - [임시저장] 상태의 현금영수증은 발행(Issue API)을 호출해야만 국세청에 전송됩니다.
+         * 1건의 (부분)취소현금영수증을 [즉시발행]합니다.
          * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청 전송결과를 확인할 수 있습니다.
          * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼] > 1.3. 국세청 전송정책"을 참조하시기 바랍니다.
-         * - 취소현금영수증 작성방법 안내 - http://blog.linkhub.co.kr/702
          */
 
         // 문서관리번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로
