@@ -29,6 +29,7 @@
         LinkID : 링크허브에서 발급받은 파트너 링크아이디.
         SecretKey : 링크허브에서 발급받는 비밀키.
         IsTest : 연동환경 설정, true-개발용, false-상업용
+        IPRestrictOnOff : 인증토큰 발급 IP 제한 On/Off, ture-제한기능 사용(기본값-권장),  false-제한기능 미사용
     -->
     <util:properties id="EXAMPLE_CONFIG">
         <beans:prop key="TestCorpNum">1234567890</beans:prop>
@@ -36,6 +37,7 @@
         <beans:prop key="LinkID">TESTER</beans:prop>
         <beans:prop key="SecretKey">SwWxqU+0TErBXy/9TVjIPEnI0VTUMMSQZtJf3Ed8q3I=</beans:prop>
         <beans:prop key="IsTest">true</beans:prop>
+        <beans:prop key="IsIPRestrictOnOff">true</beans:prop>
     </util:properties>
 
     <beans:beans>
@@ -44,6 +46,7 @@
             <beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
             <beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
+            <beans:property name="IPRestrictOnOff" value="#{EXAMPLE_CONFIG.IsIPRestrictOnOff}"/>
         </beans:bean>
 
         <!-- 전자명세서 Service Implementation Bean registration.  -->
@@ -51,6 +54,7 @@
             <beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
             <beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
+            <beans:property name="IPRestrictOnOff" value="#{EXAMPLE_CONFIG.IsIPRestrictOnOff}"/>
         </beans:bean>
 
         <!-- 현금영수증 Service Implementation Bean registration.  -->
@@ -58,6 +62,7 @@
             <beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
             <beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
+            <beans:property name="IPRestrictOnOff" value="#{EXAMPLE_CONFIG.IsIPRestrictOnOff}"/>
         </beans:bean>
 
         <!-- 	문자메시지 Service Implementation Bean registration.	-->
@@ -65,6 +70,7 @@
             <beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
             <beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
+            <beans:property name="IPRestrictOnOff" value="#{EXAMPLE_CONFIG.IsIPRestrictOnOff}"/>
         </beans:bean>
 
         <!-- 팩스 Service Implementation Bean registration.  -->
@@ -72,6 +78,7 @@
             <beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
             <beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
+            <beans:property name="IPRestrictOnOff" value="#{EXAMPLE_CONFIG.IsIPRestrictOnOff}"/>
         </beans:bean>
 
         <!-- 홈택스 전자세금계산서 연계 Service Implementation Bean registration.  -->
@@ -79,6 +86,7 @@
             <beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
             <beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
+            <beans:property name="IPRestrictOnOff" value="#{EXAMPLE_CONFIG.IsIPRestrictOnOff}"/>
         </beans:bean>
 
 
@@ -87,6 +95,7 @@
             <beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
             <beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
+            <beans:property name="IPRestrictOnOff" value="#{EXAMPLE_CONFIG.IsIPRestrictOnOff}"/>
         </beans:bean>
 
         <!-- 휴폐업조회 Service Implementation Bean registration.  -->
@@ -94,6 +103,7 @@
             <beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
             <beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
+            <beans:property name="IPRestrictOnOff" value="#{EXAMPLE_CONFIG.IsIPRestrictOnOff}"/>
         </beans:bean>
 
         <!-- 카카오톡 Service Implementation Bean registration.  -->
@@ -101,6 +111,7 @@
             <beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
             <beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
+            <beans:property name="IPRestrictOnOff" value="#{EXAMPLE_CONFIG.IsIPRestrictOnOff}"/>
         </beans:bean>
     </beans:beans>
 
