@@ -46,6 +46,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.popbill.api.AttachedFile;
 import com.popbill.api.ChargeInfo;
 import com.popbill.api.EmailSendConfig;
+import com.popbill.api.IssueResponse;
 import com.popbill.api.PopbillException;
 import com.popbill.api.Response;
 import com.popbill.api.TaxinvoiceService;
@@ -124,7 +125,7 @@ public class TaxinvoiceServiceExample {
         Taxinvoice taxinvoice = new Taxinvoice();
 
         // 작성일자, 날짜형식(yyyyMMdd)
-        taxinvoice.setWriteDate("20190104");
+        taxinvoice.setWriteDate("20190227");
 
         // 과금방향, [정과금, 역과금] 중 선택기재, "역과금"은 역발행세금계산서 발행에만 가능
         taxinvoice.setChargeDirection("정과금");
@@ -156,7 +157,7 @@ public class TaxinvoiceServiceExample {
         taxinvoice.setInvoicerCorpName("공급자 상호");
 
         // 공급자 문서관리번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
-        taxinvoice.setInvoicerMgtKey("20190104-001");
+        taxinvoice.setInvoicerMgtKey("20190227-001");
 
         // 공급자 대표자성명
         taxinvoice.setInvoicerCEOName("공급자 대표자 성명");
@@ -355,7 +356,7 @@ public class TaxinvoiceServiceExample {
 
         try {
 
-            Response response = taxinvoiceService.registIssue(testCorpNum,
+            IssueResponse response = taxinvoiceService.registIssue(testCorpNum,
                     taxinvoice, WriteSpecification, Memo, ForceIssue, DealInvoiceKey);
 
             m.addAttribute("Response", response);
@@ -365,7 +366,7 @@ public class TaxinvoiceServiceExample {
             return "exception";
         }
 
-        return "response";
+        return "issueResponse";
     }
 
     @RequestMapping(value = "register", method = RequestMethod.GET)
@@ -382,7 +383,7 @@ public class TaxinvoiceServiceExample {
         Taxinvoice taxinvoice = new Taxinvoice();
 
         // 작성일자, 날짜형식(yyyyMMdd)
-        taxinvoice.setWriteDate("20190104");
+        taxinvoice.setWriteDate("20190227");
 
         // 과금방향, [정과금, 역과금] 중 선택기재, 역과금의 경우 역발행세금계산서 발행시에만 가능
         taxinvoice.setChargeDirection("정과금");
@@ -414,7 +415,7 @@ public class TaxinvoiceServiceExample {
         taxinvoice.setInvoicerCorpName("공급자 상호");
 
         // 공급자 문서관리번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
-        taxinvoice.setInvoicerMgtKey("20190104-001");
+        taxinvoice.setInvoicerMgtKey("20190227-003");
 
         // 공급자 대표자성명
         taxinvoice.setInvoicerCEOName("공급자 대표자 성명");
@@ -865,7 +866,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서관리번호
-        String mgtKey = "20190104-001";
+        String mgtKey = "20190227-003";
 
         // 메모
         String memo = "발행 메모";
@@ -875,7 +876,7 @@ public class TaxinvoiceServiceExample {
 
         try {
 
-            Response response = taxinvoiceService.issue(testCorpNum, mgtKeyType,
+            IssueResponse response = taxinvoiceService.issue(testCorpNum, mgtKeyType,
                     mgtKey, memo, forceIssue, testUserID);
 
             m.addAttribute("Response", response);
@@ -885,7 +886,7 @@ public class TaxinvoiceServiceExample {
             return "exception";
         }
 
-        return "response";
+        return "issueResponse";
     }
 
     @RequestMapping(value = "cancelIssue", method = RequestMethod.GET)
@@ -1666,6 +1667,34 @@ public class TaxinvoiceServiceExample {
         try {
 
             String url = taxinvoiceService.getPopUpURL(testCorpNum, mgtKeyType,
+                    mgtKey);
+
+            m.addAttribute("Result", url);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "result";
+    }
+    
+    @RequestMapping(value = "getViewURL", method = RequestMethod.GET)
+    public String getViewURL(Model m) {
+        /*
+         * 1건의 전자세금계산서 보기 팝업 URL을 반환합니다. (메뉴/버튼 제외)
+         * - 반환된 URL은 보안정책으로 인해 30초의 유효시간을 갖습니다.
+         */
+
+        // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
+        MgtKeyType mgtKeyType = MgtKeyType.SELL;
+
+        // 세금계산서 문서관리번호
+        String mgtKey = "20190227-002";
+
+        try {
+
+            String url = taxinvoiceService.getViewURL(testCorpNum, mgtKeyType,
                     mgtKey);
 
             m.addAttribute("Result", url);

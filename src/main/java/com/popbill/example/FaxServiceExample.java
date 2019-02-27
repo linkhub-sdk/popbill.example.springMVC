@@ -115,7 +115,7 @@ public class FaxServiceExample {
          */
 
         // 발신번호
-        String sendNum = "07043042991";
+        String sendNum = "07043042995";
 
         // 수신번호
         String receiveNum = "010111222";

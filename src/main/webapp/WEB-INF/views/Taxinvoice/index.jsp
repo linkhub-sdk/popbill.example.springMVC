@@ -51,6 +51,7 @@
         <legend>세금계산서 보기/인쇄</legend>
         <ul>
             <li><a href="TaxinvoiceService/getPopUpURL">GetPopUpURL</a> - 세금계산서 보기 URL</li>
+            <li><a href="TaxinvoiceService/getViewURL">GetViewURL</a> - 세금계산서 보기 URL - 메뉴/버튼 제외</li>
             <li><a href="TaxinvoiceService/getPrintURL">GetPrintURL</a> - 세금계산서 인쇄 [공급자/공급받는자] URL</li>
             <li><a href="TaxinvoiceService/getEPrintURL">GetEPrintURL</a> - 세금계산서 인쇄 [공급받는자용] URL</li>
             <li><a href="TaxinvoiceService/getMassPrintURL">GetMassPrintURL</a> - 세금계산서 대량 인쇄 URL</li>
