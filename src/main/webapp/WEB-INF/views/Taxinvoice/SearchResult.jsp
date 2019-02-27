@@ -41,7 +41,7 @@
                         <li>purposeType (영수/청구) : ${SearchInfo.purposeType}</li>
                         <li>issueDT (발행일시) : ${SearchInfo.issueDT}</li>
                         <li>lateIssueYN (지연발행 여부) : ${SearchInfo.lateIssueYN}</li>
-                        <li>preIssueDT (발행예정일시) : ${SearchInfo.preIssueDT}</li>
+                        
                         <li>openYN (개봉여부) : ${SearchInfo.openYN}</li>
                         <li>openDT (개봉일시) : ${SearchInfo.openDT}</li>
                         <li>stateCode (상태코드) : ${SearchInfo.stateCode}</li>

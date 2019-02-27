@@ -45,7 +45,7 @@
                     <li>issueType (발행형태) : ${TaxinvoiceInfo.issueType}</li>
                     <li>issueDT (발행일시) : ${TaxinvoiceInfo.issueDT}</li>
                     <li>lateIssueYN (지연발행 여부) : ${TaxinvoiceInfo.lateIssueYN}</li>
-                    <li>preIssueDT (발행예정일시) : ${TaxinvoiceInfo.preIssueDT}</li>
+                    
                     <li>stateCode (상태코드) : ${TaxinvoiceInfo.stateCode}</li>
                     <li>stateDT (상태변경일시) : ${TaxinvoiceInfo.stateDT}</li>
                     <li>stateMemo (상태메모) : ${TaxinvoiceInfo.stateMemo}</li>
@@ -93,7 +93,7 @@
                         <li>issueType (발행형태) : ${TaxinvoiceInfo.issueType}</li>
                         <li>issueDT (발행일시) : ${TaxinvoiceInfo.issueDT}</li>
                         <li>lateIssueYN (지연발행 여부) : ${TaxinvoiceInfo.lateIssueYN}</li>
-                        <li>preIssueDT (발행예정일시) : ${TaxinvoiceInfo.preIssueDT}</li>
+                        
                         <li>stateCode (상태코드) : ${TaxinvoiceInfo.stateCode}</li>
                         <li>stateDT (상태변경일시) : ${TaxinvoiceInfo.stateDT}</li>
                         <li>stateMemo (상태메모) : ${TaxinvoiceInfo.stateMemo}</li>

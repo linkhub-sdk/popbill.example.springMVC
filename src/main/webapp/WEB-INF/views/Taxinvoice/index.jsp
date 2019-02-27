@@ -19,10 +19,6 @@
             <li><a href="TaxinvoiceService/update">Update</a> - 수정</li>
             <li><a href="TaxinvoiceService/issue">Issue</a> - 발행</li>
             <li><a href="TaxinvoiceService/cancelIssue">CancelIssue</a> - 발행취소</li>
-            <li><a href="TaxinvoiceService/send">Send</a> - [발행예정]</li>
-            <li><a href="TaxinvoiceService/cancelSend">CancelSend</a> - [발행예정] 취소</li>
-            <li><a href="TaxinvoiceService/accept">Accept</a> - [발행예정] 승인</li>
-            <li><a href="TaxinvoiceService/deny">Deny</a> - [발행예정] 거부</li>
             <li><a href="TaxinvoiceService/delete">Delete</a> - 삭제</li>
             <li><a href="TaxinvoiceService/registRequest">RegistRequest</a> - [역발행] 즉시 요청</li>
             <li><a href="TaxinvoiceService/request">Request</a> - 역발행요청</li>

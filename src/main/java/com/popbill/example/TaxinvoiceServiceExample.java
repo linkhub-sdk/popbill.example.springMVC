@@ -858,7 +858,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "issue", method = RequestMethod.GET)
     public String issue(Model m) {
         /*
-         * [임시저장] 또는 [발행대기] 상태의 세금계산서를 [공급자]가 [발행]합니다.
+         * [임시저장] 상태의 세금계산서를 [공급자]가 [발행]합니다.
          * - 세금계산서 항목별 정보는 "[전자세금계산서 API 연동매뉴얼] > 4.1. (세금)계산서구성"을 참조하시기 바랍니다.
          */
 
@@ -910,133 +910,6 @@ public class TaxinvoiceServiceExample {
         try {
 
             Response response = taxinvoiceService.cancelIssue(testCorpNum, mgtKeyType,
-                    mgtKey, memo);
-
-            m.addAttribute("Response", response);
-
-        } catch (PopbillException e) {
-            m.addAttribute("Exception", e);
-            return "exception";
-        }
-
-        return "response";
-    }
-
-    @RequestMapping(value = "send", method = RequestMethod.GET)
-    public String send(Model m) {
-        /*
-         * [임시저장] 상태의 세금계산서를 [공급자]가 [발행예정]합니다.
-         * - 발행예정이란 공급자와 공급받는자 사이에 세금계산서 확인 후 발행하는 방법입니다.
-         * - "[전자세금계산서 API 연동매뉴얼] > 1.2.1. 정발행 > 다. 임시저장 발행예정" 의 프로세스를 참조하시기 바랍니다.
-         */
-
-        // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
-        MgtKeyType mgtKeyType = MgtKeyType.SELL;
-
-        // 세금계산서 문서관리번호
-        String mgtKey = "20190104-001";
-
-        // 메모
-        String memo = "발행예정 메모";
-
-        // 발행예정 안내메일 제목, 공백으로 처리시 기본제목으로 전송
-        String emailSubject = "";
-
-        try {
-
-            Response response = taxinvoiceService.send(testCorpNum, mgtKeyType,
-                    mgtKey, memo, emailSubject);
-
-            m.addAttribute("Response", response);
-
-        } catch (PopbillException e) {
-            m.addAttribute("Exception", e);
-            return "exception";
-        }
-
-        return "response";
-    }
-
-    @RequestMapping(value = "cancelSend", method = RequestMethod.GET)
-    public String cancelSend(Model m) {
-        /*
-         * [발행대기] 상태의 세금계산서를 [공급자]가 [취소]합니다.
-         * - [취소]된 세금계산서를 삭제(Delete API)하면 등록된 문서관리번호를 재사용할 수 있습니다.
-         */
-
-        // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
-        MgtKeyType mgtKeyType = MgtKeyType.SELL;
-
-        // 세금계산서 문서관리번호
-        String mgtKey = "20190104-02";
-
-        // 메모
-        String memo = "발행예정 취소 메모";
-
-        try {
-
-            Response response = taxinvoiceService.cancelSend(testCorpNum, mgtKeyType,
-                    mgtKey, memo);
-
-            m.addAttribute("Response", response);
-
-        } catch (PopbillException e) {
-            m.addAttribute("Exception", e);
-            return "exception";
-        }
-
-        return "response";
-    }
-
-    @RequestMapping(value = "accept", method = RequestMethod.GET)
-    public String accept(Model m) {
-        /*
-         * [승인대기] 상태의 세금계산서를 [공급받는자]가 [승인]합니다.
-         */
-
-        // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
-        MgtKeyType mgtKeyType = MgtKeyType.SELL;
-
-        // 세금계산서 문서관리번호
-        String mgtKey = "20190104-001";
-
-        // 메모
-        String memo = "발행예정 승인 메모";
-
-        try {
-
-            Response response = taxinvoiceService.accept(testCorpNum, mgtKeyType,
-                    mgtKey, memo);
-
-            m.addAttribute("Response", response);
-
-        } catch (PopbillException e) {
-            m.addAttribute("Exception", e);
-            return "exception";
-        }
-
-        return "response";
-    }
-
-    @RequestMapping(value = "deny", method = RequestMethod.GET)
-    public String deny(Model m) {
-        /*
-         * [승인대기] 상태의 세금계산서를 [공급받는자]가 [거부]합니다.
-         * - [거부]처리된 세금계산서를 삭제(Delete API)하면 등록된 문서관리번호를 재사용할 수 있습니다.
-         */
-
-        // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
-        MgtKeyType mgtKeyType = MgtKeyType.SELL;
-
-        // 세금계산서 문서관리번호
-        String mgtKey = "20190104-001";
-
-        // 메모
-        String memo = "발행예정 거부 메모";
-
-        try {
-
-            Response response = taxinvoiceService.deny(testCorpNum, mgtKeyType,
                     mgtKey, memo);
 
             m.addAttribute("Response", response);
