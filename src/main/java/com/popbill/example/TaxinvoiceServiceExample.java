@@ -1129,17 +1129,6 @@ public class TaxinvoiceServiceExample {
         taxinvoice.getDetailList().add(detail);
 
 
-        /*********************************************************************
-         *							추가담당자 정보
-         *********************************************************************/
-        taxinvoice.setAddContactList(new ArrayList<TaxinvoiceAddContact>());
-
-        TaxinvoiceAddContact addContact = new TaxinvoiceAddContact();
-        addContact.setSerialNum(1);
-        addContact.setContactName("추가 담당자명");
-        addContact.setEmail("test2@test.com");
-        taxinvoice.getAddContactList().add(addContact);
-
         // 메모
         String Memo = "즉시요청 메모";
 
