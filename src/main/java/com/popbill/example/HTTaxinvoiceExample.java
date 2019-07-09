@@ -318,6 +318,30 @@ public class HTTaxinvoiceExample {
         return "result";
     }
     
+    @RequestMapping(value = "getPrintURL", method = RequestMethod.GET)
+    public String getPrintURL(Model m) {
+        /*
+         * 홈택스 전자세금계산서 인쇄 팝업 URL을 반환합니다.
+         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         */
+
+        // 조회할 전자세금계산서 국세청승인번호
+        String NTSConfirmNum = "20161202410002030000196d";
+
+        try {
+
+            String url = htTaxinvoiceService.getPrintURL(testCorpNum, NTSConfirmNum);
+
+            m.addAttribute("Result", url);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "result";
+    }
+    
     @RequestMapping(value = "getCertificatePopUpURL", method = RequestMethod.GET)
     public String getCertificatePopUpURL(Model m) {
         /*
