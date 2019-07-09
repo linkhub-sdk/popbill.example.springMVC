@@ -32,8 +32,8 @@
         IPRestrictOnOff : 인증토큰 발급 IP 제한 On/Off, ture-제한기능 사용(기본값-권장),  false-제한기능 미사용
     -->
     <util:properties id="EXAMPLE_CONFIG">
-        <beans:prop key="TestCorpNum">6798700433</beans:prop>
-        <beans:prop key="TestUserID"></beans:prop>
+        <beans:prop key="TestCorpNum">1234567890</beans:prop>
+        <beans:prop key="TestUserID">testkorea</beans:prop>
         <beans:prop key="LinkID">TESTER</beans:prop>
         <beans:prop key="SecretKey">SwWxqU+0TErBXy/9TVjIPEnI0VTUMMSQZtJf3Ed8q3I=</beans:prop>
         <beans:prop key="IsTest">true</beans:prop>
