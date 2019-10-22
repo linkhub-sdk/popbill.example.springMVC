@@ -1,7 +1,7 @@
 /*
  * 팝빌 팩스 API Java SDK SpringMVC Example
  *
- * - SpringMVC SDK 연동환경 설정방법 안내 : http://blog.linkhub.co.kr/591/
+ * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/fax/tutorial/spring
  * - 업데이트 일자 : 2019-01-04
  * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
@@ -111,7 +111,7 @@ public class FaxServiceExample {
     public String sendFAX(Model m) throws URISyntaxException {
         /*
          * 팩스를 전송합니다. (전송할 파일 개수는 최대 20개까지 가능)
-         * - 팩스전송 문서 파일포맷 안내 : http://blog.linkhub.co.kr/2561
+         * - 팩스전송 문서 파일포맷 안내 : https://docs.popbill.com/fax/format?lang=java
          */
 
         // 발신번호
@@ -126,7 +126,6 @@ public class FaxServiceExample {
         File[] files = new File[2];
         try {
             // 파일 전송 개수 최대 20개
-            // 팩스전송 파일포맷 안내 : http://blog.linkhub.co.kr/2561/
             files[0] = new File(getClass().getClassLoader().getResource("nonbg_statement.pdf").toURI());
             files[1] = new File(getClass().getClassLoader().getResource("nonbg_statement.pdf").toURI());
         } catch (URISyntaxException e1) {
@@ -166,7 +165,7 @@ public class FaxServiceExample {
     public String sendFAX_Multi(Model m) throws URISyntaxException {
         /*
          * [대량전송] 팩스를 전송합니다. (전송할 파일 개수는 최대 20개까지 가능)
-         * - 팩스전송 문서 파일포맷 안내 : http://blog.linkhub.co.kr/2561
+         * - 팩스전송 문서 파일포맷 안내 : https://docs.popbill.com/fax/format?lang=java
          */
 
         // 발신번호
@@ -188,7 +187,6 @@ public class FaxServiceExample {
         File[] files = new File[2];
         try {
             // 파일 전송 개수 최대 20개
-            // 팩스전송 파일포맷 안내 : http://blog.linkhub.co.kr/2561/
             files[0] = new File(getClass().getClassLoader().getResource("nonbg_statement.pdf").toURI());
             files[1] = new File(getClass().getClassLoader().getResource("nonbg_statement.pdf").toURI());
         } catch (URISyntaxException e1) {

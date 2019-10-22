@@ -1,7 +1,7 @@
 /*
  * 팝빌 전자세금계산서 API Java SDK SpringMVC Example
  *
- * - SpringMVC SDK 연동환경 설정방법 안내 : http://blog.linkhub.co.kr/591/
+ * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/taxinvoice/tutorial/spring
  * - 업데이트 일자 : 2019-01-04
  * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
@@ -125,7 +125,7 @@ public class TaxinvoiceServiceExample {
         Taxinvoice taxinvoice = new Taxinvoice();
 
         // 작성일자, 날짜형식(yyyyMMdd)
-        taxinvoice.setWriteDate("20190227");
+        taxinvoice.setWriteDate("20191022");
 
         // 과금방향, [정과금, 역과금] 중 선택기재, "역과금"은 역발행세금계산서 발행에만 가능
         taxinvoice.setChargeDirection("정과금");
@@ -157,7 +157,7 @@ public class TaxinvoiceServiceExample {
         taxinvoice.setInvoicerCorpName("공급자 상호");
 
         // 공급자 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
-        taxinvoice.setInvoicerMgtKey("20190227-001");
+        taxinvoice.setInvoicerMgtKey("20191022-002");
 
         // 공급자 대표자성명
         taxinvoice.setInvoicerCEOName("공급자 대표자 성명");
@@ -280,14 +280,13 @@ public class TaxinvoiceServiceExample {
         /*********************************************************************
          *				수정세금계산서 정보 (수정세금계산서 작성시 기재)
          * - 수정세금계산서 관련 정보는 연동매뉴얼 또는 개발가이드 링크 참조
-         & - [참고] 수정세금계산서 작성방법 안내 [http://blog.linkhub.co.kr/650]
+         & - [참고] 수정세금계산서 작성방법 안내 [https://docs.popbill.com/taxinvoice/modify?lang=java]
          *********************************************************************/
-
         // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
         taxinvoice.setModifyCode(null);
 
-        // 원본세금계산서 ItemKey, 문서확인 (GetInfo API)의 응답결과 항목 중 ItemKey 확인
-        taxinvoice.setOriginalTaxinvoiceKey("");
+        // 원본세금계산서 국세청승인번호
+        taxinvoice.setOrgNTSConfirmNum("");
 
 
         /*********************************************************************
@@ -540,14 +539,13 @@ public class TaxinvoiceServiceExample {
         /*********************************************************************
          *				수정세금계산서 정보 (수정세금계산서 작성시 기재)
          * - 수정세금계산서 관련 정보는 연동매뉴얼 또는 개발가이드 링크 참조
-         & - [참고] 수정세금계산서 작성방법 안내 [http://blog.linkhub.co.kr/650]
+         & - [참고] 수정세금계산서 작성방법 안내 [https://docs.popbill.com/taxinvoice/modify?lang=java]
          *********************************************************************/
-
         // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
         taxinvoice.setModifyCode(null);
 
-        // 원본세금계산서 ItemKey, 문서확인 (GetInfo API)의 응답결과 항목 중 ItemKey 확인
-        taxinvoice.setOriginalTaxinvoiceKey("");
+        // 원본세금계산서 국세청승인번호
+        taxinvoice.setOrgNTSConfirmNum("");
 
 
         /*********************************************************************
@@ -786,14 +784,13 @@ public class TaxinvoiceServiceExample {
         /*********************************************************************
          *				수정세금계산서 정보 (수정세금계산서 작성시 기재)
          * - 수정세금계산서 관련 정보는 연동매뉴얼 또는 개발가이드 링크 참조
-         * - [참고] 수정세금계산서 작성방법 안내 [http://blog.linkhub.co.kr/650]
+         * - [참고] 수정세금계산서 작성방법 안내 [https://docs.popbill.com/taxinvoice/modify?lang=java]
          *********************************************************************/
-
         // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
         taxinvoice.setModifyCode(null);
 
-        // 원본세금계산서 ItemKey, 문서확인 (GetInfo API)의 응답결과 항목 중 ItemKey 확인
-        taxinvoice.setOriginalTaxinvoiceKey("");
+        // 원본세금계산서 국세청승인번호
+        taxinvoice.setOrgNTSConfirmNum("");
 
 
         /*********************************************************************
@@ -1097,13 +1094,13 @@ public class TaxinvoiceServiceExample {
         /*********************************************************************
          *				수정세금계산서 정보 (수정세금계산서 작성시 기재)
          * - 수정세금계산서 관련 정보는 연동매뉴얼 또는 개발가이드 링크 참조
-         & - [참고] 수정세금계산서 작성방법 안내 [http://blog.linkhub.co.kr/650]
+         & - [참고] 수정세금계산서 작성방법 안내 [https://docs.popbill.com/taxinvoice/modify?lang=java]
          *********************************************************************/
-        // 수정사유코드, 수정사우에 따라 1~6 중 선택기재.
+        // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
         taxinvoice.setModifyCode(null);
 
-        // 원본세금계산서 ItemKey, 문서확인 (GetInfo API)의 응답결과 항목 중 ItemKey 확인
-        taxinvoice.setOriginalTaxinvoiceKey("");
+        // 원본세금계산서 국세청승인번호
+        taxinvoice.setOrgNTSConfirmNum("");
 
 
         /*********************************************************************

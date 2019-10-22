@@ -1,7 +1,7 @@
 /*
  * 팝빌 문자 API Java SDK SpringMVC Example
  *
- * - SpringMVC SDK 연동환경 설정방법 안내 : http://blog.linkhub.co.kr/591/
+ * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/message/tutorial/spring
  * - 업데이트 일자 : 2019-01-04
  * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
@@ -332,7 +332,7 @@ public class MessageServiceExample {
         /*
          * MMS(포토)를 전송합니다.
          *  - 메시지 내용이 2,000Byte 초과시 메시지 내용은 자동으로 제거됩니다.
-         *  - 이미지 파일의 크기는 최대 300Kbtye (JPEG), 가로/세로 1500px 이하 권장
+         *  - 이미지 파일의 크기는 최대 300Kbtye (JPEG), 가로/세로 1000px 이하 권장
          */
 
         // 발신번호
