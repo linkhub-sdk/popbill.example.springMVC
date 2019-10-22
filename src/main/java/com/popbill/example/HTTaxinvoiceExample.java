@@ -2,7 +2,7 @@
  * 팝빌 홈택스 전자세금계산서 연계 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : http://blog.linkhub.co.kr/591/
- * - 업데이트 일자 : 2019-01-04
+ * - 업데이트 일자 : 2019-10-22
  * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
  *
@@ -68,6 +68,10 @@ public class HTTaxinvoiceExample {
     @Value("#{EXAMPLE_CONFIG.TestCorpNum}")
     private String testCorpNum;
 
+    // 팝빌회원 사업자번호
+    @Value("#{EXAMPLE_CONFIG.TestUserID}")
+    private String testUserID;    
+    
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String home(Locale locale, Model model) {
         return "HTTaxinvoice/index";
@@ -86,13 +90,13 @@ public class HTTaxinvoiceExample {
         QueryType TIType = QueryType.SELL;
 
         // 일자유형, W-작성일자, I-발행일자, S-전송일자
-        String DType = "W";
+        String DType = "S";
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20181201";
+        String SDate = "20190901";
 
         // 종료일자, 닐짜형식(yyyyMMdd)
-        String EDate = "20190104";
+        String EDate = "20191231";
 
         try {
             String jobID = htTaxinvoiceService.requestJob(testCorpNum, TIType,
@@ -160,7 +164,7 @@ public class HTTaxinvoiceExample {
          */
 
         // 수집 요청시 발급받은 작업아이디
-        String jobID = "019010415000000002";
+        String jobID = "019102215000000023";
 
         // 문서형태, N-일반, M-수정
         String[] Type = {"N", "M"};
@@ -188,11 +192,14 @@ public class HTTaxinvoiceExample {
 
         // 정렬방향 D-내림차순, A-오름차순
         String Order = "D";
+        
+        // 조회 검색어, 거래처 사업자번호 또는 거래처명 like 검색
+        String searchString = "";
 
         try {
             HTTaxinvoiceSearchResult searchInfo = htTaxinvoiceService.search(testCorpNum,
                     jobID, Type, TaxType, PurposeType, TaxRegIDYN, TaxRegIDType,
-                    TaxRegID, Page, PerPage, Order);
+                    TaxRegID, Page, PerPage, Order, testUserID, searchString);
             m.addAttribute("SearchResult", searchInfo);
 
         } catch (PopbillException e) {
@@ -212,7 +219,7 @@ public class HTTaxinvoiceExample {
          */
 
         // 수집 요청시 발급받은 작업아이디
-        String jobID = "019010415000000002";
+        String jobID = "019102215000000023";
 
         // 문서형태, N-일반, M-수정
         String[] Type = {"N", "M"};
@@ -231,10 +238,14 @@ public class HTTaxinvoiceExample {
 
         // 종사업장번호, 다수기재시 콤마(",")로 구분하여 구성 ex) "0001,0002"
         String TaxRegID = "";
-
+        
+        // 조회 검색어, 거래처 사업자번호 또는 거래처명 like 검색
+        String searchString = "";
+        
         try {
             HTTaxinvoiceSummary summaryInfo = htTaxinvoiceService.summary(testCorpNum,
-                    jobID, Type, TaxType, PurposeType, TaxRegIDYN, TaxRegIDType, TaxRegID);
+                    jobID, Type, TaxType, PurposeType, TaxRegIDYN, TaxRegIDType, TaxRegID,
+                    testUserID, searchString);
             m.addAttribute("SummaryResult", summaryInfo);
 
         } catch (PopbillException e) {
