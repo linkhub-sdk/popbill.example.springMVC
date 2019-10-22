@@ -92,7 +92,7 @@ public class TaxinvoiceServiceExample {
         // 세금계산서 유형 SELL-매출, BUY-매입, TRUSTEE-위수탁
         MgtKeyType keyType = MgtKeyType.SELL;
 
-        // 조회할 문서관리번호
+        // 조회할 문서번호
         String mgtKey = "20190104-001";
 
         String isUseStr;
@@ -156,7 +156,7 @@ public class TaxinvoiceServiceExample {
         // 공급자 상호
         taxinvoice.setInvoicerCorpName("공급자 상호");
 
-        // 공급자 문서관리번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
+        // 공급자 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
         taxinvoice.setInvoicerMgtKey("20190227-001");
 
         // 공급자 대표자성명
@@ -201,7 +201,7 @@ public class TaxinvoiceServiceExample {
         // 공급받는자 상호
         taxinvoice.setInvoiceeCorpName("공급받는자 상호");
 
-        // [역발행시 필수] 공급받는자 문서관리번호, 1~24자리까지 사업자번호별 중복없는 고유번호 할당
+        // [역발행시 필수] 공급받는자 문서번호, 1~24자리까지 사업자번호별 중복없는 고유번호 할당
         taxinvoice.setInvoiceeMgtKey("");
 
         // 공급받는자 대표자 성명
@@ -416,7 +416,7 @@ public class TaxinvoiceServiceExample {
         // 공급자 상호
         taxinvoice.setInvoicerCorpName("공급자 상호");
 
-        // 공급자 문서관리번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
+        // 공급자 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
         taxinvoice.setInvoicerMgtKey("20190227-003");
 
         // 공급자 대표자성명
@@ -461,7 +461,7 @@ public class TaxinvoiceServiceExample {
         // 공급받는자 상호
         taxinvoice.setInvoiceeCorpName("공급받는자 상호");
 
-        // [역발행시 필수] 공급받는자 문서관리번호, 1~24자리까지 사업자번호별 중복없는 고유번호 할당
+        // [역발행시 필수] 공급받는자 문서번호, 1~24자리까지 사업자번호별 중복없는 고유번호 할당
         taxinvoice.setInvoiceeMgtKey("");
 
         // 공급받는자 대표자 성명
@@ -624,7 +624,7 @@ public class TaxinvoiceServiceExample {
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
-        // 세금계산서 문서관리번호
+        // 세금계산서 문서번호
         String mgtKey = "20190104-001";
 
         // 세금계산서 정보 객체
@@ -662,7 +662,7 @@ public class TaxinvoiceServiceExample {
         // 공급자 상호
         taxinvoice.setInvoicerCorpName("공급자 상호");
 
-        // 공급자 문서관리번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
+        // 공급자 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
         taxinvoice.setInvoicerMgtKey("20190104-001");
 
         // 공급자 대표자성명
@@ -707,7 +707,7 @@ public class TaxinvoiceServiceExample {
         // 공급받는자 상호
         taxinvoice.setInvoiceeCorpName("공급받는자 상호");
 
-        // [역발행시 필수] 공급받는자 문서관리번호, 1~24자리까지 사업자번호별 중복없는 고유번호 할당
+        // [역발행시 필수] 공급받는자 문서번호, 1~24자리까지 사업자번호별 중복없는 고유번호 할당
         taxinvoice.setInvoiceeMgtKey("");
 
         // 공급받는자 대표자 성명
@@ -871,7 +871,7 @@ public class TaxinvoiceServiceExample {
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
-        // 세금계산서 문서관리번호
+        // 세금계산서 문서번호
         String mgtKey = "20190227-003";
 
         // 메모
@@ -901,13 +901,13 @@ public class TaxinvoiceServiceExample {
          * [발행완료] 상태의 세금계산서를 [공급자]가 [발행취소]합니다.
          * - [발행취소]는 국세청 전송전에만 가능합니다.
          * - 발행취소된 세금계산서는 국세청에 전송되지 않습니다.
-         * - 발행취소 세금계산서에 사용된 문서관리번호를 재사용 하기 위해서는 삭제(Delete API)를 호출하여 해당세금계산서를 삭제해야 합니다.
+         * - 발행취소 세금계산서에 사용된 문서번호를 재사용 하기 위해서는 삭제(Delete API)를 호출하여 해당세금계산서를 삭제해야 합니다.
          */
 
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
-        // 세금계산서 문서관리번호
+        // 세금계산서 문서번호
         String mgtKey = "20190104-001";
 
         // 메모
@@ -973,7 +973,7 @@ public class TaxinvoiceServiceExample {
         // 공급자 상호
         taxinvoice.setInvoicerCorpName("공급자 상호");
 
-        // 공급자 문서관리번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
+        // 공급자 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
         taxinvoice.setInvoicerMgtKey("");
 
         // 공급자 대표자성명
@@ -1018,7 +1018,7 @@ public class TaxinvoiceServiceExample {
         // 공급받는자 상호
         taxinvoice.setInvoiceeCorpName("공급받는자 상호");
 
-        // [역발행시 필수] 공급받는자 문서관리번호, 1~24자리까지 사업자번호별 중복없는 고유번호 할당
+        // [역발행시 필수] 공급받는자 문서번호, 1~24자리까지 사업자번호별 중복없는 고유번호 할당
         taxinvoice.setInvoiceeMgtKey("20181119-A00");
 
         // 공급받는자 대표자 성명
@@ -1166,7 +1166,7 @@ public class TaxinvoiceServiceExample {
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
         MgtKeyType mgtKeyType = MgtKeyType.BUY;
 
-        // 세금계산서 문서관리번호
+        // 세금계산서 문서번호
         String mgtKey = "20190104-001";
 
         // 메모
@@ -1191,13 +1191,13 @@ public class TaxinvoiceServiceExample {
     public String cancelRequest(Model m) {
         /*
          * [공급받는자]가 역)발행대기 상태의 세금계산서를 [취소]합니다.
-         * - [취소]한 세금계산서의 문서관리번호를 재사용하기 위해서는 삭제 (Delete API)를 호출해야 합니다.
+         * - [취소]한 세금계산서의 문서번호를 재사용하기 위해서는 삭제 (Delete API)를 호출해야 합니다.
          */
 
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
         MgtKeyType mgtKeyType = MgtKeyType.BUY;
 
-        // 세금계산서 문서관리번호
+        // 세금계산서 문서번호
         String mgtKey = "20190104-001";
 
         // 메모
@@ -1222,13 +1222,13 @@ public class TaxinvoiceServiceExample {
     public String refuse(Model m) {
         /*
          * 공급받는자에게 요청받은 역)발행대기 상태의 세금계산서를 [공급자]가 [거부]합니다.
-         * - 세금계산서의 문서관리번호를 재사용하기 위해서는 삭제 (Delete API)를 호출하여 [삭제] 처리해야 합니다.
+         * - 세금계산서의 문서번호를 재사용하기 위해서는 삭제 (Delete API)를 호출하여 [삭제] 처리해야 합니다.
          */
 
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
-        // 세금계산서 문서관리번호
+        // 세금계산서 문서번호
         String mgtKey = "20190104-001";
 
         // 메모
@@ -1253,14 +1253,14 @@ public class TaxinvoiceServiceExample {
     public String delete(Model m) {
         /*
          * 1건의 전자세금계산서를 [삭제]합니다.
-         * - 세금계산서를 삭제해야만 문서관리번호(mgtKey)를 재사용할 수 있습니다.
+         * - 세금계산서를 삭제해야만 문서번호(mgtKey)를 재사용할 수 있습니다.
          * - 삭제가능한 문서 상태 : [임시저장], [발행취소], [발행예정 취소], [발행예정 거부]
          */
 
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
-        // 세금계산서 문서관리번호
+        // 세금계산서 문서번호
         String mgtKey = "20190104-001";
 
         try {
@@ -1289,7 +1289,7 @@ public class TaxinvoiceServiceExample {
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
-        // 세금계산서 문서관리번호
+        // 세금계산서 문서번호
         String mgtKey = "20190104-001";
 
         try {
@@ -1317,7 +1317,7 @@ public class TaxinvoiceServiceExample {
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
-        // 세금계산서 문서관리번호
+        // 세금계산서 문서번호
         String mgtKey = "20190104-001";
 
         try {
@@ -1375,7 +1375,7 @@ public class TaxinvoiceServiceExample {
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
-        // 세금계산서 문서관리번호
+        // 세금계산서 문서번호
         String mgtKey = "20190104-001";
 
         try {
@@ -1479,7 +1479,7 @@ public class TaxinvoiceServiceExample {
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
-        // 세금계산서 문서관리번호
+        // 세금계산서 문서번호
         String mgtKey = "20190104-001";
 
         try {
@@ -1531,7 +1531,7 @@ public class TaxinvoiceServiceExample {
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
-        // 세금계산서 문서관리번호
+        // 세금계산서 문서번호
         String mgtKey = "20190104-001";
 
         try {
@@ -1559,7 +1559,7 @@ public class TaxinvoiceServiceExample {
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
-        // 세금계산서 문서관리번호
+        // 세금계산서 문서번호
         String mgtKey = "20190227-002";
 
         try {
@@ -1587,7 +1587,7 @@ public class TaxinvoiceServiceExample {
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
-        // 세금계산서 문서관리번호
+        // 세금계산서 문서번호
         String mgtKey = "20190104-001";
 
         try {
@@ -1615,7 +1615,7 @@ public class TaxinvoiceServiceExample {
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
-        // 세금계산서 문서관리번호
+        // 세금계산서 문서번호
         String mgtKey = "20190104-001";
 
         try {
@@ -1643,7 +1643,7 @@ public class TaxinvoiceServiceExample {
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
-        // 문서관리번호 배열, 최대 100건
+        // 문서번호 배열, 최대 100건
         String[] MgtKeyList = new String[]{"201910080001", "201910080002"};
 
         try {
@@ -1671,7 +1671,7 @@ public class TaxinvoiceServiceExample {
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
-        // 세금계산서 문서관리번호
+        // 세금계산서 문서번호
         String mgtKey = "20190104-001";
 
         try {
@@ -1721,7 +1721,7 @@ public class TaxinvoiceServiceExample {
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
-        // 세금계산서 문서관리번호
+        // 세금계산서 문서번호
         String mgtKey = "20190104-001";
 
         // 첨부파일 표시명
@@ -1763,7 +1763,7 @@ public class TaxinvoiceServiceExample {
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
-        // 세금계산서 문서관리번호
+        // 세금계산서 문서번호
         String mgtKey = "20190104-01";
 
 
@@ -1795,7 +1795,7 @@ public class TaxinvoiceServiceExample {
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
-        // 세금계산서 문서관리번호
+        // 세금계산서 문서번호
         String mgtKey = "20190104-001";
 
         try {
@@ -1822,7 +1822,7 @@ public class TaxinvoiceServiceExample {
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
-        // 세금계산서 문서관리번호
+        // 세금계산서 문서번호
         String mgtKey = "20190104-001";
 
         // 수신메일주소
@@ -1855,7 +1855,7 @@ public class TaxinvoiceServiceExample {
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
-        // 세금계산서 문서관리번호
+        // 세금계산서 문서번호
         String mgtKey = "20190104-001";
 
         // 발신번호
@@ -1893,7 +1893,7 @@ public class TaxinvoiceServiceExample {
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
-        // 세금계산서 문서관리번호
+        // 세금계산서 문서번호
         String mgtKey = "20190104-001";
 
         // 발신번호
@@ -2006,7 +2006,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "assignMgtKey", method = RequestMethod.GET)
     public String assignMgtKey(Model m) {
         /*
-         * 팝빌 사이트에서 작성한 세금계산서에 파트너의 문서관리번호를 할당합니다.
+         * 팝빌 사이트에서 작성한 세금계산서에 파트너의 문서번호를 할당합니다.
          */
 
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
@@ -2015,7 +2015,7 @@ public class TaxinvoiceServiceExample {
         // 세금계산서 아이템키, 문서 목록조회(Search) API의 반환항목중 ItemKey 참조
         String itemKey = "018121218060300001";
 
-        // 할당할 문서관리번호, 숫자, 영문 '-', '_' 조합으로 1~24자리까지
+        // 할당할 문서번호, 숫자, 영문 '-', '_' 조합으로 1~24자리까지
         // 사업자번호별 중복없는 고유번호 할당
         String mgtKey = "20190103-100";
 

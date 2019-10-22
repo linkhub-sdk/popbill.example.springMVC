@@ -77,7 +77,7 @@ public class CashbillServiceExample {
          * - 관리번호는 1~24자리로 숫자, 영문 '-', '_' 조합으로 구성할 수 있습니다.
          */
 
-        // 문서관리번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
+        // 문서번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
         String mgtKey = "20190104-001";
 
         String isUseStr;
@@ -112,7 +112,7 @@ public class CashbillServiceExample {
         // 현금영수증 정보 객체
         Cashbill cashbill = new Cashbill();
         
-        // 문서관리번호, 최대 24자리, 영문, 숫자 '-', '_'로 구성
+        // 문서번호, 최대 24자리, 영문, 숫자 '-', '_'로 구성
         cashbill.setMgtKey("20191022-001");
 
         // 문서형태, {승인거래, 취소거래} 중 기재
@@ -218,7 +218,7 @@ public class CashbillServiceExample {
         // 현금영수증 정보 객체
         Cashbill cashbill = new Cashbill();
 
-        // 문서관리번호, 최대 24자리, 영문, 숫자 '-', '_'로 구성
+        // 문서번호, 최대 24자리, 영문, 숫자 '-', '_'로 구성
         cashbill.setMgtKey("20190104-001");
 
         // 문서형태, {승인거래, 취소거래} 중 기재
@@ -315,13 +315,13 @@ public class CashbillServiceExample {
          * - 취소현금영수증 작성방법 안내 - http://blog.linkhub.co.kr/702
          */
         
-        // 수정할 현금영수증 문서관리번호
+        // 수정할 현금영수증 문서번호
         String mgtKey = "20190104-001";
 
         // 현금영수증 정보 객체
         Cashbill cashbill = new Cashbill();
 
-        // 문서관리번호, 최대 24자리, 영문, 숫자 '-', '_'로 구성
+        // 문서번호, 최대 24자리, 영문, 숫자 '-', '_'로 구성
         cashbill.setMgtKey(mgtKey);
 
         // 문서형태, {승인거래, 취소거래} 중 기재
@@ -411,7 +411,7 @@ public class CashbillServiceExample {
          * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼] > 1.3. 국세청 전송정책"을 참조하시기 바랍니다.
          */
 
-        // 현금영수증 문서관리번호
+        // 현금영수증 문서번호
         String mgtKey = "20190104-001";
 
         // 메모
@@ -439,7 +439,7 @@ public class CashbillServiceExample {
          * - 발행취소된 형금영수증은 국세청에 전송되지 않습니다.
          */
 
-        // 문서관리번호
+        // 문서번호
         String mgtKey = "20190104-001";
 
         // 메모
@@ -462,11 +462,11 @@ public class CashbillServiceExample {
     public String delete(Model m) {
         /*
          * 1건의 현금영수증을 [삭제]합니다.
-         * - 현금영수증을 삭제하면 사용된 문서관리번호(mgtKey)를 재사용할 수 있습니다.
+         * - 현금영수증을 삭제하면 사용된 문서번호(mgtKey)를 재사용할 수 있습니다.
          * - 삭제가능한 문서 상태 : [임시저장], [발행취소]
          */
 
-        // 현금영수증 문서관리번호
+        // 현금영수증 문서번호
         String mgtKey = "20190104-001";
 
         try {
@@ -493,7 +493,7 @@ public class CashbillServiceExample {
          * - 취소현금영수증 작성방법 안내 - http://blog.linkhub.co.kr/702
          */
 
-        // 문서관리번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로
+        // 문서번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로
         // 중복되지 않도록 구성
         String mgtKey = "20190104-001";
 
@@ -528,7 +528,7 @@ public class CashbillServiceExample {
          * - 취소현금영수증 작성방법 안내 - http://blog.linkhub.co.kr/702
          */
 
-        // 문서관리번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로
+        // 문서번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로
         // 중복되지 않도록 구성
         String mgtKey = "20190104-001";
 
@@ -583,7 +583,7 @@ public class CashbillServiceExample {
          * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼] > 1.3. 국세청 전송정책"을 참조하시기 바랍니다.
          */
 
-        // 문서관리번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로
+        // 문서번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로
         // 중복되지 않도록 구성
         String mgtKey = "20190104-001";
 
@@ -615,7 +615,7 @@ public class CashbillServiceExample {
          * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼] > 1.3. 국세청 전송정책"을 참조하시기 바랍니다.
          */
 
-        // 문서관리번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로
+        // 문서번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로
         // 중복되지 않도록 구성
         String mgtKey = "20190104-001";
 
@@ -672,7 +672,7 @@ public class CashbillServiceExample {
          * - 응답항목에 대한 자세한 정보는 "[현금영수증 API 연동매뉴얼] > 4.2. 현금영수증 상태정보 구성"을 참조하시기 바랍니다.
          */
 
-        // 현금영수증 문서관리번호
+        // 현금영수증 문서번호
         String mgtKey = "20190104-001";
 
         try {
@@ -696,7 +696,7 @@ public class CashbillServiceExample {
          * - 응답항목에 대한 자세한 정보는 "[현금영수증 API 연동매뉴얼] > 4.2. 현금영수증 상태정보 구성"을 참조하시기 바랍니다.
          */
 
-        // 현금영수증 문서관리번호 배열 최대(1000건)
+        // 현금영수증 문서번호 배열 최대(1000건)
         String[] mgtKeyList = new String[]{"20190104-001", "20190104-002", "20190104-003"};
 
         try {
@@ -720,7 +720,7 @@ public class CashbillServiceExample {
          * - 응답항목에 대한 자세한 사항은 "[현금영수증 API 연동매뉴얼] > 4.1. 현금영수증 구성" 을 참조하시기 바랍니다.
          */
 
-        // 현금영수증 문서관리번호
+        // 현금영수증 문서번호
         String mgtKey = "20190104-001";
 
         try {
@@ -805,7 +805,7 @@ public class CashbillServiceExample {
          *   "[현금영수증 API 연동매뉴얼] > 3.3.5 상태 변경이력 확인" 을 참조하시기 바랍니다.
          */
 
-        // 현금영수증 문서관리번호
+        // 현금영수증 문서번호
         String mgtKey = "20190104-001";
 
         try {
@@ -852,7 +852,7 @@ public class CashbillServiceExample {
          * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
          */
 
-        // 현금영수증 문서관리번호
+        // 현금영수증 문서번호
         String mgtKey = "20190104-001";
 
         try {
@@ -876,7 +876,7 @@ public class CashbillServiceExample {
          * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
          */
 
-        // 현금영수증 문서관리번호
+        // 현금영수증 문서번호
         String mgtKey = "20190104-001";
 
         try {
@@ -900,7 +900,7 @@ public class CashbillServiceExample {
          * - URL 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
          */
 
-        // 현금영수증 문서관리번호
+        // 현금영수증 문서번호
         String mgtKey = "20190104-001";
 
         try {
@@ -924,7 +924,7 @@ public class CashbillServiceExample {
          * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
          */
 
-        // 문서관리번호 배열, 최대 100건
+        // 문서번호 배열, 최대 100건
         String[] mgtKeyList = new String[]{"20190104-001", "20190104-002", "20190104-003"};
 
         try {
@@ -948,7 +948,7 @@ public class CashbillServiceExample {
          * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
          */
 
-        // 현금영수증 문서관리번호
+        // 현금영수증 문서번호
         String mgtKey = "20190104-001";
 
         try {
@@ -971,7 +971,7 @@ public class CashbillServiceExample {
          * 현금영수증 발행 안내메일을 재전송합니다.
          */
 
-        // 현금영수증 문서관리번호
+        // 현금영수증 문서번호
         String mgtKey = "20190104-001";
 
         // 수신자 메일주소
@@ -999,7 +999,7 @@ public class CashbillServiceExample {
          */
 
 
-        // 현금영수증 문서관리번호
+        // 현금영수증 문서번호
         String mgtKey = "20190104-001";
 
         // 발신번호
@@ -1034,7 +1034,7 @@ public class CashbillServiceExample {
          * - 전송내역 확인은 "팝빌 로그인" > [문자 팩스] > [팩스] > [전송내역] 메뉴에서 전송결과를 확인할 수 있습니다.
          */
 
-        // 현금영수증 문서관리번호
+        // 현금영수증 문서번호
         String mgtKey = "20190104-001";
 
         // 발신자 번호
