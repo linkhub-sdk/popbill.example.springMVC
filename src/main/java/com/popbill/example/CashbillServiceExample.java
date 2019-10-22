@@ -2,7 +2,7 @@
  * 팝빌 현금영수증 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : http://blog.linkhub.co.kr/591/
- * - 업데이트 일자 : 2019-01-04
+ * - 업데이트 일자 : 2019-10-22
  * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
  *
@@ -111,9 +111,9 @@ public class CashbillServiceExample {
 
         // 현금영수증 정보 객체
         Cashbill cashbill = new Cashbill();
-
+        
         // 문서관리번호, 최대 24자리, 영문, 숫자 '-', '_'로 구성
-        cashbill.setMgtKey("20190104-001");
+        cashbill.setMgtKey("20191022-001");
 
         // 문서형태, {승인거래, 취소거래} 중 기재
         cashbill.setTradeType("승인거래");
@@ -180,14 +180,18 @@ public class CashbillServiceExample {
         cashbill.setOrderNumber("주문번호");
 
         // 거래처 이메일
-        cashbill.setEmail("test@test.com");
+        cashbill.setEmail("code@linkhub.co.kr");
 
         // 거래처 휴대폰
         cashbill.setHp("010111222");
 
+        
+        // 발행안내 메일제목, 미기재시 기본양식으로 메일 전송 
+        String emailSubject = "";
+        
         try {
 
-            Response response = cashbillService.registIssue(testCorpNum, cashbill, Memo);
+            Response response = cashbillService.registIssue(testCorpNum, cashbill, Memo, testUserID, emailSubject);
 
             m.addAttribute("Response", response);
 

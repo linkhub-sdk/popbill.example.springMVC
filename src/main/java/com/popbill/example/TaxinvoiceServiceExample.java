@@ -1636,7 +1636,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 문서관리번호 배열, 최대 100건
-        String[] MgtKeyList = new String[]{"20190104-001", "20190104-002", "20190104-003"};
+        String[] MgtKeyList = new String[]{"201910080001", "201910080002"};
 
         try {
 

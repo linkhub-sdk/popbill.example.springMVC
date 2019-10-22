@@ -2,7 +2,7 @@
  * 팝빌 전자명세서 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : http://blog.linkhub.co.kr/591/
- * - 업데이트 일자 : 2019-01-04
+ * - 업데이트 일자 : 2019-10-22
  * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
  *
@@ -113,7 +113,10 @@ public class StatementServiceExample {
          */
 
         String Memo = "전자명세서 즉시발행 메모";
-
+        
+        // 발행안내 메일 제목, 미기재시 기본양식으로 메일 전송 
+        String emailSubject = "";
+        
         //  전자명세서 정보 객체
         Statement statement = new Statement();
 
@@ -133,7 +136,7 @@ public class StatementServiceExample {
         statement.setItemCode((short) 121);
 
         // [필수] 문서관리번호, 최대 24자리 영문, 숫자, '-', '_'로 구성
-        statement.setMgtKey("20191004-001");
+        statement.setMgtKey("20191022-002");
 
 
         /*********************************************************************
@@ -200,7 +203,7 @@ public class StatementServiceExample {
         statement.setReceiverContactName("수신자 담당자명");
 
         // 수신자 메일주소
-        statement.setReceiverEmail("test@receiver.com");
+        statement.setReceiverEmail("code@linkhub.co.kr");
 
 
         /*********************************************************************
@@ -274,7 +277,7 @@ public class StatementServiceExample {
         statement.setPropertyBag(propertyBag);
 
         try {
-            Response response = statementService.registIssue(testCorpNum, statement, Memo);
+            Response response = statementService.registIssue(testCorpNum, statement, Memo, testUserID, emailSubject);
 
             m.addAttribute("Response", response);
 
