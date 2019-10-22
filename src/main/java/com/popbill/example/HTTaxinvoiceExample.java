@@ -68,7 +68,7 @@ public class HTTaxinvoiceExample {
     @Value("#{EXAMPLE_CONFIG.TestCorpNum}")
     private String testCorpNum;
 
-    // 팝빌회원 사업자번호
+    // 팝빌회원 아이디
     @Value("#{EXAMPLE_CONFIG.TestUserID}")
     private String testUserID;    
     
