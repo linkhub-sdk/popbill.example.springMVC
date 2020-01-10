@@ -265,7 +265,7 @@ public class EasyFinBankServiceExample {
     }
     
     /*
-     * 간편 계좌조회 정액제 서비스 신청 팝업 URL을 반환한다. 
+     * 계좌조회 정액제 서비스 신청 팝업 URL을 반환한다. 
      * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
      */
 	@RequestMapping(value = "getFlatRatePopUpURL", method = RequestMethod.GET)
@@ -311,7 +311,7 @@ public class EasyFinBankServiceExample {
     }
 	
 	/*
-     * 간편 계좌조회 API 서비스 과금정보를 확인합니다.
+     * 계좌조회 API 서비스 과금정보를 확인합니다.
      */
 	@RequestMapping(value = "getChargeInfo", method = RequestMethod.GET)
 	public String chargeInfo(Model m) {
