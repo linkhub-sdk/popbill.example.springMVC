@@ -89,7 +89,7 @@
             <li><a href="BaseService/checkIsMember">checkIsMember</a> - 연동회원 가입여부 확인</li>
             <li><a href="BaseService/checkID">checkID</a> - 연동회원 아이디 중복 확인</li>
             <li><a href="BaseService/joinMember">joinMember</a> - 연동회원사 신규가입</li>
-            <li><a href="BaseService/getAccessURL">getAccessURL</a> (팝빌 로그인 URL)</li>
+            <li><a href="BaseService/getAccessURL">getAccessURL</a> 팝빌 로그인 URL</li>
             <li><a href="BaseService/registContact">registContact</a> - 담당자 추가</li>
             <li><a href="BaseService/listContact">listContact</a> - 담당자 목록 확인</li>
             <li><a href="BaseService/updateContact">updateContact</a> - 담당자 정보 수정</li>
