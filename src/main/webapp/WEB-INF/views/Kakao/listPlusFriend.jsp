@@ -16,8 +16,8 @@
             <c:forEach items="${listInfo}" var="friendInfo">
                 <fieldset class="fieldset2">
                     <ul>
-                        <li>plusFriendID (플러스친구 아이디) : ${friendInfo.plusFriendID}</li>
-                        <li>plusFriendName (플러스친구 이름) : ${friendInfo.plusFriendName}</li>
+                        <li>plusFriendID (카카오톡 채널 아이디) : ${friendInfo.plusFriendID}</li>
+                        <li>plusFriendName (카카오톡 채널 이름) : ${friendInfo.plusFriendName}</li>
                         <li>regDT (등록일시) : ${friendInfo.regDT}</li>
                     </ul>
                 </fieldset>

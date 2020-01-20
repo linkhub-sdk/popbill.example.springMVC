@@ -19,7 +19,7 @@
                         <li>templateCode (템플릿 코드) : ${info.templateCode}</li>
                         <li>templateName (템플릿 제목) : ${info.templateName}</li>
                         <li>template (템플릿 내용) : ${info.template}</li>
-                        <li>plusFriendID (플러스친구 아이디) : ${info.plusFriendID}</li>
+                        <li>plusFriendID (카카오톡 채널 아이디) : ${info.plusFriendID}</li>
                         <c:if test="${info.btns != null}">
                             <c:forEach items="${info.btns}" var="btnInfo">
                                 <fieldset class="fieldset2">
