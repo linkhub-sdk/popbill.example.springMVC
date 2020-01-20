@@ -2,7 +2,7 @@
  * 팝빌 팩스 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/fax/tutorial/java
- * - 업데이트 일자 : 2019-01-04
+ * - 업데이트 일자 : 2020-01-20
  * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
  *
@@ -76,6 +76,7 @@ public class FaxServiceExample {
         /*
          * 팩스 발신번호 관리 팝업 URL을 반합니다.
          * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         * - https://docs.popbill.com/fax/java/api#GetSenderNumberMgtURL
          */
         try {
 
@@ -95,6 +96,7 @@ public class FaxServiceExample {
     public String getSenderNumberList(Model m) {
         /*
          * 팝빌에 등록된 발신번호 목록을 확인합니다.
+         * - https://docs.popbill.com/fax/java/api#GetSenderNumberList
          */
 
         try {
@@ -112,6 +114,7 @@ public class FaxServiceExample {
         /*
          * 팩스를 전송합니다. (전송할 파일 개수는 최대 20개까지 가능)
          * - 팩스전송 문서 파일포맷 안내 : https://docs.popbill.com/fax/format?lang=java
+         * - https://docs.popbill.com/fax/java/api#SendFAX
          */
 
         // 발신번호
@@ -166,6 +169,7 @@ public class FaxServiceExample {
         /*
          * [대량전송] 팩스를 전송합니다. (전송할 파일 개수는 최대 20개까지 가능)
          * - 팩스전송 문서 파일포맷 안내 : https://docs.popbill.com/fax/format?lang=java
+         * - https://docs.popbill.com/fax/java/api#SendFAX_Multi
          */
 
         // 발신번호
@@ -228,6 +232,7 @@ public class FaxServiceExample {
          * 팩스를 재전송합니다.
          * - 접수일로부터 60일이 경과된 경우 재전송할 수 없습니다.
          * - 팩스 재전송 요청시 포인트가 차감됩니다. (전송실패시 환불처리)
+         * - https://docs.popbill.com/fax/java/api#ResendFAX
          */
 
         // 원본 팩스 접수번호
@@ -279,6 +284,7 @@ public class FaxServiceExample {
          * [대량전송] 팩스를 재전송합니다.
          * - 접수일로부터 60일이 경과된 경우 재전송할 수 없습니다.
          * - 팩스 재전송 요청시 포인트가 차감됩니다. (전송실패시 환불처리)
+         * - https://docs.popbill.com/fax/java/api#ResendFAX_Multi
          */
 
         // 원본 팩스 접수번호
@@ -339,6 +345,7 @@ public class FaxServiceExample {
          * 전송요청번호(requestNum)을 할당한 팩스를 재전송합니다.
          * - 접수일로부터 60일이 경과된 경우 재전송할 수 없습니다.
          * - 팩스 재전송 요청시 포인트가 차감됩니다. (전송실패시 환불처리)
+         * - https://docs.popbill.com/fax/java/api#ResendFAXRN
          */
 
         // 재전송 팩스의 전송요청번호
@@ -390,6 +397,7 @@ public class FaxServiceExample {
          * [대량전송] 전송요청번호(requestNum)을 할당한 팩스를 재전송합니다.
          * - 접수일로부터 60일이 경과된 경우 재전송할 수 없습니다.
          * - 팩스 재전송 요청시 포인트가 차감됩니다. (전송실패시 환불처리)
+         * - https://docs.popbill.com/fax/java/api#ResendFAXRN_Multi
          */
 
         // 재전송 팩스의 전송요청번호
@@ -449,6 +457,7 @@ public class FaxServiceExample {
         /*
          * 팩스전송요청시 발급받은 접수번호(receiptNum)로 팩스 예약전송건을 취소합니다.
          * - 예약전송 취소는 예약전송시간 10분전까지 가능하며, 팩스변환 이후 가능합니다.
+         * - https://docs.popbill.com/fax/java/api#CancelReserve
          */
 
         // 전송요청(sendFAX)시 발급받은 팩스접수번호
@@ -472,6 +481,7 @@ public class FaxServiceExample {
         /*
          * 팩스전송요청시 할당한 전송요청번호(requestNum)로 팩스 예약전송건을 취소합니다.
          * - 예약전송 취소는 예약전송시간 10분전까지 가능하며, 팩스변환 이후 가능합니다.
+         * - https://docs.popbill.com/fax/java/api#CancelReserveRN
          */
 
         // 예약팩스전송 요청시 할당한 전송요청번호
@@ -494,7 +504,7 @@ public class FaxServiceExample {
     public String getFaxResult(Model m) {
         /*
          * 팩스전송요청시 발급받은 접수번호(receiptNum)로 전송결과를 확인합니다
-         * - 응답항목에 대한 자세한 사항은 "[팩스 API 연동매뉴얼] >  3.3.1 GetFaxDetail (전송내역 및 전송상태 확인)을 참조하시기 바랍니다.
+         * - https://docs.popbill.com/fax/java/api#GetFaxResult
          */
 
         // 전송요청(sendFAX)시 발급받은 접수번호
@@ -517,7 +527,7 @@ public class FaxServiceExample {
     public String getFaxResultRN(Model m) {
         /*
          * 팩스전송요청시 할당한 전송요청번호(requestNum)으로 전송결과를 확인합니다
-         * - 응답항목에 대한 자세한 사항은 "[팩스 API 연동매뉴얼] >  3.3.2 GetFaxDetailRN (전송내역 및 전송상태 확인 - 요청번호 할당)을 참조하시기 바랍니다.
+         * - https://docs.popbill.com/fax/java/api#GetFaxResultRN
          */
 
         // 팩스전송 요청시 할당한 전송요청번호
@@ -541,6 +551,7 @@ public class FaxServiceExample {
         /*
          * 검색조건을 사용하여 팩스전송 내역을 조회합니다.
          * - 최대 검색기간 : 6개월 이내
+         * - https://docs.popbill.com/fax/java/api#Search
          */
 
         // 시작일자, 날짜형식(yyyyMMdd)
@@ -591,6 +602,7 @@ public class FaxServiceExample {
         /*
          * 팩스 전송내역 팝업 URL을 반환합니다.
          * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         * - https://docs.popbill.com/fax/java/api#GetSentListURL
          */
         try {
 
@@ -611,6 +623,7 @@ public class FaxServiceExample {
         /*
          * 접수한 팩스 전송건에 대한 미리보기 팝업 URL을 반환합니다.
          * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         * - https://docs.popbill.com/fax/java/api#GetPreviewURL
          */
         try {
 
@@ -633,6 +646,7 @@ public class FaxServiceExample {
     public String getUnitCost(Model m) {
         /*
          * 팩스 전송단가를 확인합니다.
+         * - https://docs.popbill.com/fax/java/api#GetUnitCost
          */
 
         try {
@@ -653,6 +667,7 @@ public class FaxServiceExample {
     public String chargeInfo(Model m) {
         /*
          * 팩스 API 서비스 과금정보를 확인합니다.
+         * - https://docs.popbill.com/fax/java/api#GetChargeInfo
          */
 
         try {

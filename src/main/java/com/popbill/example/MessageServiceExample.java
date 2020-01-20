@@ -2,7 +2,7 @@
  * 팝빌 문자 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/message/tutorial/java
- * - 업데이트 일자 : 2019-01-04
+ * - 업데이트 일자 : 2020-01-20
  * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
  *
@@ -81,6 +81,7 @@ public class MessageServiceExample {
         /*
          * 문자 발신번호 관리 팝업 URL을 반합니다.
          * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         * - https://docs.popbill.com/message/java/api#GetSenderNumberMgtURL
          */
         try {
 
@@ -100,6 +101,7 @@ public class MessageServiceExample {
     public String getSenderNumberList(Model m) {
         /*
          * 팝빌에 등록된 발신번호 목록을 확인합니다.
+         * - https://docs.popbill.com/message/java/api#GetSenderNumberList
          */
 
         try {
@@ -117,6 +119,7 @@ public class MessageServiceExample {
         /*
          * SMS(단문)를 전송합니다.
          *  - 메시지 내용이 90Byte 초과시 메시지 내용은 자동으로 제거됩니다.
+         *  - https://docs.popbill.com/message/java/api#SendSMS
          */
 
         // 발신번호
@@ -162,7 +165,7 @@ public class MessageServiceExample {
         /*
          * [대량전송] SMS(단문)를 전송합니다.
          *  - 메시지 내용이 90Byte 초과시 메시지 내용은 자동으로 제거됩니다.
-         *  - 단건/대량 전송에 대한 설명은 "[문자 API 연동매뉴얼] > 3.2.1 SendSMS(단문전송)"을 참조하시기 바랍니다.
+         *  - https://docs.popbill.com/message/java/api#SendSMS_Multi
          */
 
         // [동보전송] 발신번호, 개별문자 전송정보에 발신자번호 없는 경우 적용
@@ -220,6 +223,7 @@ public class MessageServiceExample {
         /*
          * LMS(장문)를 전송합니다.
          *  - 메시지 내용이 2,000Byte 초과시 메시지 내용은 자동으로 제거됩니다.
+         *  - https://docs.popbill.com/message/java/api#SendLMS
          */
 
         // 발신번호
@@ -268,7 +272,7 @@ public class MessageServiceExample {
         /*
          * [대량전송] LMS(장문)를 전송합니다.
          *  - 메시지 내용이 2,000Byte 초과시 메시지 내용은 자동으로 제거됩니다.
-         *  - 단건/대량 전송에 대한 설명은 "[문자 API 연동매뉴얼] > 3.2.2 SendLMS(장문전송)"을 참조하시기 바랍니다.
+         *  - https://docs.popbill.com/message/java/api#SendLMS_Multi
          */
 
         // [동보전송] 발신번호, 개별 전송정보의 발신번호가 없는 경우 적용
@@ -333,6 +337,7 @@ public class MessageServiceExample {
          * MMS(포토)를 전송합니다.
          *  - 메시지 내용이 2,000Byte 초과시 메시지 내용은 자동으로 제거됩니다.
          *  - 이미지 파일의 크기는 최대 300Kbtye (JPEG), 가로/세로 1000px 이하 권장
+         *  - https://docs.popbill.com/message/java/api#SendMMS
          */
 
         // 발신번호
@@ -385,6 +390,7 @@ public class MessageServiceExample {
          * [대랑전송] MMS(포토)를 전송합니다.
          *  - 메시지 내용이 2,000Byte 초과시 메시지 내용은 자동으로 제거됩니다.
          *  - 이미지 파일의 크기는 최대 300Kbtye (JPEG), 가로/세로 1500px 이하 권장
+         *  - https://docs.popbill.com/message/java/api#SendMMS_Multi
          */
 
         // [동보전송] 발신번호, 개별 전송정보의 발신번호가 없는 경우 적용
@@ -451,7 +457,7 @@ public class MessageServiceExample {
         /*
          * XMS(단문/장문 자동인식)를 전송합니다.
          *  - 메시지 내용의 길이(90byte)에 따라 SMS/LMS(단문/장문)를 자동인식하여 전송합니다.
-         *  - 90byte 초과시 LMS(장문)으로 인식 합니다.
+         *  - https://docs.popbill.com/message/java/api#SendXMS
          */
         // 발신번호
         String sender = "07043042991";
@@ -499,8 +505,7 @@ public class MessageServiceExample {
         /*
          * [대량전송] XMS(단문/장문 자동인식)를 전송합니다.
          *  - 메시지 내용의 길이(90byte)에 따라 SMS/LMS(단문/장문)를 자동인식하여 전송합니다.
-         *  - 90byte 초과시 LMS(장문)으로 인식 합니다.
-         *  - 단건/대량 전송에 대한 설명은 "[문자 API 연동매뉴얼] > 3.2.4 SendXMS(단문/장문 자동인식 전송)"을 참조하시기 바랍니다.
+         *  - https://docs.popbill.com/message/java/api#SendXMS_Multi
          */
 
         // [동보전송용] 발신번호, 개별 전송정보에 발신번호가 없는 경우 적용
@@ -562,6 +567,7 @@ public class MessageServiceExample {
         /*
          * 문자전송요청시 발급받은 접수번호(receiptNum)로 예약문자 전송을 취소합니다.
          * - 예약취소는 예약전송시간 10분전까지만 가능합니다.
+         * - https://docs.popbill.com/message/java/api#CancelReserve
          */
 
         // 예약문자전송 접수번호
@@ -585,6 +591,7 @@ public class MessageServiceExample {
         /*
          * 문자전송요청시 할당한 전송요청번호(requestNum)로 예약문자 전송을 취소합니다.
          * - 예예약취소는 예약전송시간 10분전까지만 가능합니다.
+         * - https://docs.popbill.com/message/java/api#CancelReserveRN
          */
 
         // 예약문자전송 요청시 할당한 전송요청번호
@@ -607,7 +614,7 @@ public class MessageServiceExample {
     public String getMessages(Model m) {
         /*
          * 문자전송요청시 발급받은 접수번호(receiptNum)로 전송상태를 확인합니다
-         * - 응답항목에 대한 자세한 사항은 "[문자 API 연동매뉴얼] >  3.3.1. GetMessages (전송내역 확인)을 참조하시기 바랍니다.
+         * - https://docs.popbill.com/message/java/api#GetMessages
          */
 
         // 문자전송 접수번호
@@ -631,7 +638,7 @@ public class MessageServiceExample {
     public String getMessagesRN(Model m) {
         /*
          * 문자전송요청시 할당한 전송요청번호(requestNum)로 전송상태를 확인합니다
-         * - 응답항목에 대한 자세한 사항은 "[문자 API 연동매뉴얼] > 3.3.2. GetMessagesRN (전송내역 확인 - 요청번호 할당)을 참조하시기 바랍니다.
+         * - https://docs.popbill.com/message/java/api#GetMessagesRN
          */
 
         // 문자전송 요청 시 할당한 전송요청번호(requestNum)
@@ -655,6 +662,7 @@ public class MessageServiceExample {
     public String getStates(Model m) {
         /*
          * 문자전송에 대한 전송결과 요약정보를 확인합니다.
+         * - https://docs.popbill.com/message/java/api#GetStates
          */
 
         // 문자전송 접수번호 배열
@@ -679,6 +687,7 @@ public class MessageServiceExample {
         /*
          * 검색조건을 사용하여 문자전송 내역을 조회합니다.
          * - 최대 검색기간 : 6개월 이내
+         * - https://docs.popbill.com/message/java/api#Search
          */
 
         // 시작일자, 날짜형식(yyyyMMdd)
@@ -732,6 +741,7 @@ public class MessageServiceExample {
         /*
          * 문자 전송내역 팝업 URL을 반환합니다.
          * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         * - https://docs.popbill.com/message/java/api#GetSentListURL
          */
         try {
 
@@ -751,6 +761,7 @@ public class MessageServiceExample {
     public String getAutoDenyList(Model m) {
         /*
          * 080 서비스 수신거부 목록을 확인합니다.
+         * - https://docs.popbill.com/message/java/api#GetAutoDenyList
          */
 
         try {
@@ -767,6 +778,7 @@ public class MessageServiceExample {
     public String getUnitCost(Model m) {
         /*
          *  문자메시지 전송단가를 확인합니다.
+         *  - https://docs.popbill.com/message/java/api#GetUnitCost
          */
 
         // 문자 메시지 유형, SMS-단문, LMS-장문, MMS-포토
@@ -790,6 +802,7 @@ public class MessageServiceExample {
     public String chargeInfo(Model m) {
         /*
          * 문자서비스 API 서비스 과금정보를 확인합니다.
+         * - https://docs.popbill.com/message/java/api#GetChargeInfo
          */
 
         // 문자 메시지 유형, SMS-단문, LMS-장문, MMS-포토

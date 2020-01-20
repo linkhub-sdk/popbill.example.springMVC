@@ -2,7 +2,7 @@
  * 팝빌 계좌조회 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/easyfinbank/tutorial/java
- * - 업데이트 일자 : 2020-01-10
+ * - 업데이트 일자 : 2020-01-20
  * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
  *
@@ -63,6 +63,7 @@ public class EasyFinBankServiceExample {
     /*
      * 은행 계좌 관리 팝업 URL을 반환한다. 
      * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+     * - https://docs.popbill.com/easyfinbank/java/api#GetBankAccountMgtURL
      */
 	@RequestMapping(value = "getBankAccountMgtURL", method = RequestMethod.GET)
     public String getBankAccountMgtURL(Model m) {
@@ -82,6 +83,7 @@ public class EasyFinBankServiceExample {
 	
 	/*
 	 * 팝빌에 등록된 은행계좌 목록을 반환한다. 
+	 * - https://docs.popbill.com/easyfinbank/java/api#ListBankAccount
 	 */
 	@RequestMapping(value = "listBankAccount", method = RequestMethod.GET)
     public String listBankAccount(Model m) {
@@ -102,6 +104,7 @@ public class EasyFinBankServiceExample {
 	/*
 	 * 계좌 거래내역 수집을 요청한다.
 	 * - 검색기간은 현재일 기준 90일 이내로만 요청할 수 있다.
+	 * - https://docs.popbill.com/easyfinbank/java/api#RequestJob
 	 */
 	@RequestMapping(value = "requestJob", method = RequestMethod.GET)
     public String requestJob(Model m) {
@@ -133,6 +136,7 @@ public class EasyFinBankServiceExample {
 	
 	/*
 	 * 계좌 거래내역 수집 상태를 확인한다.
+	 * - https://docs.popbill.com/easyfinbank/java/api#GetJobState
 	 */
 	@RequestMapping(value = "getJobState", method = RequestMethod.GET)
     public String getJobState(Model m) {
@@ -155,6 +159,7 @@ public class EasyFinBankServiceExample {
 	
 	/*
 	 * 1시간 이내 수집 요청 목록을 확인한다. 
+	 * - https://docs.popbill.com/easyfinbank/java/api#ListActiveJob
 	 */
 	@RequestMapping(value = "listActiveJob", method = RequestMethod.GET)
     public String listActiveJob(Model m) {
@@ -174,6 +179,7 @@ public class EasyFinBankServiceExample {
 	
 	/*
 	 * 계좌 거래내역을 조회한다. 
+	 * - https://docs.popbill.com/easyfinbank/java/api#Search
 	 */
 	@RequestMapping(value = "search", method = RequestMethod.GET)
     public String search(Model m) {
@@ -211,6 +217,7 @@ public class EasyFinBankServiceExample {
 	
 	/*
 	 * 계좌 거래내역 요약정보를 조회한다. 
+	 * - https://docs.popbill.com/easyfinbank/java/api#Summary
 	 */
 	@RequestMapping(value = "summary", method = RequestMethod.GET)
     public String summary(Model m) {
@@ -240,6 +247,7 @@ public class EasyFinBankServiceExample {
 
 	/*
 	 * 계좌 거래내역에 메모를 저장한다.
+	 * - https://docs.popbill.com/easyfinbank/java/api#SaveMemo
 	 */
     @RequestMapping(value = "saveMemo", method = RequestMethod.GET)
     public String saveMemo(Model m) {
@@ -267,6 +275,7 @@ public class EasyFinBankServiceExample {
     /*
      * 계좌조회 정액제 서비스 신청 팝업 URL을 반환한다. 
      * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+     * - https://docs.popbill.com/easyfinbank/java/api#GetFlatRatePopUpURL
      */
 	@RequestMapping(value = "getFlatRatePopUpURL", method = RequestMethod.GET)
     public String getFlatRatePopUpURL(Model m) {
@@ -286,6 +295,7 @@ public class EasyFinBankServiceExample {
 	
 	/*
      * 정액제 서비스 상태를 확인합니다.
+     * - https://docs.popbill.com/easyfinbank/java/api#GetFlatRateState
      */
 	@RequestMapping(value = "getFlatRateState", method = RequestMethod.GET)
     public String getFlatRateState(Model m) {
@@ -312,6 +322,7 @@ public class EasyFinBankServiceExample {
 	
 	/*
      * 계좌조회 API 서비스 과금정보를 확인합니다.
+     * - https://docs.popbill.com/easyfinbank/java/api#GetChargeInfo
      */
 	@RequestMapping(value = "getChargeInfo", method = RequestMethod.GET)
 	public String chargeInfo(Model m) {

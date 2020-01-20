@@ -2,7 +2,7 @@
  * 팝빌 현금영수증 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/cashbill/tutorial/java
- * - 업데이트 일자 : 2019-10-22
+ * - 업데이트 일자 : 2020-01-20
  * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
  *
@@ -75,6 +75,7 @@ public class CashbillServiceExample {
         /*
          * 현금영수증 관리번호 중복여부를 확인합니다.
          * - 관리번호는 1~24자리로 숫자, 영문 '-', '_' 조합으로 구성할 수 있습니다.
+         * - https://docs.popbill.com/cashbill/java/api#CheckMgtKeyInUse
          */
 
         // 문서번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
@@ -102,8 +103,8 @@ public class CashbillServiceExample {
         /*
          * 1건의 현금영수증을 [즉시발행]합니다.
          * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청 전송결과를 확인할 수 있습니다.
-         * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼] > 1.3. 국세청 전송정책"을 참조하시기 바랍니다.
-         * - 취소현금영수증 작성방법 안내 - http://blog.linkhub.co.kr/702
+         * - 현금영수증 국세청 전송 정책 : https://docs.popbill.com/cashbill/ntsSendPolicy?lang=java
+         * - https://docs.popbill.com/cashbill/java/api#RegistIssue
          */
 
         // 메모
@@ -211,8 +212,7 @@ public class CashbillServiceExample {
          * 1건의 현금영수증을 [임시저장]합니다.
          * - [임시저장] 상태의 현금영수증은 발행(Issue API)을 호출해야만 국세청에 전송됩니다.
          * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청 전송결과를 확인할 수 있습니다.
-         * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼] > 1.3. 국세청 전송정책"을 참조하시기 바랍니다.
-         * - 취소현금영수증 작성방법 안내 - http://blog.linkhub.co.kr/702
+         * - https://docs.popbill.com/cashbill/java/api#Register
          */
 
         // 현금영수증 정보 객체
@@ -311,8 +311,7 @@ public class CashbillServiceExample {
         /*
          * 1건의 현금영수증을 [수정]합니다.
          * - [임시저장] 상태의 현금영수증만 수정할 수 있습니다.
-         * - 국세청에 신고된 현금영수증은 수정할 수 없으며, 취소 현금영수증을 발행하여 취소처리 할 수 있습니다.
-         * - 취소현금영수증 작성방법 안내 - http://blog.linkhub.co.kr/702
+         * - https://docs.popbill.com/cashbill/java/api#Update
          */
         
         // 수정할 현금영수증 문서번호
@@ -408,7 +407,7 @@ public class CashbillServiceExample {
         /*
          * 1건의 [임시저장] 현금영수증을 [발행]합니다.
          * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청 전송결과를 확인할 수 있습니다.
-         * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼] > 1.3. 국세청 전송정책"을 참조하시기 바랍니다.
+         * - https://docs.popbill.com/cashbill/java/api#CBIssue
          */
 
         // 현금영수증 문서번호
@@ -437,6 +436,7 @@ public class CashbillServiceExample {
          * [발행완료] 상태의 현금영수증을 [발행취소]합니다.
          * - 발행취소는 국세청 전송전에만 가능합니다.
          * - 발행취소된 형금영수증은 국세청에 전송되지 않습니다.
+         * - https://docs.popbill.com/cashbill/java/api#CancelIssue
          */
 
         // 문서번호
@@ -464,6 +464,7 @@ public class CashbillServiceExample {
          * 1건의 현금영수증을 [삭제]합니다.
          * - 현금영수증을 삭제하면 사용된 문서번호(mgtKey)를 재사용할 수 있습니다.
          * - 삭제가능한 문서 상태 : [임시저장], [발행취소]
+         * - https://docs.popbill.com/cashbill/java/api#Delete
          */
 
         // 현금영수증 문서번호
@@ -488,9 +489,7 @@ public class CashbillServiceExample {
         /*
          * 1건의 취소현금영수증을 [임시저장]합니다.
          * - [임시저장] 상태의 현금영수증은 [발행(Issue API)]을 해야만 국세청에 전송됩니다.
-         * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청 전송결과를 확인할 수 있습니다.
-         * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼] > 1.3. 국세청 전송정책"을 참조하시기 바랍니다.
-         * - 취소현금영수증 작성방법 안내 - http://blog.linkhub.co.kr/702
+         * - https://docs.popbill.com/cashbill/java/api#RevokeRegister
          */
 
         // 문서번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로
@@ -523,9 +522,7 @@ public class CashbillServiceExample {
         /*
          * 1건의 (부분)취소현금영수증을 [임시저장]합니다.
          * - [임시저장] 상태의 현금영수증은 [발행(Issue API)]을 해야만 국세청에 전송됩니다.
-         * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청 전송결과를 확인할 수 있습니다.
-         * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼] > 1.3. 국세청 전송정책"을 참조하시기 바랍니다.
-         * - 취소현금영수증 작성방법 안내 - http://blog.linkhub.co.kr/702
+         * - https://docs.popbill.com/cashbill/java/api#RevokeRegister
          */
 
         // 문서번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로
@@ -580,7 +577,7 @@ public class CashbillServiceExample {
         /*
          * 1건의 취소현금영수증을 [즉시발행]합니다.
          * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청 전송결과를 확인할 수 있습니다.
-         * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼] > 1.3. 국세청 전송정책"을 참조하시기 바랍니다.
+         * - https://docs.popbill.com/cashbill/java/api#RevokeRegistIssue
          */
 
         // 문서번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로
@@ -612,7 +609,7 @@ public class CashbillServiceExample {
         /*
          * 1건의 (부분)취소현금영수증을 [즉시발행]합니다.
          * - 발행일 기준 오후 5시 이전에 발행된 현금영수증은 다음날 오후 2시에 국세청 전송결과를 확인할 수 있습니다.
-         * - 현금영수증 국세청 전송 정책에 대한 정보는 "[현금영수증 API 연동매뉴얼] > 1.3. 국세청 전송정책"을 참조하시기 바랍니다.
+         * - https://docs.popbill.com/cashbill/java/api#RevokeRegistIssue
          */
 
         // 문서번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로
@@ -669,7 +666,7 @@ public class CashbillServiceExample {
     public String getInfo(Model m) {
         /*
          * 1건의 현금영수증 상태/요약 정보를 확인합니다.
-         * - 응답항목에 대한 자세한 정보는 "[현금영수증 API 연동매뉴얼] > 4.2. 현금영수증 상태정보 구성"을 참조하시기 바랍니다.
+         * - https://docs.popbill.com/cashbill/java/api#GetInfo
          */
 
         // 현금영수증 문서번호
@@ -693,7 +690,7 @@ public class CashbillServiceExample {
     public String getInfos(Model m) {
         /*
          * 대량의 현금영수증 상태/요약 정보를 확인합니다. (최대 1000건)
-         * - 응답항목에 대한 자세한 정보는 "[현금영수증 API 연동매뉴얼] > 4.2. 현금영수증 상태정보 구성"을 참조하시기 바랍니다.
+         * - https://docs.popbill.com/cashbill/java/api#GetInfos
          */
 
         // 현금영수증 문서번호 배열 최대(1000건)
@@ -717,7 +714,7 @@ public class CashbillServiceExample {
     public String getDetailInfo(Model m) {
         /*
          * 현금영수증 1건의 상세정보를 조회합니다.
-         * - 응답항목에 대한 자세한 사항은 "[현금영수증 API 연동매뉴얼] > 4.1. 현금영수증 구성" 을 참조하시기 바랍니다.
+         * - https://docs.popbill.com/cashbill/java/api#GetDetailInfo
          */
 
         // 현금영수증 문서번호
@@ -741,7 +738,7 @@ public class CashbillServiceExample {
     public String search(Model m) {
         /*
          * 검색조건을 사용하여 현금영수증 목록을 조회합니다.
-         * - 응답항목에 대한 자세한 사항은 "[현금영수증 API 연동매뉴얼] > 4.2. 현금영수증 상태정보 구성" 을 참조하시기 바랍니다.
+         * - https://docs.popbill.com/cashbill/java/api#Search
          */
 
         // 일자유형, R-등록일자, T-거래일자, I-발행일자
@@ -801,8 +798,7 @@ public class CashbillServiceExample {
     public String getLogs(Model m) {
         /*
          * 현금영수증 상태 변경이력을 확인합니다.
-         * - 상태 변경이력 확인(GetLogs API) 응답항목에 대한 자세한 정보는
-         *   "[현금영수증 API 연동매뉴얼] > 3.3.5 상태 변경이력 확인" 을 참조하시기 바랍니다.
+         * - https://docs.popbill.com/cashbill/java/api#GetLogs
          */
 
         // 현금영수증 문서번호
@@ -825,7 +821,7 @@ public class CashbillServiceExample {
     public String getURL(Model m) {
         /*
          * 팝빌 현금영수증 문서함 팝업 URL을 반환합니다.
-         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         * - https://docs.popbill.com/cashbill/java/api#GetURL
          */
 
         // TBOX : 임시문서함 , PBOX : 매출문서함, WRITE : 현금영수증 작성
@@ -849,7 +845,7 @@ public class CashbillServiceExample {
     public String getPopUpURL(Model m) {
         /*
          * 1건의 현금영수증 보기 팝업 URL을 반환합니다.
-         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         * - https://docs.popbill.com/cashbill/java/api#GetPopUpURL
          */
 
         // 현금영수증 문서번호
@@ -873,7 +869,7 @@ public class CashbillServiceExample {
     public String getPrintURL(Model m) {
         /*
          * 1건의 현금영수증 인쇄팝업 URL을 반환합니다.
-         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         * - https://docs.popbill.com/cashbill/java/api#GetPrintURL
          */
 
         // 현금영수증 문서번호
@@ -921,7 +917,7 @@ public class CashbillServiceExample {
     public String getMassPrintURL(Model m) {
         /*
          * 대량의 현금영수증 인쇄팝업 URL을 반환합니다. (최대 100건)
-         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         * - https://docs.popbill.com/cashbill/java/api#GetMassPrintURL
          */
 
         // 문서번호 배열, 최대 100건
@@ -945,7 +941,7 @@ public class CashbillServiceExample {
     public String getMailURL(Model m) {
         /*
          * 현금영수증 수신메일 링크주소를 반환합니다.
-         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         * - https://docs.popbill.com/cashbill/java/api#GetMailURL
          */
 
         // 현금영수증 문서번호
@@ -969,6 +965,7 @@ public class CashbillServiceExample {
     public String sendEmail(Model m) {
         /*
          * 현금영수증 발행 안내메일을 재전송합니다.
+         * - https://docs.popbill.com/cashbill/java/api#SendEmail
          */
 
         // 현금영수증 문서번호
@@ -996,6 +993,7 @@ public class CashbillServiceExample {
          * 알림문자를 전송합니다. (단문/SMS - 한글 최대 45자)
          * - 알림문자 전송시 포인트가 차감됩니다. (전송실패시 환불처리)
          * - 전송내역 확인은 "팝빌 로그인" > [문자 팩스] > [문자] > [전송내역] 탭에서 전송결과를 확인할 수 있습니다.
+         * - https://docs.popbill.com/cashbill/java/api#SendSMS
          */
 
 
@@ -1032,6 +1030,7 @@ public class CashbillServiceExample {
          * 현금영수증을 팩스전송합니다.
          * - 팩스 전송 요청시 포인트가 차감됩니다. (전송실패시 환불처리)
          * - 전송내역 확인은 "팝빌 로그인" > [문자 팩스] > [팩스] > [전송내역] 메뉴에서 전송결과를 확인할 수 있습니다.
+         * - https://docs.popbill.com/cashbill/java/api#SendFAX
          */
 
         // 현금영수증 문서번호
@@ -1062,6 +1061,7 @@ public class CashbillServiceExample {
     public String listEmailConfig(Model m) {
         /*
          * 현금영수증 관련 메일전송 항목에 대한 전송여부를 목록을 반환합니다.
+         * - https://docs.popbill.com/cashbill/java/api#ListEmailConfig
          */
 
         try {
@@ -1082,10 +1082,12 @@ public class CashbillServiceExample {
     public String updateEmailConfig(Model m) {
         /*
          * 현금영수증 관련 메일전송 항목에 대한 전송여부를 수정합니다.
+         * - https://docs.popbill.com/cashbill/java/api#UpdateEmailConfig
          *
          * 메일전송유형
          * CSH_ISSUE : 고객에게 현금영수증이 발행 되었음을 알려주는 메일 입니다.
          * CSH_CANCEL : 고객에게 현금영수증이 발행취소 되었음을 알려주는 메일 입니다.
+         * 
          */
 
         // 메일 전송 유형
@@ -1113,6 +1115,7 @@ public class CashbillServiceExample {
     public String getUnitCost(Model m) {
         /*
          * 현금영수증 발행단가를 확인합니다.
+         * - https://docs.popbill.com/cashbill/java/api#GetUnitCost
          */
 
         try {
@@ -1133,6 +1136,7 @@ public class CashbillServiceExample {
     public String chargeInfo(Model m) {
         /*
          * 현금영수증 API 서비스 과금정보를 확인합니다.
+         * - https://docs.popbill.com/cashbill/java/api#GetChargeInfo
          */
 
         try {

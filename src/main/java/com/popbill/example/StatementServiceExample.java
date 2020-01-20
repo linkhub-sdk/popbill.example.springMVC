@@ -2,7 +2,7 @@
  * 팝빌 전자명세서 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/statement/tutorial/java
- * - 업데이트 일자 : 2019-10-22
+ * - 업데이트 일자 : 2020-01-20
  * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
  *
@@ -82,6 +82,7 @@ public class StatementServiceExample {
         /*
          * 문서번호 사용여부 확인
          * - 최대 24자리, 영문, 숫자, '-', '_' 조합하여 구성
+         * - https://docs.popbill.com/statement/java/api#CheckMgtKeyInUse
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
@@ -110,6 +111,7 @@ public class StatementServiceExample {
     public String registIssue(Model m) {
         /*
          * 1건의 전자명세서를 [즉시발행]합니다.
+         * - https://docs.popbill.com/statement/java/api#RegistIssuex 
          */
 
         String Memo = "전자명세서 즉시발행 메모";
@@ -295,6 +297,7 @@ public class StatementServiceExample {
     public String register(Model m) {
         /*
          * 1건의 전자명세서를 [임시저장]합니다.
+         * - https://docs.popbill.com/statement/java/api#Register
          */
 
         //  전자명세서 정보 객체
@@ -478,6 +481,7 @@ public class StatementServiceExample {
         /*
          * 1건의 전자명세서를 [수정]합니다.
          * - [임시저장] 상태의 전자명세서만 수정할 수 있습니다.
+         * - https://docs.popbill.com/statement/java/api#Update
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
@@ -666,6 +670,7 @@ public class StatementServiceExample {
     public String issue(Model m) {
         /*
          * 1건의 [임시저장] 상태의 전자명세서를 [발행]합니다
+         * - https://docs.popbill.com/statement/java/api#StmIssue
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
@@ -696,6 +701,7 @@ public class StatementServiceExample {
     public String cancelIssue(Model m) {
         /*
          * 1건의 전자명세서를 [발행취소]합니다.
+         * - https://docs.popbill.com/statement/java/api#Cancel
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
@@ -728,6 +734,7 @@ public class StatementServiceExample {
          * 1건의 전자명세서를 [삭제]합니다.
          * - 전자명세서를 삭제하면 사용된 문서번호(mgtKey)를 재사용할 수 있습니다.
          * - 삭제가능한 문서 상태 : [임시저장], [발행취소]
+         * - https://docs.popbill.com/statement/java/api#Delete
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
@@ -754,7 +761,7 @@ public class StatementServiceExample {
     public String getInfo(Model m) {
         /*
          * 1건의 전자명세서 상태/요약 정보를 확인합니다.
-         * - 응답항목에 대한 자세한 정보는 "[전자명세서 API 연동매뉴얼] > 3.2.1. GetInfo (상태 확인)"을 참조하시기 바랍니다.
+         * - https://docs.popbill.com/statement/java/api#GetInfo
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
@@ -782,7 +789,7 @@ public class StatementServiceExample {
     public String getInfos(Model m) {
         /*
          * 다수건의 전자명세서 상태/요약 정보를 확인합니다.
-         * - 응답항목에 대한 자세한 정보는 "[전자명세서 API 연동매뉴얼] > 3.2.2. GetInfos (상태 대량 확인)"을 참조하시기 바랍니다.
+         * - https://docs.popbill.com/statement/java/api#GetInfos
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
@@ -810,7 +817,7 @@ public class StatementServiceExample {
     public String getDetailInfo(Model m) {
         /*
          * 전자명세서 1건의 상세정보를 조회합니다.
-         * - 응답항목에 대한 자세한 사항은 "[전자명세서 API 연동매뉴얼] > 4.1. 전자명세서 구성" 을 참조하시기 바랍니다.
+         * - https://docs.popbill.com/statement/java/api#GetDetailInfo
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
@@ -838,7 +845,7 @@ public class StatementServiceExample {
     public String search(Model m) {
         /*
          * 검색조건을 사용하여 전자명세서 목록을 조회합니다.
-         * - 응답항목에 대한 자세한 사항은 "[전자명세서 API 연동매뉴얼] > 3.2.4. Search (목록 조회)" 를 참조하시기 바랍니다.
+         * - https://docs.popbill.com/statement/java/api#Search
          */
 
         // 일자유형, R-등록일자, W-작성일자, I-발행일자
@@ -887,8 +894,7 @@ public class StatementServiceExample {
     public String getLogs(Model m) {
         /*
          * 전자명세서 상태 변경이력을 확인합니다.
-         * - 상태 변경이력 확인(GetLogs API) 응답항목에 대한 자세한 정보는
-         *  "[전자명세서 API 연동매뉴얼] > 3.2.5 GetLogs (상태 변경이력 확인)" 을 참조하시기 바랍니다.
+         * - https://docs.popbill.com/statement/java/api#GetLogs
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
@@ -916,7 +922,7 @@ public class StatementServiceExample {
     public String getURL(Model m) {
         /*
          * 팝빌 전자명세서 문서함 관련 팝업 URL을 반환합니다.
-         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         * - https://docs.popbill.com/statement/java/api#GetURL
          */
 
         // TBOX : 임시문서함 , SBOX : 매출문서함
@@ -940,7 +946,7 @@ public class StatementServiceExample {
     public String getPopUpURL(Model m) {
         /*
          * 1건의 전자명세서 보기 팝업 URL을 반환합니다.
-         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         * - https://docs.popbill.com/statement/java/api#GetPopUpURL
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
@@ -968,7 +974,7 @@ public class StatementServiceExample {
     public String getPrintURL(Model m) {
         /*
          * 1건의 전자명세서 인쇄팝업 URL을 반환합니다. (발신자/수신자용)
-         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         * - https://docs.popbill.com/statement/java/api#GetPrintURL
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
@@ -996,7 +1002,7 @@ public class StatementServiceExample {
     public String getEPrintURL(Model m) {
         /*
          * 1건의 전자명세서 인쇄팝업 URL을 반환합니다. (수신자용)
-         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         * - https://docs.popbill.com/statement/java/api#GetEPrintURL
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
@@ -1024,7 +1030,7 @@ public class StatementServiceExample {
     public String getMassPrintURL(Model m) {
         /*
          * 다수건의 전자명세서 인쇄팝업 URL을 반환합니다. (최대 100건)
-         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         * - https://docs.popbill.com/statement/java/api#GetMassPrintURL
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
@@ -1052,7 +1058,7 @@ public class StatementServiceExample {
     public String getMailURL(Model m) {
         /*
          * 수신자 메일링크 URL을 반환합니다.
-         * - 메일링크 URL은 유효시간이 존재하지 않습니다.
+         * - https://docs.popbill.com/statement/java/api#GetMailURL
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
@@ -1080,6 +1086,7 @@ public class StatementServiceExample {
          * 전자명세서에 첨부파일을 등록합니다.
          * - 첨부파일 등록은 전자명세서가 [임시저장] 상태인 경우에만 가능합니다.
          * - 첨부파일은 최대 5개까지 등록할 수 있습니다.
+         * - https://docs.popbill.com/statement/java/api#AttachFile
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
@@ -1124,6 +1131,7 @@ public class StatementServiceExample {
          * 전자명세서에 첨부된 파일을 삭제합니다.
          * - 파일을 식별하는 파일아이디는 첨부파일 목록(GetFiles API) 의 응답항목
          *   중 파일아이디(AttachedFile) 값을 통해 확인할 수 있습니다.
+         * - https://docs.popbill.com/statement/java/api#DeleteFile
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
@@ -1156,6 +1164,7 @@ public class StatementServiceExample {
          * 전자명세서에 첨부된 파일의 목록을 확인합니다.
          * - 응답항목 중 파일아이디(AttachedFile) 항목은 파일삭제(DeleteFile API)
          *   호출시 이용할 수 있습니다.
+         * - https://docs.popbill.com/statement/java/api#GetFiles
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
@@ -1183,6 +1192,7 @@ public class StatementServiceExample {
     public String sendEmail(Model m) {
         /*
          * 발행 안내메일을 재전송합니다.
+         * - https://docs.popbill.com/statement/java/api#SendEmail
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
@@ -1215,6 +1225,7 @@ public class StatementServiceExample {
          * 알림문자를 전송합니다. (단문/SMS- 한글 최대 45자)
          * - 알림문자 전송시 포인트가 차감됩니다. (전송실패시 환불처리)
          * - 전송내역 확인은 "팝빌 로그인" > [문자 팩스] > [문자] > [전송내역] 탭에서 전송결과를 확인할 수 있습니다.
+         * - https://docs.popbill.com/statement/java/api#SendSMS
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
@@ -1253,6 +1264,7 @@ public class StatementServiceExample {
          * 전자명세서를 팩스전송합니다.
          * - 팩스 전송 요청시 포인트가 차감됩니다. (전송실패시 환불처리)
          * - 전송내역 확인은 "팝빌 로그인" > [문자 팩스] > [팩스] > [전송내역] 메뉴에서 전송결과를 확인할 수 있습니다.
+         * - https://docs.popbill.com/statement/java/api#SendFAX
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
@@ -1291,6 +1303,7 @@ public class StatementServiceExample {
          * - 전송내역 확인은 "팝빌 로그인" > [문자 팩스] > [팩스] > [전송내역] 메뉴에서 전송결과를 확인할 수 있습니다.
          * - 팩스 전송결과를 확인하기 위해서는 선팩스 전송 요청 시 반환받은 접수번호를 이용하여
          *   팩스 API의 전송결과 확인 (GetFaxDetail) API를 이용하면 됩니다.
+         * - https://docs.popbill.com/statement/java/api#FAXSend
          */
 
         // 팩스전송 발신번호
@@ -1479,6 +1492,7 @@ public class StatementServiceExample {
     public String attachStatement(Model m) {
         /*
          * 전자명세서에 다른 전자명세서 1건을 첨부합니다.
+         * - https://docs.popbill.com/statement/java/api#AttachStatement
          */
 
         // 전자명세서 코드
@@ -1513,6 +1527,7 @@ public class StatementServiceExample {
     public String detachStatement(Model m) {
         /*
          * 전자명세서에 첨부된 다른 전자명세서를 첨부해제합니다.
+         * - https://docs.popbill.com/statement/java/api#DetachStatement
          */
 
         // 전자명세서 코드
@@ -1547,6 +1562,7 @@ public class StatementServiceExample {
     public String listEmailConfig(Model m) {
         /*
          * 전자명세서 관련 메일전송 항목에 대한 전송여부를 목록으로 반환합니다.
+         * - https://docs.popbill.com/statement/java/api#ListEmailConfig
          */
 
         try {
@@ -1567,6 +1583,7 @@ public class StatementServiceExample {
     public String updateEmailConfig(Model m) {
         /*
          * 전자명세서 관련 메일전송 항목에 대한 전송여부를 수정합니다.
+         * - https://docs.popbill.com/statement/java/api#UpdateEmailConfig
          *
          * 메일전송유형
          * SMT_ISSUE : 수신자에게 전자명세서가 발행 되었음을 알려주는 메일입니다.
@@ -1601,6 +1618,7 @@ public class StatementServiceExample {
     public String getUnitCost(Model m) {
         /*
          * 전자명세서 발행단가를 확인합니다.
+         * - https://docs.popbill.com/statement/java/api#GetUnitCost
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
@@ -1626,6 +1644,7 @@ public class StatementServiceExample {
     public String chargeInfo(Model m) {
         /*
          * 전자명세서 API 서비스 과금정보를 확인합니다.
+         * - https://docs.popbill.com/statement/java/api#GetChargeInfo
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
