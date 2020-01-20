@@ -30,6 +30,7 @@
 package com.popbill.example;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -506,33 +507,37 @@ public class KakaoServiceExample {
 
 
         // 카카오톡 수신정보 배열, 최대 1000건
-        KakaoReceiver[] receivers = new KakaoReceiver[100];
-        for (int i = 0; i < 100; i++) {
+        KakaoReceiver[] receivers = new KakaoReceiver[10];
+        for (int i = 0; i < 10; i++) {
             KakaoReceiver message = new KakaoReceiver();
             message.setReceiverNum("010111222"); // 수신번호
             message.setReceiverName("수신자명" + i);    // 수신자명
             message.setMessage("친구톡 개별내용" + i); // 친구톡 내용, 최대 1000자
             message.setAltMessage("대체문자 개별내용" + i); // 대체문자 내용
+            
+            
+            KakaoButton button = new KakaoButton();
+            button.setN("타입1 버튼명"+i); // 버튼명
+            button.setT("WL"); // 버튼타입
+            button.setU1("http://"+i+"popbill.com"); // 버튼링크1
+            button.setU2("http://"+i+"test.popbill.com"); // 버튼링크2
+            
+            KakaoButton button02 = new KakaoButton();
+            button02.setN("타입2 버튼명"+i); // 버튼명
+            button02.setT("WL"); // 버튼타입
+            button02.setU1("http://"+i+"popbill.com"); // 버튼링크1
+            button02.setU2("http://"+i+"test.popbill.com"); // 버튼링크2
+            
+            // 수신자별로 각기다른 버튼정보 추가.
+            message.setBtns(new ArrayList<KakaoButton>());
+            message.getBtns().add(button);
+            message.getBtns().add(button02);
+            
             receivers[i] = message;
         }
 
 
-        // 친구톡 버튼 배열, 최대 5개
-        KakaoButton[] btns = new KakaoButton[2];
-
-        KakaoButton button = new KakaoButton();
-        button.setN("버튼명"); // 버튼명
-        button.setT("WL"); // 버튼타입
-        button.setU1("http://www.popbill.com"); // 버튼링크1
-        button.setU2("http://test.popbill.com"); // 버튼링크2
-        btns[0] = button;
-
-        button = new KakaoButton();
-        button.setN("버튼명2");
-        button.setT("WL");
-        button.setU1("http://www.popbill.com");
-        button.setU2("http://test.popbill.com");
-        btns[1] = button;
+        
 
         // 전송요청번호
         // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
@@ -542,7 +547,7 @@ public class KakaoServiceExample {
         try {
 
             String receiptNum = kakaoService.sendFTS(testCorpNum, plusFriendID, senderNum, altSendType,
-                    receivers, btns, sndDT, adsYN, testUserID, requestNum);
+                    receivers, null, sndDT, adsYN, testUserID, requestNum);
 
             m.addAttribute("Result", receiptNum);
 
