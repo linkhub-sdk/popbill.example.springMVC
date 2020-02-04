@@ -514,6 +514,7 @@ public class KakaoServiceExample {
             message.setReceiverName("수신자명" + i);    // 수신자명
             message.setMessage("친구톡 개별내용" + i); // 친구톡 내용, 최대 1000자
             message.setAltMessage("대체문자 개별내용" + i); // 대체문자 내용
+            message.setInterOPRefKey("referenceKey-" + i);
             
             
             KakaoButton button = new KakaoButton();
@@ -940,7 +941,7 @@ public class KakaoServiceExample {
          */
 
         // 카카오톡 접수번호
-        String receiptNum = "019010415172000001";
+        String receiptNum = "020020410351600001";
 
         try {
 
