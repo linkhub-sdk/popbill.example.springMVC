@@ -36,6 +36,7 @@ import com.popbill.api.FlatRateState;
 import com.popbill.api.PopbillException;
 import com.popbill.api.Response;
 import com.popbill.api.easyfin.EasyFinBankAccount;
+import com.popbill.api.easyfin.EasyFinBankAccountForm;
 import com.popbill.api.easyfin.EasyFinBankJobState;
 import com.popbill.api.easyfin.EasyFinBankSearchResult;
 import com.popbill.api.easyfin.EasyFinBankSummary;
@@ -58,6 +59,213 @@ public class EasyFinBankServiceExample {
 	@RequestMapping(value = "", method = RequestMethod.GET)
     public String home(Locale locale, Model model) {
         return "EasyFinBank/index";
+    }
+	
+	
+	/*
+     * 계좌조회 서비스를 이용할 은행계좌를 등록한다.
+     */
+	@RequestMapping(value = "registBankAccount", method = RequestMethod.GET)
+    public String registBankAccount(Model m) {
+		
+		// 계좌정보 클래스 인스턴스 생성
+		EasyFinBankAccountForm bankInfo = new EasyFinBankAccountForm();
+		
+		// [필수] 은행코드
+	    // 산업은행-0002 / 기업은행-0003 / 국민은행-0004 /수협은행-0007 / 농협은행-0011 / 우리은행-0020
+	    // SC은행-0023 / 대구은행-0031 / 부산은행-0032 / 광주은행-0034 / 제주은행-0035 / 전북은행-0037
+	    // 경남은행-0039 / 새마을금고-0045 / 신협은행-0048 / 우체국-0071 / KEB하나은행-0081 / 신한은행-0088 /씨티은행-0027
+		bankInfo.setBankCode("");
+		
+		// [필수] 계좌번호 하이픈('-') 제외
+		bankInfo.setAccountNumber("");
+		
+		// [필수] 계좌비밀번호
+		bankInfo.setAccountPWD("");
+		
+		// [필수] 계좌유형, "법인" 또는 "개인" 입력
+		bankInfo.setAccountType("");
+		
+		// [필수] 예금주 식별정보 (‘-‘ 제외)
+	    // 계좌유형이 “법인”인 경우 : 사업자번호(10자리)
+	    // 계좌유형이 “개인”인 경우 : 예금주 생년월일 (6자리-YYMMDD)
+		bankInfo.setIdentityNumber("");
+		
+		// 계좌 별칭
+		bankInfo.setAccountName("");
+		
+		// 인터넷뱅킹 아이디 (국민은행 필수)
+		bankInfo.setBankID("");
+		
+		// 조회전용 계정 아이디 (대구은행, 신협, 신한은행 필수)
+		bankInfo.setFastID("");
+		
+		// 조회전용 계정 비밀번호 (대구은행, 신협, 신한은행 필수
+		bankInfo.setFastPWD("");
+		
+		// 결제기간(개월), 1~12 입력가능, 미기재시 기본값(1) 처리
+	    // - 파트너 과금방식의 경우 입력값에 관계없이 1개월 처리
+		bankInfo.setUsePeriod(1);
+		
+		// 메모
+		bankInfo.setMemo("");
+		
+        try {
+
+            Response response = easyFinBankService.registBankAccount(testCorpNum, bankInfo);
+
+            m.addAttribute("Response", response);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "response";
+    }
+	
+	/*
+	 * 팝빌에 등록된 은행 계좌정보를 수정합니다.
+	 */
+	@RequestMapping(value = "updateBankAccount", method = RequestMethod.GET)
+    public String updateBankAccount(Model m) {
+		
+		// 계좌정보 클래스 인스턴스 생성
+		EasyFinBankAccountForm bankInfo = new EasyFinBankAccountForm();
+		
+		// [필수] 은행코드
+	    // 산업은행-0002 / 기업은행-0003 / 국민은행-0004 /수협은행-0007 / 농협은행-0011 / 우리은행-0020
+	    // SC은행-0023 / 대구은행-0031 / 부산은행-0032 / 광주은행-0034 / 제주은행-0035 / 전북은행-0037
+	    // 경남은행-0039 / 새마을금고-0045 / 신협은행-0048 / 우체국-0071 / KEB하나은행-0081 / 신한은행-0088 /씨티은행-0027
+		bankInfo.setBankCode("");
+		
+		// [필수] 계좌번호 하이픈('-') 제외
+		bankInfo.setAccountNumber("");
+		
+		// [필수] 계좌비밀번호
+		bankInfo.setAccountPWD("");
+		
+		// 계좌 별칭
+		bankInfo.setAccountName("");
+		
+		// 인터넷뱅킹 아이디 (국민은행 필수)
+		bankInfo.setBankID("");
+		
+		// 조회전용 계정 아이디 (대구은행, 신협, 신한은행 필수)
+		bankInfo.setFastID("");
+		
+		// 조회전용 계정 비밀번호 (대구은행, 신협, 신한은행 필수
+		bankInfo.setFastPWD("");
+				
+		// 메모
+		bankInfo.setMemo("");
+		
+        try {
+
+            Response response = easyFinBankService.updateBankAccount(testCorpNum, bankInfo);
+
+            m.addAttribute("Response", response);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "response";
+    }
+	
+	/*
+	 * 팝빌에 등록된 은행계좌의 정액제 해지를 요청합니다.
+	 */
+	@RequestMapping(value = "closeBankAccount", method = RequestMethod.GET)
+    public String closeBankAccount(Model m) {
+		
+		// [필수] 은행코드
+	    // 산업은행-0002 / 기업은행-0003 / 국민은행-0004 /수협은행-0007 / 농협은행-0011 / 우리은행-0020
+	    // SC은행-0023 / 대구은행-0031 / 부산은행-0032 / 광주은행-0034 / 제주은행-0035 / 전북은행-0037
+	    // 경남은행-0039 / 새마을금고-0045 / 신협은행-0048 / 우체국-0071 / KEB하나은행-0081 / 신한은행-0088 /씨티은행-0027
+		String BankCode = "";
+		
+		// [필수] 계좌번호 하이픈('-') 제외
+		String AccountNumber = "";
+				
+		// [필수] 해지유형, “일반”, “중도” 중 선택 기재
+	    // 일반해지 – 이용중인 정액제 사용기간까지 이용후 정지
+	    // 중도해지 – 요청일 기준으로 정지, 정액제 잔여기간은 일할로 계산되어 포인트 환불 (무료 이용기간 중 중도해지 시 전액 환불)
+		String CloseType = "중도";
+		
+        try {
+
+            Response response = easyFinBankService.closeBankAccount(testCorpNum, BankCode, AccountNumber, CloseType);
+
+            m.addAttribute("Response", response);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "response";
+    }
+	
+	/*
+	 * 팝빌에 등록된 은행계좌의 정액제 해지요청을 취소합니다.
+	 */
+	@RequestMapping(value = "revokeCloseBankAccount", method = RequestMethod.GET)
+    public String revokeCloseBankAccount(Model m) {
+		
+		// [필수] 은행코드
+	    // 산업은행-0002 / 기업은행-0003 / 국민은행-0004 /수협은행-0007 / 농협은행-0011 / 우리은행-0020
+	    // SC은행-0023 / 대구은행-0031 / 부산은행-0032 / 광주은행-0034 / 제주은행-0035 / 전북은행-0037
+	    // 경남은행-0039 / 새마을금고-0045 / 신협은행-0048 / 우체국-0071 / KEB하나은행-0081 / 신한은행-0088 /씨티은행-0027
+		String BankCode = "";
+		
+		// [필수] 계좌번호 하이픈('-') 제외
+		String AccountNumber = "";
+				
+        try {
+
+            Response response = easyFinBankService.revokeCloseBankAccount(testCorpNum, BankCode, AccountNumber);
+
+            m.addAttribute("Response", response);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "response";
+    }
+	
+	
+	/*
+	 * 팝빌에 등록된 은행 계좌정보를 확인합니다.
+	 */
+	@RequestMapping(value = "getBankAccountInfo", method = RequestMethod.GET)
+    public String getBankAccountInfo(Model m) {
+		
+		
+		// [필수] 은행코드
+	    // 산업은행-0002 / 기업은행-0003 / 국민은행-0004 /수협은행-0007 / 농협은행-0011 / 우리은행-0020
+	    // SC은행-0023 / 대구은행-0031 / 부산은행-0032 / 광주은행-0034 / 제주은행-0035 / 전북은행-0037
+	    // 경남은행-0039 / 새마을금고-0045 / 신협은행-0048 / 우체국-0071 / KEB하나은행-0081 / 신한은행-0088 /씨티은행-0027
+		String BankCode = "";
+		
+		// [필수] 계좌번호 하이픈('-') 제외
+		String AccountNumber = "";
+		
+        try {
+
+            EasyFinBankAccount bankAccountInfo = easyFinBankService.getBankAccountInfo(testCorpNum, BankCode, AccountNumber);
+    		
+            m.addAttribute("Account", bankAccountInfo);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "EasyFinBank/GetBankAccount";
     }
 
     /*

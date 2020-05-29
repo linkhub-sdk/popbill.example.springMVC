@@ -13,8 +13,13 @@
     <fieldset class="fieldset1">
         <legend>걔좌 관리</legend>
         <ul>
+        	<li><a href="EasyFinBankService/registBankAccount">registBankAccount</a> - 계좌 등록</li>
+        	<li><a href="EasyFinBankService/updateBankAccount">updateBankAccount</a> - 계좌 정보 수정</li>
+        	<li><a href="EasyFinBankService/getBankAccountInfo">getBankAccountInfo</a> - 계좌 정보 확인</li>
+        	<li><a href="EasyFinBankService/listBankAccount">listBankAccount</a> - 계좌 목록 확인</li>
             <li><a href="EasyFinBankService/getBankAccountMgtURL">getBankAccountMGTURL</a> - 계좌 관리 팝업 URL</li>
-            <li><a href="EasyFinBankService/listBankAccount">listBankAccount</a> - 계좌 목록 확인</li>
+            <li><a href="EasyFinBankService/closeBankAccount">closeBankAccount</a> - 계좌 정액제 해지신청</li>
+            <li><a href="EasyFinBankService/revokeCloseBankAccount">revokeCloseBankAccount</a> - 계좌 정액제 해지신청 취소</li>
         </ul>
     </fieldset>
     
