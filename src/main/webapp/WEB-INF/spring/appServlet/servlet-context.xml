@@ -115,8 +115,16 @@
         </beans:bean>
         
         
-        <!-- 간편 계좌조회  Service Implementation Bean registration.  -->
+        <!-- 계좌조회  Service Implementation Bean registration.  -->
         <beans:bean id="easyFinBankService" class="com.popbill.api.easyfin.EasyFinBankServiceImp">
+            <beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
+            <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
+            <beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
+            <beans:property name="IPRestrictOnOff" value="#{EXAMPLE_CONFIG.IsIPRestrictOnOff}"/>
+        </beans:bean>
+        
+         <!-- 예금주조회 Service Implementation Bean registration.	-->
+        <beans:bean id="accountCheckService" class="com.popbill.api.accountcheck.AccountCheckServiceImp">
             <beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
             <beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>

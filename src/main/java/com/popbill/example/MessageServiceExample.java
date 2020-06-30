@@ -132,7 +132,7 @@ public class MessageServiceExample {
         String receiverName = "수신자명";
 
         // 메시지 내용, 90byte 초과된 내용은 삭제되어 전송
-        String content = "문자메시지 내용";
+        String content = "문자메시지\r내용";
 
         // 예약전송일시, null 처리시 즉시전송
         Date reserveDT = null;
