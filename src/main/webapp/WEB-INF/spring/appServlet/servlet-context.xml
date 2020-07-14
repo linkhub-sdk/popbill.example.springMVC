@@ -30,6 +30,7 @@
         SecretKey : 링크허브에서 발급받는 비밀키.
         IsTest : 연동환경 설정, true-개발용, false-상업용
         IPRestrictOnOff : 인증토큰 발급 IP 제한 On/Off, ture-제한기능 사용(기본값-권장),  false-제한기능 미사용
+        UseStaticIP : 팝빌 API 서비스 고정 IP 사용여부(GA), true-사용, false-미사용, 기본값(false)
     -->
     <util:properties id="EXAMPLE_CONFIG">
         <beans:prop key="TestCorpNum">1234567890</beans:prop>
@@ -38,6 +39,7 @@
         <beans:prop key="SecretKey">SwWxqU+0TErBXy/9TVjIPEnI0VTUMMSQZtJf3Ed8q3I=</beans:prop>
         <beans:prop key="IsTest">true</beans:prop>
         <beans:prop key="IsIPRestrictOnOff">true</beans:prop>
+        <beans:prop key="UseStaticIP">false</beans:prop>
     </util:properties>
 
     <beans:beans>
@@ -47,6 +49,7 @@
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
             <beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
             <beans:property name="IPRestrictOnOff" value="#{EXAMPLE_CONFIG.IsIPRestrictOnOff}"/>
+            <beans:property name="useStaticIP" value="#{EXAMPLE_CONFIG.UseStaticIP}"/>
         </beans:bean>
 
         <!-- 전자명세서 Service Implementation Bean registration.  -->
@@ -55,6 +58,7 @@
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
             <beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
             <beans:property name="IPRestrictOnOff" value="#{EXAMPLE_CONFIG.IsIPRestrictOnOff}"/>
+            <beans:property name="useStaticIP" value="#{EXAMPLE_CONFIG.UseStaticIP}"/>
         </beans:bean>
 
         <!-- 현금영수증 Service Implementation Bean registration.  -->
@@ -63,6 +67,7 @@
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
             <beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
             <beans:property name="IPRestrictOnOff" value="#{EXAMPLE_CONFIG.IsIPRestrictOnOff}"/>
+            <beans:property name="useStaticIP" value="#{EXAMPLE_CONFIG.UseStaticIP}"/>
         </beans:bean>
 
         <!-- 	문자메시지 Service Implementation Bean registration.	-->
@@ -71,6 +76,7 @@
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
             <beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
             <beans:property name="IPRestrictOnOff" value="#{EXAMPLE_CONFIG.IsIPRestrictOnOff}"/>
+            <beans:property name="useStaticIP" value="#{EXAMPLE_CONFIG.UseStaticIP}"/>
         </beans:bean>
 
         <!-- 팩스 Service Implementation Bean registration.  -->
@@ -79,6 +85,7 @@
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
             <beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
             <beans:property name="IPRestrictOnOff" value="#{EXAMPLE_CONFIG.IsIPRestrictOnOff}"/>
+            <beans:property name="useStaticIP" value="#{EXAMPLE_CONFIG.UseStaticIP}"/>
         </beans:bean>
 
         <!-- 홈택스 전자세금계산서 연계 Service Implementation Bean registration.  -->
@@ -87,6 +94,7 @@
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
             <beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
             <beans:property name="IPRestrictOnOff" value="#{EXAMPLE_CONFIG.IsIPRestrictOnOff}"/>
+            <beans:property name="useStaticIP" value="#{EXAMPLE_CONFIG.UseStaticIP}"/>
         </beans:bean>
 
 
@@ -96,6 +104,7 @@
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
             <beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
             <beans:property name="IPRestrictOnOff" value="#{EXAMPLE_CONFIG.IsIPRestrictOnOff}"/>
+            <beans:property name="useStaticIP" value="#{EXAMPLE_CONFIG.UseStaticIP}"/>
         </beans:bean>
 
         <!-- 휴폐업조회 Service Implementation Bean registration.  -->
@@ -104,6 +113,7 @@
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
             <beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
             <beans:property name="IPRestrictOnOff" value="#{EXAMPLE_CONFIG.IsIPRestrictOnOff}"/>
+            <beans:property name="useStaticIP" value="#{EXAMPLE_CONFIG.UseStaticIP}"/>
         </beans:bean>
 
         <!-- 카카오톡 Service Implementation Bean registration.  -->
@@ -112,6 +122,7 @@
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
             <beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
             <beans:property name="IPRestrictOnOff" value="#{EXAMPLE_CONFIG.IsIPRestrictOnOff}"/>
+            <beans:property name="useStaticIP" value="#{EXAMPLE_CONFIG.UseStaticIP}"/>
         </beans:bean>
         
         
@@ -121,6 +132,7 @@
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
             <beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
             <beans:property name="IPRestrictOnOff" value="#{EXAMPLE_CONFIG.IsIPRestrictOnOff}"/>
+            <beans:property name="useStaticIP" value="#{EXAMPLE_CONFIG.UseStaticIP}"/>
         </beans:bean>
         
          <!-- 예금주조회 Service Implementation Bean registration.	-->
@@ -129,6 +141,7 @@
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
             <beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
             <beans:property name="IPRestrictOnOff" value="#{EXAMPLE_CONFIG.IsIPRestrictOnOff}"/>
+            <beans:property name="useStaticIP" value="#{EXAMPLE_CONFIG.UseStaticIP}"/>
         </beans:bean>
     </beans:beans>
 
