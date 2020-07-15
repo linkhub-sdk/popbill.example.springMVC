@@ -28,6 +28,9 @@
 package com.popbill.example;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.util.Date;
 import java.util.Locale;
@@ -41,6 +44,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.popbill.api.ChargeInfo;
 import com.popbill.api.FaxService;
+import com.popbill.api.FaxUploadFile;
 import com.popbill.api.PopbillException;
 import com.popbill.api.Response;
 import com.popbill.api.fax.FAXSearchResult;
@@ -226,6 +230,148 @@ public class FaxServiceExample {
         return "result";
     }
 
+    
+    @RequestMapping(value = "sendFAXBinary", method = RequestMethod.GET)
+    public String sendFAXBinary(Model m) throws URISyntaxException {
+        /*
+         * 팩스를 전송합니다. (전송할 파일 개수는 최대 20개까지 가능)
+         * - 팩스전송 문서 파일포맷 안내 : https://docs.popbill.com/fax/format?lang=java
+         */
+
+        // 발신번호
+        String sendNum = "07043042995";
+
+        // 수신번호
+        String receiveNum = "010111222";
+
+        // 수신자명
+        String receiveName = "수신자 명칭";
+
+        File file = new File("/Users/John/Desktop/test.pdf");
+		InputStream targetStream = null;
+		try {
+			targetStream = new FileInputStream(file);
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		// 파일정보 배열, 최대 20개까지 입력가능.
+		FaxUploadFile[] fileList = new FaxUploadFile[1];
+		FaxUploadFile uf = new FaxUploadFile();
+		
+		// 파일명
+		uf.fileName = "test.pdf";
+		
+		// 파일 InputStream
+		uf.fileData = targetStream;
+		
+		fileList[0] = uf;
+
+        // 전송 예약일시
+        Date reserveDT = null;
+
+        // 광고팩스 전송여부
+        Boolean adsYN = false;
+
+        // 팩스제목
+        String title = "팩스 제목";
+
+        // 전송요청번호
+        // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+        // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
+        String requestNum = "";
+
+        try {
+
+            String receiptNum = faxService.sendFAXBinary(testCorpNum, sendNum, receiveNum,
+                    receiveName, fileList, reserveDT, testUserID, adsYN, title, requestNum);
+
+            m.addAttribute("Result", receiptNum);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "result";
+    }
+    
+    @RequestMapping(value = "sendFAXBinary_Multi", method = RequestMethod.GET)
+    public String sendFAXBinary_Multi(Model m) throws URISyntaxException {
+        /*
+         * [대량전송] 팩스를 전송합니다. (전송할 파일 개수는 최대 20개까지 가능)
+         * - 팩스전송 문서 파일포맷 안내 : https://docs.popbill.com/fax/format?lang=java
+         */
+
+        // 발신번호
+        String sendNum = "07043042991";
+
+        // 수신자 정보 (최대 1000건)
+        Receiver[] receivers = new Receiver[2];
+
+        Receiver receiver1 = new Receiver();
+        receiver1.setReceiveName("수신자1");		// 수신자명
+        receiver1.setReceiveNum("010111222");	// 수신팩스번호
+        receivers[0] = receiver1;
+
+        Receiver receiver2 = new Receiver();
+        receiver2.setReceiveName("수신자2");		// 수신자명
+        receiver2.setReceiveNum("010333444");	// 수신팩스번호
+        receivers[1] = receiver1;
+
+        File file = new File("/Users/John/Desktop/test.pdf");
+		InputStream targetStream = null;
+		try {
+			targetStream = new FileInputStream(file);
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		// 파일정보 배열, 최대 20개까지 입력가능.
+		FaxUploadFile[] fileList = new FaxUploadFile[1];
+		FaxUploadFile uf = new FaxUploadFile();
+		
+		// 파일명
+		uf.fileName = "test.pdf";
+		
+		// 파일 InputStream
+		uf.fileData = targetStream;
+		
+		fileList[0] = uf;
+
+        // 전송예약일시
+        Date reserveDT = null;
+
+        // 광고팩스 전송여부
+        Boolean adsYN = false;
+
+        // 팩스제목
+        String title = "팩스 동보전송 제목";
+
+        // 전송요청번호
+        // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+        // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
+        String requestNum = "";
+
+        try {
+
+            String receiptNum = faxService.sendFAXBinary(testCorpNum, sendNum, receivers,
+            		fileList, reserveDT, testUserID, adsYN, title, requestNum);
+
+            m.addAttribute("Result", receiptNum);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "result";
+    }
+    
+
+    
     @RequestMapping(value = "resendFAX", method = RequestMethod.GET)
     public String resendFAX(Model m) {
         /*
