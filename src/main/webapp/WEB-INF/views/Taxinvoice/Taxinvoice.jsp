@@ -18,7 +18,6 @@
                 <li>writeDate (작성일자) : ${Taxinvoice.writeDate}</li>
                 <li>chargeDirection (과금방향) : ${Taxinvoice.chargeDirection}</li>
                 <li>issueType (발행형태) : ${Taxinvoice.issueType}</li>
-                <li>issueTiming (발행시점) : ${Taxinvoice.issueTiming}</li>
                 <li>taxType (과세형태) : ${Taxinvoice.taxType}</li>
 
                 <li>invoicerCorpNum (공급자 사업자번호) : ${Taxinvoice.invoicerCorpNum}</li>
