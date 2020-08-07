@@ -1576,7 +1576,35 @@ public class TaxinvoiceServiceExample {
 
         return "result";
     }
+    
+    @RequestMapping(value = "getPDFURL", method = RequestMethod.GET)
+    public String getPDFURL(Model m) {
+        /*
+         * 1건의 전자세금계산서 PDF 다운로드 URL을 반환합니다.
+         * - 반환된 URL은 보안정책으로 인해 30초의 유효시간을 갖습니다.
+         */
 
+        // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
+        MgtKeyType mgtKeyType = MgtKeyType.SELL;
+
+        // 세금계산서 문서번호
+        String mgtKey = "20190104-001";
+
+        try {
+
+            String url = taxinvoiceService.getPDFURL(testCorpNum, mgtKeyType,
+                    mgtKey);
+
+            m.addAttribute("Result", url);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "result";
+    }
+    
     @RequestMapping(value = "getPrintURL", method = RequestMethod.GET)
     public String getPrintURL(Model m) {
         /*

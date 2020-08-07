@@ -888,6 +888,29 @@ public class CashbillServiceExample {
 
         return "result";
     }
+    
+    @RequestMapping(value = "getPDFURL", method = RequestMethod.GET)
+    public String getPDFURL(Model m) {
+        /*
+         * 1건의 현금영수증 PDF 다운로드 URL을 반환합니다.
+         */
+
+        // 현금영수증 문서번호
+        String mgtKey = "20190104-001";
+
+        try {
+
+            String url = cashbillService.getPDFURL(testCorpNum, mgtKey);
+
+            m.addAttribute("Result", url);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "result";
+    }
 
     @RequestMapping(value = "getEPrintURL", method = RequestMethod.GET)
     public String getEPrintURL(Model m) {
