@@ -393,7 +393,7 @@ public class EasyFinBankServiceExample {
     public String search(Model m) {
        
         // 수집 요청시 발급받은 작업아이디
-        String jobID = "019121816000000001";
+        String jobID = "020080715000000001";
 
         // 거래유형, I-입금, O-출금
         String[] TradeType = {"I", "O"};
