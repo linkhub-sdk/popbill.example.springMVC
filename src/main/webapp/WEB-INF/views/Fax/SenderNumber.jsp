@@ -18,6 +18,7 @@
                     <li>number (발신번호) : ${senderInfo.number}</li>
                     <li>representYN (대표번호 지정여부) : ${senderInfo.representYN }</li>
                     <li>state (등록상태) : ${senderInfo.state}</li>
+                    <li>memo (메모) : ${senderInfo.memo}</li>
                 </ul>
             </fieldset>
         </c:forEach>
