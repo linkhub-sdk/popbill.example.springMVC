@@ -45,6 +45,7 @@ import com.popbill.api.cashbill.CBSearchResult;
 import com.popbill.api.cashbill.Cashbill;
 import com.popbill.api.cashbill.CashbillInfo;
 import com.popbill.api.cashbill.CashbillLog;
+import com.popbill.api.taxinvoice.MgtKeyType;
 
 /*
  * 팝빌 현금영수증 API 예제.
@@ -732,6 +733,33 @@ public class CashbillServiceExample {
         }
 
         return "Cashbill/Cashbill";
+    }
+    
+    @RequestMapping(value = "assignMgtKey", method = RequestMethod.GET)
+    public String assignMgtKey(Model m) {
+        /*
+         * 팝빌 사이트에서 작성한 현금영수증에 파트너의 문서번호를 할당합니다.
+         */
+
+        // 현금영수증 아이템키, 문서 목록조회(Search) API의 반환항목중 ItemKey 참조
+        String itemKey = "020080716195300001";
+
+        // 할당할 문서번호, 숫자, 영문 '-', '_' 조합으로 1~24자리까지
+        // 사업자번호별 중복없는 고유번호 할당
+        String mgtKey = "20200807-100";
+
+        try {
+
+            Response response = cashbillService.assignMgtKey(testCorpNum, itemKey, mgtKey);
+
+            m.addAttribute("Response", response);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "response";
     }
 
     @RequestMapping(value = "search", method = RequestMethod.GET)
