@@ -969,7 +969,35 @@ public class StatementServiceExample {
 
         return "result";
     }
+    
+    @RequestMapping(value = "getViewURL", method = RequestMethod.GET)
+    public String getViewURL(Model m) {
+        /*
+         * 1건의 전자명세서 보기 팝업 URL을 반환합니다. (메뉴/버튼 제외)
+         */
 
+        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        int itemCode = 121;
+
+        // 전자명세서 문서번호
+        String mgtKey = "20200721-001-TEST";
+
+        try {
+
+            String url = statementService.getViewURL(testCorpNum, itemCode,
+                    mgtKey);
+
+            m.addAttribute("Result", url);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "result";
+    }
+    
+    
     @RequestMapping(value = "getPrintURL", method = RequestMethod.GET)
     public String getPrintURL(Model m) {
         /*
