@@ -123,7 +123,7 @@ public class StatementServiceExample {
         Statement statement = new Statement();
 
         // [필수] 작성일자, 형태 yyyyMMdd
-        statement.setWriteDate("20191004");
+        statement.setWriteDate("20200724");
 
         // [필수] {영수, 청구} 중 기재
         statement.setPurposeType("영수");
@@ -138,7 +138,7 @@ public class StatementServiceExample {
         statement.setItemCode((short) 121);
 
         // [필수] 문서번호, 최대 24자리 영문, 숫자, '-', '_'로 구성
-        statement.setMgtKey("20191022-002");
+        statement.setMgtKey("20200724-01");
 
 
         /*********************************************************************

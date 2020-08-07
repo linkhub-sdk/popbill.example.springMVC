@@ -1396,10 +1396,10 @@ public class TaxinvoiceServiceExample {
         String DType = "W";
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20181201";
+        String SDate = "20200701";
 
         // 종료일자, 날짜형식(yyyyMMdd)
-        String EDate = "20190104";
+        String EDate = "20200731";
 
         // 세금계산서 상태코드 배열, 2,3번째 자리에 와일드카드(*) 사용 가능
         String[] State = {"3**", "6**"};
@@ -1412,7 +1412,13 @@ public class TaxinvoiceServiceExample {
 
         // 발행형태 배열, N-정발행, R-역발행, T-위수탁
         String[] IssueType = {"N", "R", "T"};
+        
+        // 등록유형 배열, P-팝빌, H-홈택스, 외부ASP
+        String[] RegType = {"P", "H"};
 
+        // 공급받는자 휴폐업상태 배열, N-미확인, 0-미등록, 1-사업, 2-폐업, 3-휴업
+        String[] CloseDownState = {"N", "0", "1", "2", "3"};
+        
         // 지연발행 여부, null 전체조회, true - 지연발행, false- 정상발행
         Boolean LateOnly = null;
 
@@ -1427,6 +1433,9 @@ public class TaxinvoiceServiceExample {
 
         // 통합검색어, 공급받는자 거래처명 또는 사업자등록 번호로 조회, 공백시 전체조회
         String QString = "";
+        
+        // 문서번호 또는 국세청승인번호 조회
+        String MgtKey = "";
 
         // 페이지 번호
         int Page = 1;
@@ -1442,10 +1451,11 @@ public class TaxinvoiceServiceExample {
         String InterOPYN = "";
 
         try {
-
+        	
             TISearchResult searchResult = taxinvoiceService.Search(testCorpNum,
                     mgtKeyType, DType, SDate, EDate, State, Type, TaxType, IssueType, LateOnly,
-                    TaxRegIDType, TaxRegID, TaxRegIDYN, QString, Page, PerPage, Order, InterOPYN);
+                    TaxRegIDType, TaxRegID, TaxRegIDYN, QString, Page, PerPage, Order, InterOPYN,
+                    RegType, CloseDownState, MgtKey);
 
             m.addAttribute("SearchResult", searchResult);
 
