@@ -27,6 +27,9 @@
  */
 package com.popbill.example;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -743,7 +746,7 @@ public class CashbillServiceExample {
         // 현금영수증 아이템키, 문서 목록조회(Search) API의 반환항목중 ItemKey 참조
         String itemKey = "020080716195300001";
 
-        // 할당할 문서번호, 숫자, 영문 '-', '_' 조합으로 1~24자리까지
+        // 할당할 문서번호, 숫자, 영문 '-', '_' 조합으로 1~24자리까지	
         // 사업자번호별 중복없는 고유번호 할당
         String mgtKey = "20200807-100";
 
@@ -938,6 +941,41 @@ public class CashbillServiceExample {
 
         return "result";
     }
+    
+    @RequestMapping(value = "getPDF", method = RequestMethod.GET)
+    public String getPDF(Model m) {
+    	/*
+         * 1건의 현금영수증 PDF byte[] 을 반환합니다.
+         */
+    	
+        // 현금영수증 문서번호
+        String mgtKey = "20200806-01";
+        
+        byte[] pdfByte = null;
+        
+        try {
+			pdfByte = cashbillService.getPDF(testCorpNum,  mgtKey);
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+	        return "exception";
+		}
+        
+        //파일 저장
+        try {
+    		String filepath = "C:/pdf_test/PDF_Sample_Test/20200903_Cashbill_TEST_T3.pdf";//저장할 파일 경로
+    		File outfile = new File(filepath);
+			FileOutputStream fileoutputstream = new FileOutputStream(outfile);
+			
+			fileoutputstream.write(pdfByte);
+			fileoutputstream.close();
+			
+			m.addAttribute("Result", filepath + "(" + "저장 성공)");
+		} catch (IOException e) {
+			m.addAttribute("Result", e);
+		}
+
+		return "result";
+	}
 
     @RequestMapping(value = "getEPrintURL", method = RequestMethod.GET)
     public String getEPrintURL(Model m) {
