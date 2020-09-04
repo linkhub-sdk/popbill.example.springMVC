@@ -283,7 +283,7 @@ public class KakaoServiceExample {
         String senderNum = "07043042991";
 
         // 대체문자 전송유형, 공백-미전송, C-알림톡 내용전송, A-대체문자 내용 전송
-        String altSendType = "C";
+        String altSendType = "";
         
         // 알림톡 내용 (최대 1000자)
         String content = "[ 팝빌 ]\n";
@@ -301,6 +301,24 @@ public class KakaoServiceExample {
             message.setReceiverName("수신자명" + i);    // 수신자명
             message.setMessage(content);    // 알림톡 템플릿 내용, 최대 1000자
             message.setAltMessage("대체문자 개별내용입니다." + i); // 대체문자 내용
+            
+          //수신자별 개별 버튼정보
+//            KakaoButton button = new KakaoButton();
+//            button.setN("타입1 버튼명"+i); // 버튼명
+//            button.setT("WL"); // 버튼타입
+//            button.setU1("http://"+i+"popbill.com"); // 버튼링크1
+//            button.setU2("http://"+i+"test.popbill.com"); // 버튼링크2
+//            
+//            KakaoButton button02 = new KakaoButton();
+//            button02.setN("타입2 버튼명"+i); // 버튼명
+//            button02.setT("WL"); // 버튼타입
+//            button02.setU1("http://"+i+"popbill.com"); // 버튼링크1
+//            button02.setU2("http://"+i+"test.popbill.com"); // 버튼링크2
+//            
+//            // 수신자별로 각기다른 버튼정보 추가.
+//            message.setBtns(new ArrayList<KakaoButton>());
+//            message.getBtns().add(button);
+//            message.getBtns().add(button02);
             receivers[i] = message;
         }
 
@@ -752,10 +770,29 @@ public class KakaoServiceExample {
             message.setMessage("친구톡 개별내용" + i); // 친구톡 내용, 최대 400자
             message.setAltMessage("대체문자 개별내용" + i); // 대체문자 내용
             receivers[i] = message;
+            
+            //수신자별 개별 버튼 정보
+//            KakaoButton button = new KakaoButton();
+//            button.setN("타입1 버튼명"+i); // 버튼명
+//            button.setT("WL"); // 버튼타입
+//            button.setU1("http://"+i+"popbill.com"); // 버튼링크1
+//            button.setU2("http://"+i+"test.popbill.com"); // 버튼링크2
+//            
+//            KakaoButton button02 = new KakaoButton();
+//            button02.setN("타입2 버튼명"+i); // 버튼명
+//            button02.setT("WL"); // 버튼타입
+//            button02.setU1("http://"+i+"popbill.com"); // 버튼링크1
+//            button02.setU2("http://"+i+"test.popbill.com"); // 버튼링크2
+//            
+//            // 수신자별로 각기다른 버튼정보 추가.
+//            message.setBtns(new ArrayList<KakaoButton>());
+//            message.getBtns().add(button);
+//            message.getBtns().add(button02);
+            
         }
 
-
-        // 친구톡 버튼 배열, 최대 5개
+          //수신자별 동일 버튼 정보
+        //친구톡 버튼 배열, 최대 5개
         KakaoButton[] btns = new KakaoButton[2];
 
         KakaoButton button = new KakaoButton();
