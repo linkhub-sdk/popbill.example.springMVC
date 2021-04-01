@@ -34,7 +34,7 @@
         <c:if test="${BulkResult.issueResult != null}">
             <c:forEach items="${BulkResult.issueResult}" var="TaxinvoiceInfo" varStatus="status">
                 <fieldset class="fieldset2">
-                    <legend>[ ${status.index+1} ]</legend>
+                    <legend>issueResult[${status.index}]</legend>
                     <ul>
                     	<li>code (응답코드) : ${TaxinvoiceInfo.code}</li>
                     	<li>invoicerMgtKey (공급자 문서번호) : ${TaxinvoiceInfo.invoicerMgtKey}</li>

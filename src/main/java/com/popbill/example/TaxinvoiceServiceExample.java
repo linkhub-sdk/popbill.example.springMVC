@@ -90,8 +90,8 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "checkMgtKeyInUse", method = RequestMethod.GET)
     public String checkMgtKeyInUse(Model m) {
         /*
-         * 세금계산서 관리번호 중복여부를 확인합니다.
-         * - 관리번호는 1~24자리로 숫자, 영문 '-', '_' 조합으로 구성할 수 있습니다.
+         * 세금계산서 문서번호 중복여부를 확인합니다.
+         * - 문서번호는 1~24자리로 숫자, 영문 '-', '_' 조합으로 구성할 수 있습니다.
          * - https://docs.popbill.com/taxinvoice/java/api#CheckMgtKeyInUse
          */
 
@@ -346,7 +346,7 @@ public class TaxinvoiceServiceExample {
         // 거래명세서 동시작성여부
         Boolean WriteSpecification = false;
 
-        // 거래명세서 관리번호
+        // 거래명세서 문서번호
         String DealInvoiceKey = null;
 
         // 즉시발행 메모
@@ -383,7 +383,7 @@ public class TaxinvoiceServiceExample {
     	
     	// 제출아이디, 대량 발행 접수를 구별하는 식별키
     	// └ 최대 36자리 영문, 숫자, '-' 조합으로 구성
-    	String SubmitID = "20210401-02";
+    	String SubmitID = "20210401-03";
     	
     	// 지연발행 강제여부
         // 발행마감일이 지난 세금계산서를 발행하는 경우, 가산세가 부과될 수 있습니다.
@@ -638,7 +638,7 @@ public class TaxinvoiceServiceExample {
          */
 
     	// 대량 발행 접수시 기재한 제출아이디
-        String SubmitID = "20210401-02"; 
+        String SubmitID = "20210401-03"; 
         		
         try {
 
@@ -1622,7 +1622,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
 
-        // 세금계산서 관리번호 배열, 최대 1000건
+        // 세금계산서 문서번호 배열, 최대 1000건
         String[] MgtKeyList = new String[]{"20190104-001", "20190104-002", "20190104-003"};
 
         try {
@@ -2320,13 +2320,13 @@ public class TaxinvoiceServiceExample {
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
-        // 세금계산서 관리번호
+        // 세금계산서 문서번호
         String mgtKey = "20190104-02";
 
         // 첨부할 명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서), 124(발주서), 125(입금표), 126(영수증)
         int subItemCode = 121;
 
-        // 첨부활 전자명세서 관리번호
+        // 첨부활 전자명세서 문서번호
         String subMgtKey = "20160119-05";
 
         try {
@@ -2354,13 +2354,13 @@ public class TaxinvoiceServiceExample {
         // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
-        // 세금계산서 관리번호
+        // 세금계산서 문서번호
         String mgtKey = "20190104-001";
 
         // 첨부해제할 명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서), 124(발주서), 125(입금표), 126(영수증)
         int subItemCode = 121;
 
-        // 첨부해제할 전자명세서 관리번호
+        // 첨부해제할 전자명세서 문서번호
         String subMgtKey = "20160119-05";
 
         try {
