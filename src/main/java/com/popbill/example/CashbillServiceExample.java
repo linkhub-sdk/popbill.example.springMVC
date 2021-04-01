@@ -76,8 +76,8 @@ public class CashbillServiceExample {
     @RequestMapping(value = "checkMgtKeyInUse", method = RequestMethod.GET)
     public String checkMgtKeyInUse(Model m) {
         /*
-         * 현금영수증 관리번호 중복여부를 확인합니다.
-         * - 관리번호는 1~24자리로 숫자, 영문 '-', '_' 조합으로 구성할 수 있습니다.
+         * 현금영수증 문서번호 중복여부를 확인합니다.
+         * - 문서번호는 1~24자리로 숫자, 영문 '-', '_' 조합으로 구성할 수 있습니다.
          * - https://docs.popbill.com/cashbill/java/api#CheckMgtKeyInUse
          */
 
