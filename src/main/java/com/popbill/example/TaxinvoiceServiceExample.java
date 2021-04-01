@@ -54,6 +54,7 @@ import com.popbill.api.IssueResponse;
 import com.popbill.api.PopbillException;
 import com.popbill.api.Response;
 import com.popbill.api.TaxinvoiceService;
+import com.popbill.api.taxinvoice.BulkTaxinvoiceResult;
 import com.popbill.api.taxinvoice.EmailPublicKey;
 import com.popbill.api.taxinvoice.MgtKeyType;
 import com.popbill.api.taxinvoice.TISearchResult;
@@ -627,6 +628,30 @@ public class TaxinvoiceServiceExample {
     	}
 
     	return "bulkSubmitResponse";
+    }
+    
+    @RequestMapping(value = "getBulkResult", method = RequestMethod.GET)
+    public String getBulkResult(Model m) {
+        /*
+         * 접수시 기재한 SubmitID를 사용하여 세금계산서 접수결과를 확인합니다.
+         * - https://docs.popbill.com/taxinvoice/java/api#GetBulkResult
+         */
+
+    	// 대량 발행 접수시 기재한 제출아이디
+        String SubmitID = "20210401-02"; 
+        		
+        try {
+
+            BulkTaxinvoiceResult bulkResult = taxinvoiceService.getBulkResult(testCorpNum, SubmitID);
+            
+            m.addAttribute("BulkResult", bulkResult);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "Taxinvoice/GetBulkResult";
     }
 
     @RequestMapping(value = "register", method = RequestMethod.GET)

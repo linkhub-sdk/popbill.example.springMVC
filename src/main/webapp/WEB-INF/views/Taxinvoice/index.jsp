@@ -16,7 +16,7 @@
             <li><a href="TaxinvoiceService/checkMgtKeyInUse">CheckMgtKeyInUse</a> - 관리번호 확인</li>
             <li><a href="TaxinvoiceService/registIssue">RegistIssue</a> - 즉시 발행</li>
             <li><a href="TaxinvoiceService/bulkSubmit">BulkSubmit</a> - 대량 발행 접수</li>
-            <li><a href="TaxinvoiceService/getBulkResult">getBulkResult</a> - 대량 접수결과 확인</li>
+            <li><a href="TaxinvoiceService/getBulkResult">GetBulkResult</a> - 대량 접수결과 확인</li>
             <li><a href="TaxinvoiceService/register">Register</a> - 임시저장</li>
             <li><a href="TaxinvoiceService/update">Update</a> - 수정</li>
             <li><a href="TaxinvoiceService/issue">Issue</a> - 발행</li>
