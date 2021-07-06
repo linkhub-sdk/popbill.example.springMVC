@@ -185,6 +185,46 @@ public class BaseServiceExample {
 
         return "result";
     }
+    
+    @RequestMapping(value = "getPaymentURL", method = RequestMethod.GET)
+    public String getPaymentURL(Model m) throws PopbillException {
+        /*
+         * 팝빌 연동회원 포인트 결제내역 팝업 URL을 반환합니다.
+         * - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
+         */
+        try {
+
+            String url = taxinvoiceService.getPaymentURL(testCorpNum, testUserID);
+
+            m.addAttribute("Result", url);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "result";
+    }
+    
+    @RequestMapping(value = "getUseHistoryURL", method = RequestMethod.GET)
+    public String getUseHistoryURL(Model m) throws PopbillException {
+        /*
+         * 팝빌 연동회원 포인트 사용내역 팝업 URL을 반환합니다.
+         * - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
+         */
+        try {
+
+            String url = taxinvoiceService.getUseHistoryURL(testCorpNum, testUserID);
+
+            m.addAttribute("Result", url);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "result";
+    }
 
     @RequestMapping(value = "joinMember", method = RequestMethod.GET)
     public String joinMember(Model m) throws PopbillException {

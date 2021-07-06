@@ -90,6 +90,8 @@
         <ul>
             <li><a href="BaseService/getBalance">GetBalance</a> - 연동회원 잔여포인트 확인</li>
             <li><a href="BaseService/getChargeURL">GetChargeURL</a> - 연동회원 포인트충전 URL</li>
+            <li><a href="BaseService/getPaymentURL">GetPaymentURL</a> - 연동회원 포인트 결제내역 URL</li>
+            <li><a href="BaseService/getUseHistoryURL">GetUseHistoryURL</a> - 연동회원 포인트 사용내역 URL</li>
             <li><a href="BaseService/getPartnerBalance">GetPartnerBalance</a> - 파트너 잔여포인트 확인</li>
             <li><a href="BaseService/getPartnerURL">GetPartnerURL</a> - 파트너 포인트충전 URL</li>
             <li><a href="TaxinvoiceService/getUnitCost">GetUnitCost</a> - 발행단가 확인</li>

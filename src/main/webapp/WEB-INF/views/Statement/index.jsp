@@ -66,6 +66,8 @@
         <ul>
             <li><a href="BaseService/getBalance">getBalance</a> - 연동회원 잔여포인트 확인</li>
             <li><a href="BaseService/getChargeURL">getChargeURL</a> - 연동회원 포인트충전 URL</li>
+            <li><a href="BaseService/getPaymentURL">GetPaymentURL</a> - 연동회원 포인트 결제내역 URL</li>
+            <li><a href="BaseService/getUseHistoryURL">GetUseHistoryURL</a> - 연동회원 포인트 사용내역 URL</li>
             <li><a href="BaseService/getPartnerBalance">getPartnerBalance</a> - 파트너 잔여포인트 확인</li>
             <li><a href="BaseService/getPartnerURL">getPartnerURL</a> - 파트너 포인트충전 URL</li>
             <li><a href="StatementService/getUnitCost">getUnitCost</a> - 발행단가 확인</li>
