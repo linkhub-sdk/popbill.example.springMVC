@@ -259,7 +259,7 @@ public class BaseServiceExample {
         joinInfo.setID("testkorea0328");
 
         // 팝빌회원 비밀번호 (8자 이상 20자 이하) 영문, 숫자 ,특수문자 조합
-        joinInfo.setPassword("pwd_must_be_long123!@#");
+        joinInfo.setPassword("password123!@#");
 
         // 담당자명
         joinInfo.setContactName("담당자명");
@@ -334,8 +334,8 @@ public class BaseServiceExample {
         // 담당자 연락처
         contactInfo.setTel("070-1234-1234");
 
-        // 회사조회 권한여부, true-회사조회, false-개인조회
-        contactInfo.setSearchAllAllowYN(true);
+        // 담당자 조회권한 1 - 개인권한 / 2 - 읽기권한  / 3 - 회사권한
+        contactInfo.setSearchRole(3);
 
         try {
 
@@ -361,10 +361,10 @@ public class BaseServiceExample {
         ContactInfo contactInfo = new ContactInfo();
 
         // 담당자 아이디
-        contactInfo.setId("testkorea");
+        contactInfo.setId("testid");
 
-        // 담당자 비밀번호
-        contactInfo.setPwd("test12341234");
+        // 담당자 비밀번호 (8자 이상 20자 이하) 영문, 숫자 ,특수문자 조합
+        contactInfo.setPassword("password123!@#");
 
         // 담당자 이메일주소
         contactInfo.setEmail("test1234@test.com");
@@ -380,6 +380,9 @@ public class BaseServiceExample {
 
         // 담당자 연락처
         contactInfo.setTel("070-1234-1234");
+        
+        // 담당자 조회권한 1 - 개인권한 / 2 - 읽기권한  / 3 - 회사권한
+        contactInfo.setSearchRole(3);
 
         try {
 
