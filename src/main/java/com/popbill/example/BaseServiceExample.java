@@ -258,8 +258,8 @@ public class BaseServiceExample {
         // 팝빌회원 아이디
         joinInfo.setID("testkorea0328");
 
-        // 팝빌회원 비밀번호
-        joinInfo.setPWD("pwd_must_be_long_enough");
+        // 팝빌회원 비밀번호 (8자 이상 20자 이하) 영문, 숫자 ,특수문자 조합
+        joinInfo.setPassword("pwd_must_be_long123!@#");
 
         // 담당자명
         joinInfo.setContactName("담당자명");
