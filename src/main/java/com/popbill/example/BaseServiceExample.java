@@ -289,7 +289,25 @@ public class BaseServiceExample {
 
         return "response";
     }
+    @RequestMapping(value = "getContactInfo", method = RequestMethod.GET)
+    public String getContactInfo(Model m) throws PopbillException {
+    	/*
+         * 연동회원의 담당자 정보을 확인합니다.
+         */
+    	
+    	// 확인할 담당자 아이디
+    	String contactID = "testkorea";
+    	
+        try {
+            ContactInfo response = taxinvoiceService.getContactInfo(testCorpNum, contactID);
 
+            m.addAttribute("ContactInfo", response);
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+    	return "getContactInfo";
+    }
     @RequestMapping(value = "listContact", method = RequestMethod.GET)
     public String listContact(Model m) throws PopbillException {
         /*
