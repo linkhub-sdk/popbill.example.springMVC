@@ -20,6 +20,7 @@
             <li><a href="EasyFinBankService/getBankAccountMgtURL">getBankAccountMGTURL</a> - 계좌 관리 팝업 URL</li>
             <li><a href="EasyFinBankService/closeBankAccount">closeBankAccount</a> - 계좌 정액제 해지신청</li>
             <li><a href="EasyFinBankService/revokeCloseBankAccount">revokeCloseBankAccount</a> - 계좌 정액제 해지신청 취소</li>
+            <li><a href="EasyFinBankService/deleteBankAccount">deleteBankAccount</a> - 종량제 계좌 삭제</li>
         </ul>
     </fieldset>
     
