@@ -2,7 +2,7 @@
  * 팝빌 Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/taxinvoice/tutorial/spring
- * - 업데이트 일자 : 2017-11-14
+ * - 업데이트 일자 : 2021-07-06
  * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
  *
