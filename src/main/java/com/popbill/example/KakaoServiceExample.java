@@ -174,6 +174,31 @@ public class KakaoServiceExample {
 
         return "result";
     }
+    
+    @RequestMapping(value = "getATSTemplate", method = RequestMethod.GET)
+    public String getATSTemplate(Model m) {
+        /*
+         * (주)카카오로 부터 승인된 알림톡 템플릿 정보를 확인합니다.
+         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         * - https://docs.popbill.com/kakao/java/api#getATSTemplate
+         */
+    	
+    	// 확인할 알림톡 템플릿 코드
+    	String templateCode = "021010000076";
+    	
+        try {
+
+            ATSTemplate response = kakaoService.getATSTemplate(testCorpNum, templateCode, testUserID);
+
+            m.addAttribute("Template", response);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "Kakao/getATSTemplate";
+    }
 
     @RequestMapping(value = "listATSTemplate", method = RequestMethod.GET)
     public String listATSTemplate(Model m) {
