@@ -1582,6 +1582,26 @@ public class TaxinvoiceServiceExample {
 
         return "response";
     }
+    
+    @RequestMapping(value = "getSendToNTSConfig", method = RequestMethod.GET)
+    public String getSendToNTSConfig(Model m) {
+    	/*
+         * 연동회원의 국세청 전송 옵션 설정 상태를 확인합니다.
+         * - https://docs.popbill.com/taxinvoice/java/api#GetSendToNTSConfig
+         */
+    	 try {
+
+             boolean ntsConfig = taxinvoiceService.getSendToNTSConfig(testCorpNum);
+
+             m.addAttribute("NTSConfig", ntsConfig);
+
+         } catch (PopbillException e) {
+             m.addAttribute("Exception", e);
+             return "exception";
+         }
+    	 
+    	return "/Taxinvoice/getSendToNTSConfig";
+    }
 
     @RequestMapping(value = "getInfo", method = RequestMethod.GET)
     public String getInfo(Model m) {

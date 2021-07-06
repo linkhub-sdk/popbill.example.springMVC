@@ -75,6 +75,7 @@
             <li><a href="TaxinvoiceService/assignMgtKey">AssignMgtKey</a> - 관리번호 할당</li>
             <li><a href="TaxinvoiceService/listEmailConfig">ListEmailConfig</a> - 세금계산서 알림메일 전송목록 조회</li>
             <li><a href="TaxinvoiceService/updateEmailConfig">UpdateEmailConfig</a> - 세금계산서 알림메일 전송설정 수정</li>
+            <li><a href="TaxinvoiceService/getSendToNTSConfig">GetSendToNTSConfig</a> - 국세청 전송 옵션 설정 상태 확인</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
