@@ -23,7 +23,7 @@
                         <li>fax (팩스번호) : ${ContactInfo.fax}</li>
                         <li>tel (연락처) : ${ContactInfo.tel}</li>
                         <li>regDT (등록일시) : ${ContactInfo.regDT}</li>
-                        <li>searchAllAllowYN (회사조회 권한여부) : ${ContactInfo.searchAllAllowYN}</li>
+                        <li>searchRole (담당자 권한) : ${ContactInfo.searchRole}</li>
                         <li>mgrYN (관리자 여부) : ${ContactInfo.mgrYN}</li>
                         <li>state (상태) : ${ContactInfo.state}</li>
                     </ul>
