@@ -894,6 +894,30 @@ public class CashbillServiceExample {
 
         return "result";
     }
+    
+    @RequestMapping(value = "getViewURL", method = RequestMethod.GET)
+    public String getViewURL(Model m) {
+        /*
+         * 1건의 현금영수증 보기 팝업 URL을 반환합니다. (메뉴/버튼 제외) 
+         * - https://docs.popbill.com/cashbill/java/api#GetViewURL
+         */
+
+        // 현금영수증 문서번호
+        String mgtKey = "20190104-001";
+
+        try {
+
+            String url = cashbillService.getViewURL(testCorpNum, mgtKey);
+
+            m.addAttribute("Result", url);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "result";
+    }
 
     @RequestMapping(value = "getPrintURL", method = RequestMethod.GET)
     public String getPrintURL(Model m) {
