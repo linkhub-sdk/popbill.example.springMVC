@@ -56,7 +56,6 @@
             <li><a href="TaxinvoiceService/getMassPrintURL">GetMassPrintURL</a> - 세금계산서 대량 인쇄 URL</li>
             <li><a href="TaxinvoiceService/getMailURL">GetMailURL</a> - 세금계산서 메일링크 URL</li>
             <li><a href="TaxinvoiceService/getPDFURL">getPDFURL</a> - 세금계산서 PDF 다운로드 URL</li>
-            <li><a href="TaxinvoiceService/getPDF">getPDF</a> - 세금계산서 PDF 다운로드</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">

@@ -941,41 +941,6 @@ public class CashbillServiceExample {
 
         return "result";
     }
-    
-    @RequestMapping(value = "getPDF", method = RequestMethod.GET)
-    public String getPDF(Model m) {
-    	/*
-         * 1건의 현금영수증 PDF byte[] 을 반환합니다.
-         */
-    	
-        // 현금영수증 문서번호
-        String mgtKey = "20200806-01";
-        
-        byte[] pdfByte = null;
-        
-        try {
-			pdfByte = cashbillService.getPDF(testCorpNum,  mgtKey);
-		} catch (PopbillException e) {
-			m.addAttribute("Exception", e);
-	        return "exception";
-		}
-        
-        //파일 저장
-        try {
-    		String filepath = "C:/pdf_test/PDF_Sample_Test/20200903_Cashbill_TEST_T3.pdf";//저장할 파일 경로
-    		File outfile = new File(filepath);
-			FileOutputStream fileoutputstream = new FileOutputStream(outfile);
-			
-			fileoutputstream.write(pdfByte);
-			fileoutputstream.close();
-			
-			m.addAttribute("Result", filepath + "(" + "저장 성공)");
-		} catch (IOException e) {
-			m.addAttribute("Result", e);
-		}
-
-		return "result";
-	}
 
     @RequestMapping(value = "getEPrintURL", method = RequestMethod.GET)
     public String getEPrintURL(Model m) {

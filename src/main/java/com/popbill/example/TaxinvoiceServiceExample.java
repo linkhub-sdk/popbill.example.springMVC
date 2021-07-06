@@ -1891,44 +1891,6 @@ public class TaxinvoiceServiceExample {
         return "result";
     }
     
-    @RequestMapping(value = "getPDF", method = RequestMethod.GET)
-	public String getPDF(Model m) {
-    	/*
-    	 * 1건의 전자세금계산서 PDF의 byte[]를 반환합니다.
-    	 */
-    	
-    	 // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
-        MgtKeyType mgtKeyType = MgtKeyType.SELL;
-
-        // 세금계산서 문서번호
-        String mgtKey = "20200824-001";
-        
-        byte[] pdfByte = null;
-        
-        try {
-			pdfByte = taxinvoiceService.getPDF(testCorpNum, mgtKeyType, mgtKey);
-		} catch (PopbillException e) {
-			m.addAttribute("Exception", e);
-	        return "exception";
-		}
-        
-        //파일 저장
-    	try {
-    		String filepath = "C:/pdf_test/PDF_Sample_Tt/20200903_Taxinvoice_TEST_T3.pdf"; //저장할 파일 경로
-    		File outfile = new File(filepath);
-			FileOutputStream fileoutputstream = new FileOutputStream(outfile);
-			
-			fileoutputstream.write(pdfByte);
-			fileoutputstream.close();
-			
-			m.addAttribute("Result", filepath + "("+"저장 성공)");
-		} catch (IOException e) {
-			m.addAttribute("Result", e);
-		} 
-    	
-		return "result";
-	}
-    
     @RequestMapping(value = "getPrintURL", method = RequestMethod.GET)
     public String getPrintURL(Model m) {
         /*
