@@ -27,9 +27,6 @@
  */
 package com.popbill.example;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
