@@ -62,12 +62,14 @@ public class EasyFinBankServiceExample {
     }
 	
 	
-	/*
-     * 계좌조회 서비스를 이용할 은행계좌를 등록한다.
-     */
+	
 	@RequestMapping(value = "registBankAccount", method = RequestMethod.GET)
     public String registBankAccount(Model m) {
-		
+        /*
+         * 계좌조회 서비스를 이용할 은행계좌를 등록한다.
+         * -https://docs.popbill.com/easyfinbank/java/api#RegistBankAccount
+         */
+
 		// 계좌정보 클래스 인스턴스 생성
 		EasyFinBankAccountForm bankInfo = new EasyFinBankAccountForm();
 		
@@ -124,12 +126,14 @@ public class EasyFinBankServiceExample {
         return "response";
     }
 	
-	/*
-	 * 팝빌에 등록된 은행 계좌정보를 수정합니다.
-	 */
+	
 	@RequestMapping(value = "updateBankAccount", method = RequestMethod.GET)
     public String updateBankAccount(Model m) {
-		
+        /*
+         * 팝빌에 등록된 은행 계좌정보를 수정합니다.
+         * - https://docs.popbill.com/easyfinbank/java/api#UpdateBankAccount
+         */
+	    
 		// 계좌정보 클래스 인스턴스 생성
 		EasyFinBankAccountForm bankInfo = new EasyFinBankAccountForm();
 		
@@ -174,11 +178,14 @@ public class EasyFinBankServiceExample {
         return "response";
     }
 	
-	/*
-	 * 팝빌에 등록된 은행계좌의 정액제 해지를 요청합니다.
-	 */
+	
 	@RequestMapping(value = "closeBankAccount", method = RequestMethod.GET)
     public String closeBankAccount(Model m) {
+        /*
+         * 팝빌에 등록된 은행계좌의 정액제 해지를 요청합니다.
+         * - https://docs.popbill.com/easyfinbank/java/api#CloseBankAccount
+         */
+	    
 		
 		// [필수] 은행코드
 	    // 산업은행-0002 / 기업은행-0003 / 국민은행-0004 /수협은행-0007 / 농협은행-0011 / 우리은행-0020
@@ -208,11 +215,13 @@ public class EasyFinBankServiceExample {
         return "response";
     }
 	
-	/*
-	 * 팝빌에 등록된 은행계좌의 정액제 해지요청을 취소합니다.
-	 */
+	
 	@RequestMapping(value = "revokeCloseBankAccount", method = RequestMethod.GET)
     public String revokeCloseBankAccount(Model m) {
+        /*
+         * 팝빌에 등록된 은행계좌의 정액제 해지요청을 취소합니다.
+         * - https://docs.popbill.com/easyfinbank/java/api#RevokeCloseBankAccount
+         */
 		
 		// [필수] 은행코드
 	    // 산업은행-0002 / 기업은행-0003 / 국민은행-0004 /수협은행-0007 / 농협은행-0011 / 우리은행-0020
@@ -237,14 +246,15 @@ public class EasyFinBankServiceExample {
         return "response";
     }
 	
-	/*
-	 *  종량제 계좌를 삭제합니다.
-	 *  - https://docs.popbill.com/easyfinbank/java/api#DeleteBankAccount
-	 */
+	
 	
 	@RequestMapping(value = "deleteBankAccount", method = RequestMethod.GET)
 	public String deleteBankAccount(Model m) {
-		
+       /*
+        *  종량제 계좌를 삭제합니다.
+        *  - https://docs.popbill.com/easyfinbank/java/api#DeleteBankAccount
+        */
+        
 		// [필수] 은행코드
 	    // 산업은행-0002 / 기업은행-0003 / 국민은행-0004 /수협은행-0007 / 농협은행-0011 / 우리은행-0020
 	    // SC은행-0023 / 대구은행-0031 / 부산은행-0032 / 광주은행-0034 / 제주은행-0035 / 전북은행-0037
@@ -267,12 +277,13 @@ public class EasyFinBankServiceExample {
 		return "response";
 	}
 	
-	/*
-	 * 팝빌에 등록된 은행 계좌정보를 확인합니다.
-	 */
+	
 	@RequestMapping(value = "getBankAccountInfo", method = RequestMethod.GET)
     public String getBankAccountInfo(Model m) {
-		
+       /*
+        * 팝빌에 등록된 은행 계좌정보를 확인합니다.
+        * - https://docs.popbill.com/easyfinbank/java/api#GetBankAccountInfo
+        */
 		
 		// [필수] 은행코드
 	    // 산업은행-0002 / 기업은행-0003 / 국민은행-0004 /수협은행-0007 / 농협은행-0011 / 우리은행-0020
@@ -297,14 +308,15 @@ public class EasyFinBankServiceExample {
         return "EasyFinBank/GetBankAccount";
     }
 
-    /*
-     * 은행 계좌 관리 팝업 URL을 반환한다. 
-     * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
-     * - https://docs.popbill.com/easyfinbank/java/api#GetBankAccountMgtURL
-     */
+    
 	@RequestMapping(value = "getBankAccountMgtURL", method = RequestMethod.GET)
     public String getBankAccountMgtURL(Model m) {
-
+       /*
+        * 은행 계좌 관리 팝업 URL을 반환한다. 
+        * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+        * - https://docs.popbill.com/easyfinbank/java/api#GetBankAccountMgtURL
+        */
+	    
         try {
             String url = easyFinBankService.getBankAccountMgtURL(testCorpNum, testUserID);
 
@@ -318,13 +330,13 @@ public class EasyFinBankServiceExample {
         return "result";
     }
 	
-	/*
-	 * 팝빌에 등록된 은행계좌 목록을 반환한다. 
-	 * - https://docs.popbill.com/easyfinbank/java/api#ListBankAccount
-	 */
+	
 	@RequestMapping(value = "listBankAccount", method = RequestMethod.GET)
     public String listBankAccount(Model m) {
-       
+       /*
+        * 팝빌에 등록된 은행계좌 목록을 반환한다. 
+        * - https://docs.popbill.com/easyfinbank/java/api#ListBankAccount
+        */
         try {
         	
             EasyFinBankAccount[] bankList = easyFinBankService.listBankAccount(testCorpNum);
@@ -338,15 +350,16 @@ public class EasyFinBankServiceExample {
         return "EasyFinBank/ListBankAccount";
     }
 	
-	/*
-	 * 계좌 거래내역 수집을 요청한다.
-	 * - 검색기간은 현재일 기준 90일 이내로만 요청할 수 있다.
-	 * - https://docs.popbill.com/easyfinbank/java/api#RequestJob
-	 */
+	
 	@RequestMapping(value = "requestJob", method = RequestMethod.GET)
     public String requestJob(Model m) {
-        
-		// 은행코드
+       /*
+        * 계좌 거래내역 수집을 요청한다.
+        * - 검색기간은 현재일 기준 90일 이내로만 요청할 수 있다.
+        * - https://docs.popbill.com/easyfinbank/java/api#RequestJob
+        */
+	    
+        // 은행코드
         String BankCode = "0048";
         
         // 계좌번호
@@ -371,13 +384,13 @@ public class EasyFinBankServiceExample {
         return "result";
     }
 	
-	/*
-	 * 계좌 거래내역 수집 상태를 확인한다.
-	 * - https://docs.popbill.com/easyfinbank/java/api#GetJobState
-	 */
+	
 	@RequestMapping(value = "getJobState", method = RequestMethod.GET)
     public String getJobState(Model m) {
-        
+        /*
+         * 계좌 거래내역 수집 상태를 확인한다.
+         * - https://docs.popbill.com/easyfinbank/java/api#GetJobState
+         */
 
         // 수집요청(requestJob)시 반환받은 작업아이디
         String jobID = "019121815000000001";
@@ -394,13 +407,13 @@ public class EasyFinBankServiceExample {
         return "EasyFinBank/GetJobState";
     }
 	
-	/*
-	 * 1시간 이내 수집 요청 목록을 확인한다. 
-	 * - https://docs.popbill.com/easyfinbank/java/api#ListActiveJob
-	 */
+	
 	@RequestMapping(value = "listActiveJob", method = RequestMethod.GET)
     public String listActiveJob(Model m) {
-        
+        /*
+         * 1시간 이내 수집 요청 목록을 확인한다. 
+         * - https://docs.popbill.com/easyfinbank/java/api#ListActiveJob
+         */
 
         try {
             EasyFinBankJobState[] jobState = easyFinBankService.listActiveJob(testCorpNum);
@@ -414,13 +427,14 @@ public class EasyFinBankServiceExample {
         return "EasyFinBank/ListActiveJob";
     }
 	
-	/*
-	 * 계좌 거래내역을 조회한다. 
-	 * - https://docs.popbill.com/easyfinbank/java/api#Search
-	 */
+	
 	@RequestMapping(value = "search", method = RequestMethod.GET)
     public String search(Model m) {
-       
+        /*
+         * 계좌 거래내역을 조회한다. 
+         * - https://docs.popbill.com/easyfinbank/java/api#Search
+         */
+   
         // 수집 요청시 발급받은 작업아이디
         String jobID = "020080715000000001";
 
@@ -452,13 +466,14 @@ public class EasyFinBankServiceExample {
         return "EasyFinBank/SearchResult";
     }
 	
-	/*
-	 * 계좌 거래내역 요약정보를 조회한다. 
-	 * - https://docs.popbill.com/easyfinbank/java/api#Summary
-	 */
+	
 	@RequestMapping(value = "summary", method = RequestMethod.GET)
     public String summary(Model m) {
-       
+        /*
+         * 계좌 거래내역 요약정보를 조회한다. 
+         * - https://docs.popbill.com/easyfinbank/java/api#Summary
+         */
+
         // 수집 요청시 발급받은 작업아이디
         String jobID = "019121816000000001";
 
@@ -482,13 +497,14 @@ public class EasyFinBankServiceExample {
         return "EasyFinBank/Summary";
     }
 
-	/*
-	 * 계좌 거래내역에 메모를 저장한다.
-	 * - https://docs.popbill.com/easyfinbank/java/api#SaveMemo
-	 */
+	
     @RequestMapping(value = "saveMemo", method = RequestMethod.GET)
     public String saveMemo(Model m) {
-
+       /*
+        * 계좌 거래내역에 메모를 저장한다.
+        * - https://docs.popbill.com/easyfinbank/java/api#SaveMemo
+        */
+        
         // 거래내역 아이디, SeachAPI 응답항목 중 tid
         String TID = "01912181100000000120191210000003";
 
@@ -509,14 +525,14 @@ public class EasyFinBankServiceExample {
         return "response";
     }
     
-    /*
-     * 계좌조회 정액제 서비스 신청 팝업 URL을 반환한다. 
-     * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
-     * - https://docs.popbill.com/easyfinbank/java/api#GetFlatRatePopUpURL
-     */
+    
 	@RequestMapping(value = "getFlatRatePopUpURL", method = RequestMethod.GET)
     public String getFlatRatePopUpURL(Model m) {
-
+       /*
+        * 계좌조회 정액제 서비스 신청 팝업 URL을 반환한다. 
+        * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+        * - https://docs.popbill.com/easyfinbank/java/api#GetFlatRatePopUpURL
+        */
         try {
             String url = easyFinBankService.getFlatRatePopUpURL(testCorpNum, testUserID);
 
@@ -530,14 +546,15 @@ public class EasyFinBankServiceExample {
         return "result";
     }
 	
-	/*
-     * 정액제 서비스 상태를 확인합니다.
-     * - https://docs.popbill.com/easyfinbank/java/api#GetFlatRateState
-     */
+
 	@RequestMapping(value = "getFlatRateState", method = RequestMethod.GET)
     public String getFlatRateState(Model m) {
-
-		// 은행코드
+       /*
+        * 정액제 서비스 상태를 확인합니다.
+        * - https://docs.popbill.com/easyfinbank/java/api#GetFlatRateState
+        */
+	    
+        // 은행코드
         String BankCode = "0048";
         
         // 계좌번호
@@ -557,13 +574,14 @@ public class EasyFinBankServiceExample {
         return "EasyFinBank/GetFlatRateState";
     }
 	
-	/*
-     * 계좌조회 API 서비스 과금정보를 확인합니다.
-     * - https://docs.popbill.com/easyfinbank/java/api#GetChargeInfo
-     */
+	
 	@RequestMapping(value = "getChargeInfo", method = RequestMethod.GET)
 	public String chargeInfo(Model m) {
-	    
+        /*
+         * 계좌조회 API 서비스 과금정보를 확인합니다.
+         * - https://docs.popbill.com/easyfinbank/java/api#GetChargeInfo
+         */
+	   
 	    try {
 	
 	    	ChargeInfo chrgInfo = easyFinBankService.getChargeInfo(testCorpNum);

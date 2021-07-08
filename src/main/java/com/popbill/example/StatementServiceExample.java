@@ -975,6 +975,7 @@ public class StatementServiceExample {
     public String getViewURL(Model m) {
         /*
          * 1건의 전자명세서 보기 팝업 URL을 반환합니다. (메뉴/버튼 제외)
+         * - https://docs.popbill.com/statement/java/api#GetViewURL
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]

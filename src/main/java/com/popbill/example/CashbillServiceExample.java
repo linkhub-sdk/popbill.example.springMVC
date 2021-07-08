@@ -738,6 +738,7 @@ public class CashbillServiceExample {
     public String assignMgtKey(Model m) {
         /*
          * 팝빌 사이트에서 작성한 현금영수증에 파트너의 문서번호를 할당합니다.
+         * - https://docs.popbill.com/cashbill/java/api#AssignMgtKey
          */
 
         // 현금영수증 아이템키, 문서 목록조회(Search) API의 반환항목중 ItemKey 참조
@@ -944,6 +945,7 @@ public class CashbillServiceExample {
     public String getPDFURL(Model m) {
         /*
          * 1건의 현금영수증 PDF 다운로드 URL을 반환합니다.
+         * - https://docs.popbill.com/cashbill/java/api#GetPDFURL
          */
 
         // 현금영수증 문서번호

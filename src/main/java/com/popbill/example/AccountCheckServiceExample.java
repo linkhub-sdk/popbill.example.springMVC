@@ -56,6 +56,7 @@ public class AccountCheckServiceExample {
     public String checkAccountInfo(Model m) {
         /*
          * 계좌의 예금주성명을 조회합니다.
+         * - https://docs.popbill.com/accountcheck/java/api#CheckAccountInfo
          */
 
         // 기관코드
@@ -82,6 +83,7 @@ public class AccountCheckServiceExample {
     public String getUnitCost(Model m) {
         /*
          * 예금주조회 단가를 확인합니다.
+         * - https://docs.popbill.com/accountcheck/java/api#GetUnitCost
          */
 
         try {
@@ -102,6 +104,7 @@ public class AccountCheckServiceExample {
     public String chargeInfo(Model m) {
         /*
          * 예금주조회 API 서비스 과금정보를 확인합니다.
+         * - https://docs.popbill.com/accountcheck/java/api#GetChargeInfo
          */
 
         try {
