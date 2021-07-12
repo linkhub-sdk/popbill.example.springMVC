@@ -111,8 +111,9 @@ public class StatementServiceExample {
     @RequestMapping(value = "registIssue", method = RequestMethod.GET)
     public String registIssue(Model m) {
         /*
-         * 작성된 전자명세서 데이터를 팝빌에 저장과 동시에 발행하여, "승인대기" 상태로 처리합니다
-         * - https://docs.popbill.com/statement/java/api#RegistIssuex 
+         * 작성된 전자명세서 데이터를 팝빌에 저장과 동시에 발행하여, "발행완료" 상태로 처리합니다.
+         * - 팝빌 사이트 [전자명세서] > [환경설정] > [전자명세서 관리] 메뉴의 발행시 자동승인 옵션 설정을 통해 전자명세서를 "발행완료" 상태가 아닌 "승인대기" 상태로 발행 처리 할 수 있습니다.
+         * - https://docs.popbill.com/statement/java/api#RegistIssue
          */
 
         String Memo = "전자명세서 즉시발행 메모";
@@ -669,7 +670,7 @@ public class StatementServiceExample {
     @RequestMapping(value = "issue", method = RequestMethod.GET)
     public String issue(Model m) {
         /*
-         * "임시저장" 상태의 전자명세서를 발행하여, "승인대기" 상태로 처리합니다.
+         * "임시저장" 상태의 전자명세서를 발행합니다.
          * - 전자명세서 발행 함수 호출시 포인트가 과금되며, 수신자에게 발행 안내 메일이 발송됩니다.
          * - https://docs.popbill.com/statement/java/api#StmIssue
          */
