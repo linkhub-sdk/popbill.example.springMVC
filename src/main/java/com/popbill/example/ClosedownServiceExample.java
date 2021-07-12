@@ -62,7 +62,7 @@ public class ClosedownServiceExample {
     @RequestMapping(value = "checkCorpNum", method = RequestMethod.GET)
     public String checkCorpNum(@RequestParam(required = false) String CorpNum, Model m) {
         /*
-         * 1건의 사업자에 대한 휴폐업여부를 조회합니다.
+         * 사업자번호 1건에 대한 휴폐업정보를 확인합니다.
          * - https://docs.popbill.com/closedown/java/api#CheckCorpNum
          */
 
@@ -88,7 +88,7 @@ public class ClosedownServiceExample {
     @RequestMapping(value = "checkCorpNums", method = RequestMethod.GET)
     public String checkCorpNums(Model m) {
         /*
-         * 다수의 사업자에 대한 휴폐업여부를 조회합니다.
+         * 다수건의 사업자번호에 대한 휴폐업정보를 확인합니다. (최대 1,000건)
          * - https://docs.popbill.com/closedown/java/api#CheckCorpNums
          */
 
@@ -112,7 +112,7 @@ public class ClosedownServiceExample {
     @RequestMapping(value = "getUnitCost", method = RequestMethod.GET)
     public String getUnitCost(Model m) {
         /*
-         * 휴폐업조회 단가를 확인합니다.
+         * 휴폐업 조회시 과금되는 포인트 단가를 확인합니다.
          * - https://docs.popbill.com/closedown/java/api#GetUnitCost
          */
 

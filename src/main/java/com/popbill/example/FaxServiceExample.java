@@ -78,8 +78,8 @@ public class FaxServiceExample {
     @RequestMapping(value = "getSenderNumberMgtURL", method = RequestMethod.GET)
     public String getSenderNumberMgtURL(Model m) {
         /*
-         * 팩스 발신번호 관리 팝업 URL을 반합니다.
-         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         * 발신번호를 등록하고 내역을 확인하는 팩스 발신번호 관리 페이지 팝업 URL을 반환합니다.
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/fax/java/api#GetSenderNumberMgtURL
          */
         try {
@@ -99,7 +99,7 @@ public class FaxServiceExample {
     @RequestMapping(value = "getSenderNumberList", method = RequestMethod.GET)
     public String getSenderNumberList(Model m) {
         /*
-         * 팝빌에 등록된 발신번호 목록을 확인합니다.
+         * 팝빌에 등록한 연동회원의 팩스 발신번호 목록을 확인합니다.
          * - https://docs.popbill.com/fax/java/api#GetSenderNumberList
          */
 
@@ -116,7 +116,7 @@ public class FaxServiceExample {
     @RequestMapping(value = "sendFAX", method = RequestMethod.GET)
     public String sendFAX(Model m) throws URISyntaxException {
         /*
-         * 팩스를 전송합니다. (전송할 파일 개수는 최대 20개까지 가능)
+         * 팩스 1건을 전송합니다. (최대 전송파일 개수: 20개)
          * - 팩스전송 문서 파일포맷 안내 : https://docs.popbill.com/fax/format?lang=java
          * - https://docs.popbill.com/fax/java/api#SendFAX
          */
@@ -171,7 +171,7 @@ public class FaxServiceExample {
     @RequestMapping(value = "sendFAX_Multi", method = RequestMethod.GET)
     public String sendFAX_Multi(Model m) throws URISyntaxException {
         /*
-         * [대량전송] 팩스를 전송합니다. (전송할 파일 개수는 최대 20개까지 가능)
+         * 동일한 팩스파일을 다수의 수신자에게 전송하기 위해 팝빌에 접수합니다. (최대 전송파일 개수 : 20개) (최대 1,000건)
          * - 팩스전송 문서 파일포맷 안내 : https://docs.popbill.com/fax/format?lang=java
          * - https://docs.popbill.com/fax/java/api#SendFAX_Multi
          */
@@ -234,8 +234,9 @@ public class FaxServiceExample {
     @RequestMapping(value = "sendFAXBinary", method = RequestMethod.GET)
     public String sendFAXBinary(Model m) throws URISyntaxException {
         /*
-         * 팩스를 전송합니다. (전송할 파일 개수는 최대 20개까지 가능)
+         * 전송할 파일의 바이너리 데이터를 팩스 1건 전송합니다. (최대 전송파일 개수: 20개)
          * - 팩스전송 문서 파일포맷 안내 : https://docs.popbill.com/fax/format?lang=java
+         * - https://docs.popbill.com/fax/java/api#SendFAXBinary
          */
 
         // 발신번호
@@ -300,8 +301,9 @@ public class FaxServiceExample {
     @RequestMapping(value = "sendFAXBinary_Multi", method = RequestMethod.GET)
     public String sendFAXBinary_Multi(Model m) throws URISyntaxException {
         /*
-         * [대량전송] 팩스를 전송합니다. (전송할 파일 개수는 최대 20개까지 가능)
+         * 동일한 파일의 바이너리 데이터를 다수의 수신자에게 전송하기 위해 팝빌에 접수합니다. (최대 전송파일 개수 : 20개) (최대 1,000건)
          * - 팩스전송 문서 파일포맷 안내 : https://docs.popbill.com/fax/format?lang=java
+         * - https://docs.popbill.com/fax/java/api#SendFAXBinary_multi
          */
 
         // 발신번호
@@ -375,14 +377,14 @@ public class FaxServiceExample {
     @RequestMapping(value = "resendFAX", method = RequestMethod.GET)
     public String resendFAX(Model m) {
         /*
-         * 팩스를 재전송합니다.
-         * - 접수일로부터 60일이 경과된 경우 재전송할 수 없습니다.
+         * 팝빌에서 반환받은 접수번호를 통해 팩스 1건을 재전송합니다.
+         * - 발신/수신 정보 미입력시 기존과 동일한 정보로 팩스가 전송되고, 접수일 기준 최대 60일이 경과되지 않는 건만 재전송이 가능합니다.
          * - 팩스 재전송 요청시 포인트가 차감됩니다. (전송실패시 환불처리)
          * - https://docs.popbill.com/fax/java/api#ResendFAX
          */
 
         // 원본 팩스 접수번호
-        String orgReceiptNum = "019010316355100002";
+        String orgReceiptNum = "021010316355100002";
 
         // 발신번호, 공백처리시 기존전송정보로 재전송
         String sendNum = "07043042991";
@@ -427,14 +429,14 @@ public class FaxServiceExample {
     @RequestMapping(value = "resendFAX_Multi", method = RequestMethod.GET)
     public String resendFAX_Multi(Model m) {
         /*
-         * [대량전송] 팩스를 재전송합니다.
-         * - 접수일로부터 60일이 경과된 경우 재전송할 수 없습니다.
+         * 동일한 팩스파일을 다수의 수신자에게 전송하기 위해 팝빌에 접수합니다. (최대 전송파일 개수: 20개) (최대 1,000건)
+         & -발신/수신 정보 미입력시 기존과 동일한 정보로 팩스가 전송되고, 접수일 기준 최대 60일이 경과되지 않는 건만 재전송이 가능합니다.
          * - 팩스 재전송 요청시 포인트가 차감됩니다. (전송실패시 환불처리)
          * - https://docs.popbill.com/fax/java/api#ResendFAX_Multi
          */
 
         // 원본 팩스 접수번호
-        String orgReceiptNum = "019010316355100002";
+        String orgReceiptNum = "021010316355100002";
 
         // 발신번호, 공백처리시 기존전송정보로 재전송
         String sendNum = "07043042991";
@@ -488,8 +490,8 @@ public class FaxServiceExample {
     @RequestMapping(value = "resendFAXRN", method = RequestMethod.GET)
     public String resendFAXRN(Model m) {
         /*
-         * 전송요청번호(requestNum)을 할당한 팩스를 재전송합니다.
-         * - 접수일로부터 60일이 경과된 경우 재전송할 수 없습니다.
+         * 파트너가 할당한 전송요청 번호를 통해 팩스 1건을 재전송합니다.
+         * - 발신/수신 정보 미입력시 기존과 동일한 정보로 팩스가 전송되고, 접수일 기준 최대 60일이 경과되지 않는 건만 재전송이 가능합니다.
          * - 팩스 재전송 요청시 포인트가 차감됩니다. (전송실패시 환불처리)
          * - https://docs.popbill.com/fax/java/api#ResendFAXRN
          */
@@ -520,7 +522,7 @@ public class FaxServiceExample {
         String title = "팩스 재전송 제목";
 
         // 원본 팩스 전송시 할당한 전송요청번호(requestNum)
-        String orgRequestNum = "20190104-001";
+        String orgRequestNum = "20210701-001";
 
         try {
 
@@ -540,8 +542,8 @@ public class FaxServiceExample {
     @RequestMapping(value = "resendFAXRN_Multi", method = RequestMethod.GET)
     public String resendFAXRN_Multi(Model m) {
         /*
-         * [대량전송] 전송요청번호(requestNum)을 할당한 팩스를 재전송합니다.
-         * - 접수일로부터 60일이 경과된 경우 재전송할 수 없습니다.
+         * 파트너가 할당한 전송요청 번호를 통해 다수건의 팩스를 재전송합니다. (최대 전송파일 개수: 20개) (최대 1,000건)
+         * - 발신/수신 정보 미입력시 기존과 동일한 정보로 팩스가 전송되고, 접수일 기준 최대 60일이 경과되지 않는 건만 재전송이 가능합니다.
          * - 팩스 재전송 요청시 포인트가 차감됩니다. (전송실패시 환불처리)
          * - https://docs.popbill.com/fax/java/api#ResendFAXRN_Multi
          */
@@ -581,7 +583,7 @@ public class FaxServiceExample {
         String title = "팩스 재전송(동보) 제목";
 
         // 원본 팩스 전송시 할당한 전송요청번호(requestNum)
-        String orgRequestNum = "20190104-001";
+        String orgRequestNum = "20210701-001";
 
         try {
 
@@ -601,13 +603,12 @@ public class FaxServiceExample {
     @RequestMapping(value = "cancelReserve", method = RequestMethod.GET)
     public String cancelReserve(Model m) {
         /*
-         * 팩스전송요청시 발급받은 접수번호(receiptNum)로 팩스 예약전송건을 취소합니다.
-         * - 예약전송 취소는 예약전송시간 10분전까지 가능하며, 팩스변환 이후 가능합니다.
+         * 팝빌에서 반환받은 접수번호를 통해 예약접수된 팩스 전송을 취소합니다. (예약시간 10분 전까지 가능)
          * - https://docs.popbill.com/fax/java/api#CancelReserve
          */
 
         // 전송요청(sendFAX)시 발급받은 팩스접수번호
-        String receiptNum = "019010414344900001";
+        String receiptNum = "021010414344900001";
 
         try {
             Response response = faxService.cancelReserve(testCorpNum, receiptNum);
@@ -625,13 +626,12 @@ public class FaxServiceExample {
     @RequestMapping(value = "cancelReserveRN", method = RequestMethod.GET)
     public String cancelReserveRN(Model m) {
         /*
-         * 팩스전송요청시 할당한 전송요청번호(requestNum)로 팩스 예약전송건을 취소합니다.
-         * - 예약전송 취소는 예약전송시간 10분전까지 가능하며, 팩스변환 이후 가능합니다.
+         * 파트너가 할당한 전송요청 번호를 통해 예약접수된 팩스 전송을 취소합니다. (예약시간 10분 전까지 가능)
          * - https://docs.popbill.com/fax/java/api#CancelReserveRN
          */
 
         // 예약팩스전송 요청시 할당한 전송요청번호
-        String requestNum = "20190104-001";
+        String requestNum = "20210104-001";
 
         try {
             Response response = faxService.cancelReserveRN(testCorpNum, requestNum);
@@ -649,12 +649,12 @@ public class FaxServiceExample {
     @RequestMapping(value = "getFaxResult", method = RequestMethod.GET)
     public String getFaxResult(Model m) {
         /*
-         * 팩스전송요청시 발급받은 접수번호(receiptNum)로 전송결과를 확인합니다
+         * 팝빌에서 반환 받은 접수번호를 통해 팩스 전송상태 및 결과를 확인합니다.
          * - https://docs.popbill.com/fax/java/api#GetFaxResult
          */
 
         // 전송요청(sendFAX)시 발급받은 접수번호
-        String receiptNum = "019010414350900001";
+        String receiptNum = "021010414350900001";
 
         try {
             FaxResult[] faxResults = faxService.getFaxResult(testCorpNum, receiptNum);
@@ -672,12 +672,12 @@ public class FaxServiceExample {
     @RequestMapping(value = "getFaxResultRN", method = RequestMethod.GET)
     public String getFaxResultRN(Model m) {
         /*
-         * 팩스전송요청시 할당한 전송요청번호(requestNum)으로 전송결과를 확인합니다
+         * 파트너가 할당한 전송요청 번호를 통해 팩스 전송상태 및 결과를 확인합니다.
          * - https://docs.popbill.com/fax/java/api#GetFaxResultRN
          */
 
         // 팩스전송 요청시 할당한 전송요청번호
-        String requestNum = "20190104-001";
+        String requestNum = "20210701-0011";
 
         try {
             FaxResult[] faxResults = faxService.getFaxResultRN(testCorpNum, requestNum);
@@ -695,16 +695,16 @@ public class FaxServiceExample {
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String search(Model m) {
         /*
-         * 검색조건을 사용하여 팩스전송 내역을 조회합니다.
-         * - 최대 검색기간 : 6개월 이내
+         * 검색조건에 해당하는 팩스 전송내역 목록을 조회합니다. (최대 검색기간 : 2개월)
+         * - 최대 검색기간 : 2개월 이내
          * - https://docs.popbill.com/fax/java/api#Search
          */
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20181201";
+        String SDate = "20210701";
 
         // 종료일자, 날짜형식(yyyyMMdd)
-        String EDate = "20190104";
+        String EDate = "20210710";
 
         // 전송상태 배열, 1-대기, 2-성공, 3-실패, 4-취소
         String[] State = {"1", "2", "3", "4"};
@@ -746,8 +746,8 @@ public class FaxServiceExample {
     @RequestMapping(value = "getSentListURL", method = RequestMethod.GET)
     public String getSentListURL(Model m) {
         /*
-         * 팩스 전송내역 팝업 URL을 반환합니다.
-         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         * 팝빌 사이트와 동일한 팩스 전송내역 확인 페이지의 팝업 URL을 반환합니다.
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/fax/java/api#GetSentListURL
          */
         try {
@@ -767,14 +767,14 @@ public class FaxServiceExample {
     @RequestMapping(value = "getPreviewURL", method = RequestMethod.GET)
     public String getPrevewURL(Model m) {
         /*
-         * 접수한 팩스 전송건에 대한 미리보기 팝업 URL을 반환합니다.
-         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         * 팩스 미리보기 팝업 URL을 반환하며, 팩스전송을 위한 TIF 포맷 변환 완료 후 호출 할 수 있습니다.
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/fax/java/api#GetPreviewURL
          */
         try {
 
             // 팩스 접수번호
-            String receiptNum = "019010414350900001";
+            String receiptNum = "021010414350900001";
 
             String url = faxService.getPreviewURL(testCorpNum, receiptNum);
 
@@ -791,7 +791,7 @@ public class FaxServiceExample {
     @RequestMapping(value = "getUnitCost", method = RequestMethod.GET)
     public String getUnitCost(Model m) {
         /*
-         * 팩스 전송단가를 확인합니다.
+         * 팩스 전송시 과금되는 포인트 단가를 확인합니다.
          * - https://docs.popbill.com/fax/java/api#GetUnitCost
          */
 
@@ -812,7 +812,7 @@ public class FaxServiceExample {
     @RequestMapping(value = "getChargeInfo", method = RequestMethod.GET)
     public String chargeInfo(Model m) {
         /*
-         * 팩스 API 서비스 과금정보를 확인합니다.
+         * 팝빌 팩스 API 서비스 과금정보를 확인합니다.
          * - https://docs.popbill.com/fax/java/api#GetChargeInfo
          */
 

@@ -79,8 +79,8 @@ public class MessageServiceExample {
     @RequestMapping(value = "getSenderNumberMgtURL", method = RequestMethod.GET)
     public String getSenderNumberMgtURL(Model m) {
         /*
-         * 문자 발신번호 관리 팝업 URL을 반합니다.
-         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         * 발신번호를 등록하고 내역을 확인하는 문자 발신번호 관리 페이지 팝업 URL을 반환합니다.
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/message/java/api#GetSenderNumberMgtURL
          */
         try {
@@ -100,7 +100,7 @@ public class MessageServiceExample {
     @RequestMapping(value = "getSenderNumberList", method = RequestMethod.GET)
     public String getSenderNumberList(Model m) {
         /*
-         * 팝빌에 등록된 발신번호 목록을 확인합니다.
+         * 팝빌에 등록한 연동회원의 문자 발신번호 목록을 확인합니다.
          * - https://docs.popbill.com/message/java/api#GetSenderNumberList
          */
 
@@ -117,8 +117,7 @@ public class MessageServiceExample {
     @RequestMapping(value = "sendSMS", method = RequestMethod.GET)
     public String sendSMS(Model m) {
         /*
-         * SMS(단문)를 전송합니다.
-         *  - 메시지 내용이 90Byte 초과시 메시지 내용은 자동으로 제거됩니다.
+         * 최대 90byte의 단문(SMS) 메시지 1건 전송을 팝빌에 접수합니다.
          *  - https://docs.popbill.com/message/java/api#SendSMS
          */
 
@@ -163,8 +162,8 @@ public class MessageServiceExample {
     @RequestMapping(value = "sendSMS_Multi", method = RequestMethod.GET)
     public String sendSMS_Multi(Model m) {
         /*
-         * [대량전송] SMS(단문)를 전송합니다.
-         *  - 메시지 내용이 90Byte 초과시 메시지 내용은 자동으로 제거됩니다.
+         * 최대 90byte의 단문(SMS) 메시지 다수건 전송을 팝빌에 접수합니다. (최대 1,000건)
+         *  - 모든 수신자에게 동일한 내용을 전송하거나(동보전송), 수신자마다 개별 내용을 전송할 수 있습니다(대량전송).
          *  - https://docs.popbill.com/message/java/api#SendSMS_Multi
          */
 
@@ -221,8 +220,7 @@ public class MessageServiceExample {
     @RequestMapping(value = "sendLMS", method = RequestMethod.GET)
     public String sendLMS(Model m) {
         /*
-         * LMS(장문)를 전송합니다.
-         *  - 메시지 내용이 2,000Byte 초과시 메시지 내용은 자동으로 제거됩니다.
+         * 최대 2,000byte의 장문(LMS) 메시지 1건 전송을 팝빌에 접수합니다.
          *  - https://docs.popbill.com/message/java/api#SendLMS
          */
 
@@ -270,8 +268,8 @@ public class MessageServiceExample {
     @RequestMapping(value = "sendLMS_Multi", method = RequestMethod.GET)
     public String sendLMS_Multi(Model m) {
         /*
-         * [대량전송] LMS(장문)를 전송합니다.
-         *  - 메시지 내용이 2,000Byte 초과시 메시지 내용은 자동으로 제거됩니다.
+         * 최대 2,000byte의 장문(LMS) 메시지 다수건 전송을 팝빌에 접수합니다. (최대 1,000건)
+         *  - 모든 수신자에게 동일한 내용을 전송하거나(동보전송), 수신자마다 개별 내용을 전송할 수 있습니다(대량전송).
          *  - https://docs.popbill.com/message/java/api#SendLMS_Multi
          */
 
@@ -334,9 +332,8 @@ public class MessageServiceExample {
     @RequestMapping(value = "sendMMS", method = RequestMethod.GET)
     public String sendMMS(Model m) {
         /*
-         * MMS(포토)를 전송합니다.
-         *  - 메시지 내용이 2,000Byte 초과시 메시지 내용은 자동으로 제거됩니다.
-         *  - 이미지 파일의 크기는 최대 300Kbtye (JPEG), 가로/세로 1000px 이하 권장
+         * 최대 2,000byte의 메시지와 이미지로 구성된 포토문자(MMS) 1건 전송을 팝빌에 접수합니다.
+         *  - 이미지 파일 포맷/규격 : 최대 300Kbyte(JPEG, JPG), 가로/세로 1,000px 이하 권장
          *  - https://docs.popbill.com/message/java/api#SendMMS
          */
 
@@ -387,9 +384,9 @@ public class MessageServiceExample {
     @RequestMapping(value = "sendMMS_Multi", method = RequestMethod.GET)
     public String sendMMS_Multi(Model m) {
         /*
-         * [대랑전송] MMS(포토)를 전송합니다.
-         *  - 메시지 내용이 2,000Byte 초과시 메시지 내용은 자동으로 제거됩니다.
-         *  - 이미지 파일의 크기는 최대 300Kbtye (JPEG), 가로/세로 1500px 이하 권장
+         * 최대 2,000byte의 메시지와 이미지로 구성된 포토문자(MMS) 다수건 전송을 팝빌에 접수합니다. (최대 1,000건)
+         *  - 모든 수신자에게 동일한 내용을 전송하거나(동보전송), 수신자마다 개별 내용을 전송할 수 있습니다(대량전송).
+         *  - 이미지 파일 포맷/규격 : 최대 300Kbyte(JPEG), 가로/세로 1,000px 이하 권장
          *  - https://docs.popbill.com/message/java/api#SendMMS_Multi
          */
 
@@ -455,8 +452,7 @@ public class MessageServiceExample {
     @RequestMapping(value = "sendXMS", method = RequestMethod.GET)
     public String sendXMS(Model m) {
         /*
-         * XMS(단문/장문 자동인식)를 전송합니다.
-         *  - 메시지 내용의 길이(90byte)에 따라 SMS/LMS(단문/장문)를 자동인식하여 전송합니다.
+         * 메시지 크기(90byte)에 따라 단문/장문(SMS/LMS)을 자동으로 인식하여 1건의 메시지를 전송을 팝빌에 접수합니다.
          *  - https://docs.popbill.com/message/java/api#SendXMS
          */
         // 발신번호
@@ -503,8 +499,7 @@ public class MessageServiceExample {
     @RequestMapping(value = "sendXMS_Multi", method = RequestMethod.GET)
     public String sendXMS_Multi(Model m) {
         /*
-         * [대량전송] XMS(단문/장문 자동인식)를 전송합니다.
-         *  - 메시지 내용의 길이(90byte)에 따라 SMS/LMS(단문/장문)를 자동인식하여 전송합니다.
+         * 시지 크기(90byte)에 따라 단문/장문(SMS/LMS)을 자동으로 인식하여 다수건의 메시지 전송을 팝빌에 접수합니다. (최대 1,000건)
          *  - https://docs.popbill.com/message/java/api#SendXMS_Multi
          */
 
@@ -565,13 +560,12 @@ public class MessageServiceExample {
     @RequestMapping(value = "cancelReserve", method = RequestMethod.GET)
     public String cancelReserve(Model m) {
         /*
-         * 문자전송요청시 발급받은 접수번호(receiptNum)로 예약문자 전송을 취소합니다.
-         * - 예약취소는 예약전송시간 10분전까지만 가능합니다.
+         * 팝빌에서 반환받은 접수번호를 통해 예약접수된 문자 메시지 전송을 취소합니다. (예약시간 10분 전까지 가능)
          * - https://docs.popbill.com/message/java/api#CancelReserve
          */
 
         // 예약문자전송 접수번호
-        String receiptNum = "019010413000000001";
+        String receiptNum = "021010413000000001";
 
         try {
             Response response = messageService.cancelReserve(testCorpNum, receiptNum);
@@ -589,13 +583,12 @@ public class MessageServiceExample {
     @RequestMapping(value = "cancelReserveRN", method = RequestMethod.GET)
     public String cancelReserveRN(Model m) {
         /*
-         * 문자전송요청시 할당한 전송요청번호(requestNum)로 예약문자 전송을 취소합니다.
-         * - 예예약취소는 예약전송시간 10분전까지만 가능합니다.
+         * 파트너가 할당한 전송요청 번호를 통해 예약접수된 문자 전송을 취소합니다. (예약시간 10분 전까지 가능)
          * - https://docs.popbill.com/message/java/api#CancelReserveRN
          */
 
         // 예약문자전송 요청시 할당한 전송요청번호
-        String requestNum = "20190104-001";
+        String requestNum = "20210701-001";
 
         try {
             Response response = messageService.cancelReserveRN(testCorpNum, requestNum);
@@ -613,12 +606,12 @@ public class MessageServiceExample {
     @RequestMapping(value = "getMessages", method = RequestMethod.GET)
     public String getMessages(Model m) {
         /*
-         * 문자전송요청시 발급받은 접수번호(receiptNum)로 전송상태를 확인합니다
+         * 팝빌에서 반환받은 접수번호를 통해 문자 전송상태 및 결과를 확인합니다.
          * - https://docs.popbill.com/message/java/api#GetMessages
          */
 
         // 문자전송 접수번호
-        String receiptNum = "019010413000000003";
+        String receiptNum = "021010413000000003";
 
         try {
 
@@ -637,12 +630,12 @@ public class MessageServiceExample {
     @RequestMapping(value = "getMessagesRN", method = RequestMethod.GET)
     public String getMessagesRN(Model m) {
         /*
-         * 문자전송요청시 할당한 전송요청번호(requestNum)로 전송상태를 확인합니다
+         * 파트너가 할당한 전송요청 번호를 통해 문자 전송상태 및 결과를 확인합니다.
          * - https://docs.popbill.com/message/java/api#GetMessagesRN
          */
 
         // 문자전송 요청 시 할당한 전송요청번호(requestNum)
-        String requestNum = "20190104-100";
+        String requestNum = "20210708-100";
 
         try {
 
@@ -685,16 +678,15 @@ public class MessageServiceExample {
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String search(Model m) {
         /*
-         * 검색조건을 사용하여 문자전송 내역을 조회합니다.
-         * - 최대 검색기간 : 6개월 이내
+         * 파트너가 지정한 검색조건에 해당하는 문자 전송내역을 조회합니다. (최대 검색기간 : 6개월)
          * - https://docs.popbill.com/message/java/api#Search
          */
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20181201";
+        String SDate = "20210701";
 
         // 종료일자, 날짜형식(yyyyMMdd)
-        String EDate = "20190104";
+        String EDate = "20210710";
 
         // 전송상태 배열, 1-대기, 2-성공, 3-실패, 4-취소
         String[] State = {"1", "2", "3", "4"};
@@ -739,8 +731,8 @@ public class MessageServiceExample {
     @RequestMapping(value = "getSentListURL", method = RequestMethod.GET)
     public String getSentListURL(Model m) {
         /*
-         * 문자 전송내역 팝업 URL을 반환합니다.
-         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         * 팝빌 사이트와 동일한 문자 전송내역 확인 페이지의 팝업 URL을 반환합니다.
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/message/java/api#GetSentListURL
          */
         try {
@@ -760,7 +752,7 @@ public class MessageServiceExample {
     @RequestMapping(value = "autoDenyList", method = RequestMethod.GET)
     public String getAutoDenyList(Model m) {
         /*
-         * 080 서비스 수신거부 목록을 확인합니다.
+         * 전용 080 번호에 등록된 수신거부 목록을 반환합니다.
          * - https://docs.popbill.com/message/java/api#GetAutoDenyList
          */
 
@@ -777,7 +769,7 @@ public class MessageServiceExample {
     @RequestMapping(value = "getUnitCost", method = RequestMethod.GET)
     public String getUnitCost(Model m) {
         /*
-         *  문자메시지 전송단가를 확인합니다.
+         *  문자 전송시 과금되는 포인트 단가를 확인합니다.
          *  - https://docs.popbill.com/message/java/api#GetUnitCost
          */
 
@@ -801,7 +793,7 @@ public class MessageServiceExample {
     @RequestMapping(value = "getChargeInfo", method = RequestMethod.GET)
     public String chargeInfo(Model m) {
         /*
-         * 문자서비스 API 서비스 과금정보를 확인합니다.
+         * 팝빌 문자 API 서비스 과금정보를 확인합니다.
          * - https://docs.popbill.com/message/java/api#GetChargeInfo
          */
 

@@ -88,7 +88,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "checkMgtKeyInUse", method = RequestMethod.GET)
     public String checkMgtKeyInUse(Model m) {
         /*
-         * 세금계산서 문서번호 중복여부를 확인합니다.
+         * 파트너가 세금계산서 관리 목적으로 할당하는 문서번호의 사용여부를 확인합니다.
          * - 문서번호는 1~24자리로 숫자, 영문 '-', '_' 조합으로 구성할 수 있습니다.
          * - https://docs.popbill.com/taxinvoice/java/api#CheckMgtKeyInUse
          */
@@ -97,7 +97,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType keyType = MgtKeyType.SELL;
 
         // 조회할 문서번호
-        String mgtKey = "20190104-001";
+        String mgtKey = "20210712-001";
 
         String isUseStr;
 
@@ -121,7 +121,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "registIssue", method = RequestMethod.GET)
     public String registIssue(Model m) {
         /*
-         * 1건의 세금계산서를 [즉시발행]합니다.
+         * 작성된 세금계산서 데이터를 팝빌에 저장과 동시에 발행(전자서명)하여 "발행완료" 상태로 처리합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#RegistIssue
          */
 
@@ -129,7 +129,7 @@ public class TaxinvoiceServiceExample {
         Taxinvoice taxinvoice = new Taxinvoice();
 
         // 작성일자, 날짜형식(yyyyMMdd)
-        taxinvoice.setWriteDate("20201002");
+        taxinvoice.setWriteDate("20210712");
 
         // 과금방향, [정과금, 역과금] 중 선택기재, "역과금"은 역발행세금계산서 발행에만 가능
         taxinvoice.setChargeDirection("정과금");
@@ -157,8 +157,8 @@ public class TaxinvoiceServiceExample {
         // 공급자 상호
         taxinvoice.setInvoicerCorpName("공급자 상호");
 
-        // 공급자 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
-        taxinvoice.setInvoicerMgtKey("20200102-21");
+        // 공급자 문서번호, 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
+        taxinvoice.setInvoicerMgtKey("20210712-21");
 
         // 공급자 대표자성명
         taxinvoice.setInvoicerCEOName("공급자 대표자 성명");
@@ -202,7 +202,7 @@ public class TaxinvoiceServiceExample {
         // 공급받는자 상호
         taxinvoice.setInvoiceeCorpName("공급받는자 상호");
 
-        // [역발행시 필수] 공급받는자 문서번호, 1~24자리까지 사업자번호별 중복없는 고유번호 할당
+        // [역발행시 필수] 공급받는자 문서번호, 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
         taxinvoice.setInvoiceeMgtKey("");
 
         // 공급받는자 대표자 성명
@@ -300,7 +300,7 @@ public class TaxinvoiceServiceExample {
         TaxinvoiceDetail detail = new TaxinvoiceDetail();
 
         detail.setSerialNum((short) 1); // 일련번호, 1부터 순차기재
-        detail.setPurchaseDT("20190104"); // 거래일자
+        detail.setPurchaseDT("202107012"); // 거래일자
         detail.setItemName("품목명");
         detail.setSpec("규격");
         detail.setQty("1"); // 수량
@@ -314,7 +314,7 @@ public class TaxinvoiceServiceExample {
         detail = new TaxinvoiceDetail();
 
         detail.setSerialNum((short) 2); // 일련번호, 1부터 순차기재
-        detail.setPurchaseDT("20190104"); // 거래일자
+        detail.setPurchaseDT("202107012"); // 거래일자
         detail.setItemName("품목명2");
         detail.setSpec("규격");
         detail.setQty("1"); // 수량
@@ -381,7 +381,7 @@ public class TaxinvoiceServiceExample {
     	
     	// 제출아이디, 대량 발행 접수를 구별하는 식별키
     	// └ 최대 36자리 영문, 숫자, '-' 조합으로 구성
-    	String SubmitID = "20210401-03";
+    	String SubmitID = "20210701-03";
     	
     	// 지연발행 강제여부
         // 발행마감일이 지난 세금계산서를 발행하는 경우, 가산세가 부과될 수 있습니다.
@@ -397,7 +397,7 @@ public class TaxinvoiceServiceExample {
 	        Taxinvoice taxinvoice = new Taxinvoice();
 
 	        // 작성일자, 날짜형식(yyyyMMdd)
-	        taxinvoice.setWriteDate("20210401");
+	        taxinvoice.setWriteDate("20210701");
 
 	        // 과금방향, [정과금, 역과금] 중 선택기재, "역과금"은 역발행세금계산서 발행에만 가능
 	        taxinvoice.setChargeDirection("정과금");
@@ -425,7 +425,7 @@ public class TaxinvoiceServiceExample {
 	        // 공급자 상호
 	        taxinvoice.setInvoicerCorpName("공급자 상호");
 
-	        // 공급자 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
+	        // 공급자 문서번호, 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
 	        taxinvoice.setInvoicerMgtKey(SubmitID + "-" + String.valueOf(i+1));
 
 	        // 공급자 대표자성명
@@ -470,7 +470,7 @@ public class TaxinvoiceServiceExample {
 	        // 공급받는자 상호
 	        taxinvoice.setInvoiceeCorpName("공급받는자 상호");
 
-	        // [역발행시 필수] 공급받는자 문서번호, 1~24자리까지 사업자번호별 중복없는 고유번호 할당
+	        // [역발행시 필수] 공급받는자 문서번호, 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
 	        taxinvoice.setInvoiceeMgtKey("");
 
 	        // 공급받는자 대표자 성명
@@ -568,7 +568,7 @@ public class TaxinvoiceServiceExample {
 	        TaxinvoiceDetail detail = new TaxinvoiceDetail();
 
 	        detail.setSerialNum((short) 1); // 일련번호, 1부터 순차기재
-	        detail.setPurchaseDT("20210401"); // 거래일자
+	        detail.setPurchaseDT("20210701"); // 거래일자
 	        detail.setItemName("품목명");
 	        detail.setSpec("규격");
 	        detail.setQty("1"); // 수량
@@ -582,7 +582,7 @@ public class TaxinvoiceServiceExample {
 	        detail = new TaxinvoiceDetail();
 
 	        detail.setSerialNum((short) 2); // 일련번호, 1부터 순차기재
-	        detail.setPurchaseDT("20210401"); // 거래일자
+	        detail.setPurchaseDT("20210701"); // 거래일자
 	        detail.setItemName("품목명2");
 	        detail.setSpec("규격");
 	        detail.setQty("1"); // 수량
@@ -636,7 +636,7 @@ public class TaxinvoiceServiceExample {
          */
 
     	// 대량 발행 접수시 기재한 제출아이디
-        String SubmitID = "20210401-03"; 
+        String SubmitID = "20210701-03"; 
         		
         try {
 
@@ -655,8 +655,8 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "register", method = RequestMethod.GET)
     public String register(Model m) {
         /*
-         * 1건의 세금계산서를 [임시저장]합니다.
-         * - 세금계산서 임시저장(Register API) 호출후에는 발행(Issue API)을 호출해야만 국세청으로 전송됩니다.
+         * 작성된 세금계산서 데이터를 팝빌에 저장합니다.
+         * - "임시저장" 상태의 세금계산서는 발행(Issue)함수를 호출하여 "발행완료" 처리한 경우에만 국세청으로 전송됩니다.
          * - 정발행시 임시저장(Register)과 발행(Issue)을 한번의 호출로 처리하는 즉시발행(RegistIssue API) 프로세스 연동을 권장합니다.
          * - 역발행시 임시저장(Register)과 역발행요청(Request)을 한번의 호출로 처리하는 즉시요청(RegistRequest API) 프로세스 연동을 권장합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#Register
@@ -666,7 +666,7 @@ public class TaxinvoiceServiceExample {
         Taxinvoice taxinvoice = new Taxinvoice();
 
         // 작성일자, 날짜형식(yyyyMMdd)
-        taxinvoice.setWriteDate("20190227");
+        taxinvoice.setWriteDate("20210701");
 
         // 과금방향, [정과금, 역과금] 중 선택기재, 역과금의 경우 역발행세금계산서 발행시에만 가능
         taxinvoice.setChargeDirection("정과금");
@@ -694,8 +694,8 @@ public class TaxinvoiceServiceExample {
         // 공급자 상호
         taxinvoice.setInvoicerCorpName("공급자 상호");
 
-        // 공급자 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
-        taxinvoice.setInvoicerMgtKey("20190227-003");
+        // 공급자 문서번호, 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
+        taxinvoice.setInvoicerMgtKey("20210701-003");
 
         // 공급자 대표자성명
         taxinvoice.setInvoicerCEOName("공급자 대표자 성명");
@@ -739,7 +739,7 @@ public class TaxinvoiceServiceExample {
         // 공급받는자 상호
         taxinvoice.setInvoiceeCorpName("공급받는자 상호");
 
-        // [역발행시 필수] 공급받는자 문서번호, 1~24자리까지 사업자번호별 중복없는 고유번호 할당
+        // [역발행시 필수] 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
         taxinvoice.setInvoiceeMgtKey("");
 
         // 공급받는자 대표자 성명
@@ -837,7 +837,7 @@ public class TaxinvoiceServiceExample {
         TaxinvoiceDetail detail = new TaxinvoiceDetail();
 
         detail.setSerialNum((short) 1); // 일련번호, 1부터 순차기재
-        detail.setPurchaseDT("20190104"); // 거래일자
+        detail.setPurchaseDT("20210701"); // 거래일자
         detail.setItemName("품목명");
         detail.setSpec("규격");
         detail.setQty("1"); // 수량
@@ -851,7 +851,7 @@ public class TaxinvoiceServiceExample {
         detail = new TaxinvoiceDetail();
 
         detail.setSerialNum((short) 2); // 일련번호, 1부터 순차기재
-        detail.setPurchaseDT("20190104"); // 거래일자
+        detail.setPurchaseDT("20210701"); // 거래일자
         detail.setItemName("품목명2");
         detail.setSpec("규격");
         detail.setQty("1"); // 수량
@@ -894,7 +894,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "update", method = RequestMethod.GET)
     public String update(Model m) {
         /*
-         * [임시저장] 상태의 세금계산서의 항목을 [수정]합니다.
+         * "임시저장" 상태의 세금계산서를 수정합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#Update
          */
 
@@ -902,13 +902,13 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20190104-001";
+        String mgtKey = "20210701-001";
 
         // 세금계산서 정보 객체
         Taxinvoice taxinvoice = new Taxinvoice();
 
         // 작성일자, 날짜형식(yyyyMMdd)
-        taxinvoice.setWriteDate("20190104");
+        taxinvoice.setWriteDate("20210701");
 
         // 과금방향, [정과금, 역과금] 중 선택기재, 역과금의 경우 역발행세금계산서 발행시에만 가능
         taxinvoice.setChargeDirection("정과금");
@@ -936,8 +936,8 @@ public class TaxinvoiceServiceExample {
         // 공급자 상호
         taxinvoice.setInvoicerCorpName("공급자 상호");
 
-        // 공급자 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
-        taxinvoice.setInvoicerMgtKey("20190104-001");
+        // 공급자 문서번호, 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
+        taxinvoice.setInvoicerMgtKey("20210701-001");
 
         // 공급자 대표자성명
         taxinvoice.setInvoicerCEOName("공급자 대표자 성명_수정");
@@ -981,7 +981,7 @@ public class TaxinvoiceServiceExample {
         // 공급받는자 상호
         taxinvoice.setInvoiceeCorpName("공급받는자 상호");
 
-        // [역발행시 필수] 공급받는자 문서번호, 1~24자리까지 사업자번호별 중복없는 고유번호 할당
+        // [역발행시 필수] 공급받는자 문서번호, 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
         taxinvoice.setInvoiceeMgtKey("");
 
         // 공급받는자 대표자 성명
@@ -1079,7 +1079,7 @@ public class TaxinvoiceServiceExample {
         TaxinvoiceDetail detail = new TaxinvoiceDetail();
 
         detail.setSerialNum((short) 1); // 일련번호, 1부터 순차기재
-        detail.setPurchaseDT("20190104"); // 거래일자
+        detail.setPurchaseDT("20210701"); // 거래일자
         detail.setItemName("품목명");    // 품목
         detail.setSpec("규격");    // 규격
         detail.setQty("1"); // 수량
@@ -1093,7 +1093,7 @@ public class TaxinvoiceServiceExample {
         detail = new TaxinvoiceDetail();
 
         detail.setSerialNum((short) 2); // 일련번호, 1부터 순차기재
-        detail.setPurchaseDT("20190104"); // 거래일자
+        detail.setPurchaseDT("20210701"); // 거래일자
         detail.setItemName("품목명2");    // 품목명
         detail.setSpec("규격");
         detail.setQty("1"); // 수량
@@ -1137,7 +1137,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "issue", method = RequestMethod.GET)
     public String issue(Model m) {
         /*
-         * [임시저장] 상태의 세금계산서를 [공급자]가 [발행]합니다.
+         * "임시저장" 또는 "(역)발행대기" 상태의 세금계산서를 발행(전자서명)하며, "발행완료" 상태로 처리합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#TIIssue
          */
 
@@ -1145,7 +1145,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20190227-003";
+        String mgtKey = "20210701-003";
 
         // 메모
         String memo = "발행 메모";
@@ -1171,10 +1171,8 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "cancelIssue", method = RequestMethod.GET)
     public String cancelIssue(Model m) {
         /*
-         * [발행완료] 상태의 세금계산서를 [공급자]가 [발행취소]합니다.
-         * - [발행취소]는 국세청 전송전에만 가능합니다.
-         * - 발행취소된 세금계산서는 국세청에 전송되지 않습니다.
-         * - 발행취소 세금계산서에 사용된 문서번호를 재사용 하기 위해서는 삭제(Delete API)를 호출하여 해당세금계산서를 삭제해야 합니다.
+         * 국세청 전송 이전 "발행완료" 상태의 전자세금계산서를 "발행취소"하고, 해당 건은 국세청 신고 대상에서 제외됩니다.
+         * - Delete(삭제)함수를 호출하여 "발행취소" 상태의 전자세금계산서를 삭제하면, 문서번호 재사용이 가능합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#CancelIssue
          */
 
@@ -1182,7 +1180,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20190104-001";
+        String mgtKey = "20210701-001";
 
         // 메모
         String memo = "발행취소 메모";
@@ -1205,7 +1203,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "registRequest", method = RequestMethod.GET)
     public String registRequest(Model m) {
         /*
-         * [공급받는자]가 공급자에게 1건의 역발행 세금계산서를 [즉시 요청]합니다.
+         * 공급받는자가 작성한 세금계산서 데이터를 팝빌에 저장하고 공급자에게 송부하여 발행을 요청합니다.
          * - 역발행 세금계산서 프로세스를 구현하기 위해서는 공급자/공급받는자가 모두 팝빌에 회원이여야 합니다.
          * - 역발행 즉시요청후 공급자가 [발행] 처리시 포인트가 차감되며 역발행 세금계산서 항목중 과금방향(ChargeDirection)에 기재한 값에 따라
          *   정과금(공급자과금) 또는 역과금(공급받는자과금) 처리됩니다.
@@ -1216,7 +1214,7 @@ public class TaxinvoiceServiceExample {
         Taxinvoice taxinvoice = new Taxinvoice();
 
         // 작성일자, 날짜형식(yyyyMMdd)
-        taxinvoice.setWriteDate("20181119");
+        taxinvoice.setWriteDate("20210701");
 
         // 과금방향, [정과금, 역과금] 중 선택기재, "역과금"은 역발행세금계산서 발행에만 가능
         taxinvoice.setChargeDirection("정과금");
@@ -1244,7 +1242,7 @@ public class TaxinvoiceServiceExample {
         // 공급자 상호
         taxinvoice.setInvoicerCorpName("공급자 상호");
 
-        // 공급자 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
+        // 공급자 문서번호, 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
         taxinvoice.setInvoicerMgtKey("");
 
         // 공급자 대표자성명
@@ -1289,8 +1287,8 @@ public class TaxinvoiceServiceExample {
         // 공급받는자 상호
         taxinvoice.setInvoiceeCorpName("공급받는자 상호");
 
-        // [역발행시 필수] 공급받는자 문서번호, 1~24자리까지 사업자번호별 중복없는 고유번호 할당
-        taxinvoice.setInvoiceeMgtKey("20181119-A00");
+        // [역발행시 필수] 공급받는자 문서번호, 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
+        taxinvoice.setInvoiceeMgtKey("20210701-A00");
 
         // 공급받는자 대표자 성명
         taxinvoice.setInvoiceeCEOName("공급받는자 대표자 성명");
@@ -1385,7 +1383,7 @@ public class TaxinvoiceServiceExample {
         // 상세항목 객체
         TaxinvoiceDetail detail = new TaxinvoiceDetail();
         detail.setSerialNum((short) 1); // 일련번호, 1부터 순차기재
-        detail.setPurchaseDT("20190104"); // 거래일자
+        detail.setPurchaseDT("20210701"); // 거래일자
         detail.setItemName("품목명");
         detail.setSpec("규격");
         detail.setQty("1"); // 수량
@@ -1397,7 +1395,7 @@ public class TaxinvoiceServiceExample {
 
         detail = new TaxinvoiceDetail();
         detail.setSerialNum((short) 2); // 일련번호, 1부터 순차기재
-        detail.setPurchaseDT("20190104"); // 거래일자
+        detail.setPurchaseDT("20210701"); // 거래일자
         detail.setItemName("품목명2");
         detail.setSpec("규격");
         detail.setQty("1"); // 수량
@@ -1428,7 +1426,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "request", method = RequestMethod.GET)
     public String request(Model m) {
         /*
-         * [공급받는자]가 임시저장 상태의 역발행 세금계산서를 공급자에게 [발행요청] 합니다.
+         * 공급받는자가 저장된 역발행 세금계산서를 공급자에게 송부하여 발행 요청합니다.
          * - 역발행 세금계산서 프로세스를 구현하기 위해서는 공급자/공급받는자가 모두 팝빌에 회원이여야 합니다.
          * - 역발행 요청후 공급자가 [발행] 처리시 포인트가 차감되며 역발행 세금계산서 항목중 과금방향(ChargeDirection)에 기재한 값에 따라
          *   정과금(공급자과금) 또는 역과금(공급받는자과금) 처리됩니다.
@@ -1439,7 +1437,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.BUY;
 
         // 세금계산서 문서번호
-        String mgtKey = "20190104-001";
+        String mgtKey = "20210701-001";
 
         // 메모
         String memo = "역발행 요청 메모";
@@ -1462,7 +1460,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "cancelRequest", method = RequestMethod.GET)
     public String cancelRequest(Model m) {
         /*
-         * [공급받는자]가 역)발행대기 상태의 세금계산서를 [취소]합니다.
+         * 공급자가 요청받은 역발행 세금계산서를 발행하기 전, 공급받는자가 역발행요청을 취소합니다.
          * - [취소]한 세금계산서의 문서번호를 재사용하기 위해서는 삭제 (Delete API)를 호출해야 합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#CancelRequest
          */
@@ -1471,7 +1469,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.BUY;
 
         // 세금계산서 문서번호
-        String mgtKey = "20190104-001";
+        String mgtKey = "20210702-001";
 
         // 메모
         String memo = "역발행 취소 메모";
@@ -1494,7 +1492,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "refuse", method = RequestMethod.GET)
     public String refuse(Model m) {
         /*
-         * 공급받는자에게 요청받은 역)발행대기 상태의 세금계산서를 [공급자]가 [거부]합니다.
+         * 공급자가 공급받는자에게 역발행 요청 받은 세금계산서의 발행을 거부합니다.
          * - 세금계산서의 문서번호를 재사용하기 위해서는 삭제 (Delete API)를 호출하여 [삭제] 처리해야 합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#Refuse
          */
@@ -1503,7 +1501,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20190104-001";
+        String mgtKey = "20210702-001";
 
         // 메모
         String memo = "역발행 거부 메모";
@@ -1526,9 +1524,9 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "delete", method = RequestMethod.GET)
     public String delete(Model m) {
         /*
-         * 1건의 전자세금계산서를 [삭제]합니다.
+         * 세청으로 전송되지 않은 세금계산서를 삭제합니다.
          * - 세금계산서를 삭제해야만 문서번호(mgtKey)를 재사용할 수 있습니다.
-         * - 삭제가능한 문서 상태 : [임시저장], [발행취소], [발행예정 취소], [발행예정 거부]
+         * - 삭제 가능한 상태: "임시저장", "발행취소", "역발행거부", "역발행취소", "전송실패"
          * - https://docs.popbill.com/taxinvoice/java/api#Delete
          */
 
@@ -1536,7 +1534,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20190104-001";
+        String mgtKey = "20210702-001";
 
         try {
 
@@ -1555,7 +1553,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "sendToNTS", method = RequestMethod.GET)
     public String sendToNTS(Model m) {
         /*
-         * [발행완료] 상태의 세금계산서를 국세청으로 [즉시전송]합니다.
+         * 공급자가 "발행완료" 상태의 전자세금계산서를 국세청에 즉시 전송하며, 함수 호출 후 최대 30분 이내에 전송 처리가 완료됩니다.
          * - 국세청 즉시전송을 호출하지 않은 세금계산서는 발행일 기준 익일 오후 3시에 팝빌 시스템에서 일괄적으로 국세청으로 전송합니다.
          * - 익일전송시 전송일이 법정공휴일인 경우 다음 영업일에 전송됩니다.
          * - https://docs.popbill.com/taxinvoice/java/api#SendToNTS
@@ -1565,7 +1563,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20190104-001";
+        String mgtKey = "20210701-001";
 
         try {
 
@@ -1581,30 +1579,11 @@ public class TaxinvoiceServiceExample {
         return "response";
     }
     
-    @RequestMapping(value = "getSendToNTSConfig", method = RequestMethod.GET)
-    public String getSendToNTSConfig(Model m) {
-    	/*
-         * 연동회원의 국세청 전송 옵션 설정 상태를 확인합니다.
-         * - https://docs.popbill.com/taxinvoice/java/api#GetSendToNTSConfig
-         */
-    	 try {
-
-             boolean ntsConfig = taxinvoiceService.getSendToNTSConfig(testCorpNum);
-
-             m.addAttribute("NTSConfig", ntsConfig);
-
-         } catch (PopbillException e) {
-             m.addAttribute("Exception", e);
-             return "exception";
-         }
-    	 
-    	return "/Taxinvoice/getSendToNTSConfig";
-    }
 
     @RequestMapping(value = "getInfo", method = RequestMethod.GET)
     public String getInfo(Model m) {
         /*
-         * 1건의 세금계산서 상태/요약 정보를 확인합니다.
+         * 세금계산서 1건의 상태 및 요약정보를 확인합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#GetInfo
          */
 
@@ -1612,7 +1591,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20190104-001";
+        String mgtKey = "20210701-001";
 
         try {
 
@@ -1632,7 +1611,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "getInfos", method = RequestMethod.GET)
     public String getInfos(Model m) {
         /*
-         * 대량의 세금계산서 상태/요약 정보를 확인합니다. (최대 1000건)
+         * 다수건의 세금계산서의 상태 및 요약 정보를 확인합니다. (1회 호출 시 최대 1,000건 확인 가능)
          * - https://docs.popbill.com/taxinvoice/java/api#GetInfos
          */
 
@@ -1641,7 +1620,7 @@ public class TaxinvoiceServiceExample {
 
 
         // 세금계산서 문서번호 배열, 최대 1000건
-        String[] MgtKeyList = new String[]{"20190104-001", "20190104-002", "20190104-003"};
+        String[] MgtKeyList = new String[]{"20210701-001", "20210701-002", "20210701-003"};
 
         try {
 
@@ -1661,7 +1640,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "getDetailInfo", method = RequestMethod.GET)
     public String getDetailInfo(Model m) {
         /*
-         * 1건의 세금계산서 상세정보를 확인합니다.
+         * 세금계산서 1건의 상세정보를 확인합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#GetDetailInfo
          */
 
@@ -1669,7 +1648,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20190104-001";
+        String mgtKey = "20210701-001";
 
         try {
 
@@ -1689,7 +1668,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String search(Model m) {
         /*
-         * 검색조건을 사용하여 세금계산서 목록을 조회합니다.
+         * 파트너가 지정한 검색조건에 해당하는 세금계산서를 조회합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#Search
          */
 
@@ -1700,10 +1679,10 @@ public class TaxinvoiceServiceExample {
         String DType = "W";
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20200701";
+        String SDate = "20210701";
 
         // 종료일자, 날짜형식(yyyyMMdd)
-        String EDate = "20200731";
+        String EDate = "20210710";
 
         // 세금계산서 상태코드 배열, 2,3번째 자리에 와일드카드(*) 사용 가능
         String[] State = {"3**", "6**"};
@@ -1774,7 +1753,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "getLogs", method = RequestMethod.GET)
     public String getLogs(Model m) {
         /*
-         * 세금계산서 상태 변경이력을 확인합니다.
+         * 세금계산서의 상태에 대한 변경이력을 확인합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#GetLogs
          */
 
@@ -1782,7 +1761,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20190104-001";
+        String mgtKey = "20210701-001";
 
         try {
 
@@ -1802,7 +1781,8 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "getURL", method = RequestMethod.GET)
     public String getURL(Model m) {
         /*
-         * 팝빌 전자세금계산서 문서함 팝업 URL을 반환합니다.
+         * 로그인 상태로 팝빌 사이트의 전자세금계산서 문서함 메뉴에 접근할 수 있는 페이지의 팝업 URL을 반환합니다.
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#GetURL
          */
 
@@ -1826,8 +1806,8 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "getPopUpURL", method = RequestMethod.GET)
     public String getPopUpURL(Model m) {
         /*
-         * 1건의 전자세금계산서 보기 팝업 URL을 반환합니다.
-         * - 반환된 URL은 보안정책으로 인해 30초의 유효시간을 갖습니다.
+         * 팝빌 사이트와 동일한 세금계산서 1건의 상세 정보 페이지의 팝업 URL을 반환합니다.
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#GetPopUpURL
          */
 
@@ -1835,7 +1815,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20190104-001";
+        String mgtKey = "20210703-001";
 
         try {
 
@@ -1855,8 +1835,8 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "getViewURL", method = RequestMethod.GET)
     public String getViewURL(Model m) {
         /*
-         * 1건의 전자세금계산서 보기 팝업 URL을 반환합니다. (메뉴/버튼 제외)
-         * - 반환된 URL은 보안정책으로 인해 30초의 유효시간을 갖습니다.
+         * 팝빌 사이트와 동일한 세금계산서 1건의 상세정보 페이지(사이트 상단, 좌측 메뉴 및 버튼 제외)의 팝업 URL을 반환합니다.
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#GetViewURL
          */
 
@@ -1864,7 +1844,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20190227-002";
+        String mgtKey = "20210703-002";
 
         try {
 
@@ -1881,39 +1861,12 @@ public class TaxinvoiceServiceExample {
         return "result";
     }
     
-    @RequestMapping(value = "getPDFURL", method = RequestMethod.GET)
-    public String getPDFURL(Model m) {
-        /*
-         * 1건의 전자세금계산서 PDF 다운로드 URL을 반환합니다.
-         * - 반환된 URL은 보안정책으로 인해 30초의 유효시간을 갖습니다.
-         */
-
-        // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
-        MgtKeyType mgtKeyType = MgtKeyType.SELL;
-
-        // 세금계산서 문서번호
-        String mgtKey = "20190104-001";
-
-        try {
-
-            String url = taxinvoiceService.getPDFURL(testCorpNum, mgtKeyType,
-                    mgtKey);
-
-            m.addAttribute("Result", url);
-
-        } catch (PopbillException e) {
-            m.addAttribute("Exception", e);
-            return "exception";
-        }
-
-        return "result";
-    }
     
     @RequestMapping(value = "getPrintURL", method = RequestMethod.GET)
     public String getPrintURL(Model m) {
         /*
-         * 1건의 전자세금계산서 인쇄팝업 URL을 반환합니다.
-         * - 반환된 URL은 보안정책으로 인해 30초의 유효시간을 갖습니다.
+         * 세금계산서 1건을 인쇄하기 위한 페이지의 팝업 URL을 반환하며, 페이지내에서 인쇄 설정값을 "공급자" / "공급받는자" / "공급자+공급받는자"용 중 하나로 지정할 수 있습니다.
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#GetPrintURL
          */
 
@@ -1921,7 +1874,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20190104-001";
+        String mgtKey = "20210701-001";
 
         try {
 
@@ -1940,9 +1893,9 @@ public class TaxinvoiceServiceExample {
     
     @RequestMapping(value = "getOldPrintURL", method = RequestMethod.GET)
     public String getOldPrintURL(Model m) {
-    	 /*
-         * 1건의 전자세금계산서 (구)인쇄팝업 URL을 반환합니다.
-         * - 반환된 URL은 보안정책으로 인해 30초의 유효시간을 갖습니다.
+        /*
+         * 세금계산서 1건을 구버전 양식으로 인쇄하기 위한 페이지의 팝업 URL을 반환하며, 페이지내에서 인쇄 설정값을 "공급자" / "공급받는자" / "공급자+공급받는자"용 중 하나로 지정할 수 있습니다..
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#GetOldPrintURL
          */
 
@@ -1950,7 +1903,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20190104-001";
+        String mgtKey = "20210701-001";
 
         try {
 
@@ -1971,8 +1924,8 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "getEPrintURL", method = RequestMethod.GET)
     public String getEPrintURL(Model m) {
         /*
-         * 세금계산서 인쇄(공급받는자) 팝업 URL을 반환합니다.
-         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         * "공급받는자" 용 세금계산서 1건을 인쇄하기 위한 페이지의 팝업 URL을 반환합니다.
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#GetEPrintURL
          */
 
@@ -1980,7 +1933,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20190104-001";
+        String mgtKey = "20210705-001";
 
         try {
 
@@ -2000,8 +1953,8 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "getMassPrintURL", method = RequestMethod.GET)
     public String getMassPrintURL(Model m) {
         /*
-         * 대량의 세금계산서 인쇄팝업 URL을 반환합니다. (최대 100건)
-         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         * 다수건의 세금계산서를 인쇄하기 위한 페이지의 팝업 URL을 반환합니다. (최대 100건)
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#GetMassPrintURL
          */
 
@@ -2009,7 +1962,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 문서번호 배열, 최대 100건
-        String[] MgtKeyList = new String[]{"201910080001", "201910080002"};
+        String[] MgtKeyList = new String[]{"202107010002", "202107010001"};
 
         try {
 
@@ -2029,8 +1982,8 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "getMailURL", method = RequestMethod.GET)
     public String getMailURL(Model m) {
         /*
-         * 공급받는자 메일링크 URL을 반환합니다.
-         * - 메일링크 URL은 유효시간이 존재하지 않습니다.
+         * 안내메일과 관련된 전자세금계산서를 확인 할 수 있는 상세 페이지의 팝업 URL을 반환하며, 해당 URL은 메일 하단의 "전자세금계산서 보기" 버튼의 링크와 같습니다.
+         * - 함수 호출로 반환 받은 URL에는 유효시간이 없습니다.
          * - https://docs.popbill.com/taxinvoice/java/api#GetMailURL
          */
 
@@ -2038,7 +1991,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20190104-001";
+        String mgtKey = "20210701-001";
 
         try {
 
@@ -2054,12 +2007,40 @@ public class TaxinvoiceServiceExample {
 
         return "result";
     }
+    
+    @RequestMapping(value = "getPDFURL", method = RequestMethod.GET)
+    public String getPDFURL(Model m) {
+        /*
+         * 전자세금계산서 PDF 파일을 다운 받을 수 있는 URL을 반환합니다.
+         * - 반환되는 URL은 보안정책상 30초의 유효시간을 갖으며, 유효시간 이후 호출시 정상적으로 페이지가 호출되지 않습니다.
+         */
+
+        // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
+        MgtKeyType mgtKeyType = MgtKeyType.SELL;
+
+        // 세금계산서 문서번호
+        String mgtKey = "20210703-001";
+
+        try {
+
+            String url = taxinvoiceService.getPDFURL(testCorpNum, mgtKeyType,
+                    mgtKey);
+
+            m.addAttribute("Result", url);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "result";
+    }
 
     @RequestMapping(value = "getSealURL", method = RequestMethod.GET)
     public String getSealURL(Model m) {
         /*
-         * 팝빌 인감 및 첨부문서 등록 URL을 반환합니다.
-         * - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
+         * 세금계산서에 첨부할 인감, 사업자등록증, 통장사본을 등록하는 페이지의 팝업 URL을 반환합니다.
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#GetSealURL
          */
 
@@ -2080,9 +2061,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "attachFile", method = RequestMethod.GET)
     public String attachFile(Model m) {
         /*
-         * 세금계산서에 첨부파일을 등록합니다.
-         * - [임시저장] 상태의 세금계산서만 파일을 첨부할 수 있습니다.
-         * - 첨부파일은 최대 5개까지 등록할 수 있습니다.
+         * "임시저장" 상태의 세금계산서에 1개의 파일을 첨부합니다. (최대 5개)
          * - https://docs.popbill.com/taxinvoice/java/api#AttachFile
          */
 
@@ -2090,7 +2069,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20190104-001";
+        String mgtKey = "20210701-001";
 
         // 첨부파일 표시명
         String displayName = "첨부파일.jpg";
@@ -2124,7 +2103,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "deleteFile", method = RequestMethod.GET)
     public String deleteFile(Model m) {
         /*
-         * 세금계산서에 첨부된 파일을 삭제합니다.
+         * "임시저장" 상태의 세금계산서에 첨부된 1개의 파일을 삭제합니다.
          * - 파일을 식별하는 파일아이디는 첨부파일 목록(GetFiles API) 의 응답항목 중 파일아이디(AttachedFile) 값을 통해 확인할 수 있습니다.
          * - https://docs.popbill.com/taxinvoice/java/api#DeleteFile
          */
@@ -2133,7 +2112,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20190104-01";
+        String mgtKey = "20210701-01";
 
 
         // 파일아이디, getFiles()로 확인한 AttachedFile의 attachedFile 참조.
@@ -2157,7 +2136,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "getFiles", method = RequestMethod.GET)
     public String getFiles(Model m) {
         /*
-         * 세금계산서 첨부파일 목록을 확인합니다.
+         * 세금계산서에 첨부된 파일목록을 확인합니다.
          * - 응답항목 중 파일아이디(AttachedFile) 항목은 파일삭제(DeleteFile API) 호출시 이용할 수 있습니다.
          * - https://docs.popbill.com/taxinvoice/java/api#GetFiles
          */
@@ -2166,7 +2145,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20190104-001";
+        String mgtKey = "20210701-001";
 
         try {
 
@@ -2186,7 +2165,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "sendEmail", method = RequestMethod.GET)
     public String sendEmail(Model m) {
         /*
-         * 세금계산서 안내메일을 재전송합니다.
+         * 세금계산서와 관련된 안내 메일을 재전송 합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#SendEmail
          */
 
@@ -2194,7 +2173,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20190104-001";
+        String mgtKey = "20210701-001";
 
         // 수신메일주소
         String receiverMail = "test@test.com";
@@ -2218,9 +2197,9 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "sendSMS", method = RequestMethod.GET)
     public String sendSMS(Model m) {
         /*
-         * 알림문자를 전송합니다. (단문/SMS - 한글 최대 45자)
-         * - 알림문자 전송시 포인트가 차감됩니다. (전송실패시 환불처리)
-         * - 전송내역 확인은 "팝빌 로그인" > [문자 팩스] > [문자] > [전송내역] 메뉴에서 전송결과를 확인할 수 있습니다.
+         * 세금계산서와 관련된 안내 SMS(단문) 문자를 재전송하는 함수로, 팝빌 사이트 [문자·팩스] > [문자] > [전송내역] 메뉴에서 전송결과를 확인 할 수 있습니다.
+         * - 메시지는 최대 90byte까지 입력 가능하고, 초과한 내용은 자동으로 삭제되어 전송합니다. (한글 최대 45자)\
+         * - 함수 호출시 포인트가 과금됩니다.
          * - https://docs.popbill.com/taxinvoice/java/api#SendSMS
          */
 
@@ -2228,7 +2207,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20190104-001";
+        String mgtKey = "20210701-001";
 
         // 발신번호
         String senderNum = "07043042991";
@@ -2257,9 +2236,8 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "sendFAX", method = RequestMethod.GET)
     public String sendFAX(Model m) {
         /*
-         * 전자세금계산서를 팩스전송합니다.
-         * - 팩스 전송 요청시 포인트가 차감됩니다. (전송실패시 환불처리)
-         * - 전송내역 확인은 "팝빌 로그인" > [문자 팩스] > [팩스] > [전송내역] 메뉴에서 전송결과를 확인할 수 있습니다.
+         * 세금계산서를 팩스로 전송하는 함수로, 팝빌 사이트 [문자·팩스] > [팩스] > [전송내역] 메뉴에서 전송결과를 확인 할 수 있습니다.
+         * - 함수 호출시 포인트가 과금됩니다.
          * - https://docs.popbill.com/taxinvoice/java/api#SendFAX
          */
 
@@ -2267,7 +2245,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20190104-001";
+        String mgtKey = "20210701-001";
 
         // 발신번호
         String senderNum = "07043042991";
@@ -2293,7 +2271,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "attachStatement", method = RequestMethod.GET)
     public String attachStatement(Model m) {
         /*
-         * 1건의 전자명세서를 세금계산서에 첨부합니다.
+         * 팝빌 전자명세서 API를 통해 발행한 전자명세서를 세금계산서에 첨부합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#AttachStatement
          */
 
@@ -2301,13 +2279,13 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20190104-02";
+        String mgtKey = "20210701-02";
 
         // 첨부할 명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서), 124(발주서), 125(입금표), 126(영수증)
         int subItemCode = 121;
 
         // 첨부활 전자명세서 문서번호
-        String subMgtKey = "20160119-05";
+        String subMgtKey = "20210701-S05";
 
         try {
 
@@ -2327,7 +2305,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "detachStatement", method = RequestMethod.GET)
     public String detachStatement(Model m) {
         /*
-         * 세금계산서에 첨부된 전자명세서 1건을 첨부해제합니다.
+         * 세금계산서에 첨부된 전자명세서를 해제합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#DetachStatement
          */
 
@@ -2335,13 +2313,13 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20190104-001";
+        String mgtKey = "20210701-02";
 
         // 첨부해제할 명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서), 124(발주서), 125(입금표), 126(영수증)
         int subItemCode = 121;
 
         // 첨부해제할 전자명세서 문서번호
-        String subMgtKey = "20160119-05";
+        String subMgtKey = "20210701-S05";
 
         try {
 
@@ -2361,7 +2339,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "getEmailPublicKeys", method = RequestMethod.GET)
     public String getEmailPublicKeys(Model m) {
         /*
-         * 대용량 연계사업자 유통메일주소 목록을 반환합니다.
+         * 전자세금계산서 유통사업자의 메일 목록을 확인합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#GetEmailPublicKeys
          */
 
@@ -2382,7 +2360,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "assignMgtKey", method = RequestMethod.GET)
     public String assignMgtKey(Model m) {
         /*
-         * 팝빌 사이트에서 작성한 세금계산서에 파트너의 문서번호를 할당합니다.
+         * 팝빌 사이트를 통해 발행하였지만 문서번호가 존재하지 않는 세금계산서에 문서번호를 할당합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#AssignMgtKey
          */
 
@@ -2390,11 +2368,11 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 아이템키, 문서 목록조회(Search) API의 반환항목중 ItemKey 참조
-        String itemKey = "018121218060300001";
+        String itemKey = "021121218060300001";
 
-        // 할당할 문서번호, 숫자, 영문 '-', '_' 조합으로 1~24자리까지
+        // 할당할 문서번호, 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
         // 사업자번호별 중복없는 고유번호 할당
-        String mgtKey = "20190103-100";
+        String mgtKey = "20210701-100";
 
         try {
 
@@ -2413,7 +2391,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "listEmailConfig", method = RequestMethod.GET)
     public String listEmailConfig(Model m) {
         /*
-         * 전자세금계산서 관련 메일전송 항목에 대한 전송여부를 목록으로 반환합니다.
+         * 세금계산서 관련 메일 항목에 대한 발송설정을 확인합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#ListEmailConfig
          */
 
@@ -2434,7 +2412,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "updateEmailConfig", method = RequestMethod.GET)
     public String updateEmailConfig(Model m) {
         /*
-         * 전자세금계산서 관련 메일전송 항목에 대한 전송여부를 수정합니다.
+         * 세금계산서 관련 메일 항목에 대한 발송설정을 수정합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#UpdateEmailConfig
          *
          * 메일전송유형
@@ -2499,12 +2477,34 @@ public class TaxinvoiceServiceExample {
 
         return "response";
     }
+    
+    @RequestMapping(value = "getSendToNTSConfig", method = RequestMethod.GET)
+    public String getSendToNTSConfig(Model m) {
+        /*
+         * 연동회원의 국세청 전송 옵션 설정 상태를 확인합니다.
+         * - 세청 전송 옵션 설정은 팝빌 사이트 [전자세금계산서] > [환경설정] > [세금계산서 관리] 메뉴에서 설정할 수 있으며, API로 설정은 불가능 합니다.
+         * - https://docs.popbill.com/taxinvoice/java/api#GetSendToNTSConfig
+         */
+         try {
+
+             boolean ntsConfig = taxinvoiceService.getSendToNTSConfig(testCorpNum);
+
+             m.addAttribute("NTSConfig", ntsConfig);
+
+         } catch (PopbillException e) {
+             m.addAttribute("Exception", e);
+             return "exception";
+         }
+         
+        return "/Taxinvoice/getSendToNTSConfig";
+    }
 
     @RequestMapping(value = "getTaxCertURL", method = RequestMethod.GET)
     public String getTaxCertURL(Model m) {
         /*
-         * 공인인증서 등록 URL을 반환합니다.
-         * - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
+         * 전자세금계산서용 인증서를 팝빌 인증서버에 등록하기 위한 페이지의 팝업 URL을 반환합니다.
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
+         * - 인증서 갱신/재발급/비밀번호 변경한 경우, 변경된 인증서를 팝빌 인증서버에 재등록 해야합니다.
          *  https://docs.popbill.com/taxinvoice/java/api#GetTaxCertURL
          */
 
@@ -2525,10 +2525,8 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "getCertificateExpireDate", method = RequestMethod.GET)
     public String getCertificateExpireDate(Model m) {
         /*
-         * 팝빌에 등록되어 있는 공인인증서의 만료일자를 확인합니다.
-         * - 공인인증서가 갱신/재발급/비밀번호 변경이 되는 경우 해당 인증서를
-         *   재등록 하셔야 정상적으로 세금계산서를 발행할 수 있습니다.
-         *   - https://docs.popbill.com/taxinvoice/java/api#GetCertificateExpireDate
+         * 팝빌 인증서버에 등록된 인증서의 만료일을 확인합니다.
+         * - https://docs.popbill.com/taxinvoice/java/api#GetCertificateExpireDate
          */
 
         try {
@@ -2548,7 +2546,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "checkCertValidation", method = RequestMethod.GET)
     public String checkCertValidation(Model m) {
         /*
-         * 팝빌에 등록된 공인인증서의 유효성을 확인한다.
+         * 팝빌 인증서버에 등록된 인증서의 유효성을 확인합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#CheckCertValidation
          */
 
@@ -2564,27 +2562,6 @@ public class TaxinvoiceServiceExample {
         }
 
         return "response";
-    }
-
-    @RequestMapping(value = "getChargeInfo", method = RequestMethod.GET)
-    public String chargeInfo(Model m) {
-        /*
-         * 전자세금계산서 API 서비스 과금정보를 확인합니다.
-         * - https://docs.popbill.com/taxinvoice/java/api#GetChargeInfo
-         */
-
-        try {
-
-            ChargeInfo chrgInfo = taxinvoiceService.getChargeInfo(testCorpNum);
-
-            m.addAttribute("ChargeInfo", chrgInfo);
-
-        } catch (PopbillException e) {
-            m.addAttribute("Exception", e);
-            return "exception";
-        }
-
-        return "getChargeInfo";
     }
 
     @RequestMapping(value = "getUnitCost", method = RequestMethod.GET)
@@ -2606,6 +2583,27 @@ public class TaxinvoiceServiceExample {
         }
 
         return "result";
+    }
+    
+    @RequestMapping(value = "getChargeInfo", method = RequestMethod.GET)
+    public String chargeInfo(Model m) {
+        /*
+         * 팝빌 전자세금계산서 API 서비스 과금정보를 확인합니다.
+         * - https://docs.popbill.com/taxinvoice/java/api#GetChargeInfo
+         */
+
+        try {
+
+            ChargeInfo chrgInfo = taxinvoiceService.getChargeInfo(testCorpNum);
+
+            m.addAttribute("ChargeInfo", chrgInfo);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "getChargeInfo";
     }
 
 }

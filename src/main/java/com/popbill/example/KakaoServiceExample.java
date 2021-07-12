@@ -79,8 +79,8 @@ public class KakaoServiceExample {
     @RequestMapping(value = "getPlusFriendMgtURL", method = RequestMethod.GET)
     public String getPlusFriendMgtURL(Model m) {
         /*
-         * 카카오톡 채널 관리 팝업 URL을 반환합니다.
-         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         * 카카오톡 채널을 등록하고 내역을 확인하는 카카오톡 채널 관리 페이지 팝업 URL을 반환합니다.
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/kakao/java/api#GetPlusFriendMgtURL
          */
         try {
@@ -100,7 +100,7 @@ public class KakaoServiceExample {
     @RequestMapping(value = "listPlusFriendID", method = RequestMethod.GET)
     public String listPlusFriendID(Model m)  {
         /*
-         * 팝빌에 등록된 카카오톡 채널 목록을 반환합니다.
+         * 팝빌에 등록한 연동회원의 카카오톡 채널 목록을 확인합니다.
          * - https://docs.popbill.com/kakao/java/api#ListPlusFriendID
          */
 
@@ -119,8 +119,8 @@ public class KakaoServiceExample {
     @RequestMapping(value = "getSenderNumberMgtURL", method = RequestMethod.GET)
     public String getSenderNumberMgtURL(Model m) {
         /*
-         * 발신번호 관리 팝업 URL을 반환합니다.
-         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         * 발신번호를 등록하고 내역을 확인하는 카카오톡 발신번호 관리 페이지 팝업 URL을 반환합니다.
+         * 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/kakao/java/api#GetSenderNumberMgtURL
          */
         try {
@@ -140,7 +140,7 @@ public class KakaoServiceExample {
     @RequestMapping(value = "getSenderNumberList", method = RequestMethod.GET)
     public String getSenderNumberList(Model m) {
         /*
-         * 팝빌에 등록된 발신번호 목록을 반환합니다.
+         * 팝빌에 등록한 연동회원의 카카오톡 발신번호 목록을 확인합니다.
          * - https://docs.popbill.com/kakao/java/api#GetSenderNumberList
          */
 
@@ -157,8 +157,8 @@ public class KakaoServiceExample {
     @RequestMapping(value = "getATSTemplateMgtURL", method = RequestMethod.GET)
     public String getATSTemplateMgtURL(Model m) {
         /*
-         * 알림톡 템플릿관리 팝업 URL을 반환합니다.
-         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         * 알림톡 템플릿을 신청하고 승인심사 결과를 확인하며 등록 내역을 확인하는 알림톡 템플릿 관리 페이지 팝업 URL을 반환합니다.
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/kakao/java/api#GetATSTemplateMgtURL
          */
         try {
@@ -178,8 +178,8 @@ public class KakaoServiceExample {
     @RequestMapping(value = "getATSTemplate", method = RequestMethod.GET)
     public String getATSTemplate(Model m) {
         /*
-         * (주)카카오로 부터 승인된 알림톡 템플릿 정보를 확인합니다.
-         * - 반환된 URL은 보안정책에 따라 30초의 유효시간을 갖습니다.
+         * 승인된 알림톡 템플릿 정보를 확인합니다.
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/kakao/java/api#getATSTemplate
          */
     	
@@ -203,7 +203,7 @@ public class KakaoServiceExample {
     @RequestMapping(value = "listATSTemplate", method = RequestMethod.GET)
     public String listATSTemplate(Model m) {
         /*
-         * (주)카카오로 부터 승인된 알림톡 템플릿 목록을 확인합니다.
+         * 승인된 알림톡 템플릿 목록을 확인합니다.
          * - 반환항목중 템플릿코드(templateCode)는 알림톡 전송시 사용됩니다.
          * - https://docs.popbill.com/kakao/java/api#ListATSTemplate
          */
@@ -223,14 +223,14 @@ public class KakaoServiceExample {
     @RequestMapping(value = "sendATS_one", method = RequestMethod.GET)
     public String sendATS_one(Model m) {
         /*
-         * 알림톡 전송을 요청합니다.
+         * 승인된 템플릿의 내용을 작성하여 1건의 알림톡 전송을 팝빌에 접수합니다.
          * 사전에 승인된 템플릿의 내용과 알림톡 전송내용(content)이 다를 경우 전송실패 처리됩니다.
          * - https://docs.popbill.com/kakao/java/api#SendATS_one
          */
 
         // 알림톡 템플릿코드
         // 승인된 알림톡 템플릿 코드는 ListATStemplate API, GetATSTemplateMgtURL API, 또는 팝빌사이트에서 확인 가능합니다.
-        String templateCode = "019020000163";
+        String templateCode = "021020000163";
 
         // 발신번호 (팝빌에 등록된 발신번호만 이용가능)
         String senderNum = "07043042991";
@@ -295,14 +295,14 @@ public class KakaoServiceExample {
     @RequestMapping(value = "sendATS_multi", method = RequestMethod.GET)
     public String sendATS_multi(Model m) {
         /*
-         * [대량전송] 알림톡 전송을 요청합니다.
+         * 승인된 템플릿의 내용을 작성하여 다수건의 알림톡 전송을 팝빌에 접수하며, 수신자 별로 개별 내용을 전송합니다. (최대 1,000건)
          * 사전에 승인된 템플릿의 내용과 알림톡 전송내용(content)이 다를 경우 전송실패 처리됩니다.
          * - https://docs.popbill.com/kakao/java/api#SendATS_multi
          */
 
         // 알림톡 템플릿코드
         // 승인된 알림톡 템플릿 코드는 ListATStemplate API, GetATSTemplateMgtURL API, 또는 팝빌사이트에서 확인 가능합니다.
-        String templateCode = "019020000163";
+        String templateCode = "021020000163";
 
         // 발신번호 (팝빌에 등록된 발신번호만 이용가능)
         String senderNum = "07043042991";
@@ -383,14 +383,14 @@ public class KakaoServiceExample {
     @RequestMapping(value = "sendATS_same", method = RequestMethod.GET)
     public String sendATS_same(Model m) {
         /*
-         * [동보전송] 알림톡 전송을 요청합니다.
+         * 승인된 템플릿 내용을 작성하여 다수건의 알림톡 전송을 팝빌에 접수하며, 모든 수신자에게 동일 내용을 전송합니다. (최대 1,000건)
          * 사전에 승인된 템플릿의 내용과 알림톡 전송내용(content)이 다를 경우 전송실패 처리됩니다.
          * - https://docs.popbill.com/kakao/java/api#SendATS_same
          */
 
         // 알림톡 템플릿코드
         // 승인된 알림톡 템플릿 코드는 ListATStemplate API, GetATSTemplateMgtURL API, 또는 팝빌사이트에서 확인 가능합니다.
-        String templateCode = "019020000163";
+        String templateCode = "021020000163";
 
         // 발신번호 (팝빌에 등록된 발신번호만 이용가능)
         String senderNum = "07043042991";
@@ -454,8 +454,8 @@ public class KakaoServiceExample {
     @RequestMapping(value = "sendFTS_one", method = RequestMethod.GET)
     public String sendFTS_one(Model m) {
         /*
-         * 친구톡(텍스트) 전송을 요청합니다.
-         * - 친구톡은 심야 전송(20:00~08:00)이 제한됩니다.
+         * 텍스트로 구성된 1건의 친구톡 전송을 팝빌에 접수합니다.
+         * - 친구톡의 경우 야간 전송은 제한됩니다. (20:00 ~ 익일 08:00)
          * - https://docs.popbill.com/kakao/java/api#SendFTS_one
          */
 
@@ -528,8 +528,8 @@ public class KakaoServiceExample {
     @RequestMapping(value = "sendFTS_multi", method = RequestMethod.GET)
     public String sendFTS_multi(Model m) {
         /*
-         * [대량전송] 친구톡(텍스트) 전송을 요청합니다.
-         * - 친구톡은 심야 전송(20:00~08:00)이 제한됩니다.
+         * 텍스트로 구성된 다수건의 친구톡 전송을 팝빌에 접수하며, 수신자 별로 개별 내용을 전송합니다. (최대 1,000건)
+         * - 친구톡의 경우 야간 전송은 제한됩니다. (20:00 ~ 익일 08:00)
          * - https://docs.popbill.com/kakao/java/api#SendFTS_multi
          */
 
@@ -606,8 +606,8 @@ public class KakaoServiceExample {
     @RequestMapping(value = "sendFTS_same", method = RequestMethod.GET)
     public String sendFTS_same(Model m) {
         /*
-         * [동보전송] 친구톡(텍스트) 전송을 요청합니다.
-         * - 친구톡은 심야 전송(20:00~08:00)이 제한됩니다.
+         * 텍스트로 구성된 다수건의 친구톡 전송을 팝빌에 접수하며, 모든 수신자에게 동일 내용을 전송합니다. (최대 1,000건)
+         * - 친구톡의 경우 야간 전송은 제한됩니다. (20:00 ~ 익일 08:00)
          * - https://docs.popbill.com/kakao/java/api#SendFTS_same
          */
 
@@ -683,9 +683,9 @@ public class KakaoServiceExample {
     @RequestMapping(value = "sendFMS_one", method = RequestMethod.GET)
     public String sendFMS_one(Model m) {
         /*
-         * 친구톡(이미지) 전송을 요청합니다.
-         * - 친구톡은 심야 전송(20:00~08:00)이 제한됩니다.
-         * - 이미지 전송규격 / jpg 포맷, 용량 최대 500KByte, 이미지 높이/너비 비율 1.333 이하, 1/2 이상
+         * 이미지가 첨부된 1건의 친구톡 전송을 팝빌에 접수합니다.
+         * - 친구톡의 경우 야간 전송은 제한됩니다. (20:00 ~ 익일 08:00)
+         * - 이미지 파일 규격: 전송 포맷 – JPG 파일 (.jpg, .jpeg), 용량 – 최대 500 Kbyte, 크기 – 가로 500px 이상, 가로 기준으로 세로 0.5~1.3배 비율 가능
          * - https://docs.popbill.com/kakao/java/api#SendFMS_one
          */
 
@@ -764,9 +764,9 @@ public class KakaoServiceExample {
     @RequestMapping(value = "sendFMS_multi", method = RequestMethod.GET)
     public String sendFMS_multi(Model m) {
         /*
-         * [대량전송] 친구톡(이미지) 전송을 요청합니다.
-         * - 친구톡은 심야 전송(20:00~08:00)이 제한됩니다.
-         * - 이미지 전송규격 / jpg 포맷, 용량 최대 500KByte, 이미지 높이/너비 비율 1.333 이하, 1/2 이상
+         * 이미지가 첨부된 다수건의 친구톡 전송을 팝빌에 접수하며, 수신자 별로 개별 내용을 전송합니다. (최대 1,000건)
+         * - 친구톡의 경우 야간 전송은 제한됩니다. (20:00 ~ 익일 08:00)
+         * - 이미지 파일 규격: 전송 포맷 – JPG 파일 (.jpg, .jpeg), 용량 – 최대 500 Kbyte, 크기 – 가로 500px 이상, 가로 기준으로 세로 0.5~1.3배 비율 가능
          * - https://docs.popbill.com/kakao/java/api#SendFMS_multi
          */
 
@@ -864,9 +864,9 @@ public class KakaoServiceExample {
     @RequestMapping(value = "sendFMS_same", method = RequestMethod.GET)
     public String sendFMS_same(Model m) {
         /*
-         * [동보전송] 친구톡(이미지) 전송을 요청합니다.
-         * - 친구톡은 심야 전송(20:00~08:00)이 제한됩니다.
-         * - 이미지 전송규격 / jpg 포맷, 용량 최대 500KByte, 이미지 높이/너비 비율 1.333 이하, 1/2 이상
+         * 이미지가 첨부된 다수건의 친구톡 전송을 팝빌에 접수하며, 모든 수신자에게 동일 내용을 전송합니다. (최대 1,000건)
+         * - 친구톡의 경우 야간 전송은 제한됩니다. (20:00 ~ 익일 08:00)
+         * - 이미지 파일 규격: 전송 포맷 – JPG 파일 (.jpg, .jpeg), 용량 – 최대 500 Kbyte, 크기 – 가로 500px 이상, 가로 기준으로 세로 0.5~1.3배 비율 가능
          * - https://docs.popbill.com/kakao/java/api#SendFMS_same
          */
 
@@ -950,8 +950,7 @@ public class KakaoServiceExample {
     @RequestMapping(value = "cancelReserve", method = RequestMethod.GET)
     public String cancelReserve(Model m) {
         /*
-         * 알림톡/친구톡 전송요청시 발급받은 접수번호(receiptNum)로 예약전송건을 취소합니다.
-         * - 예약취소는 예약전송시간 10분전까지만 가능합니다.
+         * 팝빌에서 반환받은 접수번호를 통해 예약접수된 카카오톡을 전송 취소합니다. (예약시간 10분 전까지 가능)
          * - https://docs.popbill.com/kakao/java/api#CancelReserve
          */
 
@@ -974,8 +973,7 @@ public class KakaoServiceExample {
     @RequestMapping(value = "cancelReserveRN", method = RequestMethod.GET)
     public String cancelReserveRN(Model m) {
         /*
-         * 전송요청번호(requestNum)를 할당한 알림톡/친구톡 예약전송건을 취소합니다.
-         * - 예약전송 취소는 예약시간 10분전까지만 가능합니다.
+         * 파트너가 할당한 전송요청 번호를 통해 예약접수된 카카오톡을 전송 취소합니다. (예약시간 10분 전까지 가능)
          * - https://docs.popbill.com/kakao/java/api#CancelReserveRN
          */
 
@@ -998,7 +996,7 @@ public class KakaoServiceExample {
     @RequestMapping(value = "getMessages", method = RequestMethod.GET)
     public String getMessages(Model m) {
         /*
-         * 알림톡/친구톡 전송요청시 발급받은 접수번호(receiptNum)로 전송결과를 확인합니다.
+         * 팝빌에서 반환받은 접수번호를 통해 알림톡/친구톡 전송상태 및 결과를 확인합니다.
          * - https://docs.popbill.com/kakao/java/api#GetMessages
          */
 
@@ -1022,12 +1020,12 @@ public class KakaoServiceExample {
     @RequestMapping(value = "getMessagesRN", method = RequestMethod.GET)
     public String getMessagesRN(Model m) {
         /*
-         * 전송요청번호(requestNum)를 할당한 알림톡/친구톡 전송내역 및 전송상태를 확인합니다.
+         * 파트너가 할당한 전송요청 번호를 통해 알림톡/친구톡 전송상태 및 결과를 확인합니다.
          * - https://docs.popbill.com/kakao/java/api#GetMessagesRN
          */
 
         // 카카오톡 접수번호
-        String requestNum = "20190104-001";
+        String requestNum = "20210701-001";
 
         try {
 
@@ -1046,16 +1044,15 @@ public class KakaoServiceExample {
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String search(Model m) {
         /*
-         * 검색조건을 사용하여 친구톡/알림톡 내역을 조회합니다.
-         * - 최대 검색기간 : 6개월 이내
+         * 파트너가 지정한 검색조건에 해당하는 카카오톡 전송내역을 조회합니다. (최대 검색기간 : 6개월)
          * - https://docs.popbill.com/kakao/java/api#Search
          */
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20181201";
+        String SDate = "20210701";
 
         // 종료일자, 날짜형식(yyyyMMdd)
-        String EDate = "20190104";
+        String EDate = "20210710";
 
         // 전송상태 배열, 0-대기, 1-전송중, 2-성공, 3-대체, 4-실패, 5-취소
         String[] State = {"0", "1", "2", "3", "4"};
@@ -1100,8 +1097,8 @@ public class KakaoServiceExample {
     @RequestMapping(value = "getSentListURL", method = RequestMethod.GET)
     public String getSentListURL(Model m) {
         /*
-         * 카카오톡 전송내역 팝업 URL을 반환합니다.
-         * - 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
+         * 팝빌 사이트와 동일한 카카오톡 전송내역을 확인하는 페이지의 팝업 URL을 반환합니다.
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/kakao/java/api#GetSentListURL
          */
 
@@ -1122,7 +1119,7 @@ public class KakaoServiceExample {
     @RequestMapping(value = "getUnitCost", method = RequestMethod.GET)
     public String getUnitCost(Model m) {
         /*
-         * 알림톡/친구톡 서비스 전송단가를 확인합니다.
+         * 카카오톡 전송시 과금되는 포인트 단가를 확인합니다.
          * - https://docs.popbill.com/kakao/java/api#GetUnitCost
          */
 
@@ -1146,7 +1143,7 @@ public class KakaoServiceExample {
     @RequestMapping(value = "getChargeInfo", method = RequestMethod.GET)
     public String chargeInfo(Model m) {
         /*
-         * 알림톡/친구톡 서비스 API 서비스 과금정보를 확인합니다.
+         * 팝빌 카카오톡 API 서비스 과금정보를 확인합니다.
          * - https://docs.popbill.com/kakao/java/api#GetChargeInfo
          */
 

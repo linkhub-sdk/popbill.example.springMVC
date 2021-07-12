@@ -55,7 +55,7 @@ public class AccountCheckServiceExample {
     @RequestMapping(value = "checkAccountInfo", method = RequestMethod.GET)
     public String checkAccountInfo(Model m) {
         /*
-         * 계좌의 예금주성명을 조회합니다.
+         * 1건의 예금주성명을 조회합니다.
          * - https://docs.popbill.com/accountcheck/java/api#CheckAccountInfo
          */
 
@@ -82,7 +82,7 @@ public class AccountCheckServiceExample {
     @RequestMapping(value = "getUnitCost", method = RequestMethod.GET)
     public String getUnitCost(Model m) {
         /*
-         * 예금주조회 단가를 확인합니다.
+         * 예금주 성명 조회시 과금되는 포인트 단가를 확인합니다.
          * - https://docs.popbill.com/accountcheck/java/api#GetUnitCost
          */
 

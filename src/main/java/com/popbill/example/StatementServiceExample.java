@@ -81,16 +81,16 @@ public class StatementServiceExample {
     @RequestMapping(value = "checkMgtKeyInUse", method = RequestMethod.GET)
     public String checkMgtKeyInUse(Model m) {
         /*
-         * 문서번호 사용여부 확인
-         * - 최대 24자리, 영문, 숫자, '-', '_' 조합하여 구성
+         * 파트너가 전자명세서 관리 목적으로 할당하는 문서번호의 사용여부를 확인합니다.
+         * - 최대 24자, 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
          * - https://docs.popbill.com/statement/java/api#CheckMgtKeyInUse
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
-        // 문서번호, 최대 24자리 영문, 숫자 , '-', '_'로 사업자별로 중복되지 않도록 구성
-        String mgtKey = "20191004-01";
+        // 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
+        String mgtKey = "20210701-01";
         String isUseStr;
 
         try {
@@ -111,7 +111,7 @@ public class StatementServiceExample {
     @RequestMapping(value = "registIssue", method = RequestMethod.GET)
     public String registIssue(Model m) {
         /*
-         * 1건의 전자명세서를 [즉시발행]합니다.
+         * 작성된 전자명세서 데이터를 팝빌에 저장과 동시에 발행하여, "승인대기" 상태로 처리합니다
          * - https://docs.popbill.com/statement/java/api#RegistIssuex 
          */
 
@@ -138,7 +138,7 @@ public class StatementServiceExample {
         // [필수] 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         statement.setItemCode((short) 121);
 
-        // [필수] 문서번호, 최대 24자리 영문, 숫자, '-', '_'로 구성
+        // [필수] 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
         statement.setMgtKey("20210706-001");
 
 
@@ -297,7 +297,7 @@ public class StatementServiceExample {
     @RequestMapping(value = "register", method = RequestMethod.GET)
     public String register(Model m) {
         /*
-         * 1건의 전자명세서를 [임시저장]합니다.
+         * 작성된 전자명세서 데이터를 팝빌에 저장합니다.
          * - https://docs.popbill.com/statement/java/api#Register
          */
 
@@ -305,7 +305,7 @@ public class StatementServiceExample {
         Statement statement = new Statement();
 
         // [필수] 작성일자, 형태 yyyyMMdd
-        statement.setWriteDate("20190104");
+        statement.setWriteDate("20210705");
 
         // [필수] {영수, 청구} 중 기재
         statement.setPurposeType("영수");
@@ -319,8 +319,8 @@ public class StatementServiceExample {
         // [필수] 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         statement.setItemCode((short) 121);
 
-        // [필수] 문서번호, 최대 24자리 영문, 숫자, '-', '_'로 구성
-        statement.setMgtKey("20190104-001");
+        // [필수] 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
+        statement.setMgtKey("20210705-001");
 
 
         /*********************************************************************
@@ -430,7 +430,7 @@ public class StatementServiceExample {
 
         detail.setSerialNum((short) 1);                    // 일련번호, 1부터 순차기재
         detail.setItemName("품명");                        // 품목명
-        detail.setPurchaseDT("20190104");                // 거래일자
+        detail.setPurchaseDT("20210705");                // 거래일자
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
@@ -440,7 +440,7 @@ public class StatementServiceExample {
         detail = new StatementDetail();                    // 상세항목(품목) 배열
         detail.setSerialNum((short) 2);                    // 일련번호 1부터 순차기재
         detail.setItemName("품명");                        // 품목명
-        detail.setPurchaseDT("20190104");                // 거래일자
+        detail.setPurchaseDT("20210705");                // 거래일자
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
@@ -480,22 +480,21 @@ public class StatementServiceExample {
     @RequestMapping(value = "update", method = RequestMethod.GET)
     public String update(Model m) {
         /*
-         * 1건의 전자명세서를 [수정]합니다.
-         * - [임시저장] 상태의 전자명세서만 수정할 수 있습니다.
+         * 1"임시저장" 상태의 전자명세서를 수정합니다.건의 전자명세서를 [수정]합니다.
          * - https://docs.popbill.com/statement/java/api#Update
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
-        // 문서번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
-        String mgtKey = "20191004-01";
+        // 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
+        String mgtKey = "20210701-01";
 
         //  전자명세서 정보 객체
         Statement statement = new Statement();
 
         // [필수] 작성일자, 형태 yyyyMmdd
-        statement.setWriteDate("20191004");
+        statement.setWriteDate("20210701");
 
         // [필수] {영수, 청구} 중 기재
         statement.setPurposeType("영수");
@@ -510,7 +509,7 @@ public class StatementServiceExample {
         statement.setItemCode((short) 121);
 
         // [필수] 문서번호, 최대 24자리 영문, 숫자, '-', '_'로 구성
-        statement.setMgtKey("20190104-001");
+        statement.setMgtKey("20210701-001");
 
 
         /*********************************************************************
@@ -620,7 +619,7 @@ public class StatementServiceExample {
 
         detail.setSerialNum((short) 1);                    // 일련번호, 1부터 순차기재
         detail.setItemName("품명");                        // 품목명
-        detail.setPurchaseDT("20190104");                // 거래일자
+        detail.setPurchaseDT("20210701");                // 거래일자
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
@@ -630,7 +629,7 @@ public class StatementServiceExample {
         detail = new StatementDetail();                    // 상세항목(품목) 배열
         detail.setSerialNum((short) 2);                    // 일련번호 1부터 순차기재
         detail.setItemName("품명");                        // 품목명
-        detail.setPurchaseDT("20190104");                // 거래일자
+        detail.setPurchaseDT("20210701");                // 거래일자
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
@@ -670,15 +669,16 @@ public class StatementServiceExample {
     @RequestMapping(value = "issue", method = RequestMethod.GET)
     public String issue(Model m) {
         /*
-         * 1건의 [임시저장] 상태의 전자명세서를 [발행]합니다
+         * "임시저장" 상태의 전자명세서를 발행하여, "승인대기" 상태로 처리합니다.
+         * - 전자명세서 발행 함수 호출시 포인트가 과금되며, 수신자에게 발행 안내 메일이 발송됩니다.
          * - https://docs.popbill.com/statement/java/api#StmIssue
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
-        // 문서번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
-        String mgtKey = "20191004-001";
+        // 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
+        String mgtKey = "20210701-001";
 
         // 메모
         String memo = "발행메모";
@@ -701,15 +701,15 @@ public class StatementServiceExample {
     @RequestMapping(value = "cancelIssue", method = RequestMethod.GET)
     public String cancelIssue(Model m) {
         /*
-         * 1건의 전자명세서를 [발행취소]합니다.
+         * 발신자가 발행한 전자명세서를 발행취소합니다.
          * - https://docs.popbill.com/statement/java/api#Cancel
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
-        // 문서번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
-        String mgtKey = "20191004-001";
+        // 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
+        String mgtKey = "20210701-001";
 
         // 메모
         String memo = "발행취소 메모";
@@ -732,17 +732,17 @@ public class StatementServiceExample {
     @RequestMapping(value = "delete", method = RequestMethod.GET)
     public String delete(Model m) {
         /*
-         * 1건의 전자명세서를 [삭제]합니다.
+         * 삭제 가능한 상태의 전자명세서를 삭제합니다.
+         * - 삭제 가능한 상태: "임시저장", "취소", "승인거부", "발행취소"
          * - 전자명세서를 삭제하면 사용된 문서번호(mgtKey)를 재사용할 수 있습니다.
-         * - 삭제가능한 문서 상태 : [임시저장], [발행취소]
          * - https://docs.popbill.com/statement/java/api#Delete
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
-        // 문서번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
-        String mgtKey = "20191004-01";
+        // 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
+        String mgtKey = "20210701-01";
 
         try {
 
@@ -761,15 +761,15 @@ public class StatementServiceExample {
     @RequestMapping(value = "getInfo", method = RequestMethod.GET)
     public String getInfo(Model m) {
         /*
-         * 1건의 전자명세서 상태/요약 정보를 확인합니다.
+         * 전자명세서의 1건의 상태 및 요약정보 확인합니다.
          * - https://docs.popbill.com/statement/java/api#GetInfo
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
-        // 문서번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
-        String mgtKey = "20190104-001";
+        // 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
+        String mgtKey = "20210701-001";
 
         try {
 
@@ -797,7 +797,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호 배열(최대 1000건)
-        String[] MgtKeyList = new String[]{"20190103-001", "20190103-002", "20190103-003"};
+        String[] MgtKeyList = new String[]{"20210701-001", "20210701-002", "20210701-003"};
 
         try {
 
@@ -817,7 +817,7 @@ public class StatementServiceExample {
     @RequestMapping(value = "getDetailInfo", method = RequestMethod.GET)
     public String getDetailInfo(Model m) {
         /*
-         * 전자명세서 1건의 상세정보를 조회합니다.
+         * 전자명세서 1건의 상세정보 확인합니다.
          * - https://docs.popbill.com/statement/java/api#GetDetailInfo
          */
 
@@ -825,7 +825,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 문서번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
-        String mgtKey = "20190104-001";
+        String mgtKey = "20210701-001";
 
         try {
 
@@ -845,7 +845,7 @@ public class StatementServiceExample {
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String search(Model m) {
         /*
-         * 검색조건을 사용하여 전자명세서 목록을 조회합니다.
+         * 파트너가 지정한 검색조건에 해당하는 세금계산서를 조회합니다.
          * - https://docs.popbill.com/statement/java/api#Search
          */
 
@@ -853,10 +853,10 @@ public class StatementServiceExample {
         String DType = "W";
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20181201";
+        String SDate = "20210701";
 
         // 종료일자, 날짜형식(yyyyMMdd)
-        String EDate = "20190103";
+        String EDate = "20210710";
 
         // 전자명세서 상태코드 배열, 2,3번째 자리에 와일드카드(*) 사용 가능
         String[] State = {"100", "2**", "3**", "4**"};
@@ -894,7 +894,7 @@ public class StatementServiceExample {
     @RequestMapping(value = "getLogs", method = RequestMethod.GET)
     public String getLogs(Model m) {
         /*
-         * 전자명세서 상태 변경이력을 확인합니다.
+         * 전자명세서의 상태에 대한 변경이력을 확인합니다.
          * - https://docs.popbill.com/statement/java/api#GetLogs
          */
 
@@ -902,7 +902,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 문서번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
-        String mgtKey = "20191004-01";
+        String mgtKey = "20210701-01";
 
         try {
 
@@ -922,7 +922,8 @@ public class StatementServiceExample {
     @RequestMapping(value = "getURL", method = RequestMethod.GET)
     public String getURL(Model m) {
         /*
-         * 팝빌 전자명세서 문서함 관련 팝업 URL을 반환합니다.
+         * 로그인 상태로 팝빌 사이트의 전자명세서 문서함 메뉴에 접근할 수 있는 페이지의 팝업 URL을 반환합니다.
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/statement/java/api#GetURL
          */
 
@@ -946,7 +947,8 @@ public class StatementServiceExample {
     @RequestMapping(value = "getPopUpURL", method = RequestMethod.GET)
     public String getPopUpURL(Model m) {
         /*
-         * 1건의 전자명세서 보기 팝업 URL을 반환합니다.
+         * 팝빌 사이트와 동일한 전자명세서 1건의 상세 정보 페이지의 팝업 URL을 반환합니다.
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/statement/java/api#GetPopUpURL
          */
 
@@ -954,7 +956,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20191004-001";
+        String mgtKey = "20210701-001";
 
         try {
 
@@ -974,7 +976,8 @@ public class StatementServiceExample {
     @RequestMapping(value = "getViewURL", method = RequestMethod.GET)
     public String getViewURL(Model m) {
         /*
-         * 1건의 전자명세서 보기 팝업 URL을 반환합니다. (메뉴/버튼 제외)
+         * 팝빌 사이트와 동일한 전자명세서 1건의 상세 정보 페이지(사이트 상단, 좌측 메뉴 및 버튼 제외)의 팝업 URL을 반환합니다.
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/statement/java/api#GetViewURL
          */
 
@@ -982,7 +985,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20200721-001-TEST";
+        String mgtKey = "20210702-001-TEST";
 
         try {
 
@@ -1003,7 +1006,8 @@ public class StatementServiceExample {
     @RequestMapping(value = "getPrintURL", method = RequestMethod.GET)
     public String getPrintURL(Model m) {
         /*
-         * 1건의 전자명세서 인쇄팝업 URL을 반환합니다. (발신자/수신자용)
+         *전자명세서 1건을 인쇄하기 위한 페이지의 팝업 URL을 반환하며, 페이지내에서 인쇄 설정값을 "공급자" / "공급받는자" / "공급자+공급받는자"용 중 하나로 지정할 수 있습니다.
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/statement/java/api#GetPrintURL
          */
 
@@ -1011,7 +1015,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20191004-001";
+        String mgtKey = "20210701-001";
 
         try {
 
@@ -1031,7 +1035,8 @@ public class StatementServiceExample {
     @RequestMapping(value = "getEPrintURL", method = RequestMethod.GET)
     public String getEPrintURL(Model m) {
         /*
-         * 1건의 전자명세서 인쇄팝업 URL을 반환합니다. (수신자용)
+         * "공급받는자" 용 세금계산서 1건을 인쇄하기 위한 페이지의 팝업 URL을 반환합니다.
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/statement/java/api#GetEPrintURL
          */
 
@@ -1039,7 +1044,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20191004-001";
+        String mgtKey = "20210701-001";
 
         try {
 
@@ -1059,7 +1064,8 @@ public class StatementServiceExample {
     @RequestMapping(value = "getMassPrintURL", method = RequestMethod.GET)
     public String getMassPrintURL(Model m) {
         /*
-         * 다수건의 전자명세서 인쇄팝업 URL을 반환합니다. (최대 100건)
+         * 다수건의 전자명세서를 인쇄하기 위한 페이지의 팝업 URL을 반환합니다. (최대 100건)
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/statement/java/api#GetMassPrintURL
          */
 
@@ -1067,7 +1073,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 문서번호 배열, 최대 100건
-        String[] mgtKeyList = new String[]{"20191004-001", "20150318-01", "20150318-001", "20150319-01"};
+        String[] mgtKeyList = new String[]{"20210701-001", "20210701-01", "20210701-001", "20210701-01"};
 
         try {
 
@@ -1087,7 +1093,8 @@ public class StatementServiceExample {
     @RequestMapping(value = "getMailURL", method = RequestMethod.GET)
     public String getMailURL(Model m) {
         /*
-         * 수신자 메일링크 URL을 반환합니다.
+         * 안내메일과 관련된 전자명세서를 확인 할 수 있는 상세 페이지의 팝업 URL을 반환하며, 해당 URL은 메일 하단의 파란색 버튼의 링크와 같습니다.
+         * - 함수 호출로 반환 받은 URL에는 유효시간이 없습니다.
          * - https://docs.popbill.com/statement/java/api#GetMailURL
          */
 
@@ -1095,7 +1102,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20191004-001";
+        String mgtKey = "20210701-001";
 
         try {
             String url = statementService.getMailURL(testCorpNum, itemCode, mgtKey);
@@ -1113,17 +1120,15 @@ public class StatementServiceExample {
     @RequestMapping(value = "attachFile", method = RequestMethod.GET)
     public String attachFile(Model m) {
         /*
-         * 전자명세서에 첨부파일을 등록합니다.
-         * - 첨부파일 등록은 전자명세서가 [임시저장] 상태인 경우에만 가능합니다.
-         * - 첨부파일은 최대 5개까지 등록할 수 있습니다.
+         * 임시저장" 상태의 명세서에 1개의 파일을 첨부합니다. (최대 5개)
          * - https://docs.popbill.com/statement/java/api#AttachFile
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
-        // 문서번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
-        String mgtKey = "20191004-01";
+        // 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
+        String mgtKey = "20210708-01";
 
         // 첨부파일 표시명
         String displayName = "첨부파일.jpg";
@@ -1158,17 +1163,16 @@ public class StatementServiceExample {
     @RequestMapping(value = "deleteFile", method = RequestMethod.GET)
     public String deleteFile(Model m) {
         /*
-         * 전자명세서에 첨부된 파일을 삭제합니다.
-         * - 파일을 식별하는 파일아이디는 첨부파일 목록(GetFiles API) 의 응답항목
-         *   중 파일아이디(AttachedFile) 값을 통해 확인할 수 있습니다.
+         * "임시저장" 상태의 전자명세서에 첨부된 1개의 파일을 삭제합니다.
+         * - 파일을 식별하는 파일아이디는 첨부파일 목록(GetFiles API) 의 응답항목 중 파일아이디(AttachedFile) 값을 통해 확인할 수 있습니다.
          * - https://docs.popbill.com/statement/java/api#DeleteFile
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
-        // 문서번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
-        String mgtKey = "20191004-01";
+        // 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
+        String mgtKey = "20210701-01";
 
         // getFiles()로 해당 파일의 attachedFile 필드값 기재.
         String FileID = "57C0A91A-BF5A-494A-8E0D-B46FC9B5C8E2.PBF";
@@ -1191,17 +1195,16 @@ public class StatementServiceExample {
     @RequestMapping(value = "getFiles", method = RequestMethod.GET)
     public String getFiles(Model m) {
         /*
-         * 전자명세서에 첨부된 파일의 목록을 확인합니다.
-         * - 응답항목 중 파일아이디(AttachedFile) 항목은 파일삭제(DeleteFile API)
-         *   호출시 이용할 수 있습니다.
+         * 전자명세서에 첨부된 파일목록을 확인합니다.
+         * - 응답항목 중 파일아이디(AttachedFile) 항목은 파일삭제(DeleteFile API) 호출시 이용할 수 있습니다.
          * - https://docs.popbill.com/statement/java/api#GetFiles
          */
 
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
-        // 문서번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
-        String mgtKey = "20191004-01";
+        // 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
+        String mgtKey = "20210701-01";
 
         try {
 
@@ -1221,7 +1224,7 @@ public class StatementServiceExample {
     @RequestMapping(value = "sendEmail", method = RequestMethod.GET)
     public String sendEmail(Model m) {
         /*
-         * 발행 안내메일을 재전송합니다.
+         * "승인대기", "발행완료" 상태의 전자명세서와 관련된 발행 안내 메일을 재전송 합니다.
          * - https://docs.popbill.com/statement/java/api#SendEmail
          */
 
@@ -1229,7 +1232,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20191004-001";
+        String mgtKey = "20210701-001";
 
         // 수신자 이메일주소
         String receiver = "test@test.com";
@@ -1252,9 +1255,9 @@ public class StatementServiceExample {
     @RequestMapping(value = "sendSMS", method = RequestMethod.GET)
     public String sendSMS(Model m) {
         /*
-         * 알림문자를 전송합니다. (단문/SMS- 한글 최대 45자)
-         * - 알림문자 전송시 포인트가 차감됩니다. (전송실패시 환불처리)
-         * - 전송내역 확인은 "팝빌 로그인" > [문자 팩스] > [문자] > [전송내역] 탭에서 전송결과를 확인할 수 있습니다.
+         * 전자명세서와 관련된 안내 SMS(단문) 문자를 재전송하는 함수로, 팝빌 사이트 [문자·팩스] > [문자] > [전송내역] 메뉴에서 전송결과를 확인 할 수 있습니다.
+         * - 메시지는 최대 90byte까지 입력 가능하고, 초과한 내용은 자동으로 삭제되어 전송합니다. (한글 최대 45자)
+         * - 함수 호출시 포인트가 과금됩니다.
          * - https://docs.popbill.com/statement/java/api#SendSMS
          */
 
@@ -1262,7 +1265,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20191004-001";
+        String mgtKey = "20210701-001";
 
         // 발신번호
         String sender = "07043042991";
@@ -1291,9 +1294,8 @@ public class StatementServiceExample {
     @RequestMapping(value = "sendFAX", method = RequestMethod.GET)
     public String sendFAX(Model m) {
         /*
-         * 전자명세서를 팩스전송합니다.
-         * - 팩스 전송 요청시 포인트가 차감됩니다. (전송실패시 환불처리)
-         * - 전송내역 확인은 "팝빌 로그인" > [문자 팩스] > [팩스] > [전송내역] 메뉴에서 전송결과를 확인할 수 있습니다.
+         * 전자명세서를 팩스로 전송하는 함수로, 팝빌 사이트 [문자·팩스] > [팩스] > [전송내역] 메뉴에서 전송결과를 확인 할 수 있습니다.
+         * - 함수 호출시 포인트가 과금됩니다.
          * - https://docs.popbill.com/statement/java/api#SendFAX
          */
 
@@ -1301,7 +1303,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20191004-001";
+        String mgtKey = "20210701-001";
 
         // 발신자 번호
         String sender = "07043042991";
@@ -1327,12 +1329,11 @@ public class StatementServiceExample {
     @RequestMapping(value = "FAXSend", method = RequestMethod.GET)
     public String FAXSend(Model m) {
         /*
-         * 팝빌에 전자명세서를 등록하지 않고 수신자에게 팩스전송합니다.
-         * - 팩스 전송 요청시 포인트가 차감됩니다. (전송실패시 환불처리)
+         * 전자명세서를 팩스로 전송하는 함수로, 팝빌에 데이터를 저장하는 과정이 없습니다.
+         * - 팝빌 사이트 [문자·팩스] > [팩스] > [전송내역] 메뉴에서 전송결과를 확인 할 수 있습니다.
+         * - 함수 호출시 포인트가 과금됩니다.
          * - 팩스 발행 요청시 작성한 문서번호는 팩스전송 파일명으로 사용됩니다.
-         * - 전송내역 확인은 "팝빌 로그인" > [문자 팩스] > [팩스] > [전송내역] 메뉴에서 전송결과를 확인할 수 있습니다.
-         * - 팩스 전송결과를 확인하기 위해서는 선팩스 전송 요청 시 반환받은 접수번호를 이용하여
-         *   팩스 API의 전송결과 확인 (GetFaxDetail) API를 이용하면 됩니다.
+         * - 팩스 전송결과를 확인하기 위해서는 선팩스 전송 요청 시 반환받은 접수번호를 이용하여 팩스 API의 전송결과 확인 (GetFaxDetail) API를 이용하면 됩니다.
          * - https://docs.popbill.com/statement/java/api#FAXSend
          */
 
@@ -1346,7 +1347,7 @@ public class StatementServiceExample {
         Statement statement = new Statement();
 
         // [필수] 작성일자, 형태 yyyyMmdd
-        statement.setWriteDate("20191004");
+        statement.setWriteDate("20210701");
 
         // [필수] {영수, 청구} 중 기재
         statement.setPurposeType("영수");
@@ -1471,7 +1472,7 @@ public class StatementServiceExample {
 
         detail.setSerialNum((short) 1);                    // 일련번호, 1부터 순차기재
         detail.setItemName("품명");                        // 품목명
-        detail.setPurchaseDT("20190104");                // 거래일자
+        detail.setPurchaseDT("20210701");                // 거래일자
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
@@ -1481,7 +1482,7 @@ public class StatementServiceExample {
         detail = new StatementDetail();                    // 상세항목(품목) 배열
         detail.setSerialNum((short) 2);                    // 일련번호 1부터 순차기재
         detail.setItemName("품명");                        // 품목명
-        detail.setPurchaseDT("20190104");                // 거래일자
+        detail.setPurchaseDT("20210701");                // 거래일자
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
@@ -1521,7 +1522,7 @@ public class StatementServiceExample {
     @RequestMapping(value = "attachStatement", method = RequestMethod.GET)
     public String attachStatement(Model m) {
         /*
-         * 전자명세서에 다른 전자명세서 1건을 첨부합니다.
+         * 하나의 전자명세서에 다른 전자명세서를 첨부합니다.
          * - https://docs.popbill.com/statement/java/api#AttachStatement
          */
 
@@ -1529,14 +1530,14 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 관리번호
-        String mgtKey = "20191004-001";
+        String mgtKey = "20210701-001";
 
 
         // 첨부할 전자명세서 코드
         int subItemCode = 121;
 
         // 첨부할 전자명세서 관리번호
-        String subMgtKey = "20191004-002";
+        String subMgtKey = "20210701-002";
 
         try {
 
@@ -1556,7 +1557,7 @@ public class StatementServiceExample {
     @RequestMapping(value = "detachStatement", method = RequestMethod.GET)
     public String detachStatement(Model m) {
         /*
-         * 전자명세서에 첨부된 다른 전자명세서를 첨부해제합니다.
+         * 하나의 전자명세서에 첨부된 다른 전자명세서를 해제합니다.
          * - https://docs.popbill.com/statement/java/api#DetachStatement
          */
 
@@ -1564,14 +1565,14 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 관리번호
-        String mgtKey = "20191004-001";
+        String mgtKey = "20210701-001";
 
 
         // 첨부해제할 전자명세서 코드
         int subItemCode = 121;
 
         // 첨부해제할 전자명세서 관리번호
-        String subMgtKey = "20191004-002";
+        String subMgtKey = "20210701-002";
 
         try {
 
@@ -1591,7 +1592,7 @@ public class StatementServiceExample {
     @RequestMapping(value = "listEmailConfig", method = RequestMethod.GET)
     public String listEmailConfig(Model m) {
         /*
-         * 전자명세서 관련 메일전송 항목에 대한 전송여부를 목록으로 반환합니다.
+         * 전자명세서 관련 메일 항목에 대한 발송설정을 확인합니다.
          * - https://docs.popbill.com/statement/java/api#ListEmailConfig
          */
 
@@ -1612,7 +1613,7 @@ public class StatementServiceExample {
     @RequestMapping(value = "updateEmailConfig", method = RequestMethod.GET)
     public String updateEmailConfig(Model m) {
         /*
-         * 전자명세서 관련 메일전송 항목에 대한 전송여부를 수정합니다.
+         * 전자명세서 관련 메일 항목에 대한 발송설정을 수정합니다.
          * - https://docs.popbill.com/statement/java/api#UpdateEmailConfig
          *
          * 메일전송유형
@@ -1647,7 +1648,7 @@ public class StatementServiceExample {
     @RequestMapping(value = "getUnitCost", method = RequestMethod.GET)
     public String getUnitCost(Model m) {
         /*
-         * 전자명세서 발행단가를 확인합니다.
+         * 전자명세서 발행시 과금되는 포인트 단가를 확인합니다.
          * - https://docs.popbill.com/statement/java/api#GetUnitCost
          */
 
@@ -1673,7 +1674,7 @@ public class StatementServiceExample {
     @RequestMapping(value = "getChargeInfo", method = RequestMethod.GET)
     public String chargeInfo(Model m) {
         /*
-         * 전자명세서 API 서비스 과금정보를 확인합니다.
+         * 팝빌 전자명세서 API 서비스 과금정보를 확인합니다.
          * - https://docs.popbill.com/statement/java/api#GetChargeInfo
          */
 

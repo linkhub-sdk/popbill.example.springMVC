@@ -76,7 +76,7 @@ public class HTCashbillServiceExample {
     @RequestMapping(value = "requestJob", method = RequestMethod.GET)
     public String requestJob(Model m) {
         /*
-         * 현금영수증 매출/매입 내역 수집을 요청합니다
+         * 홈택스에 신고된 현금영수증 매입/매출 내역 수집을 팝빌에 요청합니다.
          * - https://docs.popbill.com/httaxinvoice/java/api#RequestJob
          */
 
@@ -84,10 +84,10 @@ public class HTCashbillServiceExample {
         QueryType TIType = QueryType.SELL;
 
         // 시작일자, 표시형식(yyyyMMdd)
-        String SDate = "20181201";
+        String SDate = "20210701";
 
         // 종료일자, 표시형식(yyyyMMdd)
-        String EDate = "20190104";
+        String EDate = "20210710";
 
         try {
             String jobID = htCashbillService.requestJob(testCorpNum, TIType, SDate, EDate);
@@ -104,12 +104,12 @@ public class HTCashbillServiceExample {
     @RequestMapping(value = "getJobState", method = RequestMethod.GET)
     public String getJobState(Model m) {
         /*
-         * 수집 요청 상태를 확인합니다.
+         * 함수 RequestJob(수집 요청)를 통해 반환 받은 작업 아이디의 상태를 확인합니다.
          * - https://docs.popbill.com/httaxinvoice/java/api#GetJobState
          */
 
         // 수집요청(requestJob)시 반환받은 작업아이디
-        String jobID = "019010415000000005";
+        String jobID = "021010415000000005";
 
         try {
             HTCashbillJobState jobState = htCashbillService.getJobState(testCorpNum, jobID);
@@ -126,7 +126,8 @@ public class HTCashbillServiceExample {
     @RequestMapping(value = "listActiveJob", method = RequestMethod.GET)
     public String listActiveJob(Model m) {
         /*
-         * 수집 요청건들에 대한 상태 목록을 확인합니다.
+         * 현금영수증 매입/매출 내역 수집요청에 대한 상태 목록을 확인합니다.
+         * - 수집 요청 후 1시간이 경과한 수집 요청건은 상태정보가 반환되지 않습니다.
          * - https://docs.popbill.com/httaxinvoice/java/api#ListActiveJob
          */
 
@@ -145,12 +146,12 @@ public class HTCashbillServiceExample {
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String search(Model m) {
         /*
-         * 현금영수증 매입/매출 내역의 수집 결과를 조회합니다.
+         * 함수 GetJobState(수집 상태 확인)를 통해 상태 정보 확인된 작업아이디를 활용하여 현금영수증 매입/매출 내역을 조회합니다.
          * - https://docs.popbill.com/httaxinvoice/java/api#Search
          */
 
         // 수집 요청시 발급받은 작업아이디
-        String jobID = "019010415000000005";
+        String jobID = "021010415000000005";
 
         // 거래용도, P-소득공제용, C-지출증빙용
         String[] TradeUsage = {"P", "C"};
@@ -183,12 +184,12 @@ public class HTCashbillServiceExample {
     @RequestMapping(value = "summary", method = RequestMethod.GET)
     public String summary(Model m) {
         /*
-         * 현금영수증 매입/매출 내역의 수집 결과 요약정보를 조회합니다.
+         * 함수 GetJobState(수집 상태 확인)를 통해 상태 정보가 확인된 작업아이디를 활용하여 수집된 현금영수증 매입/매출 내역의 요약 정보를 조회합니다.
          * - https://docs.popbill.com/httaxinvoice/java/api#Summary
          */
 
         // 수집 요청시 발급받은 작업아이디
-        String jobID = "019010415000000005";
+        String jobID = "021010415000000005";
 
         // 거래용도, P-소득공제용, C-지출증빙용
         String[] TradeUsage = {"P", "C"};
@@ -211,8 +212,9 @@ public class HTCashbillServiceExample {
     @RequestMapping(value = "getCertificatePopUpURL", method = RequestMethod.GET)
     public String getCertificatePopUpURL(Model m) {
         /*
-         * 홈택스연동 인증관리를 위한 URL을 반환합니다.
-         * 인증방식에는 부서사용자/공인인증서 인증 방식이 있습니다.
+         * 홈택스연동 인증정보를 관리하는 페이지의 팝업 URL을 반환합니다.
+         * - 인증방식에는 부서사용자/공인인증서 인증 방식이 있습니다.
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/httaxinvoice/java/api#GetCertificatePopUpURL
          */
 
@@ -233,7 +235,7 @@ public class HTCashbillServiceExample {
     @RequestMapping(value = "getCertificateExpireDate", method = RequestMethod.GET)
     public String getCertificateExpireDate(Model m) {
         /*
-         * 팝빌에 등록된 홈택스 공인인증서의 만료일자를 반환합니다.
+         * 홈택스연동 인증을 위해 팝빌에 등록된 인증서 만료일자를 확인합니다.
          * - https://docs.popbill.com/httaxinvoice/java/api#GetCertificateExpireDate
          */
         try {
@@ -253,7 +255,7 @@ public class HTCashbillServiceExample {
     @RequestMapping(value = "checkCertValidation", method = RequestMethod.GET)
     public String checkCertValidation(Model m) {
         /*
-         * 팝빌에 등록된 공인인증서의 홈택스 로그인을 테스트합니다.
+         * 팝빌에 등록된 인증서로 홈택스 로그인 가능 여부를 확인합니다.
          * - https://docs.popbill.com/httaxinvoice/java/api#CheckCertValidation
          */
         try {
@@ -273,7 +275,7 @@ public class HTCashbillServiceExample {
     @RequestMapping(value = "registDeptUser", method = RequestMethod.GET)
     public String registDeptUser(Model m) {
         /*
-         * 홈택스 현금영수증 부서사용자 계정을 팝빌에 등록합니다.
+         * 홈택스연동 인증을 위해 팝빌에 현금영수증 자료조회 부서사용자 계정을 등록합니다.
          * - https://docs.popbill.com/httaxinvoice/java/api#RegistDeptUser
          */
 
@@ -300,7 +302,7 @@ public class HTCashbillServiceExample {
     @RequestMapping(value = "checkDeptUser", method = RequestMethod.GET)
     public String checkDeptUser(Model m) {
         /*
-         * 팝빌에 등록된 현금영수증 부서사용자 아이디를 확인합니다.
+         * 홈택스연동 인증을 위해 팝빌에 등록된 현금영수증 자료조회 부서사용자 계정을 확인합니다.
          * - https://docs.popbill.com/httaxinvoice/java/api#CheckDeptUser
          */
         try {
@@ -320,7 +322,7 @@ public class HTCashbillServiceExample {
     @RequestMapping(value = "checkLoginDeptUser", method = RequestMethod.GET)
     public String checkLoginDeptUser(Model m) {
         /*
-         * 팝빌에 등록된 현금영수증 부서사용자 계정정보를 이용하여 홈택스 로그인을 테스트합니다.
+         * 팝빌에 등록된 현금영수증 자료조회 부서사용자 계정 정보로 홈택스 로그인 가능 여부를 확인합니다.
          * - https://docs.popbill.com/httaxinvoice/java/api#CheckLoginDeptUser
          */
         try {
@@ -340,7 +342,7 @@ public class HTCashbillServiceExample {
     @RequestMapping(value = "deleteDeptUser", method = RequestMethod.GET)
     public String deleteDeptUser(Model m) {
         /*
-         * 팝빌에 등록된 현금영수증 부서사용자 계정정보를 삭제합니다.
+         * 팝빌에 등록된 홈택스 현금영수증 자료조회 부서사용자 계정을 삭제합니다.
          * - https://docs.popbill.com/httaxinvoice/java/api#DeleteDeptUser
          */
         try {
