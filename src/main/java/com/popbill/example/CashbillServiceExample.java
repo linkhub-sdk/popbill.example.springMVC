@@ -211,7 +211,6 @@ public class CashbillServiceExample {
         /*
          * 1건의 현금영수증을 [임시저장]합니다.
          * - [임시저장] 상태의 현금영수증은 발행(Issue API)을 호출해야만 국세청에 전송됩니다.
-         * - https://docs.popbill.com/cashbill/java/api#Register
          */
 
         // 현금영수증 정보 객체
@@ -405,7 +404,6 @@ public class CashbillServiceExample {
     public String issue(Model m) {
         /*
          * 1건의 [임시저장] 현금영수증을 [발행]합니다.
-         * - https://docs.popbill.com/cashbill/java/api#CBIssue
          */
 
         // 현금영수증 문서번호
@@ -487,7 +485,6 @@ public class CashbillServiceExample {
         /*
          * 1건의 취소현금영수증을 [임시저장]합니다.
          * - [임시저장] 상태의 현금영수증은 [발행(Issue API)]을 해야만 국세청에 전송됩니다.
-         * - https://docs.popbill.com/cashbill/java/api#RevokeRegister
          */
 
         // 문서번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로
@@ -520,7 +517,6 @@ public class CashbillServiceExample {
         /*
          * 1건의 (부분)취소현금영수증을 [임시저장]합니다.
          * - [임시저장] 상태의 현금영수증은 [발행(Issue API)]을 해야만 국세청에 전송됩니다.
-         * - https://docs.popbill.com/cashbill/java/api#RevokeRegister
          */
 
         // 문서번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로
@@ -733,7 +729,7 @@ public class CashbillServiceExample {
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String search(Model m) {
         /*
-         * 검색조건에 해당하는 현금영수증를 조회합니다.
+         * 검색조건에 해당하는 현금영수증을 조회합니다.
          * - https://docs.popbill.com/cashbill/java/api#Search
          */
 
