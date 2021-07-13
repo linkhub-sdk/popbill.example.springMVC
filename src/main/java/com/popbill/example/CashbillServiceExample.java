@@ -733,7 +733,7 @@ public class CashbillServiceExample {
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String search(Model m) {
         /*
-         * 파트너가 지정한 검색조건에 해당하는 현금영수증를 조회합니다.
+         * 검색조건에 해당하는 현금영수증를 조회합니다.
          * - https://docs.popbill.com/cashbill/java/api#Search
          */
 
