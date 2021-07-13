@@ -22,7 +22,7 @@
 
                 <li>invoicerCorpNum (공급자 사업자번호) : ${Taxinvoice.invoicerCorpNum}</li>
                 <li>invoicerCorpName (공급자 상호) : ${Taxinvoice.invoicerCorpName}</li>
-                <li>invoicerMgtKey (공급자 문서관리번호) : ${Taxinvoice.invoicerMgtKey}</li>
+                <li>invoicerMgtKey (공급자 문서번호) : ${Taxinvoice.invoicerMgtKey}</li>
                 <li>invoicerTaxRegID (공급자 종사업장 식별번호) : ${Taxinvoice.invoicerTaxRegID}</li>
                 <li>invoicerCEOName (공급자 대표자 성명) : ${Taxinvoice.invoicerCEOName}</li>
                 <li>invoicerAddr (공급자 주소) : ${Taxinvoice.invoicerAddr}</li>
@@ -36,7 +36,7 @@
 
                 <li>invoiceeType (공급받는자 구분) : ${Taxinvoice.invoiceeType}</li>
                 <li>invoiceeCorpNum (공급받는자 사업자번호) : ${Taxinvoice.invoiceeCorpNum}</li>
-                <li>invoiceeMgtKey (공급받는자 문서관리번호) : ${Taxinvoice.invoiceeMgtKey}</li>
+                <li>invoiceeMgtKey (공급받는자 문서번호) : ${Taxinvoice.invoiceeMgtKey}</li>
                 <li>invoiceeTaxRegID (공급받는자 종사업장 식별번호) : ${Taxinvoice.invoiceeTaxRegID}</li>
                 <li>invoiceeCorpName (공급받는자 상호) : ${Taxinvoice.invoiceeCorpName}</li>
                 <li>invoiceeCEOName (공급받는자 대표자 성명) : ${Taxinvoice.invoiceeCEOName}</li>
@@ -53,7 +53,7 @@
 
                 <li>trusteeCorpNum (수탁자 사업자번호) : ${Taxinvoice.trusteeCorpNum}</li>
                 <li>trusteeCorpName (수탁자 상호) : ${Taxinvoice.trusteeCorpName}</li>
-                <li>trusteeMgtKey (수탁자 문서관리번호) : ${Taxinvoice.trusteeMgtKey}</li>
+                <li>trusteeMgtKey (수탁자 문서번호) : ${Taxinvoice.trusteeMgtKey}</li>
                 <li>trusteeTaxRegID (수탁자 종사업장 식별번호) : ${Taxinvoice.trusteeTaxRegID}</li>
                 <li>trusteeCEOName (수탁자 대표자 성명) : ${Taxinvoice.trusteeCEOName}</li>
                 <li>trusteeAddr (수탁자 주소) : ${Taxinvoice.trusteeAddr}</li>

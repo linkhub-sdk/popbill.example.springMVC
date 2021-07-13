@@ -16,7 +16,7 @@
             <fieldset class="fieldset2">
                 <legend>TaxinvoiceInfo</legend>
                 <ul>
-                    <li>itemKey (팝빌 아이템키) : ${TaxinvoiceInfo.itemKey}</li>
+                    <li>itemKey (팝빌번호) : ${TaxinvoiceInfo.itemKey}</li>
                     <li>taxType (과세형태) : ${TaxinvoiceInfo.taxType}</li>
                     <li>writeDate (작성일자) : ${TaxinvoiceInfo.writeDate}</li>
                     <li>regDT (임시저장 일자) : ${TaxinvoiceInfo.regDT}</li>
@@ -24,19 +24,19 @@
 
                     <li>invoicerCorpName (공급자 상호) : ${TaxinvoiceInfo.invoicerCorpName}</li>
                     <li>invoicerCorpNum (공급자 사업자번호) : ${TaxinvoiceInfo.invoicerCorpNum}</li>
-                    <li>invoicerMgtKey (공급자 문서관리번호) : ${TaxinvoiceInfo.invoicerMgtKey}</li>
+                    <li>invoicerMgtKey (공급자 문서번호) : ${TaxinvoiceInfo.invoicerMgtKey}</li>
                     <li>invoicerPrintYN (공급자 인쇄여부) : ${TaxinvoiceInfo.invoicerPrintYN}</li>
 
                     <li>invoiceeCorpName (공급받는자 상호) : ${TaxinvoiceInfo.invoiceeCorpName}</li>
                     <li>invoiceeCorpNum (공급받는자 사업자번호) : ${TaxinvoiceInfo.invoiceeCorpNum}</li>
-                    <li>invoiceeMgtKey (공급받는자 문서관리번호) : ${TaxinvoiceInfo.invoiceeMgtKey}</li>
+                    <li>invoiceeMgtKey (공급받는자 문서번호) : ${TaxinvoiceInfo.invoiceeMgtKey}</li>
                     <li>invoiceePrintYN (공급받는자 인쇄여부) : ${TaxinvoiceInfo.invoiceePrintYN}</li>
                     <li>closeDownState (공급받는자 휴폐업상태) : ${TaxinvoiceInfo.closeDownState}</li>
                     <li>closeDownStateDate (공급받는자 휴폐업일자) : ${TaxinvoiceInfo.closeDownStateDate}</li>
 
                     <li>trusteeCorpName (수탁자 상호) : ${TaxinvoiceInfo.trusteeCorpName}</li>
                     <li>trusteeCorpNum (수탁사 사업자번호) : ${TaxinvoiceInfo.trusteeCorpNum}</li>
-                    <li>trusteeMgtKey (수탁자 문서관리번호) : ${TaxinvoiceInfo.trusteeMgtKey}</li>
+                    <li>trusteeMgtKey (수탁자 문서번호) : ${TaxinvoiceInfo.trusteeMgtKey}</li>
 
                     <li>supplyCostTotal (공급가액 합계) : ${TaxinvoiceInfo.supplyCostTotal}</li>
                     <li>taxTotal (세액 합계) : ${TaxinvoiceInfo.taxTotal}</li>
@@ -64,7 +64,7 @@
             <c:forEach items="${TaxinvoiceInfos}" var="TaxinvoiceInfo">
                 <fieldset class="fieldset2">
                     <ul>
-                        <li>itemKey (팝빌 아이템키) : ${TaxinvoiceInfo.itemKey}</li>
+                        <li>itemKey (팝빌번호) : ${TaxinvoiceInfo.itemKey}</li>
                         <li>taxType (과세형태) : ${TaxinvoiceInfo.taxType}</li>
                         <li>writeDate (작성일자) : ${TaxinvoiceInfo.writeDate}</li>
                         <li>regDT (임시저장 일자) : ${TaxinvoiceInfo.regDT}</li>
@@ -72,19 +72,19 @@
 
                         <li>invoicerCorpName (공급자 상호) : ${TaxinvoiceInfo.invoicerCorpName}</li>
                         <li>invoicerCorpNum (공급자 사업자번호) : ${TaxinvoiceInfo.invoicerCorpNum}</li>
-                        <li>invoicerMgtKey (공급자 문서관리번호) : ${TaxinvoiceInfo.invoicerMgtKey}</li>
+                        <li>invoicerMgtKey (공급자 문서번호) : ${TaxinvoiceInfo.invoicerMgtKey}</li>
                         <li>invoicerPrintYN (공급자 인쇄여부) : ${TaxinvoiceInfo.invoicerPrintYN}</li>
 
                         <li>invoiceeCorpName (공급받는자 상호) : ${TaxinvoiceInfo.invoiceeCorpName}</li>
                         <li>invoiceeCorpNum (공급받는자 사업자번호) : ${TaxinvoiceInfo.invoiceeCorpNum}</li>
-                        <li>invoiceeMgtKey (공급받는자 문서관리번호) : ${TaxinvoiceInfo.invoiceeMgtKey}</li>
+                        <li>invoiceeMgtKey (공급받는자 문서번호) : ${TaxinvoiceInfo.invoiceeMgtKey}</li>
                         <li>invoiceePrintYN (공급받는자 인쇄여부) : ${TaxinvoiceInfo.invoiceePrintYN}</li>
                         <li>closeDownState (공급받는자 휴폐업상태) : ${TaxinvoiceInfo.closeDownState}</li>
                         <li>closeDownStateDate (공급받는자 휴폐업일자) : ${TaxinvoiceInfo.closeDownStateDate}</li>
 
                         <li>trusteeCorpName (수탁자 상호) : ${TaxinvoiceInfo.trusteeCorpName}</li>
                         <li>trusteeCorpNum (수탁사 사업자번호) : ${TaxinvoiceInfo.trusteeCorpNum}</li>
-                        <li>trusteeMgtKey (수탁자 문서관리번호) : ${TaxinvoiceInfo.trusteeMgtKey}</li>
+                        <li>trusteeMgtKey (수탁자 문서번호) : ${TaxinvoiceInfo.trusteeMgtKey}</li>
 
                         <li>supplyCostTotal (공급가액 합계) : ${TaxinvoiceInfo.supplyCostTotal}</li>
                         <li>taxTotal (세액 합계) : ${TaxinvoiceInfo.taxTotal}</li>

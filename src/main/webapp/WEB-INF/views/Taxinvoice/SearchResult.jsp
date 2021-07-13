@@ -31,7 +31,7 @@
                 <fieldset class="fieldset2">
                     <legend>[ ${status.index+1} / ${SearchResult.perPage} ]</legend>
                     <ul>
-                        <li>itemKey (팝빌 관리번호) : ${SearchInfo.itemKey}</li>
+                        <li>itemKey (팝빌번호) : ${SearchInfo.itemKey}</li>
                         <li>taxType (과세형태) : ${SearchInfo.taxType}</li>
                         <li>writeDate (작성일자) : ${SearchInfo.writeDate}</li>
                         <li>regDT (등록일자) : ${SearchInfo.regDT}</li>
@@ -51,17 +51,17 @@
                         <li>interOPYN (연동문서 여부) : ${SearchInfo.interOPYN}</li>
                         <li>invoicerCorpName (공급자 상호) : ${SearchInfo.invoicerCorpName}</li>
                         <li>invoicerCorpNum (공급자 사업자번호) : ${SearchInfo.invoicerCorpNum}</li>
-                        <li>invoicerMgtKey (공급자 관리번호) : ${SearchInfo.invoicerMgtKey}</li>
+                        <li>invoicerMgtKey (공급자 문서번호) : ${SearchInfo.invoicerMgtKey}</li>
                         <li>invoicerPrintYN (공급자 인쇄여부) : ${SearchInfo.invoicerPrintYN}</li>
                         <li>invoiceeCorpName (공급받는자 상호) : ${SearchInfo.invoiceeCorpName}</li>
                         <li>invoiceeCorpNum (공급받는자 사업자번호) : ${SearchInfo.invoiceeCorpNum}</li>
-                        <li>invoiceeMgtKey (공급받는자 관리번호) : ${SearchInfo.invoiceeMgtKey}</li>
+                        <li>invoiceeMgtKey (공급받는자 문서번호) : ${SearchInfo.invoiceeMgtKey}</li>
                         <li>invoiceePrintYN (공급받는자 인쇄여부) : ${SearchInfo.invoiceePrintYN}</li>
                         <li>closeDownState (휴폐업상태) : ${SearchInfo.closeDownState}</li>
                         <li>closeDownStateDate (휴폐업일자) : ${SearchInfo.closeDownStateDate}</li>
                         <li>trusteeCorpName (수탁자 상호) : ${SearchInfo.trusteeCorpName}</li>
                         <li>trusteeCorpNum (수탁자 사업자번호) : ${SearchInfo.trusteeCorpNum}</li>
-                        <li>trusteeMgtKey (수탁자 관리번호) : ${SearchInfo.trusteeMgtKey}</li>
+                        <li>trusteeMgtKey (수탁자 문서번호) : ${SearchInfo.trusteeMgtKey}</li>
                         <li>trusteePrintYN (수탁자 인쇄여부) : ${SearchInfo.trusteePrintYN}</li>
                     </ul>
                 </fieldset>

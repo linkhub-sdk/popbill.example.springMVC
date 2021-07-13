@@ -16,8 +16,8 @@
             <fieldset class="fieldset2">
                 <legend>CashbillInfo</legend>
                 <ul>
-                    <li>itemKey (팝빌 관리번호) : ${CashbillInfo.itemKey}</li>
-                    <li>mgtKey (관리번호) : ${CashbillInfo.mgtKey}</li>
+                    <li>itemKey (팝빌번호) : ${CashbillInfo.itemKey}</li>
+                    <li>mgtKey (문서번호) : ${CashbillInfo.mgtKey}</li>
                     <li>tradeDate (거래일자) : ${CashbillInfo.tradeDate}</li>
                     <li>issueDT (발행일시) : ${CashbillInfo.issueDT}</li>
                     <li>regDT (등록일시) : ${CashbillInfo.regDT}</li>
@@ -48,8 +48,8 @@
                 <fieldset class="fieldset2">
                     <legend>CashbillInfo : ${CashbillInfo.mgtKey}</legend>
                     <ul>
-                        <li>itemKey (팝빌 관리번호) : ${CashbillInfo.itemKey}</li>
-                        <li>mgtKey (관리번호) : ${CashbillInfo.mgtKey}</li>
+                        <li>itemKey (팝빌번호) : ${CashbillInfo.itemKey}</li>
+                        <li>mgtKey (문서번호) : ${CashbillInfo.mgtKey}</li>
                         <li>tradeDate (거래일자) : ${CashbillInfo.tradeDate}</li>
                         <li>issueDT (발행일시) : ${CashbillInfo.issueDT}</li>
                         <li>regDT (등록일시) : ${CashbillInfo.regDT}</li>

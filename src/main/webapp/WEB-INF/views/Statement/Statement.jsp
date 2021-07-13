@@ -16,7 +16,7 @@
             <legend>Statement</legend>
             <ul>
                 <li> itemCode(문서종류코드) : ${Statement.itemCode}</li>
-                <li> mgtKey(관리번호) : ${Statement.mgtKey}</li>
+                <li> mgtKey(문서번호) : ${Statement.mgtKey}</li>
                 <li> formCode(맞춤양식 코드) : ${Statement.formCode}</li>
                 <li> writeDate(작성일자) : ${Statement.writeDate}</li>
                 <li> taxType(세금형태) : ${Statement.taxType}</li>

@@ -15,7 +15,7 @@
         <fieldset class="fieldset2">
             <legend>Cashbill</legend>
             <ul>
-                <li>mgtKey (관리번호) : ${Cashbill.mgtKey}</li>
+                <li>mgtKey (문서번호) : ${Cashbill.mgtKey}</li>
                 <li>confirmNum (국세청 승인번호) : ${Cashbill.confirmNum}</li>
                 <li>orgConfirmNum (원본 현금영수증 국세청승인번호) : ${Cashbill.orgConfirmNum}</li>
                 <li>orgTradeDate (원본 현금영수증 거래일자) : ${Cashbill.orgTradeDate}</li>
