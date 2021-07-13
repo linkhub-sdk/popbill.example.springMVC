@@ -1530,14 +1530,14 @@ public class StatementServiceExample {
         // 전자명세서 코드
         int itemCode = 121;
 
-        // 전자명세서 관리번호
+        // 전자명세서 문서번호
         String mgtKey = "20210701-001";
 
 
         // 첨부할 전자명세서 코드
         int subItemCode = 121;
 
-        // 첨부할 전자명세서 관리번호
+        // 첨부할 전자명세서 문서번호
         String subMgtKey = "20210701-002";
 
         try {
@@ -1565,14 +1565,14 @@ public class StatementServiceExample {
         // 전자명세서 코드
         int itemCode = 121;
 
-        // 전자명세서 관리번호
+        // 전자명세서 문서번호
         String mgtKey = "20210701-001";
 
 
         // 첨부해제할 전자명세서 코드
         int subItemCode = 121;
 
-        // 첨부해제할 전자명세서 관리번호
+        // 첨부해제할 전자명세서 문서번호
         String subMgtKey = "20210701-002";
 
         try {
