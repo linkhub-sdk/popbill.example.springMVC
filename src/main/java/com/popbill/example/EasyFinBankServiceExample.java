@@ -348,6 +348,7 @@ public class EasyFinBankServiceExample {
     public String requestJob(Model m) {
        /*
         * 계좌 거래내역을 확인하기 위해 팝빌에 수집요청을 합니다. 조회기간은 당일 기준으로 90일 이내로만 지정 가능합니다.
+        * - 반환 받은 작업아이디는 함수 호출 시점부터 1시간 동안 유효합니다.
         * - https://docs.popbill.com/easyfinbank/java/api#RequestJob
         */
 
@@ -402,7 +403,6 @@ public class EasyFinBankServiceExample {
     public String listActiveJob(Model m) {
         /*
          * RequestJob(수집 요청)를 통해 반환 받은 작업아이디의 목록을 확인합니다.
-         * - 반환 받은 작업아이디는 함수 호출 시점부터 1시간 동안 유효합니다.
          * - https://docs.popbill.com/easyfinbank/java/api#ListActiveJob
          */
 
