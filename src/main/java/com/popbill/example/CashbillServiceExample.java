@@ -681,7 +681,7 @@ public class CashbillServiceExample {
     @RequestMapping(value = "getInfos", method = RequestMethod.GET)
     public String getInfos(Model m) {
         /*
-         * 다수건의 현금영수증의 상태 및 요약 정보를 확인합니다. (1회 호출 시 최대 1,000건 확인 가능)
+         * 다수건의 현금영수증 상태 및 요약 정보를 확인합니다. (1회 호출 시 최대 1,000건 확인 가능)
          * - https://docs.popbill.com/cashbill/java/api#GetInfos
          */
 
