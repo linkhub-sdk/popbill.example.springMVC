@@ -1524,9 +1524,9 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "delete", method = RequestMethod.GET)
     public String delete(Model m) {
         /*
-         * 세청으로 전송되지 않은 세금계산서를 삭제합니다.
+         * 삭제 가능한 상태의 세금계산서를 삭제합니다.
+         * - 삭제 가능한 상태: "임시저장", "발행취소", "역발행거부", "역발행취소", "전송실패" 
          * - 세금계산서를 삭제해야만 문서번호(mgtKey)를 재사용할 수 있습니다.
-         * - 삭제 가능한 상태: "임시저장", "발행취소", "역발행거부", "역발행취소", "전송실패"
          * - https://docs.popbill.com/taxinvoice/java/api#Delete
          */
 
