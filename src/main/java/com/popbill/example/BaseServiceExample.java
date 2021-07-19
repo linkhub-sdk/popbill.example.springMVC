@@ -289,13 +289,13 @@ public class BaseServiceExample {
     }
     @RequestMapping(value = "getContactInfo", method = RequestMethod.GET)
     public String getContactInfo(Model m) throws PopbillException {
-    	/*
+        /*
          * 연동회원 사업자번호에 등록된 담당자(팝빌 로그인 계정) 정보를 확인합니다.
          */
     	
-    	// 확인할 담당자 아이디
-    	String contactID = "testkorea";
-    	
+        // 확인할 담당자 아이디
+        String contactID = "testkorea";
+        
         try {
             ContactInfo response = taxinvoiceService.getContactInfo(testCorpNum, contactID);
 

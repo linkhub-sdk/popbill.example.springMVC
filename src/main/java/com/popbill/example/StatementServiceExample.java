@@ -510,7 +510,7 @@ public class StatementServiceExample {
         statement.setItemCode((short) 121);
 
         // [필수] 문서번호, 최대 24자리 영문, 숫자, '-', '_'로 구성
-        statement.setMgtKey("20210701-001");
+        statement.setMgtKey(mgtKey);
 
 
         /*********************************************************************
@@ -826,7 +826,7 @@ public class StatementServiceExample {
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
-        // 문서번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
+        // 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
         String mgtKey = "20210701-001";
 
         try {
@@ -903,7 +903,7 @@ public class StatementServiceExample {
         // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
-        // 문서번호, 최대 24자리 영문, 숫자 , '-', '_'로 구성
+        // 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
         String mgtKey = "20210701-01";
 
         try {
@@ -1122,7 +1122,7 @@ public class StatementServiceExample {
     @RequestMapping(value = "attachFile", method = RequestMethod.GET)
     public String attachFile(Model m) {
         /*
-         * 임시저장" 상태의 명세서에 1개의 파일을 첨부합니다. (최대 5개)
+         * "임시저장" 상태의 명세서에 1개의 파일을 첨부합니다. (최대 5개)
          * - https://docs.popbill.com/statement/java/api#AttachFile
          */
 

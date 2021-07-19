@@ -113,7 +113,7 @@ public class CashbillServiceExample {
         // 현금영수증 정보 객체
         Cashbill cashbill = new Cashbill();
         
-        // 문서번호, 최대 24자리, 영문, 숫자 '-', '_'로 구성
+        // 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
         cashbill.setMgtKey("20210701-001");
 
         // 문서형태, {승인거래, 취소거래} 중 기재
@@ -216,7 +216,7 @@ public class CashbillServiceExample {
         // 현금영수증 정보 객체
         Cashbill cashbill = new Cashbill();
 
-        // 문서번호, 최대 24자리, 영문, 숫자 '-', '_'로 구성
+        // 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
         cashbill.setMgtKey("20190104-001");
 
         // 문서형태, {승인거래, 취소거래} 중 기재
@@ -519,7 +519,7 @@ public class CashbillServiceExample {
          * - [임시저장] 상태의 현금영수증은 [발행(Issue API)]을 해야만 국세청에 전송됩니다.
          */
 
-        // 문서번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로
+        // 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
         // 중복되지 않도록 구성
         String mgtKey = "20190104-001";
 
@@ -570,10 +570,11 @@ public class CashbillServiceExample {
     public String revokeRegistIssue(Model m) {
         /*
          * 취소 현금영수증을 발행하며 취소 현금영수증의 금액은 원본 금액을 넘을 수 없습니다.
+         * - 현금영수증 국세청 전송 정책 : https://docs.popbill.com/cashbill/ntsSendPolicy?lang=java
          * - https://docs.popbill.com/cashbill/java/api#RevokeRegistIssue
          */
 
-        // 문서번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로
+        // 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
         // 중복되지 않도록 구성
         String mgtKey = "20210701-001";
 
@@ -604,7 +605,7 @@ public class CashbillServiceExample {
          * - https://docs.popbill.com/cashbill/java/api#RevokeRegistIssue
          */
 
-        // 문서번호, 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 24자리 문자열로 사업자별로
+        // 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
         // 중복되지 않도록 구성
         String mgtKey = "20190104-001";
 
@@ -813,6 +814,7 @@ public class CashbillServiceExample {
     public String getURL(Model m) {
         /*
          * 팝빌 현금영수증 문서함 팝업 URL을 반환합니다.
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/cashbill/java/api#GetURL
          */
 
@@ -1111,7 +1113,7 @@ public class CashbillServiceExample {
         // 현금영수증 아이템키, 문서 목록조회(Search) API의 반환항목중 ItemKey 참조
         String itemKey = "021080716195300001";
 
-        // 할당할 문서번호, 숫자, 영문 '-', '_' 조합으로 1~24자리까지  
+        // 할당할 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
         // 사업자번호별 중복없는 고유번호 할당
         String mgtKey = "20210807-100";
 
