@@ -458,7 +458,7 @@ public class CashbillServiceExample {
     public String delete(Model m) {
         /*
          * 삭제 가능한 상태의 현금영수증을 삭제합니다.
-         * - ※ 삭제 가능한 상태: "임시저장", "발행취소", "전송실패"
+         * - 삭제 가능한 상태: "임시저장", "발행취소", "전송실패"
          * - 현금영수증을 삭제하면 사용된 문서번호(mgtKey)를 재사용할 수 있습니다.
          * - https://docs.popbill.com/cashbill/java/api#Delete
          */
@@ -602,12 +602,13 @@ public class CashbillServiceExample {
     public String revokeRegistIssue_part(Model m) {
         /*
          * 1건의 (부분)취소현금영수증을 [즉시발행]합니다.
+         * - 현금영수증 국세청 전송 정책 : https://docs.popbill.com/cashbill/ntsSendPolicy?lang=java
          * - https://docs.popbill.com/cashbill/java/api#RevokeRegistIssue
          */
 
         // 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
         // 중복되지 않도록 구성
-        String mgtKey = "20190104-001";
+        String mgtKey = "20210701-001";
 
         // 원본현금영수증 승인번호
         String orgConfirmNum = "820116333";

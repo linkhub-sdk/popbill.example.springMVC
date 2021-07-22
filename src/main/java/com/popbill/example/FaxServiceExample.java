@@ -430,7 +430,7 @@ public class FaxServiceExample {
     public String resendFAX_Multi(Model m) {
         /*
          * 동일한 팩스파일을 다수의 수신자에게 전송하기 위해 팝빌에 접수합니다. (최대 전송파일 개수: 20개) (최대 1,000건)
-         & -발신/수신 정보 미입력시 기존과 동일한 정보로 팩스가 전송되고, 접수일 기준 최대 60일이 경과되지 않는 건만 재전송이 가능합니다.
+         * - 발신/수신 정보 미입력시 기존과 동일한 정보로 팩스가 전송되고, 접수일 기준 최대 60일이 경과되지 않는 건만 재전송이 가능합니다.
          * - 팩스 재전송 요청시 포인트가 차감됩니다. (전송실패시 환불처리)
          * - https://docs.popbill.com/fax/java/api#ResendFAX_Multi
          */
@@ -696,7 +696,6 @@ public class FaxServiceExample {
     public String search(Model m) {
         /*
          * 검색조건에 해당하는 팩스 전송내역 목록을 조회합니다. (최대 검색기간 : 2개월)
-         * - 최대 검색기간 : 2개월 이내
          * - https://docs.popbill.com/fax/java/api#Search
          */
 

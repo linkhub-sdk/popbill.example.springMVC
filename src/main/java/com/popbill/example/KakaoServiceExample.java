@@ -179,7 +179,6 @@ public class KakaoServiceExample {
     public String getATSTemplate(Model m) {
         /*
          * 승인된 알림톡 템플릿 정보를 확인합니다.
-         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/kakao/java/api#getATSTemplate
          */
     	
@@ -224,7 +223,7 @@ public class KakaoServiceExample {
     public String sendATS_one(Model m) {
         /*
          * 승인된 템플릿의 내용을 작성하여 1건의 알림톡 전송을 팝빌에 접수합니다.
-         * 사전에 승인된 템플릿의 내용과 알림톡 전송내용(content)이 다를 경우 전송실패 처리됩니다.
+         * - 사전에 승인된 템플릿의 내용과 알림톡 전송내용(content)이 다를 경우 전송실패 처리됩니다.
          * - https://docs.popbill.com/kakao/java/api#SendATS_one
          */
 
@@ -296,7 +295,7 @@ public class KakaoServiceExample {
     public String sendATS_multi(Model m) {
         /*
          * 승인된 템플릿의 내용을 작성하여 다수건의 알림톡 전송을 팝빌에 접수하며, 수신자 별로 개별 내용을 전송합니다. (최대 1,000건)
-         * 사전에 승인된 템플릿의 내용과 알림톡 전송내용(content)이 다를 경우 전송실패 처리됩니다.
+         * - 사전에 승인된 템플릿의 내용과 알림톡 전송내용(content)이 다를 경우 전송실패 처리됩니다.
          * - https://docs.popbill.com/kakao/java/api#SendATS_multi
          */
 
@@ -384,7 +383,7 @@ public class KakaoServiceExample {
     public String sendATS_same(Model m) {
         /*
          * 승인된 템플릿 내용을 작성하여 다수건의 알림톡 전송을 팝빌에 접수하며, 모든 수신자에게 동일 내용을 전송합니다. (최대 1,000건)
-         * 사전에 승인된 템플릿의 내용과 알림톡 전송내용(content)이 다를 경우 전송실패 처리됩니다.
+         * - 사전에 승인된 템플릿의 내용과 알림톡 전송내용(content)이 다를 경우 전송실패 처리됩니다.
          * - https://docs.popbill.com/kakao/java/api#SendATS_same
          */
 
