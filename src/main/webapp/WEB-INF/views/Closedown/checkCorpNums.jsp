@@ -14,16 +14,17 @@
     <fieldset class="fieldset1">
         <legend>${requestScope['javax.servlet.forward.request_uri']}</legend>
         <br/>
-        <p class="info"> type : null (알수없음), 1 (부가가치세 일반과세자), 2 (부가가치세 면세과세자), 3 (부가치세 간이과세자) 4 (비영리법인 또는 국가기관, 고유번호가
-            부여된 단체)</p>
+        
         <p class="info"> state : null (알수없음), 0 (등록되지 않은 사업자번호), 1 (사업중), 2 (폐업), 3 (휴업)</p>
+        <p class="info"> taxType : null (알수없음), 10 ( 일반과세자), 20 (면세과세자), 30 (간이과세자), 31 (간이과세자-세금계산서 발급사업자), 40 (비영리법인 또는 국가기관, 고유번호가 부여된 단체)</p>
+        
         <c:if test="${CorpStates != null}">
             <c:forEach items="${CorpStates}" var="CorpState">
                 <fieldset class="fieldset2">
                     <legend>조회 결과</legend>
                     <ul>
                         <li>corpNum (사업자번호) : ${CorpState.corpNum}</li>
-                        <li>type (사업 유형) : ${CorpState.type}</li>
+                        <li>taxType (과세유형) : ${CorpState.taxType}</li>
                         <li>state (휴폐업 상태) : ${CorpState.state}</li>
                         <li>stateDate (휴폐업일자) : ${CorpState.stateDate}</li>
                         <li>typeDate (과세유형 전환일자) : ${CorpState.typeDate}</li>
