@@ -120,7 +120,7 @@ public class KakaoServiceExample {
     public String getSenderNumberMgtURL(Model m) {
         /*
          * 발신번호를 등록하고 내역을 확인하는 카카오톡 발신번호 관리 페이지 팝업 URL을 반환합니다.
-         * 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/kakao/java/api#GetSenderNumberMgtURL
          */
         try {
@@ -578,9 +578,6 @@ public class KakaoServiceExample {
             
             receivers[i] = message;
         }
-
-
-        
 
         // 전송요청번호
         // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.

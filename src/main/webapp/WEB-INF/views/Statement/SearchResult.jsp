@@ -32,7 +32,7 @@
                     <legend>[ ${status.index+1} / ${SearchResult.perPage} ]</legend>
                     <ul>
                         <li>itemKey(팝빌번호) : ${SearchInfo.itemKey}</li>
-                        <li>itemCode(문서종류 코드) : ${SearchInfo.itemCode}</li>
+                        <li>itemCode(명세서 코드) : ${SearchInfo.itemCode}</li>
                         <li>mgtKey(문서번호) : ${SearchInfo.mgtKey}</li>
                         <li>stateCode(상태코드) : ${SearchInfo.stateCode}</li>
                         <li>taxType(세금형태) : ${SearchInfo.taxType}</li>

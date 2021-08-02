@@ -156,7 +156,7 @@ public class TaxinvoiceServiceExample {
         // 공급자 상호
         taxinvoice.setInvoicerCorpName("공급자 상호");
 
-        // 공급자 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
+        // 공급자 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
         taxinvoice.setInvoicerMgtKey("20210712-21");
 
         // 공급자 대표자성명
@@ -200,7 +200,7 @@ public class TaxinvoiceServiceExample {
         // 공급받는자 상호
         taxinvoice.setInvoiceeCorpName("공급받는자 상호");
 
-        // [역발행시 필수] 공급받는자 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
+        // [역발행시 필수] 공급받는자 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
         taxinvoice.setInvoiceeMgtKey("");
 
         // 공급받는자 대표자 성명
@@ -416,7 +416,7 @@ public class TaxinvoiceServiceExample {
             // 공급자 상호
             taxinvoice.setInvoicerCorpName("공급자 상호");
 
-            // 공급자 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
+            // 공급자 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
             taxinvoice.setInvoicerMgtKey(SubmitID + "-" + String.valueOf(i + 1));
 
             // 공급자 대표자성명
@@ -460,7 +460,7 @@ public class TaxinvoiceServiceExample {
             // 공급받는자 상호
             taxinvoice.setInvoiceeCorpName("공급받는자 상호");
 
-            // [역발행시 필수] 공급받는자 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
+            // [역발행시 필수] 공급받는자 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
             taxinvoice.setInvoiceeMgtKey("");
 
             // 공급받는자 대표자 성명
@@ -678,7 +678,7 @@ public class TaxinvoiceServiceExample {
         // 공급자 상호
         taxinvoice.setInvoicerCorpName("공급자 상호");
 
-        // 공급자 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
+        // 공급자 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
         taxinvoice.setInvoicerMgtKey("20210701-003");
 
         // 공급자 대표자성명
@@ -722,7 +722,7 @@ public class TaxinvoiceServiceExample {
         // 공급받는자 상호
         taxinvoice.setInvoiceeCorpName("공급받는자 상호");
 
-        // [역발행시 필수] 공급받는자 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
+        // [역발행시 필수] 공급받는자 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
         taxinvoice.setInvoiceeMgtKey("");
 
         // 공급받는자 대표자 성명
@@ -913,7 +913,7 @@ public class TaxinvoiceServiceExample {
         // 공급자 상호
         taxinvoice.setInvoicerCorpName("공급자 상호");
 
-        // 공급자 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
+        // 공급자 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
         taxinvoice.setInvoicerMgtKey("20210701-001");
 
         // 공급자 대표자성명
@@ -957,7 +957,7 @@ public class TaxinvoiceServiceExample {
         // 공급받는자 상호
         taxinvoice.setInvoiceeCorpName("공급받는자 상호");
 
-        // [역발행시 필수] 공급받는자 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
+        // [역발행시 필수] 공급받는자 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
         taxinvoice.setInvoiceeMgtKey("");
 
         // 공급받는자 대표자 성명
@@ -1210,7 +1210,7 @@ public class TaxinvoiceServiceExample {
         // 공급자 상호
         taxinvoice.setInvoicerCorpName("공급자 상호");
 
-        // 공급자 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
+        // 공급자 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
         taxinvoice.setInvoicerMgtKey("");
 
         // 공급자 대표자성명
@@ -1254,7 +1254,7 @@ public class TaxinvoiceServiceExample {
         // 공급받는자 상호
         taxinvoice.setInvoiceeCorpName("공급받는자 상호");
 
-        // [역발행시 필수] 공급받는자 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
+        // [역발행시 필수] 공급받는자 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
         taxinvoice.setInvoiceeMgtKey("20210701-A00");
 
         // 공급받는자 대표자 성명
@@ -2305,8 +2305,7 @@ public class TaxinvoiceServiceExample {
         // 세금계산서 아이템키, 문서 목록조회(Search) API의 반환항목중 ItemKey 참조
         String itemKey = "021121218060300001";
 
-        // 할당할 문서번호, 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
-        // 사업자번호별 중복없는 고유번호 할당
+        // 할당할 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
         String mgtKey = "20210701-100";
 
         try {

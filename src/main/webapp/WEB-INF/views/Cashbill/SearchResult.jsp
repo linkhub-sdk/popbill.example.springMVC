@@ -32,7 +32,7 @@
                     <legend>[ ${status.index+1} / ${SearchResult.perPage} ]</legend>
                     <ul>
                         <li>itemKey (팝빌번호) : ${SearchInfo.itemKey}</li>
-                        <li>mgtKey (관리번호) : ${SearchInfo.mgtKey}</li>
+                        <li>mgtKey (문서번호) : ${SearchInfo.mgtKey}</li>
                         <li>tradeDate (거래일자) : ${SearchInfo.tradeDate}</li>
                         <li>issueDT (발행일시) : ${SearchInfo.issueDT}</li>
                         <li>regDT (등록일시) : ${SearchInfo.regDT}</li>

@@ -499,7 +499,7 @@ public class MessageServiceExample {
     @RequestMapping(value = "sendXMS_Multi", method = RequestMethod.GET)
     public String sendXMS_Multi(Model m) {
         /*
-         * 시지 크기(90byte)에 따라 단문/장문(SMS/LMS)을 자동으로 인식하여 다수건의 메시지 전송을 팝빌에 접수합니다. (최대 1,000건)
+         * 메시지 크기(90byte)에 따라 단문/장문(SMS/LMS)을 자동으로 인식하여 다수건의 메시지 전송을 팝빌에 접수합니다. (최대 1,000건)
          *  - https://docs.popbill.com/message/java/api#SendXMS_Multi
          */
 
@@ -769,7 +769,7 @@ public class MessageServiceExample {
     @RequestMapping(value = "getUnitCost", method = RequestMethod.GET)
     public String getUnitCost(Model m) {
         /*
-         *  문자 전송시 과금되는 포인트 단가를 확인합니다.
+         * 문자 전송시 과금되는 포인트 단가를 확인합니다.
          *  - https://docs.popbill.com/message/java/api#GetUnitCost
          */
 
