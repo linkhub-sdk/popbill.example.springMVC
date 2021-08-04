@@ -65,7 +65,7 @@ public class EasyFinBankServiceExample {
     public String registBankAccount(Model m) {
         /*
          * 계좌조회 서비스를 이용할 계좌를 팝빌에 등록합니다.
-         * -https://docs.popbill.com/easyfinbank/java/api#RegistBankAccount
+         * - https://docs.popbill.com/easyfinbank/java/api#RegistBankAccount
          */
 
         // 계좌정보 클래스 인스턴스 생성

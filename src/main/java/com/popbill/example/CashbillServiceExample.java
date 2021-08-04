@@ -102,7 +102,7 @@ public class CashbillServiceExample {
     @RequestMapping(value = "registIssue", method = RequestMethod.GET)
     public String registIssue(Model m) {
         /*
-         * 현금영수증 데이터를 팝빌에 전송하여 발행합니다.
+         * 작성된 현금영수증 데이터를 팝빌에 저장과 동시에 발행하여 "발행완료" 상태로 처리합니다.
          * - 현금영수증 국세청 전송 정책 : https://docs.popbill.com/cashbill/ntsSendPolicy?lang=java
          * - https://docs.popbill.com/cashbill/java/api#RegistIssue
          */
@@ -112,7 +112,7 @@ public class CashbillServiceExample {
 
         // 현금영수증 정보 객체
         Cashbill cashbill = new Cashbill();
-        
+
         // 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
         cashbill.setMgtKey("20210701-001");
 
@@ -188,10 +188,10 @@ public class CashbillServiceExample {
         // 거래처 휴대폰
         cashbill.setHp("010111222");
 
-        
-        // 발행안내 메일제목, 미기재시 기본양식으로 메일 전송 
+
+        // 발행안내 메일제목, 미기재시 기본양식으로 메일 전송
         String emailSubject = "";
-        
+
         try {
 
             Response response = cashbillService.registIssue(testCorpNum, cashbill, Memo, testUserID, emailSubject);
@@ -311,7 +311,7 @@ public class CashbillServiceExample {
          * - [임시저장] 상태의 현금영수증만 수정할 수 있습니다.
          * - https://docs.popbill.com/cashbill/java/api#Update
          */
-        
+
         // 수정할 현금영수증 문서번호
         String mgtKey = "20190104-001";
 
@@ -429,9 +429,8 @@ public class CashbillServiceExample {
     @RequestMapping(value = "cancelIssue", method = RequestMethod.GET)
     public String cancelIssue(Model m) {
         /*
-         * 국세청 전송 이전 "발행완료" 상태의 현금영수증을 "발행취소"하고 국세청 전송 대상에서 제외됩니다.
-         * - 발행취소는 국세청 전송전에만 가능합니다.
-         * - 발행취소된 형금영수증은 국세청에 전송되지 않습니다.
+         * 국세청 전송 이전 "발행완료" 상태의 현금영수증을 "발행취소"하고 국세청 전송 대상에서 제외합니다.
+         * - Delete(삭제)함수를 호출하여 "발행취소" 상태의 전자세금계산서를 삭제하면, 문서번호 재사용이 가능합니다.
          * - https://docs.popbill.com/cashbill/java/api#CancelIssue
          */
 
@@ -567,7 +566,7 @@ public class CashbillServiceExample {
     @RequestMapping(value = "revokeRegistIssue", method = RequestMethod.GET)
     public String revokeRegistIssue(Model m) {
         /*
-         * 취소 현금영수증을 발행하며 취소 현금영수증의 금액은 원본 금액을 넘을 수 없습니다.
+         * 취소 현금영수증 데이터를 팝빌에 저장과 동시에 발행하여 "발행완료" 상태로 처리합니다.
          * - 현금영수증 국세청 전송 정책 : https://docs.popbill.com/cashbill/ntsSendPolicy?lang=java
          * - https://docs.popbill.com/cashbill/java/api#RevokeRegistIssue
          */
@@ -598,7 +597,8 @@ public class CashbillServiceExample {
     @RequestMapping(value = "revokeRegistIssue_part", method = RequestMethod.GET)
     public String revokeRegistIssue_part(Model m) {
         /*
-         * 1건의 (부분)취소현금영수증을 [즉시발행]합니다.
+         * 작성된 (부분)취소 현금영수증 데이터를 팝빌에 저장과 동시에 발행하여 "발행완료" 상태로 처리합니다.
+         * - 취소 현금영수증의 금액은 원본 금액을 넘을 수 없습니다.
          * - 현금영수증 국세청 전송 정책 : https://docs.popbill.com/cashbill/ntsSendPolicy?lang=java
          * - https://docs.popbill.com/cashbill/java/api#RevokeRegistIssue
          */
@@ -723,7 +723,7 @@ public class CashbillServiceExample {
 
         return "Cashbill/Cashbill";
     }
-    
+
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String search(Model m) {
         /*
@@ -806,7 +806,7 @@ public class CashbillServiceExample {
 
         return "Cashbill/CashbillLog";
     }
-    
+
     @RequestMapping(value = "getURL", method = RequestMethod.GET)
     public String getURL(Model m) {
         /*
@@ -856,7 +856,7 @@ public class CashbillServiceExample {
 
         return "result";
     }
-    
+
     @RequestMapping(value = "getViewURL", method = RequestMethod.GET)
     public String getViewURL(Model m) {
         /*
@@ -980,7 +980,7 @@ public class CashbillServiceExample {
 
         return "result";
     }
-    
+
     @RequestMapping(value = "getPDFURL", method = RequestMethod.GET)
     public String getPDFURL(Model m) {
         /*
@@ -1099,7 +1099,7 @@ public class CashbillServiceExample {
 
         return "response";
     }
-    
+
     @RequestMapping(value = "assignMgtKey", method = RequestMethod.GET)
     public String assignMgtKey(Model m) {
         /*
@@ -1157,7 +1157,7 @@ public class CashbillServiceExample {
          * 메일전송유형
          * CSH_ISSUE : 고객에게 현금영수증이 발행 되었음을 알려주는 메일 입니다.
          * CSH_CANCEL : 고객에게 현금영수증이 발행취소 되었음을 알려주는 메일 입니다.
-         * 
+         *
          */
 
         // 메일 전송 유형
