@@ -651,7 +651,7 @@ public class TaxinvoiceServiceExample {
         Taxinvoice taxinvoice = new Taxinvoice();
 
         // 작성일자, 날짜형식(yyyyMMdd)
-        taxinvoice.setWriteDate("20210701");
+        taxinvoice.setWriteDate("20210809");
 
         // 과금방향, [정과금, 역과금] 중 선택기재, 역과금의 경우 역발행세금계산서 발행시에만 가능
         taxinvoice.setChargeDirection("정과금");
@@ -664,7 +664,9 @@ public class TaxinvoiceServiceExample {
 
         // 과세형태, [과세, 영세, 면세] 중 기재
         taxinvoice.setTaxType("과세");
-
+        
+        // 발행예정 세금계산서 발행방법
+        taxinvoice.setIssueTiming("승인시자동발행");
         /*********************************************************************
          * 공급자 정보
          *********************************************************************/
@@ -679,7 +681,7 @@ public class TaxinvoiceServiceExample {
         taxinvoice.setInvoicerCorpName("공급자 상호");
 
         // 공급자 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
-        taxinvoice.setInvoicerMgtKey("20210701-003");
+        taxinvoice.setInvoicerMgtKey("20210809-Send-003");
 
         // 공급자 대표자성명
         taxinvoice.setInvoicerCEOName("공급자 대표자 성명");
@@ -743,7 +745,7 @@ public class TaxinvoiceServiceExample {
         // 공급받는자 담당자 메일주소
         // 팝빌 개발환경에서 테스트하는 경우에도 안내 메일이 전송되므로,
         // 실제 거래처의 메일주소가 기재되지 않도록 주의
-        taxinvoice.setInvoiceeEmail1("test@invoicee.com");
+        taxinvoice.setInvoiceeEmail1("wjkim@linkhubcorp.com");
 
         // 공급받는자 담당자 연락처
         taxinvoice.setInvoiceeTEL1("070-111-222");
@@ -1103,7 +1105,38 @@ public class TaxinvoiceServiceExample {
 
         return "response";
     }
+    
+    @RequestMapping(value = "send", method = RequestMethod.GET)
+    public String send(Model m) {
+        
+        /*
+         * "임시저장" 상태의 세금계산서를 발행예정 하여 "승인대기" 상태로 처리합니다.
+         */
+        
+        // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
+        MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
+        // 세금계산서 문서번호
+        String mgtKey = "20210809-Send-003";
+
+        // 메모
+        String memo = "발행 예정 메모";
+        
+        // 발해예정 안내메일 제목
+        String emailSubject = "발행예정 메일 제목";
+        
+        try {
+            Response response = taxinvoiceService.send(testCorpNum, mgtKeyType, mgtKey, memo, emailSubject, testUserID);
+            
+            m.addAttribute("Response", response);
+            
+        } catch (PopbillException e){
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+        return "response";
+    }
+    
     @RequestMapping(value = "issue", method = RequestMethod.GET)
     public String issue(Model m) {
         /*
