@@ -19,7 +19,6 @@
             <li><a href="TaxinvoiceService/getBulkResult">GetBulkResult</a> - 대량 접수결과 확인</li>
             <li><a href="TaxinvoiceService/register">Register</a> - 임시저장</li>
             <li><a href="TaxinvoiceService/update">Update</a> - 수정</li>
-            <li><a href="TaxinvoiceService/send">Send</a> - 발행예정</li>
             <li><a href="TaxinvoiceService/issue">Issue</a> - 발행</li>
             <li><a href="TaxinvoiceService/cancelIssue">CancelIssue</a> - 발행취소</li>
             <li><a href="TaxinvoiceService/delete">Delete</a> - 삭제</li>

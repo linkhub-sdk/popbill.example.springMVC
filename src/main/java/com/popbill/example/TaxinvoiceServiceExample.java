@@ -664,9 +664,7 @@ public class TaxinvoiceServiceExample {
 
         // 과세형태, [과세, 영세, 면세] 중 기재
         taxinvoice.setTaxType("과세");
-        
-        // 발행예정 세금계산서 발행방법 [승인시자동발행, 직접발행]
-        taxinvoice.setIssueTiming("승인시자동발행");
+
         /*********************************************************************
          * 공급자 정보
          *********************************************************************/
@@ -1103,37 +1101,6 @@ public class TaxinvoiceServiceExample {
             return "exception";
         }
 
-        return "response";
-    }
-    
-    @RequestMapping(value = "send", method = RequestMethod.GET)
-    public String send(Model m) {
-        
-        /*
-         * "임시저장" 상태의 세금계산서를 발행예정 하여 "승인대기" 상태로 처리합니다.
-         */
-        
-        // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
-        MgtKeyType mgtKeyType = MgtKeyType.SELL;
-
-        // 세금계산서 문서번호
-        String mgtKey = "20210809-Send-003";
-
-        // 메모
-        String memo = "발행 예정 메모";
-        
-        // 발해예정 안내메일 제목
-        String emailSubject = "발행예정 메일 제목";
-        
-        try {
-            Response response = taxinvoiceService.send(testCorpNum, mgtKeyType, mgtKey, memo, emailSubject, testUserID);
-            
-            m.addAttribute("Response", response);
-            
-        } catch (PopbillException e){
-            m.addAttribute("Exception", e);
-            return "exception";
-        }
         return "response";
     }
     
