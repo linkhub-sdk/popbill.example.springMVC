@@ -665,7 +665,7 @@ public class TaxinvoiceServiceExample {
         // 과세형태, [과세, 영세, 면세] 중 기재
         taxinvoice.setTaxType("과세");
         
-        // 발행예정 세금계산서 발행방법
+        // 발행예정 세금계산서 발행방법 [승인시자동발행, 직접발행]
         taxinvoice.setIssueTiming("승인시자동발행");
         /*********************************************************************
          * 공급자 정보
