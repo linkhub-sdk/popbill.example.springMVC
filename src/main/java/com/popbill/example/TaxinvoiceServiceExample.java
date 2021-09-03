@@ -1108,7 +1108,7 @@ public class TaxinvoiceServiceExample {
     public String issue(Model m) {
         /*
          * "임시저장" 또는 "(역)발행대기" 상태의 세금계산서를 발행(전자서명)하며, "발행완료" 상태로 처리합니다.
-         *  - 세금계산서 국세청 전송정책 : https://docs.popbill.com/taxinvoice/ntsSendPolicy?lang=php
+         *  - 세금계산서 국세청 전송정책 : https://docs.popbill.com/taxinvoice/ntsSendPolicy?lang=java
          *  - https://docs.popbill.com/taxinvoice/java/api#TIIssue
          */
 
