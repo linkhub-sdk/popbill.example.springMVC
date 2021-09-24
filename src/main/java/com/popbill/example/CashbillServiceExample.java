@@ -36,6 +36,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.popbill.api.CBIssueResponse;
 import com.popbill.api.CashbillService;
 import com.popbill.api.ChargeInfo;
 import com.popbill.api.EmailSendConfig;
@@ -194,7 +195,7 @@ public class CashbillServiceExample {
 
         try {
 
-            Response response = cashbillService.registIssue(testCorpNum, cashbill, Memo, testUserID, emailSubject);
+            CBIssueResponse response = cashbillService.registIssue(testCorpNum, cashbill, Memo, testUserID, emailSubject);
 
             m.addAttribute("Response", response);
 
@@ -414,7 +415,7 @@ public class CashbillServiceExample {
 
         try {
 
-            Response response = cashbillService.issue(testCorpNum, mgtKey, memo);
+            CBIssueResponse response = cashbillService.issue(testCorpNum, mgtKey, memo);
 
             m.addAttribute("Response", response);
 
@@ -582,7 +583,7 @@ public class CashbillServiceExample {
 
         try {
 
-            Response response = cashbillService.revokeRegistIssue(testCorpNum, mgtKey, orgConfirmNum, orgTradeDate);
+            CBIssueResponse response = cashbillService.revokeRegistIssue(testCorpNum, mgtKey, orgConfirmNum, orgTradeDate);
 
             m.addAttribute("Response", response);
 
@@ -638,7 +639,7 @@ public class CashbillServiceExample {
 
         try {
 
-            Response response = cashbillService.revokeRegistIssue(testCorpNum, mgtKey,
+            CBIssueResponse response = cashbillService.revokeRegistIssue(testCorpNum, mgtKey,
                     orgConfirmNum, orgTradeDate, smssendYN, memo, isPartCancel, cancelType,
                     supplyCost, tax, serviceFee, totalAmount);
 
