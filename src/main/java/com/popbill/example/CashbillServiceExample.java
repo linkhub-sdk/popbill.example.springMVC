@@ -728,7 +728,7 @@ public class CashbillServiceExample {
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String search(Model m) {
         /*
-         * 검색조건에 해당하는 현금영수증을 조회합니다.
+         * 검색조건에 해당하는 현금영수증을 조회합니다 (조회기간 단위 : 최대 6개월).
          * - https://docs.popbill.com/cashbill/java/api#Search
          */
 
