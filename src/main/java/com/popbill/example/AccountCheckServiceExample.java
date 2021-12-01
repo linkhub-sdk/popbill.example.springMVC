@@ -33,6 +33,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.popbill.api.AccountCheckInfo;
 import com.popbill.api.AccountCheckService;
 import com.popbill.api.ChargeInfo;
+import com.popbill.api.DepositorCheckInfo;
 import com.popbill.api.PopbillException;
 
 @Controller
@@ -55,7 +56,7 @@ public class AccountCheckServiceExample {
     @RequestMapping(value = "checkAccountInfo", method = RequestMethod.GET)
     public String checkAccountInfo(Model m) {
         /*
-         * 1건의 예금주성명을 조회합니다.
+         * 1건의 계좌성명을 조회합니다.
          * - https://docs.popbill.com/accountcheck/java/api#CheckAccountInfo
          */
 
@@ -79,6 +80,39 @@ public class AccountCheckServiceExample {
         return "AccountCheck/checkAccountInfo";
     }
     
+    @RequestMapping(value = "checkDepositorInfo", method = RequestMethod.GET)
+    public String checkDepositorInfo(Model m) {
+        /*
+         * 1건의 계좌실명을 조회합니다.
+         * - https://docs.popbill.com/accountcheck/java/api#CheckAccountInfo
+         */
+
+        // 기관코드
+        String BankCode = "0004";
+        
+        // 계좌번호
+        String AccountNumber = "9432451175834";
+        
+        //등록번호 유형
+        String IdentityNumType ="P";
+        
+        //등록번호
+        String IdentityNum = "901112";
+
+        try {
+
+        	DepositorCheckInfo depositorCheckInfo = accountCheckService.CheckDepositorInfo(testCorpNum, BankCode, AccountNumber, IdentityNumType, IdentityNum);
+
+            m.addAttribute("DepositorCheckInfo", depositorCheckInfo);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "AccountCheck/checkDepositorInfo";
+    }
+    
     @RequestMapping(value = "getUnitCost", method = RequestMethod.GET)
     public String getUnitCost(Model m) {
         /*
@@ -88,7 +122,7 @@ public class AccountCheckServiceExample {
 
         try {
 
-            float unitCost = accountCheckService.getUnitCost(testCorpNum);
+            float unitCost = accountCheckService.getUnitCost(testCorpNum,"성명");
 
             m.addAttribute("Result", unitCost);
 
@@ -108,7 +142,7 @@ public class AccountCheckServiceExample {
          */
 
         try {
-            ChargeInfo chrgInfo = accountCheckService.getChargeInfo(testCorpNum);
+            ChargeInfo chrgInfo = accountCheckService.getChargeInfo(testCorpNum,"성명");
             m.addAttribute("ChargeInfo", chrgInfo);
 
         } catch (PopbillException e) {
@@ -117,5 +151,45 @@ public class AccountCheckServiceExample {
         }
 
         return "getChargeInfo";
+    }
+    
+    @RequestMapping(value = "getUnitCost_", method = RequestMethod.GET)
+    public String getUnitCost_(Model m) {
+    	/*
+    	 * 계좌 실명 조회시 과금되는 포인트 단가를 확인합니다.
+    	 * - https://docs.popbill.com/accountcheck/java/api#GetUnitCost
+    	 */
+    	
+    	try {
+    		
+    		float unitCost = accountCheckService.getUnitCost(testCorpNum,"실명");
+    		
+    		m.addAttribute("Result", unitCost);
+    		
+    	} catch (PopbillException e) {
+    		m.addAttribute("Exception", e);
+    		return "exception";
+    	}
+    	
+    	return "result";
+    }
+    
+    @RequestMapping(value = "getChargeInfo_", method = RequestMethod.GET)
+    public String chargeInfo_(Model m) {
+    	/*
+    	 * 예금주조회 API 서비스 과금정보를 확인합니다.
+    	 * - https://docs.popbill.com/accountcheck/java/api#GetChargeInfo
+    	 */
+    	
+    	try {
+    		ChargeInfo chrgInfo = accountCheckService.getChargeInfo(testCorpNum,"실명");
+    		m.addAttribute("ChargeInfo", chrgInfo);
+    		
+    	} catch (PopbillException e) {
+    		m.addAttribute("Exception", e);
+    		return "exception";
+    	}
+    	
+    	return "getChargeInfo";
     }
 }

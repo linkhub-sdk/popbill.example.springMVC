@@ -13,7 +13,8 @@
     <fieldset class="fieldset1">
         <legend>예금주조회</legend>
         <ul>
-            <li><a href="AccountCheckService/checkAccountInfo">checkAccountInfo</a> - 예금주성명 조회</li>
+            <li><a href="AccountCheckService/checkAccountInfo">checkAccountInfo</a> - 계좌성명 조회</li>
+            <li><a href="AccountCheckService/checkDepositorInfo">checkDepositorInfo</a> -  계좌실명 조회</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
@@ -25,8 +26,10 @@
             <li><a href="BaseService/getUseHistoryURL">GetUseHistoryURL</a> - 연동회원 포인트 사용내역 URL</li>
             <li><a href="BaseService/getPartnerBalance">getPartnerBalance</a> - 파트너 잔여포인트 확인</li>
             <li><a href="BaseService/getPartnerURL">getPartnerURL</a> - 파트너 포인트충전 URL</li>
-            <li><a href="AccountCheckService/getChargeInfo">getChargeInfo</a> - 과금정보 확인</li>
-            <li><a href="AccountCheckService/getUnitCost">getUnitCost</a> - 조회단가 확인</li>
+            <li><a href="AccountCheckService/getChargeInfo">getChargeInfo</a> - 과금정보 확인(성명)</li>
+            <li><a href="AccountCheckService/getUnitCost">getUnitCost</a> - 조회단가 확인(성명)</li>
+            <li><a href="AccountCheckService/getChargeInfo_">getChargeInfo</a> - 과금정보 확인(실명)</li>
+            <li><a href="AccountCheckService/getUnitCost_">getUnitCost</a> - 조회단가 확인(실명)</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
