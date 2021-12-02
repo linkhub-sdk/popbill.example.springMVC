@@ -56,7 +56,7 @@ public class AccountCheckServiceExample {
     @RequestMapping(value = "checkAccountInfo", method = RequestMethod.GET)
     public String checkAccountInfo(Model m) {
         /*
-         * 1건의 계좌성명을 조회합니다.
+         * 1건의 예금주성명을 조회합니다.
          * - https://docs.popbill.com/accountcheck/java/api#CheckAccountInfo
          */
 
@@ -83,8 +83,8 @@ public class AccountCheckServiceExample {
     @RequestMapping(value = "checkDepositorInfo", method = RequestMethod.GET)
     public String checkDepositorInfo(Model m) {
         /*
-         * 1건의 계좌실명을 조회합니다.
-         * - https://docs.popbill.com/accountcheck/java/api#CheckAccountInfo
+         * 1건의 예금주실명을 조회합니다.
+         * - https://docs.popbill.com/accountcheck/java/api#checkDepositorInfo
          */
 
         // 기관코드
@@ -120,9 +120,12 @@ public class AccountCheckServiceExample {
          * - https://docs.popbill.com/accountcheck/java/api#GetUnitCost
          */
 
+        // 서비스 유형, 계좌성명조회 - 성명 , 계좌실명조회 - 실명 	
+    	String ServiceType = "성명";
+
         try {
 
-            float unitCost = accountCheckService.getUnitCost(testCorpNum,"성명");
+            float unitCost = accountCheckService.getUnitCost(testCorpNum,ServiceType);
 
             m.addAttribute("Result", unitCost);
 
@@ -141,8 +144,11 @@ public class AccountCheckServiceExample {
          * - https://docs.popbill.com/accountcheck/java/api#GetChargeInfo
          */
 
+        // 서비스 유형, 계좌성명조회 - 성명 , 계좌실명조회 - 실명 	
+    	String ServiceType = "성명";
+    	
         try {
-            ChargeInfo chrgInfo = accountCheckService.getChargeInfo(testCorpNum,"성명");
+            ChargeInfo chrgInfo = accountCheckService.getChargeInfo(testCorpNum,ServiceType);
             m.addAttribute("ChargeInfo", chrgInfo);
 
         } catch (PopbillException e) {
@@ -153,43 +159,5 @@ public class AccountCheckServiceExample {
         return "getChargeInfo";
     }
     
-    @RequestMapping(value = "getUnitCost_", method = RequestMethod.GET)
-    public String getUnitCost_(Model m) {
-    	/*
-    	 * 계좌 실명 조회시 과금되는 포인트 단가를 확인합니다.
-    	 * - https://docs.popbill.com/accountcheck/java/api#GetUnitCost
-    	 */
-    	
-    	try {
-    		
-    		float unitCost = accountCheckService.getUnitCost(testCorpNum,"실명");
-    		
-    		m.addAttribute("Result", unitCost);
-    		
-    	} catch (PopbillException e) {
-    		m.addAttribute("Exception", e);
-    		return "exception";
-    	}
-    	
-    	return "result";
-    }
     
-    @RequestMapping(value = "getChargeInfo_", method = RequestMethod.GET)
-    public String chargeInfo_(Model m) {
-    	/*
-    	 * 예금주조회 API 서비스 과금정보를 확인합니다.
-    	 * - https://docs.popbill.com/accountcheck/java/api#GetChargeInfo
-    	 */
-    	
-    	try {
-    		ChargeInfo chrgInfo = accountCheckService.getChargeInfo(testCorpNum,"실명");
-    		m.addAttribute("ChargeInfo", chrgInfo);
-    		
-    	} catch (PopbillException e) {
-    		m.addAttribute("Exception", e);
-    		return "exception";
-    	}
-    	
-    	return "getChargeInfo";
-    }
 }
