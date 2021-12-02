@@ -2,7 +2,7 @@
  * 팝빌 홈택스 전자세금계산서 연계 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/httaxinvoice/tutorial/java?lang=java
- * - 업데이트 일자 : 2021-07-06
+ * - 업데이트 일자 : 2021-12-02
  * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
  *

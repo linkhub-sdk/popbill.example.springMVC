@@ -1,7 +1,7 @@
 /*
  * 팝빌 예금주조회 API Java SDK SpringMVC Example
  *
- * - 업데이트 일자 : 2021-07-06
+ * - 업데이트 일자 : 2021-12-02
  * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
  *
@@ -84,7 +84,7 @@ public class AccountCheckServiceExample {
     public String checkDepositorInfo(Model m) {
         /*
          * 1건의 예금주실명을 조회합니다.
-         * - https://docs.popbill.com/accountcheck/java/api#checkDepositorInfo
+         * - https://docs.popbill.com/accountcheck/java/api#CheckDepositorInfo
          */
 
         // 기관코드
