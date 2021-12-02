@@ -21,8 +21,8 @@
                 <li>orgTradeDate (원본 현금영수증 거래일자) : ${Cashbill.orgTradeDate}</li>
                 <li>tradeDate (거래일자) : ${Cashbill.tradeDate}</li>
                 <li>tradeType (문서형태) : ${Cashbill.tradeType}</li>
-                <li>tradeUsage (거래구분) : ${CashbillInfo.tradeUsage}</li>
-                <li>tradeOpt (거래유형) : ${CashbillInfo.tradeOpt}</li>
+                <li>tradeUsage (거래구분) : ${Cashbill.tradeUsage}</li>
+                <li>tradeOpt (거래유형) : ${Cashbill.tradeOpt}</li>
                 <li>taxationType (과세형태) : ${Cashbill.taxationType}</li>
                 <li>totalAmount (거래금액) : ${Cashbill.totalAmount}</li>
                 <li>supplyCost (공급가액) : ${Cashbill.supplyCost}</li>

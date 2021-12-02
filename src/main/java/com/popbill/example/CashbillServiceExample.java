@@ -115,7 +115,7 @@ public class CashbillServiceExample {
         Cashbill cashbill = new Cashbill();
 
         // 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
-        cashbill.setMgtKey("20210701-001");
+        cashbill.setMgtKey("20211202-0003");
 
         // 문서형태, {승인거래, 취소거래} 중 기재
         cashbill.setTradeType("승인거래");
@@ -184,7 +184,7 @@ public class CashbillServiceExample {
         // 거래처 이메일
         // 팝빌 개발환경에서 테스트하는 경우에도 안내 메일이 전송되므로,
         // 실제 거래처의 메일주소가 기재되지 않도록 주의
-        cashbill.setEmail("code@linkhub.co.kr");
+        cashbill.setEmail("test@test.com");
 
         // 거래처 휴대폰
         cashbill.setHp("010111222");
@@ -204,7 +204,7 @@ public class CashbillServiceExample {
             return "exception";
         }
 
-        return "response";
+        return "CBIssueResponse";
     }
 
     @RequestMapping(value = "register", method = RequestMethod.GET)
@@ -424,7 +424,7 @@ public class CashbillServiceExample {
             return "exception";
         }
 
-        return "response";
+        return "CBIssueResponse";
     }
 
     @RequestMapping(value = "cancelIssue", method = RequestMethod.GET)
@@ -592,7 +592,7 @@ public class CashbillServiceExample {
             return "exception";
         }
 
-        return "response";
+        return "CBIssueResponse";
     }
 
     @RequestMapping(value = "revokeRegistIssue_part", method = RequestMethod.GET)
@@ -650,7 +650,7 @@ public class CashbillServiceExample {
             return "exception";
         }
 
-        return "response";
+        return "CBIssueResponse";
     }
 
     @RequestMapping(value = "getInfo", method = RequestMethod.GET)
