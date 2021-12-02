@@ -60,10 +60,13 @@ public class AccountCheckServiceExample {
          * - https://docs.popbill.com/accountcheck/java/api#CheckAccountInfo
          */
 
-        // 기관코드
+    	/*
+    	 * [필수] 기관코드
+    	 * - https://docs.popbill.com/accountcheck/?lang=java#BankCodeList
+    	 */
         String BankCode = "0004";
         
-        // 계좌번호
+        // [필수] 계좌번호 (하이픈 '-' 제외 8자리 이상 14자리 이하)
         String AccountNumber = "9432451175834";
 
         try {
@@ -87,16 +90,23 @@ public class AccountCheckServiceExample {
          * - https://docs.popbill.com/accountcheck/java/api#CheckDepositorInfo
          */
 
-        // 기관코드
+    	/*
+    	 * [필수] 기관코드
+    	 * - https://docs.popbill.com/accountcheck/?lang=java#BankCodeList
+    	 */
         String BankCode = "0004";
         
-        // 계좌번호
+        // [필수] 계좌번호 (하이픈 '-' 제외 8자리 이상 14자리 이하)
         String AccountNumber = "9432451175834";
         
-        //등록번호 유형
+        // [필수] 등록번호 유형 ( P / B 중 택 1 ,  P = 개인, B = 사업자)
         String IdentityNumType ="P";
         
-        //등록번호
+        /*
+    	 * [필수] 등록번호
+    	 * - IdentityNumType 값이 "B" 인 경우 (하이픈 '-' 제외  사업자번호(10)자리 입력 )
+    	 * - IdentityNumType 값이 "P" 인 경우 (생년월일(6)자리 입력 (형식 : YYMMDD))
+    	 */
         String IdentityNum = "901112";
 
         try {
@@ -116,7 +126,7 @@ public class AccountCheckServiceExample {
     @RequestMapping(value = "getUnitCost", method = RequestMethod.GET)
     public String getUnitCost(Model m) {
         /*
-         * 예금주 성명 조회시 과금되는 포인트 단가를 확인합니다.
+         * 예금주조회시 과금되는 포인트 단가를 확인합니다.
          * - https://docs.popbill.com/accountcheck/java/api#GetUnitCost
          */
 
