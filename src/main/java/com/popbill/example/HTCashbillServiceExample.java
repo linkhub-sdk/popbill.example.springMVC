@@ -77,7 +77,7 @@ public class HTCashbillServiceExample {
     public String requestJob(Model m) {
         /*
          * 홈택스에 신고된 현금영수증 매입/매출 내역 수집을 팝빌에 요청합니다. (조회기간 단위 : 최대 3개월)
-         * - https://docs.popbill.com/httaxinvoice/java/api#RequestJob
+         * - https://docs.popbill.com/htcashbill/java/api#RequestJob
          */
 
         // 현금영수증 유형, SELL-매출, BUY-매입
@@ -105,7 +105,7 @@ public class HTCashbillServiceExample {
     public String getJobState(Model m) {
         /*
          * 함수 RequestJob(수집 요청)를 통해 반환 받은 작업 아이디의 상태를 확인합니다.
-         * - https://docs.popbill.com/httaxinvoice/java/api#GetJobState
+         * - https://docs.popbill.com/htcashbill/java/api#GetJobState
          */
 
         // 수집요청(requestJob)시 반환받은 작업아이디
@@ -120,7 +120,7 @@ public class HTCashbillServiceExample {
             return "exception";
         }
 
-        return "HTTaxinvoice/GetJobState";
+        return "HTCashbill/GetJobState";
     }
 
     @RequestMapping(value = "listActiveJob", method = RequestMethod.GET)
@@ -128,7 +128,7 @@ public class HTCashbillServiceExample {
         /*
          * 현금영수증 매입/매출 내역 수집요청에 대한 상태 목록을 확인합니다.
          * - 수집 요청 후 1시간이 경과한 수집 요청건은 상태정보가 반환되지 않습니다.
-         * - https://docs.popbill.com/httaxinvoice/java/api#ListActiveJob
+         * - https://docs.popbill.com/htcashbill/java/api#ListActiveJob
          */
 
         try {
@@ -147,7 +147,7 @@ public class HTCashbillServiceExample {
     public String search(Model m) {
         /*
          * 함수 GetJobState(수집 상태 확인)를 통해 상태 정보 확인된 작업아이디를 활용하여 현금영수증 매입/매출 내역을 조회합니다.
-         * - https://docs.popbill.com/httaxinvoice/java/api#Search
+         * - https://docs.popbill.com/htcashbill/java/api#Search
          */
 
         // 수집 요청시 발급받은 작업아이디
@@ -185,7 +185,7 @@ public class HTCashbillServiceExample {
     public String summary(Model m) {
         /*
          * 함수 GetJobState(수집 상태 확인)를 통해 상태 정보가 확인된 작업아이디를 활용하여 수집된 현금영수증 매입/매출 내역의 요약 정보를 조회합니다.
-         * - https://docs.popbill.com/httaxinvoice/java/api#Summary
+         * - https://docs.popbill.com/htcashbill/java/api#Summary
          */
 
         // 수집 요청시 발급받은 작업아이디
@@ -215,7 +215,7 @@ public class HTCashbillServiceExample {
          * 홈택스연동 인증정보를 관리하는 페이지의 팝업 URL을 반환합니다.
          * - 인증방식에는 부서사용자/공인인증서 인증 방식이 있습니다.
          * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
-         * - https://docs.popbill.com/httaxinvoice/java/api#GetCertificatePopUpURL
+         * - https://docs.popbill.com/htcashbill/java/api#GetCertificatePopUpURL
          */
 
         try {
@@ -236,7 +236,7 @@ public class HTCashbillServiceExample {
     public String getCertificateExpireDate(Model m) {
         /*
          * 홈택스연동 인증을 위해 팝빌에 등록된 인증서 만료일자를 확인합니다.
-         * - https://docs.popbill.com/httaxinvoice/java/api#GetCertificateExpireDate
+         * - https://docs.popbill.com/htcashbill/java/api#GetCertificateExpireDate
          */
         try {
 
@@ -256,7 +256,7 @@ public class HTCashbillServiceExample {
     public String checkCertValidation(Model m) {
         /*
          * 팝빌에 등록된 인증서로 홈택스 로그인 가능 여부를 확인합니다.
-         * - https://docs.popbill.com/httaxinvoice/java/api#CheckCertValidation
+         * - https://docs.popbill.com/htcashbill/java/api#CheckCertValidation
          */
         try {
 
@@ -276,7 +276,7 @@ public class HTCashbillServiceExample {
     public String registDeptUser(Model m) {
         /*
          * 홈택스연동 인증을 위해 팝빌에 현금영수증 자료조회 부서사용자 계정을 등록합니다.
-         * - https://docs.popbill.com/httaxinvoice/java/api#RegistDeptUser
+         * - https://docs.popbill.com/htcashbill/java/api#RegistDeptUser
          */
 
         // 홈택스에서 생성한 현금영수증 부서사용자 아이디
@@ -303,7 +303,7 @@ public class HTCashbillServiceExample {
     public String checkDeptUser(Model m) {
         /*
          * 홈택스연동 인증을 위해 팝빌에 등록된 현금영수증 자료조회 부서사용자 계정을 확인합니다.
-         * - https://docs.popbill.com/httaxinvoice/java/api#CheckDeptUser
+         * - https://docs.popbill.com/htcashbill/java/api#CheckDeptUser
          */
         try {
 
@@ -323,7 +323,7 @@ public class HTCashbillServiceExample {
     public String checkLoginDeptUser(Model m) {
         /*
          * 팝빌에 등록된 현금영수증 자료조회 부서사용자 계정 정보로 홈택스 로그인 가능 여부를 확인합니다.
-         * - https://docs.popbill.com/httaxinvoice/java/api#CheckLoginDeptUser
+         * - https://docs.popbill.com/htcashbill/java/api#CheckLoginDeptUser
          */
         try {
 
@@ -343,7 +343,7 @@ public class HTCashbillServiceExample {
     public String deleteDeptUser(Model m) {
         /*
          * 팝빌에 등록된 홈택스 현금영수증 자료조회 부서사용자 계정을 삭제합니다.
-         * - https://docs.popbill.com/httaxinvoice/java/api#DeleteDeptUser
+         * - https://docs.popbill.com/htcashbill/java/api#DeleteDeptUser
          */
         try {
 
