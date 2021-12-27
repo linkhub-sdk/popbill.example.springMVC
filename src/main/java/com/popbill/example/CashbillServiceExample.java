@@ -157,7 +157,6 @@ public class CashbillServiceExample {
         cashbill.setFranchiseCorpNum("1234567890");
 
         // 발행자 가맹점 종사업장번호
-        // └ 다수건 검색시 콤마(",")로 구분. 예) 1234,1000
         cashbill.setFranchiseTaxRegID("");
 
         // 발행자 상호
@@ -267,7 +266,6 @@ public class CashbillServiceExample {
         cashbill.setFranchiseCorpNum("1234567890");
 
         // 발행자 가맹점 종사업장번호
-        // └ 다수건 검색시 콤마(",")로 구분. 예) 1234,1000
         cashbill.setFranchiseTaxRegID("");
 
         // 발행자 상호
@@ -367,7 +365,6 @@ public class CashbillServiceExample {
         cashbill.setFranchiseCorpNum("1234567890");
 
         // 발행자 가맹점 종사업장번호
-        // └ 다수건 검색시 콤마(",")로 구분. 예) 1234,1000
         cashbill.setFranchiseTaxRegID("");
 
         // 발행자 상호
@@ -775,7 +772,8 @@ public class CashbillServiceExample {
         String QString = "";
 
         // 가맹점 종사업장 번호 조회
-        String FranchiseTaxRegID = "0001,0002";
+        // └ 다수건 검색시 콤마(",")로 구분. 예) 1234,1000
+        String FranchiseTaxRegID = "";
 
         // 페이지 번호
         int Page = 1;
