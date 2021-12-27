@@ -22,7 +22,7 @@
                 <li> identityNumType (등록번호 유형) : ${DepositorCheckInfo.identityNumType}</li>
                 <li> identityNum (등록번호) : ${DepositorCheckInfo.identityNum}</li>
                 <li> checkDate (확인일시) : ${DepositorCheckInfo.checkDate}</li>
-                <li> resultCode (응답코드) : ${DepositorCheckInfo.resultCode}</li>
+                <li> result (응답코드) : ${DepositorCheckInfo.result}</li>
                 <li> resultMessage (응답메시지) : ${DepositorCheckInfo.resultMessage}</li>
             </ul>
         </fieldset>            

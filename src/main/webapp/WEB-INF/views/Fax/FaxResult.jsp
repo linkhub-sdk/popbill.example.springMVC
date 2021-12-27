@@ -21,6 +21,7 @@
                     <li>result (전송결과 코드) : ${FaxResult.result}</li>
                     <li>sendNum (발신번호) : ${FaxResult.sendNum}</li>
                     <li>senderName (발신자명) : ${FaxResult.senderName}</li>
+                    <li>receiveNumType (수신번호 유형) : ${FaxResult.receiveNumType}</li>
                     <li>receiveNum (수신번호) : ${FaxResult.receiveNum}</li>
                     <li>receiveName (수신자명) : ${FaxResult.receiveName}</li>
                     <li>title (팩스제목) : ${FaxResult.title}</li>

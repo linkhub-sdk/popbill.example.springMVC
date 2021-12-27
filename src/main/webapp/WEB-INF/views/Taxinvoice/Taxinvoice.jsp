@@ -28,6 +28,7 @@
                 <li>invoicerAddr (공급자 주소) : ${Taxinvoice.invoicerAddr}</li>
                 <li>invoicerBizClass (공급자 종목) : ${Taxinvoice.invoicerBizClass}</li>
                 <li>invoicerBizType (공급자 업태) : ${Taxinvoice.invoicerBizType}</li>
+                <li>invoicerDeptName (공급자 담당자 부서명) : ${Taxinvoice.invoicerDeptName}</li>
                 <li>invoicerContactName (공급자 담당자명) : ${Taxinvoice.invoicerContactName}</li>
                 <li>invoicerTEL (공급자 담당자 연락처) : ${Taxinvoice.invoicerTEL}</li>
                 <li>invoicerHP (공급자 담당자 휴대폰번호) : ${Taxinvoice.invoicerHP}</li>
@@ -43,6 +44,7 @@
                 <li>invoiceeAddr (공급받는자 주소) : ${Taxinvoice.invoiceeAddr}</li>
                 <li>invoiceeBizClass (공급받는자 종목) : ${Taxinvoice.invoiceeBizClass}</li>
                 <li>invoiceeBizType (공급받는자 업태) : ${Taxinvoice.invoiceeBizType}</li>
+                <li>invoiceeDeptName1 (공급받는자 담당자 부서명) : ${Taxinvoice.invoiceeDeptName1}</li>
                 <li>invoiceeContactName1 (공급받는자 담당자명) : ${Taxinvoice.invoiceeContactName1}</li>
                 <li>invoiceeTEL1 (공급받는자 담당자 연락처) : ${Taxinvoice.invoiceeTEL1}</li>
                 <li>invoiceeHP1 (공급받는자 담당자 휴대폰) : ${Taxinvoice.invoiceeHP1}</li>
@@ -59,6 +61,7 @@
                 <li>trusteeAddr (수탁자 주소) : ${Taxinvoice.trusteeAddr}</li>
                 <li>trusteeBizClass (수탁자 종목) : ${Taxinvoice.trusteeBizClass}</li>
                 <li>trusteeBizType (수탁자 업태) : ${Taxinvoice.trusteeBizType}</li>
+                <li>trusteeDeptName (수탁자 담당자 부서명) : ${Taxinvoice.trusteeDeptName}</li>
                 <li>trusteeContactName (수탁자 담당자명) : ${Taxinvoice.trusteeContactName}</li>
                 <li>trusteeTEL (수탁자 담당자 연락처) : ${Taxinvoice.trusteeTEL}</li>
                 <li>trusteeHP (수탁자 담당자 휴대폰) : ${Taxinvoice.trusteeHP}</li>
@@ -84,7 +87,6 @@
                 <li>businessLicenseYN (사업자등록증 이미지 첨부여부) : ${Taxinvoice.businessLicenseYN}</li>
                 <li>bankBookYN (통장사본 이미지 첨부여부) : ${Taxinvoice.bankBookYN}</li>
                 <li>NTSConfirmNum (국세청승인번호) : ${Taxinvoice.NTSConfirmNum}</li>
-                <li>originalTaxinvoiceKey (원본세금계산서 아이템키) : ${Taxinvoice.originalTaxinvoiceKey}</li>
             </ul>
             <fieldset class="fieldset3">
                 <legend>detailList (상세항목 배열)</legend>

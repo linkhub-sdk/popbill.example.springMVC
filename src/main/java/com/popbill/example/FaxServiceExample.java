@@ -2,7 +2,7 @@
  * 팝빌 팩스 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/fax/tutorial/java
- * - 업데이트 일자 : 2021-12-02
+ * - 업데이트 일자 : 2021-12-27
  * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
  *
@@ -151,7 +151,7 @@ public class FaxServiceExample {
         // 전송요청번호
         // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
         // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
-        String requestNum = "";
+        String requestNum = "fax_mvc_1234";
 
         try {
 
@@ -654,7 +654,7 @@ public class FaxServiceExample {
          */
 
         // 전송요청(sendFAX)시 발급받은 접수번호
-        String receiptNum = "021010414350900001";
+        String receiptNum = "021122715343100001";
 
         try {
             FaxResult[] faxResults = faxService.getFaxResult(testCorpNum, receiptNum);
@@ -677,7 +677,7 @@ public class FaxServiceExample {
          */
 
         // 팩스전송 요청시 할당한 전송요청번호
-        String requestNum = "20210701-0011";
+        String requestNum = "fax_mvc_1234";
 
         try {
             FaxResult[] faxResults = faxService.getFaxResultRN(testCorpNum, requestNum);

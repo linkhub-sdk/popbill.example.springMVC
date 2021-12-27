@@ -29,6 +29,7 @@
                 <li>tax (부가세) : ${Cashbill.tax}</li>
                 <li>serviceFee (봉사료) : ${Cashbill.serviceFee}</li>
                 <li>franchiseCorpNum (가맹점 사업자번호) : ${Cashbill.franchiseCorpNum}</li>
+                <li>franchiseTaxRegID (가맹점 종사업장 번호) : ${Cashbill.franchiseTaxRegID}</li>
                 <li>franchiseCorpName (가맹점 상호) : ${Cashbill.franchiseCorpName}</li>
                 <li>franchiseCEOName (가맹점 대표자성명) : ${Cashbill.franchiseCEOName}</li>
                 <li>franchiseAddr (가맹점 주소) : ${Cashbill.franchiseAddr}</li>

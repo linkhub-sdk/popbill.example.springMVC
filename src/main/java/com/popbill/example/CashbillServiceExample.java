@@ -2,7 +2,7 @@
  * 팝빌 현금영수증 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/cashbill/tutorial/java
- * - 업데이트 일자 : 2021-12-02
+ * - 업데이트 일자 : 2021-12-27
  * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
  *
@@ -156,6 +156,9 @@ public class CashbillServiceExample {
         // 발행자 사업자번호, '-'제외 10자리
         cashbill.setFranchiseCorpNum("1234567890");
 
+        // 발행자 가맹점 종사업장번호
+        cashbill.setFranchiseTaxRegID("0001");
+
         // 발행자 상호
         cashbill.setFranchiseCorpName("발행자 상호");
 
@@ -259,6 +262,9 @@ public class CashbillServiceExample {
         // 발행자 사업자번호, '-'제외 10자리
         cashbill.setFranchiseCorpNum("1234567890");
 
+        // 발행자 가맹점 종사업장번호
+        cashbill.setFranchiseTaxRegID("0001");
+
         // 발행자 상호
         cashbill.setFranchiseCorpName("발행자 상호");
 
@@ -354,6 +360,9 @@ public class CashbillServiceExample {
 
         // 발행자 사업자번호, '-'제외 10자리
         cashbill.setFranchiseCorpNum("1234567890");
+
+        // 발행자 가맹점 종사업장번호
+        cashbill.setFranchiseTaxRegID("0001");
 
         // 발행자 상호
         cashbill.setFranchiseCorpName("발행자 상호_수정");
@@ -759,6 +768,9 @@ public class CashbillServiceExample {
         // 식별번호 조회, 미기재시 전체조회
         String QString = "";
 
+        // 가맹점 종사업장 번호 조회
+        String FranchiseTaxRegID = "0001";
+
         // 페이지 번호
         int Page = 1;
 
@@ -773,7 +785,7 @@ public class CashbillServiceExample {
 
             CBSearchResult searchResult = cashbillService.search(testCorpNum, DType, SDate, EDate,
                     State, TradeType, TradeUsage, TradeOpt, TaxationType, QString,
-                    Page, PerPage, Order);
+                    Page, PerPage, Order, FranchiseTaxRegID);
 
             m.addAttribute("SearchResult", searchResult);
 

@@ -2,7 +2,7 @@
  * 팝빌 전자세금계산서 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/taxinvoice/tutorial/java
- * - 업데이트 일자 : 2021-12-02
+ * - 업데이트 일자 : 2021-12-27
  * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
  * - 연동 기술지원 이메일 : code@linkhub.co.kr
  *
@@ -129,7 +129,7 @@ public class TaxinvoiceServiceExample {
         Taxinvoice taxinvoice = new Taxinvoice();
 
         // 작성일자, 날짜형식(yyyyMMdd)
-        taxinvoice.setWriteDate("20210712");
+        taxinvoice.setWriteDate("20211227");
 
         // 과금방향, [정과금, 역과금] 중 선택기재, "역과금"은 역발행세금계산서 발행에만 가능
         taxinvoice.setChargeDirection("정과금");
@@ -157,7 +157,7 @@ public class TaxinvoiceServiceExample {
         taxinvoice.setInvoicerCorpName("공급자 상호");
 
         // 공급자 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
-        taxinvoice.setInvoicerMgtKey("20210712-21");
+        taxinvoice.setInvoicerMgtKey("20211227-001");
 
         // 공급자 대표자성명
         taxinvoice.setInvoicerCEOName("공급자 대표자 성명");
@@ -294,7 +294,7 @@ public class TaxinvoiceServiceExample {
         TaxinvoiceDetail detail = new TaxinvoiceDetail();
 
         detail.setSerialNum((short) 1); // 일련번호, 1부터 순차기재
-        detail.setPurchaseDT("202107012"); // 거래일자
+        detail.setPurchaseDT("20210712"); // 거래일자
         detail.setItemName("품목명");
         detail.setSpec("규격");
         detail.setQty("1"); // 수량
@@ -308,7 +308,7 @@ public class TaxinvoiceServiceExample {
         detail = new TaxinvoiceDetail();
 
         detail.setSerialNum((short) 2); // 일련번호, 1부터 순차기재
-        detail.setPurchaseDT("202107012"); // 거래일자
+        detail.setPurchaseDT("20210712"); // 거래일자
         detail.setItemName("품목명2");
         detail.setSpec("규격");
         detail.setQty("1"); // 수량
@@ -1602,7 +1602,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20210701-001";
+        String mgtKey = "20211227-001";
 
         try {
 

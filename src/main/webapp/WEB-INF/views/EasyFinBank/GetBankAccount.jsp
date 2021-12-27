@@ -15,7 +15,7 @@
         <legend>${requestScope['javax.servlet.forward.request_uri']}</legend>
         <ul>
             
-            <li>bankCode (은행코드) : ${Account.bankCode}</li>
+            <li>bankCode (기관코드) : ${Account.bankCode}</li>
             <li>accountNumber (계좌번호) : ${Account.accountNumber}</li>
             <li>accountName (계좌 별칭) : ${Account.accountName}</li>
             <li>accountType (계좌 유형) : ${Account.accountType}</li>

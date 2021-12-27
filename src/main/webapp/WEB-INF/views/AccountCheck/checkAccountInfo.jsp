@@ -21,7 +21,7 @@
                 <li> accountNumber (계좌번호) : ${AccountInfo.accountNumber}</li>
                 <li> accountName (예금주 성명) : ${AccountInfo.accountName}</li>
                 <li> checkDate (확인일시) : ${AccountInfo.checkDate}</li>
-                <li> resultCode (응답코드) : ${AccountInfo.resultCode}</li>
+                <li> result (응답코드) : ${AccountInfo.result}</li>
                 <li> resultMessage (응답메시지) : ${AccountInfo.resultMessage}</li>
             </ul>
 
