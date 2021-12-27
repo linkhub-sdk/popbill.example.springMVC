@@ -36,6 +36,7 @@
                         <li>result (전송결과 코드) : ${SearchInfo.result}</li>
                         <li>sendNum (발신번호) : ${SearchInfo.sendNum}</li>
                         <li>senderName (발신자명) : ${SearchInfo.senderName}</li>
+                        <li>receiveNumType (수신번호 유형) : ${SearchInfo.receiveNumType}</li>
                         <li>receiveNum (수신번호) : ${SearchInfo.receiveNum}</li>
                         <li>receiveName (수신자명) : ${SearchInfo.receiveName}</li>
                         <li>title (팩스제목) : ${SearchInfo.title}</li>
