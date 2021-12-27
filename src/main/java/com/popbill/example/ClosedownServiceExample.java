@@ -2,9 +2,9 @@
  * 팝빌 휴폐업조회 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/closedown/tutorial/java
- * - 업데이트 일자 : 2021-07-23
- * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
- * - 연동 기술지원 이메일 : code@linkhub.co.kr
+ * - 업데이트 일자 : 2021-12-27
+ * - 연동 기술지원 연락처 : 1600-9854
+ * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
  * Copyright 2006-2014 linkhub.co.kr, Inc. or its affiliates. All Rights Reserved.
  *

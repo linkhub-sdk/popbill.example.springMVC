@@ -3,8 +3,8 @@
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/cashbill/tutorial/java
  * - 업데이트 일자 : 2021-12-27
- * - 연동 기술지원 연락처 : 1600-9854 / 070-4304-2991~2
- * - 연동 기술지원 이메일 : code@linkhub.co.kr
+ * - 연동 기술지원 연락처 : 1600-9854
+ * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
  * <테스트 연동개발 준비사항>
  * 1) src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml 파일에 선언된
@@ -115,7 +115,7 @@ public class CashbillServiceExample {
         Cashbill cashbill = new Cashbill();
 
         // 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
-        cashbill.setMgtKey("20211202-0003");
+        cashbill.setMgtKey("20211227-010");
 
         // 문서형태, {승인거래, 취소거래} 중 기재
         cashbill.setTradeType("승인거래");
@@ -157,7 +157,8 @@ public class CashbillServiceExample {
         cashbill.setFranchiseCorpNum("1234567890");
 
         // 발행자 가맹점 종사업장번호
-        cashbill.setFranchiseTaxRegID("0001");
+        // └ 다수건 검색시 콤마(",")로 구분. 예) 1234,1000
+        cashbill.setFranchiseTaxRegID("");
 
         // 발행자 상호
         cashbill.setFranchiseCorpName("발행자 상호");
@@ -221,10 +222,13 @@ public class CashbillServiceExample {
         Cashbill cashbill = new Cashbill();
 
         // 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
-        cashbill.setMgtKey("20190104-001");
+        cashbill.setMgtKey("20211227-030");
 
         // 문서형태, {승인거래, 취소거래} 중 기재
         cashbill.setTradeType("승인거래");
+
+        // 거래유형, {일반, 도서공연, 대중교통} 중 기재
+        cashbill.setTradeOpt("일반");
 
         // 취소거래시 기재, 원본 현금영수증 국세청 승인번호 - getInfo API를 통해 confirmNum 값 기재
         cashbill.setOrgConfirmNum("");
@@ -263,7 +267,8 @@ public class CashbillServiceExample {
         cashbill.setFranchiseCorpNum("1234567890");
 
         // 발행자 가맹점 종사업장번호
-        cashbill.setFranchiseTaxRegID("0001");
+        // └ 다수건 검색시 콤마(",")로 구분. 예) 1234,1000
+        cashbill.setFranchiseTaxRegID("");
 
         // 발행자 상호
         cashbill.setFranchiseCorpName("발행자 상호");
@@ -320,7 +325,7 @@ public class CashbillServiceExample {
          */
 
         // 수정할 현금영수증 문서번호
-        String mgtKey = "20190104-001";
+        String mgtKey = "20211227-030";
 
         // 현금영수증 정보 객체
         Cashbill cashbill = new Cashbill();
@@ -362,7 +367,8 @@ public class CashbillServiceExample {
         cashbill.setFranchiseCorpNum("1234567890");
 
         // 발행자 가맹점 종사업장번호
-        cashbill.setFranchiseTaxRegID("0001");
+        // └ 다수건 검색시 콤마(",")로 구분. 예) 1234,1000
+        cashbill.setFranchiseTaxRegID("");
 
         // 발행자 상호
         cashbill.setFranchiseCorpName("발행자 상호_수정");
@@ -417,7 +423,7 @@ public class CashbillServiceExample {
          */
 
         // 현금영수증 문서번호
-        String mgtKey = "20190104-001";
+        String mgtKey = "20211227-020";
 
         // 메모
         String memo = "발행메모";
@@ -718,7 +724,7 @@ public class CashbillServiceExample {
          */
 
         // 현금영수증 문서번호
-        String mgtKey = "20210701-001";
+        String mgtKey = "20211227-010";
 
         try {
 
@@ -745,10 +751,10 @@ public class CashbillServiceExample {
         String DType = "T";
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20210701";
+        String SDate = "20211227";
 
         // 종료일자, 날짜형식(yyyyMMdd)
-        String EDate = "20210710";
+        String EDate = "20211227";
 
         // 상태코드 배열, 2,3번째 자리에 와일드카드(*) 사용 가능
         String[] State = {"100", "2**", "3**", "4**"};
@@ -769,7 +775,7 @@ public class CashbillServiceExample {
         String QString = "";
 
         // 가맹점 종사업장 번호 조회
-        String FranchiseTaxRegID = "0001";
+        String FranchiseTaxRegID = "0001,0002";
 
         // 페이지 번호
         int Page = 1;
