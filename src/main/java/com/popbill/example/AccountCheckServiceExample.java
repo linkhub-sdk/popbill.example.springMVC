@@ -8,7 +8,7 @@
  *
  * <테스트 연동개발 준비사항>
  * 1) src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml 파일에 선언된
- *       util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 연동 신청시 메일로
+ *    util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 연동 신청시 메일로
  *    발급받은 인증정보를 참조하여 변경합니다.
  *
  * Copyright 2006-2020 linkhub.co.kr, Inc. or its affiliates. All Rights Reserved.

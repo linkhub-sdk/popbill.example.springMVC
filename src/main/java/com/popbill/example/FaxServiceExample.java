@@ -182,13 +182,13 @@ public class FaxServiceExample {
         Receiver[] receivers = new Receiver[2];
 
         Receiver receiver1 = new Receiver();
-        receiver1.setReceiveName("수신자1");		// 수신자명
-        receiver1.setReceiveNum("010111222");	// 수신팩스번호
+        receiver1.setReceiveName("수신자1");      // 수신자명
+        receiver1.setReceiveNum("010111222");   // 수신팩스번호
         receivers[0] = receiver1;
 
         Receiver receiver2 = new Receiver();
-        receiver2.setReceiveName("수신자2");		// 수신자명
-        receiver2.setReceiveNum("010333444");	// 수신팩스번호
+        receiver2.setReceiveName("수신자2");      // 수신자명
+        receiver2.setReceiveNum("010333444");   // 수신팩스번호
         receivers[1] = receiver1;
 
         File[] files = new File[2];
@@ -312,13 +312,13 @@ public class FaxServiceExample {
         Receiver[] receivers = new Receiver[2];
 
         Receiver receiver1 = new Receiver();
-        receiver1.setReceiveName("수신자1");		// 수신자명
-        receiver1.setReceiveNum("010111222");	// 수신팩스번호
+        receiver1.setReceiveName("수신자1");      // 수신자명
+        receiver1.setReceiveNum("010111222");   // 수신팩스번호
         receivers[0] = receiver1;
 
         Receiver receiver2 = new Receiver();
-        receiver2.setReceiveName("수신자2");		// 수신자명
-        receiver2.setReceiveNum("010333444");	// 수신팩스번호
+        receiver2.setReceiveName("수신자2");      // 수신자명
+        receiver2.setReceiveNum("010333444");   // 수신팩스번호
         receivers[1] = receiver1;
 
         File file = new File("/Users/John/Desktop/test.pdf");
@@ -450,13 +450,13 @@ public class FaxServiceExample {
 //      Receiver[] receivers = new Receiver[2];
 
 //      Receiver receiver1 = new Receiver();
-//      receiver1.setReceiveName("수신자1");		// 수신자명
-//      receiver1.setReceiveNum("010111222");	// 수신팩스번호
+//      receiver1.setReceiveName("수신자1");      // 수신자명
+//      receiver1.setReceiveNum("010111222");   // 수신팩스번호
 //      receivers[0] = receiver1;
 
 //      Receiver receiver2 = new Receiver();
-//      receiver2.setReceiveName("수신자2");		// 수신자명
-//      receiver2.setReceiveNum("010333444");	// 수신팩스번호
+//      receiver2.setReceiveName("수신자2");      // 수신자명
+//      receiver2.setReceiveNum("010333444");   // 수신팩스번호
 //      receivers[1] = receiver1;
 
         // 전송 예약일시
@@ -566,13 +566,13 @@ public class FaxServiceExample {
 //      Receiver[] receivers = new Receiver[2];
 
 //      Receiver receiver1 = new Receiver();
-//      receiver1.setReceiveName("수신자1");		// 수신자명
-//      receiver1.setReceiveNum("010111222");	// 수신팩스번호
+//      receiver1.setReceiveName("수신자1");      // 수신자명
+//      receiver1.setReceiveNum("010111222");   // 수신팩스번호
 //      receivers[0] = receiver1;
 
 //      Receiver receiver2 = new Receiver();
-//      receiver2.setReceiveName("수신자2");		// 수신자명
-//      receiver2.setReceiveNum("010333444");	// 수신팩스번호
+//      receiver2.setReceiveName("수신자2");      // 수신자명
+//      receiver2.setReceiveNum("010333444");   // 수신팩스번호
 //      receivers[1] = receiver1;
 
         // 전송 예약일시
