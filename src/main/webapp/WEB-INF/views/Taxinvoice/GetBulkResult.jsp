@@ -36,10 +36,10 @@
                 <fieldset class="fieldset2">
                     <legend>issueResult[${status.index}]</legend>
                     <ul>
-                    	<li>code (응답코드) : ${TaxinvoiceInfo.code}</li>
-                    	<li>invoicerMgtKey (공급자 문서번호) : ${TaxinvoiceInfo.invoicerMgtKey}</li>
-                    	<li>ntsconfirmNum (국세청 승인번호) : ${TaxinvoiceInfo.ntsconfirmNum}</li>
-                    	<li>issueDT (발행일시) : ${TaxinvoiceInfo.issueDT}</li>
+                        <li>code (응답코드) : ${TaxinvoiceInfo.code}</li>
+                        <li>invoicerMgtKey (공급자 문서번호) : ${TaxinvoiceInfo.invoicerMgtKey}</li>
+                        <li>ntsconfirmNum (국세청 승인번호) : ${TaxinvoiceInfo.ntsconfirmNum}</li>
+                        <li>issueDT (발행일시) : ${TaxinvoiceInfo.issueDT}</li>
                     </ul>
                 </fieldset>
             </c:forEach>

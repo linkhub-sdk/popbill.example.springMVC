@@ -1,9 +1,15 @@
 /*
  * 팝빌 예금주조회 API Java SDK SpringMVC Example
  *
- * - 업데이트 일자 : 2021-12-27
+ * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/accountcheck/tutorial/java
+ * - 업데이트 일자 : 2021-12-29
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
+ *
+ * <테스트 연동개발 준비사항>
+ * 1) src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml 파일에 선언된
+ *       util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 연동 신청시 메일로
+ *    발급받은 인증정보를 참조하여 변경합니다.
  *
  * Copyright 2006-2020 linkhub.co.kr, Inc. or its affiliates. All Rights Reserved.
  *
@@ -18,7 +24,6 @@
  * express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-
 package com.popbill.example;
 
 import java.util.Locale;
@@ -39,11 +44,11 @@ import com.popbill.api.PopbillException;
 @Controller
 @RequestMapping("AccountCheckService")
 public class AccountCheckServiceExample {
-	
-	@Autowired
+    
+    @Autowired
     private AccountCheckService accountCheckService;
-	
-	// 팝빌회원 사업자번호
+    
+    // 팝빌회원 사업자번호
     @Value("#{EXAMPLE_CONFIG.TestCorpNum}")
     private String testCorpNum;
 
@@ -60,10 +65,10 @@ public class AccountCheckServiceExample {
          * - https://docs.popbill.com/accountcheck/java/api#CheckAccountInfo
          */
 
-    	/*
-    	 * [필수] 기관코드
-    	 * - https://docs.popbill.com/accountcheck/?lang=java#BankCodeList
-    	 */
+        /*
+         * [필수] 기관코드
+         * - https://docs.popbill.com/accountcheck/?lang=java#BankCodeList
+         */
         String BankCode = "0004";
         
         // [필수] 계좌번호 (하이픈 '-' 제외 8자리 이상 14자리 이하)
@@ -71,7 +76,7 @@ public class AccountCheckServiceExample {
 
         try {
 
-        	AccountCheckInfo accountInfo = accountCheckService.CheckAccountInfo(testCorpNum, BankCode, AccountNumber);
+            AccountCheckInfo accountInfo = accountCheckService.CheckAccountInfo(testCorpNum, BankCode, AccountNumber);
 
             m.addAttribute("AccountInfo", accountInfo);
 
@@ -90,10 +95,10 @@ public class AccountCheckServiceExample {
          * - https://docs.popbill.com/accountcheck/java/api#CheckDepositorInfo
          */
 
-    	/*
-    	 * [필수] 기관코드
-    	 * - https://docs.popbill.com/accountcheck/?lang=java#BankCodeList
-    	 */
+        /*
+         * [필수] 기관코드
+         * - https://docs.popbill.com/accountcheck/?lang=java#BankCodeList
+         */
         String BankCode = "0004";
         
         // [필수] 계좌번호 (하이픈 '-' 제외 8자리 이상 14자리 이하)
@@ -103,15 +108,15 @@ public class AccountCheckServiceExample {
         String IdentityNumType ="P";
         
         /*
-    	 * [필수] 등록번호
-    	 * - IdentityNumType 값이 "B" 인 경우 (하이픈 '-' 제외  사업자번호(10)자리 입력 )
-    	 * - IdentityNumType 값이 "P" 인 경우 (생년월일(6)자리 입력 (형식 : YYMMDD))
-    	 */
+         * [필수] 등록번호
+         * - IdentityNumType 값이 "B" 인 경우 (하이픈 '-' 제외  사업자번호(10)자리 입력 )
+         * - IdentityNumType 값이 "P" 인 경우 (생년월일(6)자리 입력 (형식 : YYMMDD))
+         */
         String IdentityNum = "901112";
 
         try {
 
-        	DepositorCheckInfo depositorCheckInfo = accountCheckService.CheckDepositorInfo(testCorpNum, BankCode, AccountNumber, IdentityNumType, IdentityNum);
+            DepositorCheckInfo depositorCheckInfo = accountCheckService.CheckDepositorInfo(testCorpNum, BankCode, AccountNumber, IdentityNumType, IdentityNum);
 
             m.addAttribute("DepositorCheckInfo", depositorCheckInfo);
 
@@ -130,8 +135,8 @@ public class AccountCheckServiceExample {
          * - https://docs.popbill.com/accountcheck/java/api#GetUnitCost
          */
 
-        // 서비스 유형, 계좌성명조회 - 성명 , 계좌실명조회 - 실명 	
-    	String ServiceType = "성명";
+        // 서비스 유형, 계좌성명조회일 때는 "성명"을 입력하고, 계좌실명조회일 때는 "실명"을 입력합니다.
+        String ServiceType = "성명";
 
         try {
 
@@ -154,9 +159,9 @@ public class AccountCheckServiceExample {
          * - https://docs.popbill.com/accountcheck/java/api#GetChargeInfo
          */
 
-        // 서비스 유형, 계좌성명조회 - 성명 , 계좌실명조회 - 실명 	
-    	String ServiceType = "성명";
-    	
+        // 서비스 유형, 계좌성명조회일 때는 "성명"을 입력하고, 계좌실명조회일 때는 "실명"을 입력합니다.
+        String ServiceType = "성명";
+        
         try {
             ChargeInfo chrgInfo = accountCheckService.getChargeInfo(testCorpNum,ServiceType);
             m.addAttribute("ChargeInfo", chrgInfo);

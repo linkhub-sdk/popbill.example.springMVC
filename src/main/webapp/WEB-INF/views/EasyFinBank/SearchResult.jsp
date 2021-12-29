@@ -32,17 +32,17 @@
             <c:forEach items="${SearchResult.list}" var="SearchInfo" varStatus="status">
                 <fieldset class="fieldset2">
                     <ul>
-                    	<li>trdate (거래일자) : ${SearchInfo.trdate}</li>
-                    	<li>trdt (거래일시) : ${SearchInfo.trdt}</li>
-                    	<li>accIn (입금액) : ${SearchInfo.accIn}</li>
-                    	<li>accOut (출금액) : ${SearchInfo.accOut}</li>
-                    	<li>balance (잔액) : ${SearchInfo.balance}</li>
-                    	<li>remark1 (비고 1) : ${SearchInfo.remark1}</li>
-                    	<li>remark2 (비고 2) : ${SearchInfo.remark2}</li>
-                    	<li>remark3 (비고 3) : ${SearchInfo.remark3}</li>
-                    	<li>remark4 (비고 4) : ${SearchInfo.remark4}</li>
-                    	<li>regDT (등록일시) : ${SearchInfo.regDT}</li>
-                    	<li>memo (메모) : ${SearchInfo.memo}</li>
+                        <li>trdate (거래일자) : ${SearchInfo.trdate}</li>
+                        <li>trdt (거래일시) : ${SearchInfo.trdt}</li>
+                        <li>accIn (입금액) : ${SearchInfo.accIn}</li>
+                        <li>accOut (출금액) : ${SearchInfo.accOut}</li>
+                        <li>balance (잔액) : ${SearchInfo.balance}</li>
+                        <li>remark1 (비고 1) : ${SearchInfo.remark1}</li>
+                        <li>remark2 (비고 2) : ${SearchInfo.remark2}</li>
+                        <li>remark3 (비고 3) : ${SearchInfo.remark3}</li>
+                        <li>remark4 (비고 4) : ${SearchInfo.remark4}</li>
+                        <li>regDT (등록일시) : ${SearchInfo.regDT}</li>
+                        <li>memo (메모) : ${SearchInfo.memo}</li>
                         
                         <li>tid (거래내역 아이디) : ${SearchInfo.tid}</li>
                         <li>trserial (거래일련번호) : ${SearchInfo.trserial}</li>

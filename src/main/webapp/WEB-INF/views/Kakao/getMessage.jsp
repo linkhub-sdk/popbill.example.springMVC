@@ -15,7 +15,7 @@
         <c:if test="${sentInfos != null}">
             <fieldset class="fieldset2">
                 <ul>
-                	
+                    
                     <li> contentType (카카오톡 유형) : ${sentInfos.contentType}</li>
                     <li> templateCode (템플릿 코드) : ${sentInfos.templateCode}</li>
                     <li> plusFriendID (카카오톡 채널 아이디) : ${sentInfos.plusFriendID}</li>
@@ -57,7 +57,7 @@
                     <fieldset class="fieldset3">
                         <legend>개별전송 정보 [ ${status.index+1} ]</legend>
                         <ul>
-                        	<li>serialNum </li>
+                            <li>serialNum </li>
                             <li>state (전송상태 코드) : ${msgInfo.state}</li>
                             <li>sendDT (전송일시) : ${msgInfo.sendDT}</li>
                             <li>receiveNum (수신번호) : ${msgInfo.receiveNum}</li>

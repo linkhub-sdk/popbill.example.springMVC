@@ -13,10 +13,10 @@
     <fieldset class="fieldset1">
         <legend>걔좌 관리</legend>
         <ul>
-        	<li><a href="EasyFinBankService/registBankAccount">registBankAccount</a> - 계좌 등록</li>
-        	<li><a href="EasyFinBankService/updateBankAccount">updateBankAccount</a> - 계좌 정보 수정</li>
-        	<li><a href="EasyFinBankService/getBankAccountInfo">getBankAccountInfo</a> - 계좌 정보 확인</li>
-        	<li><a href="EasyFinBankService/listBankAccount">listBankAccount</a> - 계좌 목록 확인</li>
+            <li><a href="EasyFinBankService/registBankAccount">registBankAccount</a> - 계좌 등록</li>
+            <li><a href="EasyFinBankService/updateBankAccount">updateBankAccount</a> - 계좌 정보 수정</li>
+            <li><a href="EasyFinBankService/getBankAccountInfo">getBankAccountInfo</a> - 계좌 정보 확인</li>
+            <li><a href="EasyFinBankService/listBankAccount">listBankAccount</a> - 계좌 목록 확인</li>
             <li><a href="EasyFinBankService/getBankAccountMgtURL">getBankAccountMGTURL</a> - 계좌 관리 팝업 URL</li>
             <li><a href="EasyFinBankService/closeBankAccount">closeBankAccount</a> - 계좌 정액제 해지신청</li>
             <li><a href="EasyFinBankService/revokeCloseBankAccount">revokeCloseBankAccount</a> - 계좌 정액제 해지신청 취소</li>
@@ -36,18 +36,18 @@
     <fieldset class="fieldset1">
         <legend>계좌 거래내역 관리</legend>
         <ul>
-        	<li><a href="EasyFinBankService/search">search</a> - 거래 내역 조회</li>
-        	<li><a href="EasyFinBankService/summary">summary</a> - 거래 내역 요약정보 조회</li>
-        	<li><a href="EasyFinBankService/saveMemo">saveMemo</a> - 거래 내역 메모저장</li>
+            <li><a href="EasyFinBankService/search">search</a> - 거래 내역 조회</li>
+            <li><a href="EasyFinBankService/summary">summary</a> - 거래 내역 요약정보 조회</li>
+            <li><a href="EasyFinBankService/saveMemo">saveMemo</a> - 거래 내역 메모저장</li>
         </ul>
     </fieldset>
     
     <fieldset class="fieldset1">
         <legend>포인트 관리 / 정액제 신청</legend>
         <ul>
-        	<li><a href="EasyFinBankService/getFlatRatePopUpURL">getFlatRatePopUpURL</a> - 정액제 서비스 신청 URL</li>
-        	<li><a href="EasyFinBankService/getFlatRateState">getFlatRateState</a> - 정액제 서비스 상태 확인</li>
-        	<li><a href="EasyFinBankService/getChargeInfo">getChargeInfo</a> - 과금정보 확인</li>
+            <li><a href="EasyFinBankService/getFlatRatePopUpURL">getFlatRatePopUpURL</a> - 정액제 서비스 신청 URL</li>
+            <li><a href="EasyFinBankService/getFlatRateState">getFlatRateState</a> - 정액제 서비스 상태 확인</li>
+            <li><a href="EasyFinBankService/getChargeInfo">getChargeInfo</a> - 과금정보 확인</li>
             <li><a href="BaseService/getBalance">getBalance</a> - 연동회원 잔여포인트 확인</li>
             <li><a href="BaseService/getChargeURL">getChargeURL</a> - 연동회원 포인트충전 URL</li>
             <li><a href="BaseService/getPaymentURL">GetPaymentURL</a> - 연동회원 포인트 결제내역 URL</li>

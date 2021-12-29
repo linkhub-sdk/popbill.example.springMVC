@@ -8,9 +8,8 @@
  *
  * <테스트 연동개발 준비사항>
  * 1) src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml 파일에 선언된
- * 	  util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 링크허브 가입시 메일로
+ *    util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 연동 신청시 메일로
  *    발급받은 인증정보를 참조하여 변경합니다.
- * 2) 팝빌 개발용 사이트(test.popbill.com)에 연동회원으로 가입합니다.
  *
  * Copyright 2006-2014 linkhub.co.kr, Inc. or its affiliates. All Rights Reserved.
  *
@@ -772,7 +771,7 @@ public class CashbillServiceExample {
         String QString = "";
 
         // 가맹점 종사업장 번호 조회
-        // └ 다수건 검색시 콤마(",")로 구분. 예) 1234,1000
+        // └ 다수건 검색시 콤마(",")로 구분. 예) "1234,1000"
         String FranchiseTaxRegID = "";
 
         // 페이지 번호

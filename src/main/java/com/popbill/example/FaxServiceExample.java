@@ -2,15 +2,14 @@
  * 팝빌 팩스 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/fax/tutorial/java
- * - 업데이트 일자 : 2021-12-27
+ * - 업데이트 일자 : 2021-12-29
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
  * <테스트 연동개발 준비사항>
  * 1) src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml 파일에 선언된
- * 	  util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 링크허브 가입시 메일로
+ *    util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 연동 신청시 메일로
  *    발급받은 인증정보를 참조하여 변경합니다.
- * 2) 팝빌 개발용 사이트(test.popbill.com)에 연동회원으로 가입합니다.
  *
  * Copyright 2006-2014 linkhub.co.kr, Inc. or its affiliates. All Rights Reserved.
  *
@@ -249,25 +248,25 @@ public class FaxServiceExample {
         String receiveName = "수신자 명칭";
 
         File file = new File("/Users/John/Desktop/test.pdf");
-		InputStream targetStream = null;
-		try {
-			targetStream = new FileInputStream(file);
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		
-		// 파일정보 배열, 최대 20개까지 입력가능.
-		FaxUploadFile[] fileList = new FaxUploadFile[1];
-		FaxUploadFile uf = new FaxUploadFile();
-		
-		// 파일명
-		uf.fileName = "test.pdf";
-		
-		// 파일 InputStream
-		uf.fileData = targetStream;
-		
-		fileList[0] = uf;
+        InputStream targetStream = null;
+        try {
+            targetStream = new FileInputStream(file);
+        } catch (FileNotFoundException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+        
+        // 파일정보 배열, 최대 20개까지 입력가능.
+        FaxUploadFile[] fileList = new FaxUploadFile[1];
+        FaxUploadFile uf = new FaxUploadFile();
+        
+        // 파일명
+        uf.fileName = "test.pdf";
+        
+        // 파일 InputStream
+        uf.fileData = targetStream;
+        
+        fileList[0] = uf;
 
         // 전송 예약일시
         Date reserveDT = null;
@@ -323,25 +322,25 @@ public class FaxServiceExample {
         receivers[1] = receiver1;
 
         File file = new File("/Users/John/Desktop/test.pdf");
-		InputStream targetStream = null;
-		try {
-			targetStream = new FileInputStream(file);
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		
-		// 파일정보 배열, 최대 20개까지 입력가능.
-		FaxUploadFile[] fileList = new FaxUploadFile[1];
-		FaxUploadFile uf = new FaxUploadFile();
-		
-		// 파일명
-		uf.fileName = "test.pdf";
-		
-		// 파일 InputStream
-		uf.fileData = targetStream;
-		
-		fileList[0] = uf;
+        InputStream targetStream = null;
+        try {
+            targetStream = new FileInputStream(file);
+        } catch (FileNotFoundException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+        
+        // 파일정보 배열, 최대 20개까지 입력가능.
+        FaxUploadFile[] fileList = new FaxUploadFile[1];
+        FaxUploadFile uf = new FaxUploadFile();
+        
+        // 파일명
+        uf.fileName = "test.pdf";
+        
+        // 파일 InputStream
+        uf.fileData = targetStream;
+        
+        fileList[0] = uf;
 
         // 전송예약일시
         Date reserveDT = null;
@@ -360,7 +359,7 @@ public class FaxServiceExample {
         try {
 
             String receiptNum = faxService.sendFAXBinary(testCorpNum, sendNum, receivers,
-            		fileList, reserveDT, testUserID, adsYN, title, requestNum);
+                    fileList, reserveDT, testUserID, adsYN, title, requestNum);
 
             m.addAttribute("Result", receiptNum);
 
@@ -450,14 +449,14 @@ public class FaxServiceExample {
 //      팩스수신정보를 기존전송정보와 다르게 재전송하는 경우, 아래의 코드 적용 (최대 1000건)
 //      Receiver[] receivers = new Receiver[2];
 
-//		Receiver receiver1 = new Receiver();
-//		receiver1.setReceiveName("수신자1");		// 수신자명
-//		receiver1.setReceiveNum("010111222");	// 수신팩스번호
+//      Receiver receiver1 = new Receiver();
+//      receiver1.setReceiveName("수신자1");		// 수신자명
+//      receiver1.setReceiveNum("010111222");	// 수신팩스번호
 //      receivers[0] = receiver1;
 
-//		Receiver receiver2 = new Receiver();
-//		receiver2.setReceiveName("수신자2");		// 수신자명
-//		receiver2.setReceiveNum("010333444");	// 수신팩스번호
+//      Receiver receiver2 = new Receiver();
+//      receiver2.setReceiveName("수신자2");		// 수신자명
+//      receiver2.setReceiveNum("010333444");	// 수신팩스번호
 //      receivers[1] = receiver1;
 
         // 전송 예약일시
@@ -566,14 +565,14 @@ public class FaxServiceExample {
 //      팩스수신정보를 기존전송정보와 다르게 재전송하는 경우, 아래의 코드 적용 (최대 1000건)
 //      Receiver[] receivers = new Receiver[2];
 
-//		Receiver receiver1 = new Receiver();
-//		receiver1.setReceiveName("수신자1");		// 수신자명
-//		receiver1.setReceiveNum("010111222");	// 수신팩스번호
+//      Receiver receiver1 = new Receiver();
+//      receiver1.setReceiveName("수신자1");		// 수신자명
+//      receiver1.setReceiveNum("010111222");	// 수신팩스번호
 //      receivers[0] = receiver1;
 
-//		Receiver receiver2 = new Receiver();
-//		receiver2.setReceiveName("수신자2");		// 수신자명
-//		receiver2.setReceiveNum("010333444");	// 수신팩스번호
+//      Receiver receiver2 = new Receiver();
+//      receiver2.setReceiveName("수신자2");		// 수신자명
+//      receiver2.setReceiveNum("010333444");	// 수신팩스번호
 //      receivers[1] = receiver1;
 
         // 전송 예약일시
