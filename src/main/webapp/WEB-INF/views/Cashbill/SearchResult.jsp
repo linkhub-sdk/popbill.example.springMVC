@@ -37,7 +37,7 @@
                         <li>issueDT (발행일시) : ${SearchInfo.issueDT}</li>
                         <li>regDT (등록일시) : ${SearchInfo.regDT}</li>
                         <li>taxationType (과세형태) : ${SearchInfo.taxationType}</li>
-                        <li>totalAmount (거래금액) : ${SearchInfo.totalAmount}</li>
+                        <li>totalAmount (합계금액) : ${SearchInfo.totalAmount}</li>
                         <li>tradeUsage (거래구분) : ${SearchInfo.tradeUsage}</li>
                         <li>tradeOpt (거래유형) : ${SearchInfo.tradeOpt}</li>
                         <li>tradeType (문서형태) : ${SearchInfo.tradeType}</li>
@@ -52,7 +52,7 @@
                         <li>ntsresultDT (국세청 처리결과 수신일시) : ${SearchInfo.ntsresultDT}</li>
                         <li>ntsresultCode (국세청 처리결과 상태코드) : ${SearchInfo.ntsresultCode}</li>
                         <li>ntsresultMessage (국세청 처리결과 메시지) : ${SearchInfo.ntsresultMessage}</li>
-                        <li>orgConfirmNum (원본 현금영수증 승인번호) : ${SearchInfo.orgConfirmNum}</li>
+                        <li>orgConfirmNum (원본 현금영수증 국세청 승인번호) : ${SearchInfo.orgConfirmNum}</li>
                         <li>orgTradeDate (원본 현금영수증 거래일자) : ${SearchInfo.orgTradeDate}</li>
                     </ul>
                 </fieldset>

@@ -21,7 +21,7 @@
                         <li>template (템플릿 내용) : ${info.template}</li>
                         <li>plusFriendID (카카오톡 채널 아이디) : ${info.plusFriendID}</li>
                         <li>ads (광고메시지) : ${info.ads}</li>
-                        <li>appendix(부가메시지) : ${info.appendix}</li>
+                        <li>appendix (부가메시지) : ${info.appendix}</li>
                         <c:if test="${info.btns != null}">
                             <c:forEach items="${info.btns}" var="btnInfo">
                                 <fieldset class="fieldset2">

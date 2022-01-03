@@ -15,47 +15,47 @@
         <fieldset class="fieldset2">
             <legend>Statement</legend>
             <ul>
-                <li> itemCode(명세서 코드) : ${Statement.itemCode}</li>
-                <li> mgtKey(문서번호) : ${Statement.mgtKey}</li>
-                <li> formCode(맞춤양식 코드) : ${Statement.formCode}</li>
-                <li> writeDate(작성일자) : ${Statement.writeDate}</li>
-                <li> taxType(세금형태) : ${Statement.taxType}</li>
-                <li> purposeType(영수/청구) : ${Statement.purposeType}</li>
-                <li> serialNum(일련번호) : ${Statement.serialNum}</li>
-                <li> taxTotal(세액 합계) : ${Statement.taxTotal}</li>
-                <li> supplyCostTotal(공급가액 합계) : ${Statement.supplyCostTotal}</li>
-                <li> totalAmount(합계금액) : ${Statement.totalAmount}</li>
-                <li> remark1(비고1) : ${Statement.remark1}</li>
-                <li> remark2(비고2) : ${Statement.remark2}</li>
-                <li> remark3(비고3) : ${Statement.remark3}</li>
+                <li>itemCode (명세서 코드) : ${Statement.itemCode}</li>
+                <li>mgtKey (문서번호) : ${Statement.mgtKey}</li>
+                <li>formCode (맞춤양식 코드) : ${Statement.formCode}</li>
+                <li>writeDate (작성일자) : ${Statement.writeDate}</li>
+                <li>taxType (세금형태) : ${Statement.taxType}</li>
+                <li>purposeType (영수/청구) : ${Statement.purposeType}</li>
+                <li>serialNum (일련번호) : ${Statement.serialNum}</li>
+                <li>taxTotal (세액 합계) : ${Statement.taxTotal}</li>
+                <li>supplyCostTotal (공급가액 합계) : ${Statement.supplyCostTotal}</li>
+                <li>totalAmount (합계금액) : ${Statement.totalAmount}</li>
+                <li>remark1 (비고1) : ${Statement.remark1}</li>
+                <li>remark2 (비고2) : ${Statement.remark2}</li>
+                <li>remark3 (비고3) : ${Statement.remark3}</li>
 
-                <li> senderCorpNum(발신자 사업자번호) : ${Statement.senderCorpNum}</li>
-                <li> senderTaxRegID(발신자 종사업장번호) : ${Statement.senderTaxRegID}</li>
-                <li> senderCorpName(발신자 상호) : ${Statement.senderCorpName}</li>
-                <li> senderCEOName(발신자 대표자 성명) : ${Statement.senderCEOName}</li>
-                <li> senderAddr(발신자 주소) : ${Statement.senderAddr}</li>
-                <li> senderBizType(발신자 업태) : ${Statement.senderBizType}</li>
-                <li> senderBizClass(발신자 종목) : ${Statement.senderBizClass}</li>
-                <li> senderContactName(발신자 성명) : ${Statement.senderContactName}</li>
-                <li> senderDeptName(발신자 부서명) : ${Statement.senderDeptName}</li>
-                <li> senderTEL(발신자 연락처) : ${Statement.senderTEL}</li>
-                <li> senderHP(발신자 휴대전화) : ${Statement.senderHP}</li>
-                <li> senderEmail(발신자 이메일주소) : ${Statement.senderEmail}</li>
-                <li> senderFAX(발신자 팩스번호) : ${Statement.senderFAX}</li>
+                <li>senderCorpNum (발신자 사업자번호) : ${Statement.senderCorpNum}</li>
+                <li>senderTaxRegID (발신자 종사업장번호) : ${Statement.senderTaxRegID}</li>
+                <li>senderCorpName (발신자 상호) : ${Statement.senderCorpName}</li>
+                <li>senderCEOName (발신자 대표자 성명) : ${Statement.senderCEOName}</li>
+                <li>senderAddr (발신자 주소) : ${Statement.senderAddr}</li>
+                <li>senderBizType (발신자 업태) : ${Statement.senderBizType}</li>
+                <li>senderBizClass (발신자 종목) : ${Statement.senderBizClass}</li>
+                <li>senderContactName (발신자 성명) : ${Statement.senderContactName}</li>
+                <li>senderDeptName (발신자 부서명) : ${Statement.senderDeptName}</li>
+                <li>senderTEL (발신자 연락처) : ${Statement.senderTEL}</li>
+                <li>senderHP (발신자 휴대전화) : ${Statement.senderHP}</li>
+                <li>senderEmail (발신자 이메일주소) : ${Statement.senderEmail}</li>
+                <li>senderFAX (발신자 팩스번호) : ${Statement.senderFAX}</li>
 
-                <li> receiverCorpNum(수신자 사업자번호) : ${Statement.receiverCorpNum}</li>
-                <li> receiverTaxRegID(수신자 종사업장번호) : ${Statement.receiverTaxRegID}</li>
-                <li> receiverCorpName(수신자 상호) : ${Statement.receiverCorpName}</li>
-                <li> receiverCEOName(수신자 대표자 성명) : ${Statement.receiverCEOName}</li>
-                <li> receiverAddr(수신자 주소) : ${Statement.receiverAddr}</li>
-                <li> receiverBizType(수신자 업태) : ${Statement.receiverBizType}</li>
-                <li> receiverBizClass(수신자 종목) : ${Statement.receiverBizClass}</li>
-                <li> receiverContactName(수신자 성명) : ${Statement.receiverContactName}</li>
-                <li> receiverDeptName(수신자 부서명) : ${Statement.receiverDeptName}</li>
-                <li> receiverTEL(수신자 연락처) : ${Statement.receiverTEL}</li>
-                <li> receiverHP(수신자 휴대전화) : ${Statement.receiverHP}</li>
-                <li> receiverEmail(수신자 이메일주소) : ${Statement.receiverEmail}</li>
-                <li> receiverFAX(수신자 팩스번호) : ${Statement.receiverFAX}</li>
+                <li>receiverCorpNum (수신자 사업자번호) : ${Statement.receiverCorpNum}</li>
+                <li>receiverTaxRegID (수신자 종사업장번호) : ${Statement.receiverTaxRegID}</li>
+                <li>receiverCorpName (수신자 상호) : ${Statement.receiverCorpName}</li>
+                <li>receiverCEOName (수신자 대표자 성명) : ${Statement.receiverCEOName}</li>
+                <li>receiverAddr (수신자 주소) : ${Statement.receiverAddr}</li>
+                <li>receiverBizType (수신자 업태) : ${Statement.receiverBizType}</li>
+                <li>receiverBizClass (수신자 종목) : ${Statement.receiverBizClass}</li>
+                <li>receiverContactName (수신자 성명) : ${Statement.receiverContactName}</li>
+                <li>receiverDeptName (수신자 부서명) : ${Statement.receiverDeptName}</li>
+                <li>receiverTEL (수신자 연락처) : ${Statement.receiverTEL}</li>
+                <li>receiverHP (수신자 휴대전화) : ${Statement.receiverHP}</li>
+                <li>receiverEmail (수신자 이메일주소) : ${Statement.receiverEmail}</li>
+                <li>receiverFAX (수신자 팩스번호) : ${Statement.receiverFAX}</li>
             </ul>
 
             <c:forEach items="${Statement.detailList}" var="StatementDetail" varStatus="status">

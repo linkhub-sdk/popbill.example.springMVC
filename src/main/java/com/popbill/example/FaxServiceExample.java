@@ -2,13 +2,13 @@
  * 팝빌 팩스 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/fax/tutorial/java
- * - 업데이트 일자 : 2021-12-29
+ * - 업데이트 일자 : 2022-01-03
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
  * <테스트 연동개발 준비사항>
  * 1) src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml 파일에 선언된
- *    util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 연동 신청시 메일로
+ *    util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 연동신청 시 메일로
  *    발급받은 인증정보를 참조하여 변경합니다.
  *
  * Copyright 2006-2014 linkhub.co.kr, Inc. or its affiliates. All Rights Reserved.
@@ -121,6 +121,7 @@ public class FaxServiceExample {
          */
 
         // 발신번호
+        // 팝빌에 등록되지 않은 번호를 입력하는 경우 '원발신번호'로 팩스 전송됨
         String sendNum = "07043042995";
 
         // 수신번호
@@ -138,7 +139,7 @@ public class FaxServiceExample {
             throw e1;
         }
 
-        // 전송 예약일시
+        // 예약전송일시(yyyyMMddHHmmss), null인 경우 즉시전송
         Date reserveDT = null;
 
         // 광고팩스 전송여부
@@ -176,6 +177,7 @@ public class FaxServiceExample {
          */
 
         // 발신번호
+        // 팝빌에 등록되지 않은 번호를 입력하는 경우 '원발신번호'로 팩스 전송됨
         String sendNum = "07043042991";
 
         // 수신자 정보 (최대 1000건)
@@ -183,12 +185,12 @@ public class FaxServiceExample {
 
         Receiver receiver1 = new Receiver();
         receiver1.setReceiveName("수신자1");      // 수신자명
-        receiver1.setReceiveNum("010111222");   // 수신팩스번호
+        receiver1.setReceiveNum("010111222");     // 수신팩스번호
         receivers[0] = receiver1;
 
         Receiver receiver2 = new Receiver();
         receiver2.setReceiveName("수신자2");      // 수신자명
-        receiver2.setReceiveNum("010333444");   // 수신팩스번호
+        receiver2.setReceiveNum("010333444");     // 수신팩스번호
         receivers[1] = receiver1;
 
         File[] files = new File[2];
@@ -200,7 +202,7 @@ public class FaxServiceExample {
             throw e1;
         }
 
-        // 전송예약일시
+        // 예약전송일시(yyyyMMddHHmmss), null인 경우 즉시전송
         Date reserveDT = null;
 
         // 광고팩스 전송여부
@@ -229,7 +231,7 @@ public class FaxServiceExample {
         return "result";
     }
 
-    
+
     @RequestMapping(value = "sendFAXBinary", method = RequestMethod.GET)
     public String sendFAXBinary(Model m) throws URISyntaxException {
         /*
@@ -239,6 +241,7 @@ public class FaxServiceExample {
          */
 
         // 발신번호
+        // 팝빌에 등록되지 않은 번호를 입력하는 경우 '원발신번호'로 팩스 전송됨
         String sendNum = "07043042995";
 
         // 수신번호
@@ -247,6 +250,7 @@ public class FaxServiceExample {
         // 수신자명
         String receiveName = "수신자 명칭";
 
+        // 전송할 File InputStream 생성을 위한 샘플코드.
         File file = new File("/Users/John/Desktop/test.pdf");
         InputStream targetStream = null;
         try {
@@ -255,20 +259,20 @@ public class FaxServiceExample {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
-        
+
         // 파일정보 배열, 최대 20개까지 입력가능.
         FaxUploadFile[] fileList = new FaxUploadFile[1];
         FaxUploadFile uf = new FaxUploadFile();
-        
+
         // 파일명
         uf.fileName = "test.pdf";
-        
+
         // 파일 InputStream
         uf.fileData = targetStream;
-        
+
         fileList[0] = uf;
 
-        // 전송 예약일시
+        // 예약전송일시(yyyyMMddHHmmss), null인 경우 즉시전송
         Date reserveDT = null;
 
         // 광고팩스 전송여부
@@ -296,7 +300,7 @@ public class FaxServiceExample {
 
         return "result";
     }
-    
+
     @RequestMapping(value = "sendFAXBinary_Multi", method = RequestMethod.GET)
     public String sendFAXBinary_Multi(Model m) throws URISyntaxException {
         /*
@@ -306,6 +310,7 @@ public class FaxServiceExample {
          */
 
         // 발신번호
+        // 팝빌에 등록되지 않은 번호를 입력하는 경우 '원발신번호'로 팩스 전송됨
         String sendNum = "07043042991";
 
         // 수신자 정보 (최대 1000건)
@@ -313,12 +318,12 @@ public class FaxServiceExample {
 
         Receiver receiver1 = new Receiver();
         receiver1.setReceiveName("수신자1");      // 수신자명
-        receiver1.setReceiveNum("010111222");   // 수신팩스번호
+        receiver1.setReceiveNum("010111222");     // 수신팩스번호
         receivers[0] = receiver1;
 
         Receiver receiver2 = new Receiver();
         receiver2.setReceiveName("수신자2");      // 수신자명
-        receiver2.setReceiveNum("010333444");   // 수신팩스번호
+        receiver2.setReceiveNum("010333444");     // 수신팩스번호
         receivers[1] = receiver1;
 
         File file = new File("/Users/John/Desktop/test.pdf");
@@ -329,20 +334,20 @@ public class FaxServiceExample {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
-        
+
         // 파일정보 배열, 최대 20개까지 입력가능.
         FaxUploadFile[] fileList = new FaxUploadFile[1];
         FaxUploadFile uf = new FaxUploadFile();
-        
+
         // 파일명
         uf.fileName = "test.pdf";
-        
+
         // 파일 InputStream
         uf.fileData = targetStream;
-        
+
         fileList[0] = uf;
 
-        // 전송예약일시
+        // 예약전송일시(yyyyMMddHHmmss), null인 경우 즉시전송
         Date reserveDT = null;
 
         // 광고팩스 전송여부
@@ -370,9 +375,9 @@ public class FaxServiceExample {
 
         return "result";
     }
-    
 
-    
+
+
     @RequestMapping(value = "resendFAX", method = RequestMethod.GET)
     public String resendFAX(Model m) {
         /*
@@ -391,14 +396,13 @@ public class FaxServiceExample {
         // 발신자명, 공백처리시 기존전송정보로 재전송
         String sendName = "발신자명";
 
-        // 수신번호/수신자명 모두 공백처리시 기존전송정보로 재전송
-        // 수신번호
+        // 수신번호, 공백처리시 기존전송정보로 재전송
         String receiveNum = "";
 
-        // 수신자명
+        // 수신자명, 공백처리시 기존전송정보로 재전송
         String receiveName = "";
 
-        // 전송 예약일시
+        // 예약전송일시(yyyyMMddHHmmss), null인 경우 즉시전송
         Date reserveDT = null;
 
         // 팩스 제목
@@ -451,15 +455,15 @@ public class FaxServiceExample {
 
 //      Receiver receiver1 = new Receiver();
 //      receiver1.setReceiveName("수신자1");      // 수신자명
-//      receiver1.setReceiveNum("010111222");   // 수신팩스번호
+//      receiver1.setReceiveNum("010111222");     // 수신팩스번호
 //      receivers[0] = receiver1;
 
 //      Receiver receiver2 = new Receiver();
 //      receiver2.setReceiveName("수신자2");      // 수신자명
-//      receiver2.setReceiveNum("010333444");   // 수신팩스번호
+//      receiver2.setReceiveNum("010333444");     // 수신팩스번호
 //      receivers[1] = receiver1;
 
-        // 전송 예약일시
+        // 예약전송일시(yyyyMMddHHmmss), null인 경우 즉시전송
         Date reserveDT = null;
 
         // 팩스제목
@@ -507,14 +511,13 @@ public class FaxServiceExample {
         // 발신자명, 공백처리시 기존전송정보로 재전송
         String sendName = "발신자명";
 
-        // 수신번호/수신자명 모두 공백처리시 기존전송정보로 재전송
-        // 수신번호
+        // 수신번호, 공백처리시 기존전송정보로 재전송
         String receiveNum = "";
 
-        // 수신자명
+        // 수신자명, 공백처리시 기존전송정보로 재전송
         String receiveName = "";
 
-        // 전송 예약일시
+        // 예약전송일시(yyyyMMddHHmmss), null인 경우 즉시전송
         Date reserveDT = null;
 
         // 팩스 제목
@@ -567,15 +570,15 @@ public class FaxServiceExample {
 
 //      Receiver receiver1 = new Receiver();
 //      receiver1.setReceiveName("수신자1");      // 수신자명
-//      receiver1.setReceiveNum("010111222");   // 수신팩스번호
+//      receiver1.setReceiveNum("010111222");    // 수신팩스번호
 //      receivers[0] = receiver1;
 
 //      Receiver receiver2 = new Receiver();
 //      receiver2.setReceiveName("수신자2");      // 수신자명
-//      receiver2.setReceiveNum("010333444");   // 수신팩스번호
+//      receiver2.setReceiveNum("010333444");    // 수신팩스번호
 //      receivers[1] = receiver1;
 
-        // 전송 예약일시
+        // 예약전송일시(yyyyMMddHHmmss), null인 경우 즉시전송
         Date reserveDT = null;
 
         // 팩스제목
@@ -606,7 +609,7 @@ public class FaxServiceExample {
          * - https://docs.popbill.com/fax/java/api#CancelReserve
          */
 
-        // 전송요청(sendFAX)시 발급받은 팩스접수번호
+        // 예약팩스 전송요청시 팝빌로부터 반환 받은 접수번호
         String receiptNum = "021010414344900001";
 
         try {
@@ -629,7 +632,7 @@ public class FaxServiceExample {
          * - https://docs.popbill.com/fax/java/api#CancelReserveRN
          */
 
-        // 예약팩스전송 요청시 할당한 전송요청번호
+        // 예약팩스 전송요청시 파트너가 할당한 전송요청번호
         String requestNum = "20210104-001";
 
         try {
@@ -652,7 +655,7 @@ public class FaxServiceExample {
          * - https://docs.popbill.com/fax/java/api#GetFaxResult
          */
 
-        // 전송요청(sendFAX)시 발급받은 접수번호
+        // 팩스 전송요청시 발급받은 접수번호
         String receiptNum = "021122715343100001";
 
         try {
@@ -675,7 +678,7 @@ public class FaxServiceExample {
          * - https://docs.popbill.com/fax/java/api#GetFaxResultRN
          */
 
-        // 팩스전송 요청시 할당한 전송요청번호
+        // 팩스 전송요청시 파트너가 할당한 전송요청번호
         String requestNum = "fax_mvc_1234";
 
         try {
@@ -705,13 +708,19 @@ public class FaxServiceExample {
         // 종료일자, 날짜형식(yyyyMMdd)
         String EDate = "20210710";
 
-        // 전송상태 배열, 1-대기, 2-성공, 3-실패, 4-취소
+        // 전송상태 배열 ("1" , "2" , "3" , "4" 중 선택, 다중 선택 가능)
+      	// └ 1 = 대기 , 2 = 성공 , 3 = 실패 , 4 = 취소 , 미입력 시 전체조회
         String[] State = {"1", "2", "3", "4"};
 
-        // 예약여부, false-전체조회, true-예약전송건 조회
+        // 예약여부 (false , true 중 택 1)
+      	// false = 전체조회, true = 예약전송건 조회
+      	// 미입력시 기본값 false 처리
         Boolean ReserveYN = false;
 
-        // 개인조회 여부, false- 전체조회, true-개인조회
+        // 개인조회 여부 (false , true 중 택 1)
+      	// false = 접수한 팩스 전체 조회 (관리자권한)
+      	// true = 해당 담당자 계정으로 접수한 팩스만 조회 (개인권한)
+      	// 미입력시 기본값 false 처리
         Boolean SenderOnly = false;
 
         // 페이지 번호
@@ -723,9 +732,8 @@ public class FaxServiceExample {
         // 정렬방향 D-내림차순, A-오름차순
         String Order = "D";
 
-        // 조회 검색어.
-        // 팩스 전송시 입력한 발신자명 또는 수신자명 기재.
-        // 조회 검색어를 포함한 발신자명 또는 수신자명을 검색합니다.
+        // 조회하고자 하는 발신자명 또는 수신자명
+        // - 미입력시 전체조회
         String QString = "";
 
         try {

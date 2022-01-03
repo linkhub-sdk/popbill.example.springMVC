@@ -2,13 +2,13 @@
  * 팝빌 홈택스 현금영수증 연계 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/htcashbill/tutorial/java
- * - 업데이트 일자 : 2021-12-29
+ * - 업데이트 일자 : 2022-01-03
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
  * <테스트 연동개발 준비사항>
  * 1) src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml 파일에 선언된
- *    util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 연동 신청시 메일로
+ *    util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 연동신청 시 메일로
  *    발급받은 인증정보를 참조하여 변경합니다.
  * 2) 홈택스 인증 처리를 합니다. (부서사용자등록 / 공인인증서 등록)
  *    - 팝빌로그인 > [홈택스연동] > [환경설정] > [인증 관리] 메뉴
@@ -152,10 +152,12 @@ public class HTCashbillServiceExample {
         // 수집 요청시 발급받은 작업아이디
         String jobID = "021010415000000005";
 
-        // 거래용도, P-소득공제용, C-지출증빙용
+        // 거래구분 배열 ("P" 와 "C" 중 선택, 다중 선택 가능)
+        // └ P = 소득공제용 , C = 지출증빙용 , 미입력 시 전체조회
         String[] TradeUsage = {"P", "C"};
 
-        // 거래유형, N-일반 현금영수증, C-취소현금영수증
+        // 문서형태 배열 ("N" 와 "C" 중 선택, 다중 선택 가능)
+        // └ N = 일반 현금영수증 , C = 취소현금영수증 , 미입력 시 전체조회
         String[] TradeType = {"N", "C"};
 
         // 페이지번호
@@ -164,7 +166,7 @@ public class HTCashbillServiceExample {
         // 페이지당 목록개수
         int PerPage = 10;
 
-        // 정렬방향 D-내림차순, A-오름차순
+        // 정렬방향, D-내림차순, A-오름차순
         String Order = "D";
 
         try {
@@ -190,10 +192,12 @@ public class HTCashbillServiceExample {
         // 수집 요청시 발급받은 작업아이디
         String jobID = "021010415000000005";
 
-        // 거래용도, P-소득공제용, C-지출증빙용
+        // 거래구분 배열 ("P" 와 "C" 중 선택, 다중 선택 가능)
+        // └ P = 소득공제용 , C = 지출증빙용
         String[] TradeUsage = {"P", "C"};
 
-        // 거래유형, N-일반 현금영수증, C-취소현금영수증
+        // 문서형태 배열 ("N" 와 "C" 중 선택, 다중 선택 가능)
+        // └ N = 일반 현금영수증 , C = 취소현금영수증
         String[] TradeType = {"N", "C"};
 
         try {
@@ -212,7 +216,6 @@ public class HTCashbillServiceExample {
     public String getCertificatePopUpURL(Model m) {
         /*
          * 홈택스연동 인증정보를 관리하는 페이지의 팝업 URL을 반환합니다.
-         * - 인증방식에는 부서사용자/공인인증서 인증 방식이 있습니다.
          * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/htcashbill/java/api#GetCertificatePopUpURL
          */
@@ -359,4 +362,3 @@ public class HTCashbillServiceExample {
     }
 
 }
-

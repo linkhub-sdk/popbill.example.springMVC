@@ -15,21 +15,21 @@
         <c:if test="${sentInfos != null}">
             <fieldset class="fieldset2">
                 <ul>
-                    
-                    <li> contentType (카카오톡 유형) : ${sentInfos.contentType}</li>
-                    <li> templateCode (템플릿 코드) : ${sentInfos.templateCode}</li>
-                    <li> plusFriendID (카카오톡 채널 아이디) : ${sentInfos.plusFriendID}</li>
-                    <li> sendNum (발신번호) : ${sentInfos.sendNum}</li>
-                    <li> altContent (대체문자 내용) : ${sentInfos.altContent}</li>
-                    <li> altSendType (대체문자 전송유형) : ${sentInfos.altSendType}</li>
-                    <li> reserveDT (예약일시) : ${sentInfos.reserveDT}</li>
-                    <li> adsYN (광고전송 여부) : ${sentInfos.adsYN}</li>
-                    <li> imageURL (친구톡 이미지 URL) : ${sentInfos.imageURL}</li>
-                    <li> sendCnt (전송건수) : ${sentInfos.sendCnt}</li>
-                    <li> successCnt (성공건수) : ${sentInfos.successCnt}</li>
-                    <li> failCnt (실패건수) : ${sentInfos.failCnt}</li>
-                    <li> altCnt (대체문자 건수) : ${sentInfos.altCnt}</li>
-                    <li> cancelCnt (취소건수) : ${sentInfos.cancelCnt}</li>
+
+                    <li>contentType (카카오톡 유형) : ${sentInfos.contentType}</li>
+                    <li>templateCode (템플릿 코드) : ${sentInfos.templateCode}</li>
+                    <li>plusFriendID (카카오톡 채널 아이디) : ${sentInfos.plusFriendID}</li>
+                    <li>sendNum (발신번호) : ${sentInfos.sendNum}</li>
+                    <li>altContent (대체문자 내용) : ${sentInfos.altContent}</li>
+                    <li>altSendType (대체문자 전송유형) : ${sentInfos.altSendType}</li>
+                    <li>reserveDT (예약일시) : ${sentInfos.reserveDT}</li>
+                    <li>adsYN (광고전송 여부) : ${sentInfos.adsYN}</li>
+                    <li>imageURL (친구톡 이미지 URL) : ${sentInfos.imageURL}</li>
+                    <li>sendCnt (전송건수) : ${sentInfos.sendCnt}</li>
+                    <li>successCnt (성공건수) : ${sentInfos.successCnt}</li>
+                    <li>failCnt (실패건수) : ${sentInfos.failCnt}</li>
+                    <li>altCnt (대체문자 건수) : ${sentInfos.altCnt}</li>
+                    <li>cancelCnt (취소건수) : ${sentInfos.cancelCnt}</li>
                 </ul>
             </fieldset>
         </c:if>

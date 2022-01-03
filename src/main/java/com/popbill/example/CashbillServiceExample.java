@@ -2,13 +2,13 @@
  * 팝빌 현금영수증 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/cashbill/tutorial/java
- * - 업데이트 일자 : 2021-12-29
+ * - 업데이트 일자 : 2022-01-03
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
  * <테스트 연동개발 준비사항>
  * 1) src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml 파일에 선언된
- *    util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 연동 신청시 메일로
+ *    util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 연동신청 시 메일로
  *    발급받은 인증정보를 참조하여 변경합니다.
  *
  * Copyright 2006-2014 linkhub.co.kr, Inc. or its affiliates. All Rights Reserved.
@@ -75,11 +75,10 @@ public class CashbillServiceExample {
         /*
          * 파트너가 현금영수증 관리 목적으로 할당하는 문서번호 사용여부를 확인합니다.
          * - 이미 사용 중인 문서번호는 중복 사용이 불가하고, 현금영수증이 삭제된 경우에만 문서번호의 재사용이 가능합니다.
-         * - 문서번호는 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
          * - https://docs.popbill.com/cashbill/java/api#CheckMgtKeyInUse
          */
 
-        // 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
+        // 현금영수증 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
         String mgtKey = "20210702-001";
 
         String isUseStr;
@@ -113,22 +112,22 @@ public class CashbillServiceExample {
         // 현금영수증 정보 객체
         Cashbill cashbill = new Cashbill();
 
-        // 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
+        // 현금영수증 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
         cashbill.setMgtKey("20211227-010");
 
         // 문서형태, {승인거래, 취소거래} 중 기재
         cashbill.setTradeType("승인거래");
 
-        // 취소거래시 기재, 원본 현금영수증 국세청 승인번호 - getInfo API를 통해 confirmNum 값 기재
+        // 취소거래시 기재, 원본 현금영수증 국세청 승인번호
         cashbill.setOrgConfirmNum("");
 
-        // 취소거래시 기재, 원본 현금영수증 거래일자 - getInfo API를 통해 tradeDate 값 기재
+        // 취소거래시 기재, 원본 현금영수증 거래일자
         cashbill.setOrgTradeDate("");
 
         // 과세형태, {과세, 비과세} 중 기재
         cashbill.setTaxationType("과세");
 
-        // 거래처 식별번호, 거래유형에 따라 작성
+        // 식별번호, 거래유형에 따라 작성
         // 소득공제용 - 주민등록/휴대폰/카드번호 기재가능
         // 지출증빙용 - 사업자번호/주민등록/휴대폰/카드번호 기재가능
         cashbill.setIdentityNum("0101112222");
@@ -136,7 +135,7 @@ public class CashbillServiceExample {
         // 거래구분, {소득공제용, 지출증빙용} 중 기재
         cashbill.setTradeUsage("소득공제용");
 
-        // 거래유형, {읿반, 도서공연, 대중교통} 중 기재
+        // 거래유형, {일반, 도서공연, 대중교통} 중 기재
         cashbill.setTradeOpt("대중교통");
 
         // 공급가액, 숫자만 가능
@@ -151,48 +150,46 @@ public class CashbillServiceExample {
         // 합계금액, 숫자만 가능, 봉사료 + 공급가액 + 부가세
         cashbill.setTotalAmount("11000");
 
-
-        // 발행자 사업자번호, '-'제외 10자리
+        // 가맹점 사업자번호, '-'제외 10자리
         cashbill.setFranchiseCorpNum("1234567890");
 
-        // 발행자 가맹점 종사업장번호
+        // 가맹점 종사업장 번호
         cashbill.setFranchiseTaxRegID("");
 
-        // 발행자 상호
-        cashbill.setFranchiseCorpName("발행자 상호");
+        // 가맹점 상호
+        cashbill.setFranchiseCorpName("가맹점 상호");
 
-        // 발행자 대표자명
-        cashbill.setFranchiseCEOName("발행자 대표자");
+        // 가맹점 대표자 성명
+        cashbill.setFranchiseCEOName("가맹점 대표자");
 
-        // 발행자 주소
-        cashbill.setFranchiseAddr("발행자 주소");
+        // 가맹점 주소
+        cashbill.setFranchiseAddr("가맹점 주소");
 
-        // 발행자 연락처
+        // 가맹점 연락처
         cashbill.setFranchiseTEL("07043042991");
 
-        // 발행안내 문자 전송여부
+        // 발행 안내 문자 전송여부
         cashbill.setSmssendYN(false);
 
-
-        // 거래처 고객명
+        // 구매자 성명
         cashbill.setCustomerName("고객명");
 
-        // 거래처 주문상품명
+        // 주문상품명
         cashbill.setItemName("상품명");
 
-        // 거래처 주문번호
+        // 주문번호
         cashbill.setOrderNumber("주문번호");
 
-        // 거래처 이메일
+        // 구매자 이메일
         // 팝빌 개발환경에서 테스트하는 경우에도 안내 메일이 전송되므로,
         // 실제 거래처의 메일주소가 기재되지 않도록 주의
         cashbill.setEmail("test@test.com");
 
-        // 거래처 휴대폰
+        // 구매자 휴대폰
         cashbill.setHp("010111222");
 
 
-        // 발행안내 메일제목, 미기재시 기본양식으로 메일 전송
+        // 발행 안내 메일제목, 미기재시 기본 양식으로 메일 전송
         String emailSubject = "";
 
         try {
@@ -219,11 +216,14 @@ public class CashbillServiceExample {
         // 현금영수증 정보 객체
         Cashbill cashbill = new Cashbill();
 
-        // 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
+        // 현금영수증 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
         cashbill.setMgtKey("20211227-030");
 
         // 문서형태, {승인거래, 취소거래} 중 기재
         cashbill.setTradeType("승인거래");
+
+        // 거래구분, {소득공제용, 지출증빙용} 중 기재
+        cashbill.setTradeUsage("소득공제용");
 
         // 거래유형, {일반, 도서공연, 대중교통} 중 기재
         cashbill.setTradeOpt("일반");
@@ -242,12 +242,6 @@ public class CashbillServiceExample {
         // 지출증빙용 - 사업자번호/주민등록/휴대폰/카드번호 기재가능
         cashbill.setIdentityNum("01011112222");
 
-        // 거래구분, {소득공제용, 지출증빙용} 중 기재
-        cashbill.setTradeUsage("소득공제용");
-
-        // 거래유형, {일반, 도서공연, 대중교통} 중 기재
-        cashbill.setTradeOpt("일반");
-
         // 공급가액, 숫자만 가능
         cashbill.setSupplyCost("10000");
 
@@ -261,41 +255,41 @@ public class CashbillServiceExample {
         cashbill.setTotalAmount("11000");
 
 
-        // 발행자 사업자번호, '-'제외 10자리
+        // 가맹점 사업자번호, '-'제외 10자리
         cashbill.setFranchiseCorpNum("1234567890");
 
-        // 발행자 가맹점 종사업장번호
+        // 가맹점 종사업장번호
         cashbill.setFranchiseTaxRegID("");
 
-        // 발행자 상호
-        cashbill.setFranchiseCorpName("발행자 상호");
+        // 가맹점 상호
+        cashbill.setFranchiseCorpName("가맹점 상호");
 
-        // 발행자 대표자명
-        cashbill.setFranchiseCEOName("발행자 대표자");
+        // 가맹점 대표자 성명
+        cashbill.setFranchiseCEOName("가맹점 대표자");
 
-        // 발행자 주소
-        cashbill.setFranchiseAddr("발행자 주소");
+        // 가맹점 주소
+        cashbill.setFranchiseAddr("가맹점 주소");
 
-        // 발행자 연락처
+        // 가맹점 연락처
         cashbill.setFranchiseTEL("07043042991");
 
-        // 발행안내 문자 전송여부
+        // 발행 안내 문자 전송여부
         cashbill.setSmssendYN(false);
 
 
-        // 거래처 고객명
+        // 구매자 성명
         cashbill.setCustomerName("고객명");
 
-        // 거래처 주문상품명
+        // 주문상품명
         cashbill.setItemName("상품명");
 
-        // 거래처 주문번호
+        // 주문번호
         cashbill.setOrderNumber("주문번호");
 
-        // 거래처 이메일
+        // 구매자 이메일
         cashbill.setEmail("test@test.com");
 
-        // 거래처 휴대폰
+        // 구매자 휴대폰
         cashbill.setHp("010111222");
 
 
@@ -327,26 +321,29 @@ public class CashbillServiceExample {
         // 현금영수증 정보 객체
         Cashbill cashbill = new Cashbill();
 
-        // 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
+        // 현금영수증 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
         cashbill.setMgtKey(mgtKey);
 
         // 문서형태, {승인거래, 취소거래} 중 기재
         cashbill.setTradeType("승인거래");
 
-        // 취소거래시 기재, 원본현금영수증 국세청 승인번호 - getInfo API를 통해 confirmNum 값 기재
-        //cashbill.setOrgConfirmNum("");
+        // 거래구분, {소득공제용, 지출증빙용} 중 기재
+        cashbill.setTradeUsage("소득공제용");
 
+        // 취소거래시 기재, 원본 현금영수증 국세청 승인번호 - getInfo API를 통해 confirmNum 값 기재
+        //cashbill.setOrgConfirmNum("");
 
         // 과세형태, {과세, 비과세} 중 기재
         cashbill.setTaxationType("과세");
+
+        // 거래유형, {일반, 도서공연, 대중교통} 중 기재
+        // - 미입력시 기본값 "일반" 처리
+        cashbill.setTradeOpt("일반");
 
         // 거래처 식별번호, 거래유형에 따라 작성
         // 소득공제용 - 주민등록/휴대폰/카드번호 기재가능
         // 지출증빙용 - 사업자번호/주민등록/휴대폰/카드번호 기재가능
         cashbill.setIdentityNum("01011112222");
-
-        // 거래유형, {소득공제용, 지출증빙용} 중 기재
-        cashbill.setTradeUsage("소득공제용");
 
         // 공급가액, 숫자만 가능
         cashbill.setSupplyCost("10000");
@@ -360,42 +357,41 @@ public class CashbillServiceExample {
         // 합계금액, 숫자만 가능, 봉사료 + 공급가액 + 부가세
         cashbill.setTotalAmount("11000");
 
-        // 발행자 사업자번호, '-'제외 10자리
+        // 가맹점 사업자번호, '-'제외 10자리
         cashbill.setFranchiseCorpNum("1234567890");
 
-        // 발행자 가맹점 종사업장번호
+        // 가맹점 종사업장번호
         cashbill.setFranchiseTaxRegID("");
 
-        // 발행자 상호
-        cashbill.setFranchiseCorpName("발행자 상호_수정");
+        // 가맹점 상호
+        cashbill.setFranchiseCorpName("가맹점 상호_수정");
 
-        // 발행자 대표자명
-        cashbill.setFranchiseCEOName("발행자 대표자_수정");
+        // 가맹점 대표자 성명
+        cashbill.setFranchiseCEOName("가맹점 대표자_수정");
 
-        // 발행자 주소
-        cashbill.setFranchiseAddr("발행자 주소");
+        // 가맹점 주소
+        cashbill.setFranchiseAddr("가맹점 주소");
 
-        // 발행자 연락처
+        // 가맹점 연락처
         cashbill.setFranchiseTEL("07043042991");
 
-        // 발행안내 문자 전송여부
+        // 발행 안내 문자 전송여부
         cashbill.setSmssendYN(false);
 
-        // 거래처 고객명
+        // 구매자 성명
         cashbill.setCustomerName("고객명");
 
-        // 거래처 주문상품명
+        // 주문상품명
         cashbill.setItemName("상품명");
 
-        // 거래처 주문번호
+        // 주문번호
         cashbill.setOrderNumber("주문번호");
 
-        // 거래처 이메일
+        // 구매자 이메일
         cashbill.setEmail("test@test.com");
 
-        // 거래처 휴대폰
+        // 구매자 휴대폰
         cashbill.setHp("010111222");
-
 
         try {
 
@@ -498,13 +494,13 @@ public class CashbillServiceExample {
          * - [임시저장] 상태의 현금영수증은 [발행(Issue API)]을 해야만 국세청에 전송됩니다.
          */
 
-        // 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
+        // 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
         String mgtKey = "20190104-001";
 
-        // 원본현금영수증 승인번호
+        // 원본 현금영수증 국세청 승인번호
         String orgConfirmNum = "820116333";
 
-        // 원본현금영수증 거래일자
+        // 원본 현금영수증 거래일자
         String orgTradeDate = "20190102";
 
 
@@ -529,16 +525,16 @@ public class CashbillServiceExample {
          * - [임시저장] 상태의 현금영수증은 [발행(Issue API)]을 해야만 국세청에 전송됩니다.
          */
 
-        // 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
+        // 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
         String mgtKey = "20190104-001";
 
-        // 원본현금영수증 승인번호
+        // 원본 현금영수증 국세청 승인번호
         String orgConfirmNum = "820116333";
 
-        // 원본현금영수증 거래일자
+        // 원본 현금영수증 거래일자
         String orgTradeDate = "20190103";
 
-        // 안내문자 전송여부
+        // 안내 문자 전송여부
         Boolean smssendYN = false;
 
         // 부분취소 여부, false 기재시
@@ -583,13 +579,13 @@ public class CashbillServiceExample {
          * - https://docs.popbill.com/cashbill/java/api#RevokeRegistIssue
          */
 
-        // 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
+        // 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
         String mgtKey = "20210701-001";
 
-        // 원본현금영수증 승인번호
+        // 원본 현금영수증 국세청 승인번호
         String orgConfirmNum = "820116333";
 
-        // 원본현금영수증 거래일자
+        // 원본 현금영수증 거래일자
         String orgTradeDate = "201901003";
 
         try {
@@ -615,16 +611,16 @@ public class CashbillServiceExample {
          * - https://docs.popbill.com/cashbill/java/api#RevokeRegistIssue
          */
 
-        // 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
+        // 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
         String mgtKey = "20210701-001";
 
-        // 원본현금영수증 승인번호
+        // 원본 현금영수증 국세청 승인번호
         String orgConfirmNum = "820116333";
 
-        // 원본현금영수증 거래일자
+        // 원본 현금영수증 거래일자
         String orgTradeDate = "20190103";
 
-        // 안내문자 전송여부
+        // 안내 문자 전송여부
         Boolean smssendYN = false;
 
         // 발행 메모
@@ -743,7 +739,8 @@ public class CashbillServiceExample {
          * - https://docs.popbill.com/cashbill/java/api#Search
          */
 
-        // 일자유형, R-등록일자, T-거래일자, I-발행일자
+        // 일자 유형 ("R" , "T" , "I" 중 택 1)
+        // └ R = 등록일자 , T = 거래일자 , I = 발행일자
         String DType = "T";
 
         // 시작일자, 날짜형식(yyyyMMdd)
@@ -752,22 +749,31 @@ public class CashbillServiceExample {
         // 종료일자, 날짜형식(yyyyMMdd)
         String EDate = "20211227";
 
-        // 상태코드 배열, 2,3번째 자리에 와일드카드(*) 사용 가능
+        // 상태코드 배열 (2,3번째 자리에 와일드카드(*) 사용 가능)
+        // - 미입력시 전체조회
         String[] State = {"100", "2**", "3**", "4**"};
 
-        // 문서형태 배열,  N-승인거래, C-취소거래
+        // 문서형태 배열 ("N" , "C" 중 선택, 다중 선택 가능)
+        // - N = 승인거래 , C = 취소거래
+        // - 미입력시 전체조회
         String[] TradeType = {"N", "C"};
 
-        // 거래구분 배열, P-소득공제용, C-지출증빙용
+        // 거래구분 배열 ("P" , "C" 중 선택, 다중 선택 가능)
+        // - P = 소득공제용 , C = 지출증빙용
+        // - 미입력시 전체조회
         String[] TradeUsage = {"P", "C"};
 
-        // 거래유형 배열, N-일반, B-도서공연, T-대중교통
+        // 거래유형 배열 ("N" , "B" , "T" 중 선택, 다중 선택 가능)
+        // - N = 일반 , B = 도서공연 , T = 대중교통
+        // - 미입력시 전체조회
         String[] TradeOpt = {"N", "B", "T"};
 
-        // 과세형태 배열, T-과세, N-비과세
+        // 과세형태 배열 ("T" , "N" 중 선택, 다중 선택 가능)
+        // - T = 과세 , N = 비과세
+        // - 미입력시 전체조회
         String[] TaxationType = {"T", "N"};
 
-        // 식별번호 조회, 미기재시 전체조회
+        // 식별번호 조회 (미기재시 전체조회)
         String QString = "";
 
         // 가맹점 종사업장 번호 조회
@@ -780,7 +786,7 @@ public class CashbillServiceExample {
         // 페이지당 목록개수, 최대 1000건
         int PerPage = 20;
 
-        // 정렬방향, A-오름차순,  D-내림차순
+        // 정렬방향, A-오름차순, D-내림차순
         String Order = "D";
 
 
@@ -1123,10 +1129,10 @@ public class CashbillServiceExample {
          * - https://docs.popbill.com/cashbill/java/api#AssignMgtKey
          */
 
-        // 현금영수증 아이템키, 문서 목록조회(Search) API의 반환항목중 ItemKey 참조
+        // 현금영수증 팝빌번호, 문서 목록조회(Search) API의 반환항목중 ItemKey 참조
         String itemKey = "021080716195300001";
 
-        // 할당할 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
+        // 현금영수증 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
         String mgtKey = "20210807-100";
 
         try {

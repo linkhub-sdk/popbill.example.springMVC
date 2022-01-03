@@ -16,12 +16,12 @@
             <fieldset class="fieldset2">
                 <legend>검색결과 정보</legend>
                 <ul>
-                    <li> code (응답코드) : ${SearchResult.code}</li>
-                    <li> message (응답 메시지) : ${SearchResult.message}</li>
-                    <li> total (전체 검색개수) : ${SearchResult.total}</li>
-                    <li> perPage (페이지당 목록개수) : ${SearchResult.perPage}</li>
-                    <li> pageNum (페이지번호) : ${SearchResult.pageNum}</li>
-                    <li> pageCount (페이지수) : ${SearchResult.pageCount}</li>
+                    <li>code (응답코드) : ${SearchResult.code}</li>
+                    <li>message (응답 메시지) : ${SearchResult.message}</li>
+                    <li>total (전체 검색개수) : ${SearchResult.total}</li>
+                    <li>perPage (페이지당 목록개수) : ${SearchResult.perPage}</li>
+                    <li>pageNum (페이지번호) : ${SearchResult.pageNum}</li>
+                    <li>pageCount (페이지수) : ${SearchResult.pageCount}</li>
                 </ul>
             </fieldset>
         </c:if>
@@ -41,7 +41,7 @@
                         <li>purposeType (영수/청구) : ${SearchInfo.purposeType}</li>
                         <li>issueDT (발행일시) : ${SearchInfo.issueDT}</li>
                         <li>lateIssueYN (지연발행 여부) : ${SearchInfo.lateIssueYN}</li>
-                        
+
                         <li>openYN (개봉여부) : ${SearchInfo.openYN}</li>
                         <li>openDT (개봉일시) : ${SearchInfo.openDT}</li>
                         <li>stateCode (상태코드) : ${SearchInfo.stateCode}</li>

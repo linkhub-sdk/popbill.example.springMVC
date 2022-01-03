@@ -52,7 +52,7 @@
                     <li>openYN (개봉 여부) : ${TaxinvoiceInfo.openYN}</li>
                     <li>openDT (개봉 일시) : ${TaxinvoiceInfo.openDT}</li>
                     <li>ntsresult (국세청 전송결과) : ${TaxinvoiceInfo.NTSResult}</li>
-                    <li>ntsconfirmNum (국세청승인번호) : ${TaxinvoiceInfo.NTSConfirmNum}</li>
+                    <li>ntsconfirmNum (국세청 승인번호) : ${TaxinvoiceInfo.NTSConfirmNum}</li>
                     <li>ntssendDT (국세청 전송일시) : ${TaxinvoiceInfo.NTSSendDT}</li>
                     <li>ntsresultDT (국세청 결과 수신일시) : ${TaxinvoiceInfo.NTSResultDT}</li>
                     <li>ntssendErrCode (전송실패 사유코드) : ${TaxinvoiceInfo.NTSSendErrCode}</li>
@@ -100,7 +100,7 @@
                         <li>openYN (개봉 여부) : ${TaxinvoiceInfo.openYN}</li>
                         <li>openDT (개봉 일시) : ${TaxinvoiceInfo.openDT}</li>
                         <li>ntsresult (국세청 전송결과) : ${TaxinvoiceInfo.NTSResult}</li>
-                        <li>ntsconfirmNum (국세청승인번호) : ${TaxinvoiceInfo.NTSConfirmNum}</li>
+                        <li>ntsconfirmNum (국세청 승인번호) : ${TaxinvoiceInfo.NTSConfirmNum}</li>
                         <li>ntssendDT (국세청 전송일시) : ${TaxinvoiceInfo.NTSSendDT}</li>
                         <li>ntsresultDT (국세청 결과 수신일시) : ${TaxinvoiceInfo.NTSResultDT}</li>
                         <li>ntssendErrCode (전송실패 사유코드) : ${TaxinvoiceInfo.NTSSendErrCode}</li>

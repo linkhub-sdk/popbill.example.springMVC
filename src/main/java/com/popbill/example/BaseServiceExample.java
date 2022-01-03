@@ -2,7 +2,7 @@
  * 팝빌 Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/taxinvoice/tutorial/java
- * - 업데이트 일자 : 2021-12-29
+ * - 업데이트 일자 : 2022-01-03
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -183,7 +183,7 @@ public class BaseServiceExample {
 
         return "result";
     }
-    
+
     @RequestMapping(value = "getPaymentURL", method = RequestMethod.GET)
     public String getPaymentURL(Model m) throws PopbillException {
         /*
@@ -203,7 +203,7 @@ public class BaseServiceExample {
 
         return "result";
     }
-    
+
     @RequestMapping(value = "getUseHistoryURL", method = RequestMethod.GET)
     public String getUseHistoryURL(Model m) throws PopbillException {
         /*
@@ -232,47 +232,47 @@ public class BaseServiceExample {
 
         JoinForm joinInfo = new JoinForm();
 
-        // 링크아이디
-        joinInfo.setLinkID(testLinkID);
-
-        // 사업자등록번호
-        joinInfo.setCorpNum("1234567890");
-
-        // 대표자성명
-        joinInfo.setCEOName("대표자성명");
-
-        // 상호
-        joinInfo.setCorpName("상호");
-
-        // 주소
-        joinInfo.setAddr("주소");
-
-        // 업태
-        joinInfo.setBizType("업태");
-
-        // 종목
-        joinInfo.setBizClass("종목");
-
-        // 팝빌회원 아이디
+        // 아이디, 6자 이상 50자 미만
         joinInfo.setID("testkorea0328");
 
         // 팝빌회원 비밀번호 (8자 이상 20자 이하) 영문, 숫자 ,특수문자 조합
         joinInfo.setPassword("password123!@#");
 
-        // 담당자명
-        joinInfo.setContactName("담당자명");
+        // 연동신청 시 팝빌에서 발급받은 링크아이디
+        joinInfo.setLinkID(testLinkID);
 
-        // 담당자 연락처
+        // 사업자번호 (하이픈 '-' 제외 10 자리)
+        joinInfo.setCorpNum("1234567890");
+
+        // 대표자 성명, 최대 100자
+        joinInfo.setCEOName("대표자 성명");
+
+        // 상호, 최대 200자
+        joinInfo.setCorpName("상호");
+
+        // 사업장 주소, 최대 300자
+        joinInfo.setAddr("주소");
+
+        // 업태, 최대 100자
+        joinInfo.setBizType("업태");
+
+        // 종목, 최대 100자
+        joinInfo.setBizClass("종목");
+
+        // 담당자 성명, 최대 100자
+        joinInfo.setContactName("담당자 성명");
+
+        // 담당자 이메일, 최대 100자
+        joinInfo.setContactEmail("test@test.com");
+
+        // 담당자 연락처, 최대 20자
         joinInfo.setContactTEL("02-999-9999");
 
-        // 담당자 휴대폰번호
+        // 담당자 휴대폰번호, 최대 20자
         joinInfo.setContactHP("010-111-222");
 
-        // 담당자 팩스번호
+        // 담당자 팩스번호, 최대 20자
         joinInfo.setContactFAX("02-000-111");
-
-        // 담당자 메일주소
-        joinInfo.setContactEmail("test@test.com");
 
         try {
 
@@ -293,9 +293,9 @@ public class BaseServiceExample {
          * 연동회원 사업자번호에 등록된 담당자(팝빌 로그인 계정) 정보를 확인합니다.
          */
 
-        // 확인할 담당자 아이디
+        // 담당자 아이디
         String contactID = "testkorea";
-        
+
         try {
             ContactInfo response = taxinvoiceService.getContactInfo(testCorpNum, contactID);
 
@@ -332,25 +332,25 @@ public class BaseServiceExample {
 
         ContactInfo contactInfo = new ContactInfo();
 
-        // 담당자 아이디
-        contactInfo.setId(testUserID);
+        // 담당자 아이디, 6자 이상 50자 미만
+        contactInfo.setId("testid");
 
-        // 담당자 이메일주소
-        contactInfo.setEmail("test1234@test.com");
+        // 담당자 성명, 최대 100자
+        contactInfo.setPersonName("담당자 수정 테스트");
 
-        // 담당자 팩스번호
-        contactInfo.setFax("070-4304-2991");
-
-        // 담당자 휴대폰번호
-        contactInfo.setHp("010-1234-1234");
-
-        // 담당자명
-        contactInfo.setPersonName("담당지 수정 테스트");
-
-        // 담당자 연락처
+        // 담당자 연락처, 최대 20자
         contactInfo.setTel("070-1234-1234");
 
-        // 담당자 조회권한 1 - 개인권한 / 2 - 읽기권한  / 3 - 회사권한
+        // 담당자 휴대폰번호, 최대 20자
+        contactInfo.setHp("010-1234-1234");
+
+        // 담당자 팩스번호, 최대 20자
+        contactInfo.setFax("070-4304-2991");
+
+        // 담당자 이메일, 최대 100자
+        contactInfo.setEmail("test1234@test.com");
+
+        // 담당자 조회권한 1 - 개인권한 / 2 - 읽기권한 / 3 - 회사권한
         contactInfo.setSearchRole(3);
 
         try {
@@ -376,28 +376,28 @@ public class BaseServiceExample {
 
         ContactInfo contactInfo = new ContactInfo();
 
-        // 담당자 아이디
+        // 담당자 아이디, 6자 이상 50자 미만
         contactInfo.setId("testid");
 
         // 담당자 비밀번호 (8자 이상 20자 이하) 영문, 숫자 ,특수문자 조합
         contactInfo.setPassword("password123!@#");
 
-        // 담당자 이메일주소
-        contactInfo.setEmail("test1234@test.com");
+        // 담당자 성명, 최대 100자
+        contactInfo.setPersonName("담당자 수정 테스트");
 
-        // 담당자 팩스번호
-        contactInfo.setFax("070-4304-2991");
+        // 담당자 연락처, 최대 20자
+        contactInfo.setTel("070-1234-1234");
 
-        // 담당자 휴대폰번호
+        // 담당자 휴대폰번호, 최대 20자
         contactInfo.setHp("010-1234-1234");
 
-        // 담당자명
-        contactInfo.setPersonName("담당지 수정 테스트");
+        // 담당자 팩스번호, 최대 20자
+        contactInfo.setFax("070-4304-2991");
 
-        // 담당자 연락처
-        contactInfo.setTel("070-1234-1234");
-        
-        // 담당자 조회권한 1 - 개인권한 / 2 - 읽기권한  / 3 - 회사권한
+        // 담당자 이메일, 최대 100자
+        contactInfo.setEmail("test1234@test.com");
+
+        // 담당자 조회권한 1 - 개인권한 / 2 - 읽기권한 / 3 - 회사권한
         contactInfo.setSearchRole(3);
 
         try {
@@ -459,20 +459,20 @@ public class BaseServiceExample {
 
         CorpInfo corpInfo = new CorpInfo();
 
+        // 대표자 성명, 최대 100자
+        corpInfo.setCeoname("대표자 성명 수정 테스트");
+
+        // 상호, 최대 200자
+        corpInfo.setCorpName("상호 수정 테스트");
+
         // 주소, 최대 300자
         corpInfo.setAddr("주소 수정 테스트");
 
-        // 종목, 최대 40자
-        corpInfo.setBizClass("업종 수정 테스트");
-
-        // 업태, 최대 40자
+        // 업태, 최대 100자
         corpInfo.setBizType("업태 수정 테스트");
 
-        // 대표자 성명, 최대 30자
-        corpInfo.setCeoname("대표자명 수정 테스트");
-
-        // 상호, 최대 70자
-        corpInfo.setCorpName("상호 수정 테스트");
+        // 종목, 최대 100자
+        corpInfo.setBizClass("종목 수정 테스트");
 
         try {
             Response response = taxinvoiceService.updateCorpInfo(testCorpNum,

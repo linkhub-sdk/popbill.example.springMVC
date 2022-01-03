@@ -29,11 +29,11 @@
                 <li>invoicerBizClass (공급자 종목) : ${Taxinvoice.invoicerBizClass}</li>
                 <li>invoicerBizType (공급자 업태) : ${Taxinvoice.invoicerBizType}</li>
                 <li>invoicerDeptName (공급자 담당자 부서명) : ${Taxinvoice.invoicerDeptName}</li>
-                <li>invoicerContactName (공급자 담당자명) : ${Taxinvoice.invoicerContactName}</li>
+                <li>invoicerContactName (공급자 담당자 성명) : ${Taxinvoice.invoicerContactName}</li>
                 <li>invoicerTEL (공급자 담당자 연락처) : ${Taxinvoice.invoicerTEL}</li>
                 <li>invoicerHP (공급자 담당자 휴대폰번호) : ${Taxinvoice.invoicerHP}</li>
                 <li>invoicerEmail (공급자 담당자 메일) : ${Taxinvoice.invoicerEmail}</li>
-                <li>invoicerSMSSendYN (발행안내문자 전송여부) : ${Taxinvoice.invoicerSMSSendYN}</li>
+                <li>invoicerSMSSendYN (발행 안내 문자 전송여부) : ${Taxinvoice.invoicerSMSSendYN}</li>
 
                 <li>invoiceeType (공급받는자 구분) : ${Taxinvoice.invoiceeType}</li>
                 <li>invoiceeCorpNum (공급받는자 사업자번호) : ${Taxinvoice.invoiceeCorpNum}</li>
@@ -45,11 +45,11 @@
                 <li>invoiceeBizClass (공급받는자 종목) : ${Taxinvoice.invoiceeBizClass}</li>
                 <li>invoiceeBizType (공급받는자 업태) : ${Taxinvoice.invoiceeBizType}</li>
                 <li>invoiceeDeptName1 (공급받는자 담당자 부서명) : ${Taxinvoice.invoiceeDeptName1}</li>
-                <li>invoiceeContactName1 (공급받는자 담당자명) : ${Taxinvoice.invoiceeContactName1}</li>
+                <li>invoiceeContactName1 (공급받는자 담당자 성명) : ${Taxinvoice.invoiceeContactName1}</li>
                 <li>invoiceeTEL1 (공급받는자 담당자 연락처) : ${Taxinvoice.invoiceeTEL1}</li>
                 <li>invoiceeHP1 (공급받는자 담당자 휴대폰) : ${Taxinvoice.invoiceeHP1}</li>
                 <li>invoiceeEmail1 (공급받는자 담당자 메일) : ${Taxinvoice.invoiceeEmail1}</li>
-                <li>invoiceeSMSSendYN (역발행안내문자 전송여부) : ${Taxinvoice.invoiceeSMSSendYN}</li>
+                <li>invoiceeSMSSendYN (역발행 안내 문자 전송여부) : ${Taxinvoice.invoiceeSMSSendYN}</li>
                 <li>closeDownState (공급받는자 휴폐업상태) : ${Taxinvoice.closeDownState}</li>
                 <li>closeDownStateDate (공급받는자 휴폐업일자) : ${Taxinvoice.closeDownStateDate}</li>
 
@@ -62,17 +62,17 @@
                 <li>trusteeBizClass (수탁자 종목) : ${Taxinvoice.trusteeBizClass}</li>
                 <li>trusteeBizType (수탁자 업태) : ${Taxinvoice.trusteeBizType}</li>
                 <li>trusteeDeptName (수탁자 담당자 부서명) : ${Taxinvoice.trusteeDeptName}</li>
-                <li>trusteeContactName (수탁자 담당자명) : ${Taxinvoice.trusteeContactName}</li>
+                <li>trusteeContactName (수탁자 담당자 성명) : ${Taxinvoice.trusteeContactName}</li>
                 <li>trusteeTEL (수탁자 담당자 연락처) : ${Taxinvoice.trusteeTEL}</li>
                 <li>trusteeHP (수탁자 담당자 휴대폰) : ${Taxinvoice.trusteeHP}</li>
                 <li>trusteeEmail (수탁자 메일) : ${Taxinvoice.trusteeEmail}</li>
-                <li>trusteeSMSSendYN (안내문자 전송여부) : ${Taxinvoice.trusteeSMSSendYN}</li>
+                <li>trusteeSMSSendYN (안내 문자 전송여부) : ${Taxinvoice.trusteeSMSSendYN}</li>
 
                 <li>supplyCostTotal (공급가액 합계) : ${Taxinvoice.supplyCostTotal}</li>
                 <li>taxTotal (세액 합계) : ${Taxinvoice.taxTotal}</li>
                 <li>totalAmount (합계금액) : ${Taxinvoice.totalAmount}</li>
                 <li>modifyCode (수정사유코드) : ${Taxinvoice.modifyCode}</li>
-                <li>orgNTSConfirmNum (원본세금계산서 국세청승인번호) : ${Taxinvoice.orgNTSConfirmNum}</li>
+                <li>orgNTSConfirmNum (원본세금계산서 국세청 승인번호) : ${Taxinvoice.orgNTSConfirmNum}</li>
                 <li>purposeType (영수/청구) : ${Taxinvoice.purposeType}</li>
                 <li>serialNum (일련번호) : ${Taxinvoice.serialNum}</li>
                 <li>cash (현금) : ${Taxinvoice.cash}</li>
@@ -86,7 +86,7 @@
                 <li>ho (호) : ${Taxinvoice.ho}</li>
                 <li>businessLicenseYN (사업자등록증 이미지 첨부여부) : ${Taxinvoice.businessLicenseYN}</li>
                 <li>bankBookYN (통장사본 이미지 첨부여부) : ${Taxinvoice.bankBookYN}</li>
-                <li>NTSConfirmNum (국세청승인번호) : ${Taxinvoice.NTSConfirmNum}</li>
+                <li>NTSConfirmNum (국세청 승인번호) : ${Taxinvoice.NTSConfirmNum}</li>
             </ul>
             <fieldset class="fieldset3">
                 <legend>detailList (상세항목 배열)</legend>
@@ -109,7 +109,7 @@
                 <c:forEach items="${Taxinvoice.addContactList}" var="TaxinvoiceAddContact">
                     <ul>
                         <li>serialNum (일련번호) : ${TaxinvoiceAddContact.serialNum}</li>
-                        <li>contactName (담당자명) : ${TaxinvoiceAddContact.contactName}</li>
+                        <li>contactName (담당자 성명) : ${TaxinvoiceAddContact.contactName}</li>
                         <li>email (메일주소) : ${TaxinvoiceAddContact.email}</li>
                     </ul>
                 </c:forEach>

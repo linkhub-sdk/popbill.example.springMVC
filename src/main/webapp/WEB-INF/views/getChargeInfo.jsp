@@ -13,9 +13,9 @@
     <fieldset class="fieldset1">
         <legend>${requestScope['javax.servlet.forward.request_uri']}</legend>
         <ul>
-            <li>unitCost(단가) : ${ChargeInfo.unitCost}</li>
-            <li>chargeMethod(과금유형) : ${ChargeInfo.chargeMethod}</li>
-            <li>rateSystem(과금제도) : ${ChargeInfo.rateSystem}</li>
+            <li>unitCost (단가) : ${ChargeInfo.unitCost}</li>
+            <li>chargeMethod (과금유형) : ${ChargeInfo.chargeMethod}</li>
+            <li>rateSystem (과금제도) : ${ChargeInfo.rateSystem}</li>
         </ul>
     </fieldset>
 </div>

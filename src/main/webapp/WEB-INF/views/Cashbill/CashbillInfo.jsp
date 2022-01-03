@@ -22,7 +22,7 @@
                     <li>issueDT (발행일시) : ${CashbillInfo.issueDT}</li>
                     <li>regDT (등록일시) : ${CashbillInfo.regDT}</li>
                     <li>taxationType (과세형태) : ${CashbillInfo.taxationType}</li>
-                    <li>totalAmount (거래금액) : ${CashbillInfo.totalAmount}</li>
+                    <li>totalAmount (합계금액) : ${CashbillInfo.totalAmount}</li>
                     <li>tradeUsage (거래구분) : ${CashbillInfo.tradeUsage}</li>
                     <li>tradeOpt (거래유형) : ${CashbillInfo.tradeOpt}</li>
                     <li>tradeType (문서형태) : ${CashbillInfo.tradeType}</li>
@@ -37,7 +37,7 @@
                     <li>ntsresultDT (국세청 처리결과 수신일시) : ${CashbillInfo.ntsresultDT}</li>
                     <li>ntsresultCode (국세청 처리결과 상태코드) : ${CashbillInfo.ntsresultCode}</li>
                     <li>ntsresultMessage (국세청 처리결과 메시지) : ${CashbillInfo.ntsresultMessage}</li>
-                    <li>orgConfirmNum (원본 현금영수증 승인번호) : ${CashbillInfo.orgConfirmNum}</li>
+                    <li>orgConfirmNum (원본 현금영수증 국세청 승인번호) : ${CashbillInfo.orgConfirmNum}</li>
                     <li>orgTradeDate (원본 현금영수증 거래일자) : ${CashbillInfo.orgTradeDate}</li>
                 </ul>
             </fieldset>
@@ -54,7 +54,7 @@
                         <li>issueDT (발행일시) : ${CashbillInfo.issueDT}</li>
                         <li>regDT (등록일시) : ${CashbillInfo.regDT}</li>
                         <li>taxationType (과세형태) : ${CashbillInfo.taxationType}</li>
-                        <li>totalAmount (거래금액) : ${CashbillInfo.totalAmount}</li>
+                        <li>totalAmount (합계금액) : ${CashbillInfo.totalAmount}</li>
                         <li>tradeUsage (거래구분) : ${CashbillInfo.tradeUsage}</li>
                         <li>tradeOpt (거래유형) : ${CashbillInfo.tradeOpt}</li>
                         <li>tradeType (문서형태) : ${CashbillInfo.tradeType}</li>
@@ -69,7 +69,7 @@
                         <li>ntsresultDT (국세청 처리결과 수신일시) : ${CashbillInfo.ntsresultDT}</li>
                         <li>ntsresultCode (국세청 처리결과 상태코드) : ${CashbillInfo.ntsresultCode}</li>
                         <li>ntsresultMessage (국세청 처리결과 메시지) : ${CashbillInfo.ntsresultMessage}</li>
-                        <li>orgConfirmNum (원본 현금영수증 승인번호) : ${CashbillInfo.orgConfirmNum}</li>
+                        <li>orgConfirmNum (원본 현금영수증 국세청 승인번호) : ${CashbillInfo.orgConfirmNum}</li>
                         <li>orgTradeDate (원본 현금영수증 거래일자) : ${CashbillInfo.orgTradeDate}</li>
                     </ul>
                 </fieldset>

@@ -15,8 +15,8 @@
         <c:forEach items="${AutoDenyList}" var="AutoDenyInfo">
             <fieldset class="fieldset2">
                 <ul>
-                    <li>number(수신거부번호) : ${AutoDenyInfo.number}</li>
-                    <li>regDT(등록일시) : ${AutoDenyInfo.regDT}</li>
+                    <li>number (수신거부번호) : ${AutoDenyInfo.number}</li>
+                    <li>regDT (등록일시) : ${AutoDenyInfo.regDT}</li>
                 </ul>
             </fieldset>
         </c:forEach>

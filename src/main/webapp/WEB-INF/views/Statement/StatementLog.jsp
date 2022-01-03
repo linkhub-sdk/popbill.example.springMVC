@@ -15,12 +15,12 @@
         <c:forEach items="${StatementLogs}" var="StatementLog">
             <fieldset class="fieldset2">
                 <ul>
-                    <li>docLogType(로그타입) : ${StatementLog.docLogType}</li>
-                    <li>log(이력정보) : ${StatementLog.log}</li>
-                    <li>procType(처리형태) : ${StatementLog.procType}</li>
-                    <li>procMemo(처리메모) : ${StatementLog.procMemo}</li>
-                    <li>regDT(등록일시) : ${StatementLog.regDT}</li>
-                    <li>ip(아이피) : ${StatementLog.ip}</li>
+                    <li>docLogType (로그타입) : ${StatementLog.docLogType}</li>
+                    <li>log (이력정보) : ${StatementLog.log}</li>
+                    <li>procType (처리형태) : ${StatementLog.procType}</li>
+                    <li>procMemo (처리메모) : ${StatementLog.procMemo}</li>
+                    <li>regDT (등록일시) : ${StatementLog.regDT}</li>
+                    <li>ip (아이피) : ${StatementLog.ip}</li>
                 </ul>
             </fieldset>
         </c:forEach>

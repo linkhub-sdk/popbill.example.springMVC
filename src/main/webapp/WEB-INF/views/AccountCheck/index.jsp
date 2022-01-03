@@ -14,7 +14,7 @@
         <legend>예금주조회</legend>
         <ul>
             <li><a href="AccountCheckService/checkAccountInfo">checkAccountInfo</a> - 계좌성명 조회</li>
-            <li><a href="AccountCheckService/checkDepositorInfo">checkDepositorInfo</a> -  계좌실명 조회</li>
+            <li><a href="AccountCheckService/checkDepositorInfo">checkDepositorInfo</a> - 계좌실명 조회</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">

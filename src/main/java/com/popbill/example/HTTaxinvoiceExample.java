@@ -2,13 +2,13 @@
  * 팝빌 홈택스 전자세금계산서 연계 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/httaxinvoice/tutorial/java
- * - 업데이트 일자 : 2021-12-29
+ * - 업데이트 일자 : 2022-01-03
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
  * <테스트 연동개발 준비사항>
  * 1) src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml 파일에 선언된
- *    util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 연동 신청시 메일로
+ *    util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 연동신청 시 메일로
  *    발급받은 인증정보를 참조하여 변경합니다.
  * 2) 홈택스 인증 처리를 합니다. (부서사용자등록 / 공인인증서 등록)
  *    - 팝빌로그인 > [홈택스연동] > [환경설정] > [인증 관리] 메뉴
@@ -52,7 +52,6 @@ import com.popbill.api.hometax.HTTaxinvoiceSummary;
 import com.popbill.api.hometax.HTTaxinvoiceXMLResponse;
 import com.popbill.api.hometax.QueryType;
 
-
 /*
  * 팝빌 홈택스연계 전자세금계산서 API 예제.
  */
@@ -69,8 +68,8 @@ public class HTTaxinvoiceExample {
 
     // 팝빌회원 아이디
     @Value("#{EXAMPLE_CONFIG.TestUserID}")
-    private String testUserID;    
-    
+    private String testUserID;
+
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String home(Locale locale, Model model) {
         return "HTTaxinvoice/index";
@@ -86,7 +85,7 @@ public class HTTaxinvoiceExample {
         // 전자세금계산서 유형, SELL-매출, BUY-매입, TRUSTEE-수탁
         QueryType TIType = QueryType.SELL;
 
-        // 일자유형, W-작성일자, I-발행일자, S-전송일자
+        // 조회할 일자 유형, W-작성일자, I-발행일자, S-전송일자
         String DType = "S";
 
         // 시작일자, 날짜형식(yyyyMMdd)
@@ -107,7 +106,7 @@ public class HTTaxinvoiceExample {
 
         return "result";
     }
-    
+
     @RequestMapping(value = "getJobState", method = RequestMethod.GET)
     public String getJobState(Model m) {
         /*
@@ -160,19 +159,22 @@ public class HTTaxinvoiceExample {
         // 수집 요청시 발급받은 작업아이디
         String jobID = "021102215000000023";
 
-        // 문서형태, N-일반, M-수정
+        // 문서형태 배열 ("N" 와 "M" 중 선택, 다중 선택 가능)
+    		// └ N = 일반 , M = 수정 , 미입력 시 전체조회
         String[] Type = {"N", "M"};
 
-        // 과세형태, T-과세, N-면세, Z-영세
+        // 과세형태 배열 ("T" , "N" , "Z" 중 선택, 다중 선택 가능)
+    		// └ T = 과세, N = 면세, Z = 영세 , 미입력 시 전체조회
         String[] TaxType = {"T", "Z", "N"};
 
-        // 영수/청구 R-영수, C-청구, N-없음
+        // 발행목적 배열 ("R" , "C", "N" 중 선택, 다중 선택 가능)
+    		// └ R = 영수, C = 청구, N = 없음, 미입력 시 전체조회
         String[] PurposeType = {"R", "C", "N"};
 
-        // 종사업장 유무, 공백-전체조회, 0-종사업장번호 없음, 1-종사업장번호 있음
+        // 종사업장번호 유무, 공백-전체조회, 0-종사업장번호 없음, 1-종사업장번호 있음
         String TaxRegIDYN = "";
 
-        // 종사업장 유형, S-공급자, B-공급받는자, T-수탁자
+        // 종사업장번호의 주체, S-공급자, B-공급받는자, T-수탁자
         String TaxRegIDType = "S";
 
         // 종사업장번호, 다수기재시 콤마(",")로 구분하여 구성 ex) "0001,0002"
@@ -186,8 +188,10 @@ public class HTTaxinvoiceExample {
 
         // 정렬방향 D-내림차순, A-오름차순
         String Order = "D";
-        
-        // 조회 검색어, 거래처 사업자번호 또는 거래처명 like 검색
+
+        // 거래처 상호 / 사업자번호 (사업자) / 주민등록번호 (개인) / "9999999999999" (외국인) 중 검색하고자 하는 정보 입력
+        // - 사업자번호 / 주민등록번호는 하이픈('-')을 제외한 숫자만 입력
+        // - 미입력시 전체조회
         String searchString = "";
 
         try {
@@ -214,27 +218,32 @@ public class HTTaxinvoiceExample {
         // 수집 요청시 발급받은 작업아이디
         String jobID = "021102215000000023";
 
-        // 문서형태, N-일반, M-수정
+        // 문서형태 배열 ("N" 와 "M" 중 선택, 다중 선택 가능)
+    		// └ N = 일반 , M = 수정 , 미입력 시 전체조회
         String[] Type = {"N", "M"};
 
-        // 과세형태, T-과세, N-면세, Z-영세
+        // 과세형태 배열 ("T" , "N" , "Z" 중 선택, 다중 선택 가능)
+    		// └ T = 과세, N = 면세, Z = 영세 , 미입력 시 전체조회
         String[] TaxType = {"T", "Z", "N"};
 
-        // 영수/청구 R-영수, C-청구, N-없음
+        // 발행목적 배열 ("R" , "C", "N" 중 선택, 다중 선택 가능)
+    		// └ R = 영수, C = 청구, N = 없음, 미입력 시 전체조회
         String[] PurposeType = {"R", "C", "N"};
 
-        // 종사업장 유무, 공백-전체조회, 0-종사업장번호 없음, 1-종사업장번호 있음
+        // 종사업장번호 유무, 공백-전체조회, 0-종사업장번호 없음, 1-종사업장번호 있음
         String TaxRegIDYN = "";
 
-        // 종사업장 유형, S-공급자, B-공급받는자, T-수탁자
+        // 종사업장번호의 주체, S-공급자, B-공급받는자, T-수탁자
         String TaxRegIDType = "S";
 
         // 종사업장번호, 다수기재시 콤마(",")로 구분하여 구성 ex) "0001,0002"
         String TaxRegID = "";
-        
-        // 조회 검색어, 거래처 사업자번호 또는 거래처명 like 검색
+
+        // 거래처 상호 / 사업자번호 (사업자) / 주민등록번호 (개인) / "9999999999999" (외국인) 중 검색하고자 하는 정보 입력
+    		// - 사업자번호 / 주민등록번호는 하이픈('-')을 제외한 숫자만 입력
+    		// - 미입력시 전체조회
         String searchString = "";
-        
+
         try {
             HTTaxinvoiceSummary summaryInfo = htTaxinvoiceService.summary(testCorpNum,
                     jobID, Type, TaxType, PurposeType, TaxRegIDYN, TaxRegIDType, TaxRegID,
@@ -247,7 +256,7 @@ public class HTTaxinvoiceExample {
         }
         return "HTTaxinvoice/Summary";
     }
-    
+
     @RequestMapping(value = "getTaxinvoice", method = RequestMethod.GET)
     public String getTaxinvoice(Model m) {
         /*
@@ -255,7 +264,7 @@ public class HTTaxinvoiceExample {
          * - https://docs.popbill.com/httaxinvoice/java/api#GetTaxinvoice
          */
 
-        // 전자세금계산서 국세청승인번호
+        // 전자세금계산서 국세청 승인번호
         String ntsconfirmNum = "202112044100020300000c0a";
 
         try {
@@ -279,7 +288,7 @@ public class HTTaxinvoiceExample {
          * - https://docs.popbill.com/httaxinvoice/java/api#GetXML
          */
 
-        // 전자세금계산서 국세청승인번호
+        // 전자세금계산서 국세청 승인번호
         String ntsconfirmNum = "20211202410002030000196d";
 
         try {
@@ -304,7 +313,7 @@ public class HTTaxinvoiceExample {
          * - https://docs.popbill.com/httaxinvoice/java/api#GetPopUpURL
          */
 
-        // 조회할 전자세금계산서 국세청승인번호
+        // 조회할 전자세금계산서 국세청 승인번호
         String NTSConfirmNum = "20211202410002030000196d";
 
         try {
@@ -320,7 +329,7 @@ public class HTTaxinvoiceExample {
 
         return "result";
     }
-    
+
     @RequestMapping(value = "getPrintURL", method = RequestMethod.GET)
     public String getPrintURL(Model m) {
         /*
@@ -329,7 +338,7 @@ public class HTTaxinvoiceExample {
          * - https://docs.popbill.com/httaxinvoice/java/api#GetPrintURL
          */
 
-        // 조회할 전자세금계산서 국세청승인번호
+        // 조회할 전자세금계산서 국세청 승인번호
         String NTSConfirmNum = "20161202410002030000196d";
 
         try {
@@ -345,12 +354,11 @@ public class HTTaxinvoiceExample {
 
         return "result";
     }
-    
+
     @RequestMapping(value = "getCertificatePopUpURL", method = RequestMethod.GET)
     public String getCertificatePopUpURL(Model m) {
         /*
          * 홈택스연동 인증정보를 관리하는 페이지의 팝업 URL을 반환합니다.
-         * - 인증방식에는 부서사용자/공인인증서 인증 방식이 있습니다.
          * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/httaxinvoice/java/api#GetCertificatePopUpURL
          */
@@ -500,7 +508,7 @@ public class HTTaxinvoiceExample {
 
         return "response";
     }
-    
+
     @RequestMapping(value = "getChargeInfo", method = RequestMethod.GET)
     public String chargeInfo(Model m) {
         /*
@@ -567,4 +575,3 @@ public class HTTaxinvoiceExample {
 
 
 }
-

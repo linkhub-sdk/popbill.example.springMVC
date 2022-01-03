@@ -31,10 +31,10 @@
                 <li>remark1 (비고1) : ${Taxinvoice.remark1}</li>
                 <li>remark2 (비고2) : ${Taxinvoice.remark2}</li>
                 <li>remark3 (비고3) : ${Taxinvoice.remark3}</li>
-                <li>ntsconfirmNum (국세청승인번호) : ${Taxinvoice.ntsconfirmNum}</li>
+                <li>ntsconfirmNum (국세청 승인번호) : ${Taxinvoice.ntsconfirmNum}</li>
 
                 <li>modifyCode (수정사유코드) : ${Taxinvoice.modifyCode}</li>
-                <li>orgNTSConfirmNum (원본 전자세금계산서 국세청승인번호) : ${Taxinvoice.orgNTSConfirmNum}</li>
+                <li>orgNTSConfirmNum (원본 전자세금계산서 국세청 승인번호) : ${Taxinvoice.orgNTSConfirmNum}</li>
 
                 <li>invoicerCorpNum (공급자 사업자번호) : ${Taxinvoice.invoicerCorpNum}</li>
                 <li>invoicerMgtKey (공급자 문서관리번호) : ${Taxinvoice.invoicerMgtKey}</li>

@@ -2,13 +2,13 @@
  * 팝빌 카카오톡 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/kakao/tutorial/java
- * - 업데이트 일자 : 2021-12-29
+ * - 업데이트 일자 : 2022-01-03
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
  * <테스트 연동개발 준비사항>
  * 1) src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml 파일에 선언된
- *    util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 연동 신청시 메일로
+ *    util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 연동신청 시 메일로
  *    발급받은 인증정보를 참조하여 변경합니다.
  * 2) 발신번호 사전등록을 합니다. (등록방법은 사이트/API 두가지 방식이 있습니다.)
  *    - 1. 팝빌 사이트 로그인 > [문자/팩스] > [카카오톡] > [발신번호 사전등록] 메뉴에서 등록
@@ -98,7 +98,7 @@ public class KakaoServiceExample {
     }
 
     @RequestMapping(value = "listPlusFriendID", method = RequestMethod.GET)
-    public String listPlusFriendID(Model m)  {
+    public String listPlusFriendID(Model m) {
         /*
          * 팝빌에 등록한 연동회원의 카카오톡 채널 목록을 확인합니다.
          * - https://docs.popbill.com/kakao/java/api#ListPlusFriendID
@@ -174,17 +174,17 @@ public class KakaoServiceExample {
 
         return "result";
     }
-    
+
     @RequestMapping(value = "getATSTemplate", method = RequestMethod.GET)
     public String getATSTemplate(Model m) {
         /*
          * 승인된 알림톡 템플릿 정보를 확인합니다.
          * - https://docs.popbill.com/kakao/java/api#getATSTemplate
          */
-        
+
         // 확인할 알림톡 템플릿 코드
         String templateCode = "021010000076";
-        
+
         try {
 
             ATSTemplate response = kakaoService.getATSTemplate(testCorpNum, templateCode, testUserID);
@@ -245,7 +245,8 @@ public class KakaoServiceExample {
         // 대체문자 내용 (최대 2000byte)
         String altContent = "대체문자 내용";
 
-        // 대체문자 전송유형, 공백-미전송, C-알림톡 내용전송, A-대체문자 내용 전송
+        // 대체문자 유형 (null , "C" , "A" 중 택 1)
+      	// null = 미전송, C = 알림톡과 동일 내용 전송 , A = {altContent}에 입력한 내용 전송
         String altSendType = "C";
 
         // 수신번호
@@ -261,10 +262,10 @@ public class KakaoServiceExample {
         // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
         // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
         String requestNum = "";
-        
+
         // 알림톡 버튼정보를 템플릿 신청시 기재한 버튼정보와 동일하게 전송하는 경우 null 처리.
         KakaoButton[] btns = null;
-        
+
         // 알림톡 버튼 URL에 #{템플릿변수}를 기재한경우 템플릿변수 영역을 변경하여 버튼정보 구성
 //        KakaoButton[] btns = new KakaoButton[1];
 //
@@ -306,9 +307,10 @@ public class KakaoServiceExample {
         // 발신번호 (팝빌에 등록된 발신번호만 이용가능)
         String senderNum = "07043042991";
 
-        // 대체문자 전송유형, 공백-미전송, C-알림톡 내용전송, A-대체문자 내용 전송
+        // 대체문자 유형 (null , "C" , "A" 중 택 1)
+      	// null = 미전송, C = 알림톡과 동일 내용 전송 , A = {altContent}에 입력한 내용 전송
         String altSendType = "";
-        
+
         // 알림톡 내용 (최대 1000자)
         String content = "[ 팝빌 ]\n";
         content += "신청하신 #{템플릿코드}에 대한 심사가 완료되어 승인 처리되었습니다.\n";
@@ -317,28 +319,29 @@ public class KakaoServiceExample {
         content += "팝빌 파트너센터 : 1600-8536\n";
         content += "support@linkhub.co.kr";
 
-        // 카카오톡 수신정보 배열, 최대 1000건
+        // 카카오톡 전송 정보 배열, 최대 1000건
         KakaoReceiver[] receivers = new KakaoReceiver[10];
+
         for (int i = 0; i < 10; i++) {
             KakaoReceiver message = new KakaoReceiver();
-            message.setReceiverNum("010111222");    // 수신번호
-            message.setReceiverName("수신자명" + i);    // 수신자명
-            message.setMessage(content);    // 알림톡 템플릿 내용, 최대 1000자
+            message.setReceiverNum("010111222");                   // 수신번호
+            message.setReceiverName("수신자명" + i);               // 수신자명
+            message.setMessage(content);                           // 알림톡 템플릿 내용, 최대 1000자
             message.setAltMessage("대체문자 개별내용입니다." + i); // 대체문자 내용
-            
+
           //수신자별 개별 버튼정보
 //            KakaoButton button = new KakaoButton();
 //            button.setN("타입1 버튼명"+i); // 버튼명
 //            button.setT("WL"); // 버튼타입
 //            button.setU1("http://"+i+"popbill.com"); // 버튼링크1
 //            button.setU2("http://"+i+"test.popbill.com"); // 버튼링크2
-//            
+//
 //            KakaoButton button02 = new KakaoButton();
 //            button02.setN("타입2 버튼명"+i); // 버튼명
 //            button02.setT("WL"); // 버튼타입
 //            button02.setU1("http://"+i+"popbill.com"); // 버튼링크1
 //            button02.setU2("http://"+i+"test.popbill.com"); // 버튼링크2
-//            
+//
 //            // 수신자별로 각기다른 버튼정보 추가.
 //            message.setBtns(new ArrayList<KakaoButton>());
 //            message.getBtns().add(button);
@@ -353,10 +356,10 @@ public class KakaoServiceExample {
         // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
         // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
         String requestNum = "";
-        
+
         // 알림톡 버튼정보를 템플릿 신청시 기재한 버튼정보와 동일하게 전송하는 경우 null 처리.
         KakaoButton[] btns = null;
-        
+
         // 알림톡 버튼 URL에 #{템플릿변수}를 기재한경우 템플릿변수 영역을 변경하여 버튼정보 구성
 //        KakaoButton[] btns = new KakaoButton[1];
 //
@@ -384,6 +387,7 @@ public class KakaoServiceExample {
         /*
          * 승인된 템플릿 내용을 작성하여 다수건의 알림톡 전송을 팝빌에 접수하며, 모든 수신자에게 동일 내용을 전송합니다. (최대 1,000건)
          * - 사전에 승인된 템플릿의 내용과 알림톡 전송내용(content)이 다를 경우 전송실패 처리됩니다.
+         * - 전송실패시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고, 이 경우 문자(SMS/LMS) 요금이 과금됩니다.
          * - https://docs.popbill.com/kakao/java/api#SendATS_same
          */
 
@@ -405,14 +409,16 @@ public class KakaoServiceExample {
         // 대체문자 내용 (최대 2000byte)
         String altContent = "대체문자 내용";
 
-        // 대체문자 전송유형, 공백-미전송, C-알림톡 내용전송, A-대체문자 내용 전송
+        // 대체문자 유형 (null , "C" , "A" 중 택 1)
+        // null = 미전송, C = 알림톡과 동일 내용 전송 , A = {altContent}에 입력한 내용 전송
         String altSendType = "C";
 
         // 카카오톡 수신정보 배열, 최대 1000건
         KakaoReceiver[] receivers = new KakaoReceiver[10];
+
         for (int i = 0; i < 10; i++) {
             KakaoReceiver message = new KakaoReceiver();
-            message.setReceiverNum("010111222"); // 수신번호
+            message.setReceiverNum("010111222");     // 수신번호
             message.setReceiverName("수신자명" + i); // 수신자명
             receivers[i] = message;
         }
@@ -424,10 +430,10 @@ public class KakaoServiceExample {
         // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
         // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
         String requestNum = "";
-        
+
         // 알림톡 버튼정보를 템플릿 신청시 기재한 버튼정보와 동일하게 전송하는 경우 null 처리.
         KakaoButton[] btns = null;
-        
+
         // 알림톡 버튼 URL에 #{템플릿변수}를 기재한경우 템플릿변수 영역을 변경하여 버튼정보 구성
 //        KakaoButton[] btns = new KakaoButton[1];
 //
@@ -470,7 +476,8 @@ public class KakaoServiceExample {
         // 대체문자 내용
         String altContent = "대체문자 내용";
 
-        // 대체문자 전송유형, 공백-미전송, C-친구톡내용 전송, A-알림톡 내용 전송
+        // 대체문자 유형 (null , "C" , "A" 중 택 1)
+        // null = 미전송, C = 친구톡과 동일 내용 전송 , A = {altContent}에 입력한 내용 전송
         String altSendType = "A";
 
         // 수신번호
@@ -490,9 +497,9 @@ public class KakaoServiceExample {
         KakaoButton[] btns = new KakaoButton[2];
 
         KakaoButton button = new KakaoButton();
-        button.setN("버튼명"); // 버튼명
-        button.setT("WL"); // 버튼타입
-        button.setU1("http://www.popbill.com"); // 버튼링크1
+        button.setN("버튼명");                    // 버튼명
+        button.setT("WL");                       // 버튼타입
+        button.setU1("http://www.popbill.com");  // 버튼링크1
         button.setU2("http://test.popbill.com"); // 버튼링크2
         btns[0] = button;
 
@@ -538,7 +545,8 @@ public class KakaoServiceExample {
         // 발신번호 (팝빌에 등록된 발신번호만 이용가능)
         String senderNum = "07043042991";
 
-        // 대체문자 전송유형, 공백-미전송, C-친구톡내용 전송, A-알림톡 내용 전송
+        // 대체문자 유형 (null , "C" , "A" 중 택 1)
+        // null = 미전송, C = 알림톡과 동일 내용 전송 , A = {altContent}에 입력한 내용 전송
         String altSendType = "A";
 
         // 예약전송일시, 형태(yyyyMMddHHmmss)
@@ -552,30 +560,30 @@ public class KakaoServiceExample {
         KakaoReceiver[] receivers = new KakaoReceiver[10];
         for (int i = 0; i < 10; i++) {
             KakaoReceiver message = new KakaoReceiver();
-            message.setReceiverNum("010111222"); // 수신번호
-            message.setReceiverName("수신자명" + i);    // 수신자명
-            message.setMessage("친구톡 개별내용" + i); // 친구톡 내용, 최대 1000자
+            message.setReceiverNum("010111222");            // 수신번호
+            message.setReceiverName("수신자명" + i);        // 수신자명
+            message.setMessage("친구톡 개별내용" + i);      // 친구톡 내용, 최대 1000자
             message.setAltMessage("대체문자 개별내용" + i); // 대체문자 내용
             message.setInterOPRefKey("referenceKey-" + i);
-            
-            
+
+
             KakaoButton button = new KakaoButton();
-            button.setN("타입1 버튼명"+i); // 버튼명
-            button.setT("WL"); // 버튼타입
-            button.setU1("http://"+i+"popbill.com"); // 버튼링크1
+            button.setN("타입1 버튼명"+i);                 // 버튼명
+            button.setT("WL");                            // 버튼타입
+            button.setU1("http://"+i+"popbill.com");      // 버튼링크1
             button.setU2("http://"+i+"test.popbill.com"); // 버튼링크2
-            
+
             KakaoButton button02 = new KakaoButton();
-            button02.setN("타입2 버튼명"+i); // 버튼명
-            button02.setT("WL"); // 버튼타입
-            button02.setU1("http://"+i+"popbill.com"); // 버튼링크1
+            button02.setN("타입2 버튼명"+i);                 // 버튼명
+            button02.setT("WL");                            // 버튼타입
+            button02.setU1("http://"+i+"popbill.com");      // 버튼링크1
             button02.setU2("http://"+i+"test.popbill.com"); // 버튼링크2
-            
+
             // 수신자별로 각기다른 버튼정보 추가.
             message.setBtns(new ArrayList<KakaoButton>());
             message.getBtns().add(button);
             message.getBtns().add(button02);
-            
+
             receivers[i] = message;
         }
 
@@ -619,7 +627,8 @@ public class KakaoServiceExample {
         // 대체문자 내용
         String altContent = "대체문자 내용";
 
-        // 대체문자 전송유형, 공백-미전송, C-친구톡내용 전송, A-알림톡 내용 전송
+        // 대체문자 유형 (null , "C" , "A" 중 택 1)
+        // null = 미전송, C = 알림톡과 동일 내용 전송 , A = {altContent}에 입력한 내용 전송
         String altSendType = "A";
 
         // 예약전송일시, 형태(yyyyMMddHHmmss)
@@ -643,9 +652,9 @@ public class KakaoServiceExample {
         KakaoButton[] btns = new KakaoButton[2];
 
         KakaoButton button = new KakaoButton();
-        button.setN("버튼명"); // 버튼명
-        button.setT("WL"); // 버튼타입
-        button.setU1("http://www.popbill.com"); // 버튼링크1
+        button.setN("버튼명");                   // 버튼명
+        button.setT("WL");                       // 버튼타입
+        button.setU1("http://www.popbill.com");  // 버튼링크1
         button.setU2("http://test.popbill.com"); // 버튼링크2
         btns[0] = button;
 
@@ -697,7 +706,8 @@ public class KakaoServiceExample {
         // 대체문자 내용 (최대 2000byte)
         String altContent = "대체문자 내용";
 
-        // 대체문자 전송유형, 공백-미전송, C-친구톡내용 전송, A-알림톡 내용 전송
+        // 대체문자 유형 (null , "C" , "A" 중 택 1)
+        // null = 미전송, C = 친구톡과 동일 내용 전송 , A = {altContent}에 입력한 내용 전송
         String altSendType = "A";
 
         // 수신번호
@@ -717,9 +727,9 @@ public class KakaoServiceExample {
         KakaoButton[] btns = new KakaoButton[2];
 
         KakaoButton button = new KakaoButton();
-        button.setN("버튼명"); // 버튼명
-        button.setT("WL"); // 버튼타입
-        button.setU1("http://www.popbill.com"); // 버튼링크1
+        button.setN("버튼명");                    // 버튼명
+        button.setT("WL");                       // 버튼타입
+        button.setU1("http://www.popbill.com");  // 버튼링크1
         button.setU2("http://test.popbill.com"); // 버튼링크2
         btns[0] = button;
 
@@ -730,10 +740,13 @@ public class KakaoServiceExample {
         button.setU2("http://test.popbill.com");
         btns[1] = button;
 
-        // 첨부이미지 파일
+        // 첨부이미지 파일 경로
+        // 이미지 파일 규격: 전송 포맷 – JPG 파일 (.jpg, .jpeg), 용량 – 최대 500 Kbyte, 크기 – 가로 500px 이상, 가로 기준으로 세로 0.5~1.3배 비율 가능
         File file = new File("/Users/John/Desktop/tmp/test03.jpg");
 
-        // 이미지 파일 링크
+        // 이미지 링크 URL
+        // └ 수신자가 친구톡 상단 이미지 클릭시 호출되는 URL
+        // 미입력시 첨부된 이미지를 링크 기능 없이 표시
         String imageURL = "http://test.popbill.com";
 
         // 전송요청번호
@@ -772,7 +785,8 @@ public class KakaoServiceExample {
         // 발신번호 (팝빌에 등록된 발신번호만 이용가능)
         String senderNum = "07043042991";
 
-        // 대체문자 전송유형, 공백-미전송, C-친구톡내용 전송, A-알림톡 내용 전송
+        // 대체문자 유형 (null , "C" , "A" 중 택 1)
+        // null = 미전송, C = 친구톡과 동일 내용 전송 , A = {altContent}에 입력한 내용 전송
         String altSendType = "A";
 
         // 예약전송일시, 형태(yyyyMMddHHmmss)
@@ -786,40 +800,40 @@ public class KakaoServiceExample {
         KakaoReceiver[] receivers = new KakaoReceiver[100];
         for (int i = 0; i < 100; i++) {
             KakaoReceiver message = new KakaoReceiver();
-            message.setReceiverNum("010111222"); // 수신번호
-            message.setReceiverName("수신자명" + i); // 수신자명
-            message.setMessage("친구톡 개별내용" + i); // 친구톡 내용, 최대 400자
+            message.setReceiverNum("010111222");            // 수신번호
+            message.setReceiverName("수신자명" + i);        // 수신자명
+            message.setMessage("친구톡 개별내용" + i);      // 친구톡 내용, 최대 400자
             message.setAltMessage("대체문자 개별내용" + i); // 대체문자 내용
             receivers[i] = message;
-            
+
             //수신자별 개별 버튼 정보
 //            KakaoButton button = new KakaoButton();
 //            button.setN("타입1 버튼명"+i); // 버튼명
 //            button.setT("WL"); // 버튼타입
 //            button.setU1("http://"+i+"popbill.com"); // 버튼링크1
 //            button.setU2("http://"+i+"test.popbill.com"); // 버튼링크2
-//            
+//
 //            KakaoButton button02 = new KakaoButton();
 //            button02.setN("타입2 버튼명"+i); // 버튼명
 //            button02.setT("WL"); // 버튼타입
 //            button02.setU1("http://"+i+"popbill.com"); // 버튼링크1
 //            button02.setU2("http://"+i+"test.popbill.com"); // 버튼링크2
-//            
+//
 //            // 수신자별로 각기다른 버튼정보 추가.
 //            message.setBtns(new ArrayList<KakaoButton>());
 //            message.getBtns().add(button);
 //            message.getBtns().add(button02);
-            
+
         }
 
-          //수신자별 동일 버튼 정보
-        //친구톡 버튼 배열, 최대 5개
+        // 수신자별 동일 버튼 정보
+        // 친구톡 버튼 배열, 최대 5개
         KakaoButton[] btns = new KakaoButton[2];
 
         KakaoButton button = new KakaoButton();
-        button.setN("버튼명"); // 버튼명
-        button.setT("WL"); // 버튼타입
-        button.setU1("http://www.popbill.com"); // 버튼링크1
+        button.setN("버튼명");                    // 버튼명
+        button.setT("WL");                       // 버튼타입
+        button.setU1("http://www.popbill.com");  // 버튼링크1
         button.setU2("http://test.popbill.com"); // 버튼링크2
         btns[0] = button;
 
@@ -831,10 +845,13 @@ public class KakaoServiceExample {
         btns[1] = button;
 
 
-        // 첨부이미지 파일
+        // 첨부이미지 파일 경로
+        // 이미지 파일 규격: 전송 포맷 – JPG 파일 (.jpg, .jpeg), 용량 – 최대 500 Kbyte, 크기 – 가로 500px 이상, 가로 기준으로 세로 0.5~1.3배 비율 가능
         File file = new File("/Users/John/Desktop/tmp/test03.jpg");
 
-        // 이미지 파일 링크
+        // 이미지 링크 URL
+        // └ 수신자가 친구톡 상단 이미지 클릭시 호출되는 URL
+        // 미입력시 첨부된 이미지를 링크 기능 없이 표시
         String imageURL = "http://test.popbill.com";
 
         // 전송요청번호
@@ -878,7 +895,8 @@ public class KakaoServiceExample {
         // 대체문자 내용 (최대 2000byte)
         String altContent = "대체문자 내용";
 
-        // 대체문자 전송유형, 공백-미전송, C-친구톡내용 전송, A-알림톡 내용 전송
+        // 대체문자 유형 (null , "C" , "A" 중 택 1)
+        // null = 미전송, C = 친구톡과 동일 내용 전송 , A = {altContent}에 입력한 내용 전송
         String altSendType = "A";
 
         // 예약전송일시, 형태(yyyyMMddHHmmss)
@@ -887,23 +905,23 @@ public class KakaoServiceExample {
         // 광고전송여부
         Boolean adsYN = false;
 
-
         // 카카오톡 수신정보 배열, 최대 1000건
         KakaoReceiver[] receivers = new KakaoReceiver[100];
         for (int i = 0; i < 100; i++) {
             KakaoReceiver message = new KakaoReceiver();
-            message.setReceiverNum("010111222"); // 수신번호
+            message.setReceiverNum("010111222");     // 수신번호
             message.setReceiverName("수신자명" + i); // 수신자명
             receivers[i] = message;
         }
 
+        // 수신자별 동일 버튼 정보
         // 친구톡 버튼 배열, 최대 5개
         KakaoButton[] btns = new KakaoButton[2];
 
         KakaoButton button = new KakaoButton();
-        button.setN("버튼명"); // 버튼명
-        button.setT("WL"); // 버튼타입
-        button.setU1("http://www.popbill.com"); // 버튼링크1
+        button.setN("버튼명");                   // 버튼명
+        button.setT("WL");                       // 버튼타입
+        button.setU1("http://www.popbill.com");  // 버튼링크1
         button.setU2("http://test.popbill.com"); // 버튼링크2
         btns[0] = button;
 
@@ -915,11 +933,13 @@ public class KakaoServiceExample {
         btns[1] = button;
 
 
-        // 첨부이미지 파일
+        // 첨부이미지 파일 경로
+        // 이미지 파일 규격: 전송 포맷 – JPG 파일 (.jpg, .jpeg), 용량 – 최대 500 Kbyte, 크기 – 가로 500px 이상, 가로 기준으로 세로 0.5~1.3배 비율 가능
         File file = new File("/Users/John/Desktop/tmp/test03.jpg");
 
-
-        // 이미지 파일 링크
+        // 이미지 링크 URL
+        // └ 수신자가 친구톡 상단 이미지 클릭시 호출되는 URL
+        // 미입력시 첨부된 이미지를 링크 기능 없이 표시
         String imageURL = "http://test.popbill.com";
 
         // 전송요청번호
@@ -950,7 +970,7 @@ public class KakaoServiceExample {
          * - https://docs.popbill.com/kakao/java/api#CancelReserve
          */
 
-        // 예약전송 접수번호
+        // 카카오톡 예약전송 접수시 팝빌로부터 반환받은 접수번호
         String receiptNum = "019010415153200001";
 
         try {
@@ -973,7 +993,7 @@ public class KakaoServiceExample {
          * - https://docs.popbill.com/kakao/java/api#CancelReserveRN
          */
 
-        // 예약전송 요청시 할당한 전송요청번호
+        // 카카오톡 예약전송 접수시 파트너가 할당한 전송요청 번호
         String requestNum = "20190104-001";
 
         try {
@@ -996,7 +1016,7 @@ public class KakaoServiceExample {
          * - https://docs.popbill.com/kakao/java/api#GetMessages
          */
 
-        // 카카오톡 접수번호
+        // 카카오톡 전송 접수시 팝빌로부터 반환받은 접수번호
         String receiptNum = "020020410351600001";
 
         try {
@@ -1020,7 +1040,7 @@ public class KakaoServiceExample {
          * - https://docs.popbill.com/kakao/java/api#GetMessagesRN
          */
 
-        // 카카오톡 접수번호
+        // 카카오톡 전송 접수시 파트너가 할당한 전송요청 번호
         String requestNum = "20210701-001";
 
         try {
@@ -1051,16 +1071,23 @@ public class KakaoServiceExample {
         // 종료일자, 날짜형식(yyyyMMdd)
         String EDate = "20210710";
 
-        // 전송상태 배열, 0-대기, 1-전송중, 2-성공, 3-대체, 4-실패, 5-취소
+        // 전송상태 배열 ("0" , "1" , "2" , "3" , "4" , "5" 중 선택, 다중 선택 가능)
+      	// └ 0 = 전송대기, 1 = 전송중 , 2 = 전송성공 , 3 = 대체문자 전송 , 4 = 전송실패 , 5 = 전송취소
+        // - 미입력 시 전체조회
         String[] State = {"0", "1", "2", "3", "4"};
 
-        // 검색대상 배열, ATS-알림톡, FTS-친구톡 텍스트, FMS-친구톡 이미지
+        // 검색대상 배열 ("ATS", "FTS", "FMS" 중 선택, 다중 선택 가능)
+        // └ ATS = 알림톡, FTS = 친구톡(텍스트), FMS = 친구톡(이미지)
         String[] Item = {"ATS", "FTS", "FMS"};
 
-        // 예약전송여부, 공백-전체조회, 1-예약전송건 조회, 0-즉시전송건 조회
+        // 전송유형별 조회 (null , "0" , "1" 중 택 1)
+        // └ null = 전체조회, 0 = 즉시전송건 조회, 1 = 예약전송건 조회
         String ReserveYN = "";
 
-        // 개인조회 여부, false-전체조회, true-개인조회
+        // 사용자권한별 조회 (true / false 중 택 1)
+        // - false = 접수한 카카오톡 전체 조회 (관리자권한)
+        // - true = 해당 담당자 계정으로 접수한 카카오톡만 조회 (개인권한)
+        // 미입력시 기본값 false 처리
         Boolean SenderYN = false;
 
         // 페이지 번호
@@ -1072,9 +1099,8 @@ public class KakaoServiceExample {
         // 정렬방향 D-내림차순, A-오름차순
         String Order = "D";
 
-        // 조회 검색어.
-        // 카카오톡 전송시 입력한 수신자명 기재.
-        // 조회 검색어를 포함한 수신자명을 검색합니다.
+        // 조회하고자 하는 수신자명
+        // - 미입력시 전체조회
         String QString = "";
 
         try {

@@ -5,9 +5,9 @@
              xmlns:context="http://www.springframework.org/schema/context"
              xmlns:util="http://www.springframework.org/schema/util"
              xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 
@@ -29,7 +29,7 @@
         LinkID : 링크허브에서 발급받은 파트너 링크아이디.
         SecretKey : 링크허브에서 발급받는 비밀키.
         IsTest : 연동환경 설정, true-개발용, false-상업용
-        IPRestrictOnOff : 인증토큰 발급 IP 제한 On/Off, ture-제한기능 사용(기본값-권장),  false-제한기능 미사용
+        IPRestrictOnOff : 인증토큰 발급 IP 제한 On/Off, ture-제한기능 사용(기본값-권장), false-제한기능 미사용
         UseStaticIP : 팝빌 API 서비스 고정 IP 사용여부, true-사용, false-미사용, 기본값(false)
         UseLocalTimeYN : 인증토큰정보 로컬서버 시간 사용여부 true-사용(기본값-권장), false-미사용
     -->
@@ -45,7 +45,7 @@
     </util:properties>
 
     <beans:beans>
-        <!-- 세금계산서 Service Implementation Bean registration.  -->
+        <!-- 세금계산서 Service Implementation Bean registration. -->
         <beans:bean id="taxinvoiceService" class="com.popbill.api.taxinvoice.TaxinvoiceServiceImp">
             <beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
@@ -55,7 +55,7 @@
             <beans:property name="useLocalTimeYN" value = "#{EXAMPLE_CONFIG.UseLocalTimeYN}"/>
         </beans:bean>
 
-        <!-- 전자명세서 Service Implementation Bean registration.  -->
+        <!-- 전자명세서 Service Implementation Bean registration. -->
         <beans:bean id="statementService" class="com.popbill.api.statement.StatementServiceImp">
             <beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
@@ -65,7 +65,7 @@
             <beans:property name="useLocalTimeYN" value = "#{EXAMPLE_CONFIG.UseLocalTimeYN}"/>
         </beans:bean>
 
-        <!-- 현금영수증 Service Implementation Bean registration.  -->
+        <!-- 현금영수증 Service Implementation Bean registration. -->
         <beans:bean id="cashbillService" class="com.popbill.api.cashbill.CashbillServiceImp">
             <beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
@@ -75,7 +75,7 @@
             <beans:property name="useLocalTimeYN" value = "#{EXAMPLE_CONFIG.UseLocalTimeYN}"/>
         </beans:bean>
 
-        <!-- 문자메시지 Service Implementation Bean registration.  -->
+        <!-- 문자메시지 Service Implementation Bean registration. -->
         <beans:bean id="messageService" class="com.popbill.api.message.MessageServiceImp">
             <beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
@@ -85,7 +85,7 @@
             <beans:property name="useLocalTimeYN" value = "#{EXAMPLE_CONFIG.UseLocalTimeYN}"/>
         </beans:bean>
 
-        <!-- 팩스 Service Implementation Bean registration.  -->
+        <!-- 팩스 Service Implementation Bean registration. -->
         <beans:bean id="faxService" class="com.popbill.api.fax.FaxServiceImp">
             <beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
@@ -95,7 +95,7 @@
             <beans:property name="useLocalTimeYN" value = "#{EXAMPLE_CONFIG.UseLocalTimeYN}"/>
         </beans:bean>
 
-        <!-- 홈택스 전자세금계산서 연계 Service Implementation Bean registration.  -->
+        <!-- 홈택스 전자세금계산서 연계 Service Implementation Bean registration. -->
         <beans:bean id="htTaxinvoiceService" class="com.popbill.api.hometax.HTTaxinvoiceServiceImp">
             <beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
@@ -106,7 +106,7 @@
         </beans:bean>
 
 
-        <!-- 홈택스 현금영수증 연계 Service Implementation Bean registration.  -->
+        <!-- 홈택스 현금영수증 연계 Service Implementation Bean registration. -->
         <beans:bean id="htCashbillService" class="com.popbill.api.hometax.HTCashbillServiceImp">
             <beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
@@ -116,7 +116,7 @@
             <beans:property name="useLocalTimeYN" value = "#{EXAMPLE_CONFIG.UseLocalTimeYN}"/>
         </beans:bean>
 
-        <!-- 휴폐업조회 Service Implementation Bean registration.  -->
+        <!-- 휴폐업조회 Service Implementation Bean registration. -->
         <beans:bean id="closedownService" class="com.popbill.api.closedown.CloseDownServiceImp">
             <beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
@@ -126,7 +126,7 @@
             <beans:property name="useLocalTimeYN" value = "#{EXAMPLE_CONFIG.UseLocalTimeYN}"/>
         </beans:bean>
 
-        <!-- 카카오톡 Service Implementation Bean registration.  -->
+        <!-- 카카오톡 Service Implementation Bean registration. -->
         <beans:bean id="kakaoService" class="com.popbill.api.kakao.KakaoServiceImp">
             <beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
@@ -135,9 +135,9 @@
             <beans:property name="useStaticIP" value="#{EXAMPLE_CONFIG.UseStaticIP}"/>
             <beans:property name="useLocalTimeYN" value = "#{EXAMPLE_CONFIG.UseLocalTimeYN}"/>
         </beans:bean>
-        
-        
-        <!-- 계좌조회  Service Implementation Bean registration.  -->
+
+
+        <!-- 계좌조회 Service Implementation Bean registration. -->
         <beans:bean id="easyFinBankService" class="com.popbill.api.easyfin.EasyFinBankServiceImp">
             <beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
@@ -146,8 +146,8 @@
             <beans:property name="useStaticIP" value="#{EXAMPLE_CONFIG.UseStaticIP}"/>
             <beans:property name="useLocalTimeYN" value = "#{EXAMPLE_CONFIG.UseLocalTimeYN}"/>
         </beans:bean>
-        
-         <!-- 예금주조회 Service Implementation Bean registration.  -->
+
+         <!-- 예금주조회 Service Implementation Bean registration. -->
         <beans:bean id="accountCheckService" class="com.popbill.api.accountcheck.AccountCheckServiceImp">
             <beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>
