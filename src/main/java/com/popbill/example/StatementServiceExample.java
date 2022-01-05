@@ -2,7 +2,7 @@
  * 팝빌 전자명세서 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/statement/tutorial/java
- * - 업데이트 일자 : 2022-01-03
+ * - 업데이트 일자 : 2022-01-05
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -10,7 +10,6 @@
  * 1) src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml 파일에 선언된
  *    util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 연동신청 시 메일로
  *    발급받은 인증정보를 참조하여 변경합니다.
- *
  *
  * Copyright 2006-2014 linkhub.co.kr, Inc. or its affiliates. All Rights Reserved.
  *
@@ -270,7 +269,7 @@ public class StatementServiceExample {
         /*********************************************************************
          *                             전자명세서 추가속성
          * - 추가속성에 관한 자세한 사항은 "[전자명세서 API 연동매뉴얼] >
-         * 5.2. 기본양식 추가속성 테이블"을 참조하시기 바랍니다.
+         *   5.2. 기본양식 추가속성 테이블"을 참조하시기 바랍니다.
          *********************************************************************/
 
         Map<String, String> propertyBag = new HashMap<String, String>();
@@ -451,7 +450,7 @@ public class StatementServiceExample {
         /*********************************************************************
          *                             전자명세서 추가속성
          * - 추가속성에 관한 자세한 사항은 "[전자명세서 API 연동매뉴얼] >
-         * 5.2. 기본양식 추가속성 테이블"을 참조하시기 바랍니다.
+         *   5.2. 기본양식 추가속성 테이블"을 참조하시기 바랍니다.
          *********************************************************************/
 
         Map<String, String> propertyBag = new HashMap<String, String>();
@@ -640,7 +639,7 @@ public class StatementServiceExample {
         /*********************************************************************
          *                             전자명세서 추가속성
          * - 추가속성에 관한 자세한 사항은 "[전자명세서 API 연동매뉴얼] >
-         * 5.2. 기본양식 추가속성 테이블"을 참조하시기 바랍니다.
+         *   5.2. 기본양식 추가속성 테이블"을 참조하시기 바랍니다.
          *********************************************************************/
 
         Map<String, String> propertyBag = new HashMap<String, String>();
@@ -670,7 +669,8 @@ public class StatementServiceExample {
     public String issue(Model m) {
         /*
          * "임시저장" 상태의 전자명세서를 발행하여, "발행완료" 상태로 처리합니다.
-         * - 팝빌 사이트 [전자명세서] > [환경설정] > [전자명세서 관리] 메뉴의 발행시 자동승인 옵션 설정을 통해 전자명세서를 "발행완료" 상태가 아닌 "승인대기" 상태로 발행 처리 할 수 있습니다.
+         * - 팝빌 사이트 [전자명세서] > [환경설정] > [전자명세서 관리] 메뉴의 발행시 자동승인 옵션 설정을 통해
+         * - 전자명세서를 "발행완료" 상태가 아닌 "승인대기" 상태로 발행 처리 할 수 있습니다.
          * - 전자명세서 발행 함수 호출시 포인트가 과금되며, 수신자에게 발행 안내 메일이 발송됩니다.
          * - https://docs.popbill.com/statement/java/api#StmIssue
          */
@@ -1521,7 +1521,7 @@ public class StatementServiceExample {
         /*********************************************************************
          *                             전자명세서 추가속성
          * - 추가속성에 관한 자세한 사항은 "[전자명세서 API 연동매뉴얼] >
-         * 5.2. 기본양식 추가속성 테이블"을 참조하시기 바랍니다.
+         *   5.2. 기본양식 추가속성 테이블"을 참조하시기 바랍니다.
          *********************************************************************/
 
         Map<String, String> propertyBag = new HashMap<String, String>();

@@ -2,9 +2,14 @@
  * 팝빌 휴폐업조회 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/closedown/tutorial/java
- * - 업데이트 일자 : 2021-12-27
+ * - 업데이트 일자 : 2022-01-05
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
+ * 
+ * <테스트 연동개발 준비사항>
+ * 1) src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml 파일에 선언된
+ *    util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 연동신청 시 메일로
+ *    발급받은 인증정보를 참조하여 변경합니다.
  *
  * Copyright 2006-2014 linkhub.co.kr, Inc. or its affiliates. All Rights Reserved.
  *

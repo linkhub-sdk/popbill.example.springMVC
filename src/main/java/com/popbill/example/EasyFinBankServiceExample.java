@@ -2,9 +2,14 @@
  * 팝빌 계좌조회 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/easyfinbank/tutorial/java
- * - 업데이트 일자 : 2022-01-03
+ * - 업데이트 일자 : 2022-01-05
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
+ * 
+ * <테스트 연동개발 준비사항>
+ * 1) src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml 파일에 선언된
+ *    util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 연동신청 시 메일로
+ *    발급받은 인증정보를 참조하여 변경합니다.
  *
  * Copyright 2006-2014 linkhub.co.kr, Inc. or its affiliates. All Rights Reserved.
  *
@@ -89,9 +94,9 @@ public class EasyFinBankServiceExample {
         // 계좌유형, "법인" 또는 "개인" 입력
         bankInfo.setAccountType("");
 
-        // 예금주 식별정보 (‘-‘ 제외)
-        // 계좌유형이 “법인”인 경우 : 사업자번호(10자리)
-        // 계좌유형이 “개인”인 경우 : 예금주 생년월일 (6자리-YYMMDD)
+        // 예금주 식별정보 ('-' 제외)
+        // 계좌유형이 "법인"인 경우 : 사업자번호(10자리)
+        // 계좌유형이 "개인"인 경우 : 예금주 생년월일 (6자리-YYMMDD)
         bankInfo.setIdentityNumber("");
 
         // 계좌 별칭
@@ -212,7 +217,7 @@ public class EasyFinBankServiceExample {
    @RequestMapping(value = "listBankAccount", method = RequestMethod.GET)
     public String listBankAccount(Model m) {
        /*
-        * 팝빌에 등록된 은행계좌 목록을 반환한다.
+        * 팝빌에 등록된 은행계좌 목록을 반환합니다.
         * - https://docs.popbill.com/easyfinbank/java/api#ListBankAccount
         */
         try {
@@ -255,7 +260,6 @@ public class EasyFinBankServiceExample {
          * 계좌의 정액제 해지를 요청합니다.
          * - https://docs.popbill.com/easyfinbank/java/api#CloseBankAccount
          */
-
 
         // 기관코드
         // 산업은행-0002 / 기업은행-0003 / 국민은행-0004 /수협은행-0007 / 농협은행-0011 / 우리은행-0020
@@ -435,7 +439,7 @@ public class EasyFinBankServiceExample {
         String jobID = "021080715000000001";
 
         // 거래유형 배열 ("I" 와 "O" 중 선택, 다중 선택 가능)
-    		// └ I = 입금 , O = 출금 , 미입력 시 전체조회
+        // └ I = 입금 , O = 출금 , 미입력 시 전체조회
         String[] TradeType = {"I", "O"};
 
         // 페이지번호
@@ -449,7 +453,7 @@ public class EasyFinBankServiceExample {
 
         // "입·출금액" / "메모" / "비고" 중 검색하고자 하는 값 입력
         // - 메모 = 거래내역 메모저장(SaveMemo)을 사용하여 저장한 값
-        // - 비고 = EasyFinBankSearchDetail의 remark1, remark2, remark3, remark4 값
+        // - 비고 = EasyFinBankSearchDetail의 remark1, remark2, remark3 값
         // - 미입력시 전체조회
         String SearchString = "";
 
@@ -478,12 +482,12 @@ public class EasyFinBankServiceExample {
         String jobID = "021121816000000001";
 
         // 거래유형 배열 ("I" 와 "O" 중 선택, 다중 선택 가능)
-    		// └ I = 입금 , O = 출금 , 미입력 시 전체조회
+        // └ I = 입금 , O = 출금 , 미입력 시 전체조회
         String[] TradeType = {"I", "O"};
 
         // "입·출금액" / "메모" / "비고" 중 검색하고자 하는 값 입력
         // - 메모 = 거래내역 메모저장(SaveMemo)을 사용하여 저장한 값
-        // - 비고 = EasyFinBankSearchDetail의 remark1, remark2, remark3, remark4 값
+        // - 비고 = EasyFinBankSearchDetail의 remark1, remark2, remark3 값
         // - 미입력시 전체조회
         String SearchString = "";
 

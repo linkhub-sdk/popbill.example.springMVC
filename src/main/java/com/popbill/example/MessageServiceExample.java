@@ -2,14 +2,14 @@
  * 팝빌 문자 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/message/tutorial/java
- * - 업데이트 일자 : 2022-01-03
+ * - 업데이트 일자 : 2022-01-05
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
  * <테스트 연동개발 준비사항>
  * 1) src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml 파일에 선언된
  *    util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 연동신청 시 메일로
- *    발급받은 인증정보를 참조하여 변경합니다.\
+ *    발급받은 인증정보를 참조하여 변경합니다.
  * 2) 발신번호 사전등록을 합니다. (등록방법은 사이트/API 두가지 방식이 있습니다.)
  *    - 1. 팝빌 사이트 로그인 > [문자/팩스] > [문자] > [발신번호 사전등록] 메뉴에서 등록
  *    - 2. getSenderNumberMgtURL API를 통해 반환된 URL을 이용하여 발신번호 등록
@@ -689,11 +689,11 @@ public class MessageServiceExample {
         String EDate = "20210710";
 
         // 전송상태 배열 ("1" , "2" , "3" , "4" 중 선택, 다중 선택 가능)
-    		// └ 1 = 대기 , 2 = 성공 , 3 = 실패 , 4 = 취소 , 미입력 시 전체조회
+        // └ 1 = 대기 , 2 = 성공 , 3 = 실패 , 4 = 취소 , 미입력 시 전체조회
         String[] State = {"1", "2", "3", "4"};
 
         // 검색대상 배열 ("SMS" , "LMS" , "MMS" 중 선택, 다중 선택 가능)
-    		// └ SMS = 단문 , LMS = 장문 , MMS = 포토문자 , 미입력 시 전체조회
+        // └ SMS = 단문 , LMS = 장문 , MMS = 포토문자 , 미입력 시 전체조회
         String[] Item = {"SMS", "LMS", "MMS"};
 
         // 예약여부 (false , true 중 택 1)

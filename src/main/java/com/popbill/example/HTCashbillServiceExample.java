@@ -2,7 +2,7 @@
  * 팝빌 홈택스 현금영수증 연계 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/htcashbill/tutorial/java
- * - 업데이트 일자 : 2022-01-03
+ * - 업데이트 일자 : 2022-01-05
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -10,7 +10,7 @@
  * 1) src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml 파일에 선언된
  *    util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 연동신청 시 메일로
  *    발급받은 인증정보를 참조하여 변경합니다.
- * 2) 홈택스 인증 처리를 합니다. (부서사용자등록 / 공인인증서 등록)
+ * 2) 홈택스 로그인 인증정보를 등록합니다. (부서사용자등록 / 공인인증서 등록)
  *    - 팝빌로그인 > [홈택스연동] > [환경설정] > [인증 관리] 메뉴
  *    - 홈택스연동 인증 관리 팝업 URL(GetCertificatePopUpURL API) 반환된 URL을 이용하여
  *      홈택스 인증 처리를 합니다.
@@ -145,7 +145,7 @@ public class HTCashbillServiceExample {
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String search(Model m) {
         /*
-         * 함수 GetJobState(수집 상태 확인)를 통해 상태 정보 확인된 작업아이디를 활용하여 현금영수증 매입/매출 내역을 조회합니다.
+         * 수집 상태 확인(GetJobState API)함수를 통해 상태 정보 확인된 작업아이디를 활용하여 현금영수증 매입/매출 내역을 조회합니다.
          * - https://docs.popbill.com/htcashbill/java/api#Search
          */
 

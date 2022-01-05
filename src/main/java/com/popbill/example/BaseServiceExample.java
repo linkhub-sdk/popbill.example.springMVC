@@ -2,7 +2,7 @@
  * 팝빌 Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/taxinvoice/tutorial/java
- * - 업데이트 일자 : 2022-01-03
+ * - 업데이트 일자 : 2022-01-05
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -61,7 +61,7 @@ public class BaseServiceExample {
     public String checkIsMember(Model m) throws PopbillException {
         /*
          * 사업자번호를 조회하여 연동회원 가입여부를 확인합니다.
-         * - LinkID는 인증정보로 설정되어 있는 링크아이디 값입니다.
+         * - LinkID는 연동신청 시 팝빌에서 발급받은 링크아이디 값입니다.
          */
 
         // 조회할 사업자번호, '-' 제외 10자리

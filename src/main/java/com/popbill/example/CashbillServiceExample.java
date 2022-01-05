@@ -2,7 +2,7 @@
  * 팝빌 현금영수증 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/cashbill/tutorial/java
- * - 업데이트 일자 : 2022-01-03
+ * - 업데이트 일자 : 2022-01-05
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -776,7 +776,7 @@ public class CashbillServiceExample {
         // 식별번호 조회 (미기재시 전체조회)
         String QString = "";
 
-        // 가맹점 종사업장 번호 조회
+        // 가맹점 종사업장 번호
         // └ 다수건 검색시 콤마(",")로 구분. 예) "1234,1000"
         String FranchiseTaxRegID = "";
 

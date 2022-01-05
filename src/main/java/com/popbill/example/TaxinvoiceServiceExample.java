@@ -2,7 +2,7 @@
  * 팝빌 전자세금계산서 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/taxinvoice/tutorial/java
- * - 업데이트 일자 : 2022-01-03
+ * - 업데이트 일자 : 2022-01-05
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -1750,8 +1750,8 @@ public class TaxinvoiceServiceExample {
         String TaxRegIDYN = "";
 
         // 거래처 상호 / 사업자번호 (사업자) / 주민등록번호 (개인) / "9999999999999" (외국인) 중 검색하고자 하는 정보 입력
-    		// - 사업자번호 / 주민등록번호는 하이픈('-')을 제외한 숫자만 입력
-    		// - 미입력시 전체조회
+        // - 사업자번호 / 주민등록번호는 하이픈('-')을 제외한 숫자만 입력
+        // - 미입력시 전체조회
         String QString = "";
 
         // 문서번호 또는 국세청 승인번호 조회
