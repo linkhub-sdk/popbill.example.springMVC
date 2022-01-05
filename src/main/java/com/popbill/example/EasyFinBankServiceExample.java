@@ -361,10 +361,10 @@ public class EasyFinBankServiceExample {
         */
 
         // 기관코드
-        String BankCode = "0048";
+        String BankCode = "";
 
         // 계좌번호
-        String AccountNumber = "131020538600";
+        String AccountNumber = "";
 
         // 시작일자, 날짜형식(yyyyMMdd)
         String SDate = "20210701";
@@ -514,7 +514,7 @@ public class EasyFinBankServiceExample {
         */
 
         // 거래내역 아이디, SeachAPI 응답항목 중 tid
-        String TID = "02112181100000000120191210000003";
+        String TID = "";
 
         // 메모
         String Memo = "0211218-테스트";
@@ -563,10 +563,10 @@ public class EasyFinBankServiceExample {
         */
 
         // 기관코드
-        String BankCode = "0048";
+        String BankCode = "";
 
         // 계좌번호
-        String AccountNumber = "131020538600";
+        String AccountNumber = "";
 
         try {
 
