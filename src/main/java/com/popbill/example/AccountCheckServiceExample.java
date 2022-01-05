@@ -55,7 +55,6 @@ public class AccountCheckServiceExample {
     @Value("#{EXAMPLE_CONFIG.TestCorpNum}")
     private String testCorpNum;
 
-
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String home(Locale locale, Model model) {
         return "AccountCheck/index";
@@ -70,7 +69,6 @@ public class AccountCheckServiceExample {
 
         /*
          * 조회할 기관코드
-         * - https://docs.popbill.com/accountcheck/?lang=java#BankCodeList
          */
         String BankCode = "";
 
@@ -100,7 +98,6 @@ public class AccountCheckServiceExample {
 
         /*
          * 조회할 기관코드
-         * - https://docs.popbill.com/accountcheck/?lang=java#BankCodeList
          */
         String BankCode = "";
 
@@ -108,7 +105,7 @@ public class AccountCheckServiceExample {
         String AccountNumber = "";
 
         // 등록번호 유형 ( P / B 중 택 1 , P = 개인, B = 사업자)
-        String IdentityNumType ="";
+        String IdentityNumType = "";
 
         /*
          * 등록번호
@@ -119,7 +116,8 @@ public class AccountCheckServiceExample {
 
         try {
 
-            DepositorCheckInfo depositorCheckInfo = accountCheckService.CheckDepositorInfo(testCorpNum, BankCode, AccountNumber, IdentityNumType, IdentityNum);
+            DepositorCheckInfo depositorCheckInfo = accountCheckService.CheckDepositorInfo(testCorpNum, BankCode, AccountNumber, IdentityNumType,
+                    IdentityNum);
 
             m.addAttribute("DepositorCheckInfo", depositorCheckInfo);
 
@@ -143,7 +141,7 @@ public class AccountCheckServiceExample {
 
         try {
 
-            float unitCost = accountCheckService.getUnitCost(testCorpNum,ServiceType);
+            float unitCost = accountCheckService.getUnitCost(testCorpNum, ServiceType);
 
             m.addAttribute("Result", unitCost);
 
@@ -166,7 +164,7 @@ public class AccountCheckServiceExample {
         String ServiceType = "성명";
 
         try {
-            ChargeInfo chrgInfo = accountCheckService.getChargeInfo(testCorpNum,ServiceType);
+            ChargeInfo chrgInfo = accountCheckService.getChargeInfo(testCorpNum, ServiceType);
             m.addAttribute("ChargeInfo", chrgInfo);
 
         } catch (PopbillException e) {
@@ -176,6 +174,5 @@ public class AccountCheckServiceExample {
 
         return "getChargeInfo";
     }
-
 
 }

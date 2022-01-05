@@ -116,7 +116,6 @@ public class FaxServiceExample {
     public String sendFAX(Model m) throws URISyntaxException {
         /*
          * 팩스 1건을 전송합니다. (최대 전송파일 개수: 20개)
-         * - 팩스전송 문서 파일포맷 안내 : https://docs.popbill.com/fax/format?lang=java
          * - https://docs.popbill.com/fax/java/api#SendFAX
          */
 

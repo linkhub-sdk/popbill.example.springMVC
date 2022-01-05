@@ -85,7 +85,6 @@ public class ClosedownServiceExample {
 
         } else {
 
-
         }
         return "Closedown/checkCorpNum";
     }
@@ -98,7 +97,7 @@ public class ClosedownServiceExample {
          */
 
         // 조회할 사업자번호 배열, 최대 1000건
-        String[] CorpNumList = new String[]{"1234567890", "6798700433"};
+        String[] CorpNumList = new String[] { "1234567890", "6798700433" };
 
         try {
 

@@ -132,7 +132,6 @@ public class EasyFinBankServiceExample {
         return "response";
     }
 
-
     @RequestMapping(value = "updateBankAccount", method = RequestMethod.GET)
     public String updateBankAccount(Model m) {
         /*
@@ -186,7 +185,7 @@ public class EasyFinBankServiceExample {
 
     @RequestMapping(value = "getBankAccountInfo", method = RequestMethod.GET)
     public String getBankAccountInfo(Model m) {
-       /*
+        /*
         * 팝빌에 등록된 계좌 정보를 확인합니다.
         * - https://docs.popbill.com/easyfinbank/java/api#GetBankAccountInfo
         */
@@ -214,9 +213,9 @@ public class EasyFinBankServiceExample {
         return "EasyFinBank/GetBankAccount";
     }
 
-   @RequestMapping(value = "listBankAccount", method = RequestMethod.GET)
+    @RequestMapping(value = "listBankAccount", method = RequestMethod.GET)
     public String listBankAccount(Model m) {
-       /*
+        /*
         * 팝빌에 등록된 은행계좌 목록을 반환합니다.
         * - https://docs.popbill.com/easyfinbank/java/api#ListBankAccount
         */
@@ -233,9 +232,9 @@ public class EasyFinBankServiceExample {
         return "EasyFinBank/ListBankAccount";
     }
 
-   @RequestMapping(value = "getBankAccountMgtURL", method = RequestMethod.GET)
+    @RequestMapping(value = "getBankAccountMgtURL", method = RequestMethod.GET)
     public String getBankAccountMgtURL(Model m) {
-       /*
+        /*
         * 계좌 등록, 수정 및 삭제할 수 있는 계좌 관리 팝업 URL을 반환합니다.
         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
         * - https://docs.popbill.com/easyfinbank/java/api#GetBankAccountMgtURL
@@ -321,7 +320,7 @@ public class EasyFinBankServiceExample {
 
     @RequestMapping(value = "deleteBankAccount", method = RequestMethod.GET)
     public String deleteBankAccount(Model m) {
-       /*
+        /*
         * 등록된 계좌를 삭제합니다.
         * - 정액제가 아닌 종량제 이용 시에만 등록된 계좌를 삭제할 수 있습니다.
         * - 정액제 이용 시 CloseBankAccount 함수를 사용하여 정액제를 해제할 수 있습니다.
@@ -348,13 +347,12 @@ public class EasyFinBankServiceExample {
             return "exception";
         }
 
-
         return "response";
     }
 
     @RequestMapping(value = "requestJob", method = RequestMethod.GET)
     public String requestJob(Model m) {
-       /*
+        /*
         * 계좌 거래내역을 확인하기 위해 팝빌에 수집요청을 합니다. (조회기간 단위 : 최대 1개월)
         * - 조회일로부터 최대 3개월 이전 내역까지 조회할 수 있습니다.
         * - https://docs.popbill.com/easyfinbank/java/api#RequestJob
@@ -427,7 +425,6 @@ public class EasyFinBankServiceExample {
         return "EasyFinBank/ListActiveJob";
     }
 
-
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String search(Model m) {
         /*
@@ -440,7 +437,7 @@ public class EasyFinBankServiceExample {
 
         // 거래유형 배열 ("I" 와 "O" 중 선택, 다중 선택 가능)
         // └ I = 입금 , O = 출금 , 미입력 시 전체조회
-        String[] TradeType = {"I", "O"};
+        String[] TradeType = { "I", "O" };
 
         // 페이지번호
         int Page = 1;
@@ -458,8 +455,8 @@ public class EasyFinBankServiceExample {
         String SearchString = "";
 
         try {
-            EasyFinBankSearchResult searchInfo = easyFinBankService.search(testCorpNum,
-                    jobID, TradeType, SearchString, Page, PerPage, Order, testUserID);
+            EasyFinBankSearchResult searchInfo = easyFinBankService.search(testCorpNum, jobID, TradeType, SearchString, Page, PerPage, Order,
+                    testUserID);
             m.addAttribute("SearchResult", searchInfo);
 
         } catch (PopbillException e) {
@@ -469,7 +466,6 @@ public class EasyFinBankServiceExample {
 
         return "EasyFinBank/SearchResult";
     }
-
 
     @RequestMapping(value = "summary", method = RequestMethod.GET)
     public String summary(Model m) {
@@ -483,7 +479,7 @@ public class EasyFinBankServiceExample {
 
         // 거래유형 배열 ("I" 와 "O" 중 선택, 다중 선택 가능)
         // └ I = 입금 , O = 출금 , 미입력 시 전체조회
-        String[] TradeType = {"I", "O"};
+        String[] TradeType = { "I", "O" };
 
         // "입·출금액" / "메모" / "비고" 중 검색하고자 하는 값 입력
         // - 메모 = 거래내역 메모저장(SaveMemo)을 사용하여 저장한 값
@@ -493,8 +489,7 @@ public class EasyFinBankServiceExample {
 
         try {
 
-            EasyFinBankSummary summaryInfo = easyFinBankService.summary(testCorpNum,
-                    jobID, TradeType, SearchString, testUserID);
+            EasyFinBankSummary summaryInfo = easyFinBankService.summary(testCorpNum, jobID, TradeType, SearchString, testUserID);
             m.addAttribute("SummaryResult", summaryInfo);
 
         } catch (PopbillException e) {
@@ -505,10 +500,9 @@ public class EasyFinBankServiceExample {
         return "EasyFinBank/Summary";
     }
 
-
     @RequestMapping(value = "saveMemo", method = RequestMethod.GET)
     public String saveMemo(Model m) {
-       /*
+        /*
         * 한 건의 거래 내역에 메모를 저장합니다.
         * - https://docs.popbill.com/easyfinbank/java/api#SaveMemo
         */
@@ -521,7 +515,7 @@ public class EasyFinBankServiceExample {
 
         try {
 
-            Response response = easyFinBankService.saveMemo(testCorpNum ,TID, Memo);
+            Response response = easyFinBankService.saveMemo(testCorpNum, TID, Memo);
 
             m.addAttribute("Response", response);
 
@@ -533,10 +527,9 @@ public class EasyFinBankServiceExample {
         return "response";
     }
 
-
     @RequestMapping(value = "getFlatRatePopUpURL", method = RequestMethod.GET)
     public String getFlatRatePopUpURL(Model m) {
-       /*
+        /*
         * 계좌조회 정액제 서비스 신청 페이지의 팝업 URL을 반환합니다.
         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
         * - https://docs.popbill.com/easyfinbank/java/api#GetFlatRatePopUpURL
@@ -554,10 +547,9 @@ public class EasyFinBankServiceExample {
         return "result";
     }
 
-
     @RequestMapping(value = "getFlatRateState", method = RequestMethod.GET)
     public String getFlatRateState(Model m) {
-       /*
+        /*
         * 계좌조회 정액제 서비스 상태를 확인합니다.
         * - https://docs.popbill.com/easyfinbank/java/api#GetFlatRateState
         */

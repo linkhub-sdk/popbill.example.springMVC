@@ -188,7 +188,6 @@ public class CashbillServiceExample {
         // 구매자 휴대폰
         cashbill.setHp("010111222");
 
-
         // 발행 안내 메일제목, 미기재시 기본 양식으로 메일 전송
         String emailSubject = "";
 
@@ -254,7 +253,6 @@ public class CashbillServiceExample {
         // 합계금액, 숫자만 가능, 봉사료 + 공급가액 + 부가세
         cashbill.setTotalAmount("11000");
 
-
         // 가맹점 사업자번호, '-'제외 10자리
         cashbill.setFranchiseCorpNum("1234567890");
 
@@ -276,7 +274,6 @@ public class CashbillServiceExample {
         // 발행 안내 문자 전송여부
         cashbill.setSmssendYN(false);
 
-
         // 구매자 성명
         cashbill.setCustomerName("고객명");
 
@@ -291,7 +288,6 @@ public class CashbillServiceExample {
 
         // 구매자 휴대폰
         cashbill.setHp("010111222");
-
 
         try {
 
@@ -331,7 +327,7 @@ public class CashbillServiceExample {
         cashbill.setTradeUsage("소득공제용");
 
         // 취소거래시 기재, 원본 현금영수증 국세청 승인번호 - getInfo API를 통해 confirmNum 값 기재
-        //cashbill.setOrgConfirmNum("");
+        // cashbill.setOrgConfirmNum("");
 
         // 과세형태, {과세, 비과세} 중 기재
         cashbill.setTaxationType("과세");
@@ -395,8 +391,7 @@ public class CashbillServiceExample {
 
         try {
 
-            Response response = cashbillService.update(testCorpNum, mgtKey,
-                    cashbill);
+            Response response = cashbillService.update(testCorpNum, mgtKey, cashbill);
 
             m.addAttribute("Response", response);
 
@@ -503,7 +498,6 @@ public class CashbillServiceExample {
         // 원본 현금영수증 거래일자
         String orgTradeDate = "20190102";
 
-
         try {
 
             Response response = cashbillService.revokeRegister(testCorpNum, mgtKey, orgConfirmNum, orgTradeDate);
@@ -557,8 +551,7 @@ public class CashbillServiceExample {
 
         try {
 
-            Response response = cashbillService.revokeRegister(testCorpNum, mgtKey,
-                    orgConfirmNum, orgTradeDate, smssendYN, isPartCancel, cancelType,
+            Response response = cashbillService.revokeRegister(testCorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, isPartCancel, cancelType,
                     supplyCost, tax, serviceFee, totalAmount);
 
             m.addAttribute("Response", response);
@@ -646,9 +639,8 @@ public class CashbillServiceExample {
 
         try {
 
-            CBIssueResponse response = cashbillService.revokeRegistIssue(testCorpNum, mgtKey,
-                    orgConfirmNum, orgTradeDate, smssendYN, memo, isPartCancel, cancelType,
-                    supplyCost, tax, serviceFee, totalAmount);
+            CBIssueResponse response = cashbillService.revokeRegistIssue(testCorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, memo,
+                    isPartCancel, cancelType, supplyCost, tax, serviceFee, totalAmount);
 
             m.addAttribute("Response", response);
 
@@ -692,7 +684,7 @@ public class CashbillServiceExample {
          */
 
         // 현금영수증 문서번호 배열 최대(1000건)
-        String[] mgtKeyList = new String[]{"20210701-001", "20210701-002", "20210701-003"};
+        String[] mgtKeyList = new String[] { "20210701-001", "20210701-002", "20210701-003" };
 
         try {
 
@@ -751,27 +743,27 @@ public class CashbillServiceExample {
 
         // 상태코드 배열 (2,3번째 자리에 와일드카드(*) 사용 가능)
         // - 미입력시 전체조회
-        String[] State = {"100", "2**", "3**", "4**"};
+        String[] State = { "100", "2**", "3**", "4**" };
 
         // 문서형태 배열 ("N" , "C" 중 선택, 다중 선택 가능)
         // - N = 승인거래 , C = 취소거래
         // - 미입력시 전체조회
-        String[] TradeType = {"N", "C"};
+        String[] TradeType = { "N", "C" };
 
         // 거래구분 배열 ("P" , "C" 중 선택, 다중 선택 가능)
         // - P = 소득공제용 , C = 지출증빙용
         // - 미입력시 전체조회
-        String[] TradeUsage = {"P", "C"};
+        String[] TradeUsage = { "P", "C" };
 
         // 거래유형 배열 ("N" , "B" , "T" 중 선택, 다중 선택 가능)
         // - N = 일반 , B = 도서공연 , T = 대중교통
         // - 미입력시 전체조회
-        String[] TradeOpt = {"N", "B", "T"};
+        String[] TradeOpt = { "N", "B", "T" };
 
         // 과세형태 배열 ("T" , "N" 중 선택, 다중 선택 가능)
         // - T = 과세 , N = 비과세
         // - 미입력시 전체조회
-        String[] TaxationType = {"T", "N"};
+        String[] TaxationType = { "T", "N" };
 
         // 식별번호 조회 (미기재시 전체조회)
         String QString = "";
@@ -789,12 +781,10 @@ public class CashbillServiceExample {
         // 정렬방향, A-오름차순, D-내림차순
         String Order = "D";
 
-
         try {
 
-            CBSearchResult searchResult = cashbillService.search(testCorpNum, DType, SDate, EDate,
-                    State, TradeType, TradeUsage, TradeOpt, TaxationType, QString,
-                    Page, PerPage, Order, FranchiseTaxRegID);
+            CBSearchResult searchResult = cashbillService.search(testCorpNum, DType, SDate, EDate, State, TradeType, TradeUsage, TradeOpt,
+                    TaxationType, QString, Page, PerPage, Order, FranchiseTaxRegID);
 
             m.addAttribute("SearchResult", searchResult);
 
@@ -962,7 +952,7 @@ public class CashbillServiceExample {
          */
 
         // 문서번호 배열, 최대 100건
-        String[] mgtKeyList = new String[]{"20210701-001", "20210701-002", "20210701-003"};
+        String[] mgtKeyList = new String[] { "20210701-001", "20210701-002", "20210701-003" };
 
         try {
 
@@ -1062,7 +1052,6 @@ public class CashbillServiceExample {
          * - https://docs.popbill.com/cashbill/java/api#SendSMS
          */
 
-
         // 현금영수증 문서번호
         String mgtKey = "20210701-001";
 
@@ -1077,8 +1066,7 @@ public class CashbillServiceExample {
 
         try {
 
-            Response response = cashbillService.sendSMS(testCorpNum, mgtKey,
-                    sender, receiver, contents);
+            Response response = cashbillService.sendSMS(testCorpNum, mgtKey, sender, receiver, contents);
 
             m.addAttribute("Response", response);
 
@@ -1109,8 +1097,7 @@ public class CashbillServiceExample {
 
         try {
 
-            Response response = cashbillService.sendFAX(testCorpNum, mgtKey,
-                    sender, receiver);
+            Response response = cashbillService.sendFAX(testCorpNum, mgtKey, sender, receiver);
 
             m.addAttribute("Response", response);
 
@@ -1190,8 +1177,7 @@ public class CashbillServiceExample {
 
         try {
 
-            Response response = cashbillService.updateEmailConfig(testCorpNum,
-                    emailType, sendYN);
+            Response response = cashbillService.updateEmailConfig(testCorpNum, emailType, sendYN);
 
             m.addAttribute("Response", response);
 

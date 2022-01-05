@@ -184,7 +184,7 @@
                         </c:if>
 
                         <c:if test="${EmailSendConfig.emailType == 'ETC_CERT_EXPIRATION'}">
-                            <li>${EmailSendConfig.emailType} (팝빌에서 이용중인 공인인증서의 갱신 메일 전송 여부)
+                            <li>${EmailSendConfig.emailType} (팝빌에서 이용중인 공동인증서의 갱신 메일 전송 여부)
                                 : ${EmailSendConfig.sendYN}</li>
                         </c:if>
                     </c:forEach>

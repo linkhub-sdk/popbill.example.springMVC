@@ -287,6 +287,7 @@ public class BaseServiceExample {
 
         return "response";
     }
+
     @RequestMapping(value = "getContactInfo", method = RequestMethod.GET)
     public String getContactInfo(Model m) throws PopbillException {
         /*
@@ -306,6 +307,7 @@ public class BaseServiceExample {
         }
         return "getContactInfo";
     }
+
     @RequestMapping(value = "listContact", method = RequestMethod.GET)
     public String listContact(Model m) throws PopbillException {
         /*
@@ -355,8 +357,7 @@ public class BaseServiceExample {
 
         try {
 
-            Response response = taxinvoiceService.updateContact(testCorpNum,
-                    contactInfo, testUserID);
+            Response response = taxinvoiceService.updateContact(testCorpNum, contactInfo, testUserID);
 
             m.addAttribute("Response", response);
 
@@ -402,8 +403,7 @@ public class BaseServiceExample {
 
         try {
 
-            Response response = taxinvoiceService.registContact(testCorpNum,
-                    contactInfo);
+            Response response = taxinvoiceService.registContact(testCorpNum, contactInfo);
 
             m.addAttribute("Response", response);
 
@@ -414,7 +414,6 @@ public class BaseServiceExample {
 
         return "response";
     }
-
 
     @RequestMapping(value = "checkID", method = RequestMethod.GET)
     public String checkID(Model m) throws PopbillException {
@@ -475,8 +474,7 @@ public class BaseServiceExample {
         corpInfo.setBizClass("종목 수정 테스트");
 
         try {
-            Response response = taxinvoiceService.updateCorpInfo(testCorpNum,
-                    corpInfo);
+            Response response = taxinvoiceService.updateCorpInfo(testCorpNum, corpInfo);
             m.addAttribute("Response", response);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
