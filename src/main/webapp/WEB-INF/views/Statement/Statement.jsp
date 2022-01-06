@@ -19,7 +19,7 @@
                 <li>mgtKey (문서번호) : ${Statement.mgtKey}</li>
                 <li>formCode (맞춤양식 코드) : ${Statement.formCode}</li>
                 <li>writeDate (작성일자) : ${Statement.writeDate}</li>
-                <li>taxType (세금형태) : ${Statement.taxType}</li>
+                <li>taxType (과세유형) : ${Statement.taxType}</li>
                 <li>purposeType (영수/청구) : ${Statement.purposeType}</li>
                 <li>serialNum (일련번호) : ${Statement.serialNum}</li>
                 <li>taxTotal (세액 합계) : ${Statement.taxTotal}</li>

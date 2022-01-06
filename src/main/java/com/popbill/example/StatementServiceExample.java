@@ -2,7 +2,7 @@
  * 팝빌 전자명세서 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/statement/tutorial/java
- * - 업데이트 일자 : 2022-01-05
+ * - 업데이트 일자 : 2022-01-06
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -84,7 +84,7 @@ public class StatementServiceExample {
          * - https://docs.popbill.com/statement/java/api#CheckMgtKeyInUse
          */
 
-        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
         // 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
@@ -125,7 +125,7 @@ public class StatementServiceExample {
         // 작성일자, 형태 yyyyMMdd
         statement.setWriteDate("20210706");
 
-        // {영수, 청구} 중 기재
+        // {영수, 청구, 없음} 중 기재
         statement.setPurposeType("영수");
 
         // {과세, 영세, 면세} 중 기재
@@ -134,7 +134,7 @@ public class StatementServiceExample {
         // 맞춤양식코드, 미기재시 기본양식으로 처리
         statement.setFormCode("");
 
-        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         statement.setItemCode((short) 121);
 
         // 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
@@ -267,9 +267,9 @@ public class StatementServiceExample {
 
 
         /*********************************************************************
-         *                             전자명세서 추가속성
-         * - 추가속성에 관한 자세한 사항은 "[전자명세서 API 연동매뉴얼] >
-         *   5.2. 기본양식 추가속성 테이블"을 참조하시기 바랍니다.
+         *                               추가속성 정보
+         * - 추가속성에 관한 자세한 사항은 아래의 URL을 참조.
+         * - https://docs.popbill.com/statement/propertyBag?lang=java
          *********************************************************************/
 
         Map<String, String> propertyBag = new HashMap<String, String>();
@@ -306,7 +306,7 @@ public class StatementServiceExample {
         // 작성일자, 형태 yyyyMMdd
         statement.setWriteDate("20210705");
 
-        // {영수, 청구} 중 기재
+        // {영수, 청구, 없음} 중 기재
         statement.setPurposeType("영수");
 
         // {과세, 영세, 면세} 중 기재
@@ -315,7 +315,7 @@ public class StatementServiceExample {
         // 맞춤양식코드, 미기재시 기본양식으로 처리
         statement.setFormCode("");
 
-        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         statement.setItemCode((short) 121);
 
         // 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
@@ -448,9 +448,9 @@ public class StatementServiceExample {
 
 
         /*********************************************************************
-         *                             전자명세서 추가속성
-         * - 추가속성에 관한 자세한 사항은 "[전자명세서 API 연동매뉴얼] >
-         *   5.2. 기본양식 추가속성 테이블"을 참조하시기 바랍니다.
+         *                               추가속성 정보
+         * - 추가속성에 관한 자세한 사항은 아래의 URL을 참조.
+         * - https://docs.popbill.com/statement/propertyBag?lang=java
          *********************************************************************/
 
         Map<String, String> propertyBag = new HashMap<String, String>();
@@ -483,7 +483,7 @@ public class StatementServiceExample {
          * - https://docs.popbill.com/statement/java/api#Update
          */
 
-        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
         // 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
@@ -495,7 +495,7 @@ public class StatementServiceExample {
         // 작성일자, 형태 yyyyMmdd
         statement.setWriteDate("20210701");
 
-        // {영수, 청구} 중 기재
+        // {영수, 청구, 없음} 중 기재
         statement.setPurposeType("영수");
 
         // {과세, 영세, 면세} 중 기재
@@ -504,7 +504,7 @@ public class StatementServiceExample {
         // 맞춤양식코드, 미기재시 기본양식으로 처리
         statement.setFormCode("");
 
-        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         statement.setItemCode((short) 121);
 
         // 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
@@ -637,9 +637,9 @@ public class StatementServiceExample {
 
 
         /*********************************************************************
-         *                             전자명세서 추가속성
-         * - 추가속성에 관한 자세한 사항은 "[전자명세서 API 연동매뉴얼] >
-         *   5.2. 기본양식 추가속성 테이블"을 참조하시기 바랍니다.
+         *                               추가속성 정보
+         * - 추가속성에 관한 자세한 사항은 아래의 URL을 참조.
+         * - https://docs.popbill.com/statement/propertyBag?lang=java
          *********************************************************************/
 
         Map<String, String> propertyBag = new HashMap<String, String>();
@@ -675,7 +675,7 @@ public class StatementServiceExample {
          * - https://docs.popbill.com/statement/java/api#StmIssue
          */
 
-        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
         // 전자명세서 문서번호
@@ -706,7 +706,7 @@ public class StatementServiceExample {
          * - https://docs.popbill.com/statement/java/api#Cancel
          */
 
-        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
         // 전자명세서 문서번호
@@ -739,7 +739,7 @@ public class StatementServiceExample {
          * - https://docs.popbill.com/statement/java/api#Delete
          */
 
-        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
         // 전자명세서 문서번호
@@ -766,7 +766,7 @@ public class StatementServiceExample {
          * - https://docs.popbill.com/statement/java/api#GetInfo
          */
 
-        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
         // 전자명세서 문서번호
@@ -794,7 +794,7 @@ public class StatementServiceExample {
          * - https://docs.popbill.com/statement/java/api#GetInfos
          */
 
-        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
         // 전자명세서 문서번호 배열(최대 1000건)
@@ -822,7 +822,7 @@ public class StatementServiceExample {
          * - https://docs.popbill.com/statement/java/api#GetDetailInfo
          */
 
-        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
         // 전자명세서 문서번호
@@ -904,7 +904,7 @@ public class StatementServiceExample {
          * - https://docs.popbill.com/statement/java/api#GetLogs
          */
 
-        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
         // 전자명세서 문서번호
@@ -958,7 +958,7 @@ public class StatementServiceExample {
          * - https://docs.popbill.com/statement/java/api#GetPopUpURL
          */
 
-        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
         // 전자명세서 문서번호
@@ -987,7 +987,7 @@ public class StatementServiceExample {
          * - https://docs.popbill.com/statement/java/api#GetViewURL
          */
 
-        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
         // 전자명세서 문서번호
@@ -1017,7 +1017,7 @@ public class StatementServiceExample {
          * - https://docs.popbill.com/statement/java/api#GetPrintURL
          */
 
-        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
         // 전자명세서 문서번호
@@ -1046,7 +1046,7 @@ public class StatementServiceExample {
          * - https://docs.popbill.com/statement/java/api#GetEPrintURL
          */
 
-        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
         // 전자명세서 문서번호
@@ -1075,7 +1075,7 @@ public class StatementServiceExample {
          * - https://docs.popbill.com/statement/java/api#GetMassPrintURL
          */
 
-        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
         // 문서번호 배열, 최대 100건
@@ -1099,12 +1099,12 @@ public class StatementServiceExample {
     @RequestMapping(value = "getMailURL", method = RequestMethod.GET)
     public String getMailURL(Model m) {
         /*
-         * 안내메일과 관련된 전자명세서를 확인 할 수 있는 상세 페이지의 팝업 URL을 반환하며, 해당 URL은 메일 하단의 파란색 버튼의 링크와 같습니다.
+         * 전자명세서 안내메일의 상세보기 링크 URL을 반환합니다.
          * - 함수 호출로 반환 받은 URL에는 유효시간이 없습니다.
          * - https://docs.popbill.com/statement/java/api#GetMailURL
          */
 
-        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
         // 전자명세서 문서번호
@@ -1152,7 +1152,7 @@ public class StatementServiceExample {
          * - https://docs.popbill.com/statement/java/api#AttachFile
          */
 
-        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
         // 전자명세서 문서번호
@@ -1196,7 +1196,7 @@ public class StatementServiceExample {
          * - https://docs.popbill.com/statement/java/api#DeleteFile
          */
 
-        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
         // 전자명세서 문서번호
@@ -1228,7 +1228,7 @@ public class StatementServiceExample {
          * - https://docs.popbill.com/statement/java/api#GetFiles
          */
 
-        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
         // 전자명세서 문서번호
@@ -1256,7 +1256,7 @@ public class StatementServiceExample {
          * - https://docs.popbill.com/statement/java/api#SendEmail
          */
 
-        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
         // 전자명세서 문서번호
@@ -1289,7 +1289,7 @@ public class StatementServiceExample {
          * - https://docs.popbill.com/statement/java/api#SendSMS
          */
 
-        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
         // 전자명세서 문서번호
@@ -1327,7 +1327,7 @@ public class StatementServiceExample {
          * - https://docs.popbill.com/statement/java/api#SendFAX
          */
 
-        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
         // 전자명세서 문서번호
@@ -1377,7 +1377,7 @@ public class StatementServiceExample {
         // 작성일자, 형태 yyyyMmdd
         statement.setWriteDate("20210701");
 
-        // {영수, 청구} 중 기재
+        // {영수, 청구, 없음} 중 기재
         statement.setPurposeType("영수");
 
         // {과세, 영세, 면세} 중 기재
@@ -1386,7 +1386,7 @@ public class StatementServiceExample {
         // 맞춤양식코드, 미기재시 기본양식으로 처리
         statement.setFormCode("");
 
-        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         statement.setItemCode((short) 121);
 
         // 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
@@ -1519,9 +1519,9 @@ public class StatementServiceExample {
 
 
         /*********************************************************************
-         *                             전자명세서 추가속성
-         * - 추가속성에 관한 자세한 사항은 "[전자명세서 API 연동매뉴얼] >
-         *   5.2. 기본양식 추가속성 테이블"을 참조하시기 바랍니다.
+         *                               추가속성 정보
+         * - 추가속성에 관한 자세한 사항은 아래의 URL을 참조.
+         * - https://docs.popbill.com/statement/propertyBag?lang=java
          *********************************************************************/
 
         Map<String, String> propertyBag = new HashMap<String, String>();
@@ -1554,14 +1554,14 @@ public class StatementServiceExample {
          * - https://docs.popbill.com/statement/java/api#AttachStatement
          */
 
-        // 전자명세서 코드
+        // 전자명세서 유형 코드
         int itemCode = 121;
 
         // 전자명세서 문서번호
         String mgtKey = "20210701-001";
 
 
-        // 첨부할 전자명세서 코드
+        // 첨부할 전자명세서 유형 코드
         int subItemCode = 121;
 
         // 첨부할 전자명세서 문서번호
@@ -1589,14 +1589,14 @@ public class StatementServiceExample {
          * - https://docs.popbill.com/statement/java/api#DetachStatement
          */
 
-        // 전자명세서 코드
+        // 전자명세서 유형 코드
         int itemCode = 121;
 
         // 전자명세서 문서번호
         String mgtKey = "20210701-001";
 
 
-        // 첨부해제할 전자명세서 코드
+        // 첨부해제할 전자명세서 유형 코드
         int subItemCode = 121;
 
         // 첨부해제할 전자명세서 문서번호
@@ -1680,7 +1680,7 @@ public class StatementServiceExample {
          * - https://docs.popbill.com/statement/java/api#GetUnitCost
          */
 
-        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
         try {
@@ -1706,7 +1706,7 @@ public class StatementServiceExample {
          * - https://docs.popbill.com/statement/java/api#GetChargeInfo
          */
 
-        // 명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int itemCode = 121;
 
         try {

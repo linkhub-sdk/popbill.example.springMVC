@@ -35,7 +35,7 @@
                         <li>itemCode (명세서 코드) : ${SearchInfo.itemCode}</li>
                         <li>mgtKey (문서번호) : ${SearchInfo.mgtKey}</li>
                         <li>stateCode (상태코드) : ${SearchInfo.stateCode}</li>
-                        <li>taxType (세금형태) : ${SearchInfo.taxType}</li>
+                        <li>taxType (과세유형) : ${SearchInfo.taxType}</li>
                         <li>purposeType (영수/청구) : ${SearchInfo.purposeType}</li>
                         <li>writeDate (작성일자) : ${SearchInfo.writeDate}</li>
                         <li>senderCorpName (발신자 상호) : ${SearchInfo.senderCorpName}</li>

@@ -2,7 +2,7 @@
  * 팝빌 예금주조회 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/accountcheck/tutorial/java
- * - 업데이트 일자 : 2022-01-05
+ * - 업데이트 일자 : 2022-01-06
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -67,9 +67,8 @@ public class AccountCheckServiceExample {
          * - https://docs.popbill.com/accountcheck/java/api#CheckAccountInfo
          */
 
-        /*
-         * 조회할 기관코드
-         */
+
+        // 조회할 기관코드
         String BankCode = "";
 
         // 조회할 기관의 계좌번호 (하이픈 '-' 제외 8자리 이상 14자리 이하)
@@ -96,9 +95,7 @@ public class AccountCheckServiceExample {
          * - https://docs.popbill.com/accountcheck/java/api#CheckDepositorInfo
          */
 
-        /*
-         * 조회할 기관코드
-         */
+        // 조회할 기관코드
         String BankCode = "";
 
         // 조회할 기관의 계좌번호 (하이픈 '-' 제외 8자리 이상 14자리 이하)

@@ -2,7 +2,7 @@
  * 팝빌 전자세금계산서 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/taxinvoice/tutorial/java
- * - 업데이트 일자 : 2022-01-05
+ * - 업데이트 일자 : 2022-01-06
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -142,7 +142,7 @@ public class TaxinvoiceServiceExample {
         // 작성일자, 날짜형식(yyyyMMdd)
         taxinvoice.setWriteDate("20211227");
 
-        // {영수, 청구} 중 기재
+        // {영수, 청구, 없음} 중 기재
         taxinvoice.setPurposeType("영수");
 
 
@@ -937,7 +937,7 @@ public class TaxinvoiceServiceExample {
         // 발행유형, {정발행, 역발행, 위수탁} 중 기재
         taxinvoice.setIssueType("정발행");
 
-        // {영수, 청구} 중 기재
+        // {영수, 청구, 없음} 중 기재
         taxinvoice.setPurposeType("영수");
 
         // 과세형태, {과세, 영세, 면세} 중 기재
@@ -1250,7 +1250,7 @@ public class TaxinvoiceServiceExample {
         // -'역과금'은 역발행 세금계산서 발행 시에만 이용가능
         taxinvoice.setChargeDirection("정과금");
 
-        // {영수, 청구} 중 기재
+        // {영수, 청구, 없음} 중 기재
         taxinvoice.setPurposeType("영수");
 
         // 과세형태, {과세, 영세, 면세} 중 기재
@@ -1737,16 +1737,22 @@ public class TaxinvoiceServiceExample {
         // - 미입력시 전체조회
         String[] CloseDownState = { "N", "0", "1", "2", "3" };
 
-        // 지연발행 여부, null-전체조회, true-지연발행, false-정상발행 중 택 1
+        // 지연발행 여부 (null , true , false 중 택 1)
+        // - null = 전체조회 , true = 지연발행 , false = 정상발행
         Boolean LateOnly = null;
 
-        // 종사업장번호 주체, S-공급자, B-공급받는자, T-수탁자 중 택 1
+        // 종사업장번호의 주체 ("S" , "B" , "T" 중 택 1)
+        // └ S = 공급자 , B = 공급받는자 , T = 수탁자
+        // - 미입력시 전체조회
         String TaxRegIDType = "";
 
-        // 종사업장번호, 다수기재시 콤마(",")로 구분하여 구성 ex ) "0001,0002"
+        // 종사업장번호
+        // 다수기재시 콤마(",")로 구분하여 구성 ex ) "0001,0002"
+        // - 미입력시 전체조회
         String TaxRegID = "";
 
-        // 종사업장번호 유무, null-전체, 0-없음, 1-있음 중 택 1
+        // 종사업장번호 유무
+        // - null = 전체 , 0 = 없음, 1 = 있음
         String TaxRegIDYN = "";
 
         // 거래처 상호 / 사업자번호 (사업자) / 주민등록번호 (개인) / "9999999999999" (외국인) 중 검색하고자 하는 정보 입력
@@ -1767,7 +1773,8 @@ public class TaxinvoiceServiceExample {
         // 정렬방향, A-오름차순, D-내림차순
         String Order = "D";
 
-        // 연동문서 여부, null-전체조회, 0-일반문서, 1-연동문서 중 택 1
+        // 연동문서 여부 (null , "0" , "1" 중 택 1)
+        // - null = 전체조회 , 0 = 일반문서 , 1 = 연동문서
         // 일반문서 - 세금계산서 작성 시 API가 아닌 팝빌 사이트를 통해 등록한 문서
         // 연동문서 - 세금계산서 작성 시 API를 통해 등록한 문서
         String InterOPYN = "";
@@ -2012,7 +2019,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "getMailURL", method = RequestMethod.GET)
     public String getMailURL(Model m) {
         /*
-         * 안내메일과 관련된 전자세금계산서를 확인 할 수 있는 상세 페이지의 팝업 URL을 반환하며, 해당 URL은 메일 하단의 "전자세금계산서 보기" 버튼의 링크와 같습니다.
+         * 전자세금계산서 안내메일의 상세보기 링크 URL을 반환합니다.
          * - 함수 호출로 반환 받은 URL에는 유효시간이 없습니다.
          * - https://docs.popbill.com/taxinvoice/java/api#GetMailURL
          */
@@ -2302,7 +2309,7 @@ public class TaxinvoiceServiceExample {
         // 세금계산서 문서번호
         String mgtKey = "20210701-02";
 
-        // 첨부할 전자명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 첨부할 전자명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int subItemCode = 121;
 
         // 첨부활 전자명세서 문서번호
@@ -2336,7 +2343,7 @@ public class TaxinvoiceServiceExample {
         // 세금계산서 문서번호
         String mgtKey = "20210701-02";
 
-        // 첨부해제할 전자명세서 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // 첨부해제할 전자명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         int subItemCode = 121;
 
         // 첨부해제할 전자명세서 문서번호

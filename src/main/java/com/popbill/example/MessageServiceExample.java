@@ -2,7 +2,7 @@
  * 팝빌 문자 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/message/tutorial/java
- * - 업데이트 일자 : 2022-01-05
+ * - 업데이트 일자 : 2022-01-06
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -451,7 +451,7 @@ public class MessageServiceExample {
     @RequestMapping(value = "sendXMS", method = RequestMethod.GET)
     public String sendXMS(Model m) {
         /*
-         * 메시지 크기(90byte)에 따라 단문/장문(SMS/LMS)을 자동으로 인식하여 1건의 메시지를 전송을 팝빌에 접수합니다.
+         * 메시지 길이(90byte)에 따라 단문/장문(SMS/LMS)을 자동으로 인식하여 1건의 메시지를 전송을 팝빌에 접수합니다.
          * - https://docs.popbill.com/message/java/api#SendXMS
          */
         // 발신번호
@@ -498,7 +498,7 @@ public class MessageServiceExample {
     @RequestMapping(value = "sendXMS_Multi", method = RequestMethod.GET)
     public String sendXMS_Multi(Model m) {
         /*
-         * 메시지 크기(90byte)에 따라 단문/장문(SMS/LMS)을 자동으로 인식하여 다수건의 메시지 전송을 팝빌에 접수합니다. (최대 1,000건)
+         * 메시지 길이(90byte)에 따라 단문/장문(SMS/LMS)을 자동으로 인식하여 다수건의 메시지 전송을 팝빌에 접수합니다. (최대 1,000건)
          * - https://docs.popbill.com/message/java/api#SendXMS_Multi
          */
 

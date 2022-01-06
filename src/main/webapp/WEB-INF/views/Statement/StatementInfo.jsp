@@ -20,7 +20,7 @@
                     <li>itemKey (팝빌번호) : ${StatementInfo.itemKey}</li>
                     <li>invoiceNum (팝빌 승인번호) : ${StatementInfo.invoiceNum}</li>
                     <li>mgtKey (문서번호) : ${StatementInfo.mgtKey}</li>
-                    <li>taxType (세금형태) : ${StatementInfo.taxType}</li>
+                    <li>taxType (과세유형) : ${StatementInfo.taxType}</li>
                     <li>writeDate (작성일자) : ${StatementInfo.writeDate}</li>
                     <li>regDT (임시저장일시) : ${StatementInfo.regDT}</li>
                     <li>senderCorpName (발신자 상호) : ${StatementInfo.senderCorpName}</li>
@@ -50,7 +50,7 @@
                         <li>itemKey (팝빌번호) : ${StatementInfo.itemKey}</li>
                         <li>invoiceNum (팝빌 승인번호) : ${StatementInfo.invoiceNum}</li>
                         <li>mgtKey (문서번호) : ${StatementInfo.mgtKey}</li>
-                        <li>taxType (세금형태) : ${StatementInfo.taxType}</li>
+                        <li>taxType (과세유형) : ${StatementInfo.taxType}</li>
                         <li>writeDate (작성일자) : ${StatementInfo.writeDate}</li>
                         <li>regDT (임시저장일시) : ${StatementInfo.regDT}</li>
                         <li>senderCorpName (발신자 상호) : ${StatementInfo.senderCorpName}</li>
