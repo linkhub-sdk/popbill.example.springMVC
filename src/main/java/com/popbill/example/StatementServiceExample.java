@@ -2,7 +2,7 @@
  * 팝빌 전자명세서 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/statement/tutorial/java
- * - 업데이트 일자 : 2022-01-06
+ * - 업데이트 일자 : 2022-01-14
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -846,19 +846,19 @@ public class StatementServiceExample {
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String search(Model m) {
         /*
-         * 검색조건에 해당하는 세금계산서를 조회합니다. (조회기간 단위 : 최대 6개월)
+         * 검색조건에 해당하는 전자명세서를 조회합니다. (조회기간 단위 : 최대 6개월)
          * - https://docs.popbill.com/statement/java/api#Search
          */
 
-         // 일자 유형 ("R" , "T" , "I" 중 택 1)
-         // └ R = 등록일자 , T = 거래일자 , I = 발행일자
+         // 일자 유형 ("R" , "W" , "I" 중 택 1)
+         // └ R = 등록일자 , W = 작성일자 , I = 발행일자
         String DType = "W";
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20210701";
+        String SDate = "20221101";
 
         // 종료일자, 날짜형식(yyyyMMdd)
-        String EDate = "20210710";
+        String EDate = "20220110";
 
         // 전자명세서 상태코드 배열 (2,3번째 자리에 와일드카드(*) 사용 가능)
         // - 미입력시 전체조회

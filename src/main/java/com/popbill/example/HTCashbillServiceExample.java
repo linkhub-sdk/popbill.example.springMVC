@@ -2,7 +2,7 @@
  * 팝빌 홈택스 현금영수증 연계 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/htcashbill/tutorial/java
- * - 업데이트 일자 : 2022-01-06
+ * - 업데이트 일자 : 2022-01-14
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -82,11 +82,11 @@ public class HTCashbillServiceExample {
         // 현금영수증 유형, SELL-매출, BUY-매입
         QueryType TIType = QueryType.SELL;
 
-        // 시작일자, 표시형식(yyyyMMdd)
-        String SDate = "20210701";
+        // 시작일자, 날짜형식(yyyyMMdd)
+        String SDate = "20220101";
 
-        // 종료일자, 표시형식(yyyyMMdd)
-        String EDate = "20210710";
+        // 종료일자, 날짜형식(yyyyMMdd)
+        String EDate = "20220110";
 
         try {
             String jobID = htCashbillService.requestJob(testCorpNum, TIType, SDate, EDate);

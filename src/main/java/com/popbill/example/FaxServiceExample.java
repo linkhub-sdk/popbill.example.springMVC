@@ -2,7 +2,7 @@
  * 팝빌 팩스 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/fax/tutorial/java
- * - 업데이트 일자 : 2022-01-03
+ * - 업데이트 일자 : 2022-01-14
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -171,7 +171,6 @@ public class FaxServiceExample {
     public String sendFAX_Multi(Model m) throws URISyntaxException {
         /*
          * 동일한 팩스파일을 다수의 수신자에게 전송하기 위해 팝빌에 접수합니다. (최대 전송파일 개수 : 20개) (최대 1,000건)
-         * - 팩스전송 문서 파일포맷 안내 : https://docs.popbill.com/fax/format?lang=java
          * - https://docs.popbill.com/fax/java/api#SendFAX_Multi
          */
 
@@ -190,7 +189,7 @@ public class FaxServiceExample {
         Receiver receiver2 = new Receiver();
         receiver2.setReceiveName("수신자2");      // 수신자명
         receiver2.setReceiveNum("010333444");     // 수신팩스번호
-        receivers[1] = receiver1;
+        receivers[1] = receiver2;
 
         File[] files = new File[2];
         try {
@@ -235,7 +234,6 @@ public class FaxServiceExample {
     public String sendFAXBinary(Model m) throws URISyntaxException {
         /*
          * 전송할 파일의 바이너리 데이터를 팩스 1건 전송합니다. (최대 전송파일 개수: 20개)
-         * - 팩스전송 문서 파일포맷 안내 : https://docs.popbill.com/fax/format?lang=java
          * - https://docs.popbill.com/fax/java/api#SendFAXBinary
          */
 
@@ -304,7 +302,6 @@ public class FaxServiceExample {
     public String sendFAXBinary_Multi(Model m) throws URISyntaxException {
         /*
          * 동일한 파일의 바이너리 데이터를 다수의 수신자에게 전송하기 위해 팝빌에 접수합니다. (최대 전송파일 개수 : 20개) (최대 1,000건)
-         * - 팩스전송 문서 파일포맷 안내 : https://docs.popbill.com/fax/format?lang=java
          * - https://docs.popbill.com/fax/java/api#SendFAXBinary_multi
          */
 
@@ -323,7 +320,7 @@ public class FaxServiceExample {
         Receiver receiver2 = new Receiver();
         receiver2.setReceiveName("수신자2");      // 수신자명
         receiver2.setReceiveNum("010333444");     // 수신팩스번호
-        receivers[1] = receiver1;
+        receivers[1] = receiver2;
 
         File file = new File("/Users/John/Desktop/test.pdf");
         InputStream targetStream = null;
@@ -460,7 +457,7 @@ public class FaxServiceExample {
 //      Receiver receiver2 = new Receiver();
 //      receiver2.setReceiveName("수신자2");      // 수신자명
 //      receiver2.setReceiveNum("010333444");     // 수신팩스번호
-//      receivers[1] = receiver1;
+//      receivers[1] = receiver2;
 
         // 예약전송일시(yyyyMMddHHmmss), null인 경우 즉시전송
         Date reserveDT = null;
@@ -523,7 +520,7 @@ public class FaxServiceExample {
         String title = "팩스 재전송 제목";
 
         // 원본 팩스 전송시 할당한 전송요청번호(requestNum)
-        String orgRequestNum = "20210701-001";
+        String orgRequestNum = "";
 
         try {
 
@@ -575,7 +572,7 @@ public class FaxServiceExample {
 //      Receiver receiver2 = new Receiver();
 //      receiver2.setReceiveName("수신자2");      // 수신자명
 //      receiver2.setReceiveNum("010333444");    // 수신팩스번호
-//      receivers[1] = receiver1;
+//      receivers[1] = receiver2;
 
         // 예약전송일시(yyyyMMddHHmmss), null인 경우 즉시전송
         Date reserveDT = null;
@@ -584,7 +581,7 @@ public class FaxServiceExample {
         String title = "팩스 재전송(동보) 제목";
 
         // 원본 팩스 전송시 할당한 전송요청번호(requestNum)
-        String orgRequestNum = "20210701-001";
+        String orgRequestNum = "";
 
         try {
 
@@ -632,7 +629,7 @@ public class FaxServiceExample {
          */
 
         // 예약팩스 전송요청시 파트너가 할당한 전송요청번호
-        String requestNum = "20210104-001";
+        String requestNum = "";
 
         try {
             Response response = faxService.cancelReserveRN(testCorpNum, requestNum);
@@ -678,7 +675,7 @@ public class FaxServiceExample {
          */
 
         // 팩스 전송요청시 파트너가 할당한 전송요청번호
-        String requestNum = "fax_mvc_1234";
+        String requestNum = "";
 
         try {
             FaxResult[] faxResults = faxService.getFaxResultRN(testCorpNum, requestNum);
@@ -702,10 +699,10 @@ public class FaxServiceExample {
          */
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20210701";
+        String SDate = "20220101";
 
         // 종료일자, 날짜형식(yyyyMMdd)
-        String EDate = "20210710";
+        String EDate = "20220110";
 
         // 전송상태 배열 ("1" , "2" , "3" , "4" 중 선택, 다중 선택 가능)
       	// └ 1 = 대기 , 2 = 성공 , 3 = 실패 , 4 = 취소 , 미입력 시 전체조회

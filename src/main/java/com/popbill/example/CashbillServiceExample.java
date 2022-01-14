@@ -2,7 +2,7 @@
  * 팝빌 현금영수증 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/cashbill/tutorial/java
- * - 업데이트 일자 : 2022-01-06
+ * - 업데이트 일자 : 2022-01-14
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -102,7 +102,8 @@ public class CashbillServiceExample {
     public String registIssue(Model m) {
         /*
          * 작성된 현금영수증 데이터를 팝빌에 저장과 동시에 발행하여 "발행완료" 상태로 처리합니다.
-         * - 현금영수증 국세청 전송 정책 : https://docs.popbill.com/cashbill/ntsSendPolicy?lang=java
+         * - 현금영수증 국세청 전송 정책 [https://docs.popbill.com/cashbill/ntsSendPolicy?lang=java]
+         * - "발행완료"된 현금영수증은 국세청 전송 이전에 발행취소(CancelIssue API) 함수로 국세청 신고 대상에서 제외할 수 있습니다.
          * - https://docs.popbill.com/cashbill/java/api#RegistIssue
          */
 
@@ -743,7 +744,7 @@ public class CashbillServiceExample {
 
         // 상태코드 배열 (2,3번째 자리에 와일드카드(*) 사용 가능)
         // - 미입력시 전체조회
-        String[] State = { "100", "2**", "3**", "4**" };
+        String[] State = { "100", "3**", "4**" };
 
         // 문서형태 배열 ("N" , "C" 중 선택, 다중 선택 가능)
         // - N = 승인거래 , C = 취소거래

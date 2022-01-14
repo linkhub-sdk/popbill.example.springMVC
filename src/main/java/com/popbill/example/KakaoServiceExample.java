@@ -2,7 +2,7 @@
  * 팝빌 카카오톡 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/kakao/tutorial/java
- * - 업데이트 일자 : 2022-01-05
+ * - 업데이트 일자 : 2022-01-14
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -571,7 +571,7 @@ public class KakaoServiceExample {
             message.setReceiverName("수신자명" + i);        // 수신자명
             message.setMessage("친구톡 개별내용" + i);      // 친구톡 내용, 최대 1000자
             message.setAltMessage("대체문자 개별내용" + i); // 대체문자 내용
-            message.setInterOPRefKey("referenceKey-" + i);
+            message.setInterOPRefKey("");
 
 
             KakaoButton button = new KakaoButton();
@@ -1001,7 +1001,7 @@ public class KakaoServiceExample {
          */
 
         // 카카오톡 예약전송 접수시 파트너가 할당한 전송요청 번호
-        String requestNum = "20190104-001";
+        String requestNum = "";
 
         try {
             Response response = kakaoService.cancelReserveRN(testCorpNum, requestNum);
@@ -1048,7 +1048,7 @@ public class KakaoServiceExample {
          */
 
         // 카카오톡 전송 접수시 파트너가 할당한 전송요청 번호
-        String requestNum = "20210701-001";
+        String requestNum = "";
 
         try {
 
@@ -1073,10 +1073,10 @@ public class KakaoServiceExample {
          */
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20210701";
+        String SDate = "20211101";
 
         // 종료일자, 날짜형식(yyyyMMdd)
-        String EDate = "20210710";
+        String EDate = "20220110";
 
         // 전송상태 배열 ("0" , "1" , "2" , "3" , "4" , "5" 중 선택, 다중 선택 가능)
       	// └ 0 = 전송대기, 1 = 전송중 , 2 = 전송성공 , 3 = 대체문자 전송 , 4 = 전송실패 , 5 = 전송취소

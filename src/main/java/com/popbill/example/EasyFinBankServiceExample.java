@@ -2,7 +2,7 @@
  * 팝빌 계좌조회 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/easyfinbank/tutorial/java
- * - 업데이트 일자 : 2022-01-06
+ * - 업데이트 일자 : 2022-01-14
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -365,10 +365,10 @@ public class EasyFinBankServiceExample {
         String AccountNumber = "";
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20210701";
+        String SDate = "20211201";
 
         // 종료일자, 닐짜형식(yyyyMMdd)
-        String EDate = "20210710";
+        String EDate = "20211222";
 
         try {
 

@@ -2,7 +2,7 @@
  * 팝빌 예금주조회 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/accountcheck/tutorial/java
- * - 업데이트 일자 : 2022-01-06
+ * - 업데이트 일자 : 2022-01-14
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -108,6 +108,7 @@ public class AccountCheckServiceExample {
          * 등록번호
          * - IdentityNumType 값이 "B" 인 경우 (사업자번호(10)자리 입력)
          * - IdentityNumType 값이 "P" 인 경우 (생년월일(6)자리 입력 (형식 : YYMMDD))
+         * 하이픈 '-' 제외하고 입력
          */
         String IdentityNum = "";
 

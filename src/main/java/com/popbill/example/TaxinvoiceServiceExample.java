@@ -2,7 +2,7 @@
  * 팝빌 전자세금계산서 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/taxinvoice/tutorial/java
- * - 업데이트 일자 : 2022-01-06
+ * - 업데이트 일자 : 2022-01-14
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -286,8 +286,7 @@ public class TaxinvoiceServiceExample {
 
        /***************************************************************************
         * 수정세금계산서 정보 (수정세금계산서 작성시에만 기재)
-        * - 수정세금계산서 관련 정보는 연동매뉴얼 또는 개발가이드 링크 참조
-        * - [참고] 수정세금계산서 작성방법 안내 - https://docs.popbill.com/taxinvoice/modify?lang=java
+        * - 수정세금계산서 작성방법 안내 - https://docs.popbill.com/taxinvoice/modify?lang=java
         ****************************************************************************/
 
         // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
@@ -334,7 +333,7 @@ public class TaxinvoiceServiceExample {
        /***************************************************************************
         *                             추가담당자 정보
         * - 세금계산서 발행 안내 메일을 수신받을 공급받는자 담당자가 다수인 경우 담당자 정보를
-        * - 추가하여 발행 안내메일을 다수에게 전송할 수 있습니다.
+        * - 추가하여 발행 안내메일을 다수에게 전송할 수 있습니다. (최대 5명)
         ****************************************************************************/
 
         taxinvoice.setAddContactList(new ArrayList<TaxinvoiceAddContact>());
@@ -413,7 +412,7 @@ public class TaxinvoiceServiceExample {
             // 발행유형, [정발행, 역발행, 위수탁] 중 기재
             taxinvoice.setIssueType("정발행");
 
-            // [영수, 청구] 중 기재
+            // [영수, 청구, 없음] 중 기재
             taxinvoice.setPurposeType("영수");
 
             // 과세형태, [과세, 영세, 면세] 중 기재
@@ -556,8 +555,7 @@ public class TaxinvoiceServiceExample {
 
             /*********************************************************************
              * 수정세금계산서 정보 (수정세금계산서 작성시 기재)
-             * - 수정세금계산서 관련 정보는 연동매뉴얼 또는 개발가이드 링크 참조
-             * - [참고] 수정세금계산서 작성방법 안내 [https://docs.popbill.com/taxinvoice/modify?lang=java]
+             * - 수정세금계산서 작성방법 안내 [https://docs.popbill.com/taxinvoice/modify?lang=java]
              *********************************************************************/
             // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
             taxinvoice.setModifyCode(null);
@@ -603,7 +601,7 @@ public class TaxinvoiceServiceExample {
             /***************************************************************************
              *                             추가담당자 정보
              * - 세금계산서 발행 안내 메일을 수신받을 공급받는자 담당자가 다수인 경우 담당자 정보를
-             * - 추가하여 발행 안내메일을 다수에게 전송할 수 있습니다.
+             * - 추가하여 발행 안내메일을 다수에게 전송할 수 있습니다. (최대 5명)
              ****************************************************************************/
 
             taxinvoice.setAddContactList(new ArrayList<TaxinvoiceAddContact>());
@@ -683,7 +681,7 @@ public class TaxinvoiceServiceExample {
         // 발행유형, [정발행, 역발행, 위수탁] 중 기재
         taxinvoice.setIssueType("정발행");
 
-        // [영수, 청구] 중 기재
+        // [영수, 청구, 없음] 중 기재
         taxinvoice.setPurposeType("영수");
 
         // 과세형태, [과세, 영세, 면세] 중 기재
@@ -829,8 +827,7 @@ public class TaxinvoiceServiceExample {
 
         /***************************************************************************
          * 수정세금계산서 정보 (수정세금계산서 작성시에만 기재)
-         * - 수정세금계산서 관련 정보는 연동매뉴얼 또는 개발가이드 링크 참조
-         * - [참고] 수정세금계산서 작성방법 안내 - https://docs.popbill.com/taxinvoice/modify?lang=java
+         * - 수정세금계산서 작성방법 안내 - https://docs.popbill.com/taxinvoice/modify?lang=java
          ****************************************************************************/
 
         // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
@@ -877,7 +874,7 @@ public class TaxinvoiceServiceExample {
         /***************************************************************************
          * 추가담당자 정보
          * - 세금계산서 발행 안내 메일을 수신받을 공급받는자 담당자가 다수인 경우 담당자 정보를 추가하여
-         * 발행 안내메일을 다수에게 전송할 수 있습니다.
+         * 발행 안내메일을 다수에게 전송할 수 있습니다. (최대 5명)
          ****************************************************************************/
 
         taxinvoice.setAddContactList(new ArrayList<TaxinvoiceAddContact>());
@@ -1083,8 +1080,7 @@ public class TaxinvoiceServiceExample {
 
         /***************************************************************************
          * 수정세금계산서 정보 (수정세금계산서 작성시에만 기재
-         * - 수정세금계산서 관련 정보는 연동매뉴얼 또는 개발가이드 링크 참조
-         * - [참고] 수정세금계산서 작성방법 안내 - https://docs.popbill.com/taxinvoice/modify?lang=java
+         * - 수정세금계산서 작성방법 안내 - https://docs.popbill.com/taxinvoice/modify?lang=java
          ****************************************************************************/
 
         // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
@@ -1131,7 +1127,7 @@ public class TaxinvoiceServiceExample {
         /***************************************************************************
          *                             추가담당자 정보
          * - 세금계산서 발행 안내 메일을 수신받을 공급받는자 담당자가 다수인 경우 담당자 정보를 추가하여
-         * 발행 안내메일을 다수에게 전송할 수 있습니다.
+         * 발행 안내메일을 다수에게 전송할 수 있습니다. (최대 5명)
          ****************************************************************************/
 
         taxinvoice.setAddContactList(new ArrayList<TaxinvoiceAddContact>());
@@ -1396,8 +1392,7 @@ public class TaxinvoiceServiceExample {
 
         /***************************************************************************
          * 수정세금계산서 정보 (수정세금계산서 작성시에만 기재
-         * - 수정세금계산서 관련 정보는 연동매뉴얼 또는 개발가이드 링크 참조
-         * - [참고] 수정세금계산서 작성방법 안내 - https://docs.popbill.com/taxinvoice/modify?lang=java
+         * - 수정세금계산서 작성방법 안내 - https://docs.popbill.com/taxinvoice/modify?lang=java
          ****************************************************************************/
 
         // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
@@ -1583,8 +1578,7 @@ public class TaxinvoiceServiceExample {
     public String sendToNTS(Model m) {
         /*
          * 공급자가 "발행완료" 상태의 전자세금계산서를 국세청에 즉시 전송하며, 함수 호출 후 최대 30분 이내에 전송 처리가 완료됩니다.
-         * - 국세청 즉시전송을 호출하지 않은 세금계산서는 발행일 기준 익일 오후 3시에 팝빌 시스템에서 일괄적으로 국세청으로 전송합니다.
-         * - 익일전송시 전송일이 법정공휴일인 경우 다음 영업일에 전송됩니다.
+         * - 국세청 즉시전송을 호출하지 않은 세금계산서는 발행일 기준 다음 영업일 오후 3시에 팝빌 시스템에서 일괄적으로 국세청으로 전송합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#SendToNTS
          */
 
@@ -1703,10 +1697,10 @@ public class TaxinvoiceServiceExample {
         String DType = "W";
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20210701";
+        String SDate = "20211001";
 
         // 종료일자, 날짜형식(yyyyMMdd)
-        String EDate = "20210710";
+        String EDate = "20220110";
 
         // 세금계산서 상태코드 배열 (2,3번째 자리에 와일드카드(*) 사용 가능)
       	// - 미입력시 전체조회

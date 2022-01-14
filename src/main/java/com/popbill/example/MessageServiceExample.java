@@ -2,7 +2,7 @@
  * 팝빌 문자 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/message/tutorial/java
- * - 업데이트 일자 : 2022-01-06
+ * - 업데이트 일자 : 2022-01-14
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -587,7 +587,7 @@ public class MessageServiceExample {
          */
 
         // 예약문자 전송요청 시 파트너가 할당한 전송요청 번호
-        String requestNum = "20210701-001";
+        String requestNum = "";
 
         try {
             Response response = messageService.cancelReserveRN(testCorpNum, requestNum);
@@ -634,7 +634,7 @@ public class MessageServiceExample {
          */
 
         // 문자 전송요청시 파트너가 할당한 전송요청 번호
-        String requestNum = "20210708-100";
+        String requestNum = "";
 
         try {
 
@@ -683,10 +683,10 @@ public class MessageServiceExample {
          */
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20210701";
+        String SDate = "20211201";
 
         // 종료일자, 날짜형식(yyyyMMdd)
-        String EDate = "20210710";
+        String EDate = "20220110";
 
         // 전송상태 배열 ("1" , "2" , "3" , "4" 중 선택, 다중 선택 가능)
         // └ 1 = 대기 , 2 = 성공 , 3 = 실패 , 4 = 취소 , 미입력 시 전체조회
