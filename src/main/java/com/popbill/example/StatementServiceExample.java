@@ -2,7 +2,7 @@
  * 팝빌 전자명세서 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/statement/tutorial/java
- * - 업데이트 일자 : 2022-01-14
+ * - 업데이트 일자 : 2022-01-17
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -479,7 +479,7 @@ public class StatementServiceExample {
     @RequestMapping(value = "update", method = RequestMethod.GET)
     public String update(Model m) {
         /*
-         * "임시저장" 상태의 전자명세서를 수정합니다.건의 전자명세서를 [수정]합니다.
+         * "임시저장" 상태의 전자명세서를 수정합니다.
          * - https://docs.popbill.com/statement/java/api#Update
          */
 
@@ -703,6 +703,7 @@ public class StatementServiceExample {
     public String cancelIssue(Model m) {
         /*
          * 발신자가 발행한 전자명세서를 발행취소합니다.
+         * - "발행취소" 상태의 전자명세서를 삭제(Delete API) 함수를 이용하면, 전자명세서 관리를 위해 부여했던 문서번호를 재사용 할 수 있습니다.
          * - https://docs.popbill.com/statement/java/api#Cancel
          */
 

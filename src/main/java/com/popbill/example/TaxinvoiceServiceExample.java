@@ -2,7 +2,7 @@
  * 팝빌 전자세금계산서 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/taxinvoice/tutorial/java
- * - 업데이트 일자 : 2022-01-14
+ * - 업데이트 일자 : 2022-01-17
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -120,7 +120,9 @@ public class TaxinvoiceServiceExample {
     public String registIssue(Model m) {
         /*
          * 작성된 세금계산서 데이터를 팝빌에 저장과 동시에 발행(전자서명)하여 "발행완료" 상태로 처리합니다.
-         * - 세금계산서 국세청 전송 정책 : https://docs.popbill.com/taxinvoice/ntsSendPolicy?lang=java
+         * - 세금계산서 국세청 전송 정책 [https://docs.popbill.com/taxinvoice/ntsSendPolicy?lang=java]
+         * - "발행완료"된 전자세금계산서는 국세청 전송 이전에 발행취소(CancelIssue API) 함수로 국세청 신고 대상에서 제외할 수 있습니다.
+         * - 임시저장(Register) 과 발행(Issue) 기능을 한 번의 프로세스로 처리합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#RegistIssue
          */
 
@@ -555,7 +557,7 @@ public class TaxinvoiceServiceExample {
 
             /*********************************************************************
              * 수정세금계산서 정보 (수정세금계산서 작성시 기재)
-             * - 수정세금계산서 작성방법 안내 [https://docs.popbill.com/taxinvoice/modify?lang=java]
+             * - 수정세금계산서 작성방법 안내 - https://docs.popbill.com/taxinvoice/modify?lang=java
              *********************************************************************/
             // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
             taxinvoice.setModifyCode(null);
@@ -1158,7 +1160,7 @@ public class TaxinvoiceServiceExample {
     public String issue(Model m) {
         /*
          * "임시저장" 또는 "(역)발행대기" 상태의 세금계산서를 발행(전자서명)하며, "발행완료" 상태로 처리합니다.
-         * - 세금계산서 국세청 전송정책 : https://docs.popbill.com/taxinvoice/ntsSendPolicy?lang=java
+         * - 세금계산서 국세청 전송정책 [https://docs.popbill.com/taxinvoice/ntsSendPolicy?lang=java]
          * - https://docs.popbill.com/taxinvoice/java/api#TIIssue
          */
 

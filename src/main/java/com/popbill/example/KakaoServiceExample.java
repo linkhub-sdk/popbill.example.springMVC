@@ -2,7 +2,7 @@
  * 팝빌 카카오톡 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/kakao/tutorial/java
- * - 업데이트 일자 : 2022-01-14
+ * - 업데이트 일자 : 2022-01-17
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -186,7 +186,7 @@ public class KakaoServiceExample {
     public String getATSTemplate(Model m) {
         /*
          * 승인된 알림톡 템플릿 정보를 확인합니다.
-         * - https://docs.popbill.com/kakao/java/api#getATSTemplate
+         * - https://docs.popbill.com/kakao/java/api#GetATSTemplate
          */
 
         // 확인할 알림톡 템플릿 코드

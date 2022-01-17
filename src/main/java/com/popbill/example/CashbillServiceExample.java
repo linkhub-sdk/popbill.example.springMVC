@@ -2,7 +2,7 @@
  * 팝빌 현금영수증 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/cashbill/tutorial/java
- * - 업데이트 일자 : 2022-01-14
+ * - 업데이트 일자 : 2022-01-17
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -309,7 +309,6 @@ public class CashbillServiceExample {
         /*
          * 1건의 현금영수증을 [수정]합니다.
          * - [임시저장] 상태의 현금영수증만 수정할 수 있습니다.
-         * - https://docs.popbill.com/cashbill/java/api#Update
          */
 
         // 수정할 현금영수증 문서번호
@@ -569,7 +568,8 @@ public class CashbillServiceExample {
     public String revokeRegistIssue(Model m) {
         /*
          * 취소 현금영수증 데이터를 팝빌에 저장과 동시에 발행하여 "발행완료" 상태로 처리합니다.
-         * - 현금영수증 국세청 전송 정책 : https://docs.popbill.com/cashbill/ntsSendPolicy?lang=java
+         * - 현금영수증 국세청 전송 정책 [https://docs.popbill.com/cashbill/ntsSendPolicy?lang=java]
+         * - "발행완료"된 취소 현금영수증은 국세청 전송 이전에 발행취소(cancelIssue API) 함수로 국세청 신고 대상에서 제외할 수 있습니다.
          * - https://docs.popbill.com/cashbill/java/api#RevokeRegistIssue
          */
 
@@ -601,7 +601,8 @@ public class CashbillServiceExample {
         /*
          * 작성된 (부분)취소 현금영수증 데이터를 팝빌에 저장과 동시에 발행하여 "발행완료" 상태로 처리합니다.
          * - 취소 현금영수증의 금액은 원본 금액을 넘을 수 없습니다.
-         * - 현금영수증 국세청 전송 정책 : https://docs.popbill.com/cashbill/ntsSendPolicy?lang=java
+         * - 현금영수증 국세청 전송 정책 [https://docs.popbill.com/cashbill/ntsSendPolicy?lang=java]
+         * - "발행완료"된 취소 현금영수증은 국세청 전송 이전에 발행취소(cancelIssue API) 함수로 국세청 신고 대상에서 제외할 수 있습니다.
          * - https://docs.popbill.com/cashbill/java/api#RevokeRegistIssue
          */
 
@@ -657,6 +658,8 @@ public class CashbillServiceExample {
     public String getInfo(Model m) {
         /*
          * 현금영수증 1건의 상태 및 요약정보를 확인합니다.
+         * - 리턴값 'CashbillInfo'의 변수 'stateCode'를 통해 현금영수증의 상태코드를 확인합니다.
+         * - 현금영수증 상태코드 [https://docs.popbill.com/cashbill/stateCode?lang=java]
          * - https://docs.popbill.com/cashbill/java/api#GetInfo
          */
 
@@ -681,6 +684,8 @@ public class CashbillServiceExample {
     public String getInfos(Model m) {
         /*
          * 다수건의 현금영수증 상태 및 요약 정보를 확인합니다. (1회 호출 시 최대 1,000건 확인 가능)
+         * - 리턴값 'CashbillInfo'의 변수 'stateCode'를 통해 현금영수증의 상태코드를 확인합니다.
+         * - 현금영수증 상태코드 [https://docs.popbill.com/cashbill/stateCode?lang=java]
          * - https://docs.popbill.com/cashbill/java/api#GetInfos
          */
 
@@ -1113,7 +1118,7 @@ public class CashbillServiceExample {
     @RequestMapping(value = "assignMgtKey", method = RequestMethod.GET)
     public String assignMgtKey(Model m) {
         /*
-         * 팝빌 사이트를 통해 발행하였지만 문서번호가 존재하지 않는 현금영수증에 문서번호를 할당합니다.
+         * 팝빌 사이트를 통해 발행하여 문서번호가 부여되지 않은 현금영수증에 문서번호를 할당합니다.
          * - https://docs.popbill.com/cashbill/java/api#AssignMgtKey
          */
 
