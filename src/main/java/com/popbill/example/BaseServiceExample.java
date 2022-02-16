@@ -247,8 +247,8 @@ public class BaseServiceExample {
         // 대표자 성명, 최대 100자
         joinInfo.setCEOName("대표자 성명");
 
-        // 상호, 최대 200자
-        joinInfo.setCorpName("상호");
+        // 회사명, 최대 200자
+        joinInfo.setCorpName("회사명");
 
         // 사업장 주소, 최대 300자
         joinInfo.setAddr("주소");
@@ -352,7 +352,7 @@ public class BaseServiceExample {
         // 담당자 이메일, 최대 100자
         contactInfo.setEmail("test1234@test.com");
 
-        // 담당자 조회권한 1 - 개인권한 / 2 - 읽기권한 / 3 - 회사권한
+        // 담당자 조회권한, 1 - 개인권한 / 2 - 읽기권한 / 3 - 회사권한
         contactInfo.setSearchRole(3);
 
         try {
@@ -398,7 +398,7 @@ public class BaseServiceExample {
         // 담당자 이메일, 최대 100자
         contactInfo.setEmail("test1234@test.com");
 
-        // 담당자 조회권한 1 - 개인권한 / 2 - 읽기권한 / 3 - 회사권한
+        // 담당자 조회권한, 1 - 개인권한 / 2 - 읽기권한 / 3 - 회사권한
         contactInfo.setSearchRole(3);
 
         try {
@@ -461,8 +461,8 @@ public class BaseServiceExample {
         // 대표자 성명, 최대 100자
         corpInfo.setCeoname("대표자 성명 수정 테스트");
 
-        // 상호, 최대 200자
-        corpInfo.setCorpName("상호 수정 테스트");
+        // 회사명, 최대 200자
+        corpInfo.setCorpName("회사명 수정 테스트");
 
         // 주소, 최대 300자
         corpInfo.setAddr("주소 수정 테스트");

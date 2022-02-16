@@ -79,6 +79,7 @@ public class HTTaxinvoiceExample {
     public String requestJob(Model m) {
         /*
          * 홈택스에 신고된 전자세금계산서 매입/매출 내역 수집을 팝빌에 요청합니다. (조회기간 단위 : 최대 3개월)
+         * 주기적으로 자체 DB에 세금계산서 정보를 INSERT 하는 경우, 조회할 일자 유형(DType) 값을 "S"로 하는 것을 권장합니다.
          * - https://docs.popbill.com/httaxinvoice/java/api#RequestJob
          */
 
@@ -114,13 +115,13 @@ public class HTTaxinvoiceExample {
          * - 수집 결과 조회(Search API) 함수 또는 수집 결과 요약 정보 조회(Summary API) 함수를 사용하기 전에
          *   수집 작업의 진행 상태, 수집 작업의 성공 여부를 확인해야 합니다.
          * - 작업 상태(jobState) = 3(완료)이고 수집 결과 코드(errorCode) = 1(수집성공)이면
-         *   수집 결과 내역 조회(Search) 또는 수집 결과 요약 정보 조회(Summary) 를 해야합니다.
+         *   수집 결과 내역 조회(Search) 또는 수집 결과 요약 정보 조회(Summary)를 해야합니다.
          * - 작업 상태(jobState)가 3(완료)이지만 수집 결과 코드(errorCode)가 1(수집성공)이 아닌 경우에는
          *   오류메시지(errorReason)로 수집 실패에 대한 원인을 파악할 수 있습니다.
          * - https://docs.popbill.com/httaxinvoice/java/api#GetJobState
          */
 
-        // 수집요청(requestJob)시 반환받은 작업아이디
+        // 수집요청(requestJob API) 함수 호출 시 반환받은 작업아이디
         String jobID = "021010415000000002";
 
         try {
@@ -162,37 +163,46 @@ public class HTTaxinvoiceExample {
          * - https://docs.popbill.com/httaxinvoice/java/api#Search
          */
 
-        // 수집 요청시 발급받은 작업아이디
+        // 수집요청(requestJob API) 함수 호출 시 반환받은 작업아이디
         String jobID = "021102215000000023";
 
         // 문서형태 배열 ("N" 와 "M" 중 선택, 다중 선택 가능)
-        // └ N = 일반 , M = 수정 , 미입력 시 전체조회
+        // └ N = 일반 , M = 수정
+        // - 미입력 시 전체조회
         String[] Type = {"N", "M"};
 
         // 과세형태 배열 ("T" , "N" , "Z" 중 선택, 다중 선택 가능)
-        // └ T = 과세, N = 면세, Z = 영세 , 미입력 시 전체조회
+        // └ T = 과세, N = 면세, Z = 영세
+        // - 미입력 시 전체조회
         String[] TaxType = {"T", "Z", "N"};
 
         // 발행목적 배열 ("R" , "C", "N" 중 선택, 다중 선택 가능)
-        // └ R = 영수, C = 청구, N = 없음, 미입력 시 전체조회
+        // └ R = 영수, C = 청구, N = 없음
+        // - 미입력 시 전체조회
         String[] PurposeType = {"R", "C", "N"};
 
-        // 종사업장번호 유무, 공백-전체조회, 0-종사업장번호 없음, 1-종사업장번호 있음
+        // 종사업장번호 유무 (null , "0" , "1" 중 택 1)
+        // - null = 전체조회 , 0 = 없음, 1 = 있음
         String TaxRegIDYN = "";
 
-        // 종사업장번호의 주체, S-공급자, B-공급받는자, T-수탁자
+        // 종사업장번호의 주체 ("S" , "B" , "T" 중 택 1)
+        // - S = 공급자 , B = 공급받는자 , T = 수탁자
         String TaxRegIDType = "S";
 
-        // 종사업장번호, 다수기재시 콤마(",")로 구분하여 구성 ex) "0001,0002"
+        // 종사업장번호
+        // - 다수기재 시 콤마(",")로 구분. ex) "0001,0002"
+        // - 미입력 시 전체조회
         String TaxRegID = "";
 
-        // 페이지번호
+        // 페이지번호 (기본값 = 1)
         int Page = 1;
 
-        // 페이지당 목록개수
+        // 페이지당 목록개수 (기본값 = 500 , 최대 = 1000)
         int PerPage = 10;
 
-        // 정렬방향 D-내림차순, A-오름차순
+        // 정렬 방향
+        // - 수집 요청(requestJob API) 함수 사용시 사용한 DType 값을 기준.
+        // - D = 내림차순(기본값) , A = 오름차순
         String Order = "D";
 
         // 거래처 상호 / 사업자번호 (사업자) / 주민등록번호 (개인) / "9999999999999" (외국인) 중 검색하고자 하는 정보 입력
@@ -218,31 +228,39 @@ public class HTTaxinvoiceExample {
     public String summary(Model m) {
         /*
          * 수집 상태 확인(GetJobState API) 함수를 통해 상태 정보가 확인된 작업아이디를 활용하여 수집된 전자세금계산서 매입/매출 내역의 요약 정보를 조회합니다.
+         * - 요약 정보 : 전자세금계산서 수집 건수, 공급가액 합계, 세액 합계, 합계 금액
          * - https://docs.popbill.com/httaxinvoice/java/api#Summary
          */
 
-        // 수집 요청시 발급받은 작업아이디
+        // 수집요청(requestJob API) 함수 호출 시 반환받은 작업아이디
         String jobID = "021102215000000023";
 
         // 문서형태 배열 ("N" 와 "M" 중 선택, 다중 선택 가능)
-        // └ N = 일반 , M = 수정 , 미입력 시 전체조회
+        // └ N = 일반 , M = 수정
+        // - 미입력 시 전체조회
         String[] Type = {"N", "M"};
 
         // 과세형태 배열 ("T" , "N" , "Z" 중 선택, 다중 선택 가능)
-        // └ T = 과세, N = 면세, Z = 영세 , 미입력 시 전체조회
+        // └ T = 과세, N = 면세, Z = 영세
+        // - 미입력 시 전체조회
         String[] TaxType = {"T", "Z", "N"};
 
         // 발행목적 배열 ("R" , "C", "N" 중 선택, 다중 선택 가능)
-        // └ R = 영수, C = 청구, N = 없음, 미입력 시 전체조회
+        // └ R = 영수, C = 청구, N = 없음
+        // - 미입력 시 전체조회
         String[] PurposeType = {"R", "C", "N"};
 
-        // 종사업장번호 유무, 공백-전체조회, 0-종사업장번호 없음, 1-종사업장번호 있음
+        // 종사업장번호 유무 (null , "0" , "1" 중 택 1)
+        // - null = 전체조회 , 0 = 없음, 1 = 있음
         String TaxRegIDYN = "";
 
-        // 종사업장번호의 주체, S-공급자, B-공급받는자, T-수탁자
+        // 종사업장번호의 주체 ("S" , "B" , "T" 중 택 1)
+        // - S = 공급자 , B = 공급받는자 , T = 수탁자
         String TaxRegIDType = "S";
 
-        // 종사업장번호, 다수기재시 콤마(",")로 구분하여 구성 ex) "0001,0002"
+        // 종사업장번호
+        // - 다수기재 시 콤마(",")로 구분. ex) "0001,0002"
+        // - 미입력 시 전체조회
         String TaxRegID = "";
 
         // 거래처 상호 / 사업자번호 (사업자) / 주민등록번호 (개인) / "9999999999999" (외국인) 중 검색하고자 하는 정보 입력

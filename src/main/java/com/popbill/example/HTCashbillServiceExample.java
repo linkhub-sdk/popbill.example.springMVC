@@ -107,13 +107,13 @@ public class HTCashbillServiceExample {
          * - 수집 결과 조회(Search API) 함수 또는 수집 결과 요약 정보 조회(Summary API) 함수를 사용하기 전에
          *   수집 작업의 진행 상태, 수집 작업의 성공 여부를 확인해야 합니다.
          * - 작업 상태(jobState) = 3(완료)이고 수집 결과 코드(errorCode) = 1(수집성공)이면
-         *   수집 결과 내역 조회(Search) 또는 수집 결과 요약 정보 조회(Summary) 를 해야합니다.
+         *   수집 결과 내역 조회(Search) 또는 수집 결과 요약 정보 조회(Summary)를 해야합니다.
          * - 작업 상태(jobState)가 3(완료)이지만 수집 결과 코드(errorCode)가 1(수집성공)이 아닌 경우에는
          *   오류메시지(errorReason)로 수집 실패에 대한 원인을 파악할 수 있습니다.
          * - https://docs.popbill.com/htcashbill/java/api#GetJobState
          */
 
-        // 수집요청(requestJob)시 반환받은 작업아이디
+        // 수집요청(requestJob API) 함수 호출 시 반환받은 작업아이디
         String jobID = "021010415000000005";
 
         try {
@@ -155,24 +155,27 @@ public class HTCashbillServiceExample {
          * - https://docs.popbill.com/htcashbill/java/api#Search
          */
 
-        // 수집 요청시 발급받은 작업아이디
+        // 수집요청(requestJob API) 함수 호출 시 반환받은 작업아이디
         String jobID = "021010415000000005";
 
         // 거래구분 배열 ("P" 와 "C" 중 선택, 다중 선택 가능)
-        // └ P = 소득공제용 , C = 지출증빙용 , 미입력 시 전체조회
+        // └ P = 소득공제용 , C = 지출증빙용
+        // - 미입력 시 전체조회
         String[] TradeUsage = {"P", "C"};
 
         // 문서형태 배열 ("N" 와 "C" 중 선택, 다중 선택 가능)
-        // └ N = 일반 현금영수증 , C = 취소현금영수증 , 미입력 시 전체조회
+        // └ N = 일반 현금영수증 , C = 취소현금영수증
+        // - 미입력 시 전체조회
         String[] TradeType = {"N", "C"};
 
-        // 페이지번호
+        // 페이지번호 (기본값 = 1)
         int Page = 1;
 
-        // 페이지당 목록개수
+        // 페이지당 목록개수 (기본값 = 500 , 최대 = 1000)
         int PerPage = 10;
 
-        // 정렬방향, D-내림차순, A-오름차순
+        // 정렬방향, "D" / "A" 중 택 1
+        // └ D = 내림차순(기본값) , A = 오름차순
         String Order = "D";
 
         try {
@@ -192,18 +195,21 @@ public class HTCashbillServiceExample {
     public String summary(Model m) {
         /*
          * 수집 상태 확인(GetJobState API) 함수를 통해 상태 정보가 확인된 작업아이디를 활용하여 수집된 현금영수증 매입/매출 내역의 요약 정보를 조회합니다.
+         * - 요약 정보 : 현금영수증 수집 건수, 공급가액 합계, 세액 합계, 봉사료 합계, 합계 금액
          * - https://docs.popbill.com/htcashbill/java/api#Summary
          */
 
-        // 수집 요청시 발급받은 작업아이디
+        // 수집요청(requestJob API) 함수 호출 시 반환받은 작업아이디
         String jobID = "021010415000000005";
 
         // 거래구분 배열 ("P" 와 "C" 중 선택, 다중 선택 가능)
         // └ P = 소득공제용 , C = 지출증빙용
+        // - 미입력 시 전체조회
         String[] TradeUsage = {"P", "C"};
 
         // 문서형태 배열 ("N" 와 "C" 중 선택, 다중 선택 가능)
         // └ N = 일반 현금영수증 , C = 취소현금영수증
+        // - 미입력 시 전체조회
         String[] TradeType = {"N", "C"};
 
         try {

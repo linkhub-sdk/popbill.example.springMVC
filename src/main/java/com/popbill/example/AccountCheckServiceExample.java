@@ -101,7 +101,8 @@ public class AccountCheckServiceExample {
         // 조회할 기관의 계좌번호 (하이픈 '-' 제외 8자리 이상 14자리 이하)
         String AccountNumber = "";
 
-        // 등록번호 유형 ( P / B 중 택 1 , P = 개인, B = 사업자)
+        // 등록번호 유형 , P / B 중 택 1
+        // └ P = 개인, B = 사업자
         String IdentityNumType = "";
 
         /*
@@ -134,7 +135,8 @@ public class AccountCheckServiceExample {
          * - https://docs.popbill.com/accountcheck/java/api#GetUnitCost
          */
 
-        // 서비스 유형 ("성명" / "실명" 중 택 1 , 성명 = 예금주성명조회, 실명 = 예금주실명조회)
+        // 서비스 유형 , "성명" / "실명" 중 택 1 
+        // └ 성명 = 예금주성명조회, 실명 = 예금주실명조회
         String ServiceType = "성명";
 
         try {
@@ -154,11 +156,12 @@ public class AccountCheckServiceExample {
     @RequestMapping(value = "getChargeInfo", method = RequestMethod.GET)
     public String chargeInfo(Model m) {
         /*
-         * 예금주조회 API 서비스 과금정보를 확인합니다.
+         * 팝빌 예금주조회 API 서비스 과금정보를 확인합니다.
          * - https://docs.popbill.com/accountcheck/java/api#GetChargeInfo
          */
 
-        // 서비스 유형 ("성명" / "실명" 중 택 1 , 성명 = 예금주성명조회, 실명 = 예금주실명조회)
+        // 서비스 유형 , "성명" / "실명" 중 택 1 
+        // └ 성명 = 예금주성명조회, 실명 = 예금주실명조회
         String ServiceType = "성명";
 
         try {

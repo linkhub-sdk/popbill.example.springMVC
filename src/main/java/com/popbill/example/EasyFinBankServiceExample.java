@@ -91,7 +91,7 @@ public class EasyFinBankServiceExample {
         // 계좌비밀번호
         bankInfo.setAccountPWD("");
 
-        // 계좌유형, "법인" 또는 "개인" 입력
+        // 계좌유형, "법인" / "개인" 중 택 1
         bankInfo.setAccountType("");
 
         // 예금주 식별정보 ('-' 제외)
@@ -111,7 +111,8 @@ public class EasyFinBankServiceExample {
         // 조회전용 계정 비밀번호 (대구은행, 신협, 신한은행 필수)
         bankInfo.setFastPWD("");
 
-        // 정액제 이용할 개월수, 1~12 입력가능, 미기재시 기본값(1) 처리
+        // 정액제 이용할 개월수, 1~12 입력가능
+        // - 미입력시 기본값 1개월 처리
         // - 파트너 과금방식의 경우 입력값에 관계없이 1개월 처리
         bankInfo.setUsePeriod(1);
 
@@ -269,9 +270,10 @@ public class EasyFinBankServiceExample {
         // 계좌번호 하이픈('-') 제외
         String AccountNumber = "";
 
-        // 해지유형, “일반”, “중도” 중 선택 기재
-        // 일반해지 – 이용중인 정액제 기간 만료 후 해지
-        // 중도해지 – 요청일 기준으로 정지되고 팝빌 담당자가 승인시 해지, 정액제 잔여기간은 일할로 계산되어 포인트 환불 (무료 이용기간 중 중도해지 시 전액 환불)
+        // 해지유형, “일반”, “중도” 중 택 1
+        // 일반(일반해지) – 이용중인 정액제 기간 만료 후 해지
+        // 중도(중도해지) – 해지 요청일 기준으로 정지되고 팝빌 담당자가 승인시 해지
+        // └ 중도일 경우, 정액제 잔여기간은 일할로 계산되어 포인트 환불 (무료 이용기간 중 해지하면 전액 환불)
         String CloseType = "중도";
 
         try {
@@ -323,7 +325,7 @@ public class EasyFinBankServiceExample {
         /*
         * 등록된 계좌를 삭제합니다.
         * - 정액제가 아닌 종량제 이용 시에만 등록된 계좌를 삭제할 수 있습니다.
-        * - 정액제 이용 시 CloseBankAccount 함수를 사용하여 정액제를 해제할 수 있습니다.
+        * - 정액제 이용 시 정액제 해지요청(CloseBankAccount API) 함수를 사용하여 정액제를 해제할 수 있습니다.
         * - https://docs.popbill.com/easyfinbank/java/api#DeleteBankAccount
         */
 
@@ -355,6 +357,7 @@ public class EasyFinBankServiceExample {
         /*
         * 계좌 거래내역을 확인하기 위해 팝빌에 수집요청을 합니다. (조회기간 단위 : 최대 1개월)
         * - 조회일로부터 최대 3개월 이전 내역까지 조회할 수 있습니다.
+        * - 반환 받은 작업아이디는 함수 호출 시점부터 1시간 동안 유효합니다.
         * - https://docs.popbill.com/easyfinbank/java/api#RequestJob
         */
 
@@ -396,7 +399,7 @@ public class EasyFinBankServiceExample {
          * - https://docs.popbill.com/easyfinbank/java/api#GetJobState
          */
 
-        // 수집요청(requestJob)시 반환받은 작업아이디
+        // 수집요청(requestJob API) 함수 호출 시 반환받은 작업아이디
         String jobID = "021121815000000001";
 
         try {
@@ -414,7 +417,7 @@ public class EasyFinBankServiceExample {
     @RequestMapping(value = "listActiveJob", method = RequestMethod.GET)
     public String listActiveJob(Model m) {
         /*
-         * RequestJob(수집 요청)를 통해 반환 받은 작업아이디의 목록을 확인합니다.
+         * 수집 요청(RequestJob API) 함수를 통해 반환 받은 작업아이디의 목록을 확인합니다.
          * - 수집 요청 후 1시간이 경과한 수집 요청건은 상태정보가 반환되지 않습니다.
          * - https://docs.popbill.com/easyfinbank/java/api#ListActiveJob
          */
@@ -438,11 +441,12 @@ public class EasyFinBankServiceExample {
          * - https://docs.popbill.com/easyfinbank/java/api#Search
          */
 
-        // 수집 요청시 발급받은 작업아이디
+        // 수집요청(requestJob API) 함수 호출 시 반환받은 작업아이디
         String jobID = "021080715000000001";
 
         // 거래유형 배열 ("I" 와 "O" 중 선택, 다중 선택 가능)
-        // └ I = 입금 , O = 출금 , 미입력 시 전체조회
+        // └ I = 입금 , O = 출금
+        // - 미입력 시 전체조회
         String[] TradeType = { "I", "O" };
 
         // 페이지번호
@@ -455,7 +459,7 @@ public class EasyFinBankServiceExample {
         String Order = "D";
 
         // "입·출금액" / "메모" / "비고" 중 검색하고자 하는 값 입력
-        // - 메모 = 거래내역 메모저장(SaveMemo)을 사용하여 저장한 값
+        // - 메모 = 거래내역 메모저장(SaveMemo API) 함수를 사용하여 저장한 값
         // - 비고 = EasyFinBankSearchDetail의 remark1, remark2, remark3 값
         // - 미입력시 전체조회
         String SearchString = "";
@@ -477,18 +481,20 @@ public class EasyFinBankServiceExample {
     public String summary(Model m) {
         /*
          * 수집 상태 확인(GetJobState API) 함수를 통해 상태 정보가 확인된 작업아이디를 활용하여 계좌 거래내역의 요약 정보를 조회합니다.
+         * - 요약 정보는 입·출금액 합계, 입·출 거래 건수를 가리킵니다.
          * - https://docs.popbill.com/easyfinbank/java/api#Summary
          */
 
-        // 수집 요청시 발급받은 작업아이디
+        // 수집요청(requestJob API) 함수 호출 시 반환받은 작업아이디
         String jobID = "021121816000000001";
 
         // 거래유형 배열 ("I" 와 "O" 중 선택, 다중 선택 가능)
-        // └ I = 입금 , O = 출금 , 미입력 시 전체조회
+        // └ I = 입금 , O = 출금
+        // - 미입력 시 전체조회
         String[] TradeType = { "I", "O" };
 
         // "입·출금액" / "메모" / "비고" 중 검색하고자 하는 값 입력
-        // - 메모 = 거래내역 메모저장(SaveMemo)을 사용하여 저장한 값
+        // - 메모 = 거래내역 메모저장(SaveMemo API) 함수를 사용하여 저장한 값
         // - 비고 = EasyFinBankSearchDetail의 remark1, remark2, remark3 값
         // - 미입력시 전체조회
         String SearchString = "";
@@ -513,10 +519,11 @@ public class EasyFinBankServiceExample {
         * - https://docs.popbill.com/easyfinbank/java/api#SaveMemo
         */
 
-        // 거래내역 아이디, SeachAPI 응답항목 중 tid
+        // 메모를 저장할 거래내역 아이디
+        // └ 거래내역 조회(Seach API) 함수의 반환값인 EasyFinBankSearchDetail 의 tid를 통해 확인 가능
         String TID = "";
 
-        // 메모
+        // 거래 내역에 저장할 메모
         String Memo = "0211218-테스트";
 
         try {

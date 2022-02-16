@@ -120,7 +120,7 @@ public class MessageServiceExample {
          * - https://docs.popbill.com/message/java/api#SendSMS
          */
 
-        // 발신번호
+        // 발신번호 (팝빌에 등록된 발신번호만 이용가능)
         String sender = "07043042991";
 
         // 수신번호
@@ -130,16 +130,18 @@ public class MessageServiceExample {
         String receiverName = "수신자명";
 
         // 메시지 내용, 90byte 초과된 내용은 삭제되어 전송
+        // └ 한글, 한자, 특수문자 2byte / 영문, 숫자, 공백 1byte
         String content = "문자메시지\r내용";
 
         // 전송예약일시(yyyyMMddHHmmss), null인 경우 즉시전송
         Date reserveDT = null;
 
-        // 광고문자 전송여부
+        // 광고 메시지 여부 ( true , false 중 택 1)
+        // └ true = 광고 , false = 일반
         Boolean adsYN = false;
 
         // 전송요청번호
-        // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+        // 팝빌이 접수 단위를 식별할 수 있도록 파트너가 할당한 식별번호.
         // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
         String requestNum = "";
 
@@ -170,6 +172,7 @@ public class MessageServiceExample {
         String sender = "07043042991";
 
         // [동보전송시 필수] 메시지 내용, 개별문자 전송정보에 문자내용이 없는 경우 적용
+        // └ 한글, 한자, 특수문자 2byte / 영문, 숫자, 공백 1byte
         String content = "대량문자 메시지 내용";
 
         // 전송 정보 배열, 최대 1000건.
@@ -194,11 +197,12 @@ public class MessageServiceExample {
         // 전송예약일시(yyyyMMddHHmmss), null인 경우 즉시전송
         Date reserveDT = null;
 
-        // 광고문자 전송여부
+        // 광고 메시지 여부 ( true , false 중 택 1)
+        // └ true = 광고 , false = 일반
         Boolean adsYN = false;
 
         // 전송요청번호
-        // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+        // 팝빌이 접수 단위를 식별할 수 있도록 파트너가 할당한 식별번호.
         // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
         String requestNum = "";
 
@@ -223,7 +227,7 @@ public class MessageServiceExample {
          *  - https://docs.popbill.com/message/java/api#SendLMS
          */
 
-        // 발신번호
+        // 발신번호 (팝빌에 등록된 발신번호만 이용가능)
         String sender = "07043042991";
 
         // 수신번호
@@ -235,17 +239,19 @@ public class MessageServiceExample {
         // 문자메시지 제목
         String subject = "장문문자 제목";
 
-        // 장문 메시지 내용, 2000byte 초과시 길이가 조정되어 전송됨
+        // 장문 메시지 내용, 2000byte 초과시 길이가 조정되어 전송
+        // └ 한글, 한자, 특수문자 2byte / 영문, 숫자, 공백 1byte
         String content = "장문 문자메시지 내용";
 
         // 전송예약일시(yyyyMMddHHmmss), null인 경우 즉시전송
         Date reserveDT = null;
 
-        // 광고문자 전송여부
+        // 광고 메시지 여부 ( true , false 중 택 1)
+        // └ true = 광고 , false = 일반
         Boolean adsYN = false;
 
         // 전송요청번호
-        // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+        // 팝빌이 접수 단위를 식별할 수 있도록 파트너가 할당한 식별번호.
         // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
         String requestNum = "";
 
@@ -279,6 +285,7 @@ public class MessageServiceExample {
         String subject = "대량전송 제목";
 
         // [동보전송시 필수] 메시지 내용, 개별 전송정보의 메시지 내용이 없는 경우 적용
+        // └ 한글, 한자, 특수문자 2byte / 영문, 숫자, 공백 1byte
         String content = "대량전송 내용";
 
         // 전송 정보 배열, 최대 1000건.
@@ -286,11 +293,11 @@ public class MessageServiceExample {
 
         Message msg1 = new Message();
         msg1.setSender("07043042991");       // 발신번호
-        msg1.setSenderName("발신자1");       // 발신자명
+        msg1.setSenderName("발신자1");         // 발신자명
         msg1.setReceiver("010111222");       // 수신번호
-        msg1.setReceiverName("수신자1");     // 수신자명
-        msg1.setSubject("장문 메시지 제목"); // 문자제목
-        msg1.setContent("메시지 내용1");     // 메시지내용
+        msg1.setReceiverName("수신자1");       // 수신자명
+        msg1.setSubject("장문 메시지 제목");      // 문자제목
+        msg1.setContent("메시지 내용1");        // 메시지내용
         messages[0] = msg1;
 
         Message msg2 = new Message();
@@ -305,11 +312,12 @@ public class MessageServiceExample {
         // 전송예약일시(yyyyMMddHHmmss), null인 경우 즉시전송
         Date reserveDT = null;
 
-        // 광고문자 전송여부
+        // 광고 메시지 여부 ( true , false 중 택 1)
+        // └ true = 광고 , false = 일반
         Boolean adsYN = false;
 
         // 전송요청번호
-        // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+        // 팝빌이 접수 단위를 식별할 수 있도록 파트너가 할당한 식별번호.
         // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
         String requestNum = "";
 
@@ -336,7 +344,7 @@ public class MessageServiceExample {
          * - https://docs.popbill.com/message/java/api#SendMMS
          */
 
-        // 발신번호
+        // 발신번호 (팝빌에 등록된 발신번호만 이용가능)
         String sender = "07043042991";
 
         // 수신번호
@@ -349,6 +357,7 @@ public class MessageServiceExample {
         String subject = "포토 문자 제목";
 
         // 메시지 내용
+        // └ 한글, 한자, 특수문자 2byte / 영문, 숫자, 공백 1byte
         String content = "멀티 문자메시지 내용";
 
         // 전송할 이미지 파일 경로
@@ -357,11 +366,12 @@ public class MessageServiceExample {
         // 전송예약일시(yyyyMMddHHmmss), null인 경우 즉시전송
         Date reserveDT = null;
 
-        // 광고문자 전송여부
+        // 광고 메시지 여부 ( true , false 중 택 1)
+        // └ true = 광고 , false = 일반
         Boolean adsYN = false;
 
         // 전송요청번호
-        // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+        // 팝빌이 접수 단위를 식별할 수 있도록 파트너가 할당한 식별번호.
         // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
         String requestNum = "";
 
@@ -396,6 +406,7 @@ public class MessageServiceExample {
         String subject = "대량전송 제목";
 
         // [동보전송시 필수] 메시지 내용, 개별 전송정보의 메시지 내용이 없는 경우 적용
+        // └ 한글, 한자, 특수문자 2byte / 영문, 숫자, 공백 1byte
         String content = "대량전송 메시지 내용";
 
         // 전송 정보 배열, 최대 1000건.
@@ -426,11 +437,12 @@ public class MessageServiceExample {
         // 전송예약일시(yyyyMMddHHmmss), null인 경우 즉시전송
         Date reserveDT = null;
 
-        // 광고문자 전송여부
+        // 광고 메시지 여부 ( true , false 중 택 1)
+        // └ true = 광고 , false = 일반
         Boolean adsYN = false;
 
         // 전송요청번호
-        // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+        // 팝빌이 접수 단위를 식별할 수 있도록 파트너가 할당한 식별번호.
         // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
         String requestNum = "";
 
@@ -454,7 +466,8 @@ public class MessageServiceExample {
          * 메시지 길이(90byte)에 따라 단문/장문(SMS/LMS)을 자동으로 인식하여 1건의 메시지를 전송을 팝빌에 접수합니다.
          * - https://docs.popbill.com/message/java/api#SendXMS
          */
-        // 발신번호
+        // 발신번호 (팝빌에 등록된 발신번호만 이용가능)
+        // └ 한글, 한자, 특수문자 2byte / 영문, 숫자, 공백 1byte
         String sender = "07043042991";
 
         // 수신번호
@@ -466,17 +479,19 @@ public class MessageServiceExample {
         // 문자메시지 제목
         String subject = "장문문자 제목";
 
-        // 문자메시지 내용, 90Byte를 기준으로 단문과 장문을 자동인식하여 전송됨.
+        // 문자메시지 내용, 90Byte를 기준으로 단문과 장문을 자동인식하여 전송.
+        // └ 한글, 한자, 특수문자 2byte / 영문, 숫자, 공백 1byte
         String content = "문자메시지 내용";
 
         // 전송예약일시(yyyyMMddHHmmss), null인 경우 즉시전송
         Date reserveDT = null;
 
-        // 광고문자 전송여부
+        // 광고 메시지 여부 ( true , false 중 택 1)
+        // └ true = 광고 , false = 일반
         Boolean adsYN = false;
 
         // 전송요청번호
-        // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+        // 팝빌이 접수 단위를 식별할 수 있도록 파트너가 할당한 식별번호.
         // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
         String requestNum = "";
 
@@ -533,11 +548,12 @@ public class MessageServiceExample {
         // 전송예약일시(yyyyMMddHHmmss), null인 경우 즉시전송
         Date reserveDT = null;
 
-        // 광고문자 전송여부
-        Boolean adsYN = true;
+        // 광고 메시지 여부 ( true , false 중 택 1)
+        // └ true = 광고 , false = 일반
+        Boolean adsYN = false;
 
         // 전송요청번호
-        // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+        // 팝빌이 접수 단위를 식별할 수 있도록 파트너가 할당한 식별번호.
         // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
         String requestNum = "";
 
@@ -654,7 +670,6 @@ public class MessageServiceExample {
     public String getStates(Model m) {
         /*
          * 문자전송에 대한 전송결과 요약정보를 확인합니다.
-         * - https://docs.popbill.com/message/java/api#GetStates
          */
 
         // 문자전송 접수번호 배열
@@ -689,22 +704,24 @@ public class MessageServiceExample {
         String EDate = "20220110";
 
         // 전송상태 배열 ("1" , "2" , "3" , "4" 중 선택, 다중 선택 가능)
-        // └ 1 = 대기 , 2 = 성공 , 3 = 실패 , 4 = 취소 , 미입력 시 전체조회
+        // └ 1 = 대기 , 2 = 성공 , 3 = 실패 , 4 = 취소
+        // - 미입력 시 전체조회
         String[] State = {"1", "2", "3", "4"};
 
         // 검색대상 배열 ("SMS" , "LMS" , "MMS" 중 선택, 다중 선택 가능)
-        // └ SMS = 단문 , LMS = 장문 , MMS = 포토문자 , 미입력 시 전체조회
+        // └ SMS = 단문 , LMS = 장문 , MMS = 포토문자
+        // - 미입력 시 전체조회
         String[] Item = {"SMS", "LMS", "MMS"};
 
         // 예약여부 (false , true 중 택 1)
-        // false = 전체조회, true = 예약전송건 조회
-        // 미입력시 기본값 false 처리
+        // └ false = 전체조회, true = 예약전송건 조회
+        // - 미입력시 기본값 false 처리
         Boolean ReserveYN = false;
 
         // 개인조회 여부 (false , true 중 택 1)
-      	// false = 접수한 문자 전체 조회 (관리자권한)
-      	// true = 해당 담당자 계정으로 접수한 문자만 조회 (개인권한)
-      	// 미입력시 기본값 false 처리
+      	// └ false = 접수한 문자 전체 조회 (관리자권한)
+      	// └ true = 해당 담당자 계정으로 접수한 문자만 조회 (개인권한)
+      	// - 미입력시 기본값 false 처리
         Boolean SenderYN = false;
 
         // 페이지 번호
@@ -713,7 +730,8 @@ public class MessageServiceExample {
         // 페이지당 목록개수 (최대 1000건)
         int PerPage = 20;
 
-        // 정렬방향 D-내림차순, A-오름차순
+        // 문자 접수일시를 기준으로 하는 목록 정렬 방향 ("D" , "A" 중 택 1)
+        // └ D = 내림차순(기본값) , A = 오름차순
         String Order = "D";
 
         // 조회하고자 하는 발신자명 또는 수신자명
@@ -737,7 +755,7 @@ public class MessageServiceExample {
     @RequestMapping(value = "getSentListURL", method = RequestMethod.GET)
     public String getSentListURL(Model m) {
         /*
-         * 팝빌 사이트와 동일한 문자 전송내역 확인 페이지의 팝업 URL을 반환합니다.
+         * 문자 전송내역 확인 페이지의 팝업 URL을 반환합니다.
          * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/message/java/api#GetSentListURL
          */

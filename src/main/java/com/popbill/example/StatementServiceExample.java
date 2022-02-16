@@ -80,7 +80,7 @@ public class StatementServiceExample {
     public String checkMgtKeyInUse(Model m) {
         /*
          * 파트너가 전자명세서 관리 목적으로 할당하는 문서번호의 사용여부를 확인합니다.
-         * - 최대 24자, 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
+         * - 이미 사용 중인 문서번호는 중복 사용이 불가하고, 전자명세서가 삭제된 경우에만 문서번호의 재사용이 가능합니다.
          * - https://docs.popbill.com/statement/java/api#CheckMgtKeyInUse
          */
 
@@ -116,7 +116,8 @@ public class StatementServiceExample {
 
         String Memo = "전자명세서 즉시발행 메모";
 
-        // 발행 안내 메일 제목, 미기재시 기본양식으로 메일 전송
+        // 발행 안내 메일 제목
+        // - 미입력 시 팝빌에서 지정한  이메일 제목으로 전송
         String emailSubject = "";
 
         // 전자명세서 정보 객체
@@ -297,6 +298,7 @@ public class StatementServiceExample {
     public String register(Model m) {
         /*
          * 작성된 전자명세서 데이터를 팝빌에 저장합니다.
+         * - "임시저장" 상태의 전자명세서는 발행(Issue API) 함수를 호출하여 "발행완료"처리한 경우에만 수신자에게 발행 안내 메일이 발송됩니다.
          * - https://docs.popbill.com/statement/java/api#Register
          */
 
@@ -670,7 +672,7 @@ public class StatementServiceExample {
         /*
          * "임시저장" 상태의 전자명세서를 발행하여, "발행완료" 상태로 처리합니다.
          * - 팝빌 사이트 [전자명세서] > [환경설정] > [전자명세서 관리] 메뉴의 발행시 자동승인 옵션 설정을 통해
-         * - 전자명세서를 "발행완료" 상태가 아닌 "승인대기" 상태로 발행 처리 할 수 있습니다.
+         *   전자명세서를 "발행완료" 상태가 아닌 "승인대기" 상태로 발행 처리 할 수 있습니다.
          * - 전자명세서 발행 함수 호출시 포인트가 과금되며, 수신자에게 발행 안내 메일이 발송됩니다.
          * - https://docs.popbill.com/statement/java/api#StmIssue
          */
@@ -792,6 +794,7 @@ public class StatementServiceExample {
     public String getInfos(Model m) {
         /*
          * 다수건의 전자명세서 상태/요약 정보를 확인합니다.
+         * - 1회 호출 시 최대 1000건 확인 가능.
          * - https://docs.popbill.com/statement/java/api#GetInfos
          */
 
@@ -880,7 +883,8 @@ public class StatementServiceExample {
         // 페이지당 목록개수, 최대 1000건
         int PerPage = 20;
 
-        // 정렬방향, A-오름차순, D-내림차순
+        // {DType}값을 기준으로 하는 목록 정렬 방향
+        // - D = 내림차순(기본값) , A = 오름차순
         String Order = "D";
 
         try {
@@ -954,7 +958,7 @@ public class StatementServiceExample {
     @RequestMapping(value = "getPopUpURL", method = RequestMethod.GET)
     public String getPopUpURL(Model m) {
         /*
-         * 팝빌 사이트와 동일한 전자명세서 1건의 상세 정보 페이지의 팝업 URL을 반환합니다.
+         * 전자명세서 1건의 상세 정보 페이지의 팝업 URL을 반환합니다.
          * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/statement/java/api#GetPopUpURL
          */
@@ -983,7 +987,7 @@ public class StatementServiceExample {
     @RequestMapping(value = "getViewURL", method = RequestMethod.GET)
     public String getViewURL(Model m) {
         /*
-         * 팝빌 사이트와 동일한 전자명세서 1건의 상세 정보 페이지(사이트 상단, 좌측 메뉴 및 버튼 제외)의 팝업 URL을 반환합니다.
+         * 전자명세서 1건의 상세 정보 페이지(사이트 상단, 좌측 메뉴 및 버튼 제외)의 팝업 URL을 반환합니다.
          * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/statement/java/api#GetViewURL
          */
@@ -1042,7 +1046,7 @@ public class StatementServiceExample {
     @RequestMapping(value = "getEPrintURL", method = RequestMethod.GET)
     public String getEPrintURL(Model m) {
         /*
-         * "공급받는자" 용 세금계산서 1건을 인쇄하기 위한 페이지의 팝업 URL을 반환합니다.
+         * "공급받는자" 용 전자명세서 1건을 인쇄하기 위한 페이지의 팝업 URL을 반환합니다.
          * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://docs.popbill.com/statement/java/api#GetEPrintURL
          */
@@ -1193,7 +1197,7 @@ public class StatementServiceExample {
     public String deleteFile(Model m) {
         /*
          * "임시저장" 상태의 전자명세서에 첨부된 1개의 파일을 삭제합니다.
-         * - 파일을 식별하는 파일아이디는 첨부파일 목록(GetFiles API) 의 응답항목 중 파일아이디(AttachedFile) 값을 통해 확인할 수 있습니다.
+         * - 파일 식별을 위해 첨부 시 부여되는 'FileID'는 첨부파일 목록 확인(GetFiles API) 함수를 호출하여 확인합니다.
          * - https://docs.popbill.com/statement/java/api#DeleteFile
          */
 
@@ -1203,7 +1207,8 @@ public class StatementServiceExample {
         // 전자명세서 문서번호
         String mgtKey = "20210701-01";
 
-        // getFiles()로 해당 파일의 attachedFile 필드값 기재.
+        // 팝빌이 첨부파일 관리를 위해 할당하는 식별번호
+        // 첨부파일 목록 확인(getFiles API) 함수의 리턴 값 중 attachedFile 필드값 기재.
         String FileID = "57C0A91A-BF5A-494A-8E0D-B46FC9B5C8E2.PBF";
 
         try {
@@ -1225,7 +1230,7 @@ public class StatementServiceExample {
     public String getFiles(Model m) {
         /*
          * 전자명세서에 첨부된 파일목록을 확인합니다.
-         * - 응답항목 중 파일아이디(AttachedFile) 항목은 파일삭제(DeleteFile API) 호출시 이용할 수 있습니다.
+         * - 응답항목 중 파일아이디(AttachedFile) 항목은 첨부파일 삭제(DeleteFile API) 함수 호출 시 이용할 수 있습니다.
          * - https://docs.popbill.com/statement/java/api#GetFiles
          */
 
@@ -1302,7 +1307,7 @@ public class StatementServiceExample {
         // 수신번호
         String receiver = "010111222";
 
-        // 문자 전송 내용 (90Byte 초과시 길이가 조정되어 전송)
+        // 문자 전송 내용 (90Byte 초과한 내용은 자동으로 삭제되어 전송)
         String contents = "전자명세서 문자메시지 전송 테스트입니다.";
 
         try {
@@ -1361,8 +1366,8 @@ public class StatementServiceExample {
          * 전자명세서를 팩스로 전송하는 함수로, 팝빌에 데이터를 저장하는 과정이 없습니다.
          * - 팝빌 사이트 [문자·팩스] > [팩스] > [전송내역] 메뉴에서 전송결과를 확인 할 수 있습니다.
          * - 함수 호출시 포인트가 과금됩니다.
-         * - 팩스 발행 요청시 작성한 문서번호는 팩스전송 파일명으로 사용됩니다.
-         * - 팩스 전송결과를 확인하기 위해서는 선팩스 전송 요청 시 반환받은 접수번호를 이용하여 팩스 API의 전송결과 확인 (GetFaxDetail) API를 이용하면 됩니다.
+         * - 선팩스 전송 요청 시 작성한 문서번호는 팩스로 전송되는 파일명에 사용됩니다.
+         * - 팩스 전송결과를 확인하기 위해서는 선팩스 전송 요청 시 반환받은 접수번호를 이용하여 팩스 API의 전송내역 확인 (GetFaxResult API) 함수를 이용하면 됩니다.
          * - https://docs.popbill.com/statement/java/api#FAXSend
          */
 
