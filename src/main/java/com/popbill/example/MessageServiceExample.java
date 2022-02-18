@@ -467,7 +467,6 @@ public class MessageServiceExample {
          * - https://docs.popbill.com/message/java/api#SendXMS
          */
         // 발신번호 (팝빌에 등록된 발신번호만 이용가능)
-        // └ 한글, 한자, 특수문자 2byte / 영문, 숫자, 공백 1byte
         String sender = "07043042991";
 
         // 수신번호
@@ -719,9 +718,9 @@ public class MessageServiceExample {
         Boolean ReserveYN = false;
 
         // 개인조회 여부 (false , true 중 택 1)
-      	// └ false = 접수한 문자 전체 조회 (관리자권한)
-      	// └ true = 해당 담당자 계정으로 접수한 문자만 조회 (개인권한)
-      	// - 미입력시 기본값 false 처리
+        // └ false = 접수한 문자 전체 조회 (관리자권한)
+        // └ true = 해당 담당자 계정으로 접수한 문자만 조회 (개인권한)
+        // - 미입력시 기본값 false 처리
         Boolean SenderYN = false;
 
         // 페이지 번호

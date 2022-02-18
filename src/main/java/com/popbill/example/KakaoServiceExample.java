@@ -235,7 +235,7 @@ public class KakaoServiceExample {
          * - https://docs.popbill.com/kakao/java/api#SendATS_one
          */
 
-        // 숭인된 알림톡 템플릿코드
+        // 승인된 알림톡 템플릿코드
         // └ 알림톡 템플릿 관리 팝업 URL(GetATSTemplateMgtURL API) 함수, 알림톡 템플릿 목록 확인(ListATStemplate API) 함수를 호출하거나 
         //   팝빌사이트에서 승인된 알림톡 템플릿 코드를  확인 가능.
         String templateCode = "021020000163";
@@ -256,7 +256,7 @@ public class KakaoServiceExample {
         String altContent = "대체문자 내용";
 
         // 대체문자 유형 (null , "C" , "A" 중 택 1)
-      	// null = 미전송, C = 알림톡과 동일 내용 전송 , A = 대체문자 내용(altContent)에 입력한 내용 전송
+        // null = 미전송, C = 알림톡과 동일 내용 전송 , A = 대체문자 내용(altContent)에 입력한 내용 전송
         String altSendType = "C";
 
         // 수신번호
@@ -312,7 +312,7 @@ public class KakaoServiceExample {
          * - https://docs.popbill.com/kakao/java/api#SendATS_multi
          */
 
-        // 숭인된 알림톡 템플릿코드
+        // 승인된 알림톡 템플릿코드
         // └ 알림톡 템플릿 관리 팝업 URL(GetATSTemplateMgtURL API) 함수, 알림톡 템플릿 목록 확인(ListATStemplate API) 함수를 호출하거나 
         //   팝빌사이트에서 승인된 알림톡 템플릿 코드를  확인 가능.
         String templateCode = "021020000163";
@@ -405,7 +405,7 @@ public class KakaoServiceExample {
          * - https://docs.popbill.com/kakao/java/api#SendATS_same
          */
 
-        // 숭인된 알림톡 템플릿코드
+        // 승인된 알림톡 템플릿코드
         // └ 알림톡 템플릿 관리 팝업 URL(GetATSTemplateMgtURL API) 함수, 알림톡 템플릿 목록 확인(ListATStemplate API) 함수를 호출하거나 
         //   팝빌사이트에서 승인된 알림톡 템플릿 코드를  확인 가능.
         String templateCode = "021020000163";
@@ -496,7 +496,7 @@ public class KakaoServiceExample {
         String altContent = "대체문자 내용";
 
         // 대체문자 유형 (null , "C" , "A" 중 택 1)
-        // null = 미전송, C = 알림톡과 동일 내용 전송 , A = 대체문자 내용(altContent)에 입력한 내용 전송
+        // null = 미전송, C = 친구톡과 동일 내용 전송 , A = 대체문자 내용(altContent)에 입력한 내용 전송
         String altSendType = "A";
 
         // 수신번호
@@ -569,7 +569,7 @@ public class KakaoServiceExample {
         String senderNum = "07043042991";
 
         // 대체문자 유형 (null , "C" , "A" 중 택 1)
-        // null = 미전송, C = 알림톡과 동일 내용 전송 , A = 대체문자 내용(altContent)에 입력한 내용 전송
+        // null = 미전송, C = 친구톡과 동일 내용 전송 , A = 대체문자 내용(altContent)에 입력한 내용 전송
         String altSendType = "A";
 
         // 예약전송일시, 형태(yyyyMMddHHmmss)
@@ -656,7 +656,7 @@ public class KakaoServiceExample {
         String altContent = "대체문자 내용";
 
         // 대체문자 유형 (null , "C" , "A" 중 택 1)
-        // null = 미전송, C = 알림톡과 동일 내용 전송 , A = 대체문자 내용(altContent)에 입력한 내용 전송
+        // null = 미전송, C = 친구톡과 동일 내용 전송 , A = 대체문자 내용(altContent)에 입력한 내용 전송
         String altSendType = "A";
 
         // 예약전송일시, 형태(yyyyMMddHHmmss)
@@ -740,7 +740,7 @@ public class KakaoServiceExample {
         String altContent = "대체문자 내용";
 
         // 대체문자 유형 (null , "C" , "A" 중 택 1)
-        // null = 미전송, C = 알림톡과 동일 내용 전송 , A = 대체문자 내용(altContent)에 입력한 내용 전송
+        // null = 미전송, C = 친구톡과 동일 내용 전송 , A = 대체문자 내용(altContent)에 입력한 내용 전송
         String altSendType = "A";
 
         // 수신번호
@@ -823,8 +823,8 @@ public class KakaoServiceExample {
         String senderNum = "07043042991";
 
         // 대체문자 유형 (null , "C" , "A" 중 택 1)
-        // null = 미전송, C = 알림톡과 동일 내용 전송 , A = 대체문자 내용(altContent)에 입력한 내용 전송
-        String altSendType = "A";
+        // null = 미전송, C = 친구톡과 동일 내용 전송 , A = 대체문자 내용(altContent)에 입력한 내용 전송
+        String altSendType = "C";
 
         // 예약전송일시, 형태(yyyyMMddHHmmss)
         // - 분단위 전송, 미입력 시 즉시 전송
@@ -938,7 +938,7 @@ public class KakaoServiceExample {
         String altContent = "대체문자 내용";
 
         // 대체문자 유형 (null , "C" , "A" 중 택 1)
-        // null = 미전송, C = 알림톡과 동일 내용 전송 , A = 대체문자 내용(altContent)에 입력한 내용 전송
+        // null = 미전송, C = 친구톡과 동일 내용 전송 , A = 대체문자 내용(altContent)에 입력한 내용 전송
         String altSendType = "A";
 
         // 예약전송일시, 형태(yyyyMMddHHmmss)
@@ -1117,7 +1117,7 @@ public class KakaoServiceExample {
         String EDate = "20220110";
 
         // 전송상태 배열 ("0" , "1" , "2" , "3" , "4" , "5" 중 선택, 다중 선택 가능)
-      	// └ 0 = 전송대기 , 1 = 전송중 , 2 = 전송성공 , 3 = 대체문자 전송 , 4 = 전송실패 , 5 = 전송취소
+        // └ 0 = 전송대기 , 1 = 전송중 , 2 = 전송성공 , 3 = 대체문자 전송 , 4 = 전송실패 , 5 = 전송취소
         // - 미입력 시 전체조회
         String[] State = {"0", "1", "2", "3", "4"};
 

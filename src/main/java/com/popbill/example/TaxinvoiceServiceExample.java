@@ -212,7 +212,7 @@ public class TaxinvoiceServiceExample {
         taxinvoice.setInvoiceeCorpNum("8888888888");
 
         // 공급받는자 종사업장 식별번호, 필요시 숫자4자리 기재
-      	taxinvoice.setInvoiceeTaxRegID("");
+        taxinvoice.setInvoiceeTaxRegID("");
 
         // 공급받는자 상호
         taxinvoice.setInvoiceeCorpName("공급받는자 상호");
@@ -293,12 +293,12 @@ public class TaxinvoiceServiceExample {
         // 책번호 '호' 항목, 최대값 32767
         taxinvoice.setHo((short) 1);
 
-        // 사업자등록증 이미지 첨부여부  (true / false 중 택 1)
+        // 사업자등록증 이미지 첨부여부 (true / false 중 택 1)
         // └ true = 첨부 , false = 미첨부(기본값)
         // - 팝빌 사이트 또는 인감 및 첨부문서 등록 팝업 URL (GetSealURL API) 함수를 이용하여 등록
         taxinvoice.setBusinessLicenseYN(false);
 
-        // 통장사본 이미지 첨부여부  (true / false 중 택 1)
+        // 통장사본 이미지 첨부여부 (true / false 중 택 1)
         // └ true = 첨부 , false = 미첨부(기본값)
         // - 팝빌 사이트 또는 인감 및 첨부문서 등록 팝업 URL (GetSealURL API) 함수를 이용하여 등록
         taxinvoice.setBankBookYN(false);
@@ -365,7 +365,7 @@ public class TaxinvoiceServiceExample {
 
         taxinvoice.getAddContactList().add(addContact);
 
-        // 거래명세서 동시작성여부  (true / false 중 택 1)
+        // 거래명세서 동시작성여부 (true / false 중 택 1)
         // └ true = 사용 , false = 미사용
         // - 미입력 시 기본값 false 처리
         Boolean WriteSpecification = false;
@@ -583,12 +583,12 @@ public class TaxinvoiceServiceExample {
             // 책번호 '호' 항목, 최대값 32767
             taxinvoice.setHo((short) 1);
 
-            // 사업자등록증 이미지 첨부여부  (true / false 중 택 1)
+            // 사업자등록증 이미지 첨부여부 (true / false 중 택 1)
             // └ true = 첨부 , false = 미첨부(기본값)
             // - 팝빌 사이트 또는 인감 및 첨부문서 등록 팝업 URL (GetSealURL API) 함수를 이용하여 등록
             taxinvoice.setBusinessLicenseYN(false);
 
-            // 통장사본 이미지 첨부여부  (true / false 중 택 1)
+            // 통장사본 이미지 첨부여부 (true / false 중 택 1)
             // └ true = 첨부 , false = 미첨부(기본값)
             // - 팝빌 사이트 또는 인감 및 첨부문서 등록 팝업 URL (GetSealURL API) 함수를 이용하여 등록
             taxinvoice.setBankBookYN(false);
@@ -874,12 +874,12 @@ public class TaxinvoiceServiceExample {
         // 기재상 '호' 항목, 최대값 32767
         taxinvoice.setHo((short) 1);
 
-        // 사업자등록증 이미지 첨부여부  (true / false 중 택 1)
+        // 사업자등록증 이미지 첨부여부 (true / false 중 택 1)
         // └ true = 첨부 , false = 미첨부(기본값)
         // - 팝빌 사이트 또는 인감 및 첨부문서 등록 팝업 URL (GetSealURL API) 함수를 이용하여 등록
         taxinvoice.setBusinessLicenseYN(false);
 
-        // 통장사본 이미지 첨부여부  (true / false 중 택 1)
+        // 통장사본 이미지 첨부여부 (true / false 중 택 1)
         // └ true = 첨부 , false = 미첨부(기본값)
         // - 팝빌 사이트 또는 인감 및 첨부문서 등록 팝업 URL (GetSealURL API) 함수를 이용하여 등록
         taxinvoice.setBankBookYN(false);
@@ -1047,7 +1047,7 @@ public class TaxinvoiceServiceExample {
         taxinvoice.setInvoicerSMSSendYN(false);
 
         /***************************************************************************
-         *                               공급받는 정보
+         *                               공급받는자 정보
          ****************************************************************************/
 
         // 공급받는자 구분, [사업자, 개인, 외국인] 중 기재
@@ -1141,12 +1141,12 @@ public class TaxinvoiceServiceExample {
         // 책번호 '호' 항목, 최대값 32767
         taxinvoice.setHo((short) 1);
 
-        // 사업자등록증 이미지 첨부여부  (true / false 중 택 1)
+        // 사업자등록증 이미지 첨부여부 (true / false 중 택 1)
         // └ true = 첨부 , false = 미첨부(기본값)
         // - 팝빌 사이트 또는 인감 및 첨부문서 등록 팝업 URL (GetSealURL API) 함수를 이용하여 등록
         taxinvoice.setBusinessLicenseYN(false);
 
-        // 통장사본 이미지 첨부여부  (true / false 중 택 1)
+        // 통장사본 이미지 첨부여부 (true / false 중 택 1)
         // └ true = 첨부 , false = 미첨부(기본값)
         // - 팝빌 사이트 또는 인감 및 첨부문서 등록 팝업 URL (GetSealURL API) 함수를 이용하여 등록
         taxinvoice.setBankBookYN(false);
@@ -1247,7 +1247,12 @@ public class TaxinvoiceServiceExample {
         // 메모
         String memo = "발행 메모";
 
-        // 지연발행 강제여부
+        // 지연발행 강제여부  (true / false 중 택 1)
+        // └ true = 가능 , false = 불가능
+        // - 미입력 시 기본값 false 처리
+        // - 발행마감일이 지난 세금계산서를 발행하는 경우, 가산세가 부과될 수 있습니다.
+        // - 가산세가 부과되더라도 발행을 해야하는 경우에는 forceIssue의 값을
+        //   true로 선언하여 발행(Issue API)를 호출하시면 됩니다.
         Boolean forceIssue = false;
 
         try {
@@ -1380,7 +1385,7 @@ public class TaxinvoiceServiceExample {
         taxinvoice.setInvoicerSMSSendYN(false);
 
         /***************************************************************************
-         *                               공급받는 정보
+         *                               공급받는자 정보
          ****************************************************************************/
 
         // 공급받는자 구분, [사업자, 개인, 외국인] 중 기재
@@ -1474,12 +1479,12 @@ public class TaxinvoiceServiceExample {
         // 책번호 '호' 항목, 최대값 32767
         taxinvoice.setHo((short) 1);
 
-        // 사업자등록증 이미지 첨부여부  (true / false 중 택 1)
+        // 사업자등록증 이미지 첨부여부 (true / false 중 택 1)
         // └ true = 첨부 , false = 미첨부(기본값)
         // - 팝빌 사이트 또는 인감 및 첨부문서 등록 팝업 URL (GetSealURL API) 함수를 이용하여 등록
         taxinvoice.setBusinessLicenseYN(false);
 
-        // 통장사본 이미지 첨부여부  (true / false 중 택 1)
+        // 통장사본 이미지 첨부여부 (true / false 중 택 1)
         // └ true = 첨부 , false = 미첨부(기본값)
         // - 팝빌 사이트 또는 인감 및 첨부문서 등록 팝업 URL (GetSealURL API) 함수를 이용하여 등록
         taxinvoice.setBankBookYN(false);
@@ -1806,7 +1811,7 @@ public class TaxinvoiceServiceExample {
         String EDate = "20220110";
 
         // 세금계산서 상태코드 배열 (2,3번째 자리에 와일드카드(*) 사용 가능)
-      	// - 미입력시 전체조회
+        // - 미입력시 전체조회
         String[] State = { "3**", "6**" };
 
         // 문서유형 배열 ("N" , "M" 중 선택, 다중 선택 가능)
@@ -2246,7 +2251,8 @@ public class TaxinvoiceServiceExample {
         // 세금계산서 문서번호
         String mgtKey = "20210701-01";
 
-        // 파일아이디, getFiles()로 확인한 AttachedFile의 attachedFile 참조.
+        // 팝빌이 첨부파일 관리를 위해 할당하는 식별번호
+        // 첨부파일 목록 확인(getFiles API) 함수의 리턴 값 중 attachedFile 필드값 기재.
         String FileID = " 418DD6F7-5358-46A8-B430-04F79CC3D9DA.PBF";
 
         try {
