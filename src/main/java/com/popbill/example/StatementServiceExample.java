@@ -88,7 +88,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
-        String mgtKey = "20210701-01";
+        String mgtKey = "20220218-MVC001";
         String isUseStr;
 
         try {
@@ -124,7 +124,7 @@ public class StatementServiceExample {
         Statement statement = new Statement();
 
         // 작성일자, 형태 yyyyMMdd
-        statement.setWriteDate("20210706");
+        statement.setWriteDate("20220218");
 
         // {영수, 청구, 없음} 중 기재
         statement.setPurposeType("영수");
@@ -139,7 +139,7 @@ public class StatementServiceExample {
         statement.setItemCode((short) 121);
 
         // 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
-        statement.setMgtKey("20210706-001");
+        statement.setMgtKey("20220218-MVC001");
 
 
         /*********************************************************************
@@ -208,7 +208,7 @@ public class StatementServiceExample {
         // 수신자 메일주소
         // 팝빌 개발환경에서 테스트하는 경우에도 안내 메일이 전송되므로,
         // 실제 거래처의 메일주소가 기재되지 않도록 주의
-        statement.setReceiverEmail("code@linkhub.co.kr");
+        statement.setReceiverEmail("");
 
 
         /*********************************************************************
@@ -253,7 +253,7 @@ public class StatementServiceExample {
 
         detail.setSerialNum((short) 1);                    // 일련번호, 1부터 순차기재
         detail.setItemName("품명");                        // 품목명
-        detail.setPurchaseDT("20210706");                  // 거래일자
+        detail.setPurchaseDT("20220218");                  // 거래일자
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
@@ -263,7 +263,7 @@ public class StatementServiceExample {
         detail = new StatementDetail();                    // 상세항목(품목) 배열
         detail.setSerialNum((short) 2);                    // 일련번호 1부터 순차기재
         detail.setItemName("품명");                        // 품목명
-        detail.setPurchaseDT("20210706");                  // 거래일자
+        detail.setPurchaseDT("20220218");                  // 거래일자
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
@@ -310,7 +310,7 @@ public class StatementServiceExample {
         Statement statement = new Statement();
 
         // 작성일자, 형태 yyyyMMdd
-        statement.setWriteDate("20210705");
+        statement.setWriteDate("20220218");
 
         // {영수, 청구, 없음} 중 기재
         statement.setPurposeType("영수");
@@ -325,7 +325,7 @@ public class StatementServiceExample {
         statement.setItemCode((short) 121);
 
         // 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
-        statement.setMgtKey("20210705-001");
+        statement.setMgtKey("20220218-MVC002");
 
 
         /*********************************************************************
@@ -439,7 +439,7 @@ public class StatementServiceExample {
 
         detail.setSerialNum((short) 1);                    // 일련번호, 1부터 순차기재
         detail.setItemName("품명");                        // 품목명
-        detail.setPurchaseDT("20210705");                  // 거래일자
+        detail.setPurchaseDT("20220218");                  // 거래일자
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
@@ -449,7 +449,7 @@ public class StatementServiceExample {
         detail = new StatementDetail();                    // 상세항목(품목) 배열
         detail.setSerialNum((short) 2);                    // 일련번호 1부터 순차기재
         detail.setItemName("품명");                        // 품목명
-        detail.setPurchaseDT("20210705");                  // 거래일자
+        detail.setPurchaseDT("20220218");                  // 거래일자
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
@@ -497,7 +497,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
-        String mgtKey = "20210701-01";
+        String mgtKey = "20220218-MVC002";
 
         // 전자명세서 정보 객체
         Statement statement = new Statement();
@@ -514,11 +514,11 @@ public class StatementServiceExample {
         // 맞춤양식코드, 미기재시 기본양식으로 처리
         statement.setFormCode("");
 
-        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
-        statement.setItemCode((short) 121);
-
-        // 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
-        statement.setMgtKey(mgtKey);
+//        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+//        statement.setItemCode((short) 121);
+//
+//        // 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
+//        statement.setMgtKey(mgtKey);
 
 
         /*********************************************************************
@@ -632,7 +632,7 @@ public class StatementServiceExample {
 
         detail.setSerialNum((short) 1);                    // 일련번호, 1부터 순차기재
         detail.setItemName("품명");                        // 품목명
-        detail.setPurchaseDT("20210701");                  // 거래일자
+        detail.setPurchaseDT("20220218");                  // 거래일자
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
@@ -642,7 +642,7 @@ public class StatementServiceExample {
         detail = new StatementDetail();                    // 상세항목(품목) 배열
         detail.setSerialNum((short) 2);                    // 일련번호 1부터 순차기재
         detail.setItemName("품명");                        // 품목명
-        detail.setPurchaseDT("20210701");                  // 거래일자
+        detail.setPurchaseDT("20220218");                  // 거래일자
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
@@ -693,7 +693,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20210701-001";
+        String mgtKey = "20220218-MVC002";
 
         // 메모
         String memo = "발행메모";
@@ -725,7 +725,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20210701-001";
+        String mgtKey = "20220218-MVC002";
 
         // 메모
         String memo = "발행취소 메모";
@@ -758,7 +758,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20210701-01";
+        String mgtKey = "20220218-MVC002";
 
         try {
 
@@ -785,7 +785,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20210701-001";
+        String mgtKey = "20220218-MVC001";
 
         try {
 
@@ -814,7 +814,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호 배열(최대 1000건)
-        String[] MgtKeyList = new String[]{"20210701-001", "20210701-002", "20210701-003"};
+        String[] MgtKeyList = new String[]{"20220218-MVC001", "20220218-MVC002"};
 
         try {
 
@@ -842,7 +842,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20210701-001";
+        String mgtKey = "20220218-MVC001";
 
         try {
 
@@ -871,10 +871,10 @@ public class StatementServiceExample {
         String DType = "W";
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20221101";
+        String SDate = "20220201";
 
         // 종료일자, 날짜형식(yyyyMMdd)
-        String EDate = "20220110";
+        String EDate = "20220228";
 
         // 전자명세서 상태코드 배열 (2,3번째 자리에 와일드카드(*) 사용 가능)
         // - 미입력시 전체조회
@@ -925,7 +925,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20210701-01";
+        String mgtKey = "20220218-MVC001";
 
         try {
 
@@ -979,7 +979,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20210701-001";
+        String mgtKey = "20220218-MVC001";
 
         try {
 
@@ -1008,7 +1008,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20210702-001-TEST";
+        String mgtKey = "20220218-MVC001";
 
         try {
 
@@ -1038,7 +1038,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20210701-001";
+        String mgtKey = "20220218-MVC001";
 
         try {
 
@@ -1067,7 +1067,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20210701-001";
+        String mgtKey = "20220218-MVC001";
 
         try {
 
@@ -1096,7 +1096,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 문서번호 배열, 최대 100건
-        String[] mgtKeyList = new String[]{"20210701-001", "20210701-01", "20210701-001", "20210701-01"};
+        String[] mgtKeyList = new String[]{"20220218-MVC001", "20220218-MVC002"};
 
         try {
 
@@ -1125,7 +1125,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20210701-001";
+        String mgtKey = "20220218-MVC001";
 
         try {
             String url = statementService.getMailURL(testCorpNum, itemCode, mgtKey);
@@ -1173,7 +1173,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20210708-01";
+        String mgtKey = "20220218-MVC002";
 
         // 첨부파일 표시명
         String displayName = "첨부파일.jpg";
@@ -1217,11 +1217,11 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20210701-01";
+        String mgtKey = "20220218-MVC002";
 
         // 팝빌이 첨부파일 관리를 위해 할당하는 식별번호
         // 첨부파일 목록 확인(getFiles API) 함수의 리턴 값 중 attachedFile 필드값 기재.
-        String FileID = "57C0A91A-BF5A-494A-8E0D-B46FC9B5C8E2.PBF";
+        String FileID = "";
 
         try {
 
@@ -1250,7 +1250,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20210701-01";
+        String mgtKey = "20220218-MVC002";
 
         try {
 
@@ -1278,7 +1278,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20210701-001";
+        String mgtKey = "20220218-MVC001";
 
         // 수신자 이메일주소
         String receiver = "test@test.com";
@@ -1311,7 +1311,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20210701-001";
+        String mgtKey = "20220218-MVC001";
 
         // 발신번호
         String sender = "07043042991";
@@ -1349,7 +1349,7 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20210701-001";
+        String mgtKey = "20220218-MVC001";
 
         // 발신자 번호
         String sender = "07043042991";
@@ -1393,7 +1393,7 @@ public class StatementServiceExample {
         Statement statement = new Statement();
 
         // 작성일자, 형태 yyyyMmdd
-        statement.setWriteDate("20210701");
+        statement.setWriteDate("20220218");
 
         // {영수, 청구, 없음} 중 기재
         statement.setPurposeType("영수");
@@ -1408,7 +1408,7 @@ public class StatementServiceExample {
         statement.setItemCode((short) 121);
 
         // 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
-        statement.setMgtKey("20191004-100");
+        statement.setMgtKey("20220218-MVC003");
 
 
         /*********************************************************************
@@ -1522,7 +1522,7 @@ public class StatementServiceExample {
 
         detail.setSerialNum((short) 1);                    // 일련번호, 1부터 순차기재
         detail.setItemName("품명");                        // 품목명
-        detail.setPurchaseDT("20210701");                  // 거래일자
+        detail.setPurchaseDT("20220218");                  // 거래일자
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
@@ -1532,7 +1532,7 @@ public class StatementServiceExample {
         detail = new StatementDetail();                    // 상세항목(품목) 배열
         detail.setSerialNum((short) 2);                    // 일련번호 1부터 순차기재
         detail.setItemName("품명");                        // 품목명
-        detail.setPurchaseDT("20210701");                  // 거래일자
+        detail.setPurchaseDT("20220218");                  // 거래일자
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
@@ -1580,14 +1580,14 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20210701-001";
+        String mgtKey = "20220218-MVC001";
 
 
         // 첨부할 전자명세서 유형 코드
         int subItemCode = 121;
 
         // 첨부할 전자명세서 문서번호
-        String subMgtKey = "20210701-002";
+        String subMgtKey = "20220218-MVC002";
 
         try {
 
@@ -1615,14 +1615,14 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20210701-001";
+        String mgtKey = "20220218-MVC001";
 
 
         // 첨부해제할 전자명세서 유형 코드
         int subItemCode = 121;
 
         // 첨부해제할 전자명세서 문서번호
-        String subMgtKey = "20210701-002";
+        String subMgtKey = "20220218-MVC002";
 
         try {
 

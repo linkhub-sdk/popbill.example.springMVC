@@ -394,7 +394,7 @@ public class FaxServiceExample {
          */
 
         // 원본 팩스 접수번호
-        String orgReceiptNum = "021010316355100002";
+        String orgReceiptNum = "022021803102600001";
 
         // 발신번호, 공백처리시 기존전송정보로 재전송
         String sendNum = "07043042991";
@@ -445,7 +445,7 @@ public class FaxServiceExample {
          */
 
         // 원본 팩스 접수번호
-        String orgReceiptNum = "021010316355100002";
+        String orgReceiptNum = "022021803102600001";
 
         // 발신번호, 공백처리시 기존전송정보로 재전송
         String sendNum = "07043042991";
@@ -615,7 +615,7 @@ public class FaxServiceExample {
          */
 
         // 예약팩스 전송요청시 팝빌로부터 반환 받은 접수번호
-        String receiptNum = "021010414344900001";
+        String receiptNum = "022021803102600001";
 
         try {
             Response response = faxService.cancelReserve(testCorpNum, receiptNum);
@@ -661,7 +661,7 @@ public class FaxServiceExample {
          */
 
         // 팩스 전송요청시 발급받은 접수번호
-        String receiptNum = "021122715343100001";
+        String receiptNum = "022021803102600001";
 
         try {
             FaxResult[] faxResults = faxService.getFaxResult(testCorpNum, receiptNum);
@@ -708,10 +708,10 @@ public class FaxServiceExample {
          */
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20220101";
+        String SDate = "20220201";
 
         // 종료일자, 날짜형식(yyyyMMdd)
-        String EDate = "20220110";
+        String EDate = "20220228";
 
         // 전송상태 배열 ("1" , "2" , "3" , "4" 중 선택, 다중 선택 가능)
         // └ 1 = 대기 , 2 = 성공 , 3 = 실패 , 4 = 취소
@@ -787,7 +787,7 @@ public class FaxServiceExample {
         try {
 
             // 팩스 접수번호
-            String receiptNum = "021010414350900001";
+            String receiptNum = "022021803102600001";
 
             String url = faxService.getPreviewURL(testCorpNum, receiptNum);
 

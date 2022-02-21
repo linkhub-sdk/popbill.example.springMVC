@@ -235,7 +235,7 @@ public class BaseServiceExample {
         // 아이디, 6자 이상 50자 미만
         joinInfo.setID("testkorea0328");
 
-        // 팝빌회원 비밀번호 (8자 이상 20자 이하) 영문, 숫자 ,특수문자 조합
+        // 팝빌회원 비밀번호 (8자 이상 20자 이하) 영문, 숫자, 특수문자 조합
         joinInfo.setPassword("password123!@#");
 
         // 연동신청 시 팝빌에서 발급받은 링크아이디
@@ -380,7 +380,7 @@ public class BaseServiceExample {
         // 담당자 아이디, 6자 이상 50자 미만
         contactInfo.setId("testid");
 
-        // 담당자 비밀번호 (8자 이상 20자 이하) 영문, 숫자 ,특수문자 조합
+        // 담당자 비밀번호 (8자 이상 20자 이하) 영문, 숫자, 특수문자 조합
         contactInfo.setPassword("password123!@#");
 
         // 담당자 성명, 최대 100자

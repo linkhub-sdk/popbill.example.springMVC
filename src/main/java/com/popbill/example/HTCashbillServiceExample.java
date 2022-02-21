@@ -83,10 +83,10 @@ public class HTCashbillServiceExample {
         QueryType TIType = QueryType.SELL;
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20220101";
+        String SDate = "20220201";
 
         // 종료일자, 날짜형식(yyyyMMdd)
-        String EDate = "20220110";
+        String EDate = "20220228";
 
         try {
             String jobID = htCashbillService.requestJob(testCorpNum, TIType, SDate, EDate);
@@ -114,7 +114,7 @@ public class HTCashbillServiceExample {
          */
 
         // 수집요청(requestJob API) 함수 호출 시 반환받은 작업아이디
-        String jobID = "021010415000000005";
+        String jobID = "";
 
         try {
             HTCashbillJobState jobState = htCashbillService.getJobState(testCorpNum, jobID);
@@ -156,7 +156,7 @@ public class HTCashbillServiceExample {
          */
 
         // 수집요청(requestJob API) 함수 호출 시 반환받은 작업아이디
-        String jobID = "021010415000000005";
+        String jobID = "";
 
         // 거래구분 배열 ("P" 와 "C" 중 선택, 다중 선택 가능)
         // └ P = 소득공제용 , C = 지출증빙용
@@ -200,7 +200,7 @@ public class HTCashbillServiceExample {
          */
 
         // 수집요청(requestJob API) 함수 호출 시 반환받은 작업아이디
-        String jobID = "021010415000000005";
+        String jobID = "";
 
         // 거래구분 배열 ("P" 와 "C" 중 선택, 다중 선택 가능)
         // └ P = 소득공제용 , C = 지출증빙용

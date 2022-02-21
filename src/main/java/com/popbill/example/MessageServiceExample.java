@@ -579,7 +579,7 @@ public class MessageServiceExample {
          */
 
         // 예약문자 전송요청 시 팝빌로부터 반환 받은 접수번호
-        String receiptNum = "021010413000000001";
+        String receiptNum = "022022111000000012";
 
         try {
             Response response = messageService.cancelReserve(testCorpNum, receiptNum);
@@ -625,7 +625,7 @@ public class MessageServiceExample {
          */
 
         // 문자 전송요청 시 팝빌로부터 반환 받은 접수번호
-        String receiptNum = "021010413000000003";
+        String receiptNum = "022022111000000012";
 
         try {
 
@@ -697,10 +697,10 @@ public class MessageServiceExample {
          */
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20211201";
+        String SDate = "20220201";
 
         // 종료일자, 날짜형식(yyyyMMdd)
-        String EDate = "20220110";
+        String EDate = "20220228";
 
         // 전송상태 배열 ("1" , "2" , "3" , "4" 중 선택, 다중 선택 가능)
         // └ 1 = 대기 , 2 = 성공 , 3 = 실패 , 4 = 취소

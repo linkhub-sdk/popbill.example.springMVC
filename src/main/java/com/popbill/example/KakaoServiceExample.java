@@ -342,7 +342,7 @@ public class KakaoServiceExample {
             message.setMessage(content);                          // 알림톡 템플릿 내용, 최대 1000자
             message.setAltMessage("대체문자 개별내용입니다." + i);       // 대체문자 내용
 
-          //수신자별 개별 버튼정보
+            // 수신자별 개별 버튼정보
 //            KakaoButton button = new KakaoButton();
 //            button.setN("타입1 버튼명"+i); // 버튼명
 //            button.setT("WL"); // 버튼타입
@@ -570,7 +570,7 @@ public class KakaoServiceExample {
 
         // 대체문자 유형 (null , "C" , "A" 중 택 1)
         // null = 미전송, C = 친구톡과 동일 내용 전송 , A = 대체문자 내용(altContent)에 입력한 내용 전송
-        String altSendType = "A";
+        String altSendType = "C";
 
         // 예약전송일시, 형태(yyyyMMddHHmmss)
         // - 분단위 전송, 미입력 시 즉시 전송
@@ -835,7 +835,6 @@ public class KakaoServiceExample {
         // - 미입력 시 기본값 false 처리
         Boolean adsYN = false;
 
-
         // 카카오톡 수신정보 배열, 최대 1000건
         KakaoReceiver[] receivers = new KakaoReceiver[100];
         for (int i = 0; i < 100; i++) {
@@ -883,7 +882,6 @@ public class KakaoServiceExample {
         button.setU1("http://www.popbill.com");
         button.setU2("http://test.popbill.com");
         btns[1] = button;
-
 
         // 첨부이미지 파일 경로
         // - 이미지 파일 규격: 전송 포맷 – JPG 파일 (.jpg, .jpeg), 용량 – 최대 500 Kbyte, 크기 – 가로 500px 이상, 가로 기준으로 세로 0.5~1.3배 비율 가능
@@ -1016,7 +1014,7 @@ public class KakaoServiceExample {
          */
 
         // 카카오톡 예약전송 접수시 팝빌로부터 반환받은 접수번호
-        String receiptNum = "019010415153200001";
+        String receiptNum = "022021810443200001";
 
         try {
             Response response = kakaoService.cancelReserve(testCorpNum, receiptNum);
@@ -1062,7 +1060,7 @@ public class KakaoServiceExample {
          */
 
         // 카카오톡 전송 접수시 팝빌로부터 반환받은 접수번호
-        String receiptNum = "020020410351600001";
+        String receiptNum = "022021810443200001";
 
         try {
 
@@ -1111,10 +1109,10 @@ public class KakaoServiceExample {
          */
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20211101";
+        String SDate = "20220201";
 
         // 종료일자, 날짜형식(yyyyMMdd)
-        String EDate = "20220110";
+        String EDate = "20220228";
 
         // 전송상태 배열 ("0" , "1" , "2" , "3" , "4" , "5" 중 선택, 다중 선택 가능)
         // └ 0 = 전송대기 , 1 = 전송중 , 2 = 전송성공 , 3 = 대체문자 전송 , 4 = 전송실패 , 5 = 전송취소

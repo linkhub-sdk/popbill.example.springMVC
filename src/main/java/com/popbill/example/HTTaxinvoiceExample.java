@@ -90,10 +90,10 @@ public class HTTaxinvoiceExample {
         String DType = "S";
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20211201";
+        String SDate = "20220201";
 
         // 종료일자, 닐짜형식(yyyyMMdd)
-        String EDate = "20220113";
+        String EDate = "20220228";
 
         try {
             String jobID = htTaxinvoiceService.requestJob(testCorpNum, TIType,
@@ -122,7 +122,7 @@ public class HTTaxinvoiceExample {
          */
 
         // 수집요청(requestJob API) 함수 호출 시 반환받은 작업아이디
-        String jobID = "021010415000000002";
+        String jobID = "";
 
         try {
             HTTaxinvoiceJobState jobState = htTaxinvoiceService.getJobState(testCorpNum, jobID);
@@ -164,7 +164,7 @@ public class HTTaxinvoiceExample {
          */
 
         // 수집요청(requestJob API) 함수 호출 시 반환받은 작업아이디
-        String jobID = "021102215000000023";
+        String jobID = "";
 
         // 문서형태 배열 ("N" 와 "M" 중 선택, 다중 선택 가능)
         // └ N = 일반 , M = 수정
@@ -233,7 +233,7 @@ public class HTTaxinvoiceExample {
          */
 
         // 수집요청(requestJob API) 함수 호출 시 반환받은 작업아이디
-        String jobID = "021102215000000023";
+        String jobID = "";
 
         // 문서형태 배열 ("N" 와 "M" 중 선택, 다중 선택 가능)
         // └ N = 일반 , M = 수정

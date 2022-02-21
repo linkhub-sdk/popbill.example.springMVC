@@ -217,7 +217,7 @@ public class EasyFinBankServiceExample {
     @RequestMapping(value = "listBankAccount", method = RequestMethod.GET)
     public String listBankAccount(Model m) {
         /*
-        * 팝빌에 등록된 은행계좌 목록을 반환합니다.
+        * 팝빌에 등록된 계좌정보 목록을 반환합니다.
         * - https://docs.popbill.com/easyfinbank/java/api#ListBankAccount
         */
         try {
@@ -270,7 +270,7 @@ public class EasyFinBankServiceExample {
         // 계좌번호 하이픈('-') 제외
         String AccountNumber = "";
 
-        // 해지유형, “일반”, “중도” 중 택 1
+        // 해지유형, "일반", "중도" 중 택 1
         // 일반(일반해지) – 이용중인 정액제 기간 만료 후 해지
         // 중도(중도해지) – 해지 요청일 기준으로 정지되고 팝빌 담당자가 승인시 해지
         // └ 중도일 경우, 정액제 잔여기간은 일할로 계산되어 포인트 환불 (무료 이용기간 중 해지하면 전액 환불)
@@ -368,10 +368,10 @@ public class EasyFinBankServiceExample {
         String AccountNumber = "";
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20211201";
+        String SDate = "20220201";
 
         // 종료일자, 닐짜형식(yyyyMMdd)
-        String EDate = "20211222";
+        String EDate = "20220228";
 
         try {
 
@@ -400,7 +400,7 @@ public class EasyFinBankServiceExample {
          */
 
         // 수집요청(requestJob API) 함수 호출 시 반환받은 작업아이디
-        String jobID = "021121815000000001";
+        String jobID = "022021815000000001";
 
         try {
             EasyFinBankJobState jobState = easyFinBankService.getJobState(testCorpNum, jobID);
@@ -442,7 +442,7 @@ public class EasyFinBankServiceExample {
          */
 
         // 수집요청(requestJob API) 함수 호출 시 반환받은 작업아이디
-        String jobID = "021080715000000001";
+        String jobID = "022021815000000001";
 
         // 거래유형 배열 ("I" 와 "O" 중 선택, 다중 선택 가능)
         // └ I = 입금 , O = 출금
@@ -486,7 +486,7 @@ public class EasyFinBankServiceExample {
          */
 
         // 수집요청(requestJob API) 함수 호출 시 반환받은 작업아이디
-        String jobID = "021121816000000001";
+        String jobID = "022021815000000001";
 
         // 거래유형 배열 ("I" 와 "O" 중 선택, 다중 선택 가능)
         // └ I = 입금 , O = 출금
@@ -524,7 +524,7 @@ public class EasyFinBankServiceExample {
         String TID = "";
 
         // 거래 내역에 저장할 메모
-        String Memo = "0211218-테스트";
+        String Memo = "Memo테스트";
 
         try {
 
