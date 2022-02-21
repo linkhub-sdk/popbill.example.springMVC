@@ -82,6 +82,7 @@
         <legend>공동인증서 관리</legend>
         <ul>
             <li><a href="TaxinvoiceService/getTaxCertURL">GetTaxCertURL</a> - 공동인증서 등록 URL</li>
+            <li><a href="TaxinvoiceService/getTaxCertInfo">getTaxCertInfo</a> - 공동인증서 정보확인</li>
             <li><a href="TaxinvoiceService/getCertificateExpireDate">GetCertificateExpireDate</a> - 공동인증서 만료일 확인</li>
             <li><a href="TaxinvoiceService/checkCertValidation">CheckCertValidation</a> - 공동인증서 유효성 확인</li>
         </ul>
