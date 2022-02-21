@@ -123,6 +123,28 @@ public class KakaoServiceExample {
         return "Kakao/listPlusFriend";
     }
 
+    @RequestMapping(value = "checkSenderNumber", method = RequestMethod.GET)
+    public String checkSenderNumber(Model m) {
+        /*
+         * 카카오톡 발신번호 등록여부를 확인합니다.
+         * https://docs.popbill.com/kakao/java/api#CheckSenderNumber
+         */
+        try {
+
+            String sender = "070-4304-2991";
+
+            Response response = kakaoService.checkSenderNumber(testCorpNum, sender, testUserID);
+
+            m.addAttribute("Response", response);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "response";
+    }
+
     @RequestMapping(value = "getSenderNumberMgtURL", method = RequestMethod.GET)
     public String getSenderNumberMgtURL(Model m) {
         /*
