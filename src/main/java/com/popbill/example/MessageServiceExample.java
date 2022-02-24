@@ -83,6 +83,7 @@ public class MessageServiceExample {
          */
         try {
 
+            // 확인할 발신번호
             String sender = "070-4304-2991";
 
             Response response = messageService.checkSenderNumber(testCorpNum, sender, testUserID);

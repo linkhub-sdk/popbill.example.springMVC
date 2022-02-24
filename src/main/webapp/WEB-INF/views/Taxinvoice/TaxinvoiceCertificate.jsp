@@ -19,7 +19,7 @@
             <li>subjectDN (등록된 인증서 DN) : ${TaxinvoiceCertificate.subjectDN}</li>
             <li>issuerName (인증서 종류) : ${TaxinvoiceCertificate.issuerName}</li>
             <li>oid (OID) : ${TaxinvoiceCertificate.oid}</li>
-            <li>regContactName(등록 담당자 성명) : ${TaxinvoiceCertificate.regContactName}</li>
+            <li>regContactName (등록 담당자 성명) : ${TaxinvoiceCertificate.regContactName}</li>
             <li>regContactID (등록 담당자 아이디) : ${TaxinvoiceCertificate.regContactID}</li>
         </ul>
     </fieldset>

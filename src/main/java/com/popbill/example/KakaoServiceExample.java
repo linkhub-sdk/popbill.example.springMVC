@@ -131,6 +131,7 @@ public class KakaoServiceExample {
          */
         try {
 
+            // 확인할 발신번호
             String sender = "070-4304-2991";
 
             Response response = kakaoService.checkSenderNumber(testCorpNum, sender, testUserID);

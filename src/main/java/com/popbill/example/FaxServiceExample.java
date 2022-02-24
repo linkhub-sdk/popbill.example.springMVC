@@ -82,6 +82,7 @@ public class FaxServiceExample {
          */
         try {
 
+            // 확인할 발신번호
             String sender = "070-4304-2991";
 
             Response response = faxService.checkSenderNumber(testCorpNum, sender, testUserID);
