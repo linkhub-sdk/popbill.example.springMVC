@@ -41,38 +41,6 @@
             </fieldset>
 
             <fieldset class="fieldset2">
-                <legend>발행예정</legend>
-                <ul>
-                    <c:forEach items="${EmailSendConfigs}" var="EmailSendConfig">
-                        <c:if test="${EmailSendConfig.emailType == 'TAX_SEND'}">
-                            <li>${EmailSendConfig.emailType} (공급받는자에게 [발행예정] 세금계산서 발송 메일 전송 여부)
-                                : ${EmailSendConfig.sendYN}</li>
-                        </c:if>
-
-                        <c:if test="${EmailSendConfig.emailType == 'TAX_ACCEPT'}">
-                            <li>${EmailSendConfig.emailType} (공급자에게 [발행예정] 세금계산서 승인 메일 전송 여부)
-                                : ${EmailSendConfig.sendYN}</li>
-                        </c:if>
-
-                        <c:if test="${EmailSendConfig.emailType == 'TAX_ACCEPT_ISSUE'}">
-                            <li>${EmailSendConfig.emailType} (공급자에게 [발행예정] 세금계산서 자동발행 메일 전송 여부)
-                                : ${EmailSendConfig.sendYN}</li>
-                        </c:if>
-
-                        <c:if test="${EmailSendConfig.emailType == 'TAX_DENY'}">
-                            <li>${EmailSendConfig.emailType} (공급자에게 [발행예정] 세금계산서 거부 메일 전송 여부)
-                                : ${EmailSendConfig.sendYN}</li>
-                        </c:if>
-
-                        <c:if test="${EmailSendConfig.emailType == 'TAX_CANCEL_SEND'}">
-                            <li>${EmailSendConfig.emailType} (공급받는자에게 [발행예정] 세금계산서 취소 메일 전송 여부)
-                                : ${EmailSendConfig.sendYN}</li>
-                        </c:if>
-                    </c:forEach>
-                </ul>
-            </fieldset>
-
-            <fieldset class="fieldset2">
                 <legend>역발행</legend>
                 <ul>
                     <c:forEach items="${EmailSendConfigs}" var="EmailSendConfig">
@@ -127,38 +95,6 @@
             </fieldset>
 
             <fieldset class="fieldset2">
-                <legend>위수탁 발행예정</legend>
-                <ul>
-                    <c:forEach items="${EmailSendConfigs}" var="EmailSendConfig">
-                        <c:if test="${EmailSendConfig.emailType == 'TAX_TRUST_SEND'}">
-                            <li>${EmailSendConfig.emailType} (공급받는자에게 [발행예정] 세금계산서 발송 메일 전송 여부)
-                                : ${EmailSendConfig.sendYN}</li>
-                        </c:if>
-
-                        <c:if test="${EmailSendConfig.emailType == 'TAX_TRUST_ACCEPT'}">
-                            <li>${EmailSendConfig.emailType} (수탁자에게 [발행예정] 세금계산서 승인 메일 전송 여부)
-                                : ${EmailSendConfig.sendYN}</li>
-                        </c:if>
-
-                        <c:if test="${EmailSendConfig.emailType == 'TAX_TRUST_ACCEPT_ISSUE'}">
-                            <li>${EmailSendConfig.emailType} (수탁자에게 [발행예정] 세금계산서 자동발행 메일 전송 여부)
-                                : ${EmailSendConfig.sendYN}</li>
-                        </c:if>
-
-                        <c:if test="${EmailSendConfig.emailType == 'TAX_TRUST_DENY'}">
-                            <li>${EmailSendConfig.emailType} (수탁자에게 [발행예정] 세금계산서 거부 메일 전송 여부)
-                                : ${EmailSendConfig.sendYN}</li>
-                        </c:if>
-
-                        <c:if test="${EmailSendConfig.emailType == 'TAX_TRUST_CANCEL_SEND'}">
-                            <li>${EmailSendConfig.emailType} (공급받는자에게 [발행예정] 세금계산서 취소 메일 전송 여부)
-                                : ${EmailSendConfig.sendYN}</li>
-                        </c:if>
-                    </c:forEach>
-                </ul>
-            </fieldset>
-
-            <fieldset class="fieldset2">
                 <legend>처리결과</legend>
                 <ul>
                     <c:forEach items="${EmailSendConfigs}" var="EmailSendConfig">
@@ -178,11 +114,6 @@
                 <legend>정기발송</legend>
                 <ul>
                     <c:forEach items="${EmailSendConfigs}" var="EmailSendConfig">
-                        <c:if test="${EmailSendConfig.emailType == 'TAX_SEND_INFO'}">
-                            <li>${EmailSendConfig.emailType} (전월 귀속분 [매출 발행 대기] 세금계산서 발행 메일 전송 여부)
-                                : ${EmailSendConfig.sendYN}</li>
-                        </c:if>
-
                         <c:if test="${EmailSendConfig.emailType == 'ETC_CERT_EXPIRATION'}">
                             <li>${EmailSendConfig.emailType} (팝빌에서 이용중인 공동인증서의 갱신 메일 전송 여부)
                                 : ${EmailSendConfig.sendYN}</li>

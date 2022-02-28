@@ -97,7 +97,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType keyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
-        String mgtKey = "20211230-001";
+        String mgtKey = "20220218-MVC001";
 
         String isUseStr;
 
@@ -123,12 +123,12 @@ public class TaxinvoiceServiceExample {
          * 팝빌 인증서버에 등록된 인증서의 정보를 확인합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#GetTaxCertInfo
          */
-        
+
         try {
             TaxinvoiceCertificate taxinvoiceCertificate = taxinvoiceService.getTaxCertInfo(testCorpNum, testUserID);
-            
+
             m.addAttribute("TaxinvoiceCertificate", taxinvoiceCertificate);
-            
+
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -166,7 +166,7 @@ public class TaxinvoiceServiceExample {
         taxinvoice.setChargeDirection("정과금");
 
         // 작성일자, 날짜형식(yyyyMMdd)
-        taxinvoice.setWriteDate("20211227");
+        taxinvoice.setWriteDate("20220218");
 
         // {영수, 청구, 없음} 중 기재
         taxinvoice.setPurposeType("영수");
@@ -633,7 +633,7 @@ public class TaxinvoiceServiceExample {
             TaxinvoiceDetail detail = new TaxinvoiceDetail();
 
             detail.setSerialNum((short) 1);   // 일련번호, 1부터 순차기재
-            detail.setPurchaseDT("20210712"); // 거래일자
+            detail.setPurchaseDT("20220218"); // 거래일자
             detail.setItemName("품목명");      // 품목명
             detail.setSpec("규격");            // 규격
             detail.setQty("1");               // 수량
@@ -647,7 +647,7 @@ public class TaxinvoiceServiceExample {
             detail = new TaxinvoiceDetail();
 
             detail.setSerialNum((short) 2);
-            detail.setPurchaseDT("20210712");
+            detail.setPurchaseDT("20220218");
             detail.setItemName("품목명2");
             detail.setSpec("규격");
             detail.setQty("1");
@@ -1192,7 +1192,7 @@ public class TaxinvoiceServiceExample {
         TaxinvoiceDetail detail = new TaxinvoiceDetail();
 
         detail.setSerialNum((short) 1);   // 일련번호, 1부터 순차기재
-        detail.setPurchaseDT("20210712"); // 거래일자
+        detail.setPurchaseDT("20220218"); // 거래일자
         detail.setItemName("품목명");      // 품목명
         detail.setSpec("규격");            // 규격
         detail.setQty("1");               // 수량
@@ -1206,7 +1206,7 @@ public class TaxinvoiceServiceExample {
         detail = new TaxinvoiceDetail();
 
         detail.setSerialNum((short) 2);
-        detail.setPurchaseDT("20210712");
+        detail.setPurchaseDT("20220218");
         detail.setItemName("품목명2");
         detail.setSpec("규격");
         detail.setQty("1");
@@ -1821,7 +1821,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 일자유형 ("R" , "W" , "I" 중 택 1)
-        // - R = 등록일자 , W = 작성일자 , I = 발행일자 
+        // - R = 등록일자 , W = 작성일자 , I = 발행일자
         String DType = "W";
 
         // 시작일자, 날짜형식(yyyyMMdd)

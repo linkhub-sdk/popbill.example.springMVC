@@ -503,7 +503,7 @@ public class StatementServiceExample {
         Statement statement = new Statement();
 
         // 작성일자, 형태 yyyyMmdd
-        statement.setWriteDate("20210701");
+        statement.setWriteDate("20220218");
 
         // {영수, 청구, 없음} 중 기재
         statement.setPurposeType("영수");
