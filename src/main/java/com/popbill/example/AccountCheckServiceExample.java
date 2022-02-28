@@ -2,7 +2,7 @@
  * 팝빌 예금주조회 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/accountcheck/tutorial/java
- * - 업데이트 일자 : 2022-01-14
+ * - 업데이트 일자 : 2022-02-28
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -135,7 +135,7 @@ public class AccountCheckServiceExample {
          * - https://docs.popbill.com/accountcheck/java/api#GetUnitCost
          */
 
-        // 서비스 유형 , "성명" / "실명" 중 택 1 
+        // 서비스 유형 , "성명" / "실명" 중 택 1
         // └ 성명 = 예금주성명조회, 실명 = 예금주실명조회
         String ServiceType = "성명";
 
@@ -160,7 +160,7 @@ public class AccountCheckServiceExample {
          * - https://docs.popbill.com/accountcheck/java/api#GetChargeInfo
          */
 
-        // 서비스 유형 , "성명" / "실명" 중 택 1 
+        // 서비스 유형 , "성명" / "실명" 중 택 1
         // └ 성명 = 예금주성명조회, 실명 = 예금주실명조회
         String ServiceType = "성명";
 

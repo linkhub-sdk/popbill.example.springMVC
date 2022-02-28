@@ -14,7 +14,7 @@
     <fieldset class="fieldset1">
         <legend>${requestScope['javax.servlet.forward.request_uri']}</legend>
         <ul>
-            <li>referenceID (계좌 아이디 ) : ${State.referenceID}</li>
+            <li>referenceID (계좌 아이디) : ${State.referenceID}</li>
             <li>contractDT (정액제 서비스 시작일시) : ${State.contractDT}</li>
             <li>useEndDate (정액제 서비스 종료일) : ${State.useEndDate}</li>
             <li>baseDate (자동연장 결제일) : ${State.baseDate}</li>
