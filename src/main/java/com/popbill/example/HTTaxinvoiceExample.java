@@ -183,7 +183,7 @@ public class HTTaxinvoiceExample {
 
         // 종사업장번호 유무 (null , "0" , "1" 중 택 1)
         // - null = 전체조회 , 0 = 없음, 1 = 있음
-        String TaxRegIDYN = "";
+        String TaxRegIDYN = null;
 
         // 종사업장번호의 주체 ("S" , "B" , "T" 중 택 1)
         // - S = 공급자 , B = 공급받는자 , T = 수탁자
@@ -252,7 +252,7 @@ public class HTTaxinvoiceExample {
 
         // 종사업장번호 유무 (null , "0" , "1" 중 택 1)
         // - null = 전체조회 , 0 = 없음, 1 = 있음
-        String TaxRegIDYN = "";
+        String TaxRegIDYN = null;
 
         // 종사업장번호의 주체 ("S" , "B" , "T" 중 택 1)
         // - S = 공급자 , B = 공급받는자 , T = 수탁자

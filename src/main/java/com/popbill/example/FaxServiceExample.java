@@ -161,7 +161,7 @@ public class FaxServiceExample {
             throw e1;
         }
 
-        // 예약전송일시(yyyyMMddHHmmss), null인 경우 즉시전송
+        // 예약전송일시, null인 경우 즉시전송
         Date reserveDT = null;
 
         // 광고팩스 전송여부 , true / false 중 택 1
@@ -225,7 +225,7 @@ public class FaxServiceExample {
             throw e1;
         }
 
-        // 예약전송일시(yyyyMMddHHmmss), null인 경우 즉시전송
+        // 예약전송일시, null인 경우 즉시전송
         Date reserveDT = null;
 
         // 광고팩스 전송여부 , true / false 중 택 1
@@ -296,7 +296,7 @@ public class FaxServiceExample {
 
         fileList[0] = uf;
 
-        // 예약전송일시(yyyyMMddHHmmss), null인 경우 즉시전송
+        // 예약전송일시, null인 경우 즉시전송
         Date reserveDT = null;
 
         // 광고팩스 전송여부 , true / false 중 택 1
@@ -373,7 +373,7 @@ public class FaxServiceExample {
 
         fileList[0] = uf;
 
-        // 예약전송일시(yyyyMMddHHmmss), null인 경우 즉시전송
+        // 예약전송일시, null인 경우 즉시전송
         Date reserveDT = null;
 
         // 광고팩스 전송여부 , true / false 중 택 1
@@ -431,7 +431,7 @@ public class FaxServiceExample {
         // 수신자명, 공백처리시 기존전송정보로 재전송
         String receiveName = "";
 
-        // 예약전송일시(yyyyMMddHHmmss), null인 경우 즉시전송
+        // 예약전송일시, null인 경우 즉시전송
         Date reserveDT = null;
 
         // 팩스 제목
@@ -492,7 +492,7 @@ public class FaxServiceExample {
 //      receiver2.setReceiveNum("010333444");     // 수신팩스번호
 //      receivers[1] = receiver2;
 
-        // 예약전송일시(yyyyMMddHHmmss), null인 경우 즉시전송
+        // 예약전송일시, null인 경우 즉시전송
         Date reserveDT = null;
 
         // 팩스제목
@@ -545,7 +545,7 @@ public class FaxServiceExample {
         // 수신자명, 공백처리시 기존전송정보로 재전송
         String receiveName = "";
 
-        // 예약전송일시(yyyyMMddHHmmss), null인 경우 즉시전송
+        // 예약전송일시, null인 경우 즉시전송
         Date reserveDT = null;
 
         // 팩스 제목
@@ -606,7 +606,7 @@ public class FaxServiceExample {
 //      receiver2.setReceiveNum("010333444");    // 수신팩스번호
 //      receivers[1] = receiver2;
 
-        // 예약전송일시(yyyyMMddHHmmss), null인 경우 즉시전송
+        // 예약전송일시, null인 경우 즉시전송
         Date reserveDT = null;
 
         // 팩스제목

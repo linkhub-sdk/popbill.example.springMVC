@@ -120,7 +120,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "getTaxCertInfo", method = RequestMethod.GET)
     public String getTaxCertInfo(Model m) {
         /*
-         * 팝빌 인증서버에 등록된 인증서의 정보를 확인합니다.
+         * 팝빌 인증서버에 등록된 공동인증서의 정보를 확인합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#GetTaxCertInfo
          */
 
@@ -332,7 +332,7 @@ public class TaxinvoiceServiceExample {
         taxinvoice.setModifyCode(null);
 
         // 수정세금계산서 작성시 원본세금계산서 국세청 승인번호 기재
-        taxinvoice.setOrgNTSConfirmNum("");
+        taxinvoice.setOrgNTSConfirmNum(null);
 
        /***************************************************************************
         *                           상세항목(품목) 정보
@@ -426,7 +426,7 @@ public class TaxinvoiceServiceExample {
          * 최대 100건의 세금계산서 발행을 한번의 요청으로 접수합니다.
          * - 세금계산서 발행을 위해서 공급자의 인증서가 팝빌 인증서버에 사전등록 되어야 합니다.
          *   └ 위수탁발행의 경우, 수탁자의 인증서 등록이 필요합니다.
-         * - 세금계산서 발행 시 포인트가 과금되며 공급받는자에게 발행 메일이 발송됩니다.
+         * - 현금영수증 발행 시 구매자에게 발행 메일이 발송됩니다.
          * - https://docs.popbill.com/taxinvoice/java/api#BulkSubmit
          */
 
@@ -441,6 +441,7 @@ public class TaxinvoiceServiceExample {
         //   true로 선언하여 발행(Issue API)를 호출하시면 됩니다.
         Boolean ForceIssue = false;
 
+        // 최대 100건.
         List<Taxinvoice> bulkTx = new ArrayList<Taxinvoice>();
 
         for (int i = 0; i < 100; i++) {
@@ -497,7 +498,7 @@ public class TaxinvoiceServiceExample {
             taxinvoice.setInvoicerContactName("공급자 담당자 성명");
 
             // 공급자 담당자 메일주소
-            taxinvoice.setInvoicerEmail("test@test.com");
+            taxinvoice.setInvoicerEmail("");
 
             // 공급자 담당자 연락처
             taxinvoice.setInvoicerTEL("070-7070-0707");
@@ -621,7 +622,7 @@ public class TaxinvoiceServiceExample {
             taxinvoice.setModifyCode(null);
 
             // 수정세금계산서 작성시 원본세금계산서 국세청 승인번호 기재
-            taxinvoice.setOrgNTSConfirmNum("");
+            taxinvoice.setOrgNTSConfirmNum(null);
 
             /*********************************************************************
              *                          상세항목(품목) 정보
@@ -913,7 +914,7 @@ public class TaxinvoiceServiceExample {
         taxinvoice.setModifyCode(null);
 
         // 수정세금계산서 작성시 원본세금계산서 국세청 승인번호 기재
-        taxinvoice.setOrgNTSConfirmNum("");
+        taxinvoice.setOrgNTSConfirmNum(null);
 
         /***************************************************************************
          *                           상세항목(품목) 정보
@@ -1180,7 +1181,7 @@ public class TaxinvoiceServiceExample {
         taxinvoice.setModifyCode(null);
 
         // 수정세금계산서 작성시 원본세금계산서 국세청 승인번호 기재
-        taxinvoice.setOrgNTSConfirmNum("");
+        taxinvoice.setOrgNTSConfirmNum(null);
 
         /***************************************************************************
          *                           상세항목(품목) 정보
@@ -1518,7 +1519,7 @@ public class TaxinvoiceServiceExample {
         taxinvoice.setModifyCode(null);
 
         // 수정세금계산서 작성시 원본세금계산서 국세청 승인번호 기재
-        taxinvoice.setOrgNTSConfirmNum("");
+        taxinvoice.setOrgNTSConfirmNum(null);
 
         /***************************************************************************
          *                           상세항목(품목) 정보
@@ -1875,7 +1876,7 @@ public class TaxinvoiceServiceExample {
 
         // 종사업장번호 유무 (null , "0" , "1" 중 택 1)
         // - null = 전체 , 0 = 없음, 1 = 있음
-        String TaxRegIDYN = "";
+        String TaxRegIDYN = null;
 
         // 거래처 상호 / 사업자번호 (사업자) / 주민등록번호 (개인) / "9999999999999" (외국인) 중 검색하고자 하는 정보 입력
         // └ 사업자번호 / 주민등록번호는 하이픈('-')을 제외한 숫자만 입력
@@ -1899,7 +1900,7 @@ public class TaxinvoiceServiceExample {
         // └ null = 전체조회 , 0 = 일반문서 , 1 = 연동문서
         // - 일반문서 : 팝빌 사이트를 통해 저장 또는 발행한 세금계산서
         // - 연동문서 : 팝빌 API를 통해 저장 또는 발행한 세금계산서
-        String InterOPYN = "";
+        String InterOPYN = null;
 
         try {
 

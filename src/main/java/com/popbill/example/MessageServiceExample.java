@@ -156,7 +156,7 @@ public class MessageServiceExample {
         // └ 한글, 한자, 특수문자 2byte / 영문, 숫자, 공백 1byte
         String content = "문자메시지\r내용";
 
-        // 전송예약일시(yyyyMMddHHmmss), null인 경우 즉시전송
+        // 전송예약일시, null인 경우 즉시전송
         Date reserveDT = null;
 
         // 광고 메시지 여부 ( true , false 중 택 1)
@@ -217,7 +217,7 @@ public class MessageServiceExample {
         msg2.setContent("메시지 내용2");
         messages[1] = msg1;
 
-        // 전송예약일시(yyyyMMddHHmmss), null인 경우 즉시전송
+        // 전송예약일시, null인 경우 즉시전송
         Date reserveDT = null;
 
         // 광고 메시지 여부 ( true , false 중 택 1)
@@ -266,7 +266,7 @@ public class MessageServiceExample {
         // └ 한글, 한자, 특수문자 2byte / 영문, 숫자, 공백 1byte
         String content = "장문 문자메시지 내용";
 
-        // 전송예약일시(yyyyMMddHHmmss), null인 경우 즉시전송
+        // 전송예약일시, null인 경우 즉시전송
         Date reserveDT = null;
 
         // 광고 메시지 여부 ( true , false 중 택 1)
@@ -332,7 +332,7 @@ public class MessageServiceExample {
         msg2.setContent("메시지 내용2");
         messages[1] = msg1;
 
-        // 전송예약일시(yyyyMMddHHmmss), null인 경우 즉시전송
+        // 전송예약일시, null인 경우 즉시전송
         Date reserveDT = null;
 
         // 광고 메시지 여부 ( true , false 중 택 1)
@@ -386,7 +386,7 @@ public class MessageServiceExample {
         // 전송할 이미지 파일 경로
         File file = new File("C:/test.jpg");
 
-        // 전송예약일시(yyyyMMddHHmmss), null인 경우 즉시전송
+        // 전송예약일시, null인 경우 즉시전송
         Date reserveDT = null;
 
         // 광고 메시지 여부 ( true , false 중 택 1)
@@ -457,7 +457,7 @@ public class MessageServiceExample {
         // 전송할 이미지 파일 경로
         File file = new File("C:/test.jpg");
 
-        // 전송예약일시(yyyyMMddHHmmss), null인 경우 즉시전송
+        // 전송예약일시, null인 경우 즉시전송
         Date reserveDT = null;
 
         // 광고 메시지 여부 ( true , false 중 택 1)
@@ -505,7 +505,7 @@ public class MessageServiceExample {
         // └ 한글, 한자, 특수문자 2byte / 영문, 숫자, 공백 1byte
         String content = "문자메시지 내용";
 
-        // 전송예약일시(yyyyMMddHHmmss), null인 경우 즉시전송
+        // 전송예약일시, null인 경우 즉시전송
         Date reserveDT = null;
 
         // 광고 메시지 여부 ( true , false 중 택 1)
@@ -567,7 +567,7 @@ public class MessageServiceExample {
         msg2.setContent("메시지 내용2");
         messages[1] = msg1;
 
-        // 전송예약일시(yyyyMMddHHmmss), null인 경우 즉시전송
+        // 전송예약일시, null인 경우 즉시전송
         Date reserveDT = null;
 
         // 광고 메시지 여부 ( true , false 중 택 1)
