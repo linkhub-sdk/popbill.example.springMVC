@@ -145,7 +145,6 @@ public class TaxinvoiceServiceExample {
          * - 임시저장(Register API) 함수와 발행(Issue API) 함수를 한 번의 프로세스로 처리합니다.
          * - 세금계산서 발행을 위해서 공급자의 인증서가 팝빌 인증서버에 사전등록 되어야 합니다.
          *   └ 위수탁발행의 경우, 수탁자의 인증서 등록이 필요합니다.
-         * - 세금계산서 발행 시 포인트가 과금되며 공급받는자에게 발행 메일이 발송됩니다.
          * - https://docs.popbill.com/taxinvoice/java/api#RegistIssue
          */
 
@@ -426,7 +425,6 @@ public class TaxinvoiceServiceExample {
          * 최대 100건의 세금계산서 발행을 한번의 요청으로 접수합니다.
          * - 세금계산서 발행을 위해서 공급자의 인증서가 팝빌 인증서버에 사전등록 되어야 합니다.
          *   └ 위수탁발행의 경우, 수탁자의 인증서 등록이 필요합니다.
-         * - 현금영수증 발행 시 구매자에게 발행 메일이 발송됩니다.
          * - https://docs.popbill.com/taxinvoice/java/api#BulkSubmit
          */
 
@@ -722,7 +720,7 @@ public class TaxinvoiceServiceExample {
     public String register(Model m) {
         /*
          * 작성된 세금계산서 데이터를 팝빌에 저장합니다.
-         * - "임시저장" 상태의 세금계산서는 발행(Issue)함수를 호출하여 "발행완료" 처리한 경우에만 국세청으로 전송됩니다.
+         * - "임시저장" 상태의 세금계산서는 발행(Issue) 함수를 호출하여 "발행완료" 처리한 경우에만 국세청으로 전송됩니다.
          * - 정발행 시 임시저장(Register)과 발행(Issue)을 한번의 호출로 처리하는 즉시발행(RegistIssue API) 프로세스 연동을 권장합니다.
          * - 역발행 시 임시저장(Register)과 역발행요청(Request)을 한번의 호출로 처리하는 즉시요청(RegistRequest API) 프로세스 연동을 권장합니다.
          * - 세금계산서 파일첨부 기능을 구현하는 경우, 임시저장(Register API) -> 파일첨부(AttachFile API) -> 발행(Issue API) 함수를 차례로 호출합니다.
@@ -926,7 +924,7 @@ public class TaxinvoiceServiceExample {
         TaxinvoiceDetail detail = new TaxinvoiceDetail();
 
         detail.setSerialNum((short) 1);   // 일련번호, 1부터 순차기재
-        detail.setPurchaseDT("20210712"); // 거래일자
+        detail.setPurchaseDT("20220218"); // 거래일자
         detail.setItemName("품목명");      // 품목명
         detail.setSpec("규격");            // 규격
         detail.setQty("1");               // 수량
@@ -1253,9 +1251,10 @@ public class TaxinvoiceServiceExample {
         /*
          * "임시저장" 또는 "(역)발행대기" 상태의 세금계산서를 발행(전자서명)하며, "발행완료" 상태로 처리합니다.
          * - 세금계산서 국세청 전송정책 [https://docs.popbill.com/taxinvoice/ntsSendPolicy?lang=java]
+         * - "발행완료" 된 전자세금계산서는 국세청 전송 이전에 발행취소(CancelIssue API) 함수로 국세청 신고 대상에서 제외할 수 있습니다.
          * - 세금계산서 발행을 위해서 공급자의 인증서가 팝빌 인증서버에 사전등록 되어야 합니다.
          *   └ 위수탁발행의 경우, 수탁자의 인증서 등록이 필요합니다.
-         * - 세금계산서 발행 시 포인트가 과금되며 공급받는자에게 발행 메일이 발송됩니다.
+         * - 세금계산서 발행 시 공급받는자에게 발행 메일이 발송됩니다.
          * - https://docs.popbill.com/taxinvoice/java/api#TIIssue
          */
 
@@ -1330,9 +1329,6 @@ public class TaxinvoiceServiceExample {
          * - 발행 요청된 세금계산서는 "(역)발행대기" 상태이며, 공급자가 팝빌 사이트 또는 함수를 호출하여 발행한 경우에만 국세청으로 전송됩니다.
          * - 공급자는 팝빌 사이트의 "매출 발행 대기함"에서 발행대기 상태의 역발행 세금계산서를 확인할 수 있습니다.
          * - 임시저장(Register API) 함수와 역발행 요청(Request API) 함수를 한 번의 프로세스로 처리합니다.
-         * - 역발행 요청시 공급자에게 역발행 요청 메일이 발송됩니다.
-         * - 공급자가 역발행 세금계산서 발행시 포인트가 과금되며, 객체 'Taxinvoice'의 변수 'chargeDirection' 값에 따라 과금 주체를 변경할 수 있습니다.
-         *   └ 정과금 : 공급자 과금 , 역과금 : 공급받는자 과금
          * - https://docs.popbill.com/taxinvoice/java/api#RegistRequest
          */
 
@@ -1391,6 +1387,7 @@ public class TaxinvoiceServiceExample {
         taxinvoice.setInvoicerContactName("공급자 담당자 성명");
 
         // 공급자 담당자 메일주소
+        // - 역발행 요청 시 공급자에게 역발행 요청 메일 발송
         taxinvoice.setInvoicerEmail("test@test.com");
 
         // 공급자 담당자 연락처
@@ -1612,7 +1609,7 @@ public class TaxinvoiceServiceExample {
         /*
          * 공급자가 요청받은 역발행 세금계산서를 발행하기 전, 공급받는자가 역발행요청을 취소합니다.
          * - 함수 호출시 상태 값이 "취소"로 변경되고, 해당 역발행 세금계산서는 공급자에 의해 발행 될 수 없습니다.
-         * - [취소]한 세금계산서의 문서번호를 재사용하기 위해서는 삭제 (Delete API)를 호출해야 합니다.
+         * - [취소]한 세금계산서의 문서번호를 재사용하기 위해서는 삭제 (Delete API) 함수를 호출해야 합니다.
          * - https://docs.popbill.com/taxinvoice/java/api#CancelRequest
          */
 

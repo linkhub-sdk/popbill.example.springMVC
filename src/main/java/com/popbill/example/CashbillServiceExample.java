@@ -169,9 +169,6 @@ public class CashbillServiceExample {
         // 가맹점 연락처
         cashbill.setFranchiseTEL("07043042991");
 
-        // 발행 안내 문자 전송여부
-        cashbill.setSmssendYN(false);
-
         // 구매자 성명
         cashbill.setCustomerName("고객명");
 
@@ -186,8 +183,12 @@ public class CashbillServiceExample {
         // 실제 거래처의 메일주소가 기재되지 않도록 주의
         cashbill.setEmail("test@test.com");
 
+        // 발행 안내 문자 전송여부
+        cashbill.setSmssendYN(false);
+
         // 구매자 휴대폰
-        cashbill.setHp("010111222");
+        // - {smssendYN} 의 값이 true 인 경우 아래 휴대폰번호로 안내 문자 전송
+        cashbill.setHp("");
 
         // 발행 안내 메일제목, 미기재시 기본 양식으로 메일 전송
         String emailSubject = "";
@@ -210,7 +211,6 @@ public class CashbillServiceExample {
     public String bulkSubmit(Model m) {
         /*
          * 최대 100건의 현금영수증 발행을 한번의 요청으로 접수합니다.
-         * - 현금영수증 발행 시 구매자에게 발행 메일이 발송됩니다.
          * - https://docs.popbill.com/cashbill/java/api#BulkSubmit
          */
 
@@ -219,7 +219,7 @@ public class CashbillServiceExample {
         String SubmitID = "20220218-MVC-BULK";
 
         // 최대 100건.
-        List<Cashbill> bulkCash = new ArrayList<Cashbill>();
+        List<Cashbill> casbhillList = new ArrayList<Cashbill>();
 
         for (int i = 0 ; i < 5; i++) {
 
@@ -278,9 +278,6 @@ public class CashbillServiceExample {
             // 가맹점 연락처
             cashbill.setFranchiseTEL("07043042991");
 
-            // 발행 안내 문자 전송여부
-            cashbill.setSmssendYN(false);
-
             // 구매자 성명
             cashbill.setCustomerName("고객명");
 
@@ -295,16 +292,20 @@ public class CashbillServiceExample {
             // 실제 거래처의 메일주소가 기재되지 않도록 주의
             cashbill.setEmail("");
 
-            // 구매자 휴대폰
-            cashbill.setHp("010111222");
+            // 발행 안내 문자 전송여부
+            cashbill.setSmssendYN(false);
 
-            bulkCash.add(cashbill);
+            // 구매자 휴대폰
+            // - {smssendYN} 의 값이 true 인 경우 아래 휴대폰번호로 안내 문자 전송
+            cashbill.setHp("");
+
+            cashbillList.add(cashbill);
 
         }
 
         try {
 
-            BulkResponse response = cashbillService.bulkSubmit(testCorpNum, SubmitID, bulkCash);
+            BulkResponse response = cashbillService.bulkSubmit(testCorpNum, SubmitID, cashbillList);
 
             m.addAttribute("Response", response);
 
@@ -408,9 +409,6 @@ public class CashbillServiceExample {
         // 가맹점 연락처
         cashbill.setFranchiseTEL("07043042991");
 
-        // 발행 안내 문자 전송여부
-        cashbill.setSmssendYN(false);
-
         // 구매자 성명
         cashbill.setCustomerName("고객명");
 
@@ -423,8 +421,12 @@ public class CashbillServiceExample {
         // 구매자 이메일
         cashbill.setEmail("test@test.com");
 
+        // 발행 안내 문자 전송여부
+        cashbill.setSmssendYN(false);
+
         // 구매자 휴대폰
-        cashbill.setHp("010111222");
+        // - {smssendYN} 의 값이 true 인 경우 아래 휴대폰번호로 안내 문자 전송
+        cashbill.setHp("");
 
         try {
 
@@ -511,9 +513,6 @@ public class CashbillServiceExample {
         // 가맹점 연락처
         cashbill.setFranchiseTEL("07043042991");
 
-        // 발행 안내 문자 전송여부
-        cashbill.setSmssendYN(false);
-
         // 구매자 성명
         cashbill.setCustomerName("고객명");
 
@@ -526,8 +525,12 @@ public class CashbillServiceExample {
         // 구매자 이메일
         cashbill.setEmail("test@test.com");
 
+        // 발행 안내 문자 전송여부
+        cashbill.setSmssendYN(false);
+
         // 구매자 휴대폰
-        cashbill.setHp("010111222");
+        // - {smssendYN} 의 값이 true 인 경우 아래 휴대폰번호로 안내 문자 전송
+        cashbill.setHp("");
 
         try {
 
@@ -910,7 +913,7 @@ public class CashbillServiceExample {
         String DType = "T";
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20220101";
+        String SDate = "20220201";
 
         // 종료일자, 날짜형식(yyyyMMdd)
         String EDate = "20220228";
@@ -1098,7 +1101,7 @@ public class CashbillServiceExample {
     public String getEPrintURL(Model m) {
         /*
          * 현금영수증 인쇄(공급받는자) URL을 반환합니다.
-         * - URL 보안정책에 따라 반환된 URL은 30초의 유효시간을 갖습니다.
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다
          */
 
         // 현금영수증 문서번호
