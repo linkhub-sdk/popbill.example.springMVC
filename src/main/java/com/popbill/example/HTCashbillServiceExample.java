@@ -435,7 +435,7 @@ public class HTCashbillServiceExample {
             return "exception";
         }
 
-        return "HTTaxinvoice/GetFlatRateState";
+        return "HTCashbill/GetFlatRateState";
     }
 
 }

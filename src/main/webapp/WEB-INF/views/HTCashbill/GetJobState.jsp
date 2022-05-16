@@ -13,7 +13,6 @@
     <br/>
     <fieldset class="fieldset1">
         <legend>${requestScope['javax.servlet.forward.request_uri']}</legend>
-
         <fieldset class="fieldset2">
             <ul>
                 <li>JobID (작업아이디) : ${JobState.jobID}</li>
