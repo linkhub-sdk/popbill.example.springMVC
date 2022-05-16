@@ -219,7 +219,7 @@ public class CashbillServiceExample {
         String SubmitID = "20220218-MVC-BULK";
 
         // 최대 100건.
-        List<Cashbill> casbhillList = new ArrayList<Cashbill>();
+        List<Cashbill> cashbillList = new ArrayList<Cashbill>();
 
         for (int i = 0 ; i < 5; i++) {
 
