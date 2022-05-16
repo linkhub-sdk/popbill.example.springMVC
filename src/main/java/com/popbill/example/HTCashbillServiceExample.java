@@ -378,7 +378,7 @@ public class HTCashbillServiceExample {
     @RequestMapping(value = "getChargeInfo", method = RequestMethod.GET)
     public String chargeInfo(Model m) {
         /*
-         * 팝빌 홈택스연동(세금) API 서비스 과금정보를 확인합니다.
+         * 팝빌 홈택스연동(현금영수증) API 서비스 과금정보를 확인합니다.
          * - https://docs.popbill.com/htcashbill/java/api#GetChargeInfo
          */
 
