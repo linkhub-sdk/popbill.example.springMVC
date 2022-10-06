@@ -2,7 +2,7 @@
  * 팝빌 전자세금계산서 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/taxinvoice/tutorial/java
- * - 업데이트 일자 : 2022-02-28
+ * - 업데이트 일자 : 2022-10-06
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -839,7 +839,7 @@ public class TaxinvoiceServiceExample {
         // 공급받는자 담당자 메일주소
         // 팝빌 개발환경에서 테스트하는 경우에도 안내 메일이 전송되므로,
         // 실제 거래처의 메일주소가 기재되지 않도록 주의
-        taxinvoice.setInvoiceeEmail1("wjkim@linkhubcorp.com");
+        taxinvoice.setInvoiceeEmail1("test@test.com");
 
         // 공급받는자 담당자 연락처
         taxinvoice.setInvoiceeTEL1("070-111-222");
@@ -853,7 +853,7 @@ public class TaxinvoiceServiceExample {
         // - 전송 시 포인트 차감되며, 전송실패시 환불처리
         taxinvoice.setInvoiceeSMSSendYN(false);
 
-       /***************************************************************************
+        /***************************************************************************
         *                              세금계산서 기재정보
         ****************************************************************************/
 
