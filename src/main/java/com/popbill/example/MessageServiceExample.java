@@ -202,11 +202,12 @@ public class MessageServiceExample {
         Message[] messages = new Message[2];
 
         Message msg1 = new Message();
-        msg1.setSender("07043042991");      // 발신번호
-        msg1.setSenderName("발신자1");      // 발신자명
-        msg1.setReceiver("010111222");      // 수신번호
+        msg1.setSender("07043042991");    // 발신번호
+        msg1.setSenderName("발신자1");    // 발신자명
+        msg1.setReceiver("010111222");    // 수신번호
         msg1.setReceiverName("수신자1");    // 수신자명
         msg1.setContent("메시지 내용1");    // 메시지내용
+        msg1.setInterOPRefKey("20221006-SMS001");    // 파트너 지정키
         messages[0] = msg1;
 
         Message msg2 = new Message();
@@ -215,7 +216,8 @@ public class MessageServiceExample {
         msg2.setReceiver("010333444");
         msg2.setReceiverName("수신자2");
         msg2.setContent("메시지 내용2");
-        messages[1] = msg1;
+        msg2.setInterOPRefKey("20221006-SMS002");
+        messages[1] = msg2;
 
         // 전송예약일시, null인 경우 즉시전송
         Date reserveDT = null;
@@ -321,6 +323,7 @@ public class MessageServiceExample {
         msg1.setReceiverName("수신자1");       // 수신자명
         msg1.setSubject("장문 메시지 제목");      // 문자제목
         msg1.setContent("메시지 내용1");        // 메시지내용
+        msg1.setInterOPRefKey("20221006-LMS001");    // 파트너 지정키
         messages[0] = msg1;
 
         Message msg2 = new Message();
@@ -330,7 +333,8 @@ public class MessageServiceExample {
         msg2.setReceiverName("수신자2");
         msg2.setSubject("장문 메시지 제목");
         msg2.setContent("메시지 내용2");
-        messages[1] = msg1;
+        msg2.setInterOPRefKey("20221006-LMS002");
+        messages[1] = msg2;
 
         // 전송예약일시, null인 경우 즉시전송
         Date reserveDT = null;
@@ -442,7 +446,7 @@ public class MessageServiceExample {
         msg1.setReceiverName("수신자1");     // 수신자명
         msg1.setSubject("멀티 메시지 제목"); // 문자제목
         msg1.setContent("메시지 내용1");     // 메시지내용
-
+        msg1.setInterOPRefKey("20221006-MMS001");    // 파트너 지정키
         messages[0] = msg1;
 
         Message msg2 = new Message();
@@ -452,7 +456,8 @@ public class MessageServiceExample {
         msg2.setReceiverName("수신자2");
         msg2.setSubject("멀티 메시지 제목");
         msg2.setContent("메시지 내용2");
-        messages[1] = msg1;
+        msg2.setInterOPRefKey("20221006-MMS001");
+        messages[1] = msg2;
 
         // 전송할 이미지 파일 경로
         File file = new File("C:/test.jpg");
@@ -557,6 +562,7 @@ public class MessageServiceExample {
         msg1.setReceiver("010111222");      // 수신번호
         msg1.setReceiverName("수신자1");    // 수신자명
         msg1.setContent("메시지 내용1");    // 메시지내용
+        msg1.setInterOPRefKey("20221006-XMS001");   // 파트너 지정키
         messages[0] = msg1;
 
         Message msg2 = new Message();
@@ -565,7 +571,8 @@ public class MessageServiceExample {
         msg2.setReceiver("010333444");
         msg2.setReceiverName("수신자2");
         msg2.setContent("메시지 내용2");
-        messages[1] = msg1;
+        msg2.setInterOPRefKey("20221006-XMS001");
+        messages[1] = msg2;
 
         // 전송예약일시, null인 경우 즉시전송
         Date reserveDT = null;
@@ -648,7 +655,7 @@ public class MessageServiceExample {
          */
 
         // 문자 전송요청 시 팝빌로부터 반환 받은 접수번호
-        String receiptNum = "022022111000000012";
+        String receiptNum = "022100616000000003";
 
         try {
 
@@ -720,10 +727,10 @@ public class MessageServiceExample {
          */
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20220201";
+        String SDate = "20221001";
 
         // 종료일자, 날짜형식(yyyyMMdd)
-        String EDate = "20220228";
+        String EDate = "20221006";
 
         // 전송상태 배열 ("1" , "2" , "3" , "4" 중 선택, 다중 선택 가능)
         // └ 1 = 대기 , 2 = 성공 , 3 = 실패 , 4 = 취소

@@ -47,6 +47,7 @@
                         <li>tranNet (전송처리 이동통신사명) : ${SearchInfo.tranNet}</li>
                         <li>receiptNum (접수번호) : ${SearchInfo.receiptNum}</li>
                         <li>requestNum (요청번호) : ${SearchInfo.requestNum}</li>
+                        <li>interOPRefKey (파트너 지정키) : ${SearchInfo.interOPRefKey}</li>
                     </ul>
                 </fieldset>
             </c:forEach>
