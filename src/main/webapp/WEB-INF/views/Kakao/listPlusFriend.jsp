@@ -19,6 +19,8 @@
                         <li>plusFriendID (카카오톡 채널 아이디) : ${friendInfo.plusFriendID}</li>
                         <li>plusFriendName (카카오톡 채널 이름) : ${friendInfo.plusFriendName}</li>
                         <li>regDT (등록일시) : ${friendInfo.regDT}</li>
+                        <li>state (채널 상태) : ${friendInfo.state}</li>
+                        <li>stateDT (채널 상태 일시) : ${friendInfo.stateDT}</li>
                     </ul>
                 </fieldset>
             </c:forEach>
