@@ -40,6 +40,7 @@
                             <li>content (알림톡/친구톡 내용) : ${msgInfo.content}</li>
                             <li>result (알림톡/친구톡 전송결과 코드) : ${msgInfo.result}</li>
                             <li>resultDT (알림톡/친구톡 전송결과 수신일시) : ${msgInfo.resultDT}</li>
+                            <li>altSubject (대체문자 제목) : ${msgInfo.altSubject}</li>
                             <li>altContent (대체문자 내용) : ${msgInfo.altContent}</li>
                             <li>altContentType (대체문자 전송유형) : ${msgInfo.altContentType}</li>
                             <li>altSendDT (대체문자 전송일시) : ${msgInfo.altSendDT}</li>

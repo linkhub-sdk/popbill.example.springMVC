@@ -261,18 +261,22 @@ public class KakaoServiceExample {
         // 승인된 알림톡 템플릿코드
         // └ 알림톡 템플릿 관리 팝업 URL(GetATSTemplateMgtURL API) 함수, 알림톡 템플릿 목록 확인(ListATStemplate API) 함수를 호출하거나
         //   팝빌사이트에서 승인된 알림톡 템플릿 코드를  확인 가능.
-        String templateCode = "021020000163";
+        String templateCode = "022070000338";
 
         // 발신번호 (팝빌에 등록된 발신번호만 이용가능)
         String senderNum = "07043042991";
 
         // 알림톡 내용 (최대 1000자)
-        String content = "[ 팝빌 ]\n";
-        content += "신청하신 #{템플릿코드}에 대한 심사가 완료되어 승인 처리되었습니다.\n";
-        content += "해당 템플릿으로 전송 가능합니다.\n\n";
-        content += "문의사항 있으시면 파트너센터로 편하게 연락주시기 바랍니다.\n\n";
-        content += "팝빌 파트너센터 : 1600-8536\n";
-        content += "support@linkhub.co.kr";
+        String content = "[ 팝빌 ]\n"
+                       + "신청하신 #{템플릿코드}에 대한 심사가 완료되어 승인 처리되었습니다.\n"
+                       + "해당 템플릿으로 전송 가능합니다.\n\n"
+                       + "문의사항 있으시면 파트너센터로 편하게 연락주시기 바랍니다.\n\n"
+                       + "팝빌 파트너센터 : 1600-8536\n"
+                       + "support@linkhub.co.kr";
+
+        // 대체문자 제목
+        // - 메시지 길이(90byte)에 따라 장문(LMS)인 경우에만 적용.
+        String altSubject = "대체문자 제목1234";
 
         // 대체문자 유형(altSendType)이 "A"일 경우, 대체문자로 전송할 내용 (최대 2000byte)
         // └ 팝빌이 메시지 길이에 따라 단문(90byte 이하) 또는 장문(90byte 초과)으로 전송처리
@@ -312,7 +316,7 @@ public class KakaoServiceExample {
 
         try {
 
-            String receiptNum = kakaoService.sendATS(testCorpNum, templateCode, senderNum, content, altContent, altSendType,
+            String receiptNum = kakaoService.sendATS(testCorpNum, templateCode, senderNum, content, altSubject, altContent, altSendType,
                     receiverNum, receiverName, sndDT, testUserID, requestNum, btns);
 
             m.addAttribute("Result", receiptNum);
@@ -338,31 +342,32 @@ public class KakaoServiceExample {
         // 승인된 알림톡 템플릿코드
         // └ 알림톡 템플릿 관리 팝업 URL(GetATSTemplateMgtURL API) 함수, 알림톡 템플릿 목록 확인(ListATStemplate API) 함수를 호출하거나
         //   팝빌사이트에서 승인된 알림톡 템플릿 코드를  확인 가능.
-        String templateCode = "021020000163";
+        String templateCode = "022070000338";
 
         // 발신번호 (팝빌에 등록된 발신번호만 이용가능)
         String senderNum = "07043042991";
 
         // 대체문자 유형 (null , "C" , "A" 중 택 1)
         // null = 미전송, C = 알림톡과 동일 내용 전송 , A = 대체문자 내용(altContent)에 입력한 내용 전송
-        String altSendType = null;
-
-        // 알림톡 내용 (최대 1000자)
-        String content = "[ 팝빌 ]\n";
-        content += "신청하신 #{템플릿코드}에 대한 심사가 완료되어 승인 처리되었습니다.\n";
-        content += "해당 템플릿으로 전송 가능합니다.\n\n";
-        content += "문의사항 있으시면 파트너센터로 편하게 연락주시기 바랍니다.\n\n";
-        content += "팝빌 파트너센터 : 1600-8536\n";
-        content += "support@linkhub.co.kr";
+        String altSendType = "C";
 
         // 카카오톡 전송 정보 배열, 최대 1000건
-        KakaoReceiver[] receivers = new KakaoReceiver[10];
+        KakaoReceiver[] receivers = new KakaoReceiver[3];
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 3; i++) {
             KakaoReceiver message = new KakaoReceiver();
             message.setReceiverNum("010111222");                  // 수신번호
             message.setReceiverName("수신자명" + i);                // 수신자명
-            message.setMessage(content);                          // 알림톡 템플릿 내용, 최대 1000자
+            message.setMessage(
+                      "[ 팝빌 ]\n"
+                    + "신청하신 #{템플릿코드}에 대한 심사가 완료되어 승인 처리되었습니다.\n"
+                    + "해당 템플릿으로 전송 가능합니다.\n\n"
+                    + "문의사항 있으시면 파트너센터로 편하게 연락주시기 바랍니다.\n\n"
+                    + "팝빌 파트너센터 : 1600-8536\n"
+                    + "support@linkhub.co.kr"
+                    + "To. 수신자" + i
+                    );                                            // 알림톡 템플릿 내용, 최대 1000자
+            message.setAltSubject("대체문자 개별제목입니다." + i);       // 대체문자 제목
             message.setAltMessage("대체문자 개별내용입니다." + i);       // 대체문자 내용
 
             // 수신자별 개별 버튼정보
@@ -431,18 +436,22 @@ public class KakaoServiceExample {
         // 승인된 알림톡 템플릿코드
         // └ 알림톡 템플릿 관리 팝업 URL(GetATSTemplateMgtURL API) 함수, 알림톡 템플릿 목록 확인(ListATStemplate API) 함수를 호출하거나
         //   팝빌사이트에서 승인된 알림톡 템플릿 코드를  확인 가능.
-        String templateCode = "021020000163";
+        String templateCode = "022070000338";
 
         // 발신번호 (팝빌에 등록된 발신번호만 이용가능)
         String senderNum = "07043042991";
 
         // 알림톡 내용 (최대 1000자)
-        String content = "[ 팝빌 ]\n";
-        content += "신청하신 #{템플릿코드}에 대한 심사가 완료되어 승인 처리되었습니다.\n";
-        content += "해당 템플릿으로 전송 가능합니다.\n\n";
-        content += "문의사항 있으시면 파트너센터로 편하게 연락주시기 바랍니다.\n\n";
-        content += "팝빌 파트너센터 : 1600-8536\n";
-        content += "support@linkhub.co.kr";
+        String content = "[ 팝빌 ]\n"
+                       + "신청하신 #{템플릿코드}에 대한 심사가 완료되어 승인 처리되었습니다.\n"
+                       + "해당 템플릿으로 전송 가능합니다.\n\n"
+                       + "문의사항 있으시면 파트너센터로 편하게 연락주시기 바랍니다.\n\n"
+                       + "팝빌 파트너센터 : 1600-8536\n"
+                       + "support@linkhub.co.kr";
+
+        // 대체문자 제목
+        // - 메시지 길이(90byte)에 따라 장문(LMS)인 경우에만 적용.
+//        String altSubject = "대체문자 제목";
 
         // 대체문자 유형(altSendType)이 "A"일 경우, 대체문자로 전송할 내용 (최대 2000byte)
         // └ 팝빌이 메시지 길이에 따라 단문(90byte 이하) 또는 장문(90byte 초과)으로 전송처리
@@ -453,12 +462,13 @@ public class KakaoServiceExample {
         String altSendType = "C";
 
         // 카카오톡 수신정보 배열, 최대 1000건
-        KakaoReceiver[] receivers = new KakaoReceiver[10];
+        KakaoReceiver[] receivers = new KakaoReceiver[2];
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 2; i++) {
             KakaoReceiver message = new KakaoReceiver();
             message.setReceiverNum("010111222");     // 수신번호
             message.setReceiverName("수신자명" + i); // 수신자명
+            message.setAltSubject("대체문자제목" + i); // 수신자명
             receivers[i] = message;
         }
 
@@ -486,8 +496,8 @@ public class KakaoServiceExample {
 
         try {
 
-            String receiptNum = kakaoService.sendATS(testCorpNum, templateCode, senderNum,
-                    content, altContent, altSendType, receivers, sndDT, testUserID, requestNum, btns);
+            String receiptNum = kakaoService.sendATS(testCorpNum, templateCode, senderNum, content,
+                    altContent, altSendType, receivers, sndDT, testUserID, requestNum, btns);
             m.addAttribute("Result", receiptNum);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -512,7 +522,16 @@ public class KakaoServiceExample {
         String senderNum = "07043042991";
 
         // 친구톡 내용 (최대 1000자)
-        String content = "친구톡 메시지 내용";
+        String content = "[친구톡 테스트]\n\n"
+                       + "친구톡 개별내용입니다.\n"
+                       + "대체문자를 친구톡 메시지 내용 그대로 전송할 수 있습니다.\n"
+                       + "또는 대체문자 내용을 작송하여 전송할 수도 있습니다.\n"
+                       + "하지만 대체문자 내용이 길어지게 되면 LMS 로 전송될 수 있습니다.\n\n"
+                       + "수신을 원치 않으시면 1600-9854로 전화주시길 바랍니다.\n";
+
+        // 대체문자 제목
+        // - 메시지 길이(90byte)에 따라 장문(LMS)인 경우에만 적용.
+        String altSubject = "대체문자 제목";
 
         // 대체문자 유형(altSendType)이 "A"일 경우, 대체문자로 전송할 내용 (최대 2000byte)
         // └ 팝빌이 메시지 길이에 따라 단문(90byte 이하) 또는 장문(90byte 초과)으로 전송처리
@@ -520,7 +539,7 @@ public class KakaoServiceExample {
 
         // 대체문자 유형 (null , "C" , "A" 중 택 1)
         // null = 미전송, C = 친구톡과 동일 내용 전송 , A = 대체문자 내용(altContent)에 입력한 내용 전송
-        String altSendType = "A";
+        String altSendType = "C";
 
         // 수신번호
         String receiverNum = "010111222";
@@ -563,7 +582,7 @@ public class KakaoServiceExample {
         try {
 
             String receiptNum = kakaoService.sendFTS(testCorpNum, plusFriendID, senderNum, content,
-                    altContent, altSendType, btns, receiverNum, receiverName, sndDT, adsYN,
+                    altSubject, altContent, altSendType, btns, receiverNum, receiverName, sndDT, adsYN,
                     testUserID, requestNum);
 
             m.addAttribute("Result", receiptNum);
@@ -604,17 +623,24 @@ public class KakaoServiceExample {
         // - 미입력 시 기본값 false 처리
         Boolean adsYN = false;
 
-
         // 카카오톡 수신정보 배열, 최대 1000건
-        KakaoReceiver[] receivers = new KakaoReceiver[10];
-        for (int i = 0; i < 10; i++) {
+        KakaoReceiver[] receivers = new KakaoReceiver[3];
+        for (int i = 0; i < 3; i++) {
             KakaoReceiver message = new KakaoReceiver();
             message.setReceiverNum("010111222");            // 수신번호
             message.setReceiverName("수신자명" + i);          // 수신자명
-            message.setMessage("친구톡 개별내용" + i);          // 친구톡 내용, 최대 1000자
+            message.setMessage(
+                      "[친구톡 테스트]\n\n"
+                    + "친구톡 개별내용입니다.\n"
+                    + "대체문자를 친구톡 메시지 내용 그대로 전송할 수 있습니다.\n"
+                    + "또는 대체문자 내용을 작송하여 전송할 수도 있습니다.\n"
+                    + "하지만 대체문자 내용이 길어지게 되면 LMS 로 전송될 수 있습니다.\n\n"
+                    + "수신을 원치 않으시면 1600-9854로 전화주시길 바랍니다.\n"
+                    + "To. 수신자" + i
+                    );                                      // 친구톡 내용, 최대 1000자
+            message.setAltSubject("대체문자 개별제목" + i);      // 대체문자 제목
             message.setAltMessage("대체문자 개별내용" + i);      // 대체문자 내용
             message.setInterOPRefKey("");
-
 
             KakaoButton button = new KakaoButton();
             button.setN("타입1 버튼명"+i);                     // 버튼명
@@ -672,7 +698,16 @@ public class KakaoServiceExample {
         String senderNum = "07043042991";
 
         // 친구톡 내용 (최대 1000자)
-        String content = "친구톡 메시지 내용";
+        String content = "[친구톡 테스트]\n\n"
+                       + "친구톡 동보내용입니다.\n"
+                       + "대체문자를 친구톡 메시지 내용 그대로 전송할 수 있습니다.\n"
+                       + "또는 대체문자 내용을 작송하여 전송할 수도 있습니다.\n"
+                       + "하지만 대체문자 내용이 길어지게 되면 LMS 로 전송될 수 있습니다.\n\n"
+                       + "수신을 원치 않으시면 1600-9854로 전화주시길 바랍니다.";
+
+        // 대체문자 제목
+        // - 메시지 길이(90byte)에 따라 장문(LMS)인 경우에만 적용.
+        String altSubject = "대체문자 동보제목";
 
         // 대체문자 유형(altSendType)이 "A"일 경우, 대체문자로 전송할 내용 (최대 2000byte)
         // └ 팝빌이 메시지 길이에 따라 단문(90byte 이하) 또는 장문(90byte 초과)으로 전송처리
@@ -680,7 +715,7 @@ public class KakaoServiceExample {
 
         // 대체문자 유형 (null , "C" , "A" 중 택 1)
         // null = 미전송, C = 친구톡과 동일 내용 전송 , A = 대체문자 내용(altContent)에 입력한 내용 전송
-        String altSendType = "A";
+        String altSendType = "C";
 
         // 예약전송일시, 형태(yyyyMMddHHmmss)
         // - 분단위 전송, 미입력 시 즉시 전송
@@ -693,8 +728,8 @@ public class KakaoServiceExample {
 
 
         // 카카오톡 수신정보 배열, 최대 1000건
-        KakaoReceiver[] receivers = new KakaoReceiver[100];
-        for (int i = 0; i < 100; i++) {
+        KakaoReceiver[] receivers = new KakaoReceiver[2];
+        for (int i = 0; i < 2; i++) {
             KakaoReceiver message = new KakaoReceiver();
             message.setReceiverNum("010111222");
             message.setReceiverName("수신자명" + i);
@@ -727,7 +762,7 @@ public class KakaoServiceExample {
         try {
 
             String receiptNum = kakaoService.sendFTS(testCorpNum, plusFriendID, senderNum, content,
-                    altContent, altSendType, receivers, btns, sndDT, adsYN, testUserID, requestNum);
+                    altSubject, altContent, altSendType, receivers, btns, sndDT, adsYN, testUserID, requestNum);
 
             m.addAttribute("Result", receiptNum);
 
@@ -758,9 +793,18 @@ public class KakaoServiceExample {
         // 친구톡 내용 (최대 400자)
         String content = "친구톡 메시지 내용";
 
+        // 대체문자 제목
+        // - 메시지 길이(90byte)에 따라 장문(LMS)인 경우에만 적용.
+        String altSubject = "친구톡 이미지 대체문자 제목";
+
         // 대체문자 유형(altSendType)이 "A"일 경우, 대체문자로 전송할 내용 (최대 2000byte)
         // └ 팝빌이 메시지 길이에 따라 단문(90byte 이하) 또는 장문(90byte 초과)으로 전송처리
-        String altContent = "대체문자 내용";
+        String altContent = "[친구톡이미지 대체문자]\n\n"
+                          + "친구톡 이미지 대체문자 내용입니다.\n"
+                          + "대체문자를 친구톡 메시지 내용 그대로 전송할 수 있습니다.\n"
+                          + "또는 대체문자 내용을 작송하여 전송할 수도 있습니다.\n"
+                          + "하지만 대체문자 내용이 길어지게 되면 LMS 로 전송될 수 있습니다.\n\n"
+                          + "수신을 원치 않으시면 1600-9854로 전화주시길 바랍니다.\n";
 
         // 대체문자 유형 (null , "C" , "A" 중 택 1)
         // null = 미전송, C = 친구톡과 동일 내용 전송 , A = 대체문자 내용(altContent)에 입력한 내용 전송
@@ -801,7 +845,7 @@ public class KakaoServiceExample {
 
         // 첨부이미지 파일 경로
         // - 이미지 파일 규격: 전송 포맷 – JPG 파일 (.jpg, .jpeg), 용량 – 최대 500 Kbyte, 크기 – 가로 500px 이상, 가로 기준으로 세로 0.5~1.3배 비율 가능
-        File file = new File("/Users/John/Desktop/tmp/test03.jpg");
+        File file = new File("C:/Users/Public/Pictures/Image.jpg");
 
         // 이미지 링크 URL
         // └ 수신자가 친구톡 상단 이미지 클릭시 호출되는 URL
@@ -815,7 +859,7 @@ public class KakaoServiceExample {
 
         try {
 
-            String receiptNum = kakaoService.sendFMS(testCorpNum, plusFriendID, senderNum, content,
+            String receiptNum = kakaoService.sendFMS(testCorpNum, plusFriendID, senderNum, content, altSubject,
                     altContent, altSendType, btns, receiverNum, receiverName, sndDT, adsYN, file, imageURL,
                     testUserID, requestNum);
 
@@ -859,12 +903,21 @@ public class KakaoServiceExample {
         Boolean adsYN = false;
 
         // 카카오톡 수신정보 배열, 최대 1000건
-        KakaoReceiver[] receivers = new KakaoReceiver[100];
-        for (int i = 0; i < 100; i++) {
+        KakaoReceiver[] receivers = new KakaoReceiver[3];
+        for (int i = 0; i < 3; i++) {
             KakaoReceiver message = new KakaoReceiver();
             message.setReceiverNum("010111222");            // 수신번호
             message.setReceiverName("수신자명" + i);          // 수신자명
-            message.setMessage("친구톡 개별내용" + i);          // 친구톡 내용, 최대 400자
+            message.setMessage(
+                      "[친구톡 이미지 테스트]\n\n"
+                    + "친구톡 이미지 개별내용입니다.\n"
+                    + "대체문자를 친구톡 메시지 내용 그대로 전송할 수 있습니다.\n"
+                    + "또는 대체문자 내용을 작송하여 전송할 수도 있습니다.\n"
+                    + "하지만 대체문자 내용이 길어지게 되면 LMS 로 전송될 수 있습니다.\n\n"
+                    + "수신을 원치 않으시면 1600-9854로 전화주시길 바랍니다.\n"
+                    + "To. 수신자" + i
+                    );                                      // 친구톡 내용, 최대 400자
+            message.setAltSubject("대체문자 개별제목" + i);      // 대체문자 제목
             message.setAltMessage("대체문자 개별내용" + i);      // 대체문자 내용
             receivers[i] = message;
 
@@ -908,7 +961,7 @@ public class KakaoServiceExample {
 
         // 첨부이미지 파일 경로
         // - 이미지 파일 규격: 전송 포맷 – JPG 파일 (.jpg, .jpeg), 용량 – 최대 500 Kbyte, 크기 – 가로 500px 이상, 가로 기준으로 세로 0.5~1.3배 비율 가능
-        File file = new File("/Users/John/Desktop/tmp/test03.jpg");
+        File file = new File("C:/Users/Public/Pictures/Image.jpg");
 
         // 이미지 링크 URL
         // └ 수신자가 친구톡 상단 이미지 클릭시 호출되는 URL
@@ -952,7 +1005,16 @@ public class KakaoServiceExample {
         String senderNum = "07043042991";
 
         // 친구톡 내용 (최대 400자)
-        String content = "친구톡 메시지 내용";
+        String content = "[친구톡 이미지 테스트]\n\n"
+                       + "친구톡 이미지 동보내용입니다.\n"
+                       + "대체문자를 친구톡 메시지 내용 그대로 전송할 수 있습니다.\n"
+                       + "또는 대체문자 내용을 작송하여 전송할 수도 있습니다.\n"
+                       + "하지만 대체문자 내용이 길어지게 되면 LMS 로 전송될 수 있습니다.\n\n"
+                       + "수신을 원치 않으시면 1600-9854로 전화주시길 바랍니다.\n";
+
+        // 대체문자 제목
+        // - 메시지 길이(90byte)에 따라 장문(LMS)인 경우에만 적용.
+        String altSubject = "대체문자 제목";
 
         // 대체문자 유형(altSendType)이 "A"일 경우, 대체문자로 전송할 내용 (최대 2000byte)
         // └ 팝빌이 메시지 길이에 따라 단문(90byte 이하) 또는 장문(90byte 초과)으로 전송처리
@@ -960,7 +1022,7 @@ public class KakaoServiceExample {
 
         // 대체문자 유형 (null , "C" , "A" 중 택 1)
         // null = 미전송, C = 친구톡과 동일 내용 전송 , A = 대체문자 내용(altContent)에 입력한 내용 전송
-        String altSendType = "A";
+        String altSendType = "C";
 
         // 예약전송일시, 형태(yyyyMMddHHmmss)
         // - 분단위 전송, 미입력 시 즉시 전송
@@ -972,8 +1034,8 @@ public class KakaoServiceExample {
         Boolean adsYN = false;
 
         // 카카오톡 수신정보 배열, 최대 1000건
-        KakaoReceiver[] receivers = new KakaoReceiver[100];
-        for (int i = 0; i < 100; i++) {
+        KakaoReceiver[] receivers = new KakaoReceiver[2];
+        for (int i = 0; i < 2; i++) {
             KakaoReceiver message = new KakaoReceiver();
             message.setReceiverNum("010111222");     // 수신번호
             message.setReceiverName("수신자명" + i);   // 수신자명
@@ -1001,7 +1063,7 @@ public class KakaoServiceExample {
 
         // 첨부이미지 파일 경로
         // - 이미지 파일 규격: 전송 포맷 – JPG 파일 (.jpg, .jpeg), 용량 – 최대 500 Kbyte, 크기 – 가로 500px 이상, 가로 기준으로 세로 0.5~1.3배 비율 가능
-        File file = new File("/Users/John/Desktop/tmp/test03.jpg");
+        File file = new File("C:/Users/Public/Pictures/Image.jpg");
 
         // 이미지 링크 URL
         // └ 수신자가 친구톡 상단 이미지 클릭시 호출되는 URL
@@ -1016,7 +1078,7 @@ public class KakaoServiceExample {
         try {
 
             String receiptNum = kakaoService.sendFMS(testCorpNum, plusFriendID, senderNum, content,
-                    altContent, altSendType, receivers, btns, sndDT, adsYN, file, imageURL,
+                    altSubject, altContent, altSendType, receivers, btns, sndDT, adsYN, file, imageURL,
                     testUserID, requestNum);
 
             m.addAttribute("Result", receiptNum);
@@ -1083,7 +1145,7 @@ public class KakaoServiceExample {
          */
 
         // 카카오톡 전송 접수시 팝빌로부터 반환받은 접수번호
-        String receiptNum = "022021810443200001";
+        String receiptNum = "022100612053100001";
 
         try {
 
@@ -1132,10 +1194,10 @@ public class KakaoServiceExample {
          */
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20220201";
+        String SDate = "20221006";
 
         // 종료일자, 날짜형식(yyyyMMdd)
-        String EDate = "20220228";
+        String EDate = "20221006";
 
         // 전송상태 배열 ("0" , "1" , "2" , "3" , "4" , "5" 중 선택, 다중 선택 가능)
         // └ 0 = 전송대기 , 1 = 전송중 , 2 = 전송성공 , 3 = 대체문자 전송 , 4 = 전송실패 , 5 = 전송취소
