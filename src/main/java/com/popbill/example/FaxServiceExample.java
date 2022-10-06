@@ -840,8 +840,11 @@ public class FaxServiceExample {
          */
 
         try {
+            
+            // 수신번호 유형, 일반 / 지능 중 택 1
+            String receiveNumType = "지능";
 
-            float unitCost = faxService.getUnitCost(testCorpNum);
+            float unitCost = faxService.getUnitCost(testCorpNum, receiveNumType);
 
             m.addAttribute("Result", unitCost);
 
@@ -861,8 +864,11 @@ public class FaxServiceExample {
          */
 
         try {
+            
+            // 수신번호 유형, 일반 / 지능 중 택 1
+            String receiveNumType = "일반";
 
-            ChargeInfo chrgInfo = faxService.getChargeInfo(testCorpNum);
+            ChargeInfo chrgInfo = faxService.getChargeInfo(testCorpNum, receiveNumType);
 
             m.addAttribute("ChargeInfo", chrgInfo);
 
