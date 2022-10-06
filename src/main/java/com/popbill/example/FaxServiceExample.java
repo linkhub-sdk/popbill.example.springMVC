@@ -209,11 +209,13 @@ public class FaxServiceExample {
         Receiver receiver1 = new Receiver();
         receiver1.setReceiveName("수신자1");        // 수신자명
         receiver1.setReceiveNum("010111222");     // 수신팩스번호
+        receiver1.setInterOPRefKey("20221006-FAX001");  // 파트너 지정키
         receivers[0] = receiver1;
 
         Receiver receiver2 = new Receiver();
         receiver2.setReceiveName("수신자2");        // 수신자명
         receiver2.setReceiveNum("010333444");     // 수신팩스번호
+        receiver2.setInterOPRefKey("20221006-FAX002");  // 파트너 지정키
         receivers[1] = receiver2;
 
         File[] files = new File[2];
@@ -344,15 +346,17 @@ public class FaxServiceExample {
         Receiver receiver1 = new Receiver();
         receiver1.setReceiveName("수신자1");        // 수신자명
         receiver1.setReceiveNum("010111222");     // 수신팩스번호
+        receiver1.setInterOPRefKey("20221006-FAXBinary01");  // 파트너 지정키
         receivers[0] = receiver1;
 
         Receiver receiver2 = new Receiver();
         receiver2.setReceiveName("수신자2");        // 수신자명
         receiver2.setReceiveNum("010333444");     // 수신팩스번호
+        receiver2.setInterOPRefKey("20221006-FAXBinary02");  // 파트너 지정키
         receivers[1] = receiver2;
 
         // 전송할 File InputStream 생성을 위한 샘플코드.
-        File file = new File("/Users/John/Desktop/test.pdf");
+        File file = new File(getClass().getClassLoader().getResource("nonbg_statement.pdf").toURI());
         InputStream targetStream = null;
         try {
             targetStream = new FileInputStream(file);
@@ -387,7 +391,7 @@ public class FaxServiceExample {
         // 전송요청번호
         // 팝빌이 접수 단위를 식별할 수 있도록 파트너가 부여하는 식별번호.
         // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
-        String requestNum = "";
+        String requestNum = "20221006-request";
 
         try {
 
@@ -468,7 +472,7 @@ public class FaxServiceExample {
          */
 
         // 원본 팩스 접수번호
-        String orgReceiptNum = "022021803102600001";
+        String orgReceiptNum = "022100616261900001";
 
         // 발신번호, 공백처리시 기존전송정보로 재전송
         String sendNum = "07043042991";
@@ -485,11 +489,13 @@ public class FaxServiceExample {
 //      Receiver receiver1 = new Receiver();
 //      receiver1.setReceiveName("수신자1");      // 수신자명
 //      receiver1.setReceiveNum("010111222");     // 수신팩스번호
+//      receiver1.setInterOPRefKey("20221006-reFAX01");  // 파트너 지정키
 //      receivers[0] = receiver1;
 
 //      Receiver receiver2 = new Receiver();
 //      receiver2.setReceiveName("수신자2");      // 수신자명
 //      receiver2.setReceiveNum("010333444");     // 수신팩스번호
+//      receiver2.setInterOPRefKey("20221006-reFAX02");  // 파트너 지정키
 //      receivers[1] = receiver2;
 
         // 예약전송일시, null인 경우 즉시전송
@@ -599,11 +605,13 @@ public class FaxServiceExample {
 //      Receiver receiver1 = new Receiver();
 //      receiver1.setReceiveName("수신자1");      // 수신자명
 //      receiver1.setReceiveNum("010111222");    // 수신팩스번호
+//      receiver1.setInterOPRefKey("20221006-reFAXRN01");  // 파트너 지정키
 //      receivers[0] = receiver1;
 
 //      Receiver receiver2 = new Receiver();
 //      receiver2.setReceiveName("수신자2");      // 수신자명
 //      receiver2.setReceiveNum("010333444");    // 수신팩스번호
+//      receiver2.setInterOPRefKey("20221006-reFAXRN02");  // 파트너 지정키
 //      receivers[1] = receiver2;
 
         // 예약전송일시, null인 경우 즉시전송
@@ -613,7 +621,7 @@ public class FaxServiceExample {
         String title = "팩스 재전송(동보) 제목";
 
         // 원본 팩스 전송시 파트너가 할당한 전송요청번호(requestNum)
-        String orgRequestNum = "";
+        String orgRequestNum = "20221006-request";
 
         try {
 
@@ -684,7 +692,7 @@ public class FaxServiceExample {
          */
 
         // 팩스 전송요청시 발급받은 접수번호
-        String receiptNum = "022021803102600001";
+        String receiptNum = "022100616261900001";
 
         try {
             FaxResult[] faxResults = faxService.getFaxResult(testCorpNum, receiptNum);
@@ -731,10 +739,10 @@ public class FaxServiceExample {
          */
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20220201";
+        String SDate = "20221001";
 
         // 종료일자, 날짜형식(yyyyMMdd)
-        String EDate = "20220228";
+        String EDate = "20221006";
 
         // 전송상태 배열 ("1" , "2" , "3" , "4" 중 선택, 다중 선택 가능)
         // └ 1 = 대기 , 2 = 성공 , 3 = 실패 , 4 = 취소

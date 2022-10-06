@@ -51,6 +51,7 @@
                         <li>resultDT (전송결과 수신일시) : ${SearchInfo.resultDT}</li>
                         <li>receiptNum (접수번호) : ${SearchInfo.receiptNum}</li>
                         <li>requestNum (요청번호) : ${SearchInfo.requestNum}</li>
+                        <li>interOPRefKey (파트너지정키) : ${SearchInfo.interOPRefKey}</li>
                         <li>fileNames (전송 파일명 리스트) : ${fn:join(SearchInfo.fileNames,", ")}</li>
                         <li>chargePageCnt (과금 페이지수) : ${SearchInfo.chargePageCnt}</li>
                         <li>tiffFileSize (변환파일용량 (단위:byte) ) : ${SearchInfo.tiffFileSize}</li>
