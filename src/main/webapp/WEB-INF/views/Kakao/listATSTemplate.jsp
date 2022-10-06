@@ -22,6 +22,9 @@
                         <li>plusFriendID (카카오톡 채널 아이디) : ${info.plusFriendID}</li>
                         <li>ads (광고메시지) : ${info.ads}</li>
                         <li>appendix (부가메시지) : ${info.appendix}</li>
+		                <li>secureYN (보안템플릿 여부) : ${info.secureYN}</li>
+		                <li>state (템플릿 상태) : ${info.state}</li>
+		                <li>stateDT (템플릿 상태 일시) : ${info.stateDT}</li>
                         <c:if test="${info.btns != null}">
                             <c:forEach items="${info.btns}" var="btnInfo">
                                 <fieldset class="fieldset2">
