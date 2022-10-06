@@ -695,29 +695,6 @@ public class MessageServiceExample {
         return "Message/SentMessage";
     }
 
-    @RequestMapping(value = "getStates", method = RequestMethod.GET)
-    public String getStates(Model m) {
-        /*
-         * 문자전송에 대한 전송결과 요약정보를 확인합니다.
-         */
-
-        // 문자전송 접수번호 배열
-        String[] ReceiptNumList = new String[]{"019010413000000002"};
-
-        try {
-
-            MessageBriefInfo[] messageBriefInfos = messageService.getStates(testCorpNum, ReceiptNumList);
-
-            m.addAttribute("MessageBriefInfos", messageBriefInfos);
-
-        } catch (PopbillException e) {
-            m.addAttribute("Exception", e);
-            return "exception";
-        }
-
-        return "Message/MessageBriefInfo";
-    }
-
     @RequestMapping(value = "search", method = RequestMethod.GET)
     public String search(Model m) {
         /*

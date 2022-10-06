@@ -39,7 +39,6 @@
             <li><a href="MessageService/getMessages">getMessages</a> - 전송내역 확인</li>
             <li><a href="MessageService/getMessagesRN">getMessagesRN</a> - 전송내역 확인 (요청번호 할당)</li>
             <li><a href="MessageService/search">search</a> - 전송내역 목록 조회</li>
-            <li><a href="MessageService/getStates">getStates</a> - 문자메세지 전송요약정보 확인</li>
             <li><a href="MessageService/getSentListURL">getSentListURL</a> - 문자 전송내역 팝업 URL</li>
             <li><a href="MessageService/autoDenyList">getAutoDenyList</a> - 080 수신거부 목록 확인</li>
         </ul>
