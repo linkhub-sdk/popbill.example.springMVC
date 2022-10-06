@@ -134,7 +134,7 @@ public class KakaoServiceExample {
             // 확인할 발신번호
             String sender = "070-4304-2991";
 
-            Response response = kakaoService.checkSenderNumber(testCorpNum, sender, testUserID);
+            Response response = kakaoService.checkSenderNumber(testCorpNum, sender);
 
             m.addAttribute("Response", response);
 
@@ -217,7 +217,7 @@ public class KakaoServiceExample {
 
         try {
 
-            ATSTemplate response = kakaoService.getATSTemplate(testCorpNum, templateCode, testUserID);
+            ATSTemplate response = kakaoService.getATSTemplate(testCorpNum, templateCode);
 
             m.addAttribute("Template", response);
 

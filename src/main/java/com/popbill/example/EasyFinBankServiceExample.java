@@ -465,8 +465,7 @@ public class EasyFinBankServiceExample {
         String SearchString = "";
 
         try {
-            EasyFinBankSearchResult searchInfo = easyFinBankService.search(testCorpNum, jobID, TradeType, SearchString, Page, PerPage, Order,
-                    testUserID);
+            EasyFinBankSearchResult searchInfo = easyFinBankService.search(testCorpNum, jobID, TradeType, SearchString, Page, PerPage, Order);
             m.addAttribute("SearchResult", searchInfo);
 
         } catch (PopbillException e) {
@@ -501,7 +500,7 @@ public class EasyFinBankServiceExample {
 
         try {
 
-            EasyFinBankSummary summaryInfo = easyFinBankService.summary(testCorpNum, jobID, TradeType, SearchString, testUserID);
+            EasyFinBankSummary summaryInfo = easyFinBankService.summary(testCorpNum, jobID, TradeType, SearchString);
             m.addAttribute("SummaryResult", summaryInfo);
 
         } catch (PopbillException e) {

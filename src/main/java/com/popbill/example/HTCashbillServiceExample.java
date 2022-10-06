@@ -236,7 +236,7 @@ public class HTCashbillServiceExample {
 
         try {
 
-            String url = htCashbillService.getCertificatePopUpURL(testCorpNum);
+            String url = htCashbillService.getCertificatePopUpURL(testCorpNum, testUserID);
 
             m.addAttribute("Result", url);
 
@@ -405,7 +405,7 @@ public class HTCashbillServiceExample {
 
         try {
 
-            String url = htCashbillService.getFlatRatePopUpURL(testCorpNum);
+            String url = htCashbillService.getFlatRatePopUpURL(testCorpNum, testUserID);
 
             m.addAttribute("Result", url);
 

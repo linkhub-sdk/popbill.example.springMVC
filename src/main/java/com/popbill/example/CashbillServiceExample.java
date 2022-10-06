@@ -1010,7 +1010,7 @@ public class CashbillServiceExample {
 
         try {
 
-            String url = cashbillService.getURL(testCorpNum, TOGO);
+            String url = cashbillService.getURL(testCorpNum, testUserID, TOGO);
 
             m.addAttribute("Result", url);
 
@@ -1035,7 +1035,7 @@ public class CashbillServiceExample {
 
         try {
 
-            String url = cashbillService.getPopUpURL(testCorpNum, mgtKey);
+            String url = cashbillService.getPopUpURL(testCorpNum, mgtKey, testUserID);
 
             m.addAttribute("Result", url);
 
@@ -1060,7 +1060,7 @@ public class CashbillServiceExample {
 
         try {
 
-            String url = cashbillService.getViewURL(testCorpNum, mgtKey);
+            String url = cashbillService.getViewURL(testCorpNum, mgtKey, testUserID);
 
             m.addAttribute("Result", url);
 
@@ -1085,7 +1085,7 @@ public class CashbillServiceExample {
 
         try {
 
-            String url = cashbillService.getPrintURL(testCorpNum, mgtKey);
+            String url = cashbillService.getPrintURL(testCorpNum, mgtKey, testUserID);
 
             m.addAttribute("Result", url);
 
@@ -1109,7 +1109,7 @@ public class CashbillServiceExample {
 
         try {
 
-            String url = cashbillService.getEPrintURL(testCorpNum, mgtKey);
+            String url = cashbillService.getEPrintURL(testCorpNum, mgtKey, testUserID);
 
             m.addAttribute("Result", url);
 
@@ -1134,7 +1134,7 @@ public class CashbillServiceExample {
 
         try {
 
-            String url = cashbillService.getMassPrintURL(testCorpNum, mgtKeyList);
+            String url = cashbillService.getMassPrintURL(testCorpNum, mgtKeyList, testUserID);
 
             m.addAttribute("Result", url);
 
@@ -1159,7 +1159,7 @@ public class CashbillServiceExample {
 
         try {
 
-            String url = cashbillService.getMailURL(testCorpNum, mgtKey);
+            String url = cashbillService.getMailURL(testCorpNum, mgtKey, testUserID);
 
             m.addAttribute("Result", url);
 
@@ -1184,7 +1184,7 @@ public class CashbillServiceExample {
 
         try {
 
-            String url = cashbillService.getPDFURL(testCorpNum, mgtKey);
+            String url = cashbillService.getPDFURL(testCorpNum, mgtKey, testUserID);
 
             m.addAttribute("Result", url);
 

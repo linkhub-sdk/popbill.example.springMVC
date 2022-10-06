@@ -55,10 +55,6 @@ public class ClosedownServiceExample {
     @Value("#{EXAMPLE_CONFIG.TestCorpNum}")
     private String testCorpNum;
 
-    // 팝빌회원 아이디
-    @Value("#{EXAMPLE_CONFIG.TestUserID}")
-    private String testUserID;
-
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String home(Locale locale, Model model) {
         return "Closedown/index";

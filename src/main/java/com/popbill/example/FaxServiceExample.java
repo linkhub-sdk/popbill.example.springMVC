@@ -85,7 +85,7 @@ public class FaxServiceExample {
             // 확인할 발신번호
             String sender = "070-4304-2991";
 
-            Response response = faxService.checkSenderNumber(testCorpNum, sender, testUserID);
+            Response response = faxService.checkSenderNumber(testCorpNum, sender);
 
             m.addAttribute("Response", response);
 
@@ -820,7 +820,7 @@ public class FaxServiceExample {
             // 팩스 접수번호
             String receiptNum = "022021803102600001";
 
-            String url = faxService.getPreviewURL(testCorpNum, receiptNum);
+            String url = faxService.getPreviewURL(testCorpNum, receiptNum, testUserID);
 
             m.addAttribute("Result", url);
 
