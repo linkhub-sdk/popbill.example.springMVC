@@ -38,6 +38,7 @@
                     <legend>issueResult[${status.index}]</legend>
                     <ul>
                         <li>code (응답코드) : ${CashbillInfo.code}</li>
+                        <li>message (응답메시지) : ${CashbillInfo.message}</li>
                         <li>mgtKey (문서번호) : ${CashbillInfo.mgtKey}</li>
                         <li>confirmNum (국세청 승인번호) : ${CashbillInfo.confirmNum}</li>
                         <li>tradeDate (거래일자) : ${CashbillInfo.tradeDate}</li>
