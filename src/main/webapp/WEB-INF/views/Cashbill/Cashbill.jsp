@@ -20,6 +20,7 @@
                 <li>orgConfirmNum (원본 현금영수증 국세청 승인번호) : ${Cashbill.orgConfirmNum}</li>
                 <li>orgTradeDate (원본 현금영수증 거래일자) : ${Cashbill.orgTradeDate}</li>
                 <li>tradeDate (거래일자) : ${Cashbill.tradeDate}</li>
+                <li>tradeDT (거래일시) : ${Cashbill.tradeDT}</li>
                 <li>tradeType (문서형태) : ${Cashbill.tradeType}</li>
                 <li>tradeUsage (거래구분) : ${Cashbill.tradeUsage}</li>
                 <li>tradeOpt (거래유형) : ${Cashbill.tradeOpt}</li>

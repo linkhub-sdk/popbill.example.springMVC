@@ -2,7 +2,7 @@
  * 팝빌 현금영수증 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://docs.popbill.com/cashbill/tutorial/java
- * - 업데이트 일자 : 2022-10-06
+ * - 업데이트 일자 : 2022-11-08
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -188,6 +188,10 @@ public class CashbillServiceExample {
         // 구매자 휴대폰
         // - {smssendYN} 의 값이 true 인 경우 아래 휴대폰번호로 안내 문자 전송
         cashbill.setHp("");
+        
+        // 거래일시, 날짜(yyyyMMddHHmmss)
+        // 당일, 전일만 가능
+        cashbill.setTradeDT("20221104000000");
 
         // 발행 안내 메일제목, 미기재시 기본 양식으로 메일 전송
         String emailSubject = "";
@@ -297,7 +301,11 @@ public class CashbillServiceExample {
             // 구매자 휴대폰
             // - {smssendYN} 의 값이 true 인 경우 아래 휴대폰번호로 안내 문자 전송
             cashbill.setHp("");
-
+            
+            // 거래일시, 날짜(yyyyMMddHHmmss)
+            // 당일, 전일만 가능
+            cashbill.setTradeDT("20221104000000");
+            
             cashbillList.add(cashbill);
 
         }

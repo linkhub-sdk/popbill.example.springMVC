@@ -34,6 +34,7 @@
                         <li>itemKey (팝빌번호) : ${SearchInfo.itemKey}</li>
                         <li>mgtKey (문서번호) : ${SearchInfo.mgtKey}</li>
                         <li>tradeDate (거래일자) : ${SearchInfo.tradeDate}</li>
+                        <li>tradeDT (거래일시) : ${SearchInfo.tradeDT}</li>
                         <li>issueDT (발행일시) : ${SearchInfo.issueDT}</li>
                         <li>regDT (등록일시) : ${SearchInfo.regDT}</li>
                         <li>taxationType (과세형태) : ${SearchInfo.taxationType}</li>

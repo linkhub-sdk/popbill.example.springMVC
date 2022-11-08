@@ -42,6 +42,7 @@
                         <li>mgtKey (문서번호) : ${CashbillInfo.mgtKey}</li>
                         <li>confirmNum (국세청 승인번호) : ${CashbillInfo.confirmNum}</li>
                         <li>tradeDate (거래일자) : ${CashbillInfo.tradeDate}</li>
+                        <li>tradeDT (거래일시) : ${CashbillInfo.tradeDT}</li>
                     </ul>
                 </fieldset>
             </c:forEach>

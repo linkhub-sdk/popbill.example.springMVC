@@ -19,6 +19,7 @@
                     <li>itemKey (팝빌번호) : ${CashbillInfo.itemKey}</li>
                     <li>mgtKey (문서번호) : ${CashbillInfo.mgtKey}</li>
                     <li>tradeDate (거래일자) : ${CashbillInfo.tradeDate}</li>
+                    <li>tradeDT (거래일시) : ${CashbillInfo.tradeDT}</li>
                     <li>issueDT (발행일시) : ${CashbillInfo.issueDT}</li>
                     <li>regDT (등록일시) : ${CashbillInfo.regDT}</li>
                     <li>taxationType (과세형태) : ${CashbillInfo.taxationType}</li>
