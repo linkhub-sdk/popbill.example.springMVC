@@ -1,7 +1,7 @@
 /*
  * 팝빌 카카오톡 API Java SDK SpringMVC Example
  *
- * - SpringMVC SDK 연동환경 설정방법 안내 : https://developers.popbill.com/kakao/tutorial/java
+ * - SpringMVC SDK 연동환경 설정방법 안내 : https://developers.popbill.com/guide/kakaotalk/java/getting-started/tutorial?fwn=springmvc
  * - 업데이트 일자 : 2022-10-06
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
@@ -88,7 +88,7 @@ public class KakaoServiceExample {
         /*
          * 카카오톡 채널을 등록하고 내역을 확인하는 카카오톡 채널 관리 페이지 팝업 URL을 반환합니다.
          * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
-         * - https://developers.popbill.com/kakao/java/api#GetPlusFriendMgtURL
+         * - https://developers.popbill.com/reference/kakaotalk/java/api/channel#GetPlusFriendMgtURL
          */
         try {
 
@@ -108,7 +108,7 @@ public class KakaoServiceExample {
     public String listPlusFriendID(Model m) {
         /*
          * 팝빌에 등록한 연동회원의 카카오톡 채널 목록을 확인합니다.
-         * - https://developers.popbill.com/kakao/java/api#ListPlusFriendID
+         * - https://developers.popbill.com/reference/kakaotalk/java/api/channel#ListPlusFriendID
          */
 
         try {
@@ -127,7 +127,7 @@ public class KakaoServiceExample {
     public String checkSenderNumber(Model m) {
         /*
          * 카카오톡 발신번호 등록여부를 확인합니다.
-         * https://developers.popbill.com/kakao/java/api#CheckSenderNumber
+         * https://developers.popbill.com/reference/kakaotalk/java/api/sendnum#CheckSenderNumber
          */
         try {
 
@@ -151,7 +151,7 @@ public class KakaoServiceExample {
         /*
          * 발신번호를 등록하고 내역을 확인하는 카카오톡 발신번호 관리 페이지 팝업 URL을 반환합니다.
          * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
-         * - https://developers.popbill.com/kakao/java/api#GetSenderNumberMgtURL
+         * - https://developers.popbill.com/reference/kakaotalk/java/api/sendnum#GetSenderNumberMgtURL
          */
         try {
 
@@ -171,7 +171,7 @@ public class KakaoServiceExample {
     public String getSenderNumberList(Model m) {
         /*
          * 팝빌에 등록한 연동회원의 카카오톡 발신번호 목록을 확인합니다.
-         * - https://developers.popbill.com/kakao/java/api#GetSenderNumberList
+         * - https://developers.popbill.com/reference/kakaotalk/java/api/sendnum#GetSenderNumberList
          */
 
         try {
@@ -189,7 +189,7 @@ public class KakaoServiceExample {
         /*
          * 알림톡 템플릿을 신청하고 승인심사 결과를 확인하며 등록 내역을 확인하는 알림톡 템플릿 관리 페이지 팝업 URL을 반환합니다.
          * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
-         * - https://developers.popbill.com/kakao/java/api#GetATSTemplateMgtURL
+         * - https://developers.popbill.com/reference/kakaotalk/java/api/template#GetATSTemplateMgtURL
          */
         try {
 
@@ -209,7 +209,7 @@ public class KakaoServiceExample {
     public String getATSTemplate(Model m) {
         /*
          * 승인된 알림톡 템플릿 정보를 확인합니다.
-         * - https://developers.popbill.com/kakao/java/api#GetATSTemplate
+         * - https://developers.popbill.com/reference/kakaotalk/java/api/template#GetATSTemplate
          */
 
         // 확인할 알림톡 템플릿 코드
@@ -234,7 +234,7 @@ public class KakaoServiceExample {
         /*
          * 승인된 알림톡 템플릿 목록을 확인합니다.
          * - 반환항목중 템플릿코드(templateCode)는 알림톡 전송시 사용됩니다.
-         * - https://developers.popbill.com/kakao/java/api#ListATSTemplate
+         * - https://developers.popbill.com/reference/kakaotalk/java/api/template#ListATSTemplate
          */
 
         try {
@@ -255,7 +255,7 @@ public class KakaoServiceExample {
          * 승인된 템플릿의 내용을 작성하여 1건의 알림톡 전송을 팝빌에 접수합니다.
          * - 사전에 승인된 템플릿의 내용과 알림톡 전송내용(content)이 다를 경우 전송실패 처리됩니다.
          * - 전송실패 시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고 이 경우 문자(SMS/LMS) 요금이 과금됩니다.
-         * - https://developers.popbill.com/kakao/java/api#SendATS_one
+         * - https://developers.popbill.com/reference/kakaotalk/java/api/send#SendATSOne
          */
 
         // 승인된 알림톡 템플릿코드
@@ -339,7 +339,7 @@ public class KakaoServiceExample {
          * 승인된 템플릿의 내용을 작성하여 다수건의 알림톡 전송을 팝빌에 접수하며, 수신자 별로 개별 내용을 전송합니다. (최대 1,000건)
          * - 사전에 승인된 템플릿의 내용과 알림톡 전송내용(content)이 다를 경우 전송실패 처리됩니다.
          * - 전송실패 시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고, 이 경우 문자(SMS/LMS) 요금이 과금됩니다.
-         * - https://developers.popbill.com/kakao/java/api#SendATS_multi
+         * - https://developers.popbill.com/reference/kakaotalk/java/api/send#SendATSMulti
          */
 
         // 승인된 알림톡 템플릿코드
@@ -436,7 +436,7 @@ public class KakaoServiceExample {
          * 승인된 템플릿 내용을 작성하여 다수건의 알림톡 전송을 팝빌에 접수하며, 모든 수신자에게 동일 내용을 전송합니다. (최대 1,000건)
          * - 사전에 승인된 템플릿의 내용과 알림톡 전송내용(content)이 다를 경우 전송실패 처리됩니다.
          * - 전송실패시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고, 이 경우 문자(SMS/LMS) 요금이 과금됩니다.
-         * - https://developers.popbill.com/kakao/java/api#SendATS_same
+         * - https://developers.popbill.com/reference/kakaotalk/java/api/send#SendATSSame
          */
 
         // 승인된 알림톡 템플릿코드
@@ -521,7 +521,7 @@ public class KakaoServiceExample {
          * 텍스트로 구성된 1건의 친구톡 전송을 팝빌에 접수합니다.
          * - 친구톡의 경우 야간 전송은 제한됩니다. (20:00 ~ 익일 08:00)
          * - 전송실패시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고, 이 경우 문자(SMS/LMS) 요금이 과금됩니다.
-         * - https://developers.popbill.com/kakao/java/api#SendFTS_one
+         * - https://developers.popbill.com/reference/kakaotalk/java/api/send#SendFTSOne
          */
 
         // 팝빌에 등록된 카카오톡 채널 아이디
@@ -613,7 +613,7 @@ public class KakaoServiceExample {
          * 텍스트로 구성된 다수건의 친구톡 전송을 팝빌에 접수하며, 수신자 별로 개별 내용을 전송합니다. (최대 1,000건)
          * - 친구톡의 경우 야간 전송은 제한됩니다. (20:00 ~ 익일 08:00)
          * - 전송실패시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고, 이 경우 문자(SMS/LMS) 요금이 과금됩니다.
-         * - https://developers.popbill.com/kakao/java/api#SendFTS_multi
+         * - https://developers.popbill.com/reference/kakaotalk/java/api/send#SendFTSMulti
          */
 
         // 팝빌에 등록된 카카오톡 채널 아이디
@@ -703,7 +703,7 @@ public class KakaoServiceExample {
          * 텍스트로 구성된 다수건의 친구톡 전송을 팝빌에 접수하며, 모든 수신자에게 동일 내용을 전송합니다. (최대 1,000건)
          * - 친구톡의 경우 야간 전송은 제한됩니다. (20:00 ~ 익일 08:00)
          * - 전송실패시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고, 이 경우 문자(SMS/LMS) 요금이 과금됩니다.
-         * - https://developers.popbill.com/kakao/java/api#SendFTS_same
+         * - https://developers.popbill.com/reference/kakaotalk/java/api/send#SendFMSSame
          */
 
         // 팝빌에 등록된 카카오톡 채널 아이디
@@ -799,7 +799,7 @@ public class KakaoServiceExample {
          * - 친구톡의 경우 야간 전송은 제한됩니다. (20:00 ~ 익일 08:00)
          * - 전송실패시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고, 이 경우 문자(SMS/LMS) 요금이 과금됩니다.
          * - 대체문자의 경우, 포토문자(MMS) 형식은 지원하고 있지 않습니다.
-         * - https://developers.popbill.com/kakao/java/api#SendFMS_one
+         * - https://developers.popbill.com/reference/kakaotalk/java/api/send#SendFMSOne
          */
 
         // 팝빌에 등록된 카카오톡 채널 아이디
@@ -901,7 +901,7 @@ public class KakaoServiceExample {
          * - 친구톡의 경우 야간 전송은 제한됩니다. (20:00 ~ 익일 08:00)
          * - 전송실패시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고, 이 경우 문자(SMS/LMS) 요금이 과금됩니다.
          * - 대체문자의 경우, 포토문자(MMS) 형식은 지원하고 있지 않습니다.
-         * - https://developers.popbill.com/kakao/java/api#SendFMS_multi
+         * - https://developers.popbill.com/reference/kakaotalk/java/api/send#SendFMSMulti
          */
 
         // 팝빌에 등록된 카카오톡 채널 아이디
@@ -1019,7 +1019,7 @@ public class KakaoServiceExample {
          * - 친구톡의 경우 야간 전송은 제한됩니다. (20:00 ~ 익일 08:00)
          * - 전송실패시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고, 이 경우 문자(SMS/LMS) 요금이 과금됩니다.
          * - 대체문자의 경우, 포토문자(MMS) 형식은 지원하고 있지 않습니다.
-         * - https://developers.popbill.com/kakao/java/api#SendFMS_same
+         * - https://developers.popbill.com/reference/kakaotalk/java/api/send#SendFMSSame
          */
 
         // 팝빌에 등록된 카카오톡 채널 아이디
@@ -1122,7 +1122,7 @@ public class KakaoServiceExample {
     public String cancelReserve(Model m) {
         /*
          * 팝빌에서 반환받은 접수번호를 통해 예약접수된 카카오톡을 전송 취소합니다. (예약시간 10분 전까지 가능)
-         * - https://developers.popbill.com/kakao/java/api#CancelReserve
+         * - https://developers.popbill.com/reference/kakaotalk/java/api/send#CancelReserve
          */
 
         // 카카오톡 예약전송 접수시 팝빌로부터 반환받은 접수번호
@@ -1145,7 +1145,7 @@ public class KakaoServiceExample {
     public String cancelReserveRN(Model m) {
         /*
          * 파트너가 할당한 전송요청 번호를 통해 예약접수된 카카오톡을 전송 취소합니다. (예약시간 10분 전까지 가능)
-         * - https://developers.popbill.com/kakao/java/api#CancelReserveRN
+         * - https://developers.popbill.com/reference/kakaotalk/java/api/send#CancelReserveRN
          */
 
         // 카카오톡 예약전송 접수시 파트너가 할당한 전송요청 번호
@@ -1168,7 +1168,7 @@ public class KakaoServiceExample {
     public String getMessages(Model m) {
         /*
          * 팝빌에서 반환받은 접수번호를 통해 알림톡/친구톡 전송상태 및 결과를 확인합니다.
-         * - https://developers.popbill.com/kakao/java/api#GetMessages
+         * - https://developers.popbill.com/reference/kakaotalk/java/api/info#GetMessages
          */
 
         // 카카오톡 전송 접수시 팝빌로부터 반환받은 접수번호
@@ -1192,7 +1192,7 @@ public class KakaoServiceExample {
     public String getMessagesRN(Model m) {
         /*
          * 파트너가 할당한 전송요청 번호를 통해 알림톡/친구톡 전송상태 및 결과를 확인합니다.
-         * - https://developers.popbill.com/kakao/java/api#GetMessagesRN
+         * - https://developers.popbill.com/reference/kakaotalk/java/api/info#GetMessagesRN
          */
 
         // 카카오톡 전송 접수시 파트너가 할당한 전송요청 번호
@@ -1217,7 +1217,7 @@ public class KakaoServiceExample {
         /*
          * 검색조건에 해당하는 카카오톡 전송내역을 조회합니다. (조회기간 단위 : 최대 2개월)
          * - 카카오톡 접수일시로부터 6개월 이내 접수건만 조회할 수 있습니다.
-         * - https://developers.popbill.com/kakao/java/api#Search
+         * - https://developers.popbill.com/reference/kakaotalk/java/api/info#Search
          */
 
         // 시작일자, 날짜형식(yyyyMMdd)
@@ -1280,7 +1280,7 @@ public class KakaoServiceExample {
         /*
          * 카카오톡 전송내역을 확인하는 페이지의 팝업 URL을 반환합니다.
          * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
-         * - https://developers.popbill.com/kakao/java/api#GetSentListURL
+         * - https://developers.popbill.com/reference/kakaotalk/java/api/info#GetSentListURL
          */
 
         try {
@@ -1301,7 +1301,7 @@ public class KakaoServiceExample {
     public String getUnitCost(Model m) {
         /*
          * 카카오톡 전송시 과금되는 포인트 단가를 확인합니다.
-         * - https://developers.popbill.com/kakao/java/api#GetUnitCost
+         * - https://developers.popbill.com/reference/kakaotalk/java/api/point#GetUnitCost
          */
 
         // 카카오톡 전송유형, ATS-알림톡, FTS-친구톡 텍스트, FMS-친구톡 이미지
@@ -1325,7 +1325,7 @@ public class KakaoServiceExample {
     public String chargeInfo(Model m) {
         /*
          * 팝빌 카카오톡 API 서비스 과금정보를 확인합니다.
-         * - https://developers.popbill.com/kakao/java/api#GetChargeInfo
+         * - https://developers.popbill.com/reference/kakaotalk/java/api/point#GetChargeInfo
          */
 
         // 카카오톡 전송유형, ATS-알림톡, FTS-친구톡 텍스트, FMS-친구톡 이미지

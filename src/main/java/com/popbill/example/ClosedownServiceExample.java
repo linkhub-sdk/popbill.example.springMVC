@@ -1,7 +1,7 @@
 /*
  * 팝빌 휴폐업조회 API Java SDK SpringMVC Example
  *
- * - SpringMVC SDK 연동환경 설정방법 안내 : https://developers.popbill.com/closedown/tutorial/java
+ * - SpringMVC SDK 연동환경 설정방법 안내 : https://developers.popbill.com/guide/closedown/java/getting-started/tutorial?fwn=springmvc
  * - 업데이트 일자 : 2022-10-06
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
@@ -89,7 +89,7 @@ public class ClosedownServiceExample {
     public String checkCorpNums(Model m) {
         /*
          * 다수건의 사업자번호에 대한 휴폐업정보를 확인합니다. (최대 1,000건)
-         * - https://developers.popbill.com/closedown/java/api#CheckCorpNums
+         * - https://developers.popbill.com/reference/closedown/java/api/check#CheckCorpNums
          */
 
         // 조회할 사업자번호 배열, 최대 1000건
@@ -113,7 +113,7 @@ public class ClosedownServiceExample {
     public String getUnitCost(Model m) {
         /*
          * 휴폐업 조회시 과금되는 포인트 단가를 확인합니다.
-         * - https://developers.popbill.com/closedown/java/api#GetUnitCost
+         * - https://developers.popbill.com/reference/closedown/java/api/point#GetUnitCost
          */
 
         try {
@@ -134,7 +134,7 @@ public class ClosedownServiceExample {
     public String chargeInfo(Model m) {
         /*
          * 휴폐업조회 API 서비스 과금정보를 확인합니다.
-         * - https://developers.popbill.com/closedown/java/api#GetChargeInfo
+         * - https://developers.popbill.com/reference/closedown/java/api/point#GetChargeInfo
          */
 
         try {

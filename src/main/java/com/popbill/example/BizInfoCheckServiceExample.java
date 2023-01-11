@@ -1,7 +1,7 @@
 /*
  * 팝빌 기업정보조회 API Java SDK SpringMVC Example
  *
- * - SpringMVC SDK 연동환경 설정방법 안내 : https://developers.popbill.com/bizinfocheck/tutorial/java
+ * - SpringMVC SDK 연동환경 설정방법 안내 : https://developers.popbill.com/guide/bizinfocheck/java/getting-started/tutorial?fwn=springmvc
  * - 업데이트 일자 : 2022-10-06
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
@@ -63,7 +63,7 @@ public class BizInfoCheckServiceExample {
     public String checkBizInfo(Model m) {
         /*
          * 사업자번호 1건에 대한 기업정보를 확인합니다.
-         * - https://developers.popbill.com/bizinfocheck/java/api#CheckBizInfo
+         * - https://developers.popbill.com/reference/bizinfocheck/java/api/check#CheckBizInfo
          */
 
 
@@ -86,7 +86,7 @@ public class BizInfoCheckServiceExample {
     public String getUnitCost(Model m) {
         /*
          * 기업정보조회 시 과금되는 포인트 단가를 확인합니다.
-         * - https://developers.popbill.com/bizinfocheck/java/api#GetUnitCost
+         * - https://developers.popbill.com/reference/bizinfocheck/java/api/point#GetUnitCost
          */
 
         try {
@@ -105,7 +105,7 @@ public class BizInfoCheckServiceExample {
     public String chargeInfo(Model m) {
         /*
          * 팝빌 기업정보조회 API 서비스 과금정보를 확인합니다.
-         * - https://developers.popbill.com/bizinfocheck/java/api#GetChargeInfo
+         * - https://developers.popbill.com/reference/bizinfocheck/java/api/point#GetChargeInfo
          */
 
         try {
