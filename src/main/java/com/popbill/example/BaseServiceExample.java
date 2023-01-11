@@ -237,7 +237,7 @@ public class BaseServiceExample {
         
         paymentForm.setSettlerName("담당자명");
         paymentForm.setSettlerEmail("test@test.com");
-        paymentForm.setSettlerHP("01012341234");
+        paymentForm.setNotifyHP("01012341234");
         paymentForm.setPaymentName("입금자명");
         paymentForm.setSettleCost("11000");
         
