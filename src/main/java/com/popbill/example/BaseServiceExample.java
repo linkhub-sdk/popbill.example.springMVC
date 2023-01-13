@@ -232,12 +232,10 @@ public class BaseServiceExample {
         /*
          * 무통장 입금을 신청합니다.
          */
-
         PaymentForm paymentForm = new PaymentForm();
-        
         paymentForm.setSettlerName("담당자명");
         paymentForm.setSettlerEmail("test@test.com");
-        paymentForm.setSettlerHP("01012341234");
+        paymentForm.setNotifyHP("01012341234");
         paymentForm.setPaymentName("입금자명");
         paymentForm.setSettleCost("11000");
         
@@ -260,7 +258,7 @@ public class BaseServiceExample {
          * 무통장 입금신청한 건의 정보를 확인합니다.
          */
 
-        String settleCode = "202210040000000070";
+        String settleCode = "202301130000000026";
         
         try {
             PaymentHistory paymentHistory = taxinvoiceService.getSettleResult(testCorpNum, settleCode);
