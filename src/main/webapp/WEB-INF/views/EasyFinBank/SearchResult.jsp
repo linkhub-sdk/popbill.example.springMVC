@@ -24,6 +24,7 @@
                     <li> pageNum (페이지번호) : ${SearchResult.pageNum}</li>
                     <li> pageCount (페이지수) : ${SearchResult.pageCount}</li>
                     <li> lastScrapDT (최종 조회일시) : ${SearchResult.lastScrapDT}</li>
+                    <li> balance (현재잔액) : ${SearchResult.balance}</li>
                 </ul>
             </fieldset>
         </c:if>
