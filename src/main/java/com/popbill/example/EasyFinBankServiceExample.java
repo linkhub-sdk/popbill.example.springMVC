@@ -362,16 +362,16 @@ public class EasyFinBankServiceExample {
         */
 
         // 기관코드
-        String BankCode = "";
+        String BankCode = "0039";
 
         // 계좌번호
         String AccountNumber = "";
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20220201";
+        String SDate = "20221213";
 
         // 종료일자, 닐짜형식(yyyyMMdd)
-        String EDate = "20220228";
+        String EDate = "20230113";
 
         try {
 
@@ -442,7 +442,7 @@ public class EasyFinBankServiceExample {
          */
 
         // 수집요청(requestJob API) 함수 호출 시 반환받은 작업아이디
-        String jobID = "022021815000000001";
+        String jobID = "023011310000000008";
 
         // 거래유형 배열 ("I" 와 "O" 중 선택, 다중 선택 가능)
         // └ I = 입금 , O = 출금
