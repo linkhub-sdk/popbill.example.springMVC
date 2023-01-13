@@ -117,7 +117,7 @@ public class CashbillServiceExample {
         Cashbill cashbill = new Cashbill();
 
         // 현금영수증 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
-        cashbill.setMgtKey("20220218-MVC001");
+        cashbill.setMgtKey("20230113-MVC001");
 
         // 문서형태, 승인거래 기재
         cashbill.setTradeType("승인거래");
@@ -191,7 +191,7 @@ public class CashbillServiceExample {
         
         // 거래일시, 날짜(yyyyMMddHHmmss)
         // 당일, 전일만 가능
-        cashbill.setTradeDT("20221104000000");
+        cashbill.setTradeDT("20230112111111");
 
         // 발행 안내 메일제목, 미기재시 기본 양식으로 메일 전송
         String emailSubject = "";
@@ -336,7 +336,6 @@ public class CashbillServiceExample {
         String SubmitID = "20220218-MVC-BULK";
 
         try {
-
             BulkCashbillResult bulkResult = cashbillService.getBulkResult(testCorpNum, SubmitID);
 
             m.addAttribute("BulkResult", bulkResult);
