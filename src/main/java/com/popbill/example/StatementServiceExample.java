@@ -304,7 +304,7 @@ public class StatementServiceExample {
         Statement statement = new Statement();
 
         // 작성일자, 형태 yyyyMMdd
-        statement.setWriteDate("20220218");
+        statement.setWriteDate("20230113");
 
         // {영수, 청구, 없음} 중 기재
         statement.setPurposeType("영수");
@@ -319,7 +319,7 @@ public class StatementServiceExample {
         statement.setItemCode((short) 121);
 
         // 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
-        statement.setMgtKey("20220218-MVC002");
+        statement.setMgtKey("20230113-MVC001");
 
 
         /*********************************************************************
@@ -675,13 +675,13 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20220218-MVC002";
+        String mgtKey = "20230113-MVC001";
 
         // 메모
         String memo = "발행메모";
         
-        // 이메일
-        String emailSubject = "test@receiver.com";
+        // 전자명세서 발행 안내메일 제목
+        String emailSubject = "테스트";
 
         try {
 
