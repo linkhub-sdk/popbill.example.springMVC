@@ -2,7 +2,7 @@
  * 팝빌 예금주조회 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://developers.popbill.com/guide/accountcheck/java/getting-started/tutorial?fwn=springmvc
- * - 업데이트 일자 : 2022-10-06
+ * - 업데이트 일자 : 2023-01-16
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
