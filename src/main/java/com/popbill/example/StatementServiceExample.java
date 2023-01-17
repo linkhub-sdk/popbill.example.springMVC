@@ -681,6 +681,7 @@ public class StatementServiceExample {
         String memo = "발행메모";
         
         // 전자명세서 발행 안내메일 제목
+        // - 미입력시 팝빌에서 지정한 이메일 제목으로 전송
         String emailSubject = "테스트";
 
         try {
