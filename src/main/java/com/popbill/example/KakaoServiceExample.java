@@ -1119,7 +1119,7 @@ public class KakaoServiceExample {
 		String receiptNum = "023011313394100001";
 
 		// 카카오톡 예약전송 접수시 팝빌로 요청한 수신번호
-        String receiveNum = "01022223334";
+		String receiveNum = "01022223334";
 
 		try {
 			Response response = kakaoService.cancelReservebyRCV(testCorpNum, receiptNum, receiveNum);
