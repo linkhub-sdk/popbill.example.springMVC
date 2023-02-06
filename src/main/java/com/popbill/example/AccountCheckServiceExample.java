@@ -67,7 +67,6 @@ public class AccountCheckServiceExample {
          * - https://developers.popbill.com/reference/accountcheck/java/api/check#CheckAccountInfo
          */
 
-
         // 조회할 기관코드
         String BankCode = "";
 

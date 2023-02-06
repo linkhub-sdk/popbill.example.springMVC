@@ -379,9 +379,9 @@ public class TaxinvoiceServiceExample {
 
         TaxinvoiceAddContact addContact = new TaxinvoiceAddContact();
 
-        addContact.setSerialNum(1);
-        addContact.setContactName("추가 담당자 성명");
-        addContact.setEmail("test2@test.com");
+        addContact.setSerialNum(1); // 일련번호 (1부터 순차적으로 입력 (최대 5))
+        addContact.setContactName("추가 담당자 성명"); // 담당자 성명
+        addContact.setEmail("test2@test.com"); // 이메일
 
         taxinvoice.getAddContactList().add(addContact);
 
@@ -668,10 +668,9 @@ public class TaxinvoiceServiceExample {
 
             TaxinvoiceAddContact addContact = new TaxinvoiceAddContact();
 
-            addContact.setSerialNum(1);
-            addContact.setContactName("추가 담당자 성명");
-
-            addContact.setEmail("test2@test.com");
+            addContact.setSerialNum(1); // 일련번호 (1부터 순차적으로 입력 (최대 5))
+            addContact.setContactName("추가 담당자 성명"); // 담당자 성명
+            addContact.setEmail("test2@test.com"); // 이메일
 
             taxinvoice.getAddContactList().add(addContact);
 
@@ -959,9 +958,9 @@ public class TaxinvoiceServiceExample {
         taxinvoice.setAddContactList(new ArrayList<TaxinvoiceAddContact>());
 
         TaxinvoiceAddContact addContact = new TaxinvoiceAddContact();
-        addContact.setSerialNum(1);
-        addContact.setContactName("추가 담당자 성명");
-        addContact.setEmail("test2@test.com");
+        addContact.setSerialNum(1); // 일련번호 (1부터 순차적으로 입력 (최대 5))
+        addContact.setContactName("추가 담당자 성명"); // 담당자 성명
+        addContact.setEmail("test2@test.com"); // 이메일
         taxinvoice.getAddContactList().add(addContact);
 
         addContact = new TaxinvoiceAddContact();
@@ -1227,9 +1226,9 @@ public class TaxinvoiceServiceExample {
 
         TaxinvoiceAddContact addContact = new TaxinvoiceAddContact();
 
-        addContact.setSerialNum(1);
-        addContact.setContactName("추가 담당자 성명");
-        addContact.setEmail("test2@test.com");
+        addContact.setSerialNum(1); // 일련번호 (1부터 순차적으로 입력 (최대 5)) 
+        addContact.setContactName("추가 담당자 성명"); // 담당자 성명
+        addContact.setEmail("test2@test.com"); // 이메일
 
         taxinvoice.getAddContactList().add(addContact);
 

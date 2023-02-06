@@ -66,7 +66,6 @@ public class BizInfoCheckServiceExample {
          * - https://developers.popbill.com/reference/bizinfocheck/java/api/check#CheckBizInfo
          */
 
-
         // 조회할 사업자번호
         String CorpNum = "6798700433";
 
