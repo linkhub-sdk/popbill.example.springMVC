@@ -13,19 +13,6 @@
  * 2) 전자세금계산서 발행을 위해 공동인증서를 등록합니다.
  *    - 팝빌사이트 로그인 > [전자세금계산서] > [환경설정] > [공동인증서 관리]
  *    - 공동인증서 등록 팝업 URL (getTaxCertURL API)을 이용하여 등록
- *
- * Copyright 2006-2014 linkhub.co.kr, Inc. or its affiliates. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License").
- * You may not use this file except in compliance with the License.
- * A copy of the License is located at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0.txt
- *
- * or in the "license" file accompanying this file. This file is distributed
- * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing
- * permissions and limitations under the License.
  */
 package com.popbill.example;
 
