@@ -2,7 +2,7 @@
  * 팝빌 Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://developers.popbill.com/guide/taxinvoice/java/getting-started/tutorial?fwn=springmvc
- * - 업데이트 일자 : 2023-02-16
+ * - 업데이트 일자 : 2023-02-14
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  */
@@ -120,7 +120,7 @@ public class BaseServiceExample {
     @RequestMapping(value = "getUseHistory", method = RequestMethod.GET)
     public String getUseHistory(Model m) throws PopbillException {
         /*
-         * 포인트 사용내역을 확인합니다.
+         * 연동회원의 포인트 사용내역을 확인합니다.
          * - https://developers.popbill.com/reference/taxinvoice/java/api/point#GetUseHistory
          */
 
@@ -158,7 +158,7 @@ public class BaseServiceExample {
     @RequestMapping(value = "getPaymentHistory", method = RequestMethod.GET)
     public String getPaymentHistory(Model m) throws PopbillException {
         /*
-         * 포인트 결제내역을 확인합니다.
+         * 연동회원의 포인트 결제내역을 확인합니다.
          * - https://developers.popbill.com/reference/taxinvoice/java/api/point#GetPaymentHistory
          */
 
@@ -190,7 +190,7 @@ public class BaseServiceExample {
     @RequestMapping(value = "getRefundHistory", method = RequestMethod.GET)
     public String getRefundHistory(Model m) throws PopbillException {
         /*
-         * 환불 신청내역을 확인합니다.
+         * 연동회원의 포인트 환불신청내역을 확인합니다.
          * - https://developers.popbill.com/reference/taxinvoice/java/api/point#GetRefundHistory
          */
 
@@ -216,7 +216,7 @@ public class BaseServiceExample {
     @RequestMapping(value = "refund", method = RequestMethod.GET)
     public String refund(Model m) throws PopbillException {
         /*
-         * 환불을 신청합니다.
+         * 연동회원 포인트를 환불 신청합니다.
          * - https://developers.popbill.com/reference/taxinvoice/java/api/point#Refund
          */
 
@@ -259,7 +259,7 @@ public class BaseServiceExample {
     @RequestMapping(value = "paymentRequest", method = RequestMethod.GET)
     public String paymentRequest(Model m) throws PopbillException {
         /*
-         * 무통장 입금을 신청합니다.
+         * 연동회원 포인트 충전을 위해 무통장입금을 신청합니다.
          * - https://developers.popbill.com/reference/taxinvoice/java/api/point#PaymentRequest
          */
     	
@@ -297,7 +297,7 @@ public class BaseServiceExample {
     @RequestMapping(value = "getSettleResult", method = RequestMethod.GET)
     public String getSettleResult(Model m) throws PopbillException {
         /*
-         * 무통장 입금신청한 건의 정보를 확인합니다.
+         * 연동회원 포인트 무통장 입금신청내역 1건을 확인합니다.
          * - https://developers.popbill.com/reference/taxinvoice/java/api/point#GetSettleResult
          */
 

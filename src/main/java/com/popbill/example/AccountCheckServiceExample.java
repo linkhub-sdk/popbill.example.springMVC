@@ -2,7 +2,7 @@
  * 팝빌 예금주조회 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://developers.popbill.com/guide/accountcheck/java/getting-started/tutorial?fwn=springmvc
- * - 업데이트 일자 : 2023-01-16
+ * - 업데이트 일자 : 2023-02-14
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -117,7 +117,7 @@ public class AccountCheckServiceExample {
     @RequestMapping(value = "getUnitCost", method = RequestMethod.GET)
     public String getUnitCost(Model m) {
         /*
-         * 예금주조회 시 과금되는 포인트 단가를 확인합니다.
+         * 예금주 조회시 과금되는 포인트 단가를 확인합니다.
          * - https://developers.popbill.com/reference/accountcheck/java/api/point#GetUnitCost
          */
 

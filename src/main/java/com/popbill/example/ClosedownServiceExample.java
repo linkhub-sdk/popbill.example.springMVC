@@ -2,7 +2,7 @@
  * 팝빌 휴폐업조회 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://developers.popbill.com/guide/closedown/java/getting-started/tutorial?fwn=springmvc
- * - 업데이트 일자 : 2023-01-16
+ * - 업데이트 일자 : 2023-02-14
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -120,7 +120,7 @@ public class ClosedownServiceExample {
     @RequestMapping(value = "getChargeInfo", method = RequestMethod.GET)
     public String chargeInfo(Model m) {
         /*
-         * 휴폐업조회 API 서비스 과금정보를 확인합니다.
+         * 팝빌 휴폐업조회 API 서비스 과금정보를 확인합니다.
          * - https://developers.popbill.com/reference/closedown/java/api/point#GetChargeInfo
          */
 

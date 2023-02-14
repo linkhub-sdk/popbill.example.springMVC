@@ -2,7 +2,7 @@
  * 팝빌 기업정보조회 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://developers.popbill.com/guide/bizinfocheck/java/getting-started/tutorial?fwn=springmvc
- * - 업데이트 일자 : 2023-01-16
+ * - 업데이트 일자 : 2023-02-14
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -71,7 +71,7 @@ public class BizInfoCheckServiceExample {
     @RequestMapping(value = "getUnitCost", method = RequestMethod.GET)
     public String getUnitCost(Model m) {
         /*
-         * 기업정보조회 시 과금되는 포인트 단가를 확인합니다.
+         * 기업정보 조회시 과금되는 포인트 단가를 확인합니다.
          * - https://developers.popbill.com/reference/bizinfocheck/java/api/point#GetUnitCost
          */
 
