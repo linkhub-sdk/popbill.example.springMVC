@@ -34,7 +34,6 @@
             <li><a href="CashbillService/getInfos">getInfos</a> - 상태 대량 확인</li>
             <li><a href="CashbillService/getDetailInfo">getDetailInfo</a> - 상세정보 확인</li>
             <li><a href="CashbillService/search">search</a> - 목록 조회</li>
-            <li><a href="CashbillService/getLogs">getLogs</a> - 상태 변경이력 확인</li>
             <li><a href="CashbillService/getURL">getURL</a> - 현금영수증 문서함 관련 URL</li>
         </ul>
     </fieldset>
