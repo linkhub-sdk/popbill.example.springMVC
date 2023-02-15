@@ -38,7 +38,7 @@
         <beans:prop key="TestUserID">testkorea</beans:prop>
         <beans:prop key="LinkID">TESTER</beans:prop>
         <beans:prop key="SecretKey">SwWxqU+0TErBXy/9TVjIPEnI0VTUMMSQZtJf3Ed8q3I=</beans:prop>
-        <beans:prop key="IsTest">true</beans:prop>
+        <beans:prop key="IsTest">false</beans:prop>
         <beans:prop key="IsIPRestrictOnOff">true</beans:prop>
         <beans:prop key="UseStaticIP">false</beans:prop>
         <beans:prop key="UseLocalTimeYN">true</beans:prop>
