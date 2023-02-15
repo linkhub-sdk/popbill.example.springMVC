@@ -56,7 +56,7 @@
             <li><a href="TaxinvoiceService/getEPrintURL">GetEPrintURL</a> - 세금계산서 인쇄 [공급받는자용] URL</li>
             <li><a href="TaxinvoiceService/getMassPrintURL">GetMassPrintURL</a> - 세금계산서 대량 인쇄 URL</li>
             <li><a href="TaxinvoiceService/getMailURL">GetMailURL</a> - 세금계산서 메일링크 URL</li>
-            <li><a href="TaxinvoiceService/getPDFURL">getPDFURL</a> - 세금계산서 PDF 다운로드 URL</li>
+            <li><a href="TaxinvoiceService/getPDFURL">GetPDFURL</a> - 세금계산서 PDF 다운로드 URL</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
@@ -85,7 +85,7 @@
             <li><a href="TaxinvoiceService/getTaxCertURL">GetTaxCertURL</a> - 공동인증서 등록 URL</li>
             <li><a href="TaxinvoiceService/getCertificateExpireDate">GetCertificateExpireDate</a> - 공동인증서 만료일 확인</li>
             <li><a href="TaxinvoiceService/checkCertValidation">CheckCertValidation</a> - 공동인증서 유효성 확인</li>
-            <li><a href="TaxinvoiceService/getTaxCertInfo">getTaxCertInfo</a> - 공동인증서 정보확인</li>
+            <li><a href="TaxinvoiceService/getTaxCertInfo">GetTaxCertInfo</a> - 공동인증서 정보확인</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
@@ -116,7 +116,7 @@
             <li><a href="BaseService/getCorpInfo">GetCorpInfo</a> - 회사정보 확인</li>
             <li><a href="BaseService/updateCorpInfo">UpdateCorpInfo</a> - 회사정보 수정</li>
             <li><a href="BaseService/registContact">RegistContact</a> - 담당자 등록</li>
-            <li><a href="BaseService/getContactInfo">getContactInfo</a> - 담당자 정보 확인</li>
+            <li><a href="BaseService/getContactInfo">GetContactInfo</a> - 담당자 정보 확인</li>
             <li><a href="BaseService/listContact">ListContact</a> - 담당자 목록 확인</li>
             <li><a href="BaseService/updateContact">UpdateContact</a> - 담당자 정보 수정</li>
         </ul>
