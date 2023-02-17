@@ -65,7 +65,7 @@ public class FaxServiceExample {
     public String checkSenderNumber(Model m) {
         /*
          * 팩스 발신번호 등록여부를 확인합니다.
-         * https://developers.popbill.com/reference/fax/java/api/sendnum#CheckSenderNumber
+         * - https://developers.popbill.com/reference/fax/java/api/sendnum#CheckSenderNumber
          */
         try {
 

@@ -74,7 +74,7 @@ public class KakaoServiceExample {
 	public String getPlusFriendMgtURL(Model m) {
 		/*
 		 * 카카오톡 채널을 등록하고 내역을 확인하는 카카오톡 채널 관리 페이지 팝업 URL을 반환합니다. 
-		 * 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
+		 * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
 		 * - https://developers.popbill.com/reference/kakaotalk/java/api/channel#GetPlusFriendMgtURL
 		 */
 		try {
@@ -137,7 +137,7 @@ public class KakaoServiceExample {
 	public String getSenderNumberMgtURL(Model m) {
 		/*
 		 * 발신번호를 등록하고 내역을 확인하는 카카오톡 발신번호 관리 페이지 팝업 URL을 반환합니다. 
-		 * 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
+		 * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
 		 * - https://developers.popbill.com/reference/kakaotalk/java/api/sendnum#GetSenderNumberMgtURL
 		 */
 		try {
@@ -220,7 +220,7 @@ public class KakaoServiceExample {
 	public String listATSTemplate(Model m) {
 		/*
 		 * 승인된 알림톡 템플릿 목록을 확인합니다. 
-		 * 반환항목중 템플릿코드(templateCode)는 알림톡 전송시 사용됩니다.
+		 * - 반환항목중 템플릿코드(templateCode)는 알림톡 전송시 사용됩니다.
 		 * - https://developers.popbill.com/reference/kakaotalk/java/api/template#ListATSTemplate
 		 */
 
@@ -240,8 +240,8 @@ public class KakaoServiceExample {
 	public String sendATS_one(Model m) {
 		/*
 		 * 승인된 템플릿의 내용을 작성하여 1건의 알림톡 전송을 팝빌에 접수합니다. 
-		 * 사전에 승인된 템플릿의 내용과 알림톡 전송내용(content)이 다를 경우 전송실패 처리됩니다. 
-		 * 전송실패 시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고 이 경우 문자(SMS/LMS) 요금이 과금됩니다.
+		 * - 사전에 승인된 템플릿의 내용과 알림톡 전송내용(content)이 다를 경우 전송실패 처리됩니다. 
+		 * - 전송실패 시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고 이 경우 문자(SMS/LMS) 요금이 과금됩니다.
 		 * - https://developers.popbill.com/reference/kakaotalk/java/api/send#SendATSOne
 		 */
 
@@ -320,8 +320,8 @@ public class KakaoServiceExample {
 	public String sendATS_multi(Model m) {
 		/*
 		 * 승인된 템플릿의 내용을 작성하여 다수건의 알림톡 전송을 팝빌에 접수하며, 수신자 별로 개별 내용을 전송합니다. (최대 1,000건)
-		 * 사전에 승인된 템플릿의 내용과 알림톡 전송내용(content)이 다를 경우 전송실패 처리됩니다. 
-		 * 전송실패 시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고, 이 경우 문자(SMS/LMS) 요금이 과금됩니다.
+		 * - 사전에 승인된 템플릿의 내용과 알림톡 전송내용(content)이 다를 경우 전송실패 처리됩니다. 
+		 * - 전송실패 시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고, 이 경우 문자(SMS/LMS) 요금이 과금됩니다.
 		 * - https://developers.popbill.com/reference/kakaotalk/java/api/send#SendATSMulti
 		 */
 
@@ -412,8 +412,8 @@ public class KakaoServiceExample {
 	public String sendATS_same(Model m) {
 		/*
 		 * 승인된 템플릿 내용을 작성하여 다수건의 알림톡 전송을 팝빌에 접수하며, 모든 수신자에게 동일 내용을 전송합니다. (최대 1,000건)
-		 * 사전에 승인된 템플릿의 내용과 알림톡 전송내용(content)이 다를 경우 전송실패 처리됩니다. 
-		 * 전송실패시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고, 이 경우 문자(SMS/LMS) 요금이 과금됩니다.
+		 * - 사전에 승인된 템플릿의 내용과 알림톡 전송내용(content)이 다를 경우 전송실패 처리됩니다. 
+		 * - 전송실패시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고, 이 경우 문자(SMS/LMS) 요금이 과금됩니다.
 		 * - https://developers.popbill.com/reference/kakaotalk/java/api/send#SendATSSame
 		 */
 
@@ -494,8 +494,8 @@ public class KakaoServiceExample {
 	public String sendFTS_one(Model m) {
 		/*
 		 * 텍스트로 구성된 1건의 친구톡 전송을 팝빌에 접수합니다. 
-		 * 친구톡의 경우 야간 전송은 제한됩니다. (20:00 ~ 익일 08:00)
-		 * 전송실패시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고, 이 경우 문자(SMS/LMS) 요금이 과금됩니다.
+		 * - 친구톡의 경우 야간 전송은 제한됩니다. (20:00 ~ 익일 08:00)
+		 * - 전송실패시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고, 이 경우 문자(SMS/LMS) 요금이 과금됩니다.
 		 * - https://developers.popbill.com/reference/kakaotalk/java/api/send#SendFTSOne
 		 */
 
@@ -581,8 +581,8 @@ public class KakaoServiceExample {
 	public String sendFTS_multi(Model m) {
 		/*
 		 * 텍스트로 구성된 다수건의 친구톡 전송을 팝빌에 접수하며, 수신자 별로 개별 내용을 전송합니다. (최대 1,000건) 
-		 * 친구톡의 경우 야간 전송은 제한됩니다. (20:00 ~ 익일 08:00) 
-		 * 전송실패시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고, 이 경우 문자(SMS/LMS) 요금이 과금됩니다.
+		 * - 친구톡의 경우 야간 전송은 제한됩니다. (20:00 ~ 익일 08:00) 
+		 * - 전송실패시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고, 이 경우 문자(SMS/LMS) 요금이 과금됩니다.
 		 * - https://developers.popbill.com/reference/kakaotalk/java/api/send#SendFTSMulti
 		 */
 
@@ -665,8 +665,8 @@ public class KakaoServiceExample {
 	public String sendFTS_same(Model m) {
 		/*
 		 * 텍스트로 구성된 다수건의 친구톡 전송을 팝빌에 접수하며, 모든 수신자에게 동일 내용을 전송합니다. (최대 1,000건) 
-		 * 친구톡의 경우 야간 전송은 제한됩니다. (20:00 ~ 익일 08:00)
-		 * 전송실패시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고, 이 경우 문자(SMS/LMS) 요금이 과금됩니다.
+		 * - 친구톡의 경우 야간 전송은 제한됩니다. (20:00 ~ 익일 08:00)
+		 * - 전송실패시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고, 이 경우 문자(SMS/LMS) 요금이 과금됩니다.
 		 * - https://developers.popbill.com/reference/kakaotalk/java/api/send#SendFMSSame
 		 */
 
@@ -755,9 +755,9 @@ public class KakaoServiceExample {
 	public String sendFMS_one(Model m) {
 		/*
 		 * 이미지가 첨부된 1건의 친구톡 전송을 팝빌에 접수합니다. 
-		 * 친구톡의 경우 야간 전송은 제한됩니다. (20:00 ~ 익일 08:00)
-		 * 전송실패시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고, 이 경우 문자(SMS/LMS) 요금이 과금됩니다.
-		 * 대체문자의 경우, 포토문자(MMS) 형식은 지원하고 있지 않습니다.
+		 * - 친구톡의 경우 야간 전송은 제한됩니다. (20:00 ~ 익일 08:00)
+		 * - 전송실패시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고, 이 경우 문자(SMS/LMS) 요금이 과금됩니다.
+		 * - 대체문자의 경우, 포토문자(MMS) 형식은 지원하고 있지 않습니다.
 		 * - https://developers.popbill.com/reference/kakaotalk/java/api/send#SendFMSOne
 		 */
 
@@ -854,9 +854,9 @@ public class KakaoServiceExample {
 	public String sendFMS_multi(Model m) {
 		/*
 		 * 이미지가 첨부된 다수건의 친구톡 전송을 팝빌에 접수하며, 수신자 별로 개별 내용을 전송합니다. (최대 1,000건) 
-		 * 친구톡의 경우 야간 전송은 제한됩니다. (20:00 ~ 익일 08:00) 
-		 * 전송실패시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고, 이 경우 문자(SMS/LMS) 요금이 과금됩니다. 
-		 * 대체문자의 경우, 포토문자(MMS) 형식은 지원하고 있지 않습니다.
+		 * - 친구톡의 경우 야간 전송은 제한됩니다. (20:00 ~ 익일 08:00) 
+		 * - 전송실패시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고, 이 경우 문자(SMS/LMS) 요금이 과금됩니다. 
+		 * - 대체문자의 경우, 포토문자(MMS) 형식은 지원하고 있지 않습니다.
 		 * - https://developers.popbill.com/reference/kakaotalk/java/api/send#SendFMSMulti
 		 */
 
@@ -967,9 +967,9 @@ public class KakaoServiceExample {
 	public String sendFMS_same(Model m) {
 		/*
 		 * 이미지가 첨부된 다수건의 친구톡 전송을 팝빌에 접수하며, 모든 수신자에게 동일 내용을 전송합니다. (최대 1,000건) 
-		 * 친구톡의 경우 야간 전송은 제한됩니다. (20:00 ~ 익일 08:00) 
-		 * 전송실패시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고, 이 경우 문자(SMS/LMS) 요금이 과금됩니다. 
-		 * 대체문자의 경우, 포토문자(MMS) 형식은 지원하고 있지 않습니다.
+		 * - 친구톡의 경우 야간 전송은 제한됩니다. (20:00 ~ 익일 08:00) 
+		 * - 전송실패시 사전에 지정한 변수 'altSendType' 값으로 대체문자를 전송할 수 있고, 이 경우 문자(SMS/LMS) 요금이 과금됩니다. 
+		 * - 대체문자의 경우, 포토문자(MMS) 형식은 지원하고 있지 않습니다.
 		 * - https://developers.popbill.com/reference/kakaotalk/java/api/send#SendFMSSame
 		 */
 
@@ -1213,7 +1213,7 @@ public class KakaoServiceExample {
 	public String search(Model m) {
 		/*
 		 * 검색조건에 해당하는 카카오톡 전송내역을 조회합니다. (조회기간 단위 : 최대 2개월) 
-		 * 카카오톡 접수일시로부터 6개월 이내 접수건만 조회할 수 있습니다.
+		 * - 카카오톡 접수일시로부터 6개월 이내 접수건만 조회할 수 있습니다.
 		 * - https://developers.popbill.com/reference/kakaotalk/java/api/info#Search
 		 */
 
@@ -1276,7 +1276,7 @@ public class KakaoServiceExample {
 	public String getSentListURL(Model m) {
 		/*
 		 * 카카오톡 전송내역을 확인하는 페이지의 팝업 URL을 반환합니다. 
-		 * 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
+		 * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
 		 * - https://developers.popbill.com/reference/kakaotalk/java/api/info#GetSentListURL
 		 */
 

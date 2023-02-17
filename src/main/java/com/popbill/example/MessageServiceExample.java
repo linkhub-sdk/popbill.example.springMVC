@@ -67,7 +67,7 @@ public class MessageServiceExample {
     public String checkSenderNumber(Model m) {
         /*
          * 문자 발신번호 등록여부를 확인합니다.
-         * https://developers.popbill.com/reference/sms/java/api/sendnum#CheckSenderNumber
+         * - https://developers.popbill.com/reference/sms/java/api/sendnum#CheckSenderNumber
          */
         try {
 
