@@ -387,14 +387,14 @@ public class KakaoServiceExample {
 		KakaoButton[] btns = null;
 
 		// 알림톡 버튼 URL에 #{템플릿변수}를 기재한경우 템플릿변수 영역을 변경하여 버튼정보 구성
-        // KakaoButton[] btns = new KakaoButton[1];
+		// KakaoButton[] btns = new KakaoButton[1];
 
-        // KakaoButton button = new KakaoButton();
-        // button.setN("버튼명"); // 버튼명
-        // button.setT("WL"); // 버튼타입
-        // button.setU1("https://www.popbill.com"); // 버튼링크1
-        // button.setU2("http://test.popbill.com"); // 버튼링크2
-        // btns[0] = button;
+		// KakaoButton button = new KakaoButton();
+		// button.setN("버튼명"); // 버튼명
+		// button.setT("WL"); // 버튼타입
+		// button.setU1("https://www.popbill.com"); // 버튼링크1
+		// button.setU2("http://test.popbill.com"); // 버튼링크2
+		// btns[0] = button;
 
 		try {
 
@@ -435,7 +435,7 @@ public class KakaoServiceExample {
 
 		// 대체문자 제목
 		// - 메시지 길이(90byte)에 따라 장문(LMS)인 경우에만 적용.
-        // String altSubject = "대체문자 제목";
+		// String altSubject = "대체문자 제목";
 
 		// 대체문자 유형(altSendType)이 "A"일 경우, 대체문자로 전송할 내용 (최대 2000byte)
 		// └ 팝빌이 메시지 길이에 따라 단문(90byte 이하) 또는 장문(90byte 초과)으로 전송처리
@@ -469,14 +469,14 @@ public class KakaoServiceExample {
 		KakaoButton[] btns = null;
 
 		// 알림톡 버튼 URL에 #{템플릿변수}를 기재한경우 템플릿변수 영역을 변경하여 버튼정보 구성
-        // KakaoButton[] btns = new KakaoButton[1];
+		// KakaoButton[] btns = new KakaoButton[1];
 
-        // KakaoButton button = new KakaoButton();
-        // button.setN("버튼명"); // 버튼명
-        // button.setT("WL"); // 버튼타입
-        // button.setU1("https://www.popbill.com"); // 버튼링크1
-        // button.setU2("http://test.popbill.com"); // 버튼링크2
-        // btns[0] = button;
+		// KakaoButton button = new KakaoButton();
+		// button.setN("버튼명"); // 버튼명
+		// button.setT("WL"); // 버튼타입
+		// button.setU1("https://www.popbill.com"); // 버튼링크1
+		// button.setU2("http://test.popbill.com"); // 버튼링크2
+		// btns[0] = button;
 
 		try {
 
