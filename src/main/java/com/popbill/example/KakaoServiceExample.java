@@ -355,22 +355,22 @@ public class KakaoServiceExample {
 			message.setAltMessage("대체문자 개별내용입니다." + i); // 대체문자 내용
 
 			// 수신자별 개별 버튼정보
-            // KakaoButton button = new KakaoButton();
-            // button.setN("타입1 버튼명"+i); // 버튼명
-            // button.setT("WL"); // 버튼타입
-            // button.setU1("http://"+i+"popbill.com"); // 버튼링크1
-            // button.setU2("http://"+i+"test.popbill.com"); // 버튼링크2
+			// KakaoButton button = new KakaoButton();
+			// button.setN("타입1 버튼명"+i); // 버튼명
+			// button.setT("WL"); // 버튼타입
+			// button.setU1("http://"+i+"popbill.com"); // 버튼링크1
+			// button.setU2("http://"+i+"test.popbill.com"); // 버튼링크2
 
-            // KakaoButton button02 = new KakaoButton();
-            // button02.setN("타입2 버튼명"+i); // 버튼명
-            // button02.setT("WL"); // 버튼타입
-            // button02.setU1("http://"+i+"popbill.com"); // 버튼링크1
-            // button02.setU2("http://"+i+"test.popbill.com"); // 버튼링크2
+			// KakaoButton button02 = new KakaoButton();
+			// button02.setN("타입2 버튼명"+i); // 버튼명
+			// button02.setT("WL"); // 버튼타입
+			// button02.setU1("http://"+i+"popbill.com"); // 버튼링크1
+			// button02.setU2("http://"+i+"test.popbill.com"); // 버튼링크2
 
-            // 수신자별로 각기다른 버튼정보 추가.
-            // message.setBtns(new ArrayList<KakaoButton>());
-            // message.getBtns().add(button);
-            // message.getBtns().add(button02);
+			// 수신자별로 각기다른 버튼정보 추가.
+			// message.setBtns(new ArrayList<KakaoButton>());
+			// message.getBtns().add(button);
+			// message.getBtns().add(button02);
 			receivers[i] = message;
 		}
 
