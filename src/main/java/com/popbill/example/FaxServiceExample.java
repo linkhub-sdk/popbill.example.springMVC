@@ -196,13 +196,13 @@ public class FaxServiceExample {
         Receiver receiver1 = new Receiver();
         receiver1.setReceiveName("수신자1");        // 수신자명
         receiver1.setReceiveNum("010111222");     // 수신팩스번호
-        receiver1.setInterOPRefKey("20221006-FAX001");  // 파트너 지정키
+        receiver1.setInterOPRefKey("20230102-FAX001");  // 파트너 지정키
         receivers[0] = receiver1;
 
         Receiver receiver2 = new Receiver();
         receiver2.setReceiveName("수신자2");        // 수신자명
         receiver2.setReceiveNum("010333444");     // 수신팩스번호
-        receiver2.setInterOPRefKey("20221006-FAX002");  // 파트너 지정키
+        receiver2.setInterOPRefKey("20230102-FAX002");  // 파트너 지정키
         receivers[1] = receiver2;
 
         File[] files = new File[2];
@@ -333,13 +333,13 @@ public class FaxServiceExample {
         Receiver receiver1 = new Receiver();
         receiver1.setReceiveName("수신자1");        // 수신자명
         receiver1.setReceiveNum("010111222");     // 수신팩스번호
-        receiver1.setInterOPRefKey("20221006-FAXBinary01");  // 파트너 지정키
+        receiver1.setInterOPRefKey("20230102-FAXBinary01");  // 파트너 지정키
         receivers[0] = receiver1;
 
         Receiver receiver2 = new Receiver();
         receiver2.setReceiveName("수신자2");        // 수신자명
         receiver2.setReceiveNum("010333444");     // 수신팩스번호
-        receiver2.setInterOPRefKey("20221006-FAXBinary02");  // 파트너 지정키
+        receiver2.setInterOPRefKey("20230102-FAXBinary02");  // 파트너 지정키
         receivers[1] = receiver2;
 
         // 전송할 File InputStream 생성을 위한 샘플코드.
@@ -378,7 +378,7 @@ public class FaxServiceExample {
         // 전송요청번호
         // 팝빌이 접수 단위를 식별할 수 있도록 파트너가 부여하는 식별번호.
         // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
-        String requestNum = "20221006-request";
+        String requestNum = "20230102-request";
 
         try {
 
@@ -470,20 +470,20 @@ public class FaxServiceExample {
         // 팩스수신정보를 기존전송정보와 동일하게 재전송하는 경우, receivers 변수 null 처리
         Receiver[] receivers = null;
 
-//      팩스수신정보를 기존전송정보와 다르게 재전송하는 경우, 아래의 코드 적용 (최대 1000건)
-//      Receiver[] receivers = new Receiver[2];
-
-//      Receiver receiver1 = new Receiver();
-//      receiver1.setReceiveName("수신자1");      // 수신자명
-//      receiver1.setReceiveNum("010111222");     // 수신팩스번호
-//      receiver1.setInterOPRefKey("20221006-reFAX01");  // 파트너 지정키
-//      receivers[0] = receiver1;
-
-//      Receiver receiver2 = new Receiver();
-//      receiver2.setReceiveName("수신자2");      // 수신자명
-//      receiver2.setReceiveNum("010333444");     // 수신팩스번호
-//      receiver2.setInterOPRefKey("20221006-reFAX02");  // 파트너 지정키
-//      receivers[1] = receiver2;
+        // 팩스수신정보를 기존전송정보와 다르게 재전송하는 경우, 아래의 코드 적용 (최대 1000건)
+        // Receiver[] receivers = new Receiver[2];
+		
+        // Receiver receiver1 = new Receiver();
+        // receiver1.setReceiveName("수신자1");      // 수신자명
+        // receiver1.setReceiveNum("010111222");     // 수신팩스번호
+        // receiver1.setInterOPRefKey("20221006-reFAX01");  // 파트너 지정키
+        // receivers[0] = receiver1;
+		
+        // Receiver receiver2 = new Receiver();
+        // receiver2.setReceiveName("수신자2");      // 수신자명
+        // receiver2.setReceiveNum("010333444");     // 수신팩스번호
+        // receiver2.setInterOPRefKey("20221006-reFAX02");  // 파트너 지정키
+        // receivers[1] = receiver2;
 
         // 예약전송일시, null인 경우 즉시전송
         Date reserveDT = null;
@@ -586,20 +586,20 @@ public class FaxServiceExample {
         // 팩스수신정보를 기존전송정보와 동일하게 재전송하는 경우, receivers 변수 null 처리
         Receiver[] receivers = null;
 
-//      팩스수신정보를 기존전송정보와 다르게 재전송하는 경우, 아래의 코드 적용 (최대 1000건)
-//      Receiver[] receivers = new Receiver[2];
-
-//      Receiver receiver1 = new Receiver();
-//      receiver1.setReceiveName("수신자1");      // 수신자명
-//      receiver1.setReceiveNum("010111222");    // 수신팩스번호
-//      receiver1.setInterOPRefKey("20221006-reFAXRN01");  // 파트너 지정키
-//      receivers[0] = receiver1;
-
-//      Receiver receiver2 = new Receiver();
-//      receiver2.setReceiveName("수신자2");      // 수신자명
-//      receiver2.setReceiveNum("010333444");    // 수신팩스번호
-//      receiver2.setInterOPRefKey("20221006-reFAXRN02");  // 파트너 지정키
-//      receivers[1] = receiver2;
+        // 팩스수신정보를 기존전송정보와 다르게 재전송하는 경우, 아래의 코드 적용 (최대 1000건)
+        // Receiver[] receivers = new Receiver[2];
+		
+        // Receiver receiver1 = new Receiver();
+        // receiver1.setReceiveName("수신자1");      // 수신자명
+        // receiver1.setReceiveNum("010111222");    // 수신팩스번호
+        // receiver1.setInterOPRefKey("20221006-reFAXRN01");  // 파트너 지정키
+        // receivers[0] = receiver1;
+		
+        // Receiver receiver2 = new Receiver();
+        // receiver2.setReceiveName("수신자2");      // 수신자명
+        // receiver2.setReceiveNum("010333444");    // 수신팩스번호
+        // receiver2.setInterOPRefKey("20221006-reFAXRN02");  // 파트너 지정키
+        // receivers[1] = receiver2;
 
         // 예약전송일시, null인 경우 즉시전송
         Date reserveDT = null;
@@ -608,7 +608,7 @@ public class FaxServiceExample {
         String title = "팩스 재전송(동보) 제목";
 
         // 원본 팩스 전송시 파트너가 할당한 전송요청번호(requestNum)
-        String orgRequestNum = "20221006-request";
+        String orgRequestNum = "20230102-request";
 
         try {
 
@@ -726,10 +726,10 @@ public class FaxServiceExample {
          */
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20221001";
+        String SDate = "20230102";
 
         // 종료일자, 날짜형식(yyyyMMdd)
-        String EDate = "20221006";
+        String EDate = "20230131";
 
         // 전송상태 배열 ("1" , "2" , "3" , "4" 중 선택, 다중 선택 가능)
         // └ 1 = 대기 , 2 = 성공 , 3 = 실패 , 4 = 취소
