@@ -48,7 +48,7 @@ import com.popbill.api.kakao.PlusFriendID;
 import com.popbill.api.kakao.SenderNumber;
 
 /*
- * 팝빌 카카오톡 API 예제.
+ * 팝빌 카카오톡 API 예제
  */
 @Controller
 @RequestMapping("KakaoService")
