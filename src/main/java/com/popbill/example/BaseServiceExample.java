@@ -672,7 +672,7 @@ public class BaseServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/point#getRefundInfo
          */
 
-        String refundCode = "";
+        String refundCode = "023040000017";
 
         try {
             RefundHistory refundHistory = taxinvoiceService.getRefundInfo(testCorpNum, refundCode);
