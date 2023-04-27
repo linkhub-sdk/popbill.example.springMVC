@@ -8,16 +8,12 @@
 </head>
 <body>
 <div id="content">
-    <p class="heading1">Response</p>
+    <p class="heading1">Result</p>
     <br />
     <fieldset class="fieldset1">
         <legend>${requestScope['javax.servlet.forward.request_uri']}</legend>
         <ul>
-            <li>code (응답코드) : ${Response.code}</li>
-            <li>message (응답메시지) : ${Response.message}</li>
-            <c:if test="${Response.refundCode != null}">
-                <li>refundCode (환불코드) : ${Response.refundCode}</li>
-            </c:if>
+            <li>RefundableBalance : ${refundableBalance}</li>
         </ul>
     </fieldset>
 </div>

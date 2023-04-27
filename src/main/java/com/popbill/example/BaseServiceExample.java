@@ -8,26 +8,13 @@
  */
 package com.popbill.example;
 
+import com.popbill.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import com.popbill.api.ContactInfo;
-import com.popbill.api.CorpInfo;
-import com.popbill.api.JoinForm;
-import com.popbill.api.PaymentForm;
-import com.popbill.api.PaymentHistory;
-import com.popbill.api.PaymentHistoryResult;
-import com.popbill.api.PaymentResponse;
-import com.popbill.api.PopbillException;
-import com.popbill.api.RefundForm;
-import com.popbill.api.RefundHistoryResult;
-import com.popbill.api.Response;
-import com.popbill.api.TaxinvoiceService;
-import com.popbill.api.UseHistoryResult;
 
 /**
  * 팝빌 BaseService API 예제.
@@ -244,7 +231,7 @@ public class BaseServiceExample {
         refundForm.setReason("환불사유");
         
         try {
-            Response response = taxinvoiceService.refund(testCorpNum, refundForm);
+            RefundResponse response = taxinvoiceService.refund(testCorpNum, refundForm);
 
             m.addAttribute("Response", response);
 
@@ -668,6 +655,73 @@ public class BaseServiceExample {
         try {
             Response response = taxinvoiceService.updateCorpInfo(testCorpNum, corpInfo);
             m.addAttribute("Response", response);
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "response";
+    }
+
+
+
+    @RequestMapping(value = "getRefundInfo", method = RequestMethod.GET)
+    public String getRefundInfo(Model m) {
+        /*
+         * 포인트 환불에 대한 상세정보 1건을 확인합니다.
+         * - https://developers.popbill.com/reference/taxinvoice/java/api/point#getRefundInfo
+         */
+
+        String refundCode = "";
+
+        try {
+            RefundHistory refundHistory = taxinvoiceService.getRefundInfo(testCorpNum, refundCode);
+            m.addAttribute("refundHistoryResult", refundHistory);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "getChargeInfo";
+    }
+
+    @RequestMapping(value = "getRefundableBalance", method = RequestMethod.GET)
+    public String getRefundableBalance(Model m) {
+        /*
+         * 환불 가능한 포인트를 확인합니다. (보너스 포인트는 환불가능포인트에서 제외됩니다.)
+         * - https://developers.popbill.com/reference/taxinvoice/java/api/point#getRefundableBalance
+         */
+
+        try {
+            double refundableBalance = taxinvoiceService.getRefundableBalance(testCorpNum);
+
+            m.addAttribute("refundableBalance", refundableBalance);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "refundableBalance";
+    }
+
+    @RequestMapping(value = "quitMember", method = RequestMethod.GET)
+    public String quitMember(Model m) {
+        /*
+         * 가입된 연동회원의 탈퇴를 요청합니다.
+         * - 회원탈퇴 신청과 동시에 팝빌의 모든 서비스 이용이 불가하며, 관리자를 포함한 모든 담당자 계정도 일괄탈퇴 됩니다.
+         * - 회원탈퇴로 삭제된 데이터는 복원이 불가능합니다.
+         * - 관리자 계정만 회원탈퇴가 가능합니다.
+         * - https://developers.popbill.com/reference/taxinvoice/java/api/member#quitMember
+         */
+
+        String quitReason = "회원 탈퇴 사유";
+
+        try {
+            Response response = taxinvoiceService.quitMember(testCorpNum, quitReason);
+            m.addAttribute("Response", response);
+
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";

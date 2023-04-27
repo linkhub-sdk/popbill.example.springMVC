@@ -76,7 +76,9 @@
             <li><a href="BaseService/refund">refund</a> - 연동회원 포인트 환불신청</li>
             <li><a href="BaseService/getRefundHistory">GetRefundHistory</a> - 연동회원 포인트 환불내역 확인</li>
             <li><a href="BaseService/getPartnerBalance">GetPartnerBalance</a> - 파트너 잔여포인트 확인</li>
-            <li><a href="BaseService/getPartnerURL">GetPartnerURL</a> - 파트너 포인트충전 팝업 URL</li>        
+            <li><a href="BaseService/getPartnerURL">GetPartnerURL</a> - 파트너 포인트충전 팝업 URL</li>
+            <li><a href="BaseService/getRefundInfo">GetRefundInfo</a> - 환불 신청 상태 조회</li>
+            <li><a href="BaseService/getRefundableBalance">GetRefundableBalance</a> - 환불 가능 포인트 조회</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
@@ -91,6 +93,7 @@
             <li><a href="BaseService/getContactInfo">getContactInfo</a> - 담당자 정보 확인</li>
             <li><a href="BaseService/listContact">listContact</a> - 담당자 목록 확인</li>
             <li><a href="BaseService/updateContact">updateContact</a> - 담당자 정보 수정</li>
+            <li><a href="BaseService/quitMember">QuitMember</a> - 회원 탈퇴</li>
         </ul>
     </fieldset>
 </div>
