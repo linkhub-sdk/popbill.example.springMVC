@@ -22,14 +22,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
 import com.popbill.api.AttachedFile;
 import com.popbill.api.BulkResponse;
 import com.popbill.api.ChargeInfo;
@@ -49,6 +41,12 @@ import com.popbill.api.taxinvoice.TaxinvoiceDetail;
 import com.popbill.api.taxinvoice.TaxinvoiceInfo;
 import com.popbill.api.taxinvoice.TaxinvoiceLog;
 import com.popbill.api.taxinvoice.TaxinvoiceXML;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /*
  * 팝빌 전자세금계산서 API 예제.
@@ -1213,7 +1211,7 @@ public class TaxinvoiceServiceExample {
 
         TaxinvoiceAddContact addContact = new TaxinvoiceAddContact();
 
-        addContact.setSerialNum(1); // 일련번호 (1부터 순차적으로 입력 (최대 5)) 
+        addContact.setSerialNum(1); // 일련번호 (1부터 순차적으로 입력 (최대 5))
         addContact.setContactName("추가 담당자 성명"); // 담당자 성명
         addContact.setEmail("test2@test.com"); // 이메일
 
@@ -1964,8 +1962,8 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/info#GetURL
          */
 
-        // TBOX : 임시문서함 , SBOX : 매출문서함 , PBOX : 매입문서함 , 
-        // SWBOX : 매출발행 대기함 , PWBOX : 매입발행 대기함 , WRITE : 매출작성
+        // TBOX : 임시문서함 , SBOX : 매출문서함 , PBOX : 매입문서함 ,
+        // SWBOX : 매출발행 대기함 , PWBOX : 매입발행 대기함 , WRITE : 정발행 작성
         String TOGO = "SBOX";
 
         try {

@@ -72,7 +72,7 @@
             <li><a href="BaseService/getContactInfo">getContactInfo</a> - 담당자 정보 확인</li>
             <li><a href="BaseService/listContact">listContact</a> - 담당자 목록 확인</li>
             <li><a href="BaseService/updateContact">updateContact</a> - 담당자 정보 수정</li>
-            <li><a href="BaseService/quitMember">QuitMember</a> - 회원 탈퇴</li>
+            <li><a href="BaseService/quitMember">QuitMember</a> - 팝빌 회원 탈퇴</li>
         </ul>
     </fieldset>
 </div>

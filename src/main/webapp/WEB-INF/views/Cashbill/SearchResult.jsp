@@ -55,6 +55,7 @@
                         <li>ntsresultMessage (국세청 처리결과 메시지) : ${SearchInfo.ntsresultMessage}</li>
                         <li>orgConfirmNum (원본 현금영수증 국세청 승인번호) : ${SearchInfo.orgConfirmNum}</li>
                         <li>orgTradeDate (원본 현금영수증 거래일자) : ${SearchInfo.orgTradeDate}</li>
+                        <li>interOPYN (연동문서 여부) : ${SearchInfo.interOPYN}</li>
                     </ul>
                 </fieldset>
             </c:forEach>

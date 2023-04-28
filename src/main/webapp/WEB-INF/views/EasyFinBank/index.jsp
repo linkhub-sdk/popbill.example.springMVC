@@ -23,7 +23,7 @@
             <li><a href="EasyFinBankService/deleteBankAccount">deleteBankAccount</a> - 종량제 계좌 삭제</li>
         </ul>
     </fieldset>
-    
+
     <fieldset class="fieldset1">
         <legend>계좌 거래내역 수집</legend>
         <ul>
@@ -32,7 +32,7 @@
             <li><a href="EasyFinBankService/listActiveJob">listActiveJob</a> - 수집 상태 목록 확인</li>
         </ul>
     </fieldset>
-    
+
     <fieldset class="fieldset1">
         <legend>계좌 거래내역 관리</legend>
         <ul>
@@ -41,7 +41,7 @@
             <li><a href="EasyFinBankService/saveMemo">saveMemo</a> - 거래 내역 메모저장</li>
         </ul>
     </fieldset>
-    
+
     <fieldset class="fieldset1">
         <legend>포인트 관리 / 정액제 신청</legend>
         <ul>
@@ -64,7 +64,7 @@
             <li><a href="BaseService/getRefundableBalance">GetRefundableBalance</a> - 환불 가능 포인트 조회</li>
         </ul>
     </fieldset>
-    
+
     <fieldset class="fieldset1">
         <legend>회원정보</legend>
         <ul>
@@ -78,7 +78,7 @@
             <li><a href="BaseService/getContactInfo">getContactInfo</a> - 담당자 정보 확인</li>
             <li><a href="BaseService/listContact">listContact</a> - 담당자 목록 확인</li>
             <li><a href="BaseService/updateContact">updateContact</a> - 담당자 정보 수정</li>
-            <li><a href="BaseService/quitMember">QuitMember</a> - 회원 탈퇴</li>
+            <li><a href="BaseService/quitMember">QuitMember</a> - 팝빌 회원 탈퇴</li>
         </ul>
     </fieldset>
 </div>

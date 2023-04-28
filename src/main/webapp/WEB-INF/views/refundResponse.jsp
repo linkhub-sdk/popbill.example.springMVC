@@ -17,6 +17,7 @@
                     <ul>
                         <li>code (응답 코드) : ${Response.code}</li>
                         <li>message (응답 메시지) : ${Response.message}</li>
+                        <li>refundCode (환불코드) : ${Response.refundCode}</li>
                     </ul>
                 </fieldset>
             </div>
