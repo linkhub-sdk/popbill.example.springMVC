@@ -1,4 +1,4 @@
-/*
+/**
  * 팝빌 예금주조회 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 :
@@ -23,7 +23,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-/*
+/**
  * 팝빌 예금주조회 API 예제.
  */
 @Controller
@@ -44,7 +44,7 @@ public class AccountCheckServiceExample {
 
 	@RequestMapping(value = "checkAccountInfo", method = RequestMethod.GET)
 	public String checkAccountInfo(Model m) {
-		/*
+		/**
 		 * 1건의 예금주성명을 조회합니다. - https://developers.popbill.com/reference/accountcheck/java/api/check#
 		 * CheckAccountInfo
 		 */
@@ -72,7 +72,7 @@ public class AccountCheckServiceExample {
 
 	@RequestMapping(value = "checkDepositorInfo", method = RequestMethod.GET)
 	public String checkDepositorInfo(Model m) {
-		/*
+		/**
 		 * 1건의 예금주실명을 조회합니다. - https://developers.popbill.com/reference/accountcheck/java/api/check#
 		 * CheckDepositorInfo
 		 */
@@ -87,7 +87,7 @@ public class AccountCheckServiceExample {
 		// └ P = 개인, B = 사업자
 		String IdentityNumType = "";
 
-		/*
+		/**
 		 * 등록번호 - IdentityNumType 값이 "B" 인 경우 (사업자번호(10)자리 입력) - IdentityNumType 값이 "P" 인 경우
 		 * (생년월일(6)자리 입력 (형식 : YYMMDD)) 하이픈 '-' 제외하고 입력
 		 */
@@ -110,7 +110,7 @@ public class AccountCheckServiceExample {
 
 	@RequestMapping(value = "getUnitCost", method = RequestMethod.GET)
 	public String getUnitCost(Model m) {
-		/*
+		/**
 		 * 예금주 조회시 과금되는 포인트 단가를 확인합니다. -
 		 * https://developers.popbill.com/reference/accountcheck/java/api/point# GetUnitCost
 		 */
@@ -135,7 +135,7 @@ public class AccountCheckServiceExample {
 
 	@RequestMapping(value = "getChargeInfo", method = RequestMethod.GET)
 	public String chargeInfo(Model m) {
-		/*
+		/**
 		 * 팝빌 예금주조회 API 서비스 과금정보를 확인합니다. -
 		 * https://developers.popbill.com/reference/accountcheck/java/api/point# GetChargeInfo
 		 */

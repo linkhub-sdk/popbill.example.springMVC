@@ -1,4 +1,4 @@
-/*
+/**
  * 팝빌 기업정보조회 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://developers.popbill.com/guide/bizinfocheck/java/getting-started/tutorial?fwn=springmvc
@@ -14,7 +14,10 @@
 package com.popbill.example;
 
 import java.util.Locale;
-
+import com.popbill.api.BizCheckInfo;
+import com.popbill.api.BizInfoCheckService;
+import com.popbill.api.ChargeInfo;
+import com.popbill.api.PopbillException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -22,12 +25,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.popbill.api.BizCheckInfo;
-import com.popbill.api.BizInfoCheckService;
-import com.popbill.api.ChargeInfo;
-import com.popbill.api.PopbillException;
-
-/*
+/**
  * 팝빌 기업정보조회 API 예제.
  */
 @Controller
@@ -48,7 +46,7 @@ public class BizInfoCheckServiceExample {
 
     @RequestMapping(value = "checkBizInfo", method = RequestMethod.GET)
     public String checkBizInfo(Model m) {
-        /*
+        /**
          * 사업자번호 1건에 대한 기업정보를 확인합니다.
          * - https://developers.popbill.com/reference/bizinfocheck/java/api/check#CheckBizInfo
          */
@@ -70,7 +68,7 @@ public class BizInfoCheckServiceExample {
 
     @RequestMapping(value = "getUnitCost", method = RequestMethod.GET)
     public String getUnitCost(Model m) {
-        /*
+        /**
          * 기업정보 조회시 과금되는 포인트 단가를 확인합니다.
          * - https://developers.popbill.com/reference/bizinfocheck/java/api/point#GetUnitCost
          */
@@ -89,7 +87,7 @@ public class BizInfoCheckServiceExample {
 
     @RequestMapping(value = "getChargeInfo", method = RequestMethod.GET)
     public String chargeInfo(Model m) {
-        /*
+        /**
          * 팝빌 기업정보조회 API 서비스 과금정보를 확인합니다.
          * - https://developers.popbill.com/reference/bizinfocheck/java/api/point#GetChargeInfo
          */

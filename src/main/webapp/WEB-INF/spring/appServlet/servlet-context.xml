@@ -125,7 +125,7 @@
             <beans:property name="useStaticIP" value="#{EXAMPLE_CONFIG.UseStaticIP}"/>
             <beans:property name="useLocalTimeYN" value = "#{EXAMPLE_CONFIG.UseLocalTimeYN}"/>
         </beans:bean>
-        
+
         <!-- 기업정보조회 Service Implementation Bean registration. -->
         <beans:bean id="bizInfoCheckService" class="com.popbill.api.bizinfocheck.BizInfoCheckServiceImp">
             <beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>

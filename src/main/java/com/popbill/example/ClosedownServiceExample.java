@@ -1,4 +1,4 @@
-/*
+/**
  * 팝빌 휴폐업조회 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://developers.popbill.com/guide/closedown/java/getting-started/tutorial?fwn=springmvc
@@ -14,7 +14,10 @@
 package com.popbill.example;
 
 import java.util.Locale;
-
+import com.popbill.api.ChargeInfo;
+import com.popbill.api.CloseDownService;
+import com.popbill.api.CorpState;
+import com.popbill.api.PopbillException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -23,12 +26,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.popbill.api.ChargeInfo;
-import com.popbill.api.CloseDownService;
-import com.popbill.api.CorpState;
-import com.popbill.api.PopbillException;
-
-/*
+/**
  * 팝빌 휴폐업조회 API 예제.
  */
 @Controller
@@ -49,7 +47,7 @@ public class ClosedownServiceExample {
 
     @RequestMapping(value = "checkCorpNum", method = RequestMethod.GET)
     public String checkCorpNum(@RequestParam(required = false) String CorpNum, Model m) {
-        /*
+        /**
          * 사업자번호 1건에 대한 휴폐업정보를 확인합니다.
          * - https://developers.popbill.com/closedown/java/api#CheckCorpNum
          */
@@ -74,7 +72,7 @@ public class ClosedownServiceExample {
 
     @RequestMapping(value = "checkCorpNums", method = RequestMethod.GET)
     public String checkCorpNums(Model m) {
-        /*
+        /**
          * 다수건의 사업자번호에 대한 휴폐업정보를 확인합니다. (최대 1,000건)
          * - https://developers.popbill.com/reference/closedown/java/api/check#CheckCorpNums
          */
@@ -98,7 +96,7 @@ public class ClosedownServiceExample {
 
     @RequestMapping(value = "getUnitCost", method = RequestMethod.GET)
     public String getUnitCost(Model m) {
-        /*
+        /**
          * 휴폐업 조회시 과금되는 포인트 단가를 확인합니다.
          * - https://developers.popbill.com/reference/closedown/java/api/point#GetUnitCost
          */
@@ -119,7 +117,7 @@ public class ClosedownServiceExample {
 
     @RequestMapping(value = "getChargeInfo", method = RequestMethod.GET)
     public String chargeInfo(Model m) {
-        /*
+        /**
          * 팝빌 휴폐업조회 API 서비스 과금정보를 확인합니다.
          * - https://developers.popbill.com/reference/closedown/java/api/point#GetChargeInfo
          */

@@ -1,4 +1,4 @@
-/*
+/**
  * 팝빌 Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://developers.popbill.com/guide/taxinvoice/java/getting-started/tutorial?fwn=springmvc
@@ -54,10 +54,9 @@ public class BaseServiceExample {
 
 	@RequestMapping(value = "checkIsMember", method = RequestMethod.GET)
 	public String checkIsMember(Model m) throws PopbillException {
-		/*
-		 * 사업자번호를 조회하여 연동회원 가입여부를 확인합니다. - LinkID는 연동신청 시 팝빌에서 발급받은 링크아이디 값입니다. -
-		 * https://developers.popbill.com/reference/taxinvoice/java/api/member#
-		 * CheckIsMember
+		/**
+		 * 사업자번호를 조회하여 연동회원 가입여부를 확인합니다. - LinkID는 연동신청 시 팝빌에서 발급받은 링크아이디 값입니다.
+		 * - https://developers.popbill.com/reference/taxinvoice/java/api/member#CheckIsMember
 		 */
 
 		// 조회할 사업자번호, '-' 제외 10자리
@@ -78,10 +77,10 @@ public class BaseServiceExample {
 
 	@RequestMapping(value = "getBalance", method = RequestMethod.GET)
 	public String getBalance(Model m) throws PopbillException {
-		/*
-		 * 연동회원의 잔여포인트를 확인합니다. - 과금방식이 파트너과금인 경우 파트너 잔여포인트 확인(GetPartnerBalance API) 함수를
-		 * 통해 확인하시기 바랍니다. -
-		 * https://developers.popbill.com/reference/taxinvoice/java/api/point#GetBalance
+		/**
+		 * 연동회원의 잔여포인트를 확인합니다.
+		 * - 과금방식이 파트너과금인 경우 파트너 잔여포인트 확인(GetPartnerBalance API) 함수를 통해 확인하시기 바랍니다.
+		 * - https://developers.popbill.com/reference/taxinvoice/java/api/point#GetBalance
 		 */
 
 		try {
@@ -99,10 +98,10 @@ public class BaseServiceExample {
 
 	@RequestMapping(value = "getPartnerBalance", method = RequestMethod.GET)
 	public String getPartnerBalance(Model m) throws PopbillException {
-		/*
-		 * 파트너의 잔여포인트를 확인합니다. - 과금방식이 연동과금인 경우 연동회원 잔여포인트 확인(GetBalance API) 함수를 이용하시기
-		 * 바랍니다. - https://developers.popbill.com/reference/taxinvoice/java/api/point#
-		 * GetPartnerBalance
+		/**
+		 * 파트너의 잔여포인트를 확인합니다.
+		 * - 과금방식이 연동과금인 경우 연동회원 잔여포인트 확인(GetBalance API) 함수를 이용하시기 바랍니다.
+		 * - https://developers.popbill.com/reference/taxinvoice/java/api/point#GetPartnerBalance
 		 */
 
 		try {
@@ -120,10 +119,9 @@ public class BaseServiceExample {
 
 	@RequestMapping(value = "getUseHistory", method = RequestMethod.GET)
 	public String getUseHistory(Model m) throws PopbillException {
-		/*
-		 * 연동회원의 포인트 사용내역을 확인합니다. -
-		 * https://developers.popbill.com/reference/taxinvoice/java/api/point#
-		 * GetUseHistory
+		/**
+		 * 연동회원의 포인트 사용내역을 확인합니다.
+		 * - https://developers.popbill.com/reference/taxinvoice/java/api/point#GetUseHistory
 		 */
 
 		// 조회 기간의 시작일자 (형식 : yyyyMMdd)
@@ -160,10 +158,9 @@ public class BaseServiceExample {
 
 	@RequestMapping(value = "getPaymentHistory", method = RequestMethod.GET)
 	public String getPaymentHistory(Model m) throws PopbillException {
-		/*
-		 * 연동회원의 포인트 결제내역을 확인합니다. -
-		 * https://developers.popbill.com/reference/taxinvoice/java/api/point#
-		 * GetPaymentHistory
+		/**
+		 * 연동회원의 포인트 결제내역을 확인합니다.
+		 * - https://developers.popbill.com/reference/taxinvoice/java/api/point#GetPaymentHistory
 		 */
 
 		// 조회 기간의 시작일자 (형식 : yyyyMMdd)
@@ -194,10 +191,9 @@ public class BaseServiceExample {
 
 	@RequestMapping(value = "getRefundHistory", method = RequestMethod.GET)
 	public String getRefundHistory(Model m) throws PopbillException {
-		/*
-		 * 연동회원의 포인트 환불신청내역을 확인합니다. -
-		 * https://developers.popbill.com/reference/taxinvoice/java/api/point#
-		 * GetRefundHistory
+		/**
+		 * 연동회원의 포인트 환불신청내역을 확인합니다.
+		 * - https://developers.popbill.com/reference/taxinvoice/java/api/point#GetRefundHistory
 		 */
 
 		// 목록 페이지번호 (기본값 1)
@@ -221,9 +217,9 @@ public class BaseServiceExample {
 
 	@RequestMapping(value = "refund", method = RequestMethod.GET)
 	public String refund(Model m) throws PopbillException {
-		/*
-		 * 연동회원 포인트를 환불 신청합니다. -
-		 * https://developers.popbill.com/reference/taxinvoice/java/api/point#Refund
+		/**
+		 * 연동회원 포인트를 환불 신청합니다.
+		 * - https://developers.popbill.com/reference/taxinvoice/java/api/point#Refund
 		 */
 
 		RefundForm refundForm = new RefundForm();
@@ -264,10 +260,9 @@ public class BaseServiceExample {
 
 	@RequestMapping(value = "paymentRequest", method = RequestMethod.GET)
 	public String paymentRequest(Model m) throws PopbillException {
-		/*
-		 * 연동회원 포인트 충전을 위해 무통장입금을 신청합니다. -
-		 * https://developers.popbill.com/reference/taxinvoice/java/api/point#
-		 * PaymentRequest
+		/**
+		 * 연동회원 포인트 충전을 위해 무통장입금을 신청합니다.
+		 * - https://developers.popbill.com/reference/taxinvoice/java/api/point#PaymentRequest
 		 */
 
 		PaymentForm paymentForm = new PaymentForm();
@@ -303,10 +298,9 @@ public class BaseServiceExample {
 
 	@RequestMapping(value = "getSettleResult", method = RequestMethod.GET)
 	public String getSettleResult(Model m) throws PopbillException {
-		/*
-		 * 연동회원 포인트 무통장 입금신청내역 1건을 확인합니다. -
-		 * https://developers.popbill.com/reference/taxinvoice/java/api/point#
-		 * GetSettleResult
+		/**
+		 * 연동회원 포인트 무통장 입금신청내역 1건을 확인합니다.
+		 *  - https://developers.popbill.com/reference/taxinvoice/java/api/point#GetSettleResult
 		 */
 
 		// 정산코드
@@ -327,11 +321,10 @@ public class BaseServiceExample {
 
 	@RequestMapping(value = "getPartnerURL", method = RequestMethod.GET)
 	public String getPartnerURL(Model m) throws PopbillException {
-		/*
-		 * 파트너 포인트 충전을 위한 페이지의 팝업 URL을 반환합니다. - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한
-		 * 후에는 해당 URL을 통한 페이지 접근이 불가합니다. -
-		 * https://developers.popbill.com/reference/taxinvoice/java/api/point#
-		 * GetPartnerURL
+		/**
+		 * 파트너 포인트 충전을 위한 페이지의 팝업 URL을 반환합니다.
+		 * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
+		 * - https://developers.popbill.com/reference/taxinvoice/java/api/point#GetPartnerURL
 		 */
 
 		// CHRG : 포인트 충전
@@ -353,10 +346,10 @@ public class BaseServiceExample {
 
 	@RequestMapping(value = "getAccessURL", method = RequestMethod.GET)
 	public String getAccessURL(Model m) throws PopbillException {
-		/*
-		 * 팝빌 사이트에 로그인 상태로 접근할 수 있는 페이지의 팝업 URL을 반환합니다. - 반환되는 URL은 보안 정책상 30초 동안 유효하며,
-		 * 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다. -
-		 * https://developers.popbill.com/reference/taxinvoice/java/api/etc#GetAccessURL
+		/**
+		 * 팝빌 사이트에 로그인 상태로 접근할 수 있는 페이지의 팝업 URL을 반환합니다.
+		 * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
+		 * - https://developers.popbill.com/reference/taxinvoice/java/api/etc#GetAccessURL
 		 */
 		try {
 
@@ -374,11 +367,10 @@ public class BaseServiceExample {
 
 	@RequestMapping(value = "getChargeURL", method = RequestMethod.GET)
 	public String getChargeURL(Model m) throws PopbillException {
-		/*
-		 * 연동회원 포인트 충전을 위한 페이지의 팝업 URL을 반환합니다. - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한
-		 * 후에는 해당 URL을 통한 페이지 접근이 불가합니다. -
-		 * https://developers.popbill.com/reference/taxinvoice/java/api/point#
-		 * GetChargeURL
+		/**
+		 * 연동회원 포인트 충전을 위한 페이지의 팝업 URL을 반환합니다.
+		 * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
+		 * - https://developers.popbill.com/reference/taxinvoice/java/api/point#GetChargeURL
 		 */
 		try {
 
@@ -396,11 +388,10 @@ public class BaseServiceExample {
 
 	@RequestMapping(value = "getPaymentURL", method = RequestMethod.GET)
 	public String getPaymentURL(Model m) throws PopbillException {
-		/*
-		 * 연동회원 포인트 결제내역 확인을 위한 페이지의 팝업 URL을 반환합니다. - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을
-		 * 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다. -
-		 * https://developers.popbill.com/reference/taxinvoice/java/api/point#
-		 * GetPaymentURL
+		/**
+		 * 연동회원 포인트 결제내역 확인을 위한 페이지의 팝업 URL을 반환합니다.
+		 * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
+		 * - https://developers.popbill.com/reference/taxinvoice/java/api/point#GetPaymentURL
 		 */
 		try {
 
@@ -418,11 +409,10 @@ public class BaseServiceExample {
 
 	@RequestMapping(value = "getUseHistoryURL", method = RequestMethod.GET)
 	public String getUseHistoryURL(Model m) throws PopbillException {
-		/*
-		 * 연동회원 포인트 사용내역 확인을 위한 페이지의 팝업 URL을 반환합니다. - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을
-		 * 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다. -
-		 * https://developers.popbill.com/reference/taxinvoice/java/api/point#
-		 * GetUseHistoryURL
+		/**
+		 * 연동회원 포인트 사용내역 확인을 위한 페이지의 팝업 URL을 반환합니다.
+		 *  - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
+		 * - https://developers.popbill.com/reference/taxinvoice/java/api/point#GetUseHistoryURL
 		 */
 		try {
 
@@ -440,10 +430,9 @@ public class BaseServiceExample {
 
 	@RequestMapping(value = "joinMember", method = RequestMethod.GET)
 	public String joinMember(Model m) throws PopbillException {
-		/*
-		 * 사용자를 연동회원으로 가입처리합니다. -
-		 * https://developers.popbill.com/reference/taxinvoice/java/api/member#
-		 * JoinMember
+		/**
+		 * 사용자를 연동회원으로 가입처리합니다.
+		 * - https://developers.popbill.com/reference/taxinvoice/java/api/member#JoinMember
 		 */
 
 		JoinForm joinInfo = new JoinForm();
@@ -500,10 +489,9 @@ public class BaseServiceExample {
 
 	@RequestMapping(value = "getContactInfo", method = RequestMethod.GET)
 	public String getContactInfo(Model m) throws PopbillException {
-		/*
-		 * 연동회원 사업자번호에 등록된 담당자(팝빌 로그인 계정) 정보를 확인합니다. -
-		 * https://developers.popbill.com/reference/taxinvoice/java/api/member#
-		 * GetContactInfo
+		/**
+		 * 연동회원 사업자번호에 등록된 담당자(팝빌 로그인 계정) 정보를 확인합니다.
+		 * - https://developers.popbill.com/reference/taxinvoice/java/api/member#GetContactInfo
 		 */
 
 		// 담당자 아이디
@@ -522,10 +510,9 @@ public class BaseServiceExample {
 
 	@RequestMapping(value = "listContact", method = RequestMethod.GET)
 	public String listContact(Model m) throws PopbillException {
-		/*
-		 * 연동회원 사업자번호에 등록된 담당자(팝빌 로그인 계정) 목록을 확인합니다. -
-		 * https://developers.popbill.com/reference/taxinvoice/java/api/member#
-		 * ListContact
+		/**
+		 * 연동회원 사업자번호에 등록된 담당자(팝빌 로그인 계정) 목록을 확인합니다.
+		 * - https://developers.popbill.com/reference/taxinvoice/java/api/member#ListContact
 		 */
 
 		try {
@@ -542,10 +529,9 @@ public class BaseServiceExample {
 
 	@RequestMapping(value = "updateContact", method = RequestMethod.GET)
 	public String updateContact(Model m) throws PopbillException {
-		/*
-		 * 연동회원 사업자번호에 등록된 담당자(팝빌 로그인 계정) 정보를 수정합니다. -
-		 * https://developers.popbill.com/reference/taxinvoice/java/api/member#
-		 * UpdateContact
+		/**
+		 * 연동회원 사업자번호에 등록된 담당자(팝빌 로그인 계정) 정보를 수정합니다.
+		 * - https://developers.popbill.com/reference/taxinvoice/java/api/member#UpdateContact
 		 */
 
 		ContactInfo contactInfo = new ContactInfo();
@@ -581,10 +567,9 @@ public class BaseServiceExample {
 
 	@RequestMapping(value = "registContact", method = RequestMethod.GET)
 	public String registContact(Model m) throws PopbillException {
-		/*
-		 * 연동회원 사업자번호에 담당자(팝빌 로그인 계정)를 추가합니다. -
-		 * https://developers.popbill.com/reference/taxinvoice/java/api/member#
-		 * RegistContact
+		/**
+		 * 연동회원 사업자번호에 담당자(팝빌 로그인 계정)를 추가합니다.
+		 * - https://developers.popbill.com/reference/taxinvoice/java/api/member#RegistContact
 		 */
 
 		ContactInfo contactInfo = new ContactInfo();
@@ -623,9 +608,9 @@ public class BaseServiceExample {
 
 	@RequestMapping(value = "checkID", method = RequestMethod.GET)
 	public String checkID(Model m) throws PopbillException {
-		/*
-		 * 사용하고자 하는 아이디의 중복여부를 확인합니다. -
-		 * https://developers.popbill.com/reference/taxinvoice/java/api/member#CheckID
+		/**
+		 * 사용하고자 하는 아이디의 중복여부를 확인합니다.
+		 * - https://developers.popbill.com/reference/taxinvoice/java/api/member#CheckID
 		 */
 
 		try {
@@ -642,10 +627,9 @@ public class BaseServiceExample {
 
 	@RequestMapping(value = "getCorpInfo", method = RequestMethod.GET)
 	public String getCorpInfo(Model m) throws PopbillException {
-		/*
-		 * 연동회원의 회사정보를 확인합니다. -
-		 * https://developers.popbill.com/reference/taxinvoice/java/api/member#
-		 * GetCorpInfo
+		/**
+		 * 연동회원의 회사정보를 확인합니다.
+		 * - https://developers.popbill.com/reference/taxinvoice/java/api/member#GetCorpInfo
 		 */
 
 		try {
@@ -661,10 +645,9 @@ public class BaseServiceExample {
 
 	@RequestMapping(value = "getRefundInfo", method = RequestMethod.GET)
 	public String getRefundInfo(Model m) throws PopbillException {
-		/*
-		 * 포인트 환불에 대한 상세정보 1건을 확인합니다. -
-		 * https://developers.popbill.com/reference/taxinvoice/java/api/point#
-		 * GetRefundInfo
+		/**
+		 * 포인트 환불에 대한 상세정보 1건을 확인합니다.
+		 * - https://developers.popbill.com/reference/taxinvoice/java/api/point#GetRefundInfo
 		 */
 
 		// 환불 코드
@@ -683,10 +666,9 @@ public class BaseServiceExample {
 
 	@RequestMapping(value = "getRefundableBalance", method = RequestMethod.GET)
 	public String getRefundableBalance(Model m) throws PopbillException {
-		/*
-		 * 환불 가능한 포인트를 확인합니다. (보너스 포인트는 환불가능포인트에서 제외됩니다.) -
-		 * https://developers.popbill.com/reference/taxinvoice/java/api/point#
-		 * GetRefundableBalance
+		/**
+		 * 환불 가능한 포인트를 확인합니다. (보너스 포인트는 환불가능포인트에서 제외됩니다.)
+		 * - https://developers.popbill.com/reference/taxinvoice/java/api/point#GetRefundableBalance
 		 */
 
 		try {
@@ -703,9 +685,11 @@ public class BaseServiceExample {
 	@RequestMapping(value = "quitMember", method = RequestMethod.GET)
 	public String quitMember(Model m) throws PopbillException {
 		/**
-		 * 가입된 연동회원의 탈퇴를 요청합니다. - 회원탈퇴 신청과 동시에 팝빌의 모든 서비스 이용이 불가하며, 관리자를 포함한 모든 담당자 계정도
-		 * 일괄탈퇴 됩니다. - 회원탈퇴로 삭제된 데이터는 복원이 불가능합니다. - 관리자 계정만 사용 가능합니다. -
-		 * https://developers.popbill.com/reference/taxinvoice/java/api/member#QuitMember
+		 * 가입된 연동회원의 탈퇴를 요청합니다.
+		 *  - 회원탈퇴 신청과 동시에 팝빌의 모든 서비스 이용이 불가하며, 관리자를 포함한 모든 담당자 계정도 일괄탈퇴 됩니다.
+		 *  - 회원탈퇴로 삭제된 데이터는 복원이 불가능합니다.
+		 *  - 관리자 계정만 사용 가능합니다.
+		 *  - https://developers.popbill.com/reference/taxinvoice/java/api/member#QuitMember
 		 */
 
 		// 탈퇴 사유
@@ -724,10 +708,9 @@ public class BaseServiceExample {
 
 	@RequestMapping(value = "updateCorpInfo", method = RequestMethod.GET)
 	public String updateCorpInfo(Model m) throws PopbillException {
-		/*
-		 * 연동회원의 회사정보를 수정합니다. -
-		 * https://developers.popbill.com/reference/taxinvoice/java/api/member#
-		 * UpdateCorpInfo
+		/**
+		 * 연동회원의 회사정보를 수정합니다.
+		 * - https://developers.popbill.com/reference/taxinvoice/java/api/member#UpdateCorpInfo
 		 */
 
 		CorpInfo corpInfo = new CorpInfo();
