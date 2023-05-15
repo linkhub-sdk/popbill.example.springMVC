@@ -39,7 +39,7 @@
                     <li>ntsresultMessage (국세청 처리결과 메시지) : ${CashbillInfo.ntsresultMessage}</li>
                     <li>orgConfirmNum (원본 현금영수증 국세청 승인번호) : ${CashbillInfo.orgConfirmNum}</li>
                     <li>orgTradeDate (원본 현금영수증 거래일자) : ${CashbillInfo.orgTradeDate}</li>
-                    <li>interOPYN (연동문서 여부) : ${SearchInfo.interOPYN}</li>
+                    <li>interOPYN (연동문서 여부) : ${CashbillInfo.interOPYN}</li>
                 </ul>
             </fieldset>
         </c:if>
@@ -71,7 +71,7 @@
                         <li>ntsresultMessage (국세청 처리결과 메시지) : ${CashbillInfo.ntsresultMessage}</li>
                         <li>orgConfirmNum (원본 현금영수증 국세청 승인번호) : ${CashbillInfo.orgConfirmNum}</li>
                         <li>orgTradeDate (원본 현금영수증 거래일자) : ${CashbillInfo.orgTradeDate}</li>
-                        <li>interOPYN (연동문서 여부) : ${SearchInfo.interOPYN}</li>
+                        <li>interOPYN (연동문서 여부) : ${CashbillInfo.interOPYN}</li>
                     </ul>
                 </fieldset>
             </c:forEach>

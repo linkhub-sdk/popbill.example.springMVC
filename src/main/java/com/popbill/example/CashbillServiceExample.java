@@ -473,7 +473,7 @@ public class CashbillServiceExample {
          */
 
         // 현금영수증 문서번호
-        String mgtKey = "20230102-MVC002";
+        String mgtKey = "20210701-001";
 
         try {
 
