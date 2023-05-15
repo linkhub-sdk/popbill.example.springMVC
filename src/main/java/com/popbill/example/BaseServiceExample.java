@@ -2,13 +2,27 @@
  * 팝빌 Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://developers.popbill.com/guide/taxinvoice/java/getting-started/tutorial?fwn=springmvc
- * - 업데이트 일자 : 2023-02-14
+ * - 업데이트 일자 : 2023-05-15
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  */
 package com.popbill.example;
 
-import com.popbill.api.*;
+import com.popbill.api.ContactInfo;
+import com.popbill.api.CorpInfo;
+import com.popbill.api.JoinForm;
+import com.popbill.api.PaymentForm;
+import com.popbill.api.PaymentHistory;
+import com.popbill.api.PaymentHistoryResult;
+import com.popbill.api.PaymentResponse;
+import com.popbill.api.PopbillException;
+import com.popbill.api.RefundForm;
+import com.popbill.api.RefundHistory;
+import com.popbill.api.RefundHistoryResult;
+import com.popbill.api.RefundResponse;
+import com.popbill.api.Response;
+import com.popbill.api.TaxinvoiceService;
+import com.popbill.api.UseHistoryResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;

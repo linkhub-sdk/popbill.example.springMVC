@@ -2,7 +2,7 @@
  * 팝빌 현금영수증 API Java SDK SpringMVC Example
  *
  * - SpringMVC SDK 연동환경 설정방법 안내 : https://developers.popbill.com/guide/cashbill/java/getting-started/tutorial?fwn=springmvc
- * - 업데이트 일자 : 2023-01-16
+ * - 업데이트 일자 : 2023-05-15
  * - 연동 기술지원 연락처 : 1600-9854
  * - 연동 기술지원 이메일 : code@linkhubcorp.com
  *
@@ -16,14 +16,6 @@ package com.popbill.example;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
 import com.popbill.api.BulkResponse;
 import com.popbill.api.CBIssueResponse;
 import com.popbill.api.CashbillService;
@@ -35,7 +27,12 @@ import com.popbill.api.cashbill.BulkCashbillResult;
 import com.popbill.api.cashbill.CBSearchResult;
 import com.popbill.api.cashbill.Cashbill;
 import com.popbill.api.cashbill.CashbillInfo;
-import com.popbill.api.cashbill.CashbillLog;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /*
  * 팝빌 현금영수증 API 예제.
@@ -175,7 +172,7 @@ public class CashbillServiceExample {
         // 구매자 휴대폰
         // - {smssendYN} 의 값이 true 인 경우 아래 휴대폰번호로 안내 문자 전송
         cashbill.setHp("");
-        
+
         // 거래일시, 날짜(yyyyMMddHHmmss)
         // 당일, 전일만 가능
         cashbill.setTradeDT("20230112111111");
@@ -288,11 +285,11 @@ public class CashbillServiceExample {
             // 구매자 휴대폰
             // - {smssendYN} 의 값이 true 인 경우 아래 휴대폰번호로 안내 문자 전송
             cashbill.setHp("");
-            
+
             // 거래일시, 날짜(yyyyMMddHHmmss)
             // 당일, 전일만 가능
             cashbill.setTradeDT("20221104000000");
-            
+
             cashbillList.add(cashbill);
 
         }
