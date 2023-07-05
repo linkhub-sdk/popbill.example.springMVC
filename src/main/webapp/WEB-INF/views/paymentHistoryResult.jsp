@@ -31,7 +31,7 @@
                     <legend>[ ${status.index+1} / ${PaymentHistoryResult.perPage} ]</legend>
                     <ul>
                         <li>productType (결제 내용) : ${PaymentHistory.productType}</li>
-                        <li>productName (정액제 상품명) : ${PaymentHistory.productName}</li>
+                        <li>productName (결제 상품명) : ${PaymentHistory.productName}</li>
                         <li>settleType (결제유형) : ${PaymentHistory.settleType}</li>
                         <li>settlerName (담당자명) : ${PaymentHistory.settlerName}</li>
                         <li>settlerEmail (담당자메일) : ${PaymentHistory.settlerEmail}</li>
