@@ -47,11 +47,11 @@ public class CashbillServiceExample {
 
     // 팝빌회원 사업자번호
     @Value("#{EXAMPLE_CONFIG.TestCorpNum}")
-    private String testCorpNum;
+    private String CorpNum;
 
     // 팝빌회원 아이디
     @Value("#{EXAMPLE_CONFIG.TestUserID}")
-    private String testUserID;
+    private String UserID;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String home(Locale locale, Model model) {
@@ -72,7 +72,7 @@ public class CashbillServiceExample {
         String isUseStr;
 
         try {
-            boolean IsUse = cashbillService.checkMgtKeyInUse(testCorpNum, mgtKey);
+            boolean IsUse = cashbillService.checkMgtKeyInUse(CorpNum, mgtKey);
 
             isUseStr = (IsUse) ? "사용중" : "미사용중";
 
@@ -182,7 +182,7 @@ public class CashbillServiceExample {
 
         try {
 
-            CBIssueResponse response = cashbillService.registIssue(testCorpNum, cashbill, Memo, testUserID, emailSubject);
+            CBIssueResponse response = cashbillService.registIssue(CorpNum, cashbill, Memo, UserID, emailSubject);
 
             m.addAttribute("Response", response);
 
@@ -296,7 +296,7 @@ public class CashbillServiceExample {
 
         try {
 
-            BulkResponse response = cashbillService.bulkSubmit(testCorpNum, SubmitID, cashbillList);
+            BulkResponse response = cashbillService.bulkSubmit(CorpNum, SubmitID, cashbillList);
 
             m.addAttribute("Response", response);
 
@@ -320,7 +320,7 @@ public class CashbillServiceExample {
         String SubmitID = "20230102-MVC-BULK";
 
         try {
-            BulkCashbillResult bulkResult = cashbillService.getBulkResult(testCorpNum, SubmitID);
+            BulkCashbillResult bulkResult = cashbillService.getBulkResult(CorpNum, SubmitID);
 
             m.addAttribute("BulkResult", bulkResult);
 
@@ -346,7 +346,7 @@ public class CashbillServiceExample {
 
         try {
 
-            Response response = cashbillService.delete(testCorpNum, mgtKey);
+            Response response = cashbillService.delete(CorpNum, mgtKey);
 
             m.addAttribute("Response", response);
 
@@ -377,7 +377,7 @@ public class CashbillServiceExample {
 
         try {
 
-            CBIssueResponse response = cashbillService.revokeRegistIssue(testCorpNum, mgtKey, orgConfirmNum, orgTradeDate);
+            CBIssueResponse response = cashbillService.revokeRegistIssue(CorpNum, mgtKey, orgConfirmNum, orgTradeDate);
 
             m.addAttribute("Response", response);
 
@@ -447,7 +447,7 @@ public class CashbillServiceExample {
 
         try {
 
-            CBIssueResponse response = cashbillService.revokeRegistIssue(testCorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, memo,
+            CBIssueResponse response = cashbillService.revokeRegistIssue(CorpNum, mgtKey, orgConfirmNum, orgTradeDate, smssendYN, memo,
                     isPartCancel, cancelType, supplyCost, tax, serviceFee, totalAmount);
 
             m.addAttribute("Response", response);
@@ -474,7 +474,7 @@ public class CashbillServiceExample {
 
         try {
 
-            CashbillInfo cashbillInfo = cashbillService.getInfo(testCorpNum, mgtKey);
+            CashbillInfo cashbillInfo = cashbillService.getInfo(CorpNum, mgtKey);
 
             m.addAttribute("CashbillInfo", cashbillInfo);
 
@@ -500,7 +500,7 @@ public class CashbillServiceExample {
 
         try {
 
-            CashbillInfo[] cashbillInfos = cashbillService.getInfos(testCorpNum, mgtKeyList);
+            CashbillInfo[] cashbillInfos = cashbillService.getInfos(CorpNum, mgtKeyList);
 
             m.addAttribute("CashbillInfos", cashbillInfos);
 
@@ -524,7 +524,7 @@ public class CashbillServiceExample {
 
         try {
 
-            Cashbill cashbill = cashbillService.getDetailInfo(testCorpNum, mgtKey);
+            Cashbill cashbill = cashbillService.getDetailInfo(CorpNum, mgtKey);
 
             m.addAttribute("Cashbill", cashbill);
 
@@ -596,7 +596,7 @@ public class CashbillServiceExample {
 
         try {
 
-            CBSearchResult searchResult = cashbillService.search(testCorpNum, DType, SDate, EDate, State, TradeType, TradeUsage, TradeOpt,
+            CBSearchResult searchResult = cashbillService.search(CorpNum, DType, SDate, EDate, State, TradeType, TradeUsage, TradeOpt,
                     TaxationType, QString, Page, PerPage, Order, FranchiseTaxRegID);
 
             m.addAttribute("SearchResult", searchResult);
@@ -622,7 +622,7 @@ public class CashbillServiceExample {
 
         try {
 
-            String url = cashbillService.getURL(testCorpNum, testUserID, TOGO);
+            String url = cashbillService.getURL(CorpNum, UserID, TOGO);
 
             m.addAttribute("Result", url);
 
@@ -647,7 +647,7 @@ public class CashbillServiceExample {
 
         try {
 
-            String url = cashbillService.getPopUpURL(testCorpNum, mgtKey, testUserID);
+            String url = cashbillService.getPopUpURL(CorpNum, mgtKey, UserID);
 
             m.addAttribute("Result", url);
 
@@ -672,7 +672,7 @@ public class CashbillServiceExample {
 
         try {
 
-            String url = cashbillService.getViewURL(testCorpNum, mgtKey, testUserID);
+            String url = cashbillService.getViewURL(CorpNum, mgtKey, UserID);
 
             m.addAttribute("Result", url);
 
@@ -697,7 +697,7 @@ public class CashbillServiceExample {
 
         try {
 
-            String url = cashbillService.getPrintURL(testCorpNum, mgtKey, testUserID);
+            String url = cashbillService.getPrintURL(CorpNum, mgtKey, UserID);
 
             m.addAttribute("Result", url);
 
@@ -722,7 +722,7 @@ public class CashbillServiceExample {
 
         try {
 
-            String url = cashbillService.getMassPrintURL(testCorpNum, mgtKeyList, testUserID);
+            String url = cashbillService.getMassPrintURL(CorpNum, mgtKeyList, UserID);
 
             m.addAttribute("Result", url);
 
@@ -747,7 +747,7 @@ public class CashbillServiceExample {
 
         try {
 
-            String url = cashbillService.getMailURL(testCorpNum, mgtKey, testUserID);
+            String url = cashbillService.getMailURL(CorpNum, mgtKey, UserID);
 
             m.addAttribute("Result", url);
 
@@ -772,7 +772,7 @@ public class CashbillServiceExample {
 
         try {
 
-            String url = cashbillService.getPDFURL(testCorpNum, mgtKey, testUserID);
+            String url = cashbillService.getPDFURL(CorpNum, mgtKey, UserID);
 
             m.addAttribute("Result", url);
 
@@ -798,7 +798,7 @@ public class CashbillServiceExample {
         String receiver = "test@test.com";
 
         try {
-            Response response = cashbillService.sendEmail(testCorpNum, mgtKey, receiver);
+            Response response = cashbillService.sendEmail(CorpNum, mgtKey, receiver);
 
             m.addAttribute("Response", response);
 
@@ -833,7 +833,7 @@ public class CashbillServiceExample {
 
         try {
 
-            Response response = cashbillService.sendSMS(testCorpNum, mgtKey, sender, receiver, contents);
+            Response response = cashbillService.sendSMS(CorpNum, mgtKey, sender, receiver, contents);
 
             m.addAttribute("Response", response);
 
@@ -864,7 +864,7 @@ public class CashbillServiceExample {
 
         try {
 
-            Response response = cashbillService.sendFAX(testCorpNum, mgtKey, sender, receiver);
+            Response response = cashbillService.sendFAX(CorpNum, mgtKey, sender, receiver);
 
             m.addAttribute("Response", response);
 
@@ -891,7 +891,7 @@ public class CashbillServiceExample {
 
         try {
 
-            Response response = cashbillService.assignMgtKey(testCorpNum, itemKey, mgtKey);
+            Response response = cashbillService.assignMgtKey(CorpNum, itemKey, mgtKey);
 
             m.addAttribute("Response", response);
 
@@ -912,7 +912,7 @@ public class CashbillServiceExample {
 
         try {
 
-            EmailSendConfig[] emailSendConfigs = cashbillService.listEmailConfig(testCorpNum);
+            EmailSendConfig[] emailSendConfigs = cashbillService.listEmailConfig(CorpNum);
 
             m.addAttribute("EmailSendConfigs", emailSendConfigs);
 
@@ -943,7 +943,7 @@ public class CashbillServiceExample {
 
         try {
 
-            Response response = cashbillService.updateEmailConfig(testCorpNum, emailType, sendYN);
+            Response response = cashbillService.updateEmailConfig(CorpNum, emailType, sendYN);
 
             m.addAttribute("Response", response);
 
@@ -964,7 +964,7 @@ public class CashbillServiceExample {
 
         try {
 
-            float unitCost = cashbillService.getUnitCost(testCorpNum);
+            float unitCost = cashbillService.getUnitCost(CorpNum);
 
             m.addAttribute("Result", unitCost);
 
@@ -985,7 +985,7 @@ public class CashbillServiceExample {
 
         try {
 
-            ChargeInfo chrgInfo = cashbillService.getChargeInfo(testCorpNum);
+            ChargeInfo chrgInfo = cashbillService.getChargeInfo(CorpNum);
 
             m.addAttribute("ChargeInfo", chrgInfo);
 

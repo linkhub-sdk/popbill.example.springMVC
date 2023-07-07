@@ -48,11 +48,11 @@ public class FaxServiceExample {
 
     // 팝빌회원 사업자번호
     @Value("#{EXAMPLE_CONFIG.TestCorpNum}")
-    private String testCorpNum;
+    private String CorpNum;
 
     // 팝빌회원 아이디
     @Value("#{EXAMPLE_CONFIG.TestUserID}")
-    private String testUserID;
+    private String UserID;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String home(Locale locale, Model model) {
@@ -70,7 +70,7 @@ public class FaxServiceExample {
             // 확인할 발신번호
             String sender = "070-4304-2991";
 
-            Response response = faxService.checkSenderNumber(testCorpNum, sender);
+            Response response = faxService.checkSenderNumber(CorpNum, sender);
 
             m.addAttribute("Response", response);
 
@@ -91,7 +91,7 @@ public class FaxServiceExample {
          */
         try {
 
-            String url = faxService.getSenderNumberMgtURL(testCorpNum, testUserID);
+            String url = faxService.getSenderNumberMgtURL(CorpNum, UserID);
 
             m.addAttribute("Result", url);
 
@@ -111,7 +111,7 @@ public class FaxServiceExample {
          */
 
         try {
-            SenderNumber[] senderNumberList = faxService.getSenderNumberList(testCorpNum);
+            SenderNumber[] senderNumberList = faxService.getSenderNumberList(CorpNum);
             m.addAttribute("SenderNumberList", senderNumberList);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -164,8 +164,8 @@ public class FaxServiceExample {
 
         try {
 
-            String receiptNum = faxService.sendFAX(testCorpNum, sendNum, receiveNum,
-                    receiveName, files, reserveDT, testUserID, adsYN, title, requestNum);
+            String receiptNum = faxService.sendFAX(CorpNum, sendNum, receiveNum,
+                    receiveName, files, reserveDT, UserID, adsYN, title, requestNum);
 
             m.addAttribute("Result", receiptNum);
 
@@ -230,8 +230,8 @@ public class FaxServiceExample {
 
         try {
 
-            String receiptNum = faxService.sendFAX(testCorpNum, sendNum, receivers,
-                    files, reserveDT, testUserID, adsYN, title, requestNum);
+            String receiptNum = faxService.sendFAX(CorpNum, sendNum, receivers,
+                    files, reserveDT, UserID, adsYN, title, requestNum);
 
             m.addAttribute("Result", receiptNum);
 
@@ -301,8 +301,8 @@ public class FaxServiceExample {
 
         try {
 
-            String receiptNum = faxService.sendFAXBinary(testCorpNum, sendNum, receiveNum,
-                    receiveName, fileList, reserveDT, testUserID, adsYN, title, requestNum);
+            String receiptNum = faxService.sendFAXBinary(CorpNum, sendNum, receiveNum,
+                    receiveName, fileList, reserveDT, UserID, adsYN, title, requestNum);
 
             m.addAttribute("Result", receiptNum);
 
@@ -380,8 +380,8 @@ public class FaxServiceExample {
 
         try {
 
-            String receiptNum = faxService.sendFAXBinary(testCorpNum, sendNum, receivers,
-                    fileList, reserveDT, testUserID, adsYN, title, requestNum);
+            String receiptNum = faxService.sendFAXBinary(CorpNum, sendNum, receivers,
+                    fileList, reserveDT, UserID, adsYN, title, requestNum);
 
             m.addAttribute("Result", receiptNum);
 
@@ -433,8 +433,8 @@ public class FaxServiceExample {
 
         try {
 
-            String receiptNum = faxService.resendFAX(testCorpNum, orgReceiptNum, sendNum,
-                    sendName, receiveNum, receiveName, reserveDT, testUserID, title, requestNum);
+            String receiptNum = faxService.resendFAX(CorpNum, orgReceiptNum, sendNum,
+                    sendName, receiveNum, receiveName, reserveDT, UserID, title, requestNum);
 
             m.addAttribute("Result", receiptNum);
 
@@ -496,8 +496,8 @@ public class FaxServiceExample {
 
         try {
 
-            String receiptNum = faxService.resendFAX(testCorpNum, orgReceiptNum, sendNum,
-                    sendName, receivers, reserveDT, testUserID, title, requestNum);
+            String receiptNum = faxService.resendFAX(CorpNum, orgReceiptNum, sendNum,
+                    sendName, receivers, reserveDT, UserID, title, requestNum);
 
             m.addAttribute("Result", receiptNum);
 
@@ -547,8 +547,8 @@ public class FaxServiceExample {
 
         try {
 
-            String receiptNum = faxService.resendFAXRN(testCorpNum, requestNum, sendNum,
-                    sendName, receiveNum, receiveName, reserveDT, testUserID, title, orgRequestNum);
+            String receiptNum = faxService.resendFAXRN(CorpNum, requestNum, sendNum,
+                    sendName, receiveNum, receiveName, reserveDT, UserID, title, orgRequestNum);
 
             m.addAttribute("Result", receiptNum);
 
@@ -610,8 +610,8 @@ public class FaxServiceExample {
 
         try {
 
-            String receiptNum = faxService.resendFAXRN(testCorpNum, requestNum, sendNum,
-                    sendName, receivers, reserveDT, testUserID, title, orgRequestNum);
+            String receiptNum = faxService.resendFAXRN(CorpNum, requestNum, sendNum,
+                    sendName, receivers, reserveDT, UserID, title, orgRequestNum);
 
             m.addAttribute("Result", receiptNum);
 
@@ -634,7 +634,7 @@ public class FaxServiceExample {
         String receiptNum = "022021803102600001";
 
         try {
-            Response response = faxService.cancelReserve(testCorpNum, receiptNum);
+            Response response = faxService.cancelReserve(CorpNum, receiptNum);
 
             m.addAttribute("Response", response);
 
@@ -657,7 +657,7 @@ public class FaxServiceExample {
         String requestNum = "";
 
         try {
-            Response response = faxService.cancelReserveRN(testCorpNum, requestNum);
+            Response response = faxService.cancelReserveRN(CorpNum, requestNum);
 
             m.addAttribute("Response", response);
 
@@ -680,7 +680,7 @@ public class FaxServiceExample {
         String receiptNum = "022100616261900001";
 
         try {
-            FaxResult[] faxResults = faxService.getFaxResult(testCorpNum, receiptNum);
+            FaxResult[] faxResults = faxService.getFaxResult(CorpNum, receiptNum);
 
             m.addAttribute("FaxResults", faxResults);
 
@@ -703,7 +703,7 @@ public class FaxServiceExample {
         String requestNum = "";
 
         try {
-            FaxResult[] faxResults = faxService.getFaxResultRN(testCorpNum, requestNum);
+            FaxResult[] faxResults = faxService.getFaxResultRN(CorpNum, requestNum);
 
             m.addAttribute("FaxResults", faxResults);
 
@@ -760,7 +760,7 @@ public class FaxServiceExample {
 
         try {
 
-            FAXSearchResult response = faxService.search(testCorpNum, SDate, EDate,
+            FAXSearchResult response = faxService.search(CorpNum, SDate, EDate,
                     State, ReserveYN, SenderOnly, Page, PerPage, Order, QString);
 
             m.addAttribute("SearchResult", response);
@@ -781,7 +781,7 @@ public class FaxServiceExample {
          */
         try {
 
-            String url = faxService.getSentListURL(testCorpNum, testUserID);
+            String url = faxService.getSentListURL(CorpNum, UserID);
 
             m.addAttribute("Result", url);
 
@@ -805,7 +805,7 @@ public class FaxServiceExample {
             // 팩스 접수번호
             String receiptNum = "022021803102600001";
 
-            String url = faxService.getPreviewURL(testCorpNum, receiptNum, testUserID);
+            String url = faxService.getPreviewURL(CorpNum, receiptNum, UserID);
 
             m.addAttribute("Result", url);
 
@@ -829,7 +829,7 @@ public class FaxServiceExample {
             // 수신번호 유형, 일반 / 지능 중 택 1
             String receiveNumType = "지능";
 
-            float unitCost = faxService.getUnitCost(testCorpNum, receiveNumType);
+            float unitCost = faxService.getUnitCost(CorpNum, receiveNumType);
 
             m.addAttribute("Result", unitCost);
 
@@ -853,7 +853,7 @@ public class FaxServiceExample {
             // 수신번호 유형, 일반 / 지능 중 택 1
             String receiveNumType = "일반";
 
-            ChargeInfo chrgInfo = faxService.getChargeInfo(testCorpNum, receiveNumType);
+            ChargeInfo chrgInfo = faxService.getChargeInfo(CorpNum, receiveNumType);
 
             m.addAttribute("ChargeInfo", chrgInfo);
 

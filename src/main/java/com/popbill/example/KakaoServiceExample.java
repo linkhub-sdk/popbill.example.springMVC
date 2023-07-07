@@ -57,11 +57,11 @@ public class KakaoServiceExample {
 
 	// 팝빌회원 사업자번호
 	@Value("#{EXAMPLE_CONFIG.TestCorpNum}")
-	private String testCorpNum;
+	private String CorpNum;
 
 	// 팝빌회원 아이디
 	@Value("#{EXAMPLE_CONFIG.TestUserID}")
-	private String testUserID;
+	private String UserID;
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
@@ -77,7 +77,7 @@ public class KakaoServiceExample {
          */
         try {
 
-            String url = kakaoService.getPlusFriendMgtURL(testCorpNum, testUserID);
+            String url = kakaoService.getPlusFriendMgtURL(CorpNum, UserID);
 
             m.addAttribute("Result", url);
 
@@ -97,7 +97,7 @@ public class KakaoServiceExample {
 		 */
 
 		try {
-			PlusFriendID[] response = kakaoService.listPlusFriendID(testCorpNum);
+			PlusFriendID[] response = kakaoService.listPlusFriendID(CorpNum);
 
 			m.addAttribute("listInfo", response);
 		} catch (PopbillException e) {
@@ -119,7 +119,7 @@ public class KakaoServiceExample {
 			// 확인할 발신번호
 			String sender = "070-4304-2991";
 
-			Response response = kakaoService.checkSenderNumber(testCorpNum, sender);
+			Response response = kakaoService.checkSenderNumber(CorpNum, sender);
 
 			m.addAttribute("Response", response);
 
@@ -140,7 +140,7 @@ public class KakaoServiceExample {
 		 */
 		try {
 
-			String url = kakaoService.getSenderNumberMgtURL(testCorpNum, testUserID);
+			String url = kakaoService.getSenderNumberMgtURL(CorpNum, UserID);
 
 			m.addAttribute("Result", url);
 
@@ -160,7 +160,7 @@ public class KakaoServiceExample {
 		 */
 
 		try {
-			SenderNumber[] senderNumberList = kakaoService.getSenderNumberList(testCorpNum);
+			SenderNumber[] senderNumberList = kakaoService.getSenderNumberList(CorpNum);
 			m.addAttribute("SenderNumberList", senderNumberList);
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
@@ -178,7 +178,7 @@ public class KakaoServiceExample {
 		 */
 		try {
 
-			String url = kakaoService.getATSTemplateMgtURL(testCorpNum, testUserID);
+			String url = kakaoService.getATSTemplateMgtURL(CorpNum, UserID);
 
 			m.addAttribute("Result", url);
 
@@ -202,7 +202,7 @@ public class KakaoServiceExample {
 
 		try {
 
-			ATSTemplate response = kakaoService.getATSTemplate(testCorpNum, templateCode);
+			ATSTemplate response = kakaoService.getATSTemplate(CorpNum, templateCode);
 
 			m.addAttribute("Template", response);
 
@@ -223,7 +223,7 @@ public class KakaoServiceExample {
 		 */
 
 		try {
-			ATSTemplate[] response = kakaoService.listATSTemplate(testCorpNum);
+			ATSTemplate[] response = kakaoService.listATSTemplate(CorpNum);
 
 			m.addAttribute("listTemplate", response);
 		} catch (PopbillException e) {
@@ -301,8 +301,8 @@ public class KakaoServiceExample {
 
 		try {
 
-			String receiptNum = kakaoService.sendATS(testCorpNum, templateCode, senderNum, content, altSubject,
-					altContent, altSendType, receiverNum, receiverName, sndDT, testUserID, requestNum, btns);
+			String receiptNum = kakaoService.sendATS(CorpNum, templateCode, senderNum, content, altSubject,
+					altContent, altSendType, receiverNum, receiverName, sndDT, UserID, requestNum, btns);
 
 			m.addAttribute("Result", receiptNum);
 
@@ -396,8 +396,8 @@ public class KakaoServiceExample {
 
 		try {
 
-			String receiptNum = kakaoService.sendATS(testCorpNum, templateCode, senderNum, altSendType, receivers,
-					sndDT, testUserID, requestNum, btns);
+			String receiptNum = kakaoService.sendATS(CorpNum, templateCode, senderNum, altSendType, receivers,
+					sndDT, UserID, requestNum, btns);
 			m.addAttribute("Result", receiptNum);
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
@@ -478,8 +478,8 @@ public class KakaoServiceExample {
 
 		try {
 
-			String receiptNum = kakaoService.sendATS(testCorpNum, templateCode, senderNum, content, altContent,
-					altSendType, receivers, sndDT, testUserID, requestNum, btns);
+			String receiptNum = kakaoService.sendATS(CorpNum, templateCode, senderNum, content, altContent,
+					altSendType, receivers, sndDT, UserID, requestNum, btns);
 			m.addAttribute("Result", receiptNum);
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
@@ -562,8 +562,8 @@ public class KakaoServiceExample {
 
 		try {
 
-			String receiptNum = kakaoService.sendFTS(testCorpNum, plusFriendID, senderNum, content, altSubject,
-					altContent, altSendType, btns, receiverNum, receiverName, sndDT, adsYN, testUserID, requestNum);
+			String receiptNum = kakaoService.sendFTS(CorpNum, plusFriendID, senderNum, content, altSubject,
+					altContent, altSendType, btns, receiverNum, receiverName, sndDT, adsYN, UserID, requestNum);
 
 			m.addAttribute("Result", receiptNum);
 
@@ -646,8 +646,8 @@ public class KakaoServiceExample {
 
 		try {
 
-			String receiptNum = kakaoService.sendFTS(testCorpNum, plusFriendID, senderNum, altSendType, receivers, null,
-					sndDT, adsYN, testUserID, requestNum);
+			String receiptNum = kakaoService.sendFTS(CorpNum, plusFriendID, senderNum, altSendType, receivers, null,
+					sndDT, adsYN, UserID, requestNum);
 
 			m.addAttribute("Result", receiptNum);
 
@@ -736,8 +736,8 @@ public class KakaoServiceExample {
 
 		try {
 
-			String receiptNum = kakaoService.sendFTS(testCorpNum, plusFriendID, senderNum, content, altSubject,
-					altContent, altSendType, receivers, btns, sndDT, adsYN, testUserID, requestNum);
+			String receiptNum = kakaoService.sendFTS(CorpNum, plusFriendID, senderNum, content, altSubject,
+					altContent, altSendType, receivers, btns, sndDT, adsYN, UserID, requestNum);
 
 			m.addAttribute("Result", receiptNum);
 
@@ -834,8 +834,8 @@ public class KakaoServiceExample {
 
 		try {
 
-			String receiptNum = kakaoService.sendFMS(testCorpNum, plusFriendID, senderNum, content, altSubject,
-					altContent, altSendType, btns, receiverNum, receiverName, sndDT, adsYN, file, imageURL, testUserID,
+			String receiptNum = kakaoService.sendFMS(CorpNum, plusFriendID, senderNum, content, altSubject,
+					altContent, altSendType, btns, receiverNum, receiverName, sndDT, adsYN, file, imageURL, UserID,
 					requestNum);
 
 			m.addAttribute("Result", receiptNum);
@@ -948,8 +948,8 @@ public class KakaoServiceExample {
 
 		try {
 
-			String receiptNum = kakaoService.sendFMS(testCorpNum, plusFriendID, senderNum, altSendType, receivers, btns,
-					sndDT, adsYN, file, imageURL, testUserID, requestNum);
+			String receiptNum = kakaoService.sendFMS(CorpNum, plusFriendID, senderNum, altSendType, receivers, btns,
+					sndDT, adsYN, file, imageURL, UserID, requestNum);
 
 			m.addAttribute("Result", receiptNum);
 
@@ -1050,8 +1050,8 @@ public class KakaoServiceExample {
 
 		try {
 
-			String receiptNum = kakaoService.sendFMS(testCorpNum, plusFriendID, senderNum, content, altSubject,
-					altContent, altSendType, receivers, btns, sndDT, adsYN, file, imageURL, testUserID, requestNum);
+			String receiptNum = kakaoService.sendFMS(CorpNum, plusFriendID, senderNum, content, altSubject,
+					altContent, altSendType, receivers, btns, sndDT, adsYN, file, imageURL, UserID, requestNum);
 
 			m.addAttribute("Result", receiptNum);
 
@@ -1074,7 +1074,7 @@ public class KakaoServiceExample {
 		String receiptNum = "022021810443200001";
 
 		try {
-			Response response = kakaoService.cancelReserve(testCorpNum, receiptNum);
+			Response response = kakaoService.cancelReserve(CorpNum, receiptNum);
 
 			m.addAttribute("Response", response);
 
@@ -1100,7 +1100,7 @@ public class KakaoServiceExample {
 		String receiveNum = "01022223334";
 
 		try {
-			Response response = kakaoService.cancelReservebyRCV(testCorpNum, receiptNum, receiveNum);
+			Response response = kakaoService.cancelReservebyRCV(CorpNum, receiptNum, receiveNum);
 
 			m.addAttribute("Response", response);
 		} catch (PopbillException e) {
@@ -1122,7 +1122,7 @@ public class KakaoServiceExample {
 		String requestNum = "";
 
 		try {
-			Response response = kakaoService.cancelReserveRN(testCorpNum, requestNum);
+			Response response = kakaoService.cancelReserveRN(CorpNum, requestNum);
 
 			m.addAttribute("Response", response);
 
@@ -1148,7 +1148,7 @@ public class KakaoServiceExample {
         String receiveNum = "01022223333";
 
 		try {
-			Response response = kakaoService.cancelReserveRNbyRCV(testCorpNum, requestNum, receiveNum);
+			Response response = kakaoService.cancelReserveRNbyRCV(CorpNum, requestNum, receiveNum);
 
 			m.addAttribute("Response", response);
 		} catch (PopbillException e) {
@@ -1171,7 +1171,7 @@ public class KakaoServiceExample {
 
 		try {
 
-			KakaoSentInfo sentInfos = kakaoService.getMessages(testCorpNum, receiptNum);
+			KakaoSentInfo sentInfos = kakaoService.getMessages(CorpNum, receiptNum);
 
 			m.addAttribute("sentInfos", sentInfos);
 
@@ -1195,7 +1195,7 @@ public class KakaoServiceExample {
 
 		try {
 
-			KakaoSentInfo sentInfos = kakaoService.getMessagesRN(testCorpNum, requestNum);
+			KakaoSentInfo sentInfos = kakaoService.getMessagesRN(CorpNum, requestNum);
 
 			m.addAttribute("sentInfos", sentInfos);
 
@@ -1258,8 +1258,8 @@ public class KakaoServiceExample {
 
 		try {
 
-			KakaoSearchResult response = kakaoService.search(testCorpNum, SDate, EDate, State, Item, ReserveYN,
-					SenderYN, Page, PerPage, Order, testUserID, QString);
+			KakaoSearchResult response = kakaoService.search(CorpNum, SDate, EDate, State, Item, ReserveYN,
+					SenderYN, Page, PerPage, Order, UserID, QString);
 
 			m.addAttribute("SearchResult", response);
 
@@ -1280,7 +1280,7 @@ public class KakaoServiceExample {
 
 		try {
 
-			String url = kakaoService.getSentListURL(testCorpNum, testUserID);
+			String url = kakaoService.getSentListURL(CorpNum, UserID);
 
 			m.addAttribute("Result", url);
 
@@ -1304,7 +1304,7 @@ public class KakaoServiceExample {
 
 		try {
 
-			float unitCost = kakaoService.getUnitCost(testCorpNum, kakaoType);
+			float unitCost = kakaoService.getUnitCost(CorpNum, kakaoType);
 
 			m.addAttribute("Result", unitCost);
 
@@ -1328,7 +1328,7 @@ public class KakaoServiceExample {
 
 		try {
 
-			ChargeInfo chrgInfo = kakaoService.getChargeInfo(testCorpNum, kakaoType);
+			ChargeInfo chrgInfo = kakaoService.getChargeInfo(CorpNum, kakaoType);
 			m.addAttribute("ChargeInfo", chrgInfo);
 
 		} catch (PopbillException e) {

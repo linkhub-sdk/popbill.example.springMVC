@@ -36,7 +36,7 @@ public class AccountCheckServiceExample {
 
 	// 팝빌회원 사업자번호
 	@Value("#{EXAMPLE_CONFIG.TestCorpNum}")
-	private String testCorpNum;
+	private String CorpNum;
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
@@ -59,7 +59,7 @@ public class AccountCheckServiceExample {
 		try {
 
 			AccountCheckInfo accountInfo =
-					accountCheckService.CheckAccountInfo(testCorpNum, BankCode, AccountNumber);
+					accountCheckService.CheckAccountInfo(CorpNum, BankCode, AccountNumber);
 
 			m.addAttribute("AccountInfo", accountInfo);
 
@@ -97,7 +97,7 @@ public class AccountCheckServiceExample {
 		try {
 
 			DepositorCheckInfo depositorCheckInfo = accountCheckService.CheckDepositorInfo(
-					testCorpNum, BankCode, AccountNumber, IdentityNumType, IdentityNum);
+					CorpNum, BankCode, AccountNumber, IdentityNumType, IdentityNum);
 
 			m.addAttribute("DepositorCheckInfo", depositorCheckInfo);
 
@@ -122,7 +122,7 @@ public class AccountCheckServiceExample {
 
 		try {
 
-			float unitCost = accountCheckService.getUnitCost(testCorpNum, ServiceType);
+			float unitCost = accountCheckService.getUnitCost(CorpNum, ServiceType);
 
 			m.addAttribute("Result", unitCost);
 
@@ -146,7 +146,7 @@ public class AccountCheckServiceExample {
 		String ServiceType = "성명";
 
 		try {
-			ChargeInfo chrgInfo = accountCheckService.getChargeInfo(testCorpNum, ServiceType);
+			ChargeInfo chrgInfo = accountCheckService.getChargeInfo(CorpNum, ServiceType);
 			m.addAttribute("ChargeInfo", chrgInfo);
 
 		} catch (PopbillException e) {

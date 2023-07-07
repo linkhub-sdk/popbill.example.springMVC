@@ -42,11 +42,11 @@ public class BaseServiceExample {
 
 	// 팝빌회원 사업자번호
 	@Value("#{EXAMPLE_CONFIG.TestCorpNum}")
-	private String testCorpNum;
+	private String CorpNum;
 
 	// 팝빌회원 아이디
 	@Value("#{EXAMPLE_CONFIG.TestUserID}")
-	private String testUserID;
+	private String UserID;
 
 	// 링크아이디
 	@Value("#{EXAMPLE_CONFIG.LinkID}")
@@ -84,7 +84,7 @@ public class BaseServiceExample {
 		 */
 
 		try {
-			double remainPoint = taxinvoiceService.getBalance(testCorpNum);
+			double remainPoint = taxinvoiceService.getBalance(CorpNum);
 
 			m.addAttribute("Result", remainPoint);
 
@@ -105,7 +105,7 @@ public class BaseServiceExample {
 		 */
 
 		try {
-			double remainPoint = taxinvoiceService.getPartnerBalance(testCorpNum);
+			double remainPoint = taxinvoiceService.getPartnerBalance(CorpNum);
 
 			m.addAttribute("Result", remainPoint);
 
@@ -143,7 +143,7 @@ public class BaseServiceExample {
 		String Order = "D";
 
 		try {
-			UseHistoryResult useHistoryResult = taxinvoiceService.getUseHistory(testCorpNum, SDate, EDate, Page,
+			UseHistoryResult useHistoryResult = taxinvoiceService.getUseHistory(CorpNum, SDate, EDate, Page,
 					PerPage, Order);
 
 			m.addAttribute("UseHistoryResult", useHistoryResult);
@@ -176,7 +176,7 @@ public class BaseServiceExample {
 		Integer PerPage = 100;
 
 		try {
-			PaymentHistoryResult paymentHistoryResult = taxinvoiceService.getPaymentHistory(testCorpNum, SDate, EDate,
+			PaymentHistoryResult paymentHistoryResult = taxinvoiceService.getPaymentHistory(CorpNum, SDate, EDate,
 					Page, PerPage);
 
 			m.addAttribute("PaymentHistoryResult", paymentHistoryResult);
@@ -203,7 +203,7 @@ public class BaseServiceExample {
 		Integer PerPage = 100;
 
 		try {
-			RefundHistoryResult refundHistoryResult = taxinvoiceService.getRefundHistory(testCorpNum, Page, PerPage);
+			RefundHistoryResult refundHistoryResult = taxinvoiceService.getRefundHistory(CorpNum, Page, PerPage);
 
 			m.addAttribute("RefundHistoryResult", refundHistoryResult);
 
@@ -246,7 +246,7 @@ public class BaseServiceExample {
 		refundForm.setReason("환불사유");
 
 		try {
-			RefundResponse response = taxinvoiceService.refund(testCorpNum, refundForm);
+			RefundResponse response = taxinvoiceService.refund(CorpNum, refundForm);
 
 			m.addAttribute("Response", response);
 
@@ -284,7 +284,7 @@ public class BaseServiceExample {
 		paymentForm.setSettleCost("11000");
 
 		try {
-			PaymentResponse paymentResponse = taxinvoiceService.paymentRequest(testCorpNum, paymentForm);
+			PaymentResponse paymentResponse = taxinvoiceService.paymentRequest(CorpNum, paymentForm);
 
 			m.addAttribute("PaymentResponse", paymentResponse);
 
@@ -307,7 +307,7 @@ public class BaseServiceExample {
 		String settleCode = "202301130000000026";
 
 		try {
-			PaymentHistory paymentHistory = taxinvoiceService.getSettleResult(testCorpNum, settleCode);
+			PaymentHistory paymentHistory = taxinvoiceService.getSettleResult(CorpNum, settleCode);
 
 			m.addAttribute("PaymentHistory", paymentHistory);
 
@@ -332,7 +332,7 @@ public class BaseServiceExample {
 
 		try {
 
-			String url = taxinvoiceService.getPartnerURL(testCorpNum, TOGO);
+			String url = taxinvoiceService.getPartnerURL(CorpNum, TOGO);
 
 			m.addAttribute("Result", url);
 
@@ -353,7 +353,7 @@ public class BaseServiceExample {
 		 */
 		try {
 
-			String url = taxinvoiceService.getAccessURL(testCorpNum, testUserID);
+			String url = taxinvoiceService.getAccessURL(CorpNum, UserID);
 
 			m.addAttribute("Result", url);
 
@@ -374,7 +374,7 @@ public class BaseServiceExample {
 		 */
 		try {
 
-			String url = taxinvoiceService.getChargeURL(testCorpNum, testUserID);
+			String url = taxinvoiceService.getChargeURL(CorpNum, UserID);
 
 			m.addAttribute("Result", url);
 
@@ -395,7 +395,7 @@ public class BaseServiceExample {
 		 */
 		try {
 
-			String url = taxinvoiceService.getPaymentURL(testCorpNum, testUserID);
+			String url = taxinvoiceService.getPaymentURL(CorpNum, UserID);
 
 			m.addAttribute("Result", url);
 
@@ -416,7 +416,7 @@ public class BaseServiceExample {
 		 */
 		try {
 
-			String url = taxinvoiceService.getUseHistoryURL(testCorpNum, testUserID);
+			String url = taxinvoiceService.getUseHistoryURL(CorpNum, UserID);
 
 			m.addAttribute("Result", url);
 
@@ -498,7 +498,7 @@ public class BaseServiceExample {
 		String contactID = "testkorea";
 
 		try {
-			ContactInfo response = taxinvoiceService.getContactInfo(testCorpNum, contactID);
+			ContactInfo response = taxinvoiceService.getContactInfo(CorpNum, contactID);
 
 			m.addAttribute("ContactInfo", response);
 		} catch (PopbillException e) {
@@ -516,7 +516,7 @@ public class BaseServiceExample {
 		 */
 
 		try {
-			ContactInfo[] response = taxinvoiceService.listContact(testCorpNum);
+			ContactInfo[] response = taxinvoiceService.listContact(CorpNum);
 
 			m.addAttribute("ContactInfos", response);
 		} catch (PopbillException e) {
@@ -553,7 +553,7 @@ public class BaseServiceExample {
 
 		try {
 
-			Response response = taxinvoiceService.updateContact(testCorpNum, contactInfo, testUserID);
+			Response response = taxinvoiceService.updateContact(CorpNum, contactInfo, UserID);
 
 			m.addAttribute("Response", response);
 
@@ -594,7 +594,7 @@ public class BaseServiceExample {
 
 		try {
 
-			Response response = taxinvoiceService.registContact(testCorpNum, contactInfo);
+			Response response = taxinvoiceService.registContact(CorpNum, contactInfo);
 
 			m.addAttribute("Response", response);
 
@@ -615,7 +615,7 @@ public class BaseServiceExample {
 
 		try {
 
-			Response response = taxinvoiceService.checkID(testUserID);
+			Response response = taxinvoiceService.checkID(UserID);
 			m.addAttribute("Response", response);
 
 		} catch (PopbillException e) {
@@ -633,7 +633,7 @@ public class BaseServiceExample {
 		 */
 
 		try {
-			CorpInfo response = taxinvoiceService.getCorpInfo(testCorpNum);
+			CorpInfo response = taxinvoiceService.getCorpInfo(CorpNum);
 			m.addAttribute("CorpInfo", response);
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
@@ -654,7 +654,7 @@ public class BaseServiceExample {
 		String refundCode = "023040000017";
 
 		try {
-			RefundHistory response = taxinvoiceService.getRefundInfo(testCorpNum, refundCode);
+			RefundHistory response = taxinvoiceService.getRefundInfo(CorpNum, refundCode);
 			m.addAttribute("Response", response);
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
@@ -672,7 +672,7 @@ public class BaseServiceExample {
 		 */
 
 		try {
-			double refundableBalance = taxinvoiceService.getRefundableBalance(testCorpNum);
+			double refundableBalance = taxinvoiceService.getRefundableBalance(CorpNum);
 			m.addAttribute("refundableBalance", refundableBalance);
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
@@ -696,7 +696,7 @@ public class BaseServiceExample {
 		String quitReason = "탈퇴 테스트 입니다";
 
 		try {
-			Response response = taxinvoiceService.quitMember(testCorpNum, quitReason);
+			Response response = taxinvoiceService.quitMember(CorpNum, quitReason);
 			m.addAttribute("Response", response);
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
@@ -731,7 +731,7 @@ public class BaseServiceExample {
 		corpInfo.setBizClass("종목 수정 테스트");
 
 		try {
-			Response response = taxinvoiceService.updateCorpInfo(testCorpNum, corpInfo);
+			Response response = taxinvoiceService.updateCorpInfo(CorpNum, corpInfo);
 			m.addAttribute("Response", response);
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
