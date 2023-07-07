@@ -32,7 +32,8 @@
                     <ul>
                         <li>itemCode (서비스 코드) : ${UseHistory.itemCode}</li>
                         <li>txType (포인트 증감 유형) : ${UseHistory.txType}</li>
-                        <li>balance (증감 포인트) : ${UseHistory.balance}</li>
+                        <li>txPoint (증감 포인트) : ${UseHistory.txPoint}</li>
+                        <li>balance (잔여포인트) : ${UseHistory.balance}</li>
                         <li>txDT (포인트 증감 일시) : ${UseHistory.txDT}</li>
                         <li>userID (담당자 아이디) : ${UseHistory.userID}</li>
                         <li>userName (담당자명) : ${UseHistory.userName}</li>
