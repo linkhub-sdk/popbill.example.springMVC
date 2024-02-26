@@ -26,12 +26,19 @@
     <context:component-scan base-package="com.popbill.example"/>
 
     <!--
-        LinkID : 링크허브에서 발급받은 파트너 링크아이디.
-        SecretKey : 링크허브에서 발급받는 비밀키.
-        IsTest : 연동환경 설정, true-개발용, false-상업용
-        IPRestrictOnOff : 인증토큰 발급 IP 제한 On/Off, ture-제한기능 사용(기본값-권장), false-제한기능 미사용
-        UseStaticIP : 팝빌 API 서비스 고정 IP 사용여부, true-사용, false-미사용, 기본값(false)
-        UseLocalTimeYN : 인증토큰정보 로컬서버 시간 사용여부 true-사용(기본값-권장), false-미사용
+        업데이트 일자 : 2024-02-26
+        연동기술지원 연락처 : 1600-9854
+        연동기술지원 이메일 : code@linkhubcorp.com
+                
+        <테스트 연동개발 준비사항>
+        1) API Key 변경 (연동신청 시 메일로 전달된 정보)
+            - LinkID : 링크허브에서 발급한 링크아이디
+            - SecretKey : 링크허브에서 발급한 비밀키
+        2) SDK 환경설정 옵션 설정
+            - IsTest : 연동환경 설정, true-테스트, false-운영(Production), (기본값:true)
+            - IPRestrictOnOff : 인증토큰 IP 검증 설정, true-사용, false-미사용, (기본값:true)
+            - UseStaticIP : 통신 IP 고정, true-사용, false-미사용, (기본값:false)
+            - UseLocalTimeYN : 로컬시스템 시간 사용여부, true-사용, false-미사용, (기본값:true)
     -->
     <util:properties id="EXAMPLE_CONFIG">
         <beans:prop key="TestCorpNum">1234567890</beans:prop>
@@ -157,7 +164,7 @@
             <beans:property name="useLocalTimeYN" value = "#{EXAMPLE_CONFIG.UseLocalTimeYN}"/>
         </beans:bean>
 
-         <!-- 예금주조회 Service Implementation Bean registration. -->
+        <!-- 예금주조회 Service Implementation Bean registration. -->
         <beans:bean id="accountCheckService" class="com.popbill.api.accountcheck.AccountCheckServiceImp">
             <beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>

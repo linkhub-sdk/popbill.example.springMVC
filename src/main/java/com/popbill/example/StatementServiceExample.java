@@ -1,16 +1,11 @@
 /**
- * 팝빌 전자명세서 API Java SDK SpringMVC Example
- *
- * - SpringMVC SDK 연동환경 설정방법 안내 : https://developers.popbill.com/guide/statement/java/getting-started/tutorial?fwn=springmvc
- * - 업데이트 일자 : 2023-07-06
- * - 연동 기술지원 연락처 : 1600-9854
- * - 연동 기술지원 이메일 : code@linkhubcorp.com
- *
- * <테스트 연동개발 준비사항>
- * 1) src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml 파일에 선언된
- *    util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 연동신청 시 메일로
- *    발급받은 인증정보를 참조하여 변경합니다.
- */
+  * 팝빌 전자명세서 API Java SDK SpringMVC Example
+  *
+  * SpringMVC 연동 튜토리얼 안내 : https://developers.popbill.com/guide/statement/java/getting-started/tutorial?fwn=springmvc
+  * 연동 기술지원 연락처 : 1600-9854
+  * 연동 기술지원 이메일 : code@linkhubcorp.com
+  *
+  */
 package com.popbill.example;
 
 import java.io.IOException;
@@ -688,7 +683,7 @@ public class StatementServiceExample {
     public String cancelIssue(Model m) {
         /**
          * 발신자가 발행한 전자명세서를 발행취소합니다.
-         * - "발행취소" 상태의 전자명세서를 삭제(Delete API) 함수를 이용하면, 전자명세서 관리를 위해 부여했던 문서번호를 재사용 할 수 있습니다.
+         * - "발행취소" 상태의 전자명세서를 삭제(Delete API) 함수를 이용하면, 전자명세서 관리를 위해 할당했던 문서번호를 재사용 할 수 있습니다.
          * - https://developers.popbill.com/reference/statement/java/api/issue#Cancel
          */
 
@@ -1176,7 +1171,7 @@ public class StatementServiceExample {
     public String deleteFile(Model m) {
         /**
          * "임시저장" 상태의 전자명세서에 첨부된 1개의 파일을 삭제합니다.
-         * - 파일 식별을 위해 첨부 시 부여되는 'FileID'는 첨부파일 목록 확인(GetFiles API) 함수를 호출하여 확인합니다.
+         * - 파일 식별을 위해 첨부 시 할당되는 'FileID'는 첨부파일 목록 확인(GetFiles API) 함수를 호출하여 확인합니다.
          * - https://developers.popbill.com/reference/statement/java/api/etc#DeleteFile
          */
 

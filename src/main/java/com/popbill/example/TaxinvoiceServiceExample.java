@@ -1,15 +1,16 @@
 /**
- * 팝빌 전자세금계산서 API Java SDK SpringMVC Example
- *
- * - SpringMVC SDK 연동환경 설정방법 안내 :
- * https://developers.popbill.com/guide/taxinvoice/java/getting-started/tutorial?fwn=springmvc -
- * 업데이트 일자 : 2023-07-06 - 연동 기술지원 연락처 : 1600-9854 - 연동 기술지원 이메일 : code@linkhubcorp.com
- *
- * <테스트 연동개발 준비사항> 1) src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml 파일에 선언된
- * util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 연동신청 시 메일로 발급받은 인증정보를 참조하여 변경합니다. 2) 전자세금계산서 발행을
- * 위해 공동인증서를 등록합니다. - 팝빌사이트 로그인 > [전자세금계산서] > [환경설정] > [공동인증서 관리] - 공동인증서 등록 팝업 URL (getTaxCertURL
- * API)을 이용하여 등록
- */
+  * 팝빌 전자세금계산서 API Java SDK SpringMVC Example
+  *
+  * SpringMVC 연동 튜토리얼 안내 : https://developers.popbill.com/guide/taxinvoice/java/getting-started/tutorial?fwn=springmvc
+  * 연동 기술지원 연락처 : 1600-9854
+  * 연동 기술지원 이메일 : code@linkhubcorp.com
+  *
+  * <테스트 연동개발 준비사항>
+  * 1) 전자세금계산서 인증서 등록
+  *    - 전자세금계산서 발행을 위해 공인인증서를 등록합니다.
+  *    - 팝빌사이트 로그인 > [전자세금계산서] > [환경설정] > [공인인증서 관리]
+  *    - 공인인증서 등록 팝업 URL (GetTaxCertURL API)을 이용하여 등록
+  */
 package com.popbill.example;
 
 import java.io.IOException;
@@ -2258,7 +2259,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "deleteFile", method = RequestMethod.GET)
     public String deleteFile(Model m) {
         /**
-         * "임시저장" 상태의 세금계산서에 첨부된 1개의 파일을 삭제합니다. - 파일 식별을 위해 첨부 시 부여되는 'FileID'는 첨부파일 목록 확인(GetFiles
+         * "임시저장" 상태의 세금계산서에 첨부된 1개의 파일을 삭제합니다. - 파일 식별을 위해 첨부 시 할당되는 'FileID'는 첨부파일 목록 확인(GetFiles
          * API) 함수를 호출하여 확인합니다. -
          * https://developers.popbill.com/reference/taxinvoice/java/api/etc#DeleteFile
          */
@@ -2510,7 +2511,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "assignMgtKey", method = RequestMethod.GET)
     public String assignMgtKey(Model m) {
         /**
-         * 팝빌 사이트를 통해 발행하여 문서번호가 부여되지 않은 세금계산서에 문서번호를 할당합니다. -
+         * 팝빌 사이트를 통해 발행하여 문서번호가 할당되지 않은 세금계산서에 문서번호를 할당합니다. -
          * https://developers.popbill.com/reference/taxinvoice/java/api/etc#AssignMgtKey
          */
 

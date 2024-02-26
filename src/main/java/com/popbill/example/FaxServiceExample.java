@@ -1,16 +1,15 @@
 /**
- * 팝빌 팩스 API Java SDK SpringMVC Example
- *
- * - SpringMVC SDK 연동환경 설정방법 안내 : https://developers.popbill.com/guide/fax/java/getting-started/tutorial?fwn=springmvc
- * - 업데이트 일자 : 2023-07-06
- * - 연동 기술지원 연락처 : 1600-9854
- * - 연동 기술지원 이메일 : code@linkhubcorp.com
- *
- * <테스트 연동개발 준비사항>
- * 1) src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml 파일에 선언된
- *    util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 연동신청 시 메일로
- *    발급받은 인증정보를 참조하여 변경합니다.
- */
+  * 팝빌 팩스 API Java SDK SpringMVC Example
+  *
+  * SpringMVC 연동 튜토리얼 안내 : https://developers.popbill.com/guide/fax/java/getting-started/tutorial?fwn=springmvc
+  * 연동 기술지원 연락처 : 1600-9854
+  * 연동 기술지원 이메일 : code@linkhubcorp.com
+  *
+  * <테스트 연동개발 준비사항>
+  * 1) 발신번호 사전등록을 합니다. (등록방법은 사이트/API 두가지 방식이 있습니다.)
+  *    - 1. 팝빌 사이트 로그인 > [문자/팩스] > [팩스] > [발신번호 사전등록] 메뉴에서 등록
+  *    - 2. getSenderNumberMgtURL API를 통해 반환된 URL을 이용하여 발신번호 등록
+  */
 package com.popbill.example;
 
 import java.io.File;
@@ -158,7 +157,7 @@ public class FaxServiceExample {
         String title = "팩스 제목";
 
         // 전송요청번호
-        // 팝빌이 접수 단위를 식별할 수 있도록 파트너가 부여하는 식별번호.
+        // 팝빌이 접수 단위를 식별할 수 있도록 파트너가 할당하는 식별번호.
         // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
         String requestNum = "";
 
@@ -224,7 +223,7 @@ public class FaxServiceExample {
         String title = "팩스 동보전송 제목";
 
         // 전송요청번호
-        // 팝빌이 접수 단위를 식별할 수 있도록 파트너가 부여하는 식별번호.
+        // 팝빌이 접수 단위를 식별할 수 있도록 파트너가 할당하는 식별번호.
         // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
         String requestNum = "";
 
@@ -295,7 +294,7 @@ public class FaxServiceExample {
         String title = "팩스 제목";
 
         // 전송요청번호
-        // 팝빌이 접수 단위를 식별할 수 있도록 파트너가 부여하는 식별번호.
+        // 팝빌이 접수 단위를 식별할 수 있도록 파트너가 할당하는 식별번호.
         // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
         String requestNum = "";
 
@@ -374,7 +373,7 @@ public class FaxServiceExample {
         String title = "팩스 동보전송 제목";
 
         // 전송요청번호
-        // 팝빌이 접수 단위를 식별할 수 있도록 파트너가 부여하는 식별번호.
+        // 팝빌이 접수 단위를 식별할 수 있도록 파트너가 할당하는 식별번호.
         // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
         String requestNum = "20230102-request";
 
@@ -427,7 +426,7 @@ public class FaxServiceExample {
         String title = "팩스 재전송 제목";
 
         // 재전송 팩스의 전송요청번호
-        // 팝빌이 접수 단위를 식별할 수 있도록 파트너가 부여하는 식별번호.
+        // 팝빌이 접수 단위를 식별할 수 있도록 파트너가 할당하는 식별번호.
         // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
         String requestNum = "";
 
@@ -490,7 +489,7 @@ public class FaxServiceExample {
         String title = "팩스 재전송(동보) 제목";
 
         // 재전송 팩스의 전송요청번호
-        // 팝빌이 접수 단위를 식별할 수 있도록 파트너가 부여하는 식별번호.
+        // 팝빌이 접수 단위를 식별할 수 있도록 파트너가 할당하는 식별번호.
         // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
         String requestNum = "";
 
@@ -520,7 +519,7 @@ public class FaxServiceExample {
          */
 
         // 재전송 팩스의 전송요청번호
-        // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+        // 파트너가 전송 건에 대해 관리번호를 생성하여 관리하는 경우 사용.
         // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
         String requestNum = "";
 
@@ -571,7 +570,7 @@ public class FaxServiceExample {
          */
 
         // 재전송 팩스의 전송요청번호
-        // 파트너가 전송 건에 대해 관리번호를 구성하여 관리하는 경우 사용.
+        // 파트너가 전송 건에 대해 관리번호를 생성하여 관리하는 경우 사용.
         // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
         String requestNum = "";
 

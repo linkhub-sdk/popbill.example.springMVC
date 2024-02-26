@@ -1,16 +1,11 @@
 /**
- * 팝빌 현금영수증 API Java SDK SpringMVC Example
- *
- * - SpringMVC SDK 연동환경 설정방법 안내 : https://developers.popbill.com/guide/cashbill/java/getting-started/tutorial?fwn=springmvc
- * - 업데이트 일자 : 2023-07-06
- * - 연동 기술지원 연락처 : 1600-9854
- * - 연동 기술지원 이메일 : code@linkhubcorp.com
- *
- * <테스트 연동개발 준비사항>
- * 1) src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml 파일에 선언된
- *    util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 연동신청 시 메일로
- *    발급받은 인증정보를 참조하여 변경합니다.
- */
+  * 팝빌 현금영수증 API Java SDK SpringMVC Example
+  *
+  * SpringMVC 연동 튜토리얼 안내 : https://developers.popbill.com/guide/cashbill/java/getting-started/tutorial?fwn=springmvc
+  * 연동 기술지원 연락처 : 1600-9854
+  * 연동 기술지원 이메일 : code@linkhubcorp.com
+  *
+  */
 package com.popbill.example;
 
 import java.util.ArrayList;
@@ -879,7 +874,7 @@ public class CashbillServiceExample {
     @RequestMapping(value = "assignMgtKey", method = RequestMethod.GET)
     public String assignMgtKey(Model m) {
         /**
-         * 팝빌 사이트를 통해 발행하여 문서번호가 부여되지 않은 현금영수증에 문서번호를 할당합니다.
+         * 팝빌 사이트를 통해 발행하여 문서번호가 할당되지 않은 현금영수증에 문서번호를 할당합니다.
          * - https://developers.popbill.com/reference/cashbill/java/api/etc#AssignMgtKey
          */
 

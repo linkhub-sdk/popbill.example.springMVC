@@ -1,26 +1,22 @@
 /**
- * 팝빌 카카오톡 API Java SDK SpringMVC Example
- *
- * - SpringMVC SDK 연동환경 설정방법 안내 : https://developers.popbill.com/guide/kakaotalk/java/getting-started/tutorial?fwn=springmvc
- * - 업데이트 일자 : 2023-07-06
- * - 연동 기술지원 연락처 : 1600-9854
- * - 연동 기술지원 이메일 : code@linkhubcorp.com
- *
- * <테스트 연동개발 준비사항>
- * 1) src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml 파일에 선언된
- *    util:properties 의 링크아이디(LinkID)와 비밀키(SecretKey)를 연동신청 시 메일로
- *    발급받은 인증정보를 참조하여 변경합니다.
- * 2) 발신번호 사전등록을 합니다. (등록방법은 사이트/API 두가지 방식이 있습니다.)
- *    - 1. 팝빌 사이트 로그인 > [문자/팩스] > [카카오톡] > [발신번호 사전등록] 메뉴에서 등록
- *    - 2. getSenderNumberMgtURL API를 통해 반환된 URL을 이용하여 발신번호 등록
- * 3) 비즈니스 채널 등록 및 알림톡 템플릿을 신청합니다.
- *    - 1. 비즈니스 채널 등록 (등록방법은 사이트/API 두가지 방식이 있습니다.)
- *       └ 팝빌 사이트 로그인 [문자/팩스] > [카카오톡] > [카카오톡 관리] > '카카오톡 채널 관리' 메뉴에서 등록
- *       └ GetPlusFriendMgtURL API 를 통해 반환된 URL을 이용하여 등록
- *    - 2. 알림톡 템플릿 신청 (등록방법은 사이트/API 두가지 방식이 있습니다.)
- *       └ 팝빌 사이트 로그인 [문자/팩스] > [카카오톡] > [카카오톡 관리] > '알림톡 템플릿 관리' 메뉴에서 등록
- *       └ GetATSTemplateMgtURL API 를 통해 URL을 이용하여 등록
- */
+  * 팝빌 카카오톡 API Java SDK SpringMVC Example
+  *
+  * SpringMVC 연동 튜토리얼 안내 : https://developers.popbill.com/guide/kakaotalk/java/getting-started/tutorial?fwn=springmvc
+  * 연동 기술지원 연락처 : 1600-9854
+  * 연동 기술지원 이메일 : code@linkhubcorp.com
+  *
+  * <테스트 연동개발 준비사항>
+  *  1) 발신번호 사전등록을 합니다. (등록방법은 사이트/API 두가지 방식이 있습니다.)
+  *    - 1. 팝빌 사이트 로그인 > [문자/팩스] > [카카오톡] > [발신번호 사전등록] 메뉴에서 등록
+  *    - 2. getSenderNumberMgtURL API를 통해 반환된 URL을 이용하여 발신번호 등록
+  *  2) 비즈니스 채널 등록 및 알림톡 템플릿을 신청합니다.
+  *    - 1. 비즈니스 채널 등록 (등록방법은 사이트/API 두가지 방식이 있습니다.)
+  *       └ 팝빌 사이트 로그인 [문자/팩스] > [카카오톡] > [카카오톡 관리] > '카카오톡 채널 관리' 메뉴에서 등록
+  *       └ GetPlusFriendMgtURL API 를 통해 반환된 URL을 이용하여 등록
+  *    - 2. 알림톡 템플릿 신청 (등록방법은 사이트/API 두가지 방식이 있습니다.)
+  *       └ 팝빌 사이트 로그인 [문자/팩스] > [카카오톡] > [카카오톡 관리] > '알림톡 템플릿 관리' 메뉴에서 등록
+  *       └ GetATSTemplateMgtURL API 를 통해 URL을 이용하여 등록
+  */
 package com.popbill.example;
 
 import java.io.File;
