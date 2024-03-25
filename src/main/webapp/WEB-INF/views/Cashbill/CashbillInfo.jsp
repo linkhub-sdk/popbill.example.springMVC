@@ -37,8 +37,8 @@
                     <li>ntsresultDT (국세청 처리결과 수신일시) : ${CashbillInfo.ntsresultDT}</li>
                     <li>ntsresultCode (국세청 처리결과 상태코드) : ${CashbillInfo.ntsresultCode}</li>
                     <li>ntsresultMessage (국세청 처리결과 메시지) : ${CashbillInfo.ntsresultMessage}</li>
-                    <li>orgConfirmNum (원본 현금영수증 국세청 승인번호) : ${CashbillInfo.orgConfirmNum}</li>
-                    <li>orgTradeDate (원본 현금영수증 거래일자) : ${CashbillInfo.orgTradeDate}</li>
+                    <li>orgConfirmNum (당초 승인 현금영수증 국세청 승인번호) : ${CashbillInfo.orgConfirmNum}</li>
+                    <li>orgTradeDate (당초 승인 현금영수증 거래일자) : ${CashbillInfo.orgTradeDate}</li>
                     <li>interOPYN (연동문서 여부) : ${CashbillInfo.interOPYN}</li>
                 </ul>
             </fieldset>
@@ -69,8 +69,8 @@
                         <li>ntsresultDT (국세청 처리결과 수신일시) : ${CashbillInfo.ntsresultDT}</li>
                         <li>ntsresultCode (국세청 처리결과 상태코드) : ${CashbillInfo.ntsresultCode}</li>
                         <li>ntsresultMessage (국세청 처리결과 메시지) : ${CashbillInfo.ntsresultMessage}</li>
-                        <li>orgConfirmNum (원본 현금영수증 국세청 승인번호) : ${CashbillInfo.orgConfirmNum}</li>
-                        <li>orgTradeDate (원본 현금영수증 거래일자) : ${CashbillInfo.orgTradeDate}</li>
+                        <li>orgConfirmNum (당초 승인 현금영수증 국세청 승인번호) : ${CashbillInfo.orgConfirmNum}</li>
+                        <li>orgTradeDate (당초 승인 현금영수증 거래일자) : ${CashbillInfo.orgTradeDate}</li>
                         <li>interOPYN (연동문서 여부) : ${CashbillInfo.interOPYN}</li>
                     </ul>
                 </fieldset>
