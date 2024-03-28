@@ -1,16 +1,16 @@
 /**
-  * 팝빌 전자세금계산서 API Java SDK SpringMVC Example
-  *
-  * SpringMVC 연동 튜토리얼 안내 : https://developers.popbill.com/guide/taxinvoice/java/getting-started/tutorial?fwn=springmvc
-  * 연동 기술지원 연락처 : 1600-9854
-  * 연동 기술지원 이메일 : code@linkhubcorp.com
-  *
-  * <테스트 연동개발 준비사항>
-  * 1) 전자세금계산서 인증서 등록
-  *    - 전자세금계산서 발행을 위해 공인인증서를 등록합니다.
-  *    - 팝빌사이트 로그인 > [전자세금계산서] > [환경설정] > [공인인증서 관리]
-  *    - 공인인증서 등록 팝업 URL (GetTaxCertURL API)을 이용하여 등록
-  */
+ * 팝빌 전자세금계산서 API Java SDK SpringMVC Example
+ * <p>
+ * SpringMVC 연동 튜토리얼 안내 : https://developers.popbill.com/guide/taxinvoice/java/getting-started/tutorial?fwn=springmvc
+ * 연동 기술지원 연락처 : 1600-9854
+ * 연동 기술지원 이메일 : code@linkhubcorp.com
+ * <p>
+ * <테스트 연동개발 준비사항>
+ * 1) 전자세금계산서 인증서 등록
+ * - 전자세금계산서 발행을 위해 공인인증서를 등록합니다.
+ * - 팝빌사이트 로그인 > [전자세금계산서] > [환경설정] > [공인인증서 관리]
+ * - 공인인증서 등록 팝업 URL (GetTaxCertURL API)을 이용하여 등록
+ */
 package com.popbill.example;
 
 import java.io.IOException;
@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
 import com.popbill.api.AttachedFile;
 import com.popbill.api.BulkResponse;
 import com.popbill.api.ChargeInfo;
@@ -1733,7 +1734,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호 배열 (최대 1000건)
-        String[] MgtKeyList = new String[] {"20230102-MVC001", "20230102-MVC002"};
+        String[] MgtKeyList = new String[]{"20230102-MVC001", "20230102-MVC002"};
 
         try {
 
@@ -2121,7 +2122,7 @@ public class TaxinvoiceServiceExample {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 문서번호 배열, 최대 100건
-        String[] MgtKeyList = new String[] {"20230102-MVC001", "20230102-MVC002"};
+        String[] MgtKeyList = new String[]{"20230102-MVC001", "20230102-MVC002"};
 
         try {
 
@@ -3466,7 +3467,6 @@ public class TaxinvoiceServiceExample {
         taxinvoice.setBankBookYN(false);
 
 
-
         /**********************************************************************
          * 상세항목(품목) 정보
          *********************************************************************/
@@ -4401,7 +4401,6 @@ public class TaxinvoiceServiceExample {
         taxinvoice.setTaxType("영세");
 
 
-
         // 과금방향, [정과금, 역과금] 중 선택기재
         // └ 정과금 = 공급자 과금 , 역과금 = 공급받는자 과금
         // -"역과금"은 역발행 세금계산서 발행 시에만 이용가능
@@ -4896,6 +4895,46 @@ public class TaxinvoiceServiceExample {
         }
 
         return "issueResponse";
+    }
+
+    public String registTaxCert(Model m) {
+        try {
+
+            // 공동인증서 공개키 (Base64 Encoded)
+            String CertPublicKey = "";
+
+            // 공동인증서 개인키 (Base64 Encoded)
+            String CertPrivateKey = "";
+
+            // 공동인증서 비밀번호
+            String CertCipher = "";
+
+            Response response = taxinvoiceService.registTaxCert(CorpNum, CertPublicKey, CertPrivateKey, CertCipher, UserID);
+            m.addAttribute("Response", response);
+        } catch (PopbillException pe) {
+            m.addAttribute("Exception", pe);
+            return "exception";
+        }
+        return "response";
+    }
+
+    public String registTaxCertPFXt(Model m) {
+        try {
+
+
+            // 공동인증서 PFX 파일 (Base64 Encoded)
+            String PFX = "";
+
+            // 공동인증서 PFX 파일 비밀번호 (Base64 Encoded)
+            String Password = "";
+
+            Response response = taxinvoiceService.registTaxCertPFX(CorpNum, PFX, Password, UserID);
+            m.addAttribute("Response", response);
+        } catch (PopbillException pe) {
+            m.addAttribute("Exception", pe);
+            return "exception";
+        }
+        return "response";
     }
 
 }
