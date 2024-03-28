@@ -127,6 +127,9 @@ public class MessageServiceExample {
         // 발신번호 (팝빌에 등록된 발신번호만 이용가능)
         String sender = "07043042991";
 
+        // 발신자명
+        String senderName = "발신자명";
+
         // 수신번호
         String receiver = "010111222";
 
@@ -151,7 +154,7 @@ public class MessageServiceExample {
 
         try {
 
-            String receiptNum = messageService.sendSMS(CorpNum, sender, receiver,
+            String receiptNum = messageService.sendSMS(CorpNum, sender, senderName, receiver,
                     receiverName, content, reserveDT, adsYN, UserID, requestNum);
 
             m.addAttribute("Result", receiptNum);
@@ -236,6 +239,9 @@ public class MessageServiceExample {
         // 발신번호 (팝빌에 등록된 발신번호만 이용가능)
         String sender = "07043042991";
 
+        // 발신자명
+        String senderName = "발신자명";
+
         // 수신번호
         String receiver = "000111222";
 
@@ -263,7 +269,7 @@ public class MessageServiceExample {
 
         try {
 
-            String receiptNum = messageService.sendLMS(CorpNum, sender, receiver,
+            String receiptNum = messageService.sendLMS(CorpNum, sender, senderName, receiver,
                     receiverName, subject, content, reserveDT, adsYN, UserID, requestNum);
 
             m.addAttribute("Result", receiptNum);
@@ -355,6 +361,9 @@ public class MessageServiceExample {
         // 발신번호 (팝빌에 등록된 발신번호만 이용가능)
         String sender = "07043042991";
 
+        // 발신자명
+        String senderName = "발신자명";
+
         // 수신번호
         String receiver = "010111222";
 
@@ -385,7 +394,7 @@ public class MessageServiceExample {
 
         try {
 
-            String receiptNum = messageService.sendMMS(CorpNum, sender, receiver,
+            String receiptNum = messageService.sendMMS(CorpNum, sender, senderName, receiver,
                     receiverName, subject, content, file, reserveDT, adsYN, UserID, requestNum);
 
             m.addAttribute("Result", receiptNum);
@@ -478,6 +487,9 @@ public class MessageServiceExample {
         // 발신번호 (팝빌에 등록된 발신번호만 이용가능)
         String sender = "07043042991";
 
+        // 발신자명
+        String senderName = "발신자명";
+
         // 수신번호
         String receiver = "010111222";
 
@@ -505,7 +517,7 @@ public class MessageServiceExample {
 
         try {
 
-            String receiptNum = messageService.sendXMS(CorpNum, sender, receiver,
+            String receiptNum = messageService.sendXMS(CorpNum, sender, senderName, receiver,
                     receiverName, subject, content, reserveDT, adsYN, UserID, requestNum);
 
             m.addAttribute("Result", receiptNum);
