@@ -39,6 +39,12 @@
             - IPRestrictOnOff : 인증토큰 IP 검증 설정, true-사용, false-미사용, (기본값:true)
             - UseStaticIP : 통신 IP 고정, true-사용, false-미사용, (기본값:false)
             - UseLocalTimeYN : 로컬시스템 시간 사용여부, true-사용, false-미사용, (기본값:true)
+
+            공동인증서를 등록하는 API를 사용하는 경우, 통신구간 보안을 위한 암호화 정보
+            암호화 키 발급은 팝빌 파트너센터(1600-8536)로 문의하여 발급
+            - mlePublicKey : MLE(Message Level Encryption) 공개키
+            - mleKeyID : MLE 공개키 식별 아이디
+            - mleKeyName : MLE 공개키 식별 이름
     -->
     <util:properties id="EXAMPLE_CONFIG">
         <beans:prop key="TestCorpNum">1234567890</beans:prop>
@@ -49,10 +55,9 @@
         <beans:prop key="IsIPRestrictOnOff">true</beans:prop>
         <beans:prop key="UseStaticIP">false</beans:prop>
         <beans:prop key="UseLocalTimeYN">true</beans:prop>
-        <!-- RegistTaxCert, RegistTaxCertPFX 사용 시 설정 -->
-        <beans:prop key="MleKeyID">true</beans:prop>
-        <beans:prop key="MleKeyName">true</beans:prop>
-        <beans:prop key="MlePublicKey">true</beans:prop>
+        <beans:prop key="MleKeyID"></beans:prop>
+        <beans:prop key="MleKeyName"></beans:prop>
+        <beans:prop key="MlePublicKey"></beans:prop>
     </util:properties>
 
     <beans:beans>
@@ -63,13 +68,12 @@
             <beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
             <beans:property name="IPRestrictOnOff" value="#{EXAMPLE_CONFIG.IsIPRestrictOnOff}"/>
             <beans:property name="useStaticIP" value="#{EXAMPLE_CONFIG.UseStaticIP}"/>
-            <!-- RegistTaxCert, RegistTaxCertPFX 사용 시 설정 -->
-            <!-- MLE KEY 사용자 식별 아이디 -->
-            <beans:property name="mleKeyID" value = "#{EXAMPLE_CONFIG.MleKeyID}"/>
-            <!-- MLE KEY 사용자 식별 이름 -->
-            <beans:property name="mleKeyName" value = "#{EXAMPLE_CONFIG.MleKeyName}"/>
-            <!-- MLE 공개키 -->
+            <!-- MLE(Message Level Encryption) 공개키 -->
             <beans:property name="mlePublicKey" value = "#{EXAMPLE_CONFIG.MlePublicKey}"/>
+            <!-- MLE 공개키 식별 아이디 -->
+            <beans:property name="mleKeyID" value = "#{EXAMPLE_CONFIG.MleKeyID}"/>
+            <!-- MLE 공개키 식별 이름 -->
+            <beans:property name="mleKeyName" value = "#{EXAMPLE_CONFIG.MleKeyName}"/>
         </beans:bean>
 
         <!-- 전자명세서 Service Implementation Bean registration. -->
