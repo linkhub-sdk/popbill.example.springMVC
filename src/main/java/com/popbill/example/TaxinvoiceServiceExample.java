@@ -4897,6 +4897,7 @@ public class TaxinvoiceServiceExample {
         return "issueResponse";
     }
 
+    @RequestMapping(value = "registTaxCert", method = RequestMethod.GET)
     public String registTaxCert(Model m) {
         try {
 
@@ -4918,7 +4919,8 @@ public class TaxinvoiceServiceExample {
         return "response";
     }
 
-    public String registTaxCertPFXt(Model m) {
+    @RequestMapping(value = "registTaxCertPFX", method = RequestMethod.GET)
+    public String registTaxCertPFX(Model m) {
         try {
 
 

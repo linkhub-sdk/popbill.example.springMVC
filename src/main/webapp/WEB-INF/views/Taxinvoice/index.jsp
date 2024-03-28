@@ -98,6 +98,8 @@
             <li><a href="TaxinvoiceService/getCertificateExpireDate">GetCertificateExpireDate</a> - 공동인증서 만료일 확인</li>
             <li><a href="TaxinvoiceService/checkCertValidation">CheckCertValidation</a> - 공동인증서 유효성 확인</li>
             <li><a href="TaxinvoiceService/getTaxCertInfo">GetTaxCertInfo</a> - 공동인증서 정보확인</li>
+            <li><a href="TaxinvoiceService/registTaxCert">registTaxCert</a> - 공동 인증서 등록</li>
+            <li><a href="TaxinvoiceService/registTaxCertPFX">registTaxCertPFX</a> - PFX 공동 인증서 등록</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
