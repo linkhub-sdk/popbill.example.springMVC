@@ -45,7 +45,9 @@
                             <li>t (버튼유형) : ${btnInfo.t}</li>
                             <li>u1 (버튼링크1) : ${btnInfo.u1}</li>
                             <li>u2 (버튼링크2) : ${btnInfo.u2}</li>
-                            <li>tg (아웃링크) : ${btnInfo.tg}</li>
+                            <c:if test="${btnInfo.tg != null}">
+                                <li>tg (아웃링크) : ${btnInfo.tg}</li>
+                            </c:if>
                         </ul>
                     </fieldset>
                 </c:forEach>
@@ -59,7 +61,7 @@
                     <fieldset class="fieldset3">
                         <legend>개별전송 정보 [ ${status.index+1} ]</legend>
                         <ul>
-                            <li>serialNum </li>
+                            <li>serialNum</li>
                             <li>state (전송상태 코드) : ${msgInfo.state}</li>
                             <li>sendDT (전송일시) : ${msgInfo.sendDT}</li>
                             <li>receiveNum (수신번호) : ${msgInfo.receiveNum}</li>
