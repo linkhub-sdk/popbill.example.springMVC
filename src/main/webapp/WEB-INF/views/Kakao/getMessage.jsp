@@ -45,6 +45,7 @@
                             <li>t (버튼유형) : ${btnInfo.t}</li>
                             <li>u1 (버튼링크1) : ${btnInfo.u1}</li>
                             <li>u2 (버튼링크2) : ${btnInfo.u2}</li>
+                            <li>tg (아웃링크) : ${btnInfo.tg}</li>
                         </ul>
                     </fieldset>
                 </c:forEach>
