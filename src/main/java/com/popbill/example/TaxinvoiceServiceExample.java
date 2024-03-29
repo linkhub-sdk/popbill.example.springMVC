@@ -30,7 +30,6 @@ import com.popbill.api.Response;
 import com.popbill.api.TaxinvoiceCertificate;
 import com.popbill.api.TaxinvoiceService;
 import com.popbill.api.taxinvoice.BulkTaxinvoiceResult;
-import com.popbill.api.taxinvoice.EmailPublicKey;
 import com.popbill.api.taxinvoice.MgtKeyType;
 import com.popbill.api.taxinvoice.TISearchResult;
 import com.popbill.api.taxinvoice.Taxinvoice;
@@ -4911,13 +4910,13 @@ public class TaxinvoiceServiceExample {
         try {
 
             // 공동인증서 공개키 (Base64 Encoded)
-            String CertPublicKey = "";
+            String CertPublicKey = "asdfasdf";
 
             // 공동인증서 개인키 (Base64 Encoded)
-            String CertPrivateKey = "";
+            String CertPrivateKey = "asdfadss";
 
             // 공동인증서 비밀번호
-            String CertCipher = "";
+            String CertCipher = "12fasdf1";
 
             Response response = taxinvoiceService.registTaxCert(CorpNum, CertPublicKey, CertPrivateKey, CertCipher, UserID);
             m.addAttribute("Response", response);
@@ -4942,10 +4941,10 @@ public class TaxinvoiceServiceExample {
         try {
 
             // 공동인증서 PFX 파일 (Base64 Encoded)
-            String PFX = "";
+            String PFX = "asdfasasd";
 
             // 공동인증서 PFX 파일 비밀번호 (Base64 Encoded)
-            String Password = "";
+            String Password = "fdasafsdafsd";
 
             Response response = taxinvoiceService.registTaxCertPFX(CorpNum, PFX, Password, UserID);
             m.addAttribute("Response", response);

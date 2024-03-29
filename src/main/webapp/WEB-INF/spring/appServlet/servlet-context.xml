@@ -26,7 +26,7 @@
     <context:component-scan base-package="com.popbill.example"/>
 
     <!--
-        업데이트 일자 : 2024-02-26
+        업데이트 일자 : 2024-03-29
         연동 기술지원 연락처 : 1600-9854
         연동 기술지원 이메일 : code@linkhubcorp.com
                 
@@ -35,16 +35,16 @@
             - LinkID : 링크허브에서 발급한 링크아이디
             - SecretKey : 링크허브에서 발급한 비밀키
         2) SDK 환경설정 필수 옵션 설정
-            - IsTest : 연동환경 설정, true-테스트, false-운영(Production), (기본값:true)
+            - IsTest : 연동환경 설정, true-테스트, false-운영(Production), (기본값:false)
             - IPRestrictOnOff : 인증토큰 IP 검증 설정, true-사용, false-미사용, (기본값:true)
             - UseStaticIP : 통신 IP 고정, true-사용, false-미사용, (기본값:false)
             - UseLocalTimeYN : 로컬시스템 시간 사용여부, true-사용, false-미사용, (기본값:true)
         3) SDK 환경설정 선택 옵션 설정
             RegistTaxCert, RegistTaxCertPFX API를 사용하는 경우, 통신구간 보안을 위한 암호화 정보
             암호화 키 발급은 팝빌 파트너센터(1600-8536)로 문의하여 발급
-            - mlePublicKey : MLE(Message Level Encryption) 공개키
-            - mleKeyID : MLE 공개키 식별 아이디
-            - mleKeyName : MLE 공개키 식별 이름
+            - mlePublicKey : MLE PublicKey
+            - mleKeyID : MLE Key ID
+            - mleKeyName : MLE Key Name
     -->
     <util:properties id="EXAMPLE_CONFIG">
         <beans:prop key="TestCorpNum">1234567890</beans:prop>
