@@ -4910,13 +4910,13 @@ public class TaxinvoiceServiceExample {
         try {
 
             // 공동인증서 공개키 (Base64 Encoded)
-            String CertPublicKey = "asdfasdf";
+            String CertPublicKey = "";
 
             // 공동인증서 개인키 (Base64 Encoded)
-            String CertPrivateKey = "asdfadss";
+            String CertPrivateKey = "";
 
             // 공동인증서 비밀번호
-            String CertCipher = "12fasdf1";
+            String CertCipher = "";
 
             Response response = taxinvoiceService.registTaxCert(CorpNum, CertPublicKey, CertPrivateKey, CertCipher, UserID);
             m.addAttribute("Response", response);
@@ -4941,10 +4941,10 @@ public class TaxinvoiceServiceExample {
         try {
 
             // 공동인증서 PFX 파일 (Base64 Encoded)
-            String PFX = "asdfasasd";
+            String PFX = "";
 
-            // 공동인증서 PFX 파일 비밀번호 (Base64 Encoded)
-            String Password = "fdasafsdafsd";
+            // 공동인증서 PFX 파일 비밀번호
+            String Password = "";
 
             Response response = taxinvoiceService.registTaxCertPFX(CorpNum, PFX, Password, UserID);
             m.addAttribute("Response", response);
