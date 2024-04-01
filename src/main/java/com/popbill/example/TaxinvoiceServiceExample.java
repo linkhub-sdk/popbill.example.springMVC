@@ -1895,7 +1895,6 @@ public class TaxinvoiceServiceExample {
         // - 연동문서 : 팝빌 API를 통해 저장 또는 발행한 세금계산서
         String InterOPYN = null;
 
-        String UserID = "testkorea";
 
         try {
 

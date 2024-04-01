@@ -26,7 +26,7 @@
     <context:component-scan base-package="com.popbill.example"/>
 
     <!--
-        업데이트 일자 : 2024-03-29
+        업데이트 일자 : 2024-04-01
         연동 기술지원 연락처 : 1600-9854
         연동 기술지원 이메일 : code@linkhubcorp.com
                 
@@ -68,6 +68,7 @@
             <beans:property name="test" value="#{EXAMPLE_CONFIG.IsTest}"/>
             <beans:property name="IPRestrictOnOff" value="#{EXAMPLE_CONFIG.IsIPRestrictOnOff}"/>
             <beans:property name="useStaticIP" value="#{EXAMPLE_CONFIG.UseStaticIP}"/>
+            <beans:property name="useLocalTimeYN" value = "#{EXAMPLE_CONFIG.UseLocalTimeYN}"/>
             <beans:property name="mlePublicKey" value = "#{EXAMPLE_CONFIG.MlePublicKey}"/>
             <beans:property name="mleKeyID" value = "#{EXAMPLE_CONFIG.MleKeyID}"/>
             <beans:property name="mleKeyName" value = "#{EXAMPLE_CONFIG.MleKeyName}"/>

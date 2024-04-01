@@ -152,8 +152,6 @@ public class EasyFinBankServiceExample {
         // 메모
         BankAccountInfo.setMemo("");
 
-        String UserID = "testkorea";
-
         try {
 
             Response response = easyFinBankService.updateBankAccount(CorpNum, BankCode, AccountNumber, BankAccountInfo, UserID);
