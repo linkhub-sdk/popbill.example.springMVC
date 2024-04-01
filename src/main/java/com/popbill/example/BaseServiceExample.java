@@ -55,7 +55,8 @@ public class BaseServiceExample {
 	@RequestMapping(value = "checkIsMember", method = RequestMethod.GET)
 	public String checkIsMember(Model m) throws PopbillException {
 		/**
-		 * 사업자번호를 조회하여 연동회원 가입여부를 확인합니다. - LinkID는 연동신청 시 팝빌에서 발급받은 링크아이디 값입니다.
+		 * 사업자번호를 조회하여 연동회원 가입여부를 확인합니다.
+		 * - LinkID는 연동신청 시 팝빌에서 발급받은 링크아이디 값입니다.
 		 * - https://developers.popbill.com/reference/taxinvoice/java/api/member#CheckIsMember
 		 */
 
