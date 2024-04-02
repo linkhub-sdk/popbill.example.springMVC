@@ -722,7 +722,7 @@ public class BaseServiceExample {
 		// 회사명, 최대 200자
 		corpInfo.setCorpName("회사명 수정 테스트");
 
-		// 주소, 최대 300자
+		// 주소, 최대 300자1
 		corpInfo.setAddr("주소 수정 테스트");
 
 		// 업태, 최대 100자
