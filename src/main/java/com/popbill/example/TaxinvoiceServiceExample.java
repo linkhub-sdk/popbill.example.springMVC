@@ -307,8 +307,7 @@ public class TaxinvoiceServiceExample {
 
         /***************************************************************************
          * 수정세금계산서 정보 (수정세금계산서 작성시에만 기재)
-         * - 수정세금계산서 작성방법 안내
-         * - https://developers.popbill.com/guide/taxinvoice/java/introduction/modified-taxinvoice#intro
+         * - 수정세금계산서 작성방법 안내 [https://developers.popbill.com/guide/taxinvoice/java/introduction/modified-taxinvoice#intro}
          ****************************************************************************/
 
         // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
@@ -596,8 +595,7 @@ public class TaxinvoiceServiceExample {
 
             /*********************************************************************
              * 수정세금계산서 정보 (수정세금계산서 작성시 기재)
-             * - 수정세금계산서 작성방법 안내 
-             * - https://developers.popbill.com/guide/taxinvoice/java/introduction/modified-taxinvoice#intro
+             * - 수정세금계산서 작성방법 안내 [https://developers.popbill.com/guide/taxinvoice/java/introduction/modified-taxinvoice#intro]
              *********************************************************************/
             // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
             taxinvoice.setModifyCode(null);
@@ -887,8 +885,7 @@ public class TaxinvoiceServiceExample {
 
         /***************************************************************************
          * 수정세금계산서 정보 (수정세금계산서 작성시에만 기재) 
-         * - 수정세금계산서 작성방법 안내 
-         * - https://developers.popbill.com/guide/taxinvoice/java/introduction/modified-taxinvoice#intro
+         * - 수정세금계산서 작성방법 안내 [https://developers.popbill.com/guide/taxinvoice/java/introduction/modified-taxinvoice#intro]
          ****************************************************************************/
 
         // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
@@ -1154,8 +1151,7 @@ public class TaxinvoiceServiceExample {
 
         /***************************************************************************
          * 수정세금계산서 정보 (수정세금계산서 작성시에만 기재
-         * - 수정세금계산서 작성방법 안내
-         * - https://developers.popbill.com/guide/taxinvoice/java/introduction/modified-taxinvoice#intro
+         * - 수정세금계산서 작성방법 안내 [https://developers.popbill.com/guide/taxinvoice/java/introduction/modified-taxinvoice#intro]
          ****************************************************************************/
 
         // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
@@ -1489,8 +1485,7 @@ public class TaxinvoiceServiceExample {
 
         /***************************************************************************
          * 수정세금계산서 정보 (수정세금계산서 작성시에만 기재
-         * - 수정세금계산서 작성방법 안내
-         * - https://developers.popbill.com/guide/taxinvoice/java/introduction/modified-taxinvoice#intro
+         * - 수정세금계산서 작성방법 안내 [https://developers.popbill.com/guide/taxinvoice/java/introduction/modified-taxinvoice#intro]
          ****************************************************************************/
 
         // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
