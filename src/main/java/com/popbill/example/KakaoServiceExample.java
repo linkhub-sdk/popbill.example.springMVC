@@ -293,7 +293,7 @@ public class KakaoServiceExample {
 		// button.setT("WL"); // 버튼타입
 		// button.setU1("https://www.popbill.com"); // 버튼링크1
 		// button.setU2("http://test.popbill.com"); // 버튼링크2
-		// button.setTg("out"); // 웹링크 브라우저
+		// button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		// btns[0] = button;
 
 		try {
@@ -355,14 +355,14 @@ public class KakaoServiceExample {
 			// button.setT("WL"); // 버튼타입
 			// button.setU1("http://"+i+"popbill.com"); // 버튼링크1
 			// button.setU2("http://"+i+"test.popbill.com"); // 버튼링크2
-			// button.setTg("out"); // 웹링크 브라우저
+			// button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 
 			// KakaoButton button02 = new KakaoButton();
 			// button02.setN("타입2 버튼명"+i); // 버튼명
 			// button02.setT("WL"); // 버튼타입
 			// button02.setU1("http://"+i+"popbill.com"); // 버튼링크1
 			// button02.setU2("http://"+i+"test.popbill.com"); // 버튼링크2
-			// button.setTg("out"); // 웹링크 브라우저
+			// button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 
 			// 수신자별로 각기다른 버튼정보 추가.
 			// message.setBtns(new ArrayList<KakaoButton>());
@@ -391,7 +391,7 @@ public class KakaoServiceExample {
 		// button.setT("WL"); // 버튼타입
 		// button.setU1("https://www.popbill.com"); // 버튼링크1
 		// button.setU2("http://test.popbill.com"); // 버튼링크2
-		// button.setTg("out"); // 웹링크 브라우저
+		// button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		// btns[0] = button;
 
 		try {
@@ -474,7 +474,7 @@ public class KakaoServiceExample {
 		// button.setT("WL"); // 버튼타입
 		// button.setU1("https://www.popbill.com"); // 버튼링크1
 		// button.setU2("http://test.popbill.com"); // 버튼링크2
-		// button.setTg("out"); // 웹링크 브라우저
+		// button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		// btns[0] = button;
 
 		try {
@@ -547,7 +547,7 @@ public class KakaoServiceExample {
 		button.setT("WL"); // 버튼타입
 		button.setU1("http://www.popbill.com"); // 버튼링크1
 		button.setU2("http://test.popbill.com"); // 버튼링크2
-		button.setTg("out"); // 웹링크 브라우저
+		button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		btns[0] = button;
 
 		button = new KakaoButton();
@@ -555,7 +555,7 @@ public class KakaoServiceExample {
 		button.setT("WL");
 		button.setU1("http://www.popbill.com");
 		button.setU2("http://test.popbill.com");
-		button.setTg("out"); // 웹링크 브라우저
+		button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		btns[1] = button;
 
 		// 전송요청번호
@@ -627,14 +627,14 @@ public class KakaoServiceExample {
 			button.setT("WL"); // 버튼타입
 			button.setU1("http://" + i + "popbill.com"); // 버튼링크1
 			button.setU2("http://" + i + "test.popbill.com"); // 버튼링크2
-			button.setTg("out"); // 웹링크 브라우저
+			button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 
 			KakaoButton button02 = new KakaoButton();
 			button02.setN("타입2 버튼명" + i); // 버튼명
 			button02.setT("WL"); // 버튼타입
 			button02.setU1("http://" + i + "popbill.com"); // 버튼링크1
 			button02.setU2("http://" + i + "test.popbill.com"); // 버튼링크2
-			button02.setTg("out"); // 웹링크 브라우저
+			button02.setTg("out");  // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 
 			// 수신자별로 각기다른 버튼정보 추가.
 			message.setBtns(new ArrayList<KakaoButton>());
@@ -725,7 +725,7 @@ public class KakaoServiceExample {
 		button.setT("WL"); // 버튼타입
 		button.setU1("http://www.popbill.com"); // 버튼링크1
 		button.setU2("http://test.popbill.com"); // 버튼링크2
-		button.setTg("out"); // 웹링크 브라우저
+		button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		btns[0] = button;
 
 		button = new KakaoButton();
@@ -733,7 +733,7 @@ public class KakaoServiceExample {
 		button.setT("WL");
 		button.setU1("http://www.popbill.com");
 		button.setU2("http://test.popbill.com");
-		button.setTg("out"); // 웹링크 브라우저
+		button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		btns[1] = button;
 
 		// 전송요청번호
@@ -815,7 +815,7 @@ public class KakaoServiceExample {
 		button.setT("WL"); // 버튼타입
 		button.setU1("http://www.popbill.com"); // 버튼링크1
 		button.setU2("http://test.popbill.com"); // 버튼링크2
-		button.setTg("out"); // 웹링크 브라우저
+		button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		btns[0] = button;
 
 		button = new KakaoButton();
@@ -823,7 +823,7 @@ public class KakaoServiceExample {
 		button.setT("WL");
 		button.setU1("http://www.popbill.com");
 		button.setU2("http://test.popbill.com");
-		button.setTg("out"); // 웹링크 브라우저
+		button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		btns[1] = button;
 
 		// 첨부이미지 파일 경로
@@ -931,7 +931,7 @@ public class KakaoServiceExample {
 		button.setT("WL"); // 버튼타입
 		button.setU1("http://www.popbill.com"); // 버튼링크1
 		button.setU2("http://test.popbill.com"); // 버튼링크2
-		button.setTg("out"); // 웹링크 브라우저
+		button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		btns[0] = button;
 
 		button = new KakaoButton();
@@ -939,7 +939,7 @@ public class KakaoServiceExample {
 		button.setT("WL");
 		button.setU1("http://www.popbill.com");
 		button.setU2("http://test.popbill.com");
-		button.setTg("out"); // 웹링크 브라우저
+		button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		btns[1] = button;
 
 		// 첨부이미지 파일 경로
@@ -1035,7 +1035,7 @@ public class KakaoServiceExample {
 		button.setT("WL"); // 버튼타입
 		button.setU1("http://www.popbill.com"); // 버튼링크1
 		button.setU2("http://test.popbill.com"); // 버튼링크2
-		button.setTg("out"); // 웹링크 브라우저
+		button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		btns[0] = button;
 
 		button = new KakaoButton();
@@ -1043,7 +1043,7 @@ public class KakaoServiceExample {
 		button.setT("WL");
 		button.setU1("http://www.popbill.com");
 		button.setU2("http://test.popbill.com");
-		button.setTg("out"); // 웹링크 브라우저
+		button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		btns[1] = button;
 
 		// 첨부이미지 파일 경로
