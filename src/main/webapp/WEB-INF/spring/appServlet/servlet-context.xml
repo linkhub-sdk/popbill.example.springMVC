@@ -26,7 +26,7 @@
     <context:component-scan base-package="com.popbill.example"/>
 
     <!--
-        업데이트 일자 : 2024-04-01
+        업데이트 일자 : 2024-11-11
         연동 기술지원 연락처 : 1600-9854
         연동 기술지원 이메일 : code@linkhubcorp.com
                 
@@ -135,7 +135,7 @@
             <beans:property name="useLocalTimeYN" value = "#{EXAMPLE_CONFIG.UseLocalTimeYN}"/>
         </beans:bean>
 
-        <!-- 휴폐업조회 Service Implementation Bean registration. -->
+        <!-- 사업자등록상태조회(휴폐업조회) Service Implementation Bean registration. -->
         <beans:bean id="closedownService" class="com.popbill.api.closedown.CloseDownServiceImp">
             <beans:property name="linkID" value="#{EXAMPLE_CONFIG.LinkID}"/>
             <beans:property name="secretKey" value="#{EXAMPLE_CONFIG.SecretKey}"/>

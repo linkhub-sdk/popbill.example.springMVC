@@ -5,11 +5,11 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" type="text/css" href="/resources/main.css" media="screen"/>
-    <title>휴폐업조회 API SDK SpringMVC Example.</title>
+    <title>사업자등록상태조회 (휴폐업조회) API SDK SpringMVC Example.</title>
 </head>
 <body>
 <div id="content">
-    <p class="heading1">휴폐업조회 API SDK SpringMVC Example.</p>
+    <p class="heading1">사업자등록상태조회 (휴폐업조회) API SDK SpringMVC Example.</p>
     <br/>
     <fieldset class="fieldset1">
         <legend>${requestScope['javax.servlet.forward.request_uri']}</legend>

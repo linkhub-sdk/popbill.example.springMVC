@@ -11,10 +11,10 @@
     <p class="heading1">팝빌 휴폐업조회 SDK SpringMVC Example.</p>
     <br/>
     <fieldset class="fieldset1">
-        <legend>휴폐업조회</legend>
+        <legend>사업자등록상태조회 (휴폐업조회)</legend>
         <ul>
-            <li><a href="CloseDownService/checkCorpNum">checkCorpNum</a> - 휴폐업 단건조회</li>
-            <li><a href="CloseDownService/checkCorpNums">checkCorpNums</a> - 휴폐업 대량조회</li>
+            <li><a href="CloseDownService/checkCorpNum">checkCorpNum</a> - 사업자등록상태 (휴폐업조회) 단건조회</li>
+            <li><a href="CloseDownService/checkCorpNums">checkCorpNums</a> - 사업자등록상태 (휴폐업조회) 대량조회</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
