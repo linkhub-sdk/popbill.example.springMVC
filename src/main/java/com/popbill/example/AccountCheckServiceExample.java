@@ -50,7 +50,7 @@ public class AccountCheckServiceExample {
 		// 조회할 기관코드
 		String BankCode = "";
 
-		// 조회할 기관의 계좌번호 (하이픈 '-' 제외 8자리 이상 14자리 이하)
+		// 조회할 기관의 계좌번호 (하이픈 '-' 제외 7자리 이상 14자리 이하)
 		String AccountNumber = "";
 
 		try {
@@ -78,7 +78,7 @@ public class AccountCheckServiceExample {
 		// 조회할 기관코드
 		String BankCode = "";
 
-		// 조회할 기관의 계좌번호 (하이픈 '-' 제외 8자리 이상 14자리 이하)
+		// 조회할 기관의 계좌번호 (하이픈 '-' 제외 7자리 이상 14자리 이하)
 		String AccountNumber = "";
 
 		// 등록번호 유형 , P / B 중 택 1
