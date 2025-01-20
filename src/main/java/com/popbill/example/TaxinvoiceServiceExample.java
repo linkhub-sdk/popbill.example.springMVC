@@ -396,7 +396,7 @@ public class TaxinvoiceServiceExample {
         try {
 
             IssueResponse response = taxinvoiceService.registIssueMLE(CorpNum, taxinvoice,
-                    WriteSpecification, Memo, ForceIssue, DealInvoiceKey EmailSubjet, UserID);
+                    WriteSpecification, Memo, ForceIssue, DealInvoiceKey, EmailSubjet, UserID);
 
             m.addAttribute("Response", response);
 
