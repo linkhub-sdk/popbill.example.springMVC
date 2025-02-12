@@ -741,4 +741,25 @@ public class BaseServiceExample {
 
 		return "response";
 	}
+
+	@RequestMapping(value = "deleteContact", method = RequestMethod.GET)
+	public String deleteContact(Model m) throws PopbillException {
+		/**
+		 * 연동회원 사업자번호에 담당자(팝빌 로그인 계정)를 삭제합니다.
+		 * - https://developers.popbill.com/reference/taxinvoice/java/api/member#DeleteContact
+		 */
+
+		// 담당자 아이디
+		String contactID = "";
+
+		try {
+			Response response = taxinvoiceService.deleteContact(CorpNum, contactID, UserID);
+			m.addAttribute("Response", response);
+		} catch (PopbillException e) {
+			m.addAttribute("Exception", e);
+			return "exception";
+		}
+
+		return "response";
+	}
 }

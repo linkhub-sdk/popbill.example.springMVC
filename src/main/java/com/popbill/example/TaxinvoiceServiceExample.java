@@ -386,10 +386,13 @@ public class TaxinvoiceServiceExample {
         // - 가산세가 부과되더라도 발행을 해야하는 경우에는 forceIssue의 값을 true로 선언하여 발행(Issue API)를 호출하시면 됩니다.
         Boolean ForceIssue = false;
 
+        // 세금계산서 발행 안내메일 제목
+        String EmailSubject = "";
+
         try {
 
-            IssueResponse response = taxinvoiceService.registIssueMLE(CorpNum, taxinvoice,
-                    WriteSpecification, Memo, ForceIssue, DealInvoiceKey);
+            IssueResponse response = taxinvoiceService.registIssue(CorpNum, taxinvoice,
+                    WriteSpecification, Memo, ForceIssue, DealInvoiceKey, EmailSubject, UserID);
 
             m.addAttribute("Response", response);
 
@@ -4973,5 +4976,4 @@ public class TaxinvoiceServiceExample {
         }
         return "response";
     }
-
 }

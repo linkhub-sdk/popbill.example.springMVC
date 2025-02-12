@@ -135,7 +135,8 @@
             <li><a href="BaseService/getContactInfo">GetContactInfo</a> - 담당자 정보 확인</li>
             <li><a href="BaseService/listContact">ListContact</a> - 담당자 목록 확인</li>
             <li><a href="BaseService/updateContact">UpdateContact</a> - 담당자 정보 수정</li>
-<li><a href="BaseService/quitMember">QuitMember</a> - 팝빌회원 탈퇴</li>
+            <li><a href="BaseService/deleteContact">DeleteContact</a> - 담당자 삭제</li>
+			<li><a href="BaseService/quitMember">QuitMember</a> - 팝빌회원 탈퇴</li>
         </ul>
     </fieldset>
 </div>

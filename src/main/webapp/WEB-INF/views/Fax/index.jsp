@@ -77,6 +77,7 @@
             <li><a href="BaseService/updateContact">UpdateContact</a> - 담당자 정보 수정</li>
             <li><a href="BaseService/getCorpInfo">getCorpInfo</a> - 회사정보 확인</li>
             <li><a href="BaseService/updateCorpInfo">updateCorpInfo</a> - 회사정보 수정</li>
+            <li><a href="BaseService/deleteContact">DeleteContact</a> - 담당자 삭제</li>
             <li><a href="BaseService/quitMember">QuitMember</a> - 팝빌회원 탈퇴</li>
         </ul>
     </fieldset>
