@@ -55,6 +55,12 @@
                         <li>orgConfirmNum (당초 승인 현금영수증 국세청 승인번호) : ${SearchInfo.orgConfirmNum}</li>
                         <li>orgTradeDate (당초 승인 현금영수증 거래일자) : ${SearchInfo.orgTradeDate}</li>
                         <li>interOPYN (연동문서 여부) : ${SearchInfo.interOPYN}</li>
+                        <li>email (구매자 이메일) : ${SearchInfo.email}</li>
+                        <li>hp (구매자 휴대폰) : ${SearchInfo.hp}</li>
+                        <li>supplyCost (공급가액) : ${SearchInfo.supplyCost}</li>
+                        <li>tax (부가세) : ${SearchInfo.tax}</li>
+                        <li>serviceFee (봉사료) : ${SearchInfo.serviceFee}</li>
+                        <li>orderNumber (주문번호) : ${SearchInfo.orderNumber}</li>
                     </ul>
                 </fieldset>
             </c:forEach>

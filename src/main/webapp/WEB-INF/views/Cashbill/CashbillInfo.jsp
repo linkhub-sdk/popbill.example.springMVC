@@ -40,6 +40,12 @@
                     <li>orgConfirmNum (당초 승인 현금영수증 국세청 승인번호) : ${CashbillInfo.orgConfirmNum}</li>
                     <li>orgTradeDate (당초 승인 현금영수증 거래일자) : ${CashbillInfo.orgTradeDate}</li>
                     <li>interOPYN (연동문서 여부) : ${CashbillInfo.interOPYN}</li>
+                    <li>email (구매자 이메일) : ${CashbillInfo.email}</li>
+                    <li>hp (구매자 휴대폰) : ${CashbillInfo.hp}</li>
+                    <li>supplyCost (공급가액) : ${CashbillInfo.supplyCost}</li>
+                    <li>tax (부가세) : ${CashbillInfo.tax}</li>
+                    <li>serviceFee (봉사료) : ${CashbillInfo.serviceFee}</li>
+                    <li>orderNumber (주문번호) : ${CashbillInfo.orderNumber}</li>
                 </ul>
             </fieldset>
         </c:if>
@@ -72,6 +78,12 @@
                         <li>orgConfirmNum (당초 승인 현금영수증 국세청 승인번호) : ${CashbillInfo.orgConfirmNum}</li>
                         <li>orgTradeDate (당초 승인 현금영수증 거래일자) : ${CashbillInfo.orgTradeDate}</li>
                         <li>interOPYN (연동문서 여부) : ${CashbillInfo.interOPYN}</li>
+                        <li>email (구매자 이메일) : ${CashbillInfo.email}</li>
+                        <li>hp (구매자 휴대폰) : ${CashbillInfo.hp}</li>
+                        <li>supplyCost (공급가액) : ${CashbillInfo.supplyCost}</li>
+                        <li>tax (부가세) : ${CashbillInfo.tax}</li>
+                        <li>serviceFee (봉사료) : ${CashbillInfo.serviceFee}</li>
+                        <li>orderNumber (주문번호) : ${CashbillInfo.orderNumber}</li>
                     </ul>
                 </fieldset>
             </c:forEach>
