@@ -24,6 +24,7 @@
                 <li> checkDate (확인일시) : ${DepositorCheckInfo.checkDate}</li>
                 <li> result (응답코드) : ${DepositorCheckInfo.result}</li>
                 <li> resultMessage (응답메시지) : ${DepositorCheckInfo.resultMessage}</li>
+                <li> checkDT (확인일자) : ${DepositorCheckInfo.checkDT}</li>
             </ul>
         </fieldset>            
     </fieldset>

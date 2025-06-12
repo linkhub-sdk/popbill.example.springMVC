@@ -23,6 +23,7 @@
                 <li> checkDate (확인일시) : ${AccountInfo.checkDate}</li>
                 <li> result (응답코드) : ${AccountInfo.result}</li>
                 <li> resultMessage (응답메시지) : ${AccountInfo.resultMessage}</li>
+                <li> checkDT (확인일자) : ${AccountInfo.checkDT}</li>
             </ul>
 
         </fieldset>            
