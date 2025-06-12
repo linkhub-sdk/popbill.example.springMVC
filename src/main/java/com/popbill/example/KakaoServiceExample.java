@@ -1253,7 +1253,7 @@ public class KakaoServiceExample {
 		// └ false = 접수한 카카오톡 전체 조회 (관리자권한)
 		// └ true = 해당 담당자 계정으로 접수한 카카오톡만 조회 (개인권한)
 		// - 미입력시 기본값 false 처리
-		Boolean SenderYN = false;
+		Boolean SenderOnly = false;
 
 		// 페이지 번호
 		int Page = 1;
@@ -1272,7 +1272,7 @@ public class KakaoServiceExample {
 		try {
 
 			KakaoSearchResult response = kakaoService.search(CorpNum, SDate, EDate, State, Item, ReserveYN,
-					SenderYN, Page, PerPage, Order, UserID, QString);
+					SenderOnly, Page, PerPage, Order, UserID, QString);
 
 			m.addAttribute("SearchResult", response);
 
