@@ -511,7 +511,6 @@ public class CashbillServiceExample {
     public String getDetailInfo(Model m) {
         /**
          * 현금영수증 1건의 상세정보를 확인합니다.
-         * 현금영수증 상태코드 [https://developers.popbill.com/reference/cashbill/java/response-code]
          * - https://developers.popbill.com/reference/cashbill/java/api/info#GetDetailInfo
          */
 
