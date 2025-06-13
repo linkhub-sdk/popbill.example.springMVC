@@ -9,10 +9,10 @@
     <p class="heading1">팝빌 카카오톡 SDK SpringMVC Example.</p>
     <br/>
     <fieldset class="fieldset1">
-        <legend>카카오톡 채널 계정관리</legend>
+        <legend>비즈니스 채널 계정관리</legend>
         <ul>
-            <li><a href="KakaoService/getPlusFriendMgtURL">getPlusFriendMgtURL</a> - 카카오톡 채널 계정관리 팝업 URL</li>
-            <li><a href="KakaoService/listPlusFriendID">listPlusFriendID</a> - 카카오톡 채널 목록 확인</li>
+            <li><a href="KakaoService/getPlusFriendMgtURL">getPlusFriendMgtURL</a> - 비즈니스 채널 계정관리 팝업 URL</li>
+            <li><a href="KakaoService/listPlusFriendID">listPlusFriendID</a> - 비즈니스 채널 목록 확인</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
@@ -101,7 +101,7 @@
         <legend>회원관리</legend>
         <ul>
             <li><a href="BaseService/checkIsMember">checkIsMember</a> - 연동회원 가입여부 확인</li>
-            <li><a href="BaseService/checkID">checkID</a> - 연동회원 연동회원 아이디 중복 확인</li>
+            <li><a href="BaseService/checkID">checkID</a> - 연동회원 아이디 중복 확인</li>
             <li><a href="BaseService/joinMember">joinMember</a> - 연동회원사 신규가입</li>
             <li><a href="BaseService/quitMember">QuitMember</a> - 연동회원 탈퇴</li>
             <li><a href="BaseService/getCorpInfo">getCorpInfo</a> - 회사정보 확인</li>

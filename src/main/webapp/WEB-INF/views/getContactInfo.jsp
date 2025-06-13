@@ -18,8 +18,8 @@
                 <li>email (이메일) : ${ContactInfo.email}</li>
                 <li>tel (연락처) : ${ContactInfo.tel}</li>
                 <li>regDT (등록일시) : ${ContactInfo.regDT}</li>
-                <li>searchRole (담당자 권한) : ${ContactInfo.searchRole}</li>
-                <li>mgrYN (관리자 여부) : ${ContactInfo.mgrYN}</li>
+                <li>searchRole (권한) : ${ContactInfo.searchRole}</li>
+                <li>mgrYN (역할) : ${ContactInfo.mgrYN}</li>
                 <li>state (상태) : ${ContactInfo.state}</li>
             </ul>
     </fieldset>

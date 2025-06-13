@@ -17,8 +17,8 @@
             <ul>
                 <li>mgtKey (문서번호) : ${Cashbill.mgtKey}</li>
                 <li>confirmNum (국세청 승인번호) : ${Cashbill.confirmNum}</li>
-                <li>orgConfirmNum (당초 승인 현금영수증 국세청 승인번호) : ${Cashbill.orgConfirmNum}</li>
-                <li>orgTradeDate (당초 승인 현금영수증 거래일자) : ${Cashbill.orgTradeDate}</li>
+                <li>orgConfirmNum (당초 국세청승인번호) : ${Cashbill.orgConfirmNum}</li>
+                <li>orgTradeDate (당초 거래일자) : ${Cashbill.orgTradeDate}</li>
                 <li>tradeDate (거래일자) : ${Cashbill.tradeDate}</li>
                 <li>tradeDT (거래일시) : ${Cashbill.tradeDT}</li>
                 <li>tradeType (문서형태) : ${Cashbill.tradeType}</li>

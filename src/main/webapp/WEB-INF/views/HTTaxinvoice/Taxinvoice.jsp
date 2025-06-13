@@ -49,7 +49,7 @@
                 <li>invoicerEmail (공급자 담당자 이메일) : ${Taxinvoice.invoicerEmail}</li>
 
                 <li>invoiceeCorpNum (공급받는자 사업자번호) : ${Taxinvoice.invoiceeCorpNum}</li>
-                <li>invoiceeType (공급받는자 구분) : ${Taxinvoice.invoiceeType}</li>
+                <li>invoiceeType (공급받는자 유형) : ${Taxinvoice.invoiceeType}</li>
                 <li>invoiceeMgtKey (공급받는자 문서관리번호) : ${Taxinvoice.invoiceeMgtKey}</li>
                 <li>invoiceeTaxRegID (공급받는자 종사업장번호) : ${Taxinvoice.invoiceeTaxRegID}</li>
                 <li>invoiceeCorpName (공급받는자 상호) : ${Taxinvoice.invoiceeCorpName}</li>

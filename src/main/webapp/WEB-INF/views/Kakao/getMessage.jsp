@@ -18,7 +18,7 @@
 
                     <li>contentType (카카오톡 유형) : ${sentInfos.contentType}</li>
                     <li>templateCode (템플릿 코드) : ${sentInfos.templateCode}</li>
-                    <li>plusFriendID (카카오톡 채널 아이디) : ${sentInfos.plusFriendID}</li>
+                    <li>plusFriendID (비즈니스 채널 아이디) : ${sentInfos.plusFriendID}</li>
                     <li>sendNum (발신번호) : ${sentInfos.sendNum}</li>
                     <li>altSubject (대체문자 제목) : ${sentInfos.altSubject}</li>
                     <li>altContent (대체문자 내용) : ${sentInfos.altContent}</li>

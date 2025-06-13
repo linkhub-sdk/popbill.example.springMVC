@@ -16,7 +16,7 @@
                 <li>templateCode (템플릿 코드) : ${Template.templateCode}</li>
                 <li>templateName (템플릿 제목) : ${Template.templateName}</li>
                 <li>template (템플릿 내용) : ${Template.template}</li>
-                <li>plusFriendID (카카오톡 채널 아이디) : ${Template.plusFriendID}</li>
+                <li>plusFriendID (비즈니스 채널 아이디) : ${Template.plusFriendID}</li>
                 <li>ads (광고메시지) : ${Template.ads}</li>
                 <li>appendix (부가메시지) : ${Template.appendix}</li>
                 <li>secureYN (보안템플릿 여부) : ${Template.secureYN}</li>

@@ -61,7 +61,7 @@
                         <li>invoicerEmail (공급자 이메일) : ${SearchInfo.invoicerEmail}</li>
 
                         <li>invoiceeCorpNum (공급받는자 사업자번호) : ${SearchInfo.invoiceeCorpNum}</li>
-                        <li>invoiceeType (공급받는자 구분) : ${SearchInfo.invoiceeType}</li>
+                        <li>invoiceeType (공급받는자 유형) : ${SearchInfo.invoiceeType}</li>
                         <li>invoiceeTaxRegID (공급받는자 종사업장번호) : ${SearchInfo.invoiceeTaxRegID}</li>
                         <li>invoiceeCorpName (공급받는자 상호) : ${SearchInfo.invoiceeCorpName}</li>
                         <li>invoiceeCEOName (공급받는자 대표자 성명) : ${SearchInfo.invoiceeCEOName}</li>

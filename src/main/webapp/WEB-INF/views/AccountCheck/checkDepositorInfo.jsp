@@ -9,7 +9,7 @@
 </head>
 <body>
 <div id="content">
-    <p class="heading1">계좌실명조회 API SDK SpringMVC Example.</p>
+    <p class="heading1">실명조회 API SDK SpringMVC Example.</p>
     <br/>
     <fieldset class="fieldset1">
         <legend>${requestScope['javax.servlet.forward.request_uri']}</legend>

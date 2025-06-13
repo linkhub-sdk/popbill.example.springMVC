@@ -35,7 +35,7 @@
                 <li>invoicerEmail (공급자 담당자 메일) : ${Taxinvoice.invoicerEmail}</li>
                 <li>invoicerSMSSendYN (발행 안내 문자 전송여부) : ${Taxinvoice.invoicerSMSSendYN}</li>
 
-                <li>invoiceeType (공급받는자 구분) : ${Taxinvoice.invoiceeType}</li>
+                <li>invoiceeType (공급받는자 유형) : ${Taxinvoice.invoiceeType}</li>
                 <li>invoiceeCorpNum (공급받는자 사업자번호) : ${Taxinvoice.invoiceeCorpNum}</li>
                 <li>invoiceeMgtKey (공급받는자 문서번호) : ${Taxinvoice.invoiceeMgtKey}</li>
                 <li>invoiceeTaxRegID (공급받는자 종사업장 식별번호) : ${Taxinvoice.invoiceeTaxRegID}</li>

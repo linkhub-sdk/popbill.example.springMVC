@@ -52,8 +52,8 @@
                         <li>ntsresultDT (국세청 처리결과 수신일시) : ${SearchInfo.ntsresultDT}</li>
                         <li>ntsresultCode (국세청 처리결과 상태코드) : ${SearchInfo.ntsresultCode}</li>
                         <li>ntsresultMessage (국세청 처리결과 메시지) : ${SearchInfo.ntsresultMessage}</li>
-                        <li>orgConfirmNum (당초 승인 현금영수증 국세청 승인번호) : ${SearchInfo.orgConfirmNum}</li>
-                        <li>orgTradeDate (당초 승인 현금영수증 거래일자) : ${SearchInfo.orgTradeDate}</li>
+                        <li>orgConfirmNum (당초 국세청승인번호) : ${SearchInfo.orgConfirmNum}</li>
+                        <li>orgTradeDate (당초 거래일자) : ${SearchInfo.orgTradeDate}</li>
                         <li>interOPYN (연동문서 여부) : ${SearchInfo.interOPYN}</li>
                         <li>email (구매자 이메일) : ${SearchInfo.email}</li>
                         <li>hp (구매자 휴대폰) : ${SearchInfo.hp}</li>
