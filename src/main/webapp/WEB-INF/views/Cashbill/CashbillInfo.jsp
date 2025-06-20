@@ -35,8 +35,8 @@
                     <li>printYN (인쇄여부) : ${CashbillInfo.printYN}</li>
                     <li>ntssendDT (국세청 전송일시) : ${CashbillInfo.ntssendDT}</li>
                     <li>ntsresultDT (국세청 처리결과 수신일시) : ${CashbillInfo.ntsresultDT}</li>
-                    <li>ntsresultCode (국세청 처리결과 상태코드) : ${CashbillInfo.ntsresultCode}</li>
-                    <li>ntsresultMessage (국세청 처리결과 메시지) : ${CashbillInfo.ntsresultMessage}</li>
+                    <li>ntsresultCode (결과코드) : ${CashbillInfo.ntsresultCode}</li>
+                    <li>ntsresultMessage (결과메시지) : ${CashbillInfo.ntsresultMessage}</li>
                     <li>orgConfirmNum (당초 국세청승인번호) : ${CashbillInfo.orgConfirmNum}</li>
                     <li>orgTradeDate (당초 거래일자) : ${CashbillInfo.orgTradeDate}</li>
                     <li>interOPYN (연동문서 여부) : ${CashbillInfo.interOPYN}</li>
@@ -73,8 +73,8 @@
                         <li>printYN (인쇄여부) : ${CashbillInfo.printYN}</li>
                         <li>ntssendDT (국세청 전송일시) : ${CashbillInfo.ntssendDT}</li>
                         <li>ntsresultDT (국세청 처리결과 수신일시) : ${CashbillInfo.ntsresultDT}</li>
-                        <li>ntsresultCode (국세청 처리결과 상태코드) : ${CashbillInfo.ntsresultCode}</li>
-                        <li>ntsresultMessage (국세청 처리결과 메시지) : ${CashbillInfo.ntsresultMessage}</li>
+                        <li>ntsresultCode (결과코드) : ${CashbillInfo.ntsresultCode}</li>
+                        <li>ntsresultMessage (결과메시지) : ${CashbillInfo.ntsresultMessage}</li>
                         <li>orgConfirmNum (당초 국세청승인번호) : ${CashbillInfo.orgConfirmNum}</li>
                         <li>orgTradeDate (당초 거래일자) : ${CashbillInfo.orgTradeDate}</li>
                         <li>interOPYN (연동문서 여부) : ${CashbillInfo.interOPYN}</li>

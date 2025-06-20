@@ -55,7 +55,7 @@
                     <li>ntsconfirmNum (국세청 승인번호) : ${TaxinvoiceInfo.NTSConfirmNum}</li>
                     <li>ntssendDT (국세청 전송일시) : ${TaxinvoiceInfo.NTSSendDT}</li>
                     <li>ntsresultDT (국세청 결과 수신일시) : ${TaxinvoiceInfo.NTSResultDT}</li>
-                    <li>ntssendErrCode (전송실패 사유코드) : ${TaxinvoiceInfo.NTSSendErrCode}</li>
+                    <li>ntssendErrCode (결과코드) : ${TaxinvoiceInfo.NTSSendErrCode}</li>
                 </ul>
             </fieldset>
         </c:if>
@@ -103,7 +103,7 @@
                         <li>ntsconfirmNum (국세청 승인번호) : ${TaxinvoiceInfo.NTSConfirmNum}</li>
                         <li>ntssendDT (국세청 전송일시) : ${TaxinvoiceInfo.NTSSendDT}</li>
                         <li>ntsresultDT (국세청 결과 수신일시) : ${TaxinvoiceInfo.NTSResultDT}</li>
-                        <li>ntssendErrCode (전송실패 사유코드) : ${TaxinvoiceInfo.NTSSendErrCode}</li>
+                        <li>ntssendErrCode (결과코드) : ${TaxinvoiceInfo.NTSSendErrCode}</li>
                     </ul>
                 </fieldset>
             </c:forEach>

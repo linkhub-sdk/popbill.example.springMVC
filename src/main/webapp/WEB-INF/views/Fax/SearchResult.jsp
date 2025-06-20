@@ -32,8 +32,8 @@
                 <fieldset class="fieldset2">
                     <legend>[ ${status.index+1} / ${SearchResult.perPage} ]</legend>
                     <ul>
-                        <li>state (전송상태 코드) : ${SearchInfo.state}</li>
-                        <li>result (전송결과 코드) : ${SearchInfo.result}</li>
+                        <li>state (상태코드) : ${SearchInfo.state}</li>
+                        <li>result (결과코드) : ${SearchInfo.result}</li>
                         <li>sendNum (발신번호) : ${SearchInfo.sendNum}</li>
                         <li>senderName (발신자명) : ${SearchInfo.senderName}</li>
                         <li>receiveNumType (수신번호 유형) : ${SearchInfo.receiveNumType}</li>

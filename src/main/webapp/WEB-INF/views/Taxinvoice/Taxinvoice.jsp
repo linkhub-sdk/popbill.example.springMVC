@@ -71,7 +71,7 @@
                 <li>supplyCostTotal (공급가액 합계) : ${Taxinvoice.supplyCostTotal}</li>
                 <li>taxTotal (세액 합계) : ${Taxinvoice.taxTotal}</li>
                 <li>totalAmount (합계금액) : ${Taxinvoice.totalAmount}</li>
-                <li>modifyCode (수정사유코드) : ${Taxinvoice.modifyCode}</li>
+                <li>modifyCode (수정 사유코드) : ${Taxinvoice.modifyCode}</li>
                 <li>orgNTSConfirmNum (원본세금계산서 국세청 승인번호) : ${Taxinvoice.orgNTSConfirmNum}</li>
                 <li>purposeType (영수/청구) : ${Taxinvoice.purposeType}</li>
                 <li>serialNum (일련번호) : ${Taxinvoice.serialNum}</li>

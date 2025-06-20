@@ -17,8 +17,8 @@
             <fieldset class="fieldset2">
                 <legend>팩스전송 상태정보</legend>
                 <ul>
-                    <li>state (전송상태 코드) : ${FaxResult.state}</li>
-                    <li>result (전송결과 코드) : ${FaxResult.result}</li>
+                    <li>state (상태코드) : ${FaxResult.state}</li>
+                    <li>result (결과코드) : ${FaxResult.result}</li>
                     <li>sendNum (발신번호) : ${FaxResult.sendNum}</li>
                     <li>senderName (발신자명) : ${FaxResult.senderName}</li>
                     <li>receiveNumType (수신번호 유형) : ${FaxResult.receiveNumType}</li>

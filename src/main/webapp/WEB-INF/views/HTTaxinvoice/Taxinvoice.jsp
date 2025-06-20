@@ -33,7 +33,7 @@
                 <li>remark3 (비고3) : ${Taxinvoice.remark3}</li>
                 <li>ntsconfirmNum (국세청 승인번호) : ${Taxinvoice.ntsconfirmNum}</li>
 
-                <li>modifyCode (수정사유코드) : ${Taxinvoice.modifyCode}</li>
+                <li>modifyCode (수정 사유코드) : ${Taxinvoice.modifyCode}</li>
                 <li>orgNTSConfirmNum (원본 전자세금계산서 국세청 승인번호) : ${Taxinvoice.orgNTSConfirmNum}</li>
 
                 <li>invoicerCorpNum (공급자 사업자번호) : ${Taxinvoice.invoicerCorpNum}</li>

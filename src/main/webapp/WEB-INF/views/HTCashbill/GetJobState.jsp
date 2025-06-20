@@ -21,7 +21,7 @@
                 <li>queryDateType (일자유형) : ${JobState.queryDateType}</li>
                 <li>queryStDate (시작일자) : ${JobState.queryStDate}</li>
                 <li>queryEnDate (종료일자) : ${JobState.queryEnDate}</li>
-                <li>errorCode (오류코드) : ${JobState.errorCode}</li>
+                <li>errorCode (수집 결과코드) : ${JobState.errorCode}</li>
                 <li>jobStartDT (작업 시작일시) : ${JobState.jobStartDT}</li>
                 <li>jobEndDT (작업 종료일시) : ${JobState.jobEndDT}</li>
                 <li>collectCount (수집개수) : ${JobState.collectCount}</li>

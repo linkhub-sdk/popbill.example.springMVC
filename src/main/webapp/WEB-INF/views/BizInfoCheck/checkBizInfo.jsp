@@ -38,7 +38,7 @@
                     <li>enAddr (영문주소) : ${BizInfo.enAddr}</li>
                     <li>bizClass (업종) : ${BizInfo.bizClass}</li>
                     <li>bizType (업태) : ${BizInfo.bizType}</li>
-                    <li>result (결과코드) : ${BizInfo.result}</li>
+                    <li>result (상태코드) : ${BizInfo.result}</li>
                     <li>resultMessage (결과메시지) : ${BizInfo.resultMessage}</li>
                     <li>closeDownTaxType (사업자과세유형) : ${BizInfo.closeDownTaxType}</li>
                     <li>closeDownTaxTypeDate (과세유형전환일자): ${BizInfo.closeDownTaxTypeDate}</li>

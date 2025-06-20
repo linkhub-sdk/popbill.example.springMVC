@@ -33,12 +33,12 @@
                     <fieldset class="fieldset3">
                         <legend>개별전송 정보 [ ${status.index+1} ]</legend>
                         <ul>
-                            <li>state (전송상태 코드) : ${msgInfo.state}</li>
+                            <li>state (상태코드) : ${msgInfo.state}</li>
                             <li>sendDT (전송일시) : ${msgInfo.sendDT}</li>
                             <li>receiveNum (수신번호) : ${msgInfo.receiveNum}</li>
                             <li>receiveName (수신자명) : ${msgInfo.receiveName}</li>
                             <li>content (알림톡/친구톡 내용) : ${msgInfo.content}</li>
-                            <li>result (알림톡/친구톡 전송결과 코드) : ${msgInfo.result}</li>
+                            <li>result (카카오 결과코드) : ${msgInfo.result}</li>
                             <li>resultDT (알림톡/친구톡 전송결과 수신일시) : ${msgInfo.resultDT}</li>
                             <li>altSubject (대체문자 제목) : ${msgInfo.altSubject}</li>
                             <li>altContent (대체문자 내용) : ${msgInfo.altContent}</li>

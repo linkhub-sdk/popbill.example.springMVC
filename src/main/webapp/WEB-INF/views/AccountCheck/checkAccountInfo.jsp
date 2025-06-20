@@ -16,13 +16,12 @@
         <fieldset class="fieldset2">
             <legend>조회 결과</legend>
             <ul>
-                
                 <li> bankCode (기관코드) : ${AccountInfo.bankCode}</li>
                 <li> accountNumber (계좌번호) : ${AccountInfo.accountNumber}</li>
                 <li> accountName (예금주 성명) : ${AccountInfo.accountName}</li>
                 <li> checkDate (확인일시) : ${AccountInfo.checkDate}</li>
-                <li> result (응답코드) : ${AccountInfo.result}</li>
-                <li> resultMessage (응답메시지) : ${AccountInfo.resultMessage}</li>
+                <li> result (상태코드) : ${AccountInfo.result}</li>
+                <li> resultMessage (상태메시지) : ${AccountInfo.resultMessage}</li>
                 <li> checkDT (확인일자) : ${AccountInfo.checkDT}</li>
             </ul>
 
