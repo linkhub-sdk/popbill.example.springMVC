@@ -64,15 +64,12 @@ public class FaxServiceExample {
          * 팩스 발신번호 등록여부를 확인합니다.
          * - https://developers.popbill.com/reference/fax/java/api/sendnum#CheckSenderNumber
          */
-        try {
 
+        try {
             // 확인할 발신번호
             String sender = "070-4304-2991";
-
             Response response = faxService.checkSenderNumber(CorpNum, sender);
-
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -88,12 +85,10 @@ public class FaxServiceExample {
          * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://developers.popbill.com/reference/fax/java/api/sendnum#GetSenderNumberMgtURL
          */
+
         try {
-
             String url = faxService.getSenderNumberMgtURL(CorpNum, UserID);
-
             m.addAttribute("Result", url);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -116,6 +111,7 @@ public class FaxServiceExample {
             m.addAttribute("Exception", e);
             return "exception";
         }
+
         return "Fax/SenderNumber";
     }
 
@@ -162,12 +158,9 @@ public class FaxServiceExample {
         String requestNum = "";
 
         try {
-
-            String receiptNum = faxService.sendFAX(CorpNum, sendNum, receiveNum,
-                    receiveName, files, reserveDT, UserID, adsYN, title, requestNum);
-
+            String receiptNum = faxService.sendFAX(CorpNum, sendNum, receiveNum, receiveName, files, reserveDT, UserID,
+                    adsYN, title, requestNum);
             m.addAttribute("Result", receiptNum);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -228,12 +221,9 @@ public class FaxServiceExample {
         String requestNum = "";
 
         try {
-
-            String receiptNum = faxService.sendFAX(CorpNum, sendNum, receivers,
-                    files, reserveDT, UserID, adsYN, title, requestNum);
-
+            String receiptNum = faxService.sendFAX(CorpNum, sendNum, receivers, files, reserveDT, UserID, adsYN, title,
+                    requestNum);
             m.addAttribute("Result", receiptNum);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -299,12 +289,9 @@ public class FaxServiceExample {
         String requestNum = "";
 
         try {
-
-            String receiptNum = faxService.sendFAXBinary(CorpNum, sendNum, receiveNum,
-                    receiveName, fileList, reserveDT, UserID, adsYN, title, requestNum);
-
+            String receiptNum = faxService.sendFAXBinary(CorpNum, sendNum, receiveNum, receiveName, fileList, reserveDT,
+                    UserID, adsYN, title, requestNum);
             m.addAttribute("Result", receiptNum);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -378,12 +365,9 @@ public class FaxServiceExample {
         String requestNum = "20230102-request";
 
         try {
-
-            String receiptNum = faxService.sendFAXBinary(CorpNum, sendNum, receivers,
-                    fileList, reserveDT, UserID, adsYN, title, requestNum);
-
+            String receiptNum = faxService.sendFAXBinary(CorpNum, sendNum, receivers, fileList, reserveDT, UserID,
+                    adsYN, title, requestNum);
             m.addAttribute("Result", receiptNum);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -431,12 +415,9 @@ public class FaxServiceExample {
         String requestNum = "";
 
         try {
-
-            String receiptNum = faxService.resendFAX(CorpNum, orgReceiptNum, sendNum,
-                    sendName, receiveNum, receiveName, reserveDT, UserID, title, requestNum);
-
+            String receiptNum = faxService.resendFAX(CorpNum, orgReceiptNum, sendNum, sendName, receiveNum, receiveName,
+                    reserveDT, UserID, title, requestNum);
             m.addAttribute("Result", receiptNum);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -494,12 +475,9 @@ public class FaxServiceExample {
         String requestNum = "";
 
         try {
-
-            String receiptNum = faxService.resendFAX(CorpNum, orgReceiptNum, sendNum,
-                    sendName, receivers, reserveDT, UserID, title, requestNum);
-
+            String receiptNum = faxService.resendFAX(CorpNum, orgReceiptNum, sendNum, sendName, receivers, reserveDT,
+                    UserID, title, requestNum);
             m.addAttribute("Result", receiptNum);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -545,12 +523,9 @@ public class FaxServiceExample {
         String orgRequestNum = "";
 
         try {
-
-            String receiptNum = faxService.resendFAXRN(CorpNum, requestNum, sendNum,
-                    sendName, receiveNum, receiveName, reserveDT, UserID, title, orgRequestNum);
-
+            String receiptNum = faxService.resendFAXRN(CorpNum, requestNum, sendNum, sendName, receiveNum, receiveName,
+                    reserveDT, UserID, title, orgRequestNum);
             m.addAttribute("Result", receiptNum);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -608,12 +583,9 @@ public class FaxServiceExample {
         String orgRequestNum = "20230102-request";
 
         try {
-
-            String receiptNum = faxService.resendFAXRN(CorpNum, requestNum, sendNum,
-                    sendName, receivers, reserveDT, UserID, title, orgRequestNum);
-
+            String receiptNum = faxService.resendFAXRN(CorpNum, requestNum, sendNum, sendName, receivers, reserveDT,
+                    UserID, title, orgRequestNum);
             m.addAttribute("Result", receiptNum);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -634,9 +606,7 @@ public class FaxServiceExample {
 
         try {
             Response response = faxService.cancelReserve(CorpNum, receiptNum);
-
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -657,9 +627,7 @@ public class FaxServiceExample {
 
         try {
             Response response = faxService.cancelReserveRN(CorpNum, requestNum);
-
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -682,9 +650,7 @@ public class FaxServiceExample {
 
         try {
             FaxResult[] faxResults = faxService.getFaxResult(CorpNum, receiptNum);
-
             m.addAttribute("FaxResults", faxResults);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -707,9 +673,7 @@ public class FaxServiceExample {
 
         try {
             FaxResult[] faxResults = faxService.getFaxResultRN(CorpNum, requestNum);
-
             m.addAttribute("FaxResults", faxResults);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -763,16 +727,14 @@ public class FaxServiceExample {
         String QString = "";
 
         try {
-
-            FAXSearchResult response = faxService.search(CorpNum, SDate, EDate,
-                    State, ReserveYN, SenderOnly, Page, PerPage, Order, QString);
-
+            FAXSearchResult response = faxService.search(CorpNum, SDate, EDate, State, ReserveYN, SenderOnly, Page,
+                    PerPage, Order, QString);
             m.addAttribute("SearchResult", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
         }
+
         return "Fax/SearchResult";
     }
 
@@ -783,12 +745,10 @@ public class FaxServiceExample {
          * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://developers.popbill.com/reference/fax/java/api/info#GetSentListURL
          */
+
         try {
-
             String url = faxService.getSentListURL(CorpNum, UserID);
-
             m.addAttribute("Result", url);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -804,15 +764,12 @@ public class FaxServiceExample {
          * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          * - https://developers.popbill.com/reference/fax/java/api/info#GetPreviewURL
          */
-        try {
 
+        try {
             // 팩스 접수번호
             String receiptNum = "022021803102600001";
-
             String url = faxService.getPreviewURL(CorpNum, receiptNum, UserID);
-
             m.addAttribute("Result", url);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -829,14 +786,10 @@ public class FaxServiceExample {
          */
 
         try {
-
             // 수신번호 유형, 일반 / 지능 중 택 1
             String receiveNumType = "지능";
-
             float unitCost = faxService.getUnitCost(CorpNum, receiveNumType);
-
             m.addAttribute("Result", unitCost);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -853,14 +806,10 @@ public class FaxServiceExample {
          */
 
         try {
-
             // 수신번호 유형, 일반 / 지능 중 택 1
             String receiveNumType = "일반";
-
             ChargeInfo chrgInfo = faxService.getChargeInfo(CorpNum, receiveNumType);
-
             m.addAttribute("ChargeInfo", chrgInfo);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -868,4 +817,5 @@ public class FaxServiceExample {
 
         return "getChargeInfo";
     }
+
 }

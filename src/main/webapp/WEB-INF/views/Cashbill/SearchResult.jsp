@@ -35,25 +35,25 @@
                         <li>mgtKey (문서번호) : ${SearchInfo.mgtKey}</li>
                         <li>tradeDate (거래일자) : ${SearchInfo.tradeDate}</li>
                         <li>tradeDT (거래일시) : ${SearchInfo.tradeDT}</li>
-                        <li>issueDT (발행일시) : ${SearchInfo.issueDT}</li>
-                        <li>regDT (등록일시) : ${SearchInfo.regDT}</li>
-                        <li>taxationType (과세형태) : ${SearchInfo.taxationType}</li>
-                        <li>totalAmount (합계금액) : ${SearchInfo.totalAmount}</li>
+                        <li>tradeType (문서형태) : ${SearchInfo.tradeType}</li>
                         <li>tradeUsage (거래구분) : ${SearchInfo.tradeUsage}</li>
                         <li>tradeOpt (거래유형) : ${SearchInfo.tradeOpt}</li>
-                        <li>tradeType (문서형태) : ${SearchInfo.tradeType}</li>
+                        <li>taxationType (과세형태) : ${SearchInfo.taxationType}</li>
+                        <li>totalAmount (합계금액) : ${SearchInfo.totalAmount}</li>
+                        <li>issueDT (발행일시) : ${SearchInfo.issueDT}</li>
+                        <li>regDT (등록일시) : ${SearchInfo.regDT}</li>
+                        <li>stateCode (상태코드) : ${SearchInfo.stateCode}</li>
+                        <li>stateDT (상태변경일시) : ${SearchInfo.stateDT}</li>
                         <li>identityNum (거래처 식별번호) : ${SearchInfo.identityNum}</li>
                         <li>itemName (거래처 주문상품명) : ${SearchInfo.itemName}</li>
                         <li>customerName (거래처 고객명) : ${SearchInfo.customerName}</li>
-                        <li>stateCode (상태코드) : ${SearchInfo.stateCode}</li>
-                        <li>stateDT (상태변경일시) : ${SearchInfo.stateDT}</li>
-                        <li>printYN (인쇄여부) : ${SearchInfo.printYN}</li>
+                        <li>orgConfirmNum (당초 국세청승인번호) : ${SearchInfo.orgConfirmNum}</li>
+                        <li>orgTradeDate (당초 거래일자) : ${SearchInfo.orgTradeDate}</li>
                         <li>ntssendDT (국세청 전송일시) : ${SearchInfo.ntssendDT}</li>
                         <li>ntsresultDT (국세청 처리결과 수신일시) : ${SearchInfo.ntsresultDT}</li>
                         <li>ntsresultCode (결과코드) : ${SearchInfo.ntsresultCode}</li>
                         <li>ntsresultMessage (결과메시지) : ${SearchInfo.ntsresultMessage}</li>
-                        <li>orgConfirmNum (당초 국세청승인번호) : ${SearchInfo.orgConfirmNum}</li>
-                        <li>orgTradeDate (당초 거래일자) : ${SearchInfo.orgTradeDate}</li>
+                        <li>printYN (인쇄여부) : ${SearchInfo.printYN}</li>
                         <li>interOPYN (연동문서 여부) : ${SearchInfo.interOPYN}</li>
                         <li>email (구매자 이메일) : ${SearchInfo.email}</li>
                         <li>hp (구매자 휴대폰) : ${SearchInfo.hp}</li>

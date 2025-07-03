@@ -31,10 +31,7 @@
                 <fieldset class="fieldset2">
                     <legend>[ ${status.index+1} / ${SearchResult.perPage} ]</legend>
                     <ul>
-                        <li>state (상태코드) : ${SearchInfo.state}</li>
-                        <li>result (결과코드) : ${SearchInfo.result}</li>
                         <li>subject (메시지 제목) : ${SearchInfo.subject}</li>
-                        <li>messageType (메시지 유형) : ${SearchInfo.messageType}</li>
                         <li>content (메시지 내용) : ${SearchInfo.content}</li>
                         <li>sendNum (발신번호) : ${SearchInfo.sendNum}</li>
                         <li>senderName (발신자명) : ${SearchInfo.senderName}</li>
@@ -44,6 +41,9 @@
                         <li>sendDT (전송일시) : ${SearchInfo.sendDT}</li>
                         <li>resultDT (전송결과 수신일시) : ${SearchInfo.resultDT}</li>
                         <li>reserveDT (예약일시) : ${SearchInfo.reserveDT}</li>
+                        <li>state (상태코드) : ${SearchInfo.state}</li>
+                        <li>result (결과코드) : ${SearchInfo.result}</li>
+                        <li>messageType (메시지 유형) : ${SearchInfo.messageType}</li>
                         <li>tranNet (전송처리 이동통신사명) : ${SearchInfo.tranNet}</li>
                         <li>receiptNum (접수번호) : ${SearchInfo.receiptNum}</li>
                         <li>requestNum (요청번호) : ${SearchInfo.requestNum}</li>

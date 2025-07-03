@@ -98,11 +98,8 @@ public class EasyFinBankServiceExample {
         bankInfo.setMemo("");
 
         try {
-
             Response response = easyFinBankService.registBankAccount(CorpNum, bankInfo);
-
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -117,7 +114,6 @@ public class EasyFinBankServiceExample {
          * 팝빌에 등록된 계좌정보를 수정합니다.
          * - https://developers.popbill.com/reference/easyfinbank/java/api/manage#UpdateBankAccount
          */
-
 
         // 기관코드
         String BankCode = "";
@@ -147,11 +143,9 @@ public class EasyFinBankServiceExample {
         BankAccountInfo.setMemo("");
 
         try {
-
-            Response response = easyFinBankService.updateBankAccount(CorpNum, BankCode, AccountNumber, BankAccountInfo, UserID);
-
+            Response response = easyFinBankService.updateBankAccount(CorpNum, BankCode, AccountNumber, BankAccountInfo,
+                    UserID);
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -174,11 +168,8 @@ public class EasyFinBankServiceExample {
         String AccountNumber = "";
 
         try {
-
             EasyFinBankAccount bankAccountInfo = easyFinBankService.getBankAccountInfo(CorpNum, BankCode, AccountNumber);
-
             m.addAttribute("Account", bankAccountInfo);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -193,11 +184,10 @@ public class EasyFinBankServiceExample {
         * 팝빌에 등록된 계좌정보 목록을 반환합니다.
         * - https://developers.popbill.com/reference/easyfinbank/java/api/manage#ListBankAccount
         */
-        try {
 
+        try {
             EasyFinBankAccount[] bankList = easyFinBankService.listBankAccount(CorpNum);
             m.addAttribute("BankAccountList", bankList);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -218,9 +208,7 @@ public class EasyFinBankServiceExample {
 
         try {
             String url = easyFinBankService.getBankAccountMgtURL(CorpNum, UserID);
-
             m.addAttribute("Result", url);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -249,11 +237,8 @@ public class EasyFinBankServiceExample {
         String CloseType = "중도";
 
         try {
-
             Response response = easyFinBankService.closeBankAccount(CorpNum, BankCode, AccountNumber, CloseType);
-
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -276,11 +261,8 @@ public class EasyFinBankServiceExample {
         String AccountNumber = "";
 
         try {
-
             Response response = easyFinBankService.revokeCloseBankAccount(CorpNum, BankCode, AccountNumber);
-
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -304,9 +286,7 @@ public class EasyFinBankServiceExample {
 
         try {
             Response response = easyFinBankService.deleteBankAccount(CorpNum, BankCode, AccountNumber);
-
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
 
@@ -338,10 +318,8 @@ public class EasyFinBankServiceExample {
         String EDate = "20230131";
 
         try {
-
             String jobID = easyFinBankService.requestJob(CorpNum, BankCode, AccountNumber, SDate, EDate);
             m.addAttribute("Result", jobID);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -364,7 +342,6 @@ public class EasyFinBankServiceExample {
         try {
             EasyFinBankJobState jobState = easyFinBankService.getJobState(CorpNum, jobID);
             m.addAttribute("JobState", jobState);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -383,7 +360,6 @@ public class EasyFinBankServiceExample {
         try {
             EasyFinBankJobState[] jobState = easyFinBankService.listActiveJob(CorpNum);
             m.addAttribute("JobStates", jobState);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -425,7 +401,6 @@ public class EasyFinBankServiceExample {
         try {
             EasyFinBankSearchResult searchInfo = easyFinBankService.search(CorpNum, jobID, TradeType, SearchString, Page, PerPage, Order);
             m.addAttribute("SearchResult", searchInfo);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -456,10 +431,8 @@ public class EasyFinBankServiceExample {
         String SearchString = "";
 
         try {
-
             EasyFinBankSummary summaryInfo = easyFinBankService.summary(CorpNum, jobID, TradeType, SearchString);
             m.addAttribute("SummaryResult", summaryInfo);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -483,11 +456,8 @@ public class EasyFinBankServiceExample {
         String Memo = "Memo테스트";
 
         try {
-
             Response response = easyFinBankService.saveMemo(CorpNum, TID, Memo);
-
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -505,11 +475,10 @@ public class EasyFinBankServiceExample {
         * - 반환되는 URL에서만 유효한 세션을 포함하고 있습니다.
         * - https://developers.popbill.com/reference/easyfinbank/java/api/point#GetFlatRatePopUpURL
         */
+
         try {
             String url = easyFinBankService.getFlatRatePopUpURL(CorpNum, UserID);
-
             m.addAttribute("Result", url);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -532,11 +501,8 @@ public class EasyFinBankServiceExample {
         String AccountNumber = "";
 
         try {
-
             FlatRateState flatRateInfo = easyFinBankService.getFlatRateState(CorpNum, BankCode, AccountNumber);
-
             m.addAttribute("State", flatRateInfo);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -551,11 +517,10 @@ public class EasyFinBankServiceExample {
          * 팝빌 계좌조회 API 서비스 과금정보를 확인합니다.
          * - https://developers.popbill.com/reference/easyfinbank/java/api/point#GetChargeInfo
          */
-        try {
 
+        try {
             ChargeInfo chrgInfo = easyFinBankService.getChargeInfo(CorpNum);
             m.addAttribute("ChargeInfo", chrgInfo);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";

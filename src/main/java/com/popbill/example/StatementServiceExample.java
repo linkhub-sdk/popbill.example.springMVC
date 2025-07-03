@@ -69,15 +69,13 @@ public class StatementServiceExample {
 
         // 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
         String mgtKey = "20230102-MVC001";
+
         String isUseStr;
 
         try {
             boolean IsUse = statementService.checkMgtKeyInUse(CorpNum, itemCode, mgtKey);
-
             isUseStr = (IsUse) ? "사용중" : "미사용중";
-
             m.addAttribute("Result", isUseStr);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -94,26 +92,8 @@ public class StatementServiceExample {
          * - https://developers.popbill.com/reference/statement/java/api/issue#RegistIssue
          */
 
-        String Memo = "전자명세서 즉시발행 메모";
-
-        // 발행 안내 메일 제목
-        // - 미입력 시 팝빌에서 지정한  이메일 제목으로 전송
-        String emailSubject = "";
-
         // 전자명세서 정보 객체
         Statement statement = new Statement();
-
-        // 작성일자, 형태 yyyyMMdd
-        statement.setWriteDate("20230102");
-
-        // {영수, 청구, 없음} 중 기재
-        statement.setPurposeType("영수");
-
-        // {과세, 영세, 면세} 중 기재
-        statement.setTaxType("과세");
-
-        // 맞춤양식코드, 미기재시 기본양식으로 처리
-        statement.setFormCode("");
 
         // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         statement.setItemCode((short) 121);
@@ -121,6 +101,34 @@ public class StatementServiceExample {
         // 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
         statement.setMgtKey("20230102-MVC001");
 
+        // 맞춤양식코드, 미기재시 기본양식으로 처리
+        statement.setFormCode("");
+
+        // 작성일자, 형태 yyyyMMdd
+        statement.setWriteDate("20230102");
+
+        // {과세, 영세, 면세} 중 기재
+        statement.setTaxType("과세");
+
+        // {영수, 청구, 없음} 중 기재
+        statement.setPurposeType("영수");
+
+        // 기재상 일련번호 항목
+        statement.setSerialNum("123");
+
+        // 세액 합계
+        statement.setTaxTotal("40000");
+
+        // 공급가액 합계
+        statement.setSupplyCostTotal("400000");
+
+        // 합계금액. 공급가액 + 세액
+        statement.setTotalAmount("440000");
+
+        // 기재상 비고 항목
+        statement.setRemark1("비고1");
+        statement.setRemark2("비고2");
+        statement.setRemark3("비고3");
 
         /*********************************************************************
          *                                발신자 정보
@@ -129,29 +137,26 @@ public class StatementServiceExample {
         // 발신자 사업자번호
         statement.setSenderCorpNum("1234567890");
 
+        // 발신자 종사업장 식별번호, 숫자 4자리, 필요시 기재
+        statement.setSenderTaxRegID("");
+
         // 발신자 상호
         statement.setSenderCorpName("발신자 상호");
-
-        // 발신자 주소
-        statement.setSenderAddr("발신자 주소");
 
         // 발신자 대표자 성명
         statement.setSenderCEOName("발신자 대표자 성명");
 
-        // 발신자 종사업장 식별번호, 숫자 4자리, 필요시 기재
-        statement.setSenderTaxRegID("");
-
-        // 발신자 종목
-        statement.setSenderBizClass("업종");
+        // 발신자 주소
+        statement.setSenderAddr("발신자 주소");
 
         // 발신자 업태
         statement.setSenderBizType("업태");
 
+        // 발신자 종목
+        statement.setSenderBizClass("업종");
+
         // 발신자 담당자 성명
         statement.setSenderContactName("발신자 담당자 성명");
-
-        // 발신자 담당자 메일주소
-        statement.setSenderEmail("test@test.com");
 
         // 발신자 담당자 연락처
         statement.setSenderTEL("070-7070-0707");
@@ -159,6 +164,8 @@ public class StatementServiceExample {
         // 발신자 담당자 휴대폰번호
         statement.setSenderHP("010-000-2222");
 
+        // 발신자 담당자 메일주소
+        statement.setSenderEmail("test@test.com");
 
         /*********************************************************************
          *                            수신자 정보
@@ -176,11 +183,11 @@ public class StatementServiceExample {
         // 수신자 주소
         statement.setReceiverAddr("수신자 주소");
 
-        // 수신자 종목
-        statement.setReceiverBizClass("수신자 종목");
-
         // 수신자 업태
         statement.setReceiverBizType("수신자 업태");
+
+        // 수신자 종목
+        statement.setReceiverBizClass("수신자 종목");
 
         // 수신자 담당자 성명
         statement.setReceiverContactName("수신자 담당자 성명");
@@ -190,27 +197,13 @@ public class StatementServiceExample {
         // 실제 거래처의 메일주소가 기재되지 않도록 주의
         statement.setReceiverEmail("");
 
+        Map<String, String> propertyBag = new HashMap<String, String>();
 
-        /*********************************************************************
-         *                            전자명세서 기재정보
-         *********************************************************************/
+        propertyBag.put("Balance", "15000");            // 전잔액
+        propertyBag.put("Deposit", "5000");             // 입금액
+        propertyBag.put("CBalance", "20000");           // 현잔액
 
-        // 공급가액 합계
-        statement.setSupplyCostTotal("400000");
-
-        // 세액 합계
-        statement.setTaxTotal("40000");
-
-        // 합계금액. 공급가액 + 세액
-        statement.setTotalAmount("440000");
-
-        // 기재상 일련번호 항목
-        statement.setSerialNum("123");
-
-        // 기재상 비고 항목
-        statement.setRemark1("비고1");
-        statement.setRemark2("비고2");
-        statement.setRemark3("비고3");
+        statement.setPropertyBag(propertyBag);
 
         // 사업자등록증 이미지 첨부여부 (true / false 중 택 1)
         // └ true = 첨부 , false = 미첨부(기본값)
@@ -222,7 +215,6 @@ public class StatementServiceExample {
         // - 팝빌 사이트 또는 인감 및 첨부문서 등록 팝업 URL (GetSealURL API) 함수를 이용하여 등록
         statement.setBankBookYN(false);
 
-
         /*********************************************************************
          *                            전자명세서 품목항목
          *********************************************************************/
@@ -232,8 +224,8 @@ public class StatementServiceExample {
         StatementDetail detail = new StatementDetail();    // 상세항목(품목) 배열
 
         detail.setSerialNum((short) 1);                    // 일련번호, 1부터 순차기재
-        detail.setItemName("품명");                        // 품목명
         detail.setPurchaseDT("20230102");                  // 거래일자
+        detail.setItemName("품명");                        // 품목명
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
@@ -242,28 +234,23 @@ public class StatementServiceExample {
 
         detail = new StatementDetail();                    // 상세항목(품목) 배열
         detail.setSerialNum((short) 2);                    // 일련번호 1부터 순차기재
-        detail.setItemName("품명");                        // 품목명
         detail.setPurchaseDT("20230102");                  // 거래일자
+        detail.setItemName("품명");                        // 품목명
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
 
         statement.getDetailList().add(detail);
 
+        String Memo = "전자명세서 즉시발행 메모";
 
-        Map<String, String> propertyBag = new HashMap<String, String>();
-
-        propertyBag.put("Balance", "15000");            // 전잔액
-        propertyBag.put("Deposit", "5000");             // 입금액
-        propertyBag.put("CBalance", "20000");           // 현잔액
-
-        statement.setPropertyBag(propertyBag);
+        // 발행 안내 메일 제목
+        // - 미입력 시 팝빌에서 지정한  이메일 제목으로 전송
+        String emailSubject = "";
 
         try {
             SMTIssueResponse response = statementService.registIssue(CorpNum, statement, Memo, UserID, emailSubject);
-
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -283,24 +270,40 @@ public class StatementServiceExample {
         // 전자명세서 정보 객체
         Statement statement = new Statement();
 
-        // 작성일자, 형태 yyyyMMdd
-        statement.setWriteDate("20230113");
-
-        // {영수, 청구, 없음} 중 기재
-        statement.setPurposeType("영수");
-
-        // {과세, 영세, 면세} 중 기재
-        statement.setTaxType("과세");
-
-        // 맞춤양식코드, 미기재시 기본양식으로 처리
-        statement.setFormCode("");
-
         // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         statement.setItemCode((short) 121);
 
         // 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
         statement.setMgtKey("20230102-MVC001");
 
+        // 맞춤양식코드, 미기재시 기본양식으로 처리
+        statement.setFormCode("");
+
+        // 작성일자, 형태 yyyyMMdd
+        statement.setWriteDate("20230113");
+
+        // {과세, 영세, 면세} 중 기재
+        statement.setTaxType("과세");
+
+        // {영수, 청구, 없음} 중 기재
+        statement.setPurposeType("영수");
+
+        // 기재상 일련번호 항목
+        statement.setSerialNum("123");
+
+        // 세액 합계
+        statement.setTaxTotal("40000");
+
+        // 공급가액 합계
+        statement.setSupplyCostTotal("400000");
+
+        // 합계금액. 공급가액 + 세액
+        statement.setTotalAmount("440000");
+
+        // 기재상 비고 항목
+        statement.setRemark1("비고1");
+        statement.setRemark2("비고2");
+        statement.setRemark3("비고3");
 
         /*********************************************************************
          *                                발신자 정보
@@ -309,29 +312,26 @@ public class StatementServiceExample {
         // 발신자 사업자번호
         statement.setSenderCorpNum("1234567890");
 
+        // 발신자 종사업장 식별번호, 숫자 4자리, 필요시 기재
+        statement.setSenderTaxRegID("");
+
         // 발신자 상호
         statement.setSenderCorpName("발신자 상호");
-
-        // 발신자 주소
-        statement.setSenderAddr("발신자 주소");
 
         // 발신자 대표자 성명
         statement.setSenderCEOName("발신자 대표자 성명");
 
-        // 발신자 종사업장 식별번호, 숫자 4자리, 필요시 기재
-        statement.setSenderTaxRegID("");
-
-        // 발신자 종목
-        statement.setSenderBizClass("업종");
+        // 발신자 주소
+        statement.setSenderAddr("발신자 주소");
 
         // 발신자 업태
         statement.setSenderBizType("업태");
 
+        // 발신자 종목
+        statement.setSenderBizClass("업종");
+
         // 발신자 담당자 성명
         statement.setSenderContactName("발신자 담당자 성명");
-
-        // 발신자 담당자 메일주소
-        statement.setSenderEmail("test@test.com");
 
         // 발신자 담당자 연락처
         statement.setSenderTEL("070-7070-0707");
@@ -339,6 +339,8 @@ public class StatementServiceExample {
         // 발신자 담당자 휴대폰번호
         statement.setSenderHP("010-000-2222");
 
+        // 발신자 담당자 메일주소
+        statement.setSenderEmail("test@test.com");
 
         /*********************************************************************
          *                            수신자 정보
@@ -356,11 +358,11 @@ public class StatementServiceExample {
         // 수신자 주소
         statement.setReceiverAddr("수신자 주소");
 
-        // 수신자 종목
-        statement.setReceiverBizClass("수신자 종목");
-
         // 수신자 업태
         statement.setReceiverBizType("수신자 업태");
+
+        // 수신자 종목
+        statement.setReceiverBizClass("수신자 종목");
 
         // 수신자 담당자 성명
         statement.setReceiverContactName("수신자 담당자 성명");
@@ -370,27 +372,13 @@ public class StatementServiceExample {
         // 실제 거래처의 메일주소가 기재되지 않도록 주의
         statement.setReceiverEmail("test@receiver.com");
 
+        Map<String, String> propertyBag = new HashMap<String, String>();
 
-        /*********************************************************************
-         *                            전자명세서 기재정보
-         *********************************************************************/
+        propertyBag.put("Balance", "15000");            // 전잔액
+        propertyBag.put("Deposit", "5000");             // 입금액
+        propertyBag.put("CBalance", "20000");           // 현잔액
 
-        // 공급가액 합계
-        statement.setSupplyCostTotal("400000");
-
-        // 세액 합계
-        statement.setTaxTotal("40000");
-
-        // 합계금액. 공급가액 + 세액
-        statement.setTotalAmount("440000");
-
-        // 기재상 일련번호 항목
-        statement.setSerialNum("123");
-
-        // 기재상 비고 항목
-        statement.setRemark1("비고1");
-        statement.setRemark2("비고2");
-        statement.setRemark3("비고3");
+        statement.setPropertyBag(propertyBag);
 
         // 사업자등록증 이미지 첨부여부 (true / false 중 택 1)
         // └ true = 첨부 , false = 미첨부(기본값)
@@ -402,7 +390,6 @@ public class StatementServiceExample {
         // - 팝빌 사이트 또는 인감 및 첨부문서 등록 팝업 URL (GetSealURL API) 함수를 이용하여 등록
         statement.setBankBookYN(false);
 
-
         /*********************************************************************
          *                            전자명세서 품목항목
          *********************************************************************/
@@ -412,8 +399,8 @@ public class StatementServiceExample {
         StatementDetail detail = new StatementDetail();    // 상세항목(품목) 배열
 
         detail.setSerialNum((short) 1);                    // 일련번호, 1부터 순차기재
-        detail.setItemName("품명");                        // 품목명
         detail.setPurchaseDT("20230102");                  // 거래일자
+        detail.setItemName("품명");                        // 품목명
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
@@ -422,30 +409,17 @@ public class StatementServiceExample {
 
         detail = new StatementDetail();                    // 상세항목(품목) 배열
         detail.setSerialNum((short) 2);                    // 일련번호 1부터 순차기재
-        detail.setItemName("품명");                        // 품목명
         detail.setPurchaseDT("20230102");                  // 거래일자
+        detail.setItemName("품명");                        // 품목명
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
 
         statement.getDetailList().add(detail);
 
-
-        Map<String, String> propertyBag = new HashMap<String, String>();
-
-        propertyBag.put("Balance", "15000");            // 전잔액
-        propertyBag.put("Deposit", "5000");             // 입금액
-        propertyBag.put("CBalance", "20000");           // 현잔액
-
-        statement.setPropertyBag(propertyBag);
-
-
         try {
-
             Response response = statementService.register(CorpNum, statement);
-
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -470,24 +444,40 @@ public class StatementServiceExample {
         // 전자명세서 정보 객체
         Statement statement = new Statement();
 
-        // 작성일자, 형태 yyyyMmdd
-        statement.setWriteDate("20230102");
+        // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
+        // statement.setItemCode((short) 121);
 
-        // {영수, 청구, 없음} 중 기재
-        statement.setPurposeType("영수");
-
-        // {과세, 영세, 면세} 중 기재
-        statement.setTaxType("과세");
+        // 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
+        // statement.setMgtKey(mgtKey);
 
         // 맞춤양식코드, 미기재시 기본양식으로 처리
         statement.setFormCode("");
 
-         // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
-         // statement.setItemCode((short) 121);
+        // 작성일자, 형태 yyyyMmdd
+        statement.setWriteDate("20230102");
 
-         // 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
-         // statement.setMgtKey(mgtKey);
+        // {과세, 영세, 면세} 중 기재
+        statement.setTaxType("과세");
 
+        // {영수, 청구, 없음} 중 기재
+        statement.setPurposeType("영수");
+
+        // 기재상 일련번호 항목
+        statement.setSerialNum("123");
+
+        // 세액 합계
+        statement.setTaxTotal("40000");
+
+        // 공급가액 합계
+        statement.setSupplyCostTotal("400000");
+
+        // 합계금액. 공급가액 + 세액
+        statement.setTotalAmount("440000");
+
+        // 기재상 비고 항목
+        statement.setRemark1("비고1");
+        statement.setRemark2("비고2");
+        statement.setRemark3("비고3");
 
         /*********************************************************************
          *                                발신자 정보
@@ -496,29 +486,26 @@ public class StatementServiceExample {
         // 발신자 사업자번호
         statement.setSenderCorpNum("1234567890");
 
+        // 발신자 종사업장 식별번호, 숫자 4자리, 필요시 기재
+        statement.setSenderTaxRegID("");
+
         // 발신자 상호
         statement.setSenderCorpName("발신자 상호");
-
-        // 발신자 주소
-        statement.setSenderAddr("발신자 주소_수정");
 
         // 발신자 대표자 성명
         statement.setSenderCEOName("발신자 대표자 성명_수정");
 
-        // 발신자 종사업장 식별번호, 숫자 4자리, 필요시 기재
-        statement.setSenderTaxRegID("");
-
-        // 발신자 종목
-        statement.setSenderBizClass("업종");
+        // 발신자 주소
+        statement.setSenderAddr("발신자 주소_수정");
 
         // 발신자 업태
         statement.setSenderBizType("업태");
 
+        // 발신자 종목
+        statement.setSenderBizClass("업종");
+
         // 발신자 담당자 성명
         statement.setSenderContactName("발신자 담당자 성명");
-
-        // 발신자 담당자 메일주소
-        statement.setSenderEmail("test@test.com");
 
         // 발신자 담당자 연락처
         statement.setSenderTEL("070-7070-0707");
@@ -526,6 +513,8 @@ public class StatementServiceExample {
         // 발신자 담당자 휴대폰번호
         statement.setSenderHP("010-000-2222");
 
+        // 발신자 담당자 메일주소
+        statement.setSenderEmail("test@test.com");
 
         /*********************************************************************
          *                            수신자 정보
@@ -543,11 +532,11 @@ public class StatementServiceExample {
         // 수신자 주소
         statement.setReceiverAddr("수신자 주소");
 
-        // 수신자 종목
-        statement.setReceiverBizClass("수신자 종목");
-
         // 수신자 업태
         statement.setReceiverBizType("수신자 업태");
+
+        // 수신자 종목
+        statement.setReceiverBizClass("수신자 종목");
 
         // 수신자 담당자 성명
         statement.setReceiverContactName("수신자 담당자 성명");
@@ -557,27 +546,13 @@ public class StatementServiceExample {
         // 실제 거래처의 메일주소가 기재되지 않도록 주의
         statement.setReceiverEmail("test@receiver.com");
 
+        Map<String, String> propertyBag = new HashMap<String, String>();
 
-        /*********************************************************************
-         *                            전자명세서 기재정보
-         *********************************************************************/
+        propertyBag.put("Balance", "15000");            // 전잔액
+        propertyBag.put("Deposit", "5000");             // 입금액
+        propertyBag.put("CBalance", "20000");           // 현잔액
 
-        // 공급가액 합계
-        statement.setSupplyCostTotal("400000");
-
-        // 세액 합계
-        statement.setTaxTotal("40000");
-
-        // 합계금액. 공급가액 + 세액
-        statement.setTotalAmount("440000");
-
-        // 기재상 일련번호 항목
-        statement.setSerialNum("123");
-
-        // 기재상 비고 항목
-        statement.setRemark1("비고1");
-        statement.setRemark2("비고2");
-        statement.setRemark3("비고3");
+        statement.setPropertyBag(propertyBag);
 
         // 사업자등록증 이미지 첨부여부 (true / false 중 택 1)
         // └ true = 첨부 , false = 미첨부(기본값)
@@ -589,7 +564,6 @@ public class StatementServiceExample {
         // - 팝빌 사이트 또는 인감 및 첨부문서 등록 팝업 URL (GetSealURL API) 함수를 이용하여 등록
         statement.setBankBookYN(false);
 
-
         /*********************************************************************
          *                            전자명세서 품목항목
          *********************************************************************/
@@ -599,8 +573,8 @@ public class StatementServiceExample {
         StatementDetail detail = new StatementDetail();    // 상세항목(품목) 배열
 
         detail.setSerialNum((short) 1);                    // 일련번호, 1부터 순차기재
-        detail.setItemName("품명");                        // 품목명
         detail.setPurchaseDT("20230102");                  // 거래일자
+        detail.setItemName("품명");                        // 품목명
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
@@ -609,30 +583,17 @@ public class StatementServiceExample {
 
         detail = new StatementDetail();                    // 상세항목(품목) 배열
         detail.setSerialNum((short) 2);                    // 일련번호 1부터 순차기재
-        detail.setItemName("품명");                        // 품목명
         detail.setPurchaseDT("20230102");                  // 거래일자
+        detail.setItemName("품명");                        // 품목명
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
 
         statement.getDetailList().add(detail);
 
-
-        Map<String, String> propertyBag = new HashMap<String, String>();
-
-        propertyBag.put("Balance", "15000");            // 전잔액
-        propertyBag.put("Deposit", "5000");             // 입금액
-        propertyBag.put("CBalance", "20000");           // 현잔액
-
-        statement.setPropertyBag(propertyBag);
-
         try {
-
-            Response response = statementService.update(CorpNum, itemCode,
-                    mgtKey, statement);
-
+            Response response = statementService.update(CorpNum, itemCode, mgtKey, statement);
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -664,12 +625,8 @@ public class StatementServiceExample {
         String emailSubject = "테스트";
 
         try {
-
-            Response response = statementService.issue(CorpNum, itemCode,
-                    mgtKey, memo, emailSubject, null);
-
+            Response response = statementService.issue(CorpNum, itemCode, mgtKey, memo, emailSubject, null);
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -696,12 +653,8 @@ public class StatementServiceExample {
         String memo = "발행취소 메모";
 
         try {
-
-            Response response = statementService.cancel(CorpNum, itemCode,
-                    mgtKey, memo);
-
+            Response response = statementService.cancel(CorpNum, itemCode, mgtKey, memo);
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -726,11 +679,8 @@ public class StatementServiceExample {
         String mgtKey = "20230102-MVC002";
 
         try {
-
             Response response = statementService.delete(CorpNum, itemCode, mgtKey);
-
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -754,12 +704,8 @@ public class StatementServiceExample {
         String mgtKey = "20230102-MVC001";
 
         try {
-
-            StatementInfo statementInfo = statementService.getInfo(CorpNum,
-                    itemCode, mgtKey);
-
+            StatementInfo statementInfo = statementService.getInfo(CorpNum, itemCode, mgtKey);
             m.addAttribute("StatementInfo", statementInfo);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -783,12 +729,8 @@ public class StatementServiceExample {
         String[] MgtKeyList = new String[]{"20230102-MVC001", "20230102-MVC002"};
 
         try {
-
-            StatementInfo[] statementInfos = statementService.getInfos(CorpNum,
-                    itemCode, MgtKeyList);
-
+            StatementInfo[] statementInfos = statementService.getInfos(CorpNum, itemCode, MgtKeyList);
             m.addAttribute("StatementInfos", statementInfos);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -811,12 +753,8 @@ public class StatementServiceExample {
         String mgtKey = "20230102-MVC001";
 
         try {
-
-            Statement statement = statementService.getDetailInfo(CorpNum,
-                    itemCode, mgtKey);
-
+            Statement statement = statementService.getDetailInfo(CorpNum, itemCode, mgtKey);
             m.addAttribute("Statement", statement);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -867,12 +805,9 @@ public class StatementServiceExample {
         String Order = "D";
 
         try {
-
-            StmtSearchResult searchResult = statementService.search(CorpNum,
-                    DType, SDate, EDate, State, ItemCode, QString, Page, PerPage, Order);
-
+            StmtSearchResult searchResult = statementService.search(CorpNum, DType, SDate, EDate, State, ItemCode,
+                    QString, Page, PerPage, Order);
             m.addAttribute("SearchResult", searchResult);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -895,12 +830,8 @@ public class StatementServiceExample {
         String mgtKey = "20230102-MVC001";
 
         try {
-
-            StatementLog[] statementLogs = statementService.getLogs(CorpNum,
-                    itemCode, mgtKey);
-
+            StatementLog[] statementLogs = statementService.getLogs(CorpNum, itemCode, mgtKey);
             m.addAttribute("StatementLogs", statementLogs);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -921,11 +852,8 @@ public class StatementServiceExample {
         String TOGO = "SBOX";
 
         try {
-
             String url = statementService.getURL(CorpNum, UserID, TOGO);
-
             m.addAttribute("Result", url);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -949,11 +877,8 @@ public class StatementServiceExample {
         String mgtKey = "20230102-MVC001";
 
         try {
-
             String url = statementService.getPopUpURL(CorpNum, itemCode, mgtKey, UserID);
-
             m.addAttribute("Result", url);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -977,11 +902,8 @@ public class StatementServiceExample {
         String mgtKey = "20230102-MVC001";
 
         try {
-
             String url = statementService.getViewURL(CorpNum, itemCode, mgtKey, UserID);
-
             m.addAttribute("Result", url);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -1007,11 +929,8 @@ public class StatementServiceExample {
         String mgtKey = "20230102-MVC001";
 
         try {
-
             String url = statementService.getPrintURL(CorpNum, itemCode, mgtKey, UserID);
-
             m.addAttribute("Result", url);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -1036,11 +955,8 @@ public class StatementServiceExample {
         String mgtKey = "20230102-MVC001";
 
         try {
-
             String url = statementService.getEPrintURL(CorpNum, itemCode, mgtKey, UserID);
-
             m.addAttribute("Result", url);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -1064,11 +980,8 @@ public class StatementServiceExample {
         String[] mgtKeyList = new String[]{"20230102-MVC001", "20230102-MVC002"};
 
         try {
-
             String url = statementService.getMassPrintURL(CorpNum, itemCode, mgtKeyList, UserID);
-
             m.addAttribute("Result", url);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -1093,9 +1006,7 @@ public class StatementServiceExample {
 
         try {
             String url = statementService.getMailURL(CorpNum, itemCode, mgtKey, UserID);
-
             m.addAttribute("Result", url);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -1113,11 +1024,8 @@ public class StatementServiceExample {
          */
 
         try {
-
             String url = statementService.getSealURL(CorpNum, UserID);
-
             m.addAttribute("Result", url);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -1144,27 +1052,21 @@ public class StatementServiceExample {
 
         // 첨부할 파일의 InputStream. 예제는 resource에 테스트파일을 참조함.
         // FileInputStream으로 처리하는 것을 권함.
-        InputStream stream = getClass().getClassLoader().getResourceAsStream("test.jpg");
-
+        InputStream FileData = getClass().getClassLoader().getResourceAsStream("test.jpg");
 
         try {
-
-            Response response = statementService.attachFile(CorpNum, itemCode,
-                    mgtKey, displayName, stream);
-
+            Response response = statementService.attachFile(CorpNum, itemCode, mgtKey, displayName, FileData);
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
         } finally {
-            if (stream != null)
+            if (FileData != null)
                 try {
-                    stream.close();
+                    FileData.close();
                 } catch (IOException e) {
                 }
         }
-
 
         return "response";
     }
@@ -1188,12 +1090,8 @@ public class StatementServiceExample {
         String FileID = "";
 
         try {
-
-            Response response = statementService.deleteFile(CorpNum, itemCode,
-                    mgtKey, FileID);
-
+            Response response = statementService.deleteFile(CorpNum, itemCode, mgtKey, FileID);
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -1217,12 +1115,8 @@ public class StatementServiceExample {
         String mgtKey = "20230102-MVC002";
 
         try {
-
-            AttachedFile[] attachedFiles = statementService.getFiles(CorpNum,
-                    itemCode, mgtKey);
-
+            AttachedFile[] attachedFiles = statementService.getFiles(CorpNum, itemCode, mgtKey);
             m.addAttribute("AttachedFiles", attachedFiles);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -1248,12 +1142,8 @@ public class StatementServiceExample {
         String receiver = "test@test.com";
 
         try {
-
-            Response response = statementService.sendEmail(CorpNum, itemCode,
-                    mgtKey, receiver);
-
+            Response response = statementService.sendEmail(CorpNum, itemCode, mgtKey, receiver);
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -1287,12 +1177,8 @@ public class StatementServiceExample {
         String contents = "전자명세서 문자메시지 전송 테스트입니다.";
 
         try {
-
-            Response response = statementService.sendSMS(CorpNum, itemCode,
-                    mgtKey, sender, receiver, contents);
-
+            Response response = statementService.sendSMS(CorpNum, itemCode, mgtKey, sender, receiver, contents);
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -1322,12 +1208,8 @@ public class StatementServiceExample {
         String receiver = "070111222";
 
         try {
-
-            Response response = statementService.sendFAX(CorpNum, itemCode,
-                    mgtKey, sender, receiver);
-
+            Response response = statementService.sendFAX(CorpNum, itemCode, mgtKey, sender, receiver);
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -1347,26 +1229,8 @@ public class StatementServiceExample {
          * - https://developers.popbill.com/reference/statement/java/api/etc#FAXSend
          */
 
-        // 팩스전송 발신번호
-        String sendNum = "07043042991";
-
-        // 수신팩스번호
-        String receiveNum = "00111222";
-
         // 전자명세서 정보 객체
         Statement statement = new Statement();
-
-        // 작성일자, 형태 yyyyMmdd
-        statement.setWriteDate("20220218");
-
-        // {영수, 청구, 없음} 중 기재
-        statement.setPurposeType("영수");
-
-        // {과세, 영세, 면세} 중 기재
-        statement.setTaxType("과세");
-
-        // 맞춤양식코드, 미기재시 기본양식으로 처리
-        statement.setFormCode("");
 
         // 명세서 유형 코드, [121 - 거래명세서], [122 - 청구서], [123 - 견적서], [124 - 발주서], [125 - 입금표], [126 - 영수증]
         statement.setItemCode((short) 121);
@@ -1374,6 +1238,34 @@ public class StatementServiceExample {
         // 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
         statement.setMgtKey("20230102-MVC003");
 
+        // 맞춤양식코드, 미기재시 기본양식으로 처리
+        statement.setFormCode("");
+
+        // 작성일자, 형태 yyyyMmdd
+        statement.setWriteDate("20220218");
+
+        // {과세, 영세, 면세} 중 기재
+        statement.setTaxType("과세");
+
+        // {영수, 청구, 없음} 중 기재
+        statement.setPurposeType("영수");
+
+        // 기재상 일련번호 항목
+        statement.setSerialNum("123");
+
+        // 세액 합계
+        statement.setTaxTotal("40000");
+
+        // 공급가액 합계
+        statement.setSupplyCostTotal("400000");
+
+        // 합계금액. 공급가액 + 세액
+        statement.setTotalAmount("440000");
+
+        // 기재상 비고 항목
+        statement.setRemark1("비고1");
+        statement.setRemark2("비고2");
+        statement.setRemark3("비고3");
 
         /*********************************************************************
          *                                발신자 정보
@@ -1382,29 +1274,26 @@ public class StatementServiceExample {
         // 발신자 사업자번호
         statement.setSenderCorpNum("1234567890");
 
+        // 발신자 종사업장 식별번호, 숫자 4자리, 필요시 기재
+        statement.setSenderTaxRegID("");
+
         // 발신자 상호
         statement.setSenderCorpName("발신자 상호");
-
-        // 발신자 주소
-        statement.setSenderAddr("발신자 주소");
 
         // 발신자 대표자 성명
         statement.setSenderCEOName("발신자 대표자 성명");
 
-        // 발신자 종사업장 식별번호, 숫자 4자리, 필요시 기재
-        statement.setSenderTaxRegID("");
-
-        // 발신자 종목
-        statement.setSenderBizClass("업종");
+        // 발신자 주소
+        statement.setSenderAddr("발신자 주소");
 
         // 발신자 업태
         statement.setSenderBizType("업태");
 
+        // 발신자 종목
+        statement.setSenderBizClass("업종");
+
         // 발신자 담당자 성명
         statement.setSenderContactName("발신자 담당자 성명");
-
-        // 발신자 담당자 메일주소
-        statement.setSenderEmail("test@test.com");
 
         // 발신자 담당자 연락처
         statement.setSenderTEL("070-7070-0707");
@@ -1412,6 +1301,8 @@ public class StatementServiceExample {
         // 발신자 담당자 휴대폰번호
         statement.setSenderHP("010-000-2222");
 
+        // 발신자 담당자 메일주소
+        statement.setSenderEmail("test@test.com");
 
         /*********************************************************************
          *                            수신자 정보
@@ -1429,11 +1320,11 @@ public class StatementServiceExample {
         // 수신자 주소
         statement.setReceiverAddr("수신자 주소");
 
-        // 수신자 종목
-        statement.setReceiverBizClass("수신자 종목");
-
         // 수신자 업태
         statement.setReceiverBizType("수신자 업태");
+
+        // 수신자 종목
+        statement.setReceiverBizClass("수신자 종목");
 
         // 수신자 담당자 성명
         statement.setReceiverContactName("수신자 담당자 성명");
@@ -1443,27 +1334,13 @@ public class StatementServiceExample {
         // 실제 거래처의 메일주소가 기재되지 않도록 주의
         statement.setReceiverEmail("test@receiver.com");
 
+        Map<String, String> propertyBag = new HashMap<String, String>();
 
-        /*********************************************************************
-         *                            전자명세서 기재정보
-         *********************************************************************/
+        propertyBag.put("Balance", "15000");            // 전잔액
+        propertyBag.put("Deposit", "5000");             // 입금액
+        propertyBag.put("CBalance", "20000");           // 현잔액
 
-        // 공급가액 합계
-        statement.setSupplyCostTotal("400000");
-
-        // 세액 합계
-        statement.setTaxTotal("40000");
-
-        // 합계금액. 공급가액 + 세액
-        statement.setTotalAmount("440000");
-
-        // 기재상 일련번호 항목
-        statement.setSerialNum("123");
-
-        // 기재상 비고 항목
-        statement.setRemark1("비고1");
-        statement.setRemark2("비고2");
-        statement.setRemark3("비고3");
+        statement.setPropertyBag(propertyBag);
 
         // 사업자등록증 이미지 첨부여부 (true / false 중 택 1)
         // └ true = 첨부 , false = 미첨부(기본값)
@@ -1475,7 +1352,6 @@ public class StatementServiceExample {
         // - 팝빌 사이트 또는 인감 및 첨부문서 등록 팝업 URL (GetSealURL API) 함수를 이용하여 등록
         statement.setBankBookYN(false);
 
-
         /*********************************************************************
          *                            전자명세서 품목항목
          *********************************************************************/
@@ -1485,8 +1361,8 @@ public class StatementServiceExample {
         StatementDetail detail = new StatementDetail();    // 상세항목(품목) 배열
 
         detail.setSerialNum((short) 1);                    // 일련번호, 1부터 순차기재
-        detail.setItemName("품명");                        // 품목명
         detail.setPurchaseDT("20230102");                  // 거래일자
+        detail.setItemName("품명");                        // 품목명
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
@@ -1495,35 +1371,28 @@ public class StatementServiceExample {
 
         detail = new StatementDetail();                    // 상세항목(품목) 배열
         detail.setSerialNum((short) 2);                    // 일련번호 1부터 순차기재
-        detail.setItemName("품명");                        // 품목명
         detail.setPurchaseDT("20230102");                  // 거래일자
+        detail.setItemName("품명");                        // 품목명
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
 
         statement.getDetailList().add(detail);
 
+        // 팩스전송 발신번호
+        String sendNum = "07043042991";
 
-        Map<String, String> propertyBag = new HashMap<String, String>();
-
-        propertyBag.put("Balance", "15000");            // 전잔액
-        propertyBag.put("Deposit", "5000");             // 입금액
-        propertyBag.put("CBalance", "20000");           // 현잔액
-
-        statement.setPropertyBag(propertyBag);
-
+        // 수신팩스번호
+        String receiveNum = "00111222";
 
         try {
-
-            String receiptNum = statementService.FAXSend(CorpNum, statement,
-                    sendNum, receiveNum);
-
+            String receiptNum = statementService.FAXSend(CorpNum, statement, sendNum, receiveNum);
             m.addAttribute("Result", receiptNum);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
         }
+
         return "result";
     }
 
@@ -1548,12 +1417,8 @@ public class StatementServiceExample {
         String subMgtKey = "20230102-MVC002";
 
         try {
-
-            Response response = statementService.attachStatement(CorpNum,
-                    itemCode, mgtKey, subItemCode, subMgtKey);
-
+            Response response = statementService.attachStatement(CorpNum, itemCode, mgtKey, subItemCode, subMgtKey);
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -1575,7 +1440,6 @@ public class StatementServiceExample {
         // 전자명세서 문서번호
         String mgtKey = "20230102-MVC001";
 
-
         // 첨부해제할 전자명세서 유형 코드
         int subItemCode = 121;
 
@@ -1583,12 +1447,8 @@ public class StatementServiceExample {
         String subMgtKey = "20230102-MVC002";
 
         try {
-
-            Response response = statementService.detachStatement(CorpNum,
-                    itemCode, mgtKey, subItemCode, subMgtKey);
-
+            Response response = statementService.detachStatement(CorpNum, itemCode, mgtKey, subItemCode, subMgtKey);
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -1605,11 +1465,8 @@ public class StatementServiceExample {
          */
 
         try {
-
             EmailSendConfig[] emailSendConfigs = statementService.listEmailConfig(CorpNum);
-
             m.addAttribute("EmailSendConfigs", emailSendConfigs);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -1639,12 +1496,8 @@ public class StatementServiceExample {
         Boolean sendYN = true;
 
         try {
-
-            Response response = statementService.updateEmailConfig(CorpNum,
-                    emailType, sendYN);
-
+            Response response = statementService.updateEmailConfig(CorpNum, emailType, sendYN);
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -1664,15 +1517,10 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         try {
-
             float unitCost = statementService.getUnitCost(CorpNum, itemCode);
-
             m.addAttribute("Result", unitCost);
-
         } catch (PopbillException e) {
-
             m.addAttribute("Exception", e);
-
             return "exception";
         }
 
@@ -1690,11 +1538,8 @@ public class StatementServiceExample {
         int itemCode = 121;
 
         try {
-
             ChargeInfo chrgInfo = statementService.getChargeInfo(CorpNum, itemCode);
-
             m.addAttribute("ChargeInfo", chrgInfo);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -1702,4 +1547,5 @@ public class StatementServiceExample {
 
         return "getChargeInfo";
     }
+
 }

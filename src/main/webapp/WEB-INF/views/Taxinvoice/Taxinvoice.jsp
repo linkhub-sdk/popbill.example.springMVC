@@ -15,10 +15,25 @@
         <fieldset class="fieldset2">
             <legend>Taxinvoice</legend>
             <ul>
-                <li>writeDate (작성일자) : ${Taxinvoice.writeDate}</li>
-                <li>chargeDirection (과금방향) : ${Taxinvoice.chargeDirection}</li>
+                <li>NTSConfirmNum (국세청 승인번호) : ${Taxinvoice.NTSConfirmNum}</li>
                 <li>issueType (발행형태) : ${Taxinvoice.issueType}</li>
                 <li>taxType (과세형태) : ${Taxinvoice.taxType}</li>
+                <li>chargeDirection (과금방향) : ${Taxinvoice.chargeDirection}</li>
+                <li>serialNum (일련번호) : ${Taxinvoice.serialNum}</li>
+                <li>kwon (권) : ${Taxinvoice.kwon}</li>
+                <li>ho (호) : ${Taxinvoice.ho}</li>
+                <li>writeDate (작성일자) : ${Taxinvoice.writeDate}</li>
+                <li>purposeType (영수/청구) : ${Taxinvoice.purposeType}</li>
+                <li>supplyCostTotal (공급가액 합계) : ${Taxinvoice.supplyCostTotal}</li>
+                <li>taxTotal (세액 합계) : ${Taxinvoice.taxTotal}</li>
+                <li>totalAmount (합계금액) : ${Taxinvoice.totalAmount}</li>
+                <li>cash (현금) : ${Taxinvoice.cash}</li>
+                <li>chkBill (수표) : ${Taxinvoice.chkBill}</li>
+                <li>credit (외상) : ${Taxinvoice.credit}</li>
+                <li>note (어음) : ${Taxinvoice.note}</li>
+                <li>remark1 (비고1) : ${Taxinvoice.remark1}</li>
+                <li>remark2 (비고2) : ${Taxinvoice.remark2}</li>
+                <li>remark3 (비고3) : ${Taxinvoice.remark3}</li>
 
                 <li>invoicerCorpNum (공급자 사업자번호) : ${Taxinvoice.invoicerCorpNum}</li>
                 <li>invoicerCorpName (공급자 상호) : ${Taxinvoice.invoicerCorpName}</li>
@@ -68,25 +83,10 @@
                 <li>trusteeEmail (수탁자 메일) : ${Taxinvoice.trusteeEmail}</li>
                 <li>trusteeSMSSendYN (안내 문자 전송여부) : ${Taxinvoice.trusteeSMSSendYN}</li>
 
-                <li>supplyCostTotal (공급가액 합계) : ${Taxinvoice.supplyCostTotal}</li>
-                <li>taxTotal (세액 합계) : ${Taxinvoice.taxTotal}</li>
-                <li>totalAmount (합계금액) : ${Taxinvoice.totalAmount}</li>
                 <li>modifyCode (수정 사유코드) : ${Taxinvoice.modifyCode}</li>
                 <li>orgNTSConfirmNum (원본세금계산서 국세청 승인번호) : ${Taxinvoice.orgNTSConfirmNum}</li>
-                <li>purposeType (영수/청구) : ${Taxinvoice.purposeType}</li>
-                <li>serialNum (일련번호) : ${Taxinvoice.serialNum}</li>
-                <li>cash (현금) : ${Taxinvoice.cash}</li>
-                <li>chkBill (수표) : ${Taxinvoice.chkBill}</li>
-                <li>credit (외상) : ${Taxinvoice.credit}</li>
-                <li>note (어음) : ${Taxinvoice.note}</li>
-                <li>remark1 (비고1) : ${Taxinvoice.remark1}</li>
-                <li>remark2 (비고2) : ${Taxinvoice.remark2}</li>
-                <li>remark3 (비고3) : ${Taxinvoice.remark3}</li>
-                <li>kwon (권) : ${Taxinvoice.kwon}</li>
-                <li>ho (호) : ${Taxinvoice.ho}</li>
                 <li>businessLicenseYN (사업자등록증 이미지 첨부여부) : ${Taxinvoice.businessLicenseYN}</li>
                 <li>bankBookYN (통장사본 이미지 첨부여부) : ${Taxinvoice.bankBookYN}</li>
-                <li>NTSConfirmNum (국세청 승인번호) : ${Taxinvoice.NTSConfirmNum}</li>
             </ul>
             <fieldset class="fieldset3">
                 <legend>detailList (상세항목 배열)</legend>

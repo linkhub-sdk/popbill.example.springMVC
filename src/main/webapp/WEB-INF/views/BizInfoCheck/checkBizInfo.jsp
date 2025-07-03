@@ -22,6 +22,7 @@
                     <li>companyRegNum (법인번호): ${BizInfo.companyRegNum}</li>
                     <li>checkDT (확인일시) : ${BizInfo.checkDT}</li>
                     <li>corpName (상호): ${BizInfo.corpName}</li>
+                    <li>CEOName (대표자명) : ${BizInfo.CEOName}</li>
                     <li>corpCode (기업형태코드): ${BizInfo.corpCode}</li>
                     <li>corpScaleCode (기업규모코드): ${BizInfo.corpScaleCode}</li>
                     <li>personCorpCode (개인법인코드): ${BizInfo.personCorpCode}</li>
@@ -29,7 +30,6 @@
                     <li>industryCode (산업코드) : ${BizInfo.industryCode}</li>
                     <li>establishCode (설립구분코드) : ${BizInfo.establishCode}</li>
                     <li>establishDate (설립일자) : ${BizInfo.establishDate}</li>
-                    <li>CEOName (대표자명) : ${BizInfo.CEOName}</li>
                     <li>workPlaceCode (사업장구분코드): ${BizInfo.workPlaceCode}</li>
                     <li>addrCode (주소구분코드) : ${BizInfo.addrCode}</li>
                     <li>zipCode (우편번호) : ${BizInfo.zipCode}</li>
@@ -40,10 +40,10 @@
                     <li>bizType (업태) : ${BizInfo.bizType}</li>
                     <li>result (상태코드) : ${BizInfo.result}</li>
                     <li>resultMessage (결과메시지) : ${BizInfo.resultMessage}</li>
-                    <li>closeDownTaxType (사업자과세유형) : ${BizInfo.closeDownTaxType}</li>
-                    <li>closeDownTaxTypeDate (과세유형전환일자): ${BizInfo.closeDownTaxTypeDate}</li>
                     <li>closeDownState (휴폐업상태) : ${BizInfo.closeDownState}</li>
                     <li>closeDownStateDate (휴폐업일자) : ${BizInfo.closeDownStateDate}</li>
+                    <li>closeDownTaxType (사업자과세유형) : ${BizInfo.closeDownTaxType}</li>
+                    <li>closeDownTaxTypeDate (과세유형전환일자): ${BizInfo.closeDownTaxTypeDate}</li>
                 </ul>
             </fieldset>
         </fieldset>

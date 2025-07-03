@@ -31,8 +31,8 @@
                                 <li>u1 (버튼링크1) : ${btnInfo.u1}</li>
                                 <li>u2 (버튼링크2) : ${btnInfo.u2}</li>
                             </ul>
-                         </fieldset>
-                     </c:forEach>
+                        </fieldset>
+                    </c:forEach>
                 </c:if>
              </ul>
     </fieldset>

@@ -55,12 +55,8 @@ public class AccountCheckServiceExample {
 		String AccountNumber = "";
 
 		try {
-
-			AccountCheckInfo accountInfo =
-					accountCheckService.CheckAccountInfo(CorpNum, BankCode, AccountNumber);
-
+			AccountCheckInfo accountInfo = accountCheckService.CheckAccountInfo(CorpNum, BankCode, AccountNumber);
 			m.addAttribute("AccountInfo", accountInfo);
-
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
 			return "exception";
@@ -94,12 +90,9 @@ public class AccountCheckServiceExample {
 		String IdentityNum = "";
 
 		try {
-
-			DepositorCheckInfo depositorCheckInfo = accountCheckService.CheckDepositorInfo(
-					CorpNum, BankCode, AccountNumber, IdentityNumType, IdentityNum);
-
+			DepositorCheckInfo depositorCheckInfo = accountCheckService.CheckDepositorInfo(CorpNum, BankCode,
+					AccountNumber, IdentityNumType, IdentityNum);
 			m.addAttribute("DepositorCheckInfo", depositorCheckInfo);
-
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
 			return "exception";
@@ -120,11 +113,8 @@ public class AccountCheckServiceExample {
 		String ServiceType = "성명";
 
 		try {
-
 			float unitCost = accountCheckService.getUnitCost(CorpNum, ServiceType);
-
 			m.addAttribute("Result", unitCost);
-
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
 			return "exception";
@@ -147,7 +137,6 @@ public class AccountCheckServiceExample {
 		try {
 			ChargeInfo chrgInfo = accountCheckService.getChargeInfo(CorpNum, ServiceType);
 			m.addAttribute("ChargeInfo", chrgInfo);
-
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
 			return "exception";

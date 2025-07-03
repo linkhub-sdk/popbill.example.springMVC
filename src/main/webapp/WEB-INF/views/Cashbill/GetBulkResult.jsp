@@ -26,8 +26,8 @@
                     <li>txResultCode (접수 결과코드) : ${BulkResult.txResultCode}</li>
                     <li>txStartDT (발행처리 시작일시) : ${BulkResult.txStartDT}</li>
                     <li>txEndDT (발행처리 완료일시) : ${BulkResult.txEndDT}</li>
-                    <li>receiptID (접수아이디) : ${BulkResult.receiptID}</li>
                     <li>receiptDT (접수일시) : ${BulkResult.receiptDT}</li>
+                    <li>receiptID (접수아이디) : ${BulkResult.receiptID}</li>
                 </ul>
             </fieldset>
         </c:if>

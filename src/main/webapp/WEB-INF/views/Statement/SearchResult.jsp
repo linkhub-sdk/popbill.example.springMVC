@@ -31,13 +31,12 @@
                 <fieldset class="fieldset2">
                     <legend>[ ${status.index+1} / ${SearchResult.perPage} ]</legend>
                     <ul>
-                        <li>itemKey (팝빌번호) : ${SearchInfo.itemKey}</li>
                         <li>itemCode (명세서 코드) : ${SearchInfo.itemCode}</li>
+                        <li>itemKey (팝빌번호) : ${SearchInfo.itemKey}</li>
                         <li>mgtKey (문서번호) : ${SearchInfo.mgtKey}</li>
-                        <li>stateCode (상태코드) : ${SearchInfo.stateCode}</li>
                         <li>taxType (과세유형) : ${SearchInfo.taxType}</li>
-                        <li>purposeType (영수/청구) : ${SearchInfo.purposeType}</li>
                         <li>writeDate (작성일자) : ${SearchInfo.writeDate}</li>
+                        <li>regDT (등록일시) : ${SearchInfo.regDT}</li>
                         <li>senderCorpName (발신자 상호) : ${SearchInfo.senderCorpName}</li>
                         <li>senderCorpNum (발신자 사업자번호) : ${SearchInfo.senderCorpNum}</li>
                         <li>senderPrintYN (발신자 인쇄여부) : ${SearchInfo.senderPrintYN}</li>
@@ -46,11 +45,12 @@
                         <li>receiverPrintYN (수신자 인쇄여부) : ${SearchInfo.receiverPrintYN}</li>
                         <li>supplyCostTotal (공급가액 합계) : ${SearchInfo.supplyCostTotal}</li>
                         <li>taxTotal (세액 합계) : ${SearchInfo.taxTotal}</li>
+                        <li>purposeType (영수/청구) : ${SearchInfo.purposeType}</li>
                         <li>issueDT (발행일시) : ${SearchInfo.issueDT}</li>
+                        <li>stateCode (상태코드) : ${SearchInfo.stateCode}</li>
                         <li>stateDT (상태변경 일시) : ${SearchInfo.stateDT}</li>
-                        <li>openYN (개봉여부) : ${SearchInfo.openYN}</li>
                         <li>stateMemo (상태메모) : ${SearchInfo.stateMemo}</li>
-                        <li>regDT (등록일시) : ${SearchInfo.regDT}</li>
+                        <li>openYN (개봉여부) : ${SearchInfo.openYN}</li>
                     </ul>
                 </fieldset>
             </c:forEach>

@@ -16,10 +16,7 @@
             <fieldset class="fieldset2">
                 <legend>문자 전송결과</legend>
                 <ul>
-                    <li>state (상태코드) : ${SentMessage.state}</li>
-                    <li>result (결과코드) : ${SentMessage.result}</li>
                     <li>subject (메시지 제목) : ${SentMessage.subject}</li>
-                    <li>messageType (메시지타입) : ${SentMessage.messageType}</li>
                     <li>content (메시지 내용) : ${SentMessage.content}</li>
                     <li>sendNum (발신번호) : ${SentMessage.sendNum}</li>
                     <li>senderName (발신자명) : ${SentMessage.senderName}</li>
@@ -29,6 +26,9 @@
                     <li>sendDT (전송일시) : ${SentMessage.sendDT}</li>
                     <li>resultDT (전송결과 수신일시) : ${SentMessage.resultDT}</li>
                     <li>reserveDT (예약일시) : ${SentMessage.reserveDT}</li>
+                    <li>state (상태코드) : ${SentMessage.state}</li>
+                    <li>result (결과코드) : ${SentMessage.result}</li>
+                    <li>messageType (메시지타입) : ${SentMessage.messageType}</li
                     <li>tranNet (전송처리 이동통신사명) : ${SentMessage.tranNet}</li>
                     <li>receiptNum (접수번호) : ${SentMessage.receiptNum}</li>
                     <li>requestNum (요청번호) : ${SentMessage.requestNum}</li>

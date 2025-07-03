@@ -20,6 +20,23 @@
                     <li>taxType (과세형태) : ${TaxinvoiceInfo.taxType}</li>
                     <li>writeDate (작성일자) : ${TaxinvoiceInfo.writeDate}</li>
                     <li>regDT (임시저장 일자) : ${TaxinvoiceInfo.regDT}</li>
+                    <li>issueType (발행형태) : ${TaxinvoiceInfo.issueType}</li>
+                    <li>supplyCostTotal (공급가액 합계) : ${TaxinvoiceInfo.supplyCostTotal}</li>
+                    <li>taxTotal (세액 합계) : ${TaxinvoiceInfo.taxTotal}</li>
+                    <li>purposeType (영수/청구) : ${TaxinvoiceInfo.purposeType}</li>
+                    <li>issueDT (발행일시) : ${TaxinvoiceInfo.issueDT}</li>
+                    <li>lateIssueYN (지연발행 여부) : ${TaxinvoiceInfo.lateIssueYN}</li>
+                    <li>openYN (개봉 여부) : ${TaxinvoiceInfo.openYN}</li>
+                    <li>openDT (개봉 일시) : ${TaxinvoiceInfo.openDT}</li>
+                    <li>stateMemo (상태메모) : ${TaxinvoiceInfo.stateMemo}</li>
+                    <li>stateCode (상태코드) : ${TaxinvoiceInfo.stateCode}</li>
+                    <li>stateDT (상태변경일시) : ${TaxinvoiceInfo.stateDT}</li>
+                    <li>ntsconfirmNum (국세청 승인번호) : ${TaxinvoiceInfo.NTSConfirmNum}</li>
+                    <li>ntsresult (국세청 전송결과) : ${TaxinvoiceInfo.NTSResult}</li>
+                    <li>ntssendDT (국세청 전송일시) : ${TaxinvoiceInfo.NTSSendDT}</li>
+                    <li>ntsresultDT (국세청 결과 수신일시) : ${TaxinvoiceInfo.NTSResultDT}</li>
+                    <li>ntssendErrCode (결과코드) : ${TaxinvoiceInfo.NTSSendErrCode}</li>
+                    <li>modifyCode (수정 사유코드) : ${TaxinvoiceInfo.modifyCode}</li>
                     <li>interOPYN (연동문서 여부) : ${TaxinvoiceInfo.interOPYN}</li>
 
                     <li>invoicerCorpName (공급자 상호) : ${TaxinvoiceInfo.invoicerCorpName}</li>
@@ -37,25 +54,6 @@
                     <li>trusteeCorpName (수탁자 상호) : ${TaxinvoiceInfo.trusteeCorpName}</li>
                     <li>trusteeCorpNum (수탁사 사업자번호) : ${TaxinvoiceInfo.trusteeCorpNum}</li>
                     <li>trusteeMgtKey (수탁자 문서번호) : ${TaxinvoiceInfo.trusteeMgtKey}</li>
-
-                    <li>supplyCostTotal (공급가액 합계) : ${TaxinvoiceInfo.supplyCostTotal}</li>
-                    <li>taxTotal (세액 합계) : ${TaxinvoiceInfo.taxTotal}</li>
-                    <li>purposeType (영수/청구) : ${TaxinvoiceInfo.purposeType}</li>
-                    <li>modifyCode (수정 사유코드) : ${TaxinvoiceInfo.modifyCode}</li>
-                    <li>issueType (발행형태) : ${TaxinvoiceInfo.issueType}</li>
-                    <li>issueDT (발행일시) : ${TaxinvoiceInfo.issueDT}</li>
-                    <li>lateIssueYN (지연발행 여부) : ${TaxinvoiceInfo.lateIssueYN}</li>
-                    
-                    <li>stateCode (상태코드) : ${TaxinvoiceInfo.stateCode}</li>
-                    <li>stateDT (상태변경일시) : ${TaxinvoiceInfo.stateDT}</li>
-                    <li>stateMemo (상태메모) : ${TaxinvoiceInfo.stateMemo}</li>
-                    <li>openYN (개봉 여부) : ${TaxinvoiceInfo.openYN}</li>
-                    <li>openDT (개봉 일시) : ${TaxinvoiceInfo.openDT}</li>
-                    <li>ntsresult (국세청 전송결과) : ${TaxinvoiceInfo.NTSResult}</li>
-                    <li>ntsconfirmNum (국세청 승인번호) : ${TaxinvoiceInfo.NTSConfirmNum}</li>
-                    <li>ntssendDT (국세청 전송일시) : ${TaxinvoiceInfo.NTSSendDT}</li>
-                    <li>ntsresultDT (국세청 결과 수신일시) : ${TaxinvoiceInfo.NTSResultDT}</li>
-                    <li>ntssendErrCode (결과코드) : ${TaxinvoiceInfo.NTSSendErrCode}</li>
                 </ul>
             </fieldset>
         </c:if>
@@ -68,6 +66,23 @@
                         <li>taxType (과세형태) : ${TaxinvoiceInfo.taxType}</li>
                         <li>writeDate (작성일자) : ${TaxinvoiceInfo.writeDate}</li>
                         <li>regDT (임시저장 일자) : ${TaxinvoiceInfo.regDT}</li>
+                        <li>issueType (발행형태) : ${TaxinvoiceInfo.issueType}</li>
+                        <li>supplyCostTotal (공급가액 합계) : ${TaxinvoiceInfo.supplyCostTotal}</li>
+                        <li>taxTotal (세액 합계) : ${TaxinvoiceInfo.taxTotal}</li>
+                        <li>purposeType (영수/청구) : ${TaxinvoiceInfo.purposeType}</li>
+                        <li>issueDT (발행일시) : ${TaxinvoiceInfo.issueDT}</li>
+                        <li>lateIssueYN (지연발행 여부) : ${TaxinvoiceInfo.lateIssueYN}</li>
+                        <li>openYN (개봉 여부) : ${TaxinvoiceInfo.openYN}</li>
+                        <li>openDT (개봉 일시) : ${TaxinvoiceInfo.openDT}</li>
+                        <li>stateMemo (상태메모) : ${TaxinvoiceInfo.stateMemo}</li>
+                        <li>stateCode (상태코드) : ${TaxinvoiceInfo.stateCode}</li>
+                        <li>stateDT (상태변경일시) : ${TaxinvoiceInfo.stateDT}</li>
+                        <li>ntsconfirmNum (국세청 승인번호) : ${TaxinvoiceInfo.NTSConfirmNum}</li>
+                        <li>ntsresult (국세청 전송결과) : ${TaxinvoiceInfo.NTSResult}</li>
+                        <li>ntssendDT (국세청 전송일시) : ${TaxinvoiceInfo.NTSSendDT}</li>
+                        <li>ntsresultDT (국세청 결과 수신일시) : ${TaxinvoiceInfo.NTSResultDT}</li>
+                        <li>ntssendErrCode (결과코드) : ${TaxinvoiceInfo.NTSSendErrCode}</li>
+                        <li>modifyCode (수정 사유코드) : ${TaxinvoiceInfo.modifyCode}</li>
                         <li>interOPYN (연동문서 여부) : ${TaxinvoiceInfo.interOPYN}</li>
 
                         <li>invoicerCorpName (공급자 상호) : ${TaxinvoiceInfo.invoicerCorpName}</li>
@@ -85,25 +100,6 @@
                         <li>trusteeCorpName (수탁자 상호) : ${TaxinvoiceInfo.trusteeCorpName}</li>
                         <li>trusteeCorpNum (수탁사 사업자번호) : ${TaxinvoiceInfo.trusteeCorpNum}</li>
                         <li>trusteeMgtKey (수탁자 문서번호) : ${TaxinvoiceInfo.trusteeMgtKey}</li>
-
-                        <li>supplyCostTotal (공급가액 합계) : ${TaxinvoiceInfo.supplyCostTotal}</li>
-                        <li>taxTotal (세액 합계) : ${TaxinvoiceInfo.taxTotal}</li>
-                        <li>purposeType (영수/청구) : ${TaxinvoiceInfo.purposeType}</li>
-                        <li>modifyCode (수정 사유코드) : ${TaxinvoiceInfo.modifyCode}</li>
-                        <li>issueType (발행형태) : ${TaxinvoiceInfo.issueType}</li>
-                        <li>issueDT (발행일시) : ${TaxinvoiceInfo.issueDT}</li>
-                        <li>lateIssueYN (지연발행 여부) : ${TaxinvoiceInfo.lateIssueYN}</li>
-                        
-                        <li>stateCode (상태코드) : ${TaxinvoiceInfo.stateCode}</li>
-                        <li>stateDT (상태변경일시) : ${TaxinvoiceInfo.stateDT}</li>
-                        <li>stateMemo (상태메모) : ${TaxinvoiceInfo.stateMemo}</li>
-                        <li>openYN (개봉 여부) : ${TaxinvoiceInfo.openYN}</li>
-                        <li>openDT (개봉 일시) : ${TaxinvoiceInfo.openDT}</li>
-                        <li>ntsresult (국세청 전송결과) : ${TaxinvoiceInfo.NTSResult}</li>
-                        <li>ntsconfirmNum (국세청 승인번호) : ${TaxinvoiceInfo.NTSConfirmNum}</li>
-                        <li>ntssendDT (국세청 전송일시) : ${TaxinvoiceInfo.NTSSendDT}</li>
-                        <li>ntsresultDT (국세청 결과 수신일시) : ${TaxinvoiceInfo.NTSResultDT}</li>
-                        <li>ntssendErrCode (결과코드) : ${TaxinvoiceInfo.NTSSendErrCode}</li>
                     </ul>
                 </fieldset>
             </c:forEach>

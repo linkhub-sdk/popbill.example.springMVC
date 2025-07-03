@@ -34,8 +34,8 @@
                         <li>ntsconfirmNum (국세청 승인번호) : ${SearchInfo.ntsconfirmNum}</li>
                         <li>tradeDate (거래일자) : ${SearchInfo.tradeDate}</li>
                         <li>tradeDT (거래일시) : ${SearchInfo.tradeDT}</li>
-                        <li>tradeUsage (거래구분) : ${SearchInfo.tradeUsage}</li>
                         <li>tradeType (문서형태) : ${SearchInfo.tradeType}</li>
+                        <li>tradeUsage (거래구분) : ${SearchInfo.tradeUsage}</li>
                         <li>totalAmount (합계금액) : ${SearchInfo.totalAmount}</li>
                         <li>supplyCost (공급가액) : ${SearchInfo.supplyCost}</li>
                         <li>tax (부가세) : ${SearchInfo.tax}</li>

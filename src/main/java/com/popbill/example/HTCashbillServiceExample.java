@@ -76,7 +76,6 @@ public class HTCashbillServiceExample {
         try {
             String jobID = htCashbillService.requestJob(CorpNum, TIType, SDate, EDate);
             m.addAttribute("Result", jobID);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -99,7 +98,6 @@ public class HTCashbillServiceExample {
         try {
             HTCashbillJobState jobState = htCashbillService.getJobState(CorpNum, jobID);
             m.addAttribute("JobState", jobState);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -118,7 +116,6 @@ public class HTCashbillServiceExample {
         try {
             HTCashbillJobState[] jobStates = htCashbillService.listActiveJob(CorpNum);
             m.addAttribute("JobStates", jobStates);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -159,10 +156,9 @@ public class HTCashbillServiceExample {
         String Order = "D";
 
         try {
-            HTCashbillSearchResult searchInfo = htCashbillService.search(CorpNum,
-                    jobID, TradeUsage, TradeType, Page, PerPage, Order);
+            HTCashbillSearchResult searchInfo = htCashbillService.search(CorpNum, jobID, TradeUsage, TradeType, Page,
+                    PerPage, Order);
             m.addAttribute("SearchResult", searchInfo);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -193,14 +189,13 @@ public class HTCashbillServiceExample {
         String[] TradeType = {"N", "C"};
 
         try {
-            HTCashbillSummary summaryInfo = htCashbillService.summary(CorpNum,
-                    jobID, TradeUsage, TradeType);
+            HTCashbillSummary summaryInfo = htCashbillService.summary(CorpNum, jobID, TradeUsage, TradeType);
             m.addAttribute("SummaryResult", summaryInfo);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
         }
+
         return "HTCashbill/Summary";
     }
 
@@ -215,11 +210,8 @@ public class HTCashbillServiceExample {
          */
 
         try {
-
             String url = htCashbillService.getCertificatePopUpURL(CorpNum, UserID);
-
             m.addAttribute("Result", url);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -234,12 +226,10 @@ public class HTCashbillServiceExample {
          * 팝빌에 등록된 인증서의 만료일자를 확인합니다.
          * - https://developers.popbill.com/reference/htcashbill/java/api/cert#GetCertificateExpireDate
          */
+
         try {
-
             Date expireDate = htCashbillService.getCertificateExpireDate(CorpNum);
-
             m.addAttribute("Result", expireDate);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -254,12 +244,10 @@ public class HTCashbillServiceExample {
          * 팝빌에 등록된 인증서로 홈택스 로그인 가능 여부를 확인합니다.
          * - https://developers.popbill.com/reference/htcashbill/java/api/cert#CheckCertValidation
          */
+
         try {
-
             Response response = htCashbillService.checkCertValidation(CorpNum);
-
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -282,11 +270,8 @@ public class HTCashbillServiceExample {
         String deptUserPWD = "passwd";
 
         try {
-
             Response response = htCashbillService.registDeptUser(CorpNum, deptUserID, deptUserPWD);
-
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -301,12 +286,10 @@ public class HTCashbillServiceExample {
          * 팝빌에 부서사용자 등록 여부를 확인합니다.
          * - https://developers.popbill.com/reference/htcashbill/java/api/cert#CheckDeptUser
          */
+
         try {
-
             Response response = htCashbillService.checkDeptUser(CorpNum);
-
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -321,12 +304,10 @@ public class HTCashbillServiceExample {
          * 팝빌에 등록된 부서사용자로 홈택스 로그인 가능 여부를 확인합니다.
          * - https://developers.popbill.com/reference/htcashbill/java/api/cert#CheckLoginDeptUser
          */
+
         try {
-
             Response response = htCashbillService.checkLoginDeptUser(CorpNum);
-
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -341,12 +322,10 @@ public class HTCashbillServiceExample {
          * 팝빌에 등록된 부서사용자 계정을 삭제합니다.
          * - https://developers.popbill.com/reference/htcashbill/java/api/cert#DeleteDeptUser
          */
+
         try {
-
             Response response = htCashbillService.deleteDeptUser(CorpNum);
-
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -363,10 +342,8 @@ public class HTCashbillServiceExample {
          */
 
         try {
-
             ChargeInfo chrgInfo = htCashbillService.getChargeInfo(CorpNum);
             m.addAttribute("ChargeInfo", chrgInfo);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -386,11 +363,8 @@ public class HTCashbillServiceExample {
          */
 
         try {
-
             String url = htCashbillService.getFlatRatePopUpURL(CorpNum, UserID);
-
             m.addAttribute("Result", url);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -407,11 +381,8 @@ public class HTCashbillServiceExample {
          */
 
         try {
-
             FlatRateState flatRateInfo = htCashbillService.getFlatRateState(CorpNum);
-
             m.addAttribute("State", flatRateInfo);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";

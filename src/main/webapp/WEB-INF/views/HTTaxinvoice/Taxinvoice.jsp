@@ -33,9 +33,6 @@
                 <li>remark3 (비고3) : ${Taxinvoice.remark3}</li>
                 <li>ntsconfirmNum (국세청 승인번호) : ${Taxinvoice.ntsconfirmNum}</li>
 
-                <li>modifyCode (수정 사유코드) : ${Taxinvoice.modifyCode}</li>
-                <li>orgNTSConfirmNum (원본 전자세금계산서 국세청 승인번호) : ${Taxinvoice.orgNTSConfirmNum}</li>
-
                 <li>invoicerCorpNum (공급자 사업자번호) : ${Taxinvoice.invoicerCorpNum}</li>
                 <li>invoicerMgtKey (공급자 문서관리번호) : ${Taxinvoice.invoicerMgtKey}</li>
                 <li>invoicerTaxRegID (공급자 종사업장번호) : ${Taxinvoice.invoicerTaxRegID}</li>
@@ -60,6 +57,9 @@
                 <li>invoiceeContactName1 (공급받는자 담당자 성명) : ${Taxinvoice.invoiceeContactName1}</li>
                 <li>invoiceeTEL1 (공급받는자 담당자 연락처) : ${Taxinvoice.invoiceeTEL1}</li>
                 <li>invoiceeEmail1 (공급받는자 담당지 이메일) : ${Taxinvoice.invoiceeEmail1}</li>
+
+                <li>modifyCode (수정 사유코드) : ${Taxinvoice.modifyCode}</li>
+                <li>orgNTSConfirmNum (원본 전자세금계산서 국세청 승인번호) : ${Taxinvoice.orgNTSConfirmNum}</li>
             </ul>
             <fieldset class="fieldset3">
                 <legend>detailList</legend>

@@ -33,7 +33,9 @@
             <c:forEach items="${SearchResult.list}" var="SearchInfo" varStatus="status">
                 <fieldset class="fieldset2">
                     <ul>
+                        <li>tid (거래내역 아이디) : ${SearchInfo.tid}</li>
                         <li>trdate (거래일자) : ${SearchInfo.trdate}</li>
+                        <li>trserial (거래일련번호) : ${SearchInfo.trserial}</li>
                         <li>trdt (거래일시) : ${SearchInfo.trdt}</li>
                         <li>accIn (입금액) : ${SearchInfo.accIn}</li>
                         <li>accOut (출금액) : ${SearchInfo.accOut}</li>
@@ -44,9 +46,6 @@
                         <li>remark4 (비고 4) : ${SearchInfo.remark4}</li>
                         <li>regDT (등록일시) : ${SearchInfo.regDT}</li>
                         <li>memo (메모) : ${SearchInfo.memo}</li>
-                        
-                        <li>tid (거래내역 아이디) : ${SearchInfo.tid}</li>
-                        <li>trserial (거래일련번호) : ${SearchInfo.trserial}</li>
                     </ul>
                 </fieldset>
             </c:forEach>
