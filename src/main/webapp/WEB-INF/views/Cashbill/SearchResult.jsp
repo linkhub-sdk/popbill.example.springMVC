@@ -40,12 +40,18 @@
                         <li>tradeOpt (거래유형) : ${SearchInfo.tradeOpt}</li>
                         <li>taxationType (과세형태) : ${SearchInfo.taxationType}</li>
                         <li>totalAmount (합계금액) : ${SearchInfo.totalAmount}</li>
+                        <li>supplyCost (공급가액) : ${SearchInfo.supplyCost}</li>
+                        <li>tax (부가세) : ${SearchInfo.tax}</li>
+                        <li>serviceFee (봉사료) : ${SearchInfo.serviceFee}</li>
                         <li>issueDT (발행일시) : ${SearchInfo.issueDT}</li>
                         <li>regDT (등록일시) : ${SearchInfo.regDT}</li>
                         <li>stateCode (상태코드) : ${SearchInfo.stateCode}</li>
                         <li>stateDT (상태변경일시) : ${SearchInfo.stateDT}</li>
                         <li>identityNum (거래처 식별번호) : ${SearchInfo.identityNum}</li>
                         <li>itemName (거래처 주문상품명) : ${SearchInfo.itemName}</li>
+                        <li>orderNumber (주문번호) : ${SearchInfo.orderNumber}</li>
+                        <li>email (구매자 이메일) : ${SearchInfo.email}</li>
+                        <li>hp (구매자 휴대폰) : ${SearchInfo.hp}</li>
                         <li>customerName (거래처 고객명) : ${SearchInfo.customerName}</li>
                         <li>orgConfirmNum (당초 국세청승인번호) : ${SearchInfo.orgConfirmNum}</li>
                         <li>orgTradeDate (당초 거래일자) : ${SearchInfo.orgTradeDate}</li>
@@ -55,12 +61,6 @@
                         <li>ntsresultMessage (결과메시지) : ${SearchInfo.ntsresultMessage}</li>
                         <li>printYN (인쇄여부) : ${SearchInfo.printYN}</li>
                         <li>interOPYN (연동문서 여부) : ${SearchInfo.interOPYN}</li>
-                        <li>email (구매자 이메일) : ${SearchInfo.email}</li>
-                        <li>hp (구매자 휴대폰) : ${SearchInfo.hp}</li>
-                        <li>supplyCost (공급가액) : ${SearchInfo.supplyCost}</li>
-                        <li>tax (부가세) : ${SearchInfo.tax}</li>
-                        <li>serviceFee (봉사료) : ${SearchInfo.serviceFee}</li>
-                        <li>orderNumber (주문번호) : ${SearchInfo.orderNumber}</li>
                     </ul>
                 </fieldset>
             </c:forEach>

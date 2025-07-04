@@ -25,12 +25,18 @@
                     <li>tradeOpt (거래유형) : ${CashbillInfo.tradeOpt}</li>
                     <li>taxationType (과세형태) : ${CashbillInfo.taxationType}</li>
                     <li>totalAmount (합계금액) : ${CashbillInfo.totalAmount}</li>
+                    <li>supplyCost (공급가액) : ${CashbillInfo.supplyCost}</li>
+                    <li>tax (부가세) : ${CashbillInfo.tax}</li>
+                    <li>serviceFee (봉사료) : ${CashbillInfo.serviceFee}</li>
                     <li>issueDT (발행일시) : ${CashbillInfo.issueDT}</li>
                     <li>regDT (등록일시) : ${CashbillInfo.regDT}</li>
                     <li>stateCode (상태코드) : ${CashbillInfo.stateCode}</li>
                     <li>stateDT (상태변경일시) : ${CashbillInfo.stateDT}</li>
                     <li>identityNum (거래처 식별번호) : ${CashbillInfo.identityNum}</li>
                     <li>itemName (거래처 주문상품명) : ${CashbillInfo.itemName}</li>
+                    <li>orderNumber (주문번호) : ${CashbillInfo.orderNumber}</li>
+                    <li>email (구매자 이메일) : ${CashbillInfo.email}</li>
+                    <li>hp (구매자 휴대폰) : ${CashbillInfo.hp}</li>
                     <li>customerName (거래처 고객명) : ${CashbillInfo.customerName}</li>
                     <li>orgConfirmNum (당초 국세청승인번호) : ${CashbillInfo.orgConfirmNum}</li>
                     <li>orgTradeDate (당초 거래일자) : ${CashbillInfo.orgTradeDate}</li>
@@ -40,12 +46,6 @@
                     <li>ntsresultMessage (결과메시지) : ${CashbillInfo.ntsresultMessage}</li>
                     <li>printYN (인쇄여부) : ${CashbillInfo.printYN}</li>
                     <li>interOPYN (연동문서 여부) : ${CashbillInfo.interOPYN}</li>
-                    <li>email (구매자 이메일) : ${CashbillInfo.email}</li>
-                    <li>hp (구매자 휴대폰) : ${CashbillInfo.hp}</li>
-                    <li>supplyCost (공급가액) : ${CashbillInfo.supplyCost}</li>
-                    <li>tax (부가세) : ${CashbillInfo.tax}</li>
-                    <li>serviceFee (봉사료) : ${CashbillInfo.serviceFee}</li>
-                    <li>orderNumber (주문번호) : ${CashbillInfo.orderNumber}</li>
                 </ul>
             </fieldset>
         </c:if>
@@ -64,12 +64,18 @@
                         <li>tradeOpt (거래유형) : ${CashbillInfo.tradeOpt}</li>
                         <li>taxationType (과세형태) : ${CashbillInfo.taxationType}</li>
                         <li>totalAmount (합계금액) : ${CashbillInfo.totalAmount}</li>
+                        <li>supplyCost (공급가액) : ${CashbillInfo.supplyCost}</li>
+                        <li>tax (부가세) : ${CashbillInfo.tax}</li>
+                        <li>serviceFee (봉사료) : ${CashbillInfo.serviceFee}</li>
                         <li>issueDT (발행일시) : ${CashbillInfo.issueDT}</li>
                         <li>regDT (등록일시) : ${CashbillInfo.regDT}</li>
                         <li>stateCode (상태코드) : ${CashbillInfo.stateCode}</li>
                         <li>stateDT (상태변경일시) : ${CashbillInfo.stateDT}</li>
                         <li>identityNum (거래처 식별번호) : ${CashbillInfo.identityNum}</li>
                         <li>itemName (거래처 주문상품명) : ${CashbillInfo.itemName}</li>
+                        <li>orderNumber (주문번호) : ${CashbillInfo.orderNumber}</li>
+                        <li>email (구매자 이메일) : ${CashbillInfo.email}</li>
+                        <li>hp (구매자 휴대폰) : ${CashbillInfo.hp}</li>
                         <li>customerName (거래처 고객명) : ${CashbillInfo.customerName}</li>
                         <li>orgConfirmNum (당초 국세청승인번호) : ${CashbillInfo.orgConfirmNum}</li>
                         <li>orgTradeDate (당초 거래일자) : ${CashbillInfo.orgTradeDate}</li>
@@ -79,12 +85,6 @@
                         <li>ntsresultMessage (결과메시지) : ${CashbillInfo.ntsresultMessage}</li>
                         <li>printYN (인쇄여부) : ${CashbillInfo.printYN}</li>
                         <li>interOPYN (연동문서 여부) : ${CashbillInfo.interOPYN}</li>
-                        <li>email (구매자 이메일) : ${CashbillInfo.email}</li>
-                        <li>hp (구매자 휴대폰) : ${CashbillInfo.hp}</li>
-                        <li>supplyCost (공급가액) : ${CashbillInfo.supplyCost}</li>
-                        <li>tax (부가세) : ${CashbillInfo.tax}</li>
-                        <li>serviceFee (봉사료) : ${CashbillInfo.serviceFee}</li>
-                        <li>orderNumber (주문번호) : ${CashbillInfo.orderNumber}</li>
                     </ul>
                 </fieldset>
             </c:forEach>
