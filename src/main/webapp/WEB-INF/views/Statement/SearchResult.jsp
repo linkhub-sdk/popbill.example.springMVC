@@ -18,10 +18,10 @@
                 <ul>
                     <li>code (응답코드) : ${SearchResult.code}</li>
                     <li>message (응답 메시지) : ${SearchResult.message}</li>
-                    <li>total (전체 검색개수) : ${SearchResult.total}</li>
-                    <li>perPage (페이지당 목록개수) : ${SearchResult.perPage}</li>
-                    <li>pageNum (페이지번호) : ${SearchResult.pageNum}</li>
-                    <li>pageCount (페이지수) : ${SearchResult.pageCount}</li>
+                    <li>total (총 검색결과 건수) : ${SearchResult.total}</li>
+                    <li>perPage (페이지당 목록 건수) : ${SearchResult.perPage}</li>
+                    <li>pageNum (페이지 번호) : ${SearchResult.pageNum}</li>
+                    <li>pageCount (페이지 개수) : ${SearchResult.pageCount}</li>
                 </ul>
             </fieldset>
         </c:if>
@@ -31,12 +31,12 @@
                 <fieldset class="fieldset2">
                     <legend>[ ${status.index+1} / ${SearchResult.perPage} ]</legend>
                     <ul>
-                        <li>itemCode (명세서 코드) : ${SearchInfo.itemCode}</li>
+                        <li>itemCode (전자명세서 문서 유형) : ${SearchInfo.itemCode}</li>
                         <li>itemKey (팝빌번호) : ${SearchInfo.itemKey}</li>
                         <li>mgtKey (문서번호) : ${SearchInfo.mgtKey}</li>
-                        <li>taxType (과세유형) : ${SearchInfo.taxType}</li>
+                        <li>taxType (과세형태) : ${SearchInfo.taxType}</li>
                         <li>writeDate (작성일자) : ${SearchInfo.writeDate}</li>
-                        <li>regDT (등록일시) : ${SearchInfo.regDT}</li>
+                        <li>regDT (임시저장일시) : ${SearchInfo.regDT}</li>
                         <li>senderCorpName (발신자 상호) : ${SearchInfo.senderCorpName}</li>
                         <li>senderCorpNum (발신자 사업자번호) : ${SearchInfo.senderCorpNum}</li>
                         <li>senderPrintYN (발신자 인쇄여부) : ${SearchInfo.senderPrintYN}</li>
@@ -51,6 +51,7 @@
                         <li>stateDT (상태변경 일시) : ${SearchInfo.stateDT}</li>
                         <li>stateMemo (상태메모) : ${SearchInfo.stateMemo}</li>
                         <li>openYN (개봉여부) : ${SearchInfo.openYN}</li>
+                        <li>openDT (개봉 일시) : ${SearchInfo.openDT}</li>
                     </ul>
                 </fieldset>
             </c:forEach>

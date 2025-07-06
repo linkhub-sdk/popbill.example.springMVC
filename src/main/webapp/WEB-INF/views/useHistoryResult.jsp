@@ -17,10 +17,10 @@
                 <legend>검색결과 정보</legend>
                 <ul>
                     <li>code (응답코드) : ${UseHistoryResult.code}</li>
-                    <li>total (전체 검색개수) : ${UseHistoryResult.total}</li>
-                    <li>perPage (페이지당 목록개수) : ${UseHistoryResult.perPage}</li>
-                    <li>pageNum (페이지번호) : ${UseHistoryResult.pageNum}</li>
-                    <li>pageCount (페이지수) : ${UseHistoryResult.pageCount}</li>
+                    <li>total (총 검색결과 건수) : ${UseHistoryResult.total}</li>
+                    <li>perPage (페이지당 목록 건수) : ${UseHistoryResult.perPage}</li>
+                    <li>pageNum (페이지 번호) : ${UseHistoryResult.pageNum}</li>
+                    <li>pageCount (페이지 게수) : ${UseHistoryResult.pageCount}</li>
                 </ul>
             </fieldset>
         </c:if>

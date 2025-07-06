@@ -17,10 +17,10 @@
                 <legend>검색결과 정보</legend>
                 <ul>
                     <li>code (응답코드) : ${PaymentHistoryResult.code}</li>
-                    <li>total (전체 검색개수) : ${PaymentHistoryResult.total}</li>
-                    <li>perPage (페이지당 목록개수) : ${PaymentHistoryResult.perPage}</li>
-                    <li>pageNum (페이지번호) : ${PaymentHistoryResult.pageNum}</li>
-                    <li>pageCount (페이지수) : ${PaymentHistoryResult.pageCount}</li>
+                    <li>total (총 검색결과 건수) : ${PaymentHistoryResult.total}</li>
+                    <li>perPage (페이지당 목록 건수) : ${PaymentHistoryResult.perPage}</li>
+                    <li>pageNum (페이지 번호) : ${PaymentHistoryResult.pageNum}</li>
+                    <li>pageCount (페이지 개수) : ${PaymentHistoryResult.pageCount}</li>
                 </ul>
             </fieldset>
         </c:if>

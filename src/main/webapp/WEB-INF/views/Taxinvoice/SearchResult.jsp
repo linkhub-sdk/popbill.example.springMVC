@@ -17,11 +17,11 @@
                 <legend>검색결과 정보</legend>
                 <ul>
                     <li>code (응답코드) : ${SearchResult.code}</li>
-                    <li>message (응답 메시지) : ${SearchResult.message}</li>
-                    <li>total (전체 검색개수) : ${SearchResult.total}</li>
-                    <li>perPage (페이지당 목록개수) : ${SearchResult.perPage}</li>
-                    <li>pageNum (페이지번호) : ${SearchResult.pageNum}</li>
-                    <li>pageCount (페이지수) : ${SearchResult.pageCount}</li>
+                    <li>message (응답메시지) : ${SearchResult.message}</li>
+                    <li>total (총 검색결과 건수) : ${SearchResult.total}</li>
+                    <li>perPage (페이지당 목록 건수) : ${SearchResult.perPage}</li>
+                    <li>pageNum (페이지 번호) : ${SearchResult.pageNum}</li>
+                    <li>pageCount (페이지 개수) : ${SearchResult.pageCount}</li>
                 </ul>
             </fieldset>
         </c:if>
@@ -31,22 +31,26 @@
                 <fieldset class="fieldset2">
                     <legend>[ ${status.index+1} / ${SearchResult.perPage} ]</legend>
                     <ul>
-                        <li>itemKey (팝빌번호) : ${SearchInfo.itemKey}</li>
+                        <li>itemKey (팝빌에서 할당한 식별번호) : ${SearchInfo.itemKey}</li>
                         <li>taxType (과세형태) : ${SearchInfo.taxType}</li>
                         <li>writeDate (작성일자) : ${SearchInfo.writeDate}</li>
-                        <li>regDT (등록일자) : ${SearchInfo.regDT}</li>
+                        <li>regDT (임시저장 일시) : ${SearchInfo.regDT}</li>
                         <li>issueType (발행형태) : ${SearchInfo.issueType}</li>
                         <li>supplyCostTotal (공급가액 합계) : ${SearchInfo.supplyCostTotal}</li>
                         <li>taxTotal (세액 합계) : ${SearchInfo.taxTotal}</li>
                         <li>purposeType (영수/청구) : ${SearchInfo.purposeType}</li>
                         <li>issueDT (발행일시) : ${SearchInfo.issueDT}</li>
                         <li>lateIssueYN (지연발행 여부) : ${SearchInfo.lateIssueYN}</li>
-
-                        <li>openYN (개봉여부) : ${SearchInfo.openYN}</li>
+                        <li>openYN (개봉 여부) : ${SearchInfo.openYN}</li>
                         <li>openDT (개봉일시) : ${SearchInfo.openDT}</li>
-                        <li>stateCode (상태코드) : ${SearchInfo.stateCode}</li>
                         <li>stateMemo (상태메모) : ${SearchInfo.stateMemo}</li>
+                        <li>stateCode (상태코드) : ${SearchInfo.stateCode}</li>
                         <li>stateDT (상태 변경일시) : ${SearchInfo.stateDT}</li>
+                        <li>ntsconfirmNum (국세청승인번호) : ${SearchInfo.ntsconfirmNum}</li>
+                        <li>ntsresult (국세청 전송결과) : ${SearchInfo.ntsresult}</li>
+                        <li>ntssendDT (국세청 전송일시) : ${SearchInfo.ntssendDT}</li>
+                        <li>ntsresultDT (국세청 결과 수신일시) : ${SearchInfo.ntsresultDT}</li>
+                        <li>ntssendErrCode (결과코드) : ${SearchInfo.ntssendErrCode}</li>
                         <li>modifyCode (수정사유코드) : ${SearchInfo.modifyCode}</li>
                         <li>interOPYN (연동문서 여부) : ${SearchInfo.interOPYN}</li>
                         <li>invoicerCorpName (공급자 상호) : ${SearchInfo.invoicerCorpName}</li>
@@ -57,8 +61,8 @@
                         <li>invoiceeCorpNum (공급받는자 사업자번호) : ${SearchInfo.invoiceeCorpNum}</li>
                         <li>invoiceeMgtKey (공급받는자 문서번호) : ${SearchInfo.invoiceeMgtKey}</li>
                         <li>invoiceePrintYN (공급받는자 인쇄여부) : ${SearchInfo.invoiceePrintYN}</li>
-                        <li>closeDownState (휴폐업상태) : ${SearchInfo.closeDownState}</li>
-                        <li>closeDownStateDate (휴폐업일자) : ${SearchInfo.closeDownStateDate}</li>
+                        <li>closeDownState (공급받는자 휴폐업상태) : ${SearchInfo.closeDownState}</li>
+                        <li>closeDownStateDate (공급받는자 휴폐업일자) : ${SearchInfo.closeDownStateDate}</li>
                         <li>trusteeCorpName (수탁자 상호) : ${SearchInfo.trusteeCorpName}</li>
                         <li>trusteeCorpNum (수탁자 사업자번호) : ${SearchInfo.trusteeCorpNum}</li>
                         <li>trusteeMgtKey (수탁자 문서번호) : ${SearchInfo.trusteeMgtKey}</li>

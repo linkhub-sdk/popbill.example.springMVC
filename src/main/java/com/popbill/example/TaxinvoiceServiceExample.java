@@ -570,7 +570,7 @@ public class TaxinvoiceServiceExample {
             // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
             taxinvoice.setModifyCode(null);
 
-            // 수정세금계산서 작성시 원본세금계산서 국세청 승인번호 기재
+            // 수정세금계산서 작성시 당초 국세청승인번호 기재
             taxinvoice.setOrgNTSConfirmNum(null);
 
             // 사업자등록증 이미지 첨부여부 (true / false 중 택 1)
@@ -856,7 +856,7 @@ public class TaxinvoiceServiceExample {
         // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
         taxinvoice.setModifyCode(null);
 
-        // 수정세금계산서 작성시 원본세금계산서 국세청 승인번호 기재
+        // 수정세금계산서 작성시 당초 국세청승인번호 기재
         taxinvoice.setOrgNTSConfirmNum(null);
 
         // 사업자등록증 이미지 첨부여부 (true / false 중 택 1)
@@ -1116,7 +1116,7 @@ public class TaxinvoiceServiceExample {
         // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
         taxinvoice.setModifyCode(null);
 
-        // 수정세금계산서 작성시 원본세금계산서 국세청 승인번호 기재
+        // 수정세금계산서 작성시 당초 국세청승인번호 기재
         taxinvoice.setOrgNTSConfirmNum(null);
 
         // 사업자등록증 이미지 첨부여부 (true / false 중 택 1)
@@ -1446,7 +1446,7 @@ public class TaxinvoiceServiceExample {
         // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
         taxinvoice.setModifyCode(null);
 
-        // 수정세금계산서 작성시 원본세금계산서 국세청 승인번호 기재
+        // 수정세금계산서 작성시 당초 국세청승인번호 기재
         taxinvoice.setOrgNTSConfirmNum(null);
 
         // 사업자등록증 이미지 첨부여부 (true / false 중 택 1)
@@ -1865,7 +1865,7 @@ public class TaxinvoiceServiceExample {
         // - 미입력시 전체조회
         String[] CloseDownState = {"N", "0", "1", "2", "3"};
 
-        // 문서번호 또는 국세청 승인번호 조회
+        // 문서번호 또는 국세청승인번호 조회
         // - 미입력시 전체조회
         String MgtKey = "";
 
@@ -2605,7 +2605,7 @@ public class TaxinvoiceServiceExample {
         // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
         taxinvoice.setModifyCode((short) 1);
 
-        // 수정세금계산서 작성시 원본세금계산서 국세청 승인번호 기재
+        // 수정세금계산서 작성시 당초 국세청승인번호 기재
         taxinvoice.setOrgNTSConfirmNum("20230706-original-TI00001");
 
         // 발행형태, [정발행, 역발행, 위수탁] 중 기재
@@ -2881,7 +2881,7 @@ public class TaxinvoiceServiceExample {
         // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
         taxinvoice.setModifyCode((short) 1);
 
-        // 수정세금계산서 작성시 원본세금계산서 국세청 승인번호 기재
+        // 수정세금계산서 작성시 당초 국세청승인번호 기재
         taxinvoice.setOrgNTSConfirmNum("20230706-original-TI00001");
 
         // 발행형태, [정발행, 역발행, 위수탁] 중 기재
@@ -3148,7 +3148,7 @@ public class TaxinvoiceServiceExample {
         // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
         taxinvoice.setModifyCode((short) 2);
 
-        // 수정세금계산서 작성시 원본세금계산서 국세청 승인번호 기재
+        // 수정세금계산서 작성시 당초 국세청승인번호 기재
         taxinvoice.setOrgNTSConfirmNum("20230706-original-TI00001");
 
         // 발행형태, [정발행, 역발행, 위수탁] 중 기재
@@ -3411,7 +3411,7 @@ public class TaxinvoiceServiceExample {
         // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
         taxinvoice.setModifyCode((short) 3);
 
-        // 수정세금계산서 작성시 원본세금계산서 국세청 승인번호 기재
+        // 수정세금계산서 작성시 당초 국세청승인번호 기재
         taxinvoice.setOrgNTSConfirmNum("20230706-original-TI00001");
 
         // 발행형태, [정발행, 역발행, 위수탁] 중 기재
@@ -3674,7 +3674,7 @@ public class TaxinvoiceServiceExample {
         // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
         taxinvoice.setModifyCode((short) 4);
         
-        // 수정세금계산서 작성시 원본세금계산서 국세청 승인번호 기재
+        // 수정세금계산서 작성시 당초 국세청승인번호 기재
         taxinvoice.setOrgNTSConfirmNum("20230706-original-TI00001");
         
         // 발행형태, [정발행, 역발행, 위수탁] 중 기재
@@ -3938,7 +3938,7 @@ public class TaxinvoiceServiceExample {
         // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
         taxinvoice.setModifyCode((short) 5);
         
-        // 수정세금계산서 작성시 원본세금계산서 국세청 승인번호 기재
+        // 수정세금계산서 작성시 당초 국세청승인번호 기재
         taxinvoice.setOrgNTSConfirmNum("20230706-original-TI00001");
         
         // 발행형태, [정발행, 역발행, 위수탁] 중 기재
@@ -4204,7 +4204,7 @@ public class TaxinvoiceServiceExample {
         // 수정사유코드, 수정사유에 따라 1~6 중 선택기재.
         taxinvoice.setModifyCode((short) 5);
 
-        // 수정세금계산서 작성시 원본세금계산서 국세청 승인번호 기재
+        // 수정세금계산서 작성시 당초 국세청승인번호 기재
         taxinvoice.setOrgNTSConfirmNum("20230706-original-TI00001");
 
         // 발행형태, [정발행, 역발행, 위수탁] 중 기재
@@ -4470,7 +4470,7 @@ public class TaxinvoiceServiceExample {
         // 착오에 의한 이중발급 사유로 수정세금계산서 작성 시, 수정사유코드 6 기재
         taxinvoice.setModifyCode((short) 6);
 
-        // 수정세금계산서 작성시 원본세금계산서 국세청 승인번호 기재
+        // 수정세금계산서 작성시 당초 국세청승인번호 기재
         taxinvoice.setOrgNTSConfirmNum("20230706-original-TI00001");
 
         // 발행형태, [정발행, 역발행, 위수탁] 중 기재

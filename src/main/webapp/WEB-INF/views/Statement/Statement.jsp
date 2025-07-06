@@ -15,11 +15,11 @@
         <fieldset class="fieldset2">
             <legend>Statement</legend>
             <ul>
-                <li>itemCode (명세서 코드) : ${Statement.itemCode}</li>
+                <li>itemCode (전자명세서 문서 유형) : ${Statement.itemCode}</li>
                 <li>mgtKey (문서번호) : ${Statement.mgtKey}</li>
                 <li>formCode (맞춤양식 코드) : ${Statement.formCode}</li>
                 <li>writeDate (작성일자) : ${Statement.writeDate}</li>
-                <li>taxType (과세유형) : ${Statement.taxType}</li>
+                <li>taxType (과세형태) : ${Statement.taxType}</li>
                 <li>purposeType (영수/청구) : ${Statement.purposeType}</li>
                 <li>serialNum (일련번호) : ${Statement.serialNum}</li>
                 <li>taxTotal (세액 합계) : ${Statement.taxTotal}</li>
@@ -30,9 +30,9 @@
                 <li>remark3 (비고3) : ${Statement.remark3}</li>
 
                 <li>senderCorpNum (발신자 사업자번호) : ${Statement.senderCorpNum}</li>
-                <li>senderTaxRegID (발신자 종사업장번호) : ${Statement.senderTaxRegID}</li>
+                <li>senderTaxRegID (발신자 종사업장 식별번호) : ${Statement.senderTaxRegID}</li>
                 <li>senderCorpName (발신자 상호) : ${Statement.senderCorpName}</li>
-                <li>senderCEOName (발신자 대표자 성명) : ${Statement.senderCEOName}</li>
+                <li>senderCEOName (발신자 대표자성명) : ${Statement.senderCEOName}</li>
                 <li>senderAddr (발신자 주소) : ${Statement.senderAddr}</li>
                 <li>senderBizType (발신자 업태) : ${Statement.senderBizType}</li>
                 <li>senderBizClass (발신자 종목) : ${Statement.senderBizClass}</li>
@@ -40,13 +40,13 @@
                 <li>senderDeptName (발신자 부서명) : ${Statement.senderDeptName}</li>
                 <li>senderTEL (발신자 연락처) : ${Statement.senderTEL}</li>
                 <li>senderHP (발신자 휴대전화) : ${Statement.senderHP}</li>
-                <li>senderEmail (발신자 이메일주소) : ${Statement.senderEmail}</li>
+                <li>senderEmail (발신자 메일주소) : ${Statement.senderEmail}</li>
                 <li>senderFAX (발신자 팩스번호) : ${Statement.senderFAX}</li>
 
                 <li>receiverCorpNum (수신자 사업자번호) : ${Statement.receiverCorpNum}</li>
-                <li>receiverTaxRegID (수신자 종사업장번호) : ${Statement.receiverTaxRegID}</li>
+                <li>receiverTaxRegID (수신자 종사업장 식별번호) : ${Statement.receiverTaxRegID}</li>
                 <li>receiverCorpName (수신자 상호) : ${Statement.receiverCorpName}</li>
-                <li>receiverCEOName (수신자 대표자 성명) : ${Statement.receiverCEOName}</li>
+                <li>receiverCEOName (수신자 대표자성명) : ${Statement.receiverCEOName}</li>
                 <li>receiverAddr (수신자 주소) : ${Statement.receiverAddr}</li>
                 <li>receiverBizType (수신자 업태) : ${Statement.receiverBizType}</li>
                 <li>receiverBizClass (수신자 종목) : ${Statement.receiverBizClass}</li>
@@ -54,31 +54,14 @@
                 <li>receiverDeptName (수신자 부서명) : ${Statement.receiverDeptName}</li>
                 <li>receiverTEL (수신자 연락처) : ${Statement.receiverTEL}</li>
                 <li>receiverHP (수신자 휴대전화) : ${Statement.receiverHP}</li>
-                <li>receiverEmail (수신자 이메일주소) : ${Statement.receiverEmail}</li>
+                <li>receiverEmail (수신자 메일주소) : ${Statement.receiverEmail}</li>
                 <li>receiverFAX (수신자 팩스번호) : ${Statement.receiverFAX}</li>
-            </ul>
 
-            <c:forEach items="${Statement.detailList}" var="StatementDetail" varStatus="status">
-                <fieldset class="fieldset3">
-                    <legend>전자명세서 상세항목 [ ${status.index+1} ] </legend>
-                    <ul>
-                        <li>serialNum (일련번호) : ${StatementDetail.serialNum}</li>
-                        <li>purchaseDT (거래일자) : ${StatementDetail.purchaseDT}</li>
-                        <li>itemName (품목명) : ${StatementDetail.itemName}</li>
-                        <li>spec (규격) : ${StatementDetail.spec}</li>
-                        <li>qty (수량) : ${StatementDetail.qty}</li>
-                        <li>unitCost (단가) : ${StatementDetail.unitCost}</li>
-                        <li>supplyCost (공급가액) : ${StatementDetail.supplyCost}</li>
-                        <li>tax (세액) : ${StatementDetail.tax}</li>
-                        <li>remark (비고) : ${StatementDetail.remark}</li>
-                        <li>spare1 (비고) : ${StatementDetail.spare1}</li>
-                        <li>spare2 (비고) : ${StatementDetail.spare2}</li>
-                        <li>spare3 (비고) : ${StatementDetail.spare3}</li>
-                        <li>spare4 (비고) : ${StatementDetail.spare4}</li>
-                        <li>spare5 (비고) : ${StatementDetail.spare5}</li>
-                    </ul>
-                </fieldset>
-            </c:forEach>
+                <li>businessLicenseYN (사업자등록증 첨부여부) : ${Statement.businessLicenseYN}</li>
+                <li>bankBookYN (통장사본 첨부 여부) : ${Statement.bankBookYN}</li>
+                <li>smssendYN (알림문자 전송 여부) : ${Statement.smssendYN}</li>
+
+            </ul>
             <fieldset class="fieldset3">
                 <c:if test="${Statement.propertyBag != null}">
                     <legend>propertyBag</legend>
@@ -89,6 +72,27 @@
                     </ul>
                 </c:if>
             </fieldset>
+            <c:forEach items="${Statement.detailList}" var="StatementDetail" varStatus="status">
+                <fieldset class="fieldset3">
+                    <legend>전자명세서 상세항목 [ ${status.index+1} ] </legend>
+                    <ul>
+                        <li>serialNum (일련번호) : ${StatementDetail.serialNum}</li>
+                        <li>purchaseDT (거래일자) : ${StatementDetail.purchaseDT}</li>
+                        <li>itemName (품명) : ${StatementDetail.itemName}</li>
+                        <li>spec (규격) : ${StatementDetail.spec}</li>
+                        <li>qty (수량) : ${StatementDetail.qty}</li>
+                        <li>unitCost (단가) : ${StatementDetail.unitCost}</li>
+                        <li>supplyCost (공급가액) : ${StatementDetail.supplyCost}</li>
+                        <li>tax (세액) : ${StatementDetail.tax}</li>
+                        <li>remark (비고) : ${StatementDetail.remark}</li>
+                        <li>spare1 (여분1) : ${StatementDetail.spare1}</li>
+                        <li>spare2 (여분2) : ${StatementDetail.spare2}</li>
+                        <li>spare3 (여분3) : ${StatementDetail.spare3}</li>
+                        <li>spare4 (여분4) : ${StatementDetail.spare4}</li>
+                        <li>spare5 (여분5) : ${StatementDetail.spare5}</li>
+                    </ul>
+                </fieldset>
+            </c:forEach>
         </fieldset>
     </fieldset>
 </div>

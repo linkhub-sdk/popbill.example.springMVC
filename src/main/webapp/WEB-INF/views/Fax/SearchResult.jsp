@@ -18,11 +18,11 @@
                 <legend>검색결과 정보</legend>
                 <ul>
                     <li>code (응답코드) : ${SearchResult.code}</li>
-                    <li>message (응답 메시지) : ${SearchResult.message}</li>
-                    <li>total (전체 검색개수) : ${SearchResult.total}</li>
-                    <li>perPage (페이지당 목록개수) : ${SearchResult.perPage}</li>
-                    <li>pageNum (페이지번호) : ${SearchResult.pageNum}</li>
-                    <li>pageCount (페이지수) : ${SearchResult.pageCount}</li>
+                    <li>message (응답메시지) : ${SearchResult.message}</li>
+                    <li>total (총 검색결과 건수) : ${SearchResult.total}</li>
+                    <li>perPage (페이지당 목록 건수) : ${SearchResult.perPage}</li>
+                    <li>pageNum (페이지 번호) : ${SearchResult.pageNum}</li>
+                    <li>pageCount (페이지 개수) : ${SearchResult.pageCount}</li>
                 </ul>
             </fieldset>
         </c:if>
@@ -51,10 +51,10 @@
                         <li>fileNames (전송 파일명 리스트) : ${fn:join(SearchInfo.fileNames,", ")}</li>
                         <li>receiptNum (접수번호) : ${SearchInfo.receiptNum}</li>
                         <li>requestNum (요청번호) : ${SearchInfo.requestNum}</li>
-                        <li>interOPRefKey (파트너지정키) : ${SearchInfo.interOPRefKey}</li>
+                        <li>interOPRefKey (파트너 지정키) : ${SearchInfo.interOPRefKey}</li>
                         <li>chargePageCnt (과금 페이지수) : ${SearchInfo.chargePageCnt}</li>
                         <li>refundPageCnt (환불 페이지수) : ${SearchInfo.refundPageCnt}</li>
-                        <li>tiffFileSize (변환파일용량 (단위:byte) ) : ${SearchInfo.tiffFileSize}</li>
+                        <li>tiffFileSize (변환파일용량 (단위:byte)) : ${SearchInfo.tiffFileSize}</li>
                     </ul>
                 </fieldset>
             </c:forEach>

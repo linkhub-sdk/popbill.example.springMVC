@@ -259,7 +259,7 @@ public class HTTaxinvoiceExample {
          * - https://developers.popbill.com/reference/httaxinvoice/java/api/search#GetTaxinvoice
          */
 
-        // 전자세금계산서 국세청 승인번호
+        // 전자세금계산서 국세청승인번호
         String ntsconfirmNum = "202112044100020300000c0a";
 
         try {
@@ -280,7 +280,7 @@ public class HTTaxinvoiceExample {
          * - https://developers.popbill.com/reference/httaxinvoice/java/api/search#GetXML
          */
 
-        // 전자세금계산서 국세청 승인번호
+        // 전자세금계산서 국세청승인번호
         String ntsconfirmNum = "20211202410002030000196d";
 
         try {
@@ -304,7 +304,7 @@ public class HTTaxinvoiceExample {
          * - https://developers.popbill.com/reference/httaxinvoice/java/api/search#GetPopUpURL
          */
 
-        // 조회할 전자세금계산서 국세청 승인번호
+        // 조회할 전자세금계산서 국세청승인번호
         String NTSConfirmNum = "20211202410002030000196d";
 
         try {
@@ -328,7 +328,7 @@ public class HTTaxinvoiceExample {
          * - https://developers.popbill.com/reference/httaxinvoice/java/api/search#GetPrintURL
          */
 
-        // 조회할 전자세금계산서 국세청 승인번호
+        // 조회할 전자세금계산서 국세청승인번호
         String NTSConfirmNum = "20161202410002030000196d";
 
         try {

@@ -23,12 +23,12 @@
                 <fieldset class="fieldset2">
                     <legend>조회 결과</legend>
                     <ul>
-                        <li>corpNum (사업자번호) : ${CorpState.corpNum}</li>
-                        <li>taxType (과세유형) : ${CorpState.taxType}</li>
+                        <li>corpNum (조회한 사업자번호) : ${CorpState.corpNum}</li>
+                        <li>taxType (사업자 과세유형) : ${CorpState.taxType}</li>
                         <li>typeDate (과세유형 전환일자) : ${CorpState.typeDate}</li>
-                        <li>state (휴폐업 상태) : ${CorpState.state}</li>
+                        <li>state (휴폐업상태) : ${CorpState.state}</li>
                         <li>stateDate (휴폐업일자) : ${CorpState.stateDate}</li>
-                        <li>checkDate (확인일자) : ${CorpState.checkDate}</li>
+                        <li>checkDate (국세청 확인일자) : ${CorpState.checkDate}</li>
                     </ul>
 
                 </fieldset>

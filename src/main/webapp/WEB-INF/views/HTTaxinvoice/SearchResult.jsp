@@ -18,11 +18,11 @@
                 <legend>검색결과 정보</legend>
                 <ul>
                     <li>code (응답코드) : ${SearchResult.code}</li>
-                    <li>message (응답 메시지) : ${SearchResult.message}</li>
-                    <li>total (전체 검색개수) : ${SearchResult.total}</li>
-                    <li>perPage (페이지당 목록개수) : ${SearchResult.perPage}</li>
-                    <li>pageNum (페이지번호) : ${SearchResult.pageNum}</li>
-                    <li>pageCount (페이지수) : ${SearchResult.pageCount}</li>
+                    <li>message (응답메시지) : ${SearchResult.message}</li>
+                    <li>total (총 검색결과 건수) : ${SearchResult.total}</li>
+                    <li>perPage (페이지당 목록 건수) : ${SearchResult.perPage}</li>
+                    <li>pageNum (페이지 번호) : ${SearchResult.pageNum}</li>
+                    <li>pageCount (페이지 개수) : ${SearchResult.pageCount}</li>
                 </ul>
             </fieldset>
         </c:if>
@@ -31,7 +31,7 @@
             <c:forEach items="${SearchResult.list}" var="SearchInfo" varStatus="status">
                 <fieldset class="fieldset2">
                     <ul>
-                        <li>ntsconfirmNum (국세청 승인번호) : ${SearchInfo.ntsconfirmNum}</li>
+                        <li>ntsconfirmNum (국세청승인번호) : ${SearchInfo.ntsconfirmNum}</li>
                         <li>writeDate (작성일자) : ${SearchInfo.writeDate}</li>
                         <li>issueDate (발행일자) : ${SearchInfo.issueDate}</li>
                         <li>sendDate (전송일자) : ${SearchInfo.sendDate}</li>
@@ -41,31 +41,31 @@
                         <li>taxTotal (세액 합계) : ${SearchInfo.totalAmount}</li>
                         <li>totalAmount (합계금액) : ${SearchInfo.totalAmount}</li>
                         <li>remark1 (비고) : ${SearchInfo.remark1}</li>
-                        <li>invoiceType (구분) : ${SearchInfo.invoiceType}</li>
+                        <li>invoiceType (세금계산서 유형) : ${SearchInfo.invoiceType}</li>
 
                         <li>modifyYN (수정 전자세금계산서 여부) : ${SearchInfo.modifyYN}</li>
-                        <li>orgNTSConfirmNum (원본 전자세금계산서 국세청 승인번호) : ${SearchInfo.orgNTSConfirmNum}</li>
-                        <li>purchaseDate (거래일자) : ${SearchInfo.purchaseDate}</li>
-                        <li>itemName (품명) : ${SearchInfo.itemName}</li>
-                        <li>spec (규격) : ${SearchInfo.spec}</li>
-                        <li>qty (수량) : ${SearchInfo.qty}</li>
-                        <li>unitCost (단가) : ${SearchInfo.unitCost}</li>
-                        <li>supplyCost (공급가액) : ${SearchInfo.supplyCost}</li>
-                        <li>tax (세액) : ${SearchInfo.tax}</li>
-                        <li>remark (비고) : ${SearchInfo.remark}</li>
+                        <li>orgNTSConfirmNum (당초 국세청승인번호) : ${SearchInfo.orgNTSConfirmNum}</li>
+                        <li>purchaseDate (품목1의 거래일자) : ${SearchInfo.purchaseDate}</li>
+                        <li>itemName (품목1의 품명) : ${SearchInfo.itemName}</li>
+                        <li>spec (품목1의 규격) : ${SearchInfo.spec}</li>
+                        <li>qty (품목1의 수량) : ${SearchInfo.qty}</li>
+                        <li>unitCost (품목1의 단가) : ${SearchInfo.unitCost}</li>
+                        <li>supplyCost (품목1의 공급가액) : ${SearchInfo.supplyCost}</li>
+                        <li>tax (품목1의 세액) : ${SearchInfo.tax}</li>
+                        <li>remark (품목1의 비고) : ${SearchInfo.remark}</li>
 
                         <li>invoicerCorpNum (공급자 사업자번호) : ${SearchInfo.invoicerCorpNum}</li>
-                        <li>invoicerTaxRegID (공급자 종사업장번호) : ${SearchInfo.invoicerTaxRegID}</li>
+                        <li>invoicerTaxRegID (공급자 종사업장 식별번호) : ${SearchInfo.invoicerTaxRegID}</li>
                         <li>invoicerCorpName (공급자 상호) : ${SearchInfo.invoicerCorpName}</li>
                         <li>invoicerCEOName (공급자 대표자 성명) : ${SearchInfo.invoicerCEOName}</li>
-                        <li>invoicerEmail (공급자 이메일) : ${SearchInfo.invoicerEmail}</li>
+                        <li>invoicerEmail (공급자 담당자 메일) : ${SearchInfo.invoicerEmail}</li>
 
-                        <li>invoiceeCorpNum (공급받는자 사업자번호) : ${SearchInfo.invoiceeCorpNum}</li>
+                        <li>invoiceeCorpNum (공급받는자 등록번호) : ${SearchInfo.invoiceeCorpNum}</li>
                         <li>invoiceeType (공급받는자 유형) : ${SearchInfo.invoiceeType}</li>
-                        <li>invoiceeTaxRegID (공급받는자 종사업장번호) : ${SearchInfo.invoiceeTaxRegID}</li>
+                        <li>invoiceeTaxRegID (공급받는자 종사업장 식별번호) : ${SearchInfo.invoiceeTaxRegID}</li>
                         <li>invoiceeCorpName (공급받는자 상호) : ${SearchInfo.invoiceeCorpName}</li>
                         <li>invoiceeCEOName (공급받는자 대표자 성명) : ${SearchInfo.invoiceeCEOName}</li>
-                        <li>invoiceeEmail1 (공급받는자 이메일) : ${SearchInfo.invoiceeEmail1}</li>
+                        <li>invoiceeEmail1 (공급받는자 담당자 메일) : ${SearchInfo.invoiceeEmail1}</li>
                     </ul>
                 </fieldset>
             </c:forEach>

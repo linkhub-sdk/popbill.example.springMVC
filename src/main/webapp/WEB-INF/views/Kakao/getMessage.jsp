@@ -15,16 +15,15 @@
         <c:if test="${sentInfos != null}">
             <fieldset class="fieldset2">
                 <ul>
-
                     <li>contentType (카카오톡 유형) : ${sentInfos.contentType}</li>
                     <li>templateCode (템플릿 코드) : ${sentInfos.templateCode}</li>
-                    <li>plusFriendID (비즈니스 채널 아이디) : ${sentInfos.plusFriendID}</li>
+                    <li>plusFriendID (검색용 아이디) : ${sentInfos.plusFriendID}</li>
                     <li>sendNum (발신번호) : ${sentInfos.sendNum}</li>
                     <li>altSubject (대체문자 제목) : ${sentInfos.altSubject}</li>
                     <li>altContent (대체문자 내용) : ${sentInfos.altContent}</li>
-                    <li>altSendType (대체문자 전송유형) : ${sentInfos.altSendType}</li>
+                    <li>altSendType (대체문자 유형) : ${sentInfos.altSendType}</li>
                     <li>reserveDT (예약일시) : ${sentInfos.reserveDT}</li>
-                    <li>adsYN (광고전송 여부) : ${sentInfos.adsYN}</li>
+                    <li>adsYN (광고메시지 전송 여부) : ${sentInfos.adsYN}</li>
                     <li>imageURL (친구톡 이미지 URL) : ${sentInfos.imageURL}</li>
                     <li>sendCnt (전송건수) : ${sentInfos.sendCnt}</li>
                     <li>successCnt (성공건수) : ${sentInfos.successCnt}</li>
@@ -61,23 +60,23 @@
                     <fieldset class="fieldset3">
                         <legend>개별전송 정보 [ ${status.index+1} ]</legend>
                         <ul>
-                            <li>serialNum</li>
                             <li>state (상태코드) : ${msgInfo.state}</li>
                             <li>sendDT (전송일시) : ${msgInfo.sendDT}</li>
+                            <li>result (카카오 결과코드) : ${msgInfo.result}</li>
+                            <li>resultDT (전송결과 수신일시) : ${msgInfo.resultDT}</li>
+                            <li>contentType (카카오톡 유형) : ${msgInfo.contentType}</li>
                             <li>receiveNum (수신번호) : ${msgInfo.receiveNum}</li>
                             <li>receiveName (수신자명) : ${msgInfo.receiveName}</li>
                             <li>content (알림톡/친구톡 내용) : ${msgInfo.content}</li>
-                            <li>result (카카오 결과코드) : ${msgInfo.result}</li>
-                            <li>resultDT (알림톡/친구톡 전송결과 수신일시) : ${msgInfo.resultDT}</li>
                             <li>altSubject (대체문자 제목) : ${msgInfo.altSubject}</li>
                             <li>altContent (대체문자 내용) : ${msgInfo.altContent}</li>
-                            <li>altContentType (대체문자 전송유형) : ${msgInfo.altContentType}</li>
+                            <li>altContentType (대체문자 전송타입) : ${msgInfo.altContentType}</li>
                             <li>altSendDT (대체문자 전송일시) : ${msgInfo.altSendDT}</li>
                             <li>altResult (통신사 결과코드) : ${msgInfo.altResult}</li>
                             <li>altResultDT (대체문자 전송결과 수신일시) : ${msgInfo.altResultDT}</li>
                             <li>receiptNum (접수번호) : ${msgInfo.receiptNum}</li>
                             <li>requestNum (요청번호) : ${msgInfo.requestNum}</li>
-                            <li>interOPRefKey (참조키) : ${msgInfo.interOPRefKey}</li>
+                            <li>interOPRefKey (파트너 지정키) : ${msgInfo.interOPRefKey}</li>
                         </ul>
                     </fieldset>
                 </c:forEach>

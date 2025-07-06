@@ -19,7 +19,7 @@
                 <li>issueDT (발행일시) : ${Taxinvoice.issueDT}</li>
                 <li>invoiceType (전자세금계산서 종류) : ${Taxinvoice.invoiceType}</li>
                 <li>taxType (과세형태) : ${Taxinvoice.taxType}</li>
-                <li>taxTotal (세액합계) : ${Taxinvoice.taxTotal}</li>
+                <li>taxTotal (세액 합계) : ${Taxinvoice.taxTotal}</li>
                 <li>supplyCostTotal (공급가액 합계) : ${Taxinvoice.supplyCostTotal}</li>
                 <li>totalAmount (합계금액) : ${Taxinvoice.totalAmount}</li>
                 <li>purposeType (영수/청구) : ${Taxinvoice.purposeType}</li>
@@ -31,11 +31,11 @@
                 <li>remark1 (비고1) : ${Taxinvoice.remark1}</li>
                 <li>remark2 (비고2) : ${Taxinvoice.remark2}</li>
                 <li>remark3 (비고3) : ${Taxinvoice.remark3}</li>
-                <li>ntsconfirmNum (국세청 승인번호) : ${Taxinvoice.ntsconfirmNum}</li>
+                <li>ntsconfirmNum (국세청승인번호) : ${Taxinvoice.ntsconfirmNum}</li>
 
                 <li>invoicerCorpNum (공급자 사업자번호) : ${Taxinvoice.invoicerCorpNum}</li>
-                <li>invoicerMgtKey (공급자 문서관리번호) : ${Taxinvoice.invoicerMgtKey}</li>
-                <li>invoicerTaxRegID (공급자 종사업장번호) : ${Taxinvoice.invoicerTaxRegID}</li>
+                <li>invoicerMgtKey (공급자 문서번호) : ${Taxinvoice.invoicerMgtKey}</li>
+                <li>invoicerTaxRegID (공급자 종사업장 식별번호) : ${Taxinvoice.invoicerTaxRegID}</li>
                 <li>invoicerCorpName (공급자 상호) : ${Taxinvoice.invoicerCorpName}</li>
                 <li>invoicerCEOName (공급자 대표자 성명) : ${Taxinvoice.invoicerCEOName}</li>
                 <li>invoicerAddr (공급자 주소) : ${Taxinvoice.invoicerAddr}</li>
@@ -43,12 +43,12 @@
                 <li>invoicerBizClass (공급자 종목) : ${Taxinvoice.invoicerBizClass}</li>
                 <li>invoicerContactName (공급자 담당자 성명) : ${Taxinvoice.invoicerContactName}</li>
                 <li>invoicerTEL (공급자 담당자 연락처) : ${Taxinvoice.invoicerTEL}</li>
-                <li>invoicerEmail (공급자 담당자 이메일) : ${Taxinvoice.invoicerEmail}</li>
+                <li>invoicerEmail (공급자 담당자 메일) : ${Taxinvoice.invoicerEmail}</li>
 
-                <li>invoiceeCorpNum (공급받는자 사업자번호) : ${Taxinvoice.invoiceeCorpNum}</li>
+                <li>invoiceeCorpNum (공급받는자 등록번호) : ${Taxinvoice.invoiceeCorpNum}</li>
                 <li>invoiceeType (공급받는자 유형) : ${Taxinvoice.invoiceeType}</li>
-                <li>invoiceeMgtKey (공급받는자 문서관리번호) : ${Taxinvoice.invoiceeMgtKey}</li>
-                <li>invoiceeTaxRegID (공급받는자 종사업장번호) : ${Taxinvoice.invoiceeTaxRegID}</li>
+                <li>invoiceeMgtKey (공급받는자 문서번호) : ${Taxinvoice.invoiceeMgtKey}</li>
+                <li>invoiceeTaxRegID (공급받는자 종사업장 식별번호) : ${Taxinvoice.invoiceeTaxRegID}</li>
                 <li>invoiceeCorpName (공급받는자 상호) : ${Taxinvoice.invoiceeCorpName}</li>
                 <li>invoiceeCEOName (공급받는자 대표자 성명) : ${Taxinvoice.invoiceeCEOName}</li>
                 <li>invoiceeAddr (공급받는자 주소) : ${Taxinvoice.invoiceeAddr}</li>
@@ -56,10 +56,10 @@
                 <li>invoiceeBizClass (공급받는자 종목) : ${Taxinvoice.invoiceeBizClass}</li>
                 <li>invoiceeContactName1 (공급받는자 담당자 성명) : ${Taxinvoice.invoiceeContactName1}</li>
                 <li>invoiceeTEL1 (공급받는자 담당자 연락처) : ${Taxinvoice.invoiceeTEL1}</li>
-                <li>invoiceeEmail1 (공급받는자 담당지 이메일) : ${Taxinvoice.invoiceeEmail1}</li>
+                <li>invoiceeEmail1 (공급받는자 담당지 메일) : ${Taxinvoice.invoiceeEmail1}</li>
 
                 <li>modifyCode (수정 사유코드) : ${Taxinvoice.modifyCode}</li>
-                <li>orgNTSConfirmNum (원본 전자세금계산서 국세청 승인번호) : ${Taxinvoice.orgNTSConfirmNum}</li>
+                <li>orgNTSConfirmNum (당초 국세청승인번호) : ${Taxinvoice.orgNTSConfirmNum}</li>
             </ul>
             <fieldset class="fieldset3">
                 <legend>detailList</legend>

@@ -14,14 +14,14 @@
     <fieldset class="fieldset1">
         <legend>${requestScope['javax.servlet.forward.request_uri']}</legend>
         <ul>
-            <li>referenceID (계좌 아이디) : ${State.referenceID}</li>
+            <li>referenceID (계좌아이디) : ${State.referenceID}</li>
             <li>contractDT (정액제 서비스 시작일시) : ${State.contractDT}</li>
-            <li>useEndDate (정액제 서비스 종료일) : ${State.useEndDate}</li>
+            <li>useEndDate (정액제 서비스 만료일자) : ${State.useEndDate}</li>
             <li>baseDate (자동연장 결제일) : ${State.baseDate}</li>
             <li>state (정액제 서비스 상태) : ${State.state}</li>
             <li>closeRequestYN (정액제 서비스 해지신청 여부) : ${State.closeRequestYN}</li>
             <li>useRestrictYN (정액제 서비스 사용제한 여부) : ${State.useRestrictYN}</li>
-            <li>closeOnExpired (정액제 서비스 만료 시 해지 여부) : ${State.closeOnExpired}</li>
+            <li>closeOnExpired (정액제 서비스 해지 구분) : ${State.closeOnExpired}</li>
             <li>unPaidYN (미수금 보유 여부) : ${State.unPaidYN}</li>
         </ul>
     </fieldset>

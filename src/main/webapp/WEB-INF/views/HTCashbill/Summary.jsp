@@ -14,11 +14,11 @@
     <fieldset class="fieldset1">
         <legend>${requestScope['javax.servlet.forward.request_uri']}</legend>
         <ul>
-            <li>count (수집 결과 건수) : ${SummaryResult.count}</li>
+            <li>count (수집 건수) : ${SummaryResult.count}</li>
             <li>supplyCostTotal (공급가액 합계) : ${SummaryResult.supplyCostTotal}</li>
             <li>taxTotal (세액 합계) : ${SummaryResult.taxTotal}</li>
             <li>serviceFeeTotal (봉사료 합계) : ${SummaryResult.serviceFeeTotal}</li>
-            <li>amountTotal (합계 금액) : ${SummaryResult.amountTotal}</li>
+            <li>amountTotal (총계) : ${SummaryResult.amountTotal}</li>
         </ul>
     </fieldset>
 </div>

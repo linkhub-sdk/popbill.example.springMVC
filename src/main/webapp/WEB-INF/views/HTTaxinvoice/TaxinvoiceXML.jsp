@@ -14,9 +14,9 @@
 			<fieldset class="fieldset1">
 				<legend>${requestScope['javax.servlet.forward.request_uri']}</legend>	
 				<ul>
-					<li>code (요청에 대한 응답 상태코드) : ${TaxinvoiceXML.resultCode}</li>
+					<li>resultCode (응답코드) : ${TaxinvoiceXML.resultCode}</li>
 					<li>message (응답메시지) : ${TaxinvoiceXML.message}</li>
-					<li>retObject (XML문서) : <c:out value="${TaxinvoiceXML.retObject}"></c:out></li>
+					<li>retObject (전자세금계산서 XML 문서) : <c:out value="${TaxinvoiceXML.retObject}"></c:out></li>
 				</ul>
 			</fieldset>
 		 </div>

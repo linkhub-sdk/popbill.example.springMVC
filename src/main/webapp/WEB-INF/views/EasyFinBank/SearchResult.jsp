@@ -18,11 +18,11 @@
                 <legend>거래내역 검색결과 정보</legend>
                 <ul>
                     <li> code (응답코드) : ${SearchResult.code}</li>
-                    <li> message (응답 메시지) : ${SearchResult.message}</li>
-                    <li> total (전체 검색개수) : ${SearchResult.total}</li>
-                    <li> perPage (페이지당 목록개수) : ${SearchResult.perPage}</li>
-                    <li> pageNum (페이지번호) : ${SearchResult.pageNum}</li>
-                    <li> pageCount (페이지수) : ${SearchResult.pageCount}</li>
+                    <li> message (응답메시지) : ${SearchResult.message}</li>
+                    <li> total (총 검색결과 건수) : ${SearchResult.total}</li>
+                    <li> perPage (페이지 당 목록 건수) : ${SearchResult.perPage}</li>
+                    <li> pageNum (페이지 번호) : ${SearchResult.pageNum}</li>
+                    <li> pageCount (페이지 개수) : ${SearchResult.pageCount}</li>
                     <li> lastScrapDT (최종 조회일시) : ${SearchResult.lastScrapDT}</li>
                     <li> balance (현재잔액) : ${SearchResult.balance}</li>
                 </ul>

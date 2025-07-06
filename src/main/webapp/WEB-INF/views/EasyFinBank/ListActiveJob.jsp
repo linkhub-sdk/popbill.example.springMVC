@@ -17,7 +17,7 @@
             <fieldset class="fieldset2">
                 <ul>
                     <li>jobID (작업아이디) : ${JobState.jobID}</li>
-                    <li>jobState (수집상태) : ${JobState.jobState}</li>
+                    <li>jobState (수집 상태) : ${JobState.jobState}</li>
                     <li>startDate (시작일자) : ${JobState.startDate}</li>
                     <li>endDate (종료일자) : ${JobState.endDate}</li>
                     <li>errorCode (수집 결과코드) : ${JobState.errorCode}</li>

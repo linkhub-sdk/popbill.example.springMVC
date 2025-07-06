@@ -19,9 +19,9 @@
                         <li>templateCode (템플릿 코드) : ${info.templateCode}</li>
                         <li>templateName (템플릿 제목) : ${info.templateName}</li>
                         <li>template (템플릿 내용) : ${info.template}</li>
-                        <li>plusFriendID (비즈니스 채널 아이디) : ${info.plusFriendID}</li>
-                        <li>ads (광고메시지) : ${info.ads}</li>
-                        <li>appendix (부가메시지) : ${info.appendix}</li>
+                        <li>plusFriendID (검색용 아이디) : ${info.plusFriendID}</li>
+                        <li>ads (광고 메시지) : ${info.ads}</li>
+                        <li>appendix (부가 메시지) : ${info.appendix}</li>
 		                <li>secureYN (보안템플릿 여부) : ${info.secureYN}</li>
 		                <li>state (템플릿 상태) : ${info.state}</li>
 		                <li>stateDT (템플릿 상태 일시) : ${info.stateDT}</li>

@@ -14,11 +14,11 @@
     <fieldset class="fieldset1">
         <legend>${requestScope['javax.servlet.forward.request_uri']}</legend>
         <ul>
-            <li>count (수집 결과 건수) : ${SummaryResult.count}</li>
+            <li>count (수집 건수) : ${SummaryResult.count}</li>
             <li>cntAccIn (입금거래 건수) : ${SummaryResult.cntAccIn}</li>
             <li>cntAccOut (출금거래 건수) : ${SummaryResult.cntAccOut}</li>
             <li>totalAccIn (입금액 합계) : ${SummaryResult.totalAccIn}</li>
-            <li>totalAccOut (입금액 합게) : ${SummaryResult.totalAccOut}</li>
+            <li>totalAccOut (출금액 합게) : ${SummaryResult.totalAccOut}</li>
         </ul>
     </fieldset>
 </div>

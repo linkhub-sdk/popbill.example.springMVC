@@ -19,7 +19,7 @@
                     <li>JobID (작업아이디) : ${JobState.jobID}</li>
                     <li>jobState (수집상태) : ${JobState.jobState}</li>
                     <li>queryType (수집유형) : ${JobState.queryType}</li>
-                    <li>queryDateType (일자유형) : ${JobState.queryDateType}</li>
+                    <li>queryDateType (수집 일자 유형) : ${JobState.queryDateType}</li>
                     <li>queryStDate (시작일자) : ${JobState.queryStDate}</li>
                     <li>queryEnDate (종료일자) : ${JobState.queryEnDate}</li>
                     <li>errorCode (수집 결과코드) : ${JobState.errorCode}</li>

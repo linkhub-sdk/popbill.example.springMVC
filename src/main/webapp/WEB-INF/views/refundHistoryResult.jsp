@@ -17,10 +17,10 @@
                 <legend>검색결과 정보</legend>
                 <ul>
                     <li>code (응답코드) : ${RefundHistoryResult.code}</li>
-                    <li>total (전체 검색개수) : ${RefundHistoryResult.total}</li>
-                    <li>perPage (페이지당 목록개수) : ${RefundHistoryResult.perPage}</li>
-                    <li>pageNum (페이지번호) : ${RefundHistoryResult.pageNum}</li>
-                    <li>pageCount (페이지수) : ${RefundHistoryResult.pageCount}</li>
+                    <li>total (총 검색결과 건수) : ${RefundHistoryResult.total}</li>
+                    <li>perPage (페이지당 목록 건수) : ${RefundHistoryResult.perPage}</li>
+                    <li>pageNum (페이지 번호) : ${RefundHistoryResult.pageNum}</li>
+                    <li>pageCount (페이지 개수) : ${RefundHistoryResult.pageCount}</li>
                 </ul>
             </fieldset>
         </c:if>
