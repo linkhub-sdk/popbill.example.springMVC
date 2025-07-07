@@ -76,7 +76,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/info#CheckMgtKeyInUse
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType keyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호, 1~24자리 (숫자, 영문, '-', '_') 조합으로 사업자 별로 중복되지 않도록 구성
@@ -941,7 +941,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/issue#Update
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
@@ -1204,7 +1204,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/issue#Issue
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
@@ -1243,7 +1243,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/issue#CancelIssue
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
@@ -1522,7 +1522,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/issue#Request
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.BUY;
 
         // 세금계산서 문서번호
@@ -1554,7 +1554,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/issue#CancelRequest
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.BUY;
 
         // 세금계산서 문서번호
@@ -1584,7 +1584,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/issue#Refuse
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
@@ -1616,7 +1616,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/issue#Delete
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
@@ -1644,7 +1644,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/issue#SendToNTS
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
@@ -1673,7 +1673,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/info#GetInfo
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
@@ -1702,7 +1702,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/info#GetInfos
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호 배열 (최대 1000건)
@@ -1730,7 +1730,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/info#GetDetailInfo
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
@@ -1757,7 +1757,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/info#GetXML
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
@@ -1785,7 +1785,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/info#Search
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 일자유형 ("R" , "W" , "I" 중 택 1)
@@ -1893,7 +1893,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/info#GetLogs
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
@@ -1941,7 +1941,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/view#GetPopUpURL
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
@@ -1966,7 +1966,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/view#GetViewURL
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
@@ -1991,7 +1991,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/view#GetPrintURL
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
@@ -2016,7 +2016,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/view#GetEPrintURL
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
@@ -2041,7 +2041,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/view#GetMassPrintURL
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 문서번호 배열, 최대 100건
@@ -2066,7 +2066,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/view#GetMailURL
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
@@ -2091,7 +2091,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/view#GetPDFURL
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
@@ -2134,7 +2134,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/etc#AttachFile
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
@@ -2173,7 +2173,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/etc#DeleteFile
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
@@ -2202,7 +2202,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/etc#GetFiles
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
@@ -2226,7 +2226,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/etc#SendEmail
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
@@ -2255,7 +2255,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/etc#SendSMS
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
@@ -2289,7 +2289,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/etc#SendFAX
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
@@ -2319,7 +2319,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/etc#AttachStatement
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
@@ -2350,7 +2350,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/etc#DetachStatement
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
@@ -2382,7 +2382,7 @@ public class TaxinvoiceServiceExample {
          * - https://developers.popbill.com/reference/taxinvoice/java/api/etc#AssignMgtKey
          */
 
-        // 세금계산서 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
+        // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 팝빌번호, 문서 목록조회(Search) API의 반환항목중 ItemKey 참조
