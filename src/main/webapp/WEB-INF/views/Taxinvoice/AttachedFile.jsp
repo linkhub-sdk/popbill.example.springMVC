@@ -17,7 +17,7 @@
                 <ul>
                     <li>serialNum (첨부파일 일련번호) : ${AttachedFile.serialNum}</li>
                     <li>attachedFile (파일아이디) : ${AttachedFile.attachedFile}</li>
-                    <li>displayName (첨부파일명) : ${AttachedFile.displayName}</li>
+                    <li>displayName (파일명) : ${AttachedFile.displayName}</li>
                     <li>regDT (첨부일시) : ${AttachedFile.regDT}</li>
                 </ul>
             </fieldset>
