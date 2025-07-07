@@ -1705,7 +1705,7 @@ public class TaxinvoiceServiceExample {
         // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
-        // 세금계산서 문서번호 배열 (최대 1000건)
+        // 문서번호 목록 (최대 1000건)
         String[] MgtKeyList = new String[]{"20230102-MVC001", "20230102-MVC002"};
 
         try {
@@ -2044,7 +2044,7 @@ public class TaxinvoiceServiceExample {
         // 문서번호 유형 (SELL-매출, BUY-매입, TRUSTEE-위수탁)
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
-        // 문서번호 배열, 최대 100건
+        // 문서번호 목록, 최대 100건
         String[] MgtKeyList = new String[]{"20230102-MVC001", "20230102-MVC002"};
 
         try {
