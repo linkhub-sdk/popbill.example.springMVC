@@ -72,7 +72,7 @@ public class EasyFinBankServiceExample {
         // 계좌유형, "법인" / "개인" 중 택 1
         bankInfo.setAccountType("");
 
-        // 예금주 식별정보 ('-' 제외)
+        // 실명번호 ('-' 제외)
         // 계좌유형이 "법인"인 경우 : 사업자번호(10자리)
         // 계좌유형이 "개인"인 경우 : 예금주 생년월일 (6자리-YYMMDD)
         bankInfo.setIdentityNumber("");
@@ -452,7 +452,7 @@ public class EasyFinBankServiceExample {
         // └ 거래내역 조회(Seach API) 함수의 반환값인 EasyFinBankSearchDetail 의 tid를 통해 확인 가능
         String TID = "";
 
-        // 거래 내역에 저장할 메모
+        // 거래내역 메모
         String Memo = "Memo테스트";
 
         try {
