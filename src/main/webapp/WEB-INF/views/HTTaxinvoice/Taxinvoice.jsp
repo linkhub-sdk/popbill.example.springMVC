@@ -58,6 +58,19 @@
                 <li>invoiceeTEL1 (공급받는자 담당자 연락처) : ${Taxinvoice.invoiceeTEL1}</li>
                 <li>invoiceeEmail1 (공급받는자 담당지 메일) : ${Taxinvoice.invoiceeEmail1}</li>
 
+                <li>trusteeCorpNum (수탁자 사업자번호) : ${Taxinvoice.trusteeCorpNum}</li>
+                <li>trusteeMgtKey (수탁자 문서번호) : ${Taxinvoice.trusteeMgtKey}</li>
+                <li>trusteeTaxRegID (수탁자 종사업장 식별번호) : ${Taxinvoice.trusteeTaxRegID}</li>
+                <li>trusteeCorpName (수탁자 상호) : ${Taxinvoice.trusteeCorpName}</li>
+                <li>trusteeCEOName (수탁자 대표자 성명) : ${Taxinvoice.trusteeCEOName}</li>
+                <li>trusteeAddr (수탁자 주소) : ${Taxinvoice.trusteeAddr}</li>
+                <li>trusteeBizType (수탁자 업태) : ${Taxinvoice.trusteeBizType}</li>
+                <li>trusteeBizClass (수탁자 종목) : ${Taxinvoice.trusteeBizClass}</li>
+                <li>trusteeContactName (수탁자 담당자 성명) : ${Taxinvoice.trusteeContactName}</li>
+                <li>trusteeDeptName (수탁자 담당자 부서명) : ${Taxinvoice.trusteeDeptName}</li>
+                <li>trusteeTEL (수탁자 담당자 연락처) : ${Taxinvoice.trusteeTEL}</li>
+                <li>trusteeEmail (수탁자 담당자 메일) : ${Taxinvoice.trusteeEmail}</li>
+
                 <li>modifyCode (수정 사유코드) : ${Taxinvoice.modifyCode}</li>
                 <li>orgNTSConfirmNum (당초 국세청승인번호) : ${Taxinvoice.orgNTSConfirmNum}</li>
             </ul>
