@@ -60,7 +60,7 @@ public class EasyFinBankServiceExample {
         // 계좌정보 클래스 인스턴스 생성
         EasyFinBankAccountForm bankInfo = new EasyFinBankAccountForm();
 
-        // 기관코드
+        // 은행 기관코드
         bankInfo.setBankCode("");
 
         // 계좌번호 하이픈('-') 제외
@@ -115,7 +115,7 @@ public class EasyFinBankServiceExample {
          * - https://developers.popbill.com/reference/easyfinbank/java/api/manage#UpdateBankAccount
          */
 
-        // 기관코드
+        // 은행 기관코드
         String BankCode = "";
 
         // 계좌번호 하이픈('-') 제외
@@ -161,7 +161,7 @@ public class EasyFinBankServiceExample {
         * - https://developers.popbill.com/reference/easyfinbank/java/api/manage#GetBankAccountInfo
         */
 
-        // 기관코드
+        // 은행 기관코드
         String BankCode = "";
 
         // 계좌번호 하이픈('-') 제외
@@ -224,7 +224,7 @@ public class EasyFinBankServiceExample {
          * - https://developers.popbill.com/reference/easyfinbank/java/api/manage#CloseBankAccount
          */
 
-        // 기관코드
+        // 은행 기관코드
         String BankCode = "";
 
         // 계좌번호 하이픈('-') 제외
@@ -254,7 +254,7 @@ public class EasyFinBankServiceExample {
          * - https://developers.popbill.com/reference/easyfinbank/java/api/manage#RevokeCloseBankAccount
          */
 
-        // 기관코드
+        // 은행 기관코드
         String BankCode = "";
 
         // 계좌번호 하이픈('-') 제외
@@ -278,7 +278,7 @@ public class EasyFinBankServiceExample {
         * - https://developers.popbill.com/reference/easyfinbank/java/api/manage#DeleteBankAccount
         */
 
-        // 기관코드
+        // 은행 기관코드
         String BankCode = "";
 
         // 계좌번호 하이픈('-') 제외
@@ -305,7 +305,7 @@ public class EasyFinBankServiceExample {
         * - https://developers.popbill.com/reference/easyfinbank/java/api/job#RequestJob
         */
 
-        // 기관코드
+        // 은행 기관코드
         String BankCode = "0039";
 
         // 계좌번호
@@ -494,7 +494,7 @@ public class EasyFinBankServiceExample {
         * - https://developers.popbill.com/reference/easyfinbank/java/common-api/point#GetFlatRateState
         */
 
-        // 기관코드
+        // 은행 기관코드
         String BankCode = "";
 
         // 계좌번호
