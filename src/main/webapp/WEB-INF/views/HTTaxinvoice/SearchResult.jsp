@@ -66,6 +66,12 @@
                         <li>invoiceeCorpName (공급받는자 상호) : ${SearchInfo.invoiceeCorpName}</li>
                         <li>invoiceeCEOName (공급받는자 대표자 성명) : ${SearchInfo.invoiceeCEOName}</li>
                         <li>invoiceeEmail1 (공급받는자 담당자 메일) : ${SearchInfo.invoiceeEmail1}</li>
+
+                        <li>trusteeCorpNum (수탁자 사업자번호) : ${SearchInfo.trusteeCorpNum}</li>
+                        <li>trusteeTaxRegID (수탁자 종사업장 식별번호) : ${SearchInfo.trusteeTaxRegID}</li>
+                        <li>trusteeCorpName (수탁자 상호) : ${SearchInfo.trusteeCorpName}</li>
+                        <li>trusteeCEOName (수탁자 대표자 성명) : ${SearchInfo.trusteeCEOName}</li>
+                        <li>trusteeEmail (수탁자 담당자 메일) : ${SearchInfo.trusteeEmail}</li>
                     </ul>
                 </fieldset>
             </c:forEach>
