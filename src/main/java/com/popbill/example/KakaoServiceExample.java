@@ -1601,7 +1601,7 @@ public class KakaoServiceExample {
 	public String getUnitCost(Model m) {
 		/**
 		 * 카카오톡 전송시 과금되는 포인트 단가를 확인합니다.
-		 * - https://developers.popbill.com/reference/kakaotalk/java/api/point#GetUnitCost
+		 * - https://developers.popbill.com/reference/kakaotalk/java/common-api/point#GetUnitCost
 		 */
 
 		// 카카오톡 전송유형, ATS-알림톡, FTS-친구톡 텍스트, FMS-친구톡 이미지
@@ -1622,7 +1622,7 @@ public class KakaoServiceExample {
 	public String chargeInfo(Model m) {
 		/**
 		 * 팝빌 카카오톡 API 서비스 과금정보를 확인합니다.
-		 * - https://developers.popbill.com/reference/kakaotalk/java/api/point#GetChargeInfo
+		 * - https://developers.popbill.com/reference/kakaotalk/java/common-api/point#GetChargeInfo
 		 */
 
 		// 카카오톡 전송유형, ATS-알림톡, FTS-친구톡 텍스트, FMS-친구톡 이미지
