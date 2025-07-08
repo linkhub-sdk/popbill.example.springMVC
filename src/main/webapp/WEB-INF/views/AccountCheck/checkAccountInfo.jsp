@@ -21,7 +21,6 @@
                 <li> accountName (예금주 성명) : ${AccountInfo.accountName}</li>
                 <li> bankCode (기관코드) : ${AccountInfo.bankCode}</li>
                 <li> accountNumber (계좌번호) : ${AccountInfo.accountNumber}</li>
-                <li> checkDate (확인일시) : ${AccountInfo.checkDate}</li>
                 <li> checkDT (확인일시) : ${AccountInfo.checkDT}</li>
             </ul>
         </fieldset>            

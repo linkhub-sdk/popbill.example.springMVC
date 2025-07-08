@@ -23,7 +23,6 @@
                 <li> accountNumber (계좌번호) : ${DepositorCheckInfo.accountNumber}</li>
                 <li> identityNumType (실명번호 유형) : ${DepositorCheckInfo.identityNumType}</li>
                 <li> identityNum (실명번호) : ${DepositorCheckInfo.identityNum}</li>
-                <li> checkDate (확인일시) : ${DepositorCheckInfo.checkDate}</li>
                 <li> checkDT (확인일시) : ${DepositorCheckInfo.checkDT}</li>
             </ul>
         </fieldset>            
