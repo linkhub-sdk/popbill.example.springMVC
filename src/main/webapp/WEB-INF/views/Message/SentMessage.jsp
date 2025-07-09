@@ -28,7 +28,7 @@
                     <li>reserveDT (예약일시) : ${SentMessage.reserveDT}</li>
                     <li>state (상태코드) : ${SentMessage.state}</li>
                     <li>result (결과코드) : ${SentMessage.result}</li>
-                    <li>messageType (메시지타입) : ${SentMessage.messageType}</li
+                    <li>messageType (메시지타입) : ${SentMessage.messageType}</li>
                     <li>tranNet (전송처리 이동통신사명) : ${SentMessage.tranNet}</li>
                     <li>receiptNum (접수번호) : ${SentMessage.receiptNum}</li>
                     <li>requestNum (요청번호) : ${SentMessage.requestNum}</li>
