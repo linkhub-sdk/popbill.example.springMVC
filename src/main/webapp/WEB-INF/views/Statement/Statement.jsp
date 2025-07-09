@@ -23,8 +23,8 @@
                 <li>taxType (과세형태) : ${Statement.taxType}</li>
                 <li>purposeType (영수/청구) : ${Statement.purposeType}</li>
                 <li>serialNum (일련번호) : ${Statement.serialNum}</li>
-                <li>taxTotal (세액 합계) : ${Statement.taxTotal}</li>
                 <li>supplyCostTotal (공급가액 합계) : ${Statement.supplyCostTotal}</li>
+                <li>taxTotal (세액 합계) : ${Statement.taxTotal}</li>
                 <li>totalAmount (합계금액) : ${Statement.totalAmount}</li>
                 <li>remark1 (비고1) : ${Statement.remark1}</li>
                 <li>remark2 (비고2) : ${Statement.remark2}</li>
