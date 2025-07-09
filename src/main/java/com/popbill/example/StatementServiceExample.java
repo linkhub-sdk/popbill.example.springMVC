@@ -197,6 +197,8 @@ public class StatementServiceExample {
         // 실제 거래처의 메일주소가 기재되지 않도록 주의
         statement.setReceiverEmail("");
 
+        // 추가속성
+        // 전자명세서 종류별 추가할 속성을 "key", "value" 형식으로 값을 입력
         Map<String, String> propertyBag = new HashMap<String, String>();
 
         propertyBag.put("Balance", "15000");            // 전잔액
@@ -375,6 +377,8 @@ public class StatementServiceExample {
         // 실제 거래처의 메일주소가 기재되지 않도록 주의
         statement.setReceiverEmail("test@receiver.com");
 
+        // 추가속성
+        // 전자명세서 종류별 추가할 속성을 "key", "value" 형식으로 값을 입력
         Map<String, String> propertyBag = new HashMap<String, String>();
 
         propertyBag.put("Balance", "15000");            // 전잔액
@@ -552,6 +556,8 @@ public class StatementServiceExample {
         // 실제 거래처의 메일주소가 기재되지 않도록 주의
         statement.setReceiverEmail("test@receiver.com");
 
+        // 추가속성
+        // 전자명세서 종류별 추가할 속성을 "key", "value" 형식으로 값을 입력
         Map<String, String> propertyBag = new HashMap<String, String>();
 
         propertyBag.put("Balance", "15000");            // 전잔액
