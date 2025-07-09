@@ -197,16 +197,6 @@ public class StatementServiceExample {
         // 실제 거래처의 메일주소가 기재되지 않도록 주의
         statement.setReceiverEmail("");
 
-        // 추가속성
-        // 전자명세서 종류별 추가할 속성을 "key", "value" 형식으로 값을 입력
-        Map<String, String> propertyBag = new HashMap<String, String>();
-
-        propertyBag.put("Balance", "15000");            // 전잔액
-        propertyBag.put("Deposit", "5000");             // 입금액
-        propertyBag.put("CBalance", "20000");           // 현잔액
-
-        statement.setPropertyBag(propertyBag);
-
         // 사업자등록증 이미지 첨부여부 (true / false 중 택 1)
         // └ true = 첨부 , false = 미첨부(기본값)
         // - 팝빌 사이트 또는 인감 및 첨부문서 등록 팝업 URL (GetSealURL API) 함수를 이용하여 등록
@@ -219,6 +209,16 @@ public class StatementServiceExample {
 
         // 알림문자 전송 여부
         statement.setSmssendYN(false);
+
+        // 추가속성
+        // 전자명세서 종류별 추가할 속성을 "key", "value" 형식으로 값을 입력
+        Map<String, String> propertyBag = new HashMap<String, String>();
+
+        propertyBag.put("Balance", "15000");            // 전잔액
+        propertyBag.put("Deposit", "5000");             // 입금액
+        propertyBag.put("CBalance", "20000");           // 현잔액
+
+        statement.setPropertyBag(propertyBag);
 
         /*********************************************************************
          *                            전자명세서 품목항목
@@ -383,16 +383,6 @@ public class StatementServiceExample {
         // 실제 거래처의 메일주소가 기재되지 않도록 주의
         statement.setReceiverEmail("test@receiver.com");
 
-        // 추가속성
-        // 전자명세서 종류별 추가할 속성을 "key", "value" 형식으로 값을 입력
-        Map<String, String> propertyBag = new HashMap<String, String>();
-
-        propertyBag.put("Balance", "15000");            // 전잔액
-        propertyBag.put("Deposit", "5000");             // 입금액
-        propertyBag.put("CBalance", "20000");           // 현잔액
-
-        statement.setPropertyBag(propertyBag);
-
         // 사업자등록증 이미지 첨부여부 (true / false 중 택 1)
         // └ true = 첨부 , false = 미첨부(기본값)
         // - 팝빌 사이트 또는 인감 및 첨부문서 등록 팝업 URL (GetSealURL API) 함수를 이용하여 등록
@@ -405,6 +395,16 @@ public class StatementServiceExample {
 
         // 알림문자 전송 여부
         statement.setSmssendYN(false);
+
+        // 추가속성
+        // 전자명세서 종류별 추가할 속성을 "key", "value" 형식으로 값을 입력
+        Map<String, String> propertyBag = new HashMap<String, String>();
+
+        propertyBag.put("Balance", "15000");            // 전잔액
+        propertyBag.put("Deposit", "5000");             // 입금액
+        propertyBag.put("CBalance", "20000");           // 현잔액
+
+        statement.setPropertyBag(propertyBag);
 
         /*********************************************************************
          *                            전자명세서 품목항목
@@ -568,16 +568,6 @@ public class StatementServiceExample {
         // 실제 거래처의 메일주소가 기재되지 않도록 주의
         statement.setReceiverEmail("test@receiver.com");
 
-        // 추가속성
-        // 전자명세서 종류별 추가할 속성을 "key", "value" 형식으로 값을 입력
-        Map<String, String> propertyBag = new HashMap<String, String>();
-
-        propertyBag.put("Balance", "15000");            // 전잔액
-        propertyBag.put("Deposit", "5000");             // 입금액
-        propertyBag.put("CBalance", "20000");           // 현잔액
-
-        statement.setPropertyBag(propertyBag);
-
         // 사업자등록증 이미지 첨부여부 (true / false 중 택 1)
         // └ true = 첨부 , false = 미첨부(기본값)
         // - 팝빌 사이트 또는 인감 및 첨부문서 등록 팝업 URL (GetSealURL API) 함수를 이용하여 등록
@@ -590,6 +580,16 @@ public class StatementServiceExample {
 
         // 알림문자 전송 여부
         statement.setSmssendYN(false);
+
+        // 추가속성
+        // 전자명세서 종류별 추가할 속성을 "key", "value" 형식으로 값을 입력
+        Map<String, String> propertyBag = new HashMap<String, String>();
+
+        propertyBag.put("Balance", "15000");            // 전잔액
+        propertyBag.put("Deposit", "5000");             // 입금액
+        propertyBag.put("CBalance", "20000");           // 현잔액
+
+        statement.setPropertyBag(propertyBag);
 
         /*********************************************************************
          *                            전자명세서 품목항목
@@ -1367,14 +1367,6 @@ public class StatementServiceExample {
         // 실제 거래처의 메일주소가 기재되지 않도록 주의
         statement.setReceiverEmail("test@receiver.com");
 
-        Map<String, String> propertyBag = new HashMap<String, String>();
-
-        propertyBag.put("Balance", "15000");            // 전잔액
-        propertyBag.put("Deposit", "5000");             // 입금액
-        propertyBag.put("CBalance", "20000");           // 현잔액
-
-        statement.setPropertyBag(propertyBag);
-
         // 사업자등록증 이미지 첨부여부 (true / false 중 택 1)
         // └ true = 첨부 , false = 미첨부(기본값)
         // - 팝빌 사이트 또는 인감 및 첨부문서 등록 팝업 URL (GetSealURL API) 함수를 이용하여 등록
@@ -1384,6 +1376,16 @@ public class StatementServiceExample {
         // └ true = 첨부 , false = 미첨부(기본값)
         // - 팝빌 사이트 또는 인감 및 첨부문서 등록 팝업 URL (GetSealURL API) 함수를 이용하여 등록
         statement.setBankBookYN(false);
+
+        // 추가속성
+        // 전자명세서 종류별 추가할 속성을 "key", "value" 형식으로 값을 입력
+        Map<String, String> propertyBag = new HashMap<String, String>();
+
+        propertyBag.put("Balance", "15000");            // 전잔액
+        propertyBag.put("Deposit", "5000");             // 입금액
+        propertyBag.put("CBalance", "20000");           // 현잔액
+
+        statement.setPropertyBag(propertyBag);
 
         /*********************************************************************
          *                            전자명세서 품목항목
