@@ -17,6 +17,7 @@
             <ul>
                 <li>itemCode (전자명세서 문서 유형) : ${Statement.itemCode}</li>
                 <li>mgtKey (문서번호) : ${Statement.mgtKey}</li>
+                <li>invoiceNum (팝빌 승인번호) : ${Statement.invoiceNum}</li>
                 <li>formCode (맞춤양식 코드) : ${Statement.formCode}</li>
                 <li>writeDate (작성일자) : ${Statement.writeDate}</li>
                 <li>taxType (과세형태) : ${Statement.taxType}</li>

@@ -33,6 +33,7 @@
                     <ul>
                         <li>itemCode (전자명세서 문서 유형) : ${SearchInfo.itemCode}</li>
                         <li>itemKey (팝빌번호) : ${SearchInfo.itemKey}</li>
+                        <li>invoiceNum (팝빌 승인번호) : ${SearchInfo.invoiceNum}</li>
                         <li>mgtKey (문서번호) : ${SearchInfo.mgtKey}</li>
                         <li>taxType (과세형태) : ${SearchInfo.taxType}</li>
                         <li>writeDate (작성일자) : ${SearchInfo.writeDate}</li>
