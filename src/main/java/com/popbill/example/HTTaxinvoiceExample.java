@@ -371,7 +371,7 @@ public class HTTaxinvoiceExample {
          */
 
         try {
-            Date expireDate = htTaxinvoiceService.getCertificateExpireDate(CorpNum);
+            Date expireDate = htTaxinvoiceService.getCertificateExpireDate(CorpNum, UserID);
             m.addAttribute("Result", expireDate);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -389,7 +389,7 @@ public class HTTaxinvoiceExample {
          */
 
         try {
-            Response response = htTaxinvoiceService.checkCertValidation(CorpNum);
+            Response response = htTaxinvoiceService.checkCertValidation(CorpNum, UserID);
             m.addAttribute("Response", response);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -431,7 +431,7 @@ public class HTTaxinvoiceExample {
          */
 
         try {
-            Response response = htTaxinvoiceService.checkDeptUser(CorpNum);
+            Response response = htTaxinvoiceService.checkDeptUser(CorpNum, UserID);
             m.addAttribute("Response", response);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -449,7 +449,7 @@ public class HTTaxinvoiceExample {
          */
 
         try {
-            Response response = htTaxinvoiceService.checkLoginDeptUser(CorpNum);
+            Response response = htTaxinvoiceService.checkLoginDeptUser(CorpNum, UserID);
             m.addAttribute("Response", response);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
