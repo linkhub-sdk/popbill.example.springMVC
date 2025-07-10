@@ -35,6 +35,10 @@ public class ClosedownServiceExample {
     @Value("#{EXAMPLE_CONFIG.TestCorpNum}")
     private String CorpNum;
 
+    // 팝빌회원 아이디
+    @Value("#{EXAMPLE_CONFIG.TestUserID}")
+    private String UserID;
+
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String home(Locale locale, Model model) {
         return "Closedown/index";
@@ -49,7 +53,7 @@ public class ClosedownServiceExample {
 
         if (CorpNum != null && !CorpNum.equals("")) {
             try {
-                CorpState corpState = closedownService.CheckCorpNum(CorpNum, CorpNum);
+                CorpState corpState = closedownService.CheckCorpNum(CorpNum, CorpNum, UserID);
                 m.addAttribute("CorpState", corpState);
             } catch (PopbillException e) {
                 m.addAttribute("Exception", e);
@@ -74,7 +78,7 @@ public class ClosedownServiceExample {
         String[] CorpNumList = new String[] { "1234567890", "6798700433" };
 
         try {
-            CorpState[] corpStates = closedownService.CheckCorpNum(CorpNum, CorpNumList);
+            CorpState[] corpStates = closedownService.CheckCorpNum(CorpNum, CorpNumList, UserID);
             m.addAttribute("CorpStates", corpStates);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -92,7 +96,7 @@ public class ClosedownServiceExample {
          */
 
         try {
-            float unitCost = closedownService.getUnitCost(CorpNum);
+            float unitCost = closedownService.getUnitCost(CorpNum, UserID);
             m.addAttribute("Result", unitCost);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -110,7 +114,7 @@ public class ClosedownServiceExample {
          */
 
         try {
-            ChargeInfo chrgInfo = closedownService.getChargeInfo(CorpNum);
+            ChargeInfo chrgInfo = closedownService.getChargeInfo(CorpNum, UserID);
             m.addAttribute("ChargeInfo", chrgInfo);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);

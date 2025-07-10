@@ -34,6 +34,10 @@ public class BizInfoCheckServiceExample {
     @Value("#{EXAMPLE_CONFIG.TestCorpNum}")
     private String CorpNum;
 
+    // 팝빌회원 아이디
+    @Value("#{EXAMPLE_CONFIG.TestUserID}")
+    private String UserID;
+
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String home(Locale locale, Model model) {
         return "BizInfoCheck/index";
@@ -48,10 +52,10 @@ public class BizInfoCheckServiceExample {
          */
 
         // 조회할 사업자번호
-        String CorpNum = "6798700433";
+        String CheckCorpNum = "6798700433";
 
         try {
-            BizCheckInfo bizInfo = bizInfoCheckService.CheckBizInfo(CorpNum, CorpNum);
+            BizCheckInfo bizInfo = bizInfoCheckService.CheckBizInfo(CorpNum, CheckCorpNum, UserID);
             m.addAttribute("BizInfo", bizInfo);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -69,7 +73,7 @@ public class BizInfoCheckServiceExample {
          */
 
         try {
-            float unitCost = bizInfoCheckService.getUnitCost(CorpNum);
+            float unitCost = bizInfoCheckService.getUnitCost(CorpNum, UserID);
             m.addAttribute("Result", unitCost);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -87,7 +91,7 @@ public class BizInfoCheckServiceExample {
          */
 
         try {
-            ChargeInfo chrgInfo = bizInfoCheckService.getChargeInfo(CorpNum);
+            ChargeInfo chrgInfo = bizInfoCheckService.getChargeInfo(CorpNum, UserID);
             m.addAttribute("ChargeInfo", chrgInfo);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);

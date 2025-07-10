@@ -16,10 +16,10 @@
   *     - UseLocalTimeYN : 로컬시스템 시간 사용여부, true-사용, false-미사용, (기본값:true)
   *  3) 비즈니스 채널 등록 및 알림톡 템플릿을 신청합니다.
   *    - 1. 비즈니스 채널 등록 (등록방법은 사이트/API 두가지 방식이 있습니다.)
-  *       └ 팝빌 사이트 로그인 [문자/팩스] > [카카오톡] > [카카오톡 관리] > '비즈니스 채널 관리' 메뉴에서 등록
+  *       └ 팝빌 사이트 로그인 [카카오톡] > [관리] > [비즈니스 채널 관리] 메뉴에서 등록
   *       └ GetPlusFriendMgtURL API 를 통해 반환된 URL을 이용하여 등록
   *    - 2. 알림톡 템플릿 신청 (등록방법은 사이트/API 두가지 방식이 있습니다.)
-  *       └ 팝빌 사이트 로그인 [문자/팩스] > [카카오톡] > [카카오톡 관리] > '알림톡 템플릿 관리' 메뉴에서 등록
+  *       └ 팝빌 사이트 로그인 [카카오톡] > [관리] > [알림톡 템플릿 관리] 메뉴에서 등록
   *       └ GetATSTemplateMgtURL API 를 통해 URL을 이용하여 등록
   */
 package com.popbill.example;
@@ -101,7 +101,7 @@ public class KakaoServiceExample {
 		 */
 
 		try {
-			PlusFriendID[] response = kakaoService.listPlusFriendID(CorpNum);
+			PlusFriendID[] response = kakaoService.listPlusFriendID(CorpNum, UserID);
 			m.addAttribute("listInfo", response);
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
@@ -119,8 +119,8 @@ public class KakaoServiceExample {
 		 */
 		try {
 			// 확인할 발신번호
-			String sender = "070-4304-2991";
-			Response response = kakaoService.checkSenderNumber(CorpNum, sender);
+			String senderNumber = "070-4304-2991";
+			Response response = kakaoService.checkSenderNumber(CorpNum, senderNumber, UserID);
 			m.addAttribute("Response", response);
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
@@ -156,7 +156,7 @@ public class KakaoServiceExample {
 		 */
 
 		try {
-			SenderNumber[] senderNumberList = kakaoService.getSenderNumberList(CorpNum);
+			SenderNumber[] senderNumberList = kakaoService.getSenderNumberList(CorpNum, UserID);
 			m.addAttribute("SenderNumberList", senderNumberList);
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
@@ -196,7 +196,7 @@ public class KakaoServiceExample {
 		String templateCode = "022070000353";
 
 		try {
-			ATSTemplate response = kakaoService.getATSTemplate(CorpNum, templateCode);
+			ATSTemplate response = kakaoService.getATSTemplate(CorpNum, templateCode, UserID);
 			m.addAttribute("Template", response);
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
@@ -215,7 +215,7 @@ public class KakaoServiceExample {
 		 */
 
 		try {
-			ATSTemplate[] response = kakaoService.listATSTemplate(CorpNum);
+			ATSTemplate[] response = kakaoService.listATSTemplate(CorpNum, UserID);
 			m.addAttribute("listTemplate", response);
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
@@ -1388,7 +1388,7 @@ public class KakaoServiceExample {
 		String receiptNum = "022021810443200001";
 
 		try {
-			Response response = kakaoService.cancelReserve(CorpNum, receiptNum);
+			Response response = kakaoService.cancelReserve(CorpNum, receiptNum, UserID);
 			m.addAttribute("Response", response);
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
@@ -1412,7 +1412,7 @@ public class KakaoServiceExample {
 		String receiveNum = "01022223334";
 
 		try {
-			Response response = kakaoService.cancelReservebyRCV(CorpNum, receiptNum, receiveNum);
+			Response response = kakaoService.cancelReservebyRCV(CorpNum, receiptNum, receiveNum, UserID);
 			m.addAttribute("Response", response);
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
@@ -1433,7 +1433,7 @@ public class KakaoServiceExample {
 		String requestNum = "";
 
 		try {
-			Response response = kakaoService.cancelReserveRN(CorpNum, requestNum);
+			Response response = kakaoService.cancelReserveRN(CorpNum, requestNum, UserID);
 			m.addAttribute("Response", response);
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
@@ -1457,7 +1457,7 @@ public class KakaoServiceExample {
         String receiveNum = "01022223333";
 
 		try {
-			Response response = kakaoService.cancelReserveRNbyRCV(CorpNum, requestNum, receiveNum);
+			Response response = kakaoService.cancelReserveRNbyRCV(CorpNum, requestNum, receiveNum, UserID);
 			m.addAttribute("Response", response);
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
@@ -1481,7 +1481,7 @@ public class KakaoServiceExample {
 		String receiptNum = "022100612053100001";
 
 		try {
-			KakaoSentInfo sentInfos = kakaoService.getMessages(CorpNum, receiptNum);
+			KakaoSentInfo sentInfos = kakaoService.getMessages(CorpNum, receiptNum, UserID);
 			m.addAttribute("sentInfos", sentInfos);
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
@@ -1505,7 +1505,7 @@ public class KakaoServiceExample {
 		String requestNum = "";
 
 		try {
-			KakaoSentInfo sentInfos = kakaoService.getMessagesRN(CorpNum, requestNum);
+			KakaoSentInfo sentInfos = kakaoService.getMessagesRN(CorpNum, requestNum, UserID);
 			m.addAttribute("sentInfos", sentInfos);
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
@@ -1608,7 +1608,7 @@ public class KakaoServiceExample {
 		KakaoType kakaoType = KakaoType.ATS;
 
 		try {
-			float unitCost = kakaoService.getUnitCost(CorpNum, kakaoType);
+			float unitCost = kakaoService.getUnitCost(CorpNum, kakaoType, UserID);
 			m.addAttribute("Result", unitCost);
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
@@ -1629,7 +1629,7 @@ public class KakaoServiceExample {
 		KakaoType kakaoType = KakaoType.ATS;
 
 		try {
-			ChargeInfo chrgInfo = kakaoService.getChargeInfo(CorpNum, kakaoType);
+			ChargeInfo chrgInfo = kakaoService.getChargeInfo(CorpNum, kakaoType, UserID);
 			m.addAttribute("ChargeInfo", chrgInfo);
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);

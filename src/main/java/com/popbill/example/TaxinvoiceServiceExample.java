@@ -85,7 +85,7 @@ public class TaxinvoiceServiceExample {
         String isUseStr;
 
         try {
-            boolean IsUse = taxinvoiceService.checkMgtKeyInUse(CorpNum, keyType, mgtKey);
+            boolean IsUse = taxinvoiceService.checkMgtKeyInUse(CorpNum, keyType, mgtKey, UserID);
             isUseStr = (IsUse) ? "사용중" : "미사용중";
             m.addAttribute("Result", isUseStr);
         } catch (PopbillException e) {
@@ -104,7 +104,7 @@ public class TaxinvoiceServiceExample {
          */
 
         try {
-            TaxinvoiceCertificate taxinvoiceCertificate = taxinvoiceService.getTaxCertInfo(CorpNum);
+            TaxinvoiceCertificate taxinvoiceCertificate = taxinvoiceService.getTaxCertInfo(CorpNum, UserID);
             m.addAttribute("TaxinvoiceCertificate", taxinvoiceCertificate);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -644,7 +644,7 @@ public class TaxinvoiceServiceExample {
         Boolean ForceIssue = false;
 
         try {
-            BulkResponse response = taxinvoiceService.bulkSubmit(CorpNum, SubmitID, TaxinvoiceList, ForceIssue);
+            BulkResponse response = taxinvoiceService.bulkSubmit(CorpNum, SubmitID, TaxinvoiceList, ForceIssue, UserID);
             m.addAttribute("Response", response);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -666,7 +666,7 @@ public class TaxinvoiceServiceExample {
         String SubmitID = "20230102-MVC-BULK";
 
         try {
-            BulkTaxinvoiceResult bulkResult = taxinvoiceService.getBulkResult(CorpNum, SubmitID);
+            BulkTaxinvoiceResult bulkResult = taxinvoiceService.getBulkResult(CorpNum, SubmitID, UserID);
             m.addAttribute("BulkResult", bulkResult);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -923,8 +923,10 @@ public class TaxinvoiceServiceExample {
         addContact.setEmail("test2@test.com");
         taxinvoice.getAddContactList().add(addContact);
 
+        Boolean writeSpecification = false;
+
         try {
-            Response response = taxinvoiceService.register(CorpNum, taxinvoice);
+            Response response = taxinvoiceService.register(CorpNum, taxinvoice, UserID, writeSpecification);
             m.addAttribute("Response", response);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -1180,11 +1182,8 @@ public class TaxinvoiceServiceExample {
         taxinvoice.getAddContactList().add(addContact);
 
         try {
-
-            Response response = taxinvoiceService.update(CorpNum, mgtKeyType, mgtKey, taxinvoice);
-
+            Response response = taxinvoiceService.update(CorpNum, mgtKeyType, mgtKey, taxinvoice, UserID);
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -1221,12 +1220,8 @@ public class TaxinvoiceServiceExample {
         Boolean forceIssue = false;
 
         try {
-
-            IssueResponse response =
-                    taxinvoiceService.issue(CorpNum, mgtKeyType, mgtKey, memo, forceIssue, UserID);
-
+            IssueResponse response = taxinvoiceService.issue(CorpNum, mgtKeyType, mgtKey, memo, forceIssue, UserID);
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -1253,11 +1248,8 @@ public class TaxinvoiceServiceExample {
         String memo = "발행취소 메모";
 
         try {
-
-            Response response = taxinvoiceService.cancelIssue(CorpNum, mgtKeyType, mgtKey, memo);
-
+            Response response = taxinvoiceService.cancelIssue(CorpNum, mgtKeyType, mgtKey, memo, UserID);
             m.addAttribute("Response", response);
-
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
             return "exception";
@@ -1272,7 +1264,7 @@ public class TaxinvoiceServiceExample {
          * 공급받는자가 작성한 세금계산서 데이터를 팝빌에 저장하고 공급자에게 송부하여 발행을 요청합니다.
          * - 역발행 세금계산서 프로세스를 구현하기 위해서는 공급자/공급받는자가 모두 팝빌에 회원이여야 합니다.
          * - 발행 요청된 세금계산서는 "(역)발행대기" 상태이며, 공급자가 팝빌 사이트 또는 함수를 호출하여 발행한 경우에만 국세청으로 전송됩니다.
-         * - 공급자는 팝빌 사이트의 "매출 발행 대기함"에서 발행대기 상태의 역발행 세금계산서를 확인할 수 있습니다.
+         * - 공급자는 팝빌 사이트의 "매출 문서함"에서 발행대기 상태의 역발행 세금계산서를 확인할 수 있습니다.
          * - 임시저장(Register API) 함수와 역발행 요청(Request API) 함수를 한 번의 프로세스로 처리합니다.
          * - https://developers.popbill.com/reference/taxinvoice/java/api/issue#RegistRequest
          */
@@ -1498,7 +1490,7 @@ public class TaxinvoiceServiceExample {
 
         try {
 
-            Response response = taxinvoiceService.registRequest(CorpNum, taxinvoice, Memo);
+            Response response = taxinvoiceService.registRequest(CorpNum, taxinvoice, Memo, UserID);
 
             m.addAttribute("Response", response);
 
@@ -1516,7 +1508,7 @@ public class TaxinvoiceServiceExample {
          * 공급받는자가 저장된 역발행 세금계산서를 공급자에게 송부하여 발행 요청합니다.
          * - 역발행 세금계산서 프로세스를 구현하기 위해서는 공급자/공급받는자가 모두 팝빌에 회원이여야 합니다.
          * - 역발행 요청된 세금계산서는 "(역)발행대기" 상태이며, 공급자가 팝빌 사이트 또는 함수를 호출하여 발행한 경우에만 국세청으로 전송됩니다.
-         * - 공급자는 팝빌 사이트의 "매출 발행 대기함"에서 발행대기 상태의 역발행 세금계산서를 확인할 수 있습니다.
+         * - 공급자는 팝빌 사이트의 "매출 문서함"에서 발행대기 상태의 역발행 세금계산서를 확인할 수 있습니다.
          * - 역발행 요청시 공급자에게 역발행 요청 메일이 발송됩니다.
          * - 공급자가 역발행 세금계산서 발행시 포인트가 과금됩니다.
          * - https://developers.popbill.com/reference/taxinvoice/java/api/issue#Request
@@ -1533,7 +1525,7 @@ public class TaxinvoiceServiceExample {
 
         try {
 
-            Response response = taxinvoiceService.request(CorpNum, mgtKeyType, mgtKey, memo);
+            Response response = taxinvoiceService.request(CorpNum, mgtKeyType, mgtKey, memo, UserID);
 
             m.addAttribute("Response", response);
 
@@ -1565,7 +1557,7 @@ public class TaxinvoiceServiceExample {
 
         try {
 
-            Response response = taxinvoiceService.cancelRequest(CorpNum, mgtKeyType, mgtKey, memo);
+            Response response = taxinvoiceService.cancelRequest(CorpNum, mgtKeyType, mgtKey, memo, UserID);
 
             m.addAttribute("Response", response);
 
@@ -1595,7 +1587,7 @@ public class TaxinvoiceServiceExample {
 
         try {
 
-            Response response = taxinvoiceService.refuse(CorpNum, mgtKeyType, mgtKey, memo);
+            Response response = taxinvoiceService.refuse(CorpNum, mgtKeyType, mgtKey, memo, UserID);
 
             m.addAttribute("Response", response);
 
@@ -1624,7 +1616,7 @@ public class TaxinvoiceServiceExample {
 
         try {
 
-            Response response = taxinvoiceService.delete(CorpNum, mgtKeyType, mgtKey);
+            Response response = taxinvoiceService.delete(CorpNum, mgtKeyType, mgtKey, UserID);
 
             m.addAttribute("Response", response);
 
@@ -1652,7 +1644,7 @@ public class TaxinvoiceServiceExample {
 
         try {
 
-            Response response = taxinvoiceService.sendToNTS(CorpNum, mgtKeyType, mgtKey);
+            Response response = taxinvoiceService.sendToNTS(CorpNum, mgtKeyType, mgtKey, UserID);
 
             m.addAttribute("Response", response);
 
@@ -1681,7 +1673,7 @@ public class TaxinvoiceServiceExample {
 
         try {
 
-            TaxinvoiceInfo taxinvoiceInfo = taxinvoiceService.getInfo(CorpNum, mgtKeyType, mgtKey);
+            TaxinvoiceInfo taxinvoiceInfo = taxinvoiceService.getInfo(CorpNum, mgtKeyType, mgtKey, UserID);
 
             m.addAttribute("TaxinvoiceInfo", taxinvoiceInfo);
 
@@ -1711,7 +1703,7 @@ public class TaxinvoiceServiceExample {
         try {
 
             TaxinvoiceInfo[] taxinvoiceInfos =
-                    taxinvoiceService.getInfos(CorpNum, mgtKeyType, MgtKeyList);
+                    taxinvoiceService.getInfos(CorpNum, mgtKeyType, MgtKeyList, UserID);
 
             m.addAttribute("TaxinvoiceInfos", taxinvoiceInfos);
 
@@ -1738,7 +1730,7 @@ public class TaxinvoiceServiceExample {
 
         try {
 
-            Taxinvoice taxinvoice = taxinvoiceService.getDetailInfo(CorpNum, mgtKeyType, mgtKey);
+            Taxinvoice taxinvoice = taxinvoiceService.getDetailInfo(CorpNum, mgtKeyType, mgtKey, UserID);
 
             m.addAttribute("Taxinvoice", taxinvoice);
 
@@ -1765,7 +1757,7 @@ public class TaxinvoiceServiceExample {
 
         try {
 
-            TaxinvoiceXML taxinvoiceXML = taxinvoiceService.getXML(CorpNum, mgtKeyType, mgtKey);
+            TaxinvoiceXML taxinvoiceXML = taxinvoiceService.getXML(CorpNum, mgtKeyType, mgtKey, UserID);
 
             m.addAttribute("TaxinvoiceXML", taxinvoiceXML);
 
@@ -1900,7 +1892,7 @@ public class TaxinvoiceServiceExample {
         String mgtKey = "20230102-MVC002";
 
         try {
-            TaxinvoiceLog[] taxinvoiceLogs = taxinvoiceService.getLogs(CorpNum, mgtKeyType, mgtKey);
+            TaxinvoiceLog[] taxinvoiceLogs = taxinvoiceService.getLogs(CorpNum, mgtKeyType, mgtKey, UserID);
             m.addAttribute("TaxinvoiceLogs", taxinvoiceLogs);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -2148,7 +2140,7 @@ public class TaxinvoiceServiceExample {
         InputStream FileData = getClass().getClassLoader().getResourceAsStream("test.jpg");
 
         try {
-            Response response = taxinvoiceService.attachFile(CorpNum, mgtKeyType, mgtKey, DisplayName, FileData);
+            Response response = taxinvoiceService.attachFile(CorpNum, mgtKeyType, mgtKey, DisplayName, FileData, UserID);
             m.addAttribute("Response", response);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -2184,7 +2176,7 @@ public class TaxinvoiceServiceExample {
         String FileID = "";
 
         try {
-            Response response = taxinvoiceService.deleteFile(CorpNum, mgtKeyType, mgtKey, FileID);
+            Response response = taxinvoiceService.deleteFile(CorpNum, mgtKeyType, mgtKey, FileID, UserID);
             m.addAttribute("Response", response);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -2209,7 +2201,7 @@ public class TaxinvoiceServiceExample {
         String mgtKey = "20230102-MVC002";
 
         try {
-            AttachedFile[] attachedFiles = taxinvoiceService.getFiles(CorpNum, mgtKeyType, mgtKey);
+            AttachedFile[] attachedFiles = taxinvoiceService.getFiles(CorpNum, mgtKeyType, mgtKey, UserID);
             m.addAttribute("AttachedFiles", attachedFiles);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -2236,7 +2228,7 @@ public class TaxinvoiceServiceExample {
         String Receiver = "test@test.com";
 
         try {
-            Response response = taxinvoiceService.sendEmail(CorpNum, mgtKeyType, mgtKey, Receiver);
+            Response response = taxinvoiceService.sendEmail(CorpNum, mgtKeyType, mgtKey, Receiver, UserID);
             m.addAttribute("Response", response);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -2249,7 +2241,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "sendSMS", method = RequestMethod.GET)
     public String sendSMS(Model m) {
         /**
-         * 세금계산서와 관련된 안내 SMS(단문) 문자를 재전송하는 함수로, 팝빌 사이트 [문자·팩스] > [문자] > [전송내역] 메뉴에서 전송결과를 확인 할 수 있습니다.
+         * 세금계산서와 관련된 안내 SMS(단문) 문자를 재전송하는 함수로, 팝빌 사이트 [문자] > [결과] > [전송결과] 메뉴에서 전송결과를 확인 할 수 있습니다.
          * - 메시지는 최대 90byte까지 입력 가능하고, 초과한 내용은 자동으로 삭제되어 전송합니다. (한글 최대 45자)
          * - 함수 호출시 포인트가 과금됩니다.
          * - https://developers.popbill.com/reference/taxinvoice/java/api/etc#SendSMS
@@ -2271,7 +2263,7 @@ public class TaxinvoiceServiceExample {
         String Contents = "문자 메시지 내용입니다. 세금계산서가 발행되었습니다.";
 
         try {
-            Response response = taxinvoiceService.sendSMS(CorpNum, mgtKeyType, mgtKey, Sender, Receiver, Contents);
+            Response response = taxinvoiceService.sendSMS(CorpNum, mgtKeyType, mgtKey, Sender, Receiver, Contents, UserID);
             m.addAttribute("Response", response);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -2284,7 +2276,7 @@ public class TaxinvoiceServiceExample {
     @RequestMapping(value = "sendFAX", method = RequestMethod.GET)
     public String sendFAX(Model m) {
         /**
-         * 세금계산서를 팩스로 전송하는 함수로, 팝빌 사이트 [문자·팩스] > [팩스] > [전송내역] 메뉴에서 전송결과를 확인 할 수 있습니다.
+         * 세금계산서를 팩스로 전송하는 함수로, 팝빌 사이트 [팩스] > [결과] > [전송결과] 메뉴에서 전송결과를 확인 할 수 있습니다.
          * - 함수 호출시 포인트가 과금됩니다.
          * - https://developers.popbill.com/reference/taxinvoice/java/api/etc#SendFAX
          */
@@ -2302,7 +2294,7 @@ public class TaxinvoiceServiceExample {
         String Receiver = "070111222";
 
         try {
-            Response response = taxinvoiceService.sendFAX(CorpNum, mgtKeyType, mgtKey, Sender, Receiver);
+            Response response = taxinvoiceService.sendFAX(CorpNum, mgtKeyType, mgtKey, Sender, Receiver, UserID);
             m.addAttribute("Response", response);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -2333,7 +2325,8 @@ public class TaxinvoiceServiceExample {
         String subMgtKey = "20230102-MVC002";
 
         try {
-            Response response = taxinvoiceService.attachStatement(CorpNum, mgtKeyType, mgtKey, subItemCode, subMgtKey);
+            Response response = taxinvoiceService.attachStatement(CorpNum, mgtKeyType, mgtKey, subItemCode, subMgtKey,
+                    UserID);
             m.addAttribute("Response", response);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -2364,7 +2357,8 @@ public class TaxinvoiceServiceExample {
         String subMgtKey = "20230102-MVC002";
 
         try {
-            Response response = taxinvoiceService.detachStatement(CorpNum, mgtKeyType, mgtKey, subItemCode, subMgtKey);
+            Response response = taxinvoiceService.detachStatement(CorpNum, mgtKeyType, mgtKey, subItemCode, subMgtKey,
+                    UserID);
             m.addAttribute("Response", response);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -2392,7 +2386,7 @@ public class TaxinvoiceServiceExample {
         String mgtKey = "20230102-MVC007";
 
         try {
-            Response response = taxinvoiceService.assignMgtKey(CorpNum, mgtKeyType, itemKey, mgtKey);
+            Response response = taxinvoiceService.assignMgtKey(CorpNum, mgtKeyType, itemKey, mgtKey, UserID);
             m.addAttribute("Response", response);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -2410,7 +2404,7 @@ public class TaxinvoiceServiceExample {
          */
 
         try {
-            EmailSendConfig[] emailSendConfigs = taxinvoiceService.listEmailConfig(CorpNum);
+            EmailSendConfig[] emailSendConfigs = taxinvoiceService.listEmailConfig(CorpNum, UserID);
             m.addAttribute("EmailSendConfigs", emailSendConfigs);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -2459,7 +2453,7 @@ public class TaxinvoiceServiceExample {
         Boolean sendYN = true;
 
         try {
-            Response response = taxinvoiceService.updateEmailConfig(CorpNum, emailType, sendYN);
+            Response response = taxinvoiceService.updateEmailConfig(CorpNum, emailType, sendYN, UserID);
             m.addAttribute("Response", response);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -2474,11 +2468,11 @@ public class TaxinvoiceServiceExample {
         /**
          * 연동회원의 국세청 전송 옵션 설정 상태를 확인합니다.
          * - 팝빌 국세청 전송 정책 [https://developers.popbill.com/guide/taxinvoice/java/introduction/policy-of-send-to-nts]
-         * - 국세청 전송 옵션 설정은 팝빌 사이트 [전자세금계산서] > [환경설정] > [세금계산서 관리] 메뉴에서 설정할 수 있으며, API로 설정은 불가능 합니다.
+         * - 국세청 전송 옵션 설정은 팝빌 사이트 [전자세금계산서] > [관리] > [환경설정] 메뉴에서 설정할 수 있으며, API로 설정은 불가능 합니다.
          * - https://developers.popbill.com/reference/taxinvoice/java/api/etc#GetSendToNTSConfig
          */
         try {
-            boolean ntsConfig = taxinvoiceService.getSendToNTSConfig(CorpNum);
+            boolean ntsConfig = taxinvoiceService.getSendToNTSConfig(CorpNum, UserID);
             m.addAttribute("NTSConfig", ntsConfig);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -2516,7 +2510,7 @@ public class TaxinvoiceServiceExample {
          */
 
         try {
-            Date expireDate = taxinvoiceService.getCertificateExpireDate(CorpNum);
+            Date expireDate = taxinvoiceService.getCertificateExpireDate(CorpNum, UserID);
             m.addAttribute("Result", expireDate);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -2534,7 +2528,7 @@ public class TaxinvoiceServiceExample {
          */
 
         try {
-            Response response = taxinvoiceService.checkCertValidation(CorpNum);
+            Response response = taxinvoiceService.checkCertValidation(CorpNum, UserID);
             m.addAttribute("Response", response);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -2552,7 +2546,7 @@ public class TaxinvoiceServiceExample {
          */
 
         try {
-            float unitCost = taxinvoiceService.getUnitCost(CorpNum);
+            float unitCost = taxinvoiceService.getUnitCost(CorpNum, UserID);
             m.addAttribute("Result", unitCost);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -2570,7 +2564,7 @@ public class TaxinvoiceServiceExample {
          */
 
         try {
-            ChargeInfo chrgInfo = taxinvoiceService.getChargeInfo(CorpNum);
+            ChargeInfo chrgInfo = taxinvoiceService.getChargeInfo(CorpNum, UserID);
             m.addAttribute("ChargeInfo", chrgInfo);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -2824,15 +2818,8 @@ public class TaxinvoiceServiceExample {
 
         taxinvoice.getAddContactList().add(addContact);
 
-        // taxinvoice.setAddContactList(new ArrayList<TaxinvoiceAddContact>());
-
-        // TaxinvoiceAddContact addContact = new TaxinvoiceAddContact();
-
-        // addContact.setSerialNum(1);
-        // addContact.setContactName("추가 담당자 성명");
-        // addContact.setEmail("test2@test.com");
-
-        // taxinvoice.getAddContactList().add(addContact);
+        //거래명세서 동시작성 여부
+        Boolean WriteSpecification = false;
 
         // 즉시발행 메모
         String Memo = "수정세금계산서 발행 메모";
@@ -2844,9 +2831,16 @@ public class TaxinvoiceServiceExample {
         // - 가산세가 부과되더라도 발행을 해야하는 경우에는 forceIssue의 값을 true로 선언하여 발행(Issue API)를 호출하시면 됩니다.
         Boolean ForceIssue = false;
 
+        // 거래명세서 문서번호
+        String DealInvoiceKey = null;
+
+        // 세금계산서 발행 안내메일 제목
+        String EmailSubject = null;
+
         try {
             // 취소분 세금계산서 발행
-            IssueResponse response = taxinvoiceService.registIssue(CorpNum, taxinvoice, Memo, ForceIssue);
+            IssueResponse response = taxinvoiceService.registIssue(CorpNum, taxinvoice, WriteSpecification, Memo,
+                    ForceIssue, DealInvoiceKey, EmailSubject, UserID);
             m.addAttribute("Response", response);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -3100,6 +3094,9 @@ public class TaxinvoiceServiceExample {
 
         taxinvoice.getAddContactList().add(addContact);
 
+        //거래명세서 동시작성 여부
+        Boolean WriteSpecification = false;
+
         // 즉시발행 메모
         String Memo = "수정세금계산서 발행 메모";
 
@@ -3110,8 +3107,15 @@ public class TaxinvoiceServiceExample {
         // - 가산세가 부과되더라도 발행을 해야하는 경우에는 forceIssue의 값을 true로 선언하여 발행(Issue API)를 호출하시면 됩니다.
         Boolean ForceIssue = false;
 
+        // 거래명세서 문서번호
+        String DealInvoiceKey = null;
+
+        // 세금계산서 발행 안내메일 제목
+        String EmailSubject = null;
+
         try {
-            IssueResponse response = taxinvoiceService.registIssue(CorpNum, taxinvoice, Memo, ForceIssue);
+            IssueResponse response = taxinvoiceService.registIssue(CorpNum, taxinvoice, WriteSpecification, Memo,
+                    ForceIssue, DealInvoiceKey, EmailSubject, UserID);
             m.addAttribute("Response", response);
         } catch (PopbillException pe) {
             m.addAttribute("Exception", pe);
@@ -3366,6 +3370,9 @@ public class TaxinvoiceServiceExample {
 
         taxinvoice.getAddContactList().add(addContact);
 
+        //거래명세서 동시작성 여부
+        Boolean WriteSpecification = false;
+
         // 즉시발행 메모
         String Memo = "수정세금계산서 발행 메모";
 
@@ -3376,8 +3383,15 @@ public class TaxinvoiceServiceExample {
         // - 가산세가 부과되더라도 발행을 해야하는 경우에는 forceIssue의 값을 true로 선언하여 발행(Issue API)를 호출하시면 됩니다.
         Boolean ForceIssue = false;
 
+        // 거래명세서 문서번호
+        String DealInvoiceKey = null;
+
+        // 세금계산서 발행 안내메일 제목
+        String EmailSubject = null;
+
         try {
-            IssueResponse response = taxinvoiceService.registIssue(CorpNum, taxinvoice, Memo, ForceIssue);
+            IssueResponse response = taxinvoiceService.registIssue(CorpNum, taxinvoice, WriteSpecification, Memo,
+                    ForceIssue, DealInvoiceKey, EmailSubject, UserID);
             m.addAttribute("Response", response);
         } catch (PopbillException pe) {
             m.addAttribute("Exception", pe);
@@ -3629,6 +3643,9 @@ public class TaxinvoiceServiceExample {
 
         taxinvoice.getAddContactList().add(addContact);
 
+        //거래명세서 동시작성 여부
+        Boolean WriteSpecification = false;
+
         // 즉시발행 메모
         String Memo = "수정세금계산서 발행 메모";
 
@@ -3639,8 +3656,15 @@ public class TaxinvoiceServiceExample {
         // - 가산세가 부과되더라도 발행을 해야하는 경우에는 forceIssue의 값을 true로 선언하여 발행(Issue API)를 호출하시면 됩니다.
         Boolean ForceIssue = false;
 
+        // 거래명세서 문서번호
+        String DealInvoiceKey = null;
+
+        // 세금계산서 발행 안내메일 제목
+        String EmailSubject = null;
+
         try {
-            IssueResponse response = taxinvoiceService.registIssue(CorpNum, taxinvoice, Memo, ForceIssue);
+            IssueResponse response = taxinvoiceService.registIssue(CorpNum, taxinvoice, WriteSpecification, Memo,
+                    ForceIssue, DealInvoiceKey, EmailSubject, UserID);
             m.addAttribute("Response", response);
         } catch (PopbillException pe) {
             m.addAttribute("Exception", pe);
@@ -3891,6 +3915,9 @@ public class TaxinvoiceServiceExample {
 
         taxinvoice.getAddContactList().add(addContact);
 
+        //거래명세서 동시작성 여부
+        Boolean WriteSpecification = false;
+
         // 즉시발행 메모
         String Memo = "수정세금계산서 발행 메모";
 
@@ -3901,8 +3928,15 @@ public class TaxinvoiceServiceExample {
         // - 가산세가 부과되더라도 발행을 해야하는 경우에는 forceIssue의 값을 true로 선언하여 발행(Issue API)를 호출하시면 됩니다.
         Boolean ForceIssue = false;
 
+        // 거래명세서 문서번호
+        String DealInvoiceKey = null;
+
+        // 세금계산서 발행 안내메일 제목
+        String EmailSubject = null;
+
         try {
-            IssueResponse response = taxinvoiceService.registIssue(CorpNum, taxinvoice, Memo, ForceIssue);
+            IssueResponse response = taxinvoiceService.registIssue(CorpNum, taxinvoice, WriteSpecification, Memo,
+                    ForceIssue, DealInvoiceKey, EmailSubject, UserID);
             m.addAttribute("Response", response);
         } catch (PopbillException pe) {
             m.addAttribute("Exception", pe);
@@ -4157,6 +4191,9 @@ public class TaxinvoiceServiceExample {
 
         taxinvoice.getAddContactList().add(addContact);
 
+        //거래명세서 동시작성 여부
+        Boolean WriteSpecification = false;
+
         // 즉시발행 메모
         String Memo = "수정세금계산서 발행 메모";
 
@@ -4166,9 +4203,16 @@ public class TaxinvoiceServiceExample {
         // - 발행마감일이 지난 세금계산서를 발행하는 경우, 가산세가 부과될 수 있습니다.
         // - 가산세가 부과되더라도 발행을 해야하는 경우에는 forceIssue의 값을 true로 선언하여 발행(Issue API)를 호출하시면 됩니다.
         Boolean ForceIssue = false;
+
+        // 거래명세서 문서번호
+        String DealInvoiceKey = null;
+
+        // 세금계산서 발행 안내메일 제목
+        String EmailSubject = null;
         
         try {
-            IssueResponse response = taxinvoiceService.registIssue(CorpNum, taxinvoice, Memo, ForceIssue);
+            IssueResponse response = taxinvoiceService.registIssue(CorpNum, taxinvoice, WriteSpecification, Memo,
+                    ForceIssue, DealInvoiceKey, EmailSubject, UserID);
             m.addAttribute("Response", response);
         } catch (PopbillException pe) {
             m.addAttribute("Exception", pe);
@@ -4423,6 +4467,9 @@ public class TaxinvoiceServiceExample {
 
         taxinvoice.getAddContactList().add(addContact);
 
+        //거래명세서 동시작성 여부
+        Boolean WriteSpecification = false;
+
         // 즉시발행 메모
         String Memo = "수정세금계산서 발행 메모";
 
@@ -4433,8 +4480,15 @@ public class TaxinvoiceServiceExample {
         // - 가산세가 부과되더라도 발행을 해야하는 경우에는 forceIssue의 값을 true로 선언하여 발행(Issue API)를 호출하시면 됩니다.
         Boolean ForceIssue = false;
 
+        // 거래명세서 문서번호
+        String DealInvoiceKey = null;
+
+        // 세금계산서 발행 안내메일 제목
+        String EmailSubject = null;
+
         try {
-            IssueResponse response = taxinvoiceService.registIssue(CorpNum, taxinvoice, Memo, ForceIssue);
+            IssueResponse response = taxinvoiceService.registIssue(CorpNum, taxinvoice, WriteSpecification, Memo,
+                    ForceIssue, DealInvoiceKey, EmailSubject, UserID);
             m.addAttribute("Response", response);
         } catch (PopbillException pe) {
             m.addAttribute("Exception", pe);
@@ -4692,6 +4746,9 @@ public class TaxinvoiceServiceExample {
 
         taxinvoice.getAddContactList().add(addContact);
 
+        //거래명세서 동시작성 여부
+        Boolean WriteSpecification = false;
+
         // 즉시발행 메모
         String Memo = "수정세금계산서 발행 메모";
 
@@ -4702,8 +4759,15 @@ public class TaxinvoiceServiceExample {
         // - 가산세가 부과되더라도 발행을 해야하는 경우에는 forceIssue의 값을 true로 선언하여 발행(Issue API)를 호출하시면 됩니다.
         Boolean ForceIssue = false;
 
+        // 거래명세서 문서번호
+        String DealInvoiceKey = null;
+
+        // 세금계산서 발행 안내메일 제목
+        String EmailSubject = null;
+
         try {
-            IssueResponse response = taxinvoiceService.registIssue(CorpNum, taxinvoice, Memo, ForceIssue);
+            IssueResponse response = taxinvoiceService.registIssue(CorpNum, taxinvoice, WriteSpecification, Memo,
+                    ForceIssue, DealInvoiceKey, EmailSubject, UserID);
             m.addAttribute("Response", response);
         } catch (PopbillException pe) {
             m.addAttribute("Exception", pe);

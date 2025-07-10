@@ -78,7 +78,7 @@ public class HTTaxinvoiceExample {
         String EDate = "20230131";
 
         try {
-            String jobID = htTaxinvoiceService.requestJob(CorpNum, TIType, DType, SDate, EDate);
+            String jobID = htTaxinvoiceService.requestJob(CorpNum, TIType, DType, SDate, EDate, UserID);
             m.addAttribute("Result", jobID);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -100,7 +100,7 @@ public class HTTaxinvoiceExample {
         String jobID = "";
 
         try {
-            HTTaxinvoiceJobState jobState = htTaxinvoiceService.getJobState(CorpNum, jobID);
+            HTTaxinvoiceJobState jobState = htTaxinvoiceService.getJobState(CorpNum, jobID, UserID);
             m.addAttribute("JobState", jobState);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -118,7 +118,7 @@ public class HTTaxinvoiceExample {
          */
 
         try {
-            HTTaxinvoiceJobState[] jobStates = htTaxinvoiceService.listActiveJob(CorpNum);
+            HTTaxinvoiceJobState[] jobStates = htTaxinvoiceService.listActiveJob(CorpNum, UserID);
             m.addAttribute("JobStates", jobStates);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -263,7 +263,7 @@ public class HTTaxinvoiceExample {
         String ntsconfirmNum = "202112044100020300000c0a";
 
         try {
-            HTTaxinvoice taxinvoiceInfo = htTaxinvoiceService.getTaxinvoice(CorpNum, ntsconfirmNum);
+            HTTaxinvoice taxinvoiceInfo = htTaxinvoiceService.getTaxinvoice(CorpNum, ntsconfirmNum, UserID);
             m.addAttribute("Taxinvoice", taxinvoiceInfo);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -284,7 +284,7 @@ public class HTTaxinvoiceExample {
         String ntsconfirmNum = "20211202410002030000196d";
 
         try {
-            HTTaxinvoiceXMLResponse xmlResponse = htTaxinvoiceService.getXML(CorpNum, ntsconfirmNum);
+            HTTaxinvoiceXMLResponse xmlResponse = htTaxinvoiceService.getXML(CorpNum, ntsconfirmNum, UserID);
             m.addAttribute("TaxinvoiceXML", xmlResponse);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -413,7 +413,7 @@ public class HTTaxinvoiceExample {
         String deptUserPWD = "passwd";
 
         try {
-            Response response = htTaxinvoiceService.registDeptUser(CorpNum, deptUserID, deptUserPWD);
+            Response response = htTaxinvoiceService.registDeptUser(CorpNum, deptUserID, deptUserPWD, UserID);
             m.addAttribute("Response", response);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -467,7 +467,7 @@ public class HTTaxinvoiceExample {
          */
 
         try {
-            Response response = htTaxinvoiceService.deleteDeptUser(CorpNum);
+            Response response = htTaxinvoiceService.deleteDeptUser(CorpNum, UserID);
             m.addAttribute("Response", response);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -485,7 +485,7 @@ public class HTTaxinvoiceExample {
          */
 
         try {
-            ChargeInfo chrgInfo = htTaxinvoiceService.getChargeInfo(CorpNum);
+            ChargeInfo chrgInfo = htTaxinvoiceService.getChargeInfo(CorpNum, UserID);
             m.addAttribute("ChargeInfo", chrgInfo);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
@@ -524,7 +524,7 @@ public class HTTaxinvoiceExample {
          */
 
         try {
-            FlatRateState flatRateInfo = htTaxinvoiceService.getFlatRateState(CorpNum);
+            FlatRateState flatRateInfo = htTaxinvoiceService.getFlatRateState(CorpNum, UserID);
             m.addAttribute("State", flatRateInfo);
         } catch (PopbillException e) {
             m.addAttribute("Exception", e);
