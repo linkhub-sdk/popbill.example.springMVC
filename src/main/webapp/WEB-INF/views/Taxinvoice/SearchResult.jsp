@@ -46,11 +46,11 @@
                         <li>stateMemo (상태메모) : ${SearchInfo.stateMemo}</li>
                         <li>stateCode (상태코드) : ${SearchInfo.stateCode}</li>
                         <li>stateDT (상태 변경일시) : ${SearchInfo.stateDT}</li>
-                        <li>ntsconfirmNum (국세청승인번호) : ${SearchInfo.ntsconfirmNum}</li>
-                        <li>ntsresult (국세청 전송결과) : ${SearchInfo.ntsresult}</li>
-                        <li>ntssendDT (국세청 전송일시) : ${SearchInfo.ntssendDT}</li>
-                        <li>ntsresultDT (국세청 결과 수신일시) : ${SearchInfo.ntsresultDT}</li>
-                        <li>ntssendErrCode (결과코드) : ${SearchInfo.ntssendErrCode}</li>
+                        <li>ntsconfirmNum (국세청승인번호) : ${SearchInfo.NTSConfirmNum}</li>
+                        <li>ntsresult (국세청 전송결과) : ${SearchInfo.NTSResult}</li>
+                        <li>ntssendDT (국세청 전송일시) : ${SearchInfo.NTSSendDT}</li>
+                        <li>ntsresultDT (국세청 결과 수신일시) : ${SearchInfo.NTSResultDT}</li>
+                        <li>ntssendErrCode (결과코드) : ${SearchInfo.NTSSendErrCode}</li>
                         <li>modifyCode (수정사유코드) : ${SearchInfo.modifyCode}</li>
                         <li>interOPYN (연동문서 여부) : ${SearchInfo.interOPYN}</li>
                         <li>invoicerCorpName (공급자 상호) : ${SearchInfo.invoicerCorpName}</li>
