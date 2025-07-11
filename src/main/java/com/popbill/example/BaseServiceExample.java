@@ -580,6 +580,7 @@ public class BaseServiceExample {
 		 * - https://developers.popbill.com/reference/taxinvoice/java/common-api/member#CheckID
 		 */
 
+		// 중복여부를 확인할 아이디
 		String CheckID = "testkorea";
 
 		try {
