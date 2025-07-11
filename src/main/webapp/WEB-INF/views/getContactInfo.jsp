@@ -15,7 +15,7 @@
             <ul>
                 <li>id (아이디) : ${ContactInfo.id}</li>
                 <li>personName (담당자 성명) : ${ContactInfo.personName}</li>
-                <li>email (이메일) : ${ContactInfo.email}</li>
+                <li>email (메일) : ${ContactInfo.email}</li>
                 <li>tel (연락처) : ${ContactInfo.tel}</li>
                 <li>regDT (등록일시) : ${ContactInfo.regDT}</li>
                 <li>searchRole (권한) : ${ContactInfo.searchRole}</li>

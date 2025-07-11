@@ -50,7 +50,7 @@
                         <li>identityNum (식별번호) : ${SearchInfo.identityNum}</li>
                         <li>itemName (주문상품명) : ${SearchInfo.itemName}</li>
                         <li>orderNumber (주문번호) : ${SearchInfo.orderNumber}</li>
-                        <li>email (구매자 이메일) : ${SearchInfo.email}</li>
+                        <li>email (구매자 메일) : ${SearchInfo.email}</li>
                         <li>hp (구매자 휴대폰) : ${SearchInfo.hp}</li>
                         <li>customerName (구매자(고객) 성명) : ${SearchInfo.customerName}</li>
                         <li>confirmNum (국세청승인번호) : ${SearchInfo.confirmNum}</li>

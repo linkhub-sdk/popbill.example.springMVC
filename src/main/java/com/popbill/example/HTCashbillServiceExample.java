@@ -3,7 +3,7 @@
   *
   * SpringMVC 연동 튜토리얼 안내 : https://developers.popbill.com/guide/htcashbill/java/getting-started/tutorial?fwn=springmvc
   * 연동 기술지원 연락처 : 1600-9854
-  * 연동 기술지원 이메일 : code@linkhubcorp.com
+  * 연동 기술지원 메일 : code@linkhubcorp.com
   *
   * <테스트 연동개발 준비사항>
   * 1) 홈택스 로그인 인증정보를 등록합니다. (부서사용자등록 / 공동인증서 등록)
@@ -68,10 +68,10 @@ public class HTCashbillServiceExample {
         QueryType queryType = QueryType.SELL;
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20230102";
+        String SDate = "20250701";
 
         // 종료일자, 날짜형식(yyyyMMdd)
-        String EDate = "20230131";
+        String EDate = "20250731";
 
         try {
             String jobID = htCashbillService.requestJob(CorpNum, queryType, SDate, EDate, UserID);
@@ -93,7 +93,7 @@ public class HTCashbillServiceExample {
          */
 
         // 수집요청(requestJob API) 함수 호출 시 반환받은 작업아이디
-        String jobID = "";
+        String jobID = "025071112000000002";
 
         try {
             HTCashbillJobState jobState = htCashbillService.getJobState(CorpNum, jobID, UserID);

@@ -3,7 +3,7 @@
   *
   * SpringMVC 연동 튜토리얼 안내 : https://developers.popbill.com/guide/closedown/java/getting-started/tutorial?fwn=springmvc
   * 연동 기술지원 연락처 : 1600-9854
-  * 연동 기술지원 이메일 : code@linkhubcorp.com
+  * 연동 기술지원 메일 : code@linkhubcorp.com
   *
   */
 package com.popbill.example;
@@ -45,23 +45,20 @@ public class ClosedownServiceExample {
     }
 
     @RequestMapping(value = "checkCorpNum", method = RequestMethod.GET)
-    public String checkCorpNum(@RequestParam(required = false) String CorpNum, Model m) {
+    public String checkCorpNum(@RequestParam(required = false) String CheckCorpNum, Model m) {
         /**
          * 사업자번호 1건에 대한 사업자등록상태(휴폐업)를 확인합니다.
          * - https://developers.popbill.com/closedown/java/api#CheckCorpNum
          */
 
-        if (CorpNum != null && !CorpNum.equals("")) {
+        if (CheckCorpNum != null && !CheckCorpNum.equals("")) {
             try {
-                CorpState corpState = closedownService.CheckCorpNum(CorpNum, CorpNum, UserID);
+                CorpState corpState = closedownService.CheckCorpNum(CorpNum, CheckCorpNum, UserID);
                 m.addAttribute("CorpState", corpState);
             } catch (PopbillException e) {
                 m.addAttribute("Exception", e);
                 return "exception";
             }
-
-        } else {
-
         }
 
         return "Closedown/checkCorpNum";

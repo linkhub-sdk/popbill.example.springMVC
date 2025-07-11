@@ -15,7 +15,7 @@
         <legend>${requestScope['javax.servlet.forward.request_uri']}</legend>
         <div class="fieldset4">
             <form method="GET" id="corpnum_form" action="checkCorpNum">
-                <input class="txtCorpNum left" type="text" placeholder="사업자번호 기재" id="CorpNum" name="CorpNum"
+                <input class="txtCorpNum left" type="text" placeholder="사업자번호 기재" id="CheckCorpNum" name="CheckCorpNum"
                        value="${CorpState.corpNum}" tabindex=1/>
                 <p class="find_btn find_btn01 hand" onclick="search()" tabindex=2>조회</p>
             </form>

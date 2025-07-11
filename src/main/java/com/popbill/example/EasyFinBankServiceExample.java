@@ -3,7 +3,7 @@
   *
   * SpringMVC 연동 튜토리얼 안내 : https://developers.popbill.com/guide/easyfinbank/java/getting-started/tutorial?fwn=springmvc
   * 연동 기술지원 연락처 : 1600-9854
-  * 연동 기술지원 이메일 : code@linkhubcorp.com
+  * 연동 기술지원 메일 : code@linkhubcorp.com
   *
   */
 package com.popbill.example;
@@ -305,16 +305,16 @@ public class EasyFinBankServiceExample {
         */
 
         // 은행 기관코드
-        String BankCode = "0039";
+        String BankCode = "";
 
         // 계좌번호
         String AccountNumber = "";
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20230102";
+        String SDate = "20250701";
 
         // 종료일자, 닐짜형식(yyyyMMdd)
-        String EDate = "20230131";
+        String EDate = "20250731";
 
         try {
             String jobID = easyFinBankService.requestJob(CorpNum, BankCode, AccountNumber, SDate, EDate, UserID);

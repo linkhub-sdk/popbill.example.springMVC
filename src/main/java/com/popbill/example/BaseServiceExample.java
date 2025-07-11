@@ -3,7 +3,7 @@
   *
   * SpringMVC 연동 튜토리얼 안내 : https://developers.popbill.com/guide/taxinvoice/java/getting-started/tutorial?fwn=springmvc
   * 연동 기술지원 연락처 : 1600-9854
-  * 연동 기술지원 이메일 : code@linkhubcorp.com
+  * 연동 기술지원 메일 : code@linkhubcorp.com
   *
   */
 package com.popbill.example;
@@ -116,11 +116,11 @@ public class BaseServiceExample {
 		 * - https://developers.popbill.com/reference/taxinvoice/java/common-api/point#GetUseHistory
 		 */
 
-		// 조회 기간의 시작일자 (형식 : yyyyMMdd)
-		String SDate = "20230102";
+		// 검색 시작일자 (형식 : yyyyMMdd)
+		String SDate = "20250701";
 
-		// 조회 기간의 종료일자 (형식 : yyyyMMdd)
-		String EDate = "20230131";
+		// 검색 종료일자 (형식 : yyyyMMdd)
+		String EDate = "20250731";
 
 		// 목록 페이지번호 (기본값 1)
 		Integer Page = 1;
@@ -153,11 +153,11 @@ public class BaseServiceExample {
 		 * - https://developers.popbill.com/reference/taxinvoice/java/common-api/point#GetPaymentHistory
 		 */
 
-		// 조회 기간의 시작일자 (형식 : yyyyMMdd)
-		String SDate = "20230102";
+		// 검색 시작일자 (형식 : yyyyMMdd)
+		String SDate = "20250701";
 
-		// 조회 기간의 종료일자 (형식 : yyyyMMdd)
-		String EDate = "20230131";
+		// 검색 종료일자 (형식 : yyyyMMdd)
+		String EDate = "20250731";
 
 		// 목록 페이지번호 (기본값 1)
 		Integer Page = 1;
@@ -254,7 +254,7 @@ public class BaseServiceExample {
 		// 담당자명
 		paymentForm.setSettlerName("담당자명");
 
-		// 담당자 이메일
+		// 담당자 메일
 		paymentForm.setSettlerEmail("test@test.com");
 
 		// 담당자 휴대폰
@@ -286,7 +286,7 @@ public class BaseServiceExample {
 		 */
 
 		// 정산코드
-		String settleCode = "202301130000000026";
+		String settleCode = "202507110000000013";
 
 		try {
 			PaymentHistory paymentHistory = taxinvoiceService.getSettleResult(CorpNum, settleCode, UserID);
@@ -444,7 +444,7 @@ public class BaseServiceExample {
 		// 담당자 성명, 최대 100자
 		joinInfo.setContactName("담당자 성명");
 
-		// 담당자 이메일, 최대 100자
+		// 담당자 메일, 최대 100자
 		joinInfo.setContactEmail("test@test.com");
 
 		// 담당자 연락처, 최대 20자
@@ -518,7 +518,7 @@ public class BaseServiceExample {
 		// 담당자 연락처, 최대 20자
 		contactInfo.setTel("070-1234-1234");
 
-		// 담당자 이메일, 최대 100자
+		// 담당자 메일, 최대 100자
 		contactInfo.setEmail("test1234@test.com");
 
 		// 담당자 조회권한, 1 - 개인권한 / 2 - 읽기권한 / 3 - 회사권한
@@ -551,12 +551,12 @@ public class BaseServiceExample {
 		contactInfo.setPassword("password123!@#");
 
 		// 담당자 성명, 최대 100자
-		contactInfo.setPersonName("담당자 수정 테스트");
+		contactInfo.setPersonName("담당자 성명");
 
 		// 담당자 연락처, 최대 20자
 		contactInfo.setTel("070-1234-1234");
 
-		// 담당자 이메일, 최대 100자
+		// 담당자 메일, 최대 100자
 		contactInfo.setEmail("test1234@test.com");
 
 		// 담당자 조회권한, 1 - 개인권한 / 2 - 읽기권한 / 3 - 회사권한
@@ -620,11 +620,11 @@ public class BaseServiceExample {
 		 */
 
 		// 환불 코드
-		String refundCode = "023040000017";
+		String refundCode = "025070000028";
 
 		try {
 			RefundHistory response = taxinvoiceService.getRefundInfo(CorpNum, refundCode, UserID);
-			m.addAttribute("Response", response);
+			m.addAttribute("RefundHistory", response);
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
 			return "exception";

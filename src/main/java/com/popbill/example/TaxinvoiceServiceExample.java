@@ -3,7 +3,7 @@
  * <p>
  * SpringMVC 연동 튜토리얼 안내 : https://developers.popbill.com/guide/taxinvoice/java/getting-started/tutorial?fwn=springmvc
  * 연동 기술지원 연락처 : 1600-9854
- * 연동 기술지원 이메일 : code@linkhubcorp.com
+ * 연동 기술지원 메일 : code@linkhubcorp.com
  * <p>
  * <테스트 연동개발 준비사항>
  * 1) 전자세금계산서 인증서 등록
@@ -353,7 +353,7 @@ public class TaxinvoiceServiceExample {
 
         addContact.setSerialNum(1); // 일련번호 (1부터 순차적으로 입력 (최대 5))
         addContact.setContactName("추가 담당자 성명"); // 담당자 성명
-        addContact.setEmail("test2@test.com"); // 이메일
+        addContact.setEmail("test2@test.com"); // 메일
 
         taxinvoice.getAddContactList().add(addContact);
 
@@ -630,7 +630,7 @@ public class TaxinvoiceServiceExample {
 
             addContact.setSerialNum(1); // 일련번호 (1부터 순차적으로 입력 (최대 5))
             addContact.setContactName("추가 담당자 성명"); // 담당자 성명
-            addContact.setEmail("test2@test.com"); // 이메일
+            addContact.setEmail("test2@test.com"); // 메일
 
             taxinvoice.getAddContactList().add(addContact);
 
@@ -914,7 +914,7 @@ public class TaxinvoiceServiceExample {
         TaxinvoiceAddContact addContact = new TaxinvoiceAddContact();
         addContact.setSerialNum(1); // 일련번호 (1부터 순차적으로 입력 (최대 5))
         addContact.setContactName("추가 담당자 성명"); // 담당자 성명
-        addContact.setEmail("test2@test.com"); // 이메일
+        addContact.setEmail("test2@test.com"); // 메일
         taxinvoice.getAddContactList().add(addContact);
 
         addContact = new TaxinvoiceAddContact();
@@ -1177,7 +1177,7 @@ public class TaxinvoiceServiceExample {
 
         addContact.setSerialNum(1); // 일련번호 (1부터 순차적으로 입력 (최대 5))
         addContact.setContactName("추가 담당자 성명"); // 담당자 성명
-        addContact.setEmail("test2@test.com"); // 이메일
+        addContact.setEmail("test2@test.com"); // 메일
 
         taxinvoice.getAddContactList().add(addContact);
 

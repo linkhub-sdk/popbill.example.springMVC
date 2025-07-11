@@ -3,7 +3,7 @@
   *
   * SpringMVC 연동 튜토리얼 안내 : https://developers.popbill.com/guide/statement/java/getting-started/tutorial?fwn=springmvc
   * 연동 기술지원 연락처 : 1600-9854
-  * 연동 기술지원 이메일 : code@linkhubcorp.com
+  * 연동 기술지원 메일 : code@linkhubcorp.com
   *
   */
 package com.popbill.example;
@@ -256,7 +256,7 @@ public class StatementServiceExample {
         String Memo = "전자명세서 즉시발행 메모";
 
         // 발행 안내 메일 제목
-        // - 미입력 시 팝빌에서 지정한  이메일 제목으로 전송
+        // - 미입력 시 팝빌에서 지정한  메일 제목으로 전송
         String emailSubject = "";
 
         try {
@@ -654,7 +654,7 @@ public class StatementServiceExample {
         String memo = "발행메모";
 
         // 전자명세서 발행 안내메일 제목
-        // - 미입력시 팝빌에서 지정한 이메일 제목으로 전송
+        // - 미입력시 팝빌에서 지정한 메일 제목으로 전송
         String emailSubject = "테스트";
 
         try {
@@ -1171,7 +1171,7 @@ public class StatementServiceExample {
         // 전자명세서 문서번호
         String mgtKey = "20230102-MVC001";
 
-        // 수신자 이메일주소
+        // 수신자 메일주소
         String receiver = "test@test.com";
 
         try {
