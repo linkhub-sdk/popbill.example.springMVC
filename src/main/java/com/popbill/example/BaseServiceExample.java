@@ -117,7 +117,7 @@ public class BaseServiceExample {
 		 */
 
 		// 검색 시작일자 (형식 : yyyyMMdd)
-		String SDate = "20250701";
+		String SDate = "20250711";
 
 		// 검색 종료일자 (형식 : yyyyMMdd)
 		String EDate = "20250731";
@@ -154,7 +154,7 @@ public class BaseServiceExample {
 		 */
 
 		// 검색 시작일자 (형식 : yyyyMMdd)
-		String SDate = "20250701";
+		String SDate = "20250711";
 
 		// 검색 종료일자 (형식 : yyyyMMdd)
 		String EDate = "20250731";

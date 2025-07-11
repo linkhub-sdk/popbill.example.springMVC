@@ -187,13 +187,13 @@ public class FaxServiceExample {
         Receiver receiver1 = new Receiver();
         receiver1.setReceiveName("수신자1");        // 수신자명
         receiver1.setReceiveNum("010111222");     // 수신팩스번호
-        receiver1.setInterOPRefKey("20230102-FAX001");  // 파트너 지정키
+        receiver1.setInterOPRefKey("20250711-FAX001");  // 파트너 지정키
         receivers[0] = receiver1;
 
         Receiver receiver2 = new Receiver();
         receiver2.setReceiveName("수신자2");        // 수신자명
         receiver2.setReceiveNum("010333444");     // 수신팩스번호
-        receiver2.setInterOPRefKey("20230102-FAX002");  // 파트너 지정키
+        receiver2.setInterOPRefKey("20250711-FAX002");  // 파트너 지정키
         receivers[1] = receiver2;
 
         File[] files = new File[2];
@@ -320,13 +320,13 @@ public class FaxServiceExample {
         Receiver receiver1 = new Receiver();
         receiver1.setReceiveName("수신자1");        // 수신자명
         receiver1.setReceiveNum("010111222");     // 수신팩스번호
-        receiver1.setInterOPRefKey("20230102-FAXBinary01");  // 파트너 지정키
+        receiver1.setInterOPRefKey("20250711-FAXBinary01");  // 파트너 지정키
         receivers[0] = receiver1;
 
         Receiver receiver2 = new Receiver();
         receiver2.setReceiveName("수신자2");        // 수신자명
         receiver2.setReceiveNum("010333444");     // 수신팩스번호
-        receiver2.setInterOPRefKey("20230102-FAXBinary02");  // 파트너 지정키
+        receiver2.setInterOPRefKey("20250711-FAXBinary02");  // 파트너 지정키
         receivers[1] = receiver2;
 
         // 전송할 File InputStream 생성을 위한 샘플코드.
@@ -335,7 +335,6 @@ public class FaxServiceExample {
         try {
             targetStream = new FileInputStream(file);
         } catch (FileNotFoundException e1) {
-            // TODO Auto-generated catch block
             e1.printStackTrace();
         }
 
@@ -365,7 +364,7 @@ public class FaxServiceExample {
         // 전송요청번호
         // 팝빌이 접수 단위를 식별할 수 있도록 파트너가 할당하는 식별번호.
         // 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
-        String requestNum = "20230102-request";
+        String requestNum = "20250711-request";
 
         try {
             String receiptNum = faxService.sendFAXBinary(CorpNum, sendNum, SenderName, receivers, fileList, reserveDT,
@@ -582,7 +581,7 @@ public class FaxServiceExample {
         String title = "팩스 재전송(동보) 제목";
 
         // 원본 팩스 전송시 파트너가 할당한 전송요청번호(requestNum)
-        String orgRequestNum = "20230102-request";
+        String orgRequestNum = "20250711-request";
 
         try {
             String receiptNum = faxService.resendFAXRN(CorpNum, requestNum, sendNum, senderName, receivers, reserveDT,
@@ -695,7 +694,7 @@ public class FaxServiceExample {
          */
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20250701";
+        String SDate = "20250711";
 
         // 종료일자, 날짜형식(yyyyMMdd)
         String EDate = "20250731";

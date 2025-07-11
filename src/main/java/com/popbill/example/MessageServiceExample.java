@@ -190,7 +190,7 @@ public class MessageServiceExample {
         msg1.setReceiver("010111222");    // 수신번호
         msg1.setReceiverName("수신자1");    // 수신자명
         msg1.setContent("메시지 내용1");    // 메시지내용
-        msg1.setInterOPRefKey("20221006-SMS001");    // 파트너 지정키
+        msg1.setInterOPRefKey("20250711-SMS001");    // 파트너 지정키
         messages[0] = msg1;
 
         Message msg2 = new Message();
@@ -199,7 +199,7 @@ public class MessageServiceExample {
         msg2.setReceiver("010333444");
         msg2.setReceiverName("수신자2");
         msg2.setContent("메시지 내용2");
-        msg2.setInterOPRefKey("20221006-SMS002");
+        msg2.setInterOPRefKey("20250711-SMS002");
         messages[1] = msg2;
 
         // 전송예약일시, null인 경우 즉시전송
@@ -304,7 +304,7 @@ public class MessageServiceExample {
         msg1.setReceiverName("수신자1");       // 수신자명
         msg1.setSubject("장문 메시지 제목");      // 문자제목
         msg1.setContent("메시지 내용1");        // 메시지내용
-        msg1.setInterOPRefKey("20221006-LMS001");    // 파트너 지정키
+        msg1.setInterOPRefKey("20250711-LMS001");    // 파트너 지정키
         messages[0] = msg1;
 
         Message msg2 = new Message();
@@ -314,7 +314,7 @@ public class MessageServiceExample {
         msg2.setReceiverName("수신자2");
         msg2.setSubject("장문 메시지 제목");
         msg2.setContent("메시지 내용2");
-        msg2.setInterOPRefKey("20221006-LMS002");
+        msg2.setInterOPRefKey("20250711-LMS002");
         messages[1] = msg2;
 
         // 전송예약일시, null인 경우 즉시전송
@@ -424,7 +424,7 @@ public class MessageServiceExample {
         msg1.setReceiverName("수신자1");     // 수신자명
         msg1.setSubject("멀티 메시지 제목"); // 문자제목
         msg1.setContent("메시지 내용1");     // 메시지내용
-        msg1.setInterOPRefKey("20221006-MMS001");    // 파트너 지정키
+        msg1.setInterOPRefKey("20250711-MMS001");    // 파트너 지정키
         messages[0] = msg1;
 
         Message msg2 = new Message();
@@ -434,7 +434,7 @@ public class MessageServiceExample {
         msg2.setReceiverName("수신자2");
         msg2.setSubject("멀티 메시지 제목");
         msg2.setContent("메시지 내용2");
-        msg2.setInterOPRefKey("20221006-MMS001");
+        msg2.setInterOPRefKey("20250711-MMS001");
         messages[1] = msg2;
 
         // 전송할 이미지 파일 경로
@@ -481,7 +481,7 @@ public class MessageServiceExample {
         String senderName = "발신자명";
 
         // 수신번호
-        String receiver = "01056197053";
+        String receiver = "010111222";
 
         // 수신자명
         String receiverName = "수신자";
@@ -554,7 +554,7 @@ public class MessageServiceExample {
         msg1.setReceiverName("수신자1");     // 수신자명
         msg1.setSubject("멀티 메시지 제목"); // 문자제목
         msg1.setContent("메시지 내용1");     // 메시지내용
-        msg1.setInterOPRefKey("20221006-MMS001");    // 파트너 지정키
+        msg1.setInterOPRefKey("20250711-MMS001");    // 파트너 지정키
         messages[0] = msg1;
 
         Message msg2 = new Message();
@@ -564,7 +564,7 @@ public class MessageServiceExample {
         msg2.setReceiverName("수신자2");
         msg2.setSubject("멀티 메시지 제목");
         msg2.setContent("메시지 내용2");
-        msg2.setInterOPRefKey("20221006-MMS001");
+        msg2.setInterOPRefKey("20250711-MMS001");
         messages[1] = msg2;
 
         // 전송할 이미지 파일 경로
@@ -675,7 +675,7 @@ public class MessageServiceExample {
         msg1.setReceiver("010111222");      // 수신번호
         msg1.setReceiverName("수신자1");    // 수신자명
         msg1.setContent("메시지 내용1");    // 메시지내용
-        msg1.setInterOPRefKey("20221006-XMS001");   // 파트너 지정키
+        msg1.setInterOPRefKey("20250711-XMS001");   // 파트너 지정키
         messages[0] = msg1;
 
         Message msg2 = new Message();
@@ -684,7 +684,7 @@ public class MessageServiceExample {
         msg2.setReceiver("010333444");
         msg2.setReceiverName("수신자2");
         msg2.setContent("메시지 내용2");
-        msg2.setInterOPRefKey("20221006-XMS001");
+        msg2.setInterOPRefKey("20250711-XMS001");
         messages[1] = msg2;
 
         // 전송예약일시, null인 경우 즉시전송
@@ -856,7 +856,7 @@ public class MessageServiceExample {
          */
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20250701";
+        String SDate = "20250711";
 
         // 종료일자, 날짜형식(yyyyMMdd)
         String EDate = "20250731";
