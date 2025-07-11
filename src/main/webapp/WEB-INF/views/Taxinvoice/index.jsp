@@ -75,7 +75,7 @@
         <legend>부가기능</legend>
         <ul>
             <li><a href="BaseService/getAccessURL">GetAccessURL</a> - 팝빌 로그인 URL</li>
-            <li><a href="TaxinvoiceService/getSealURL"> GetSealURL</a> - 인감 및 첨부문서 등록 URL</li>
+            <li><a href="TaxinvoiceService/getSealURL">GetSealURL</a> - 인감 및 첨부문서 등록 URL</li>
             <li><a href="TaxinvoiceService/attachFile">AttachFile</a> - 첨부파일 추가</li>
             <li><a href="TaxinvoiceService/deleteFile">DeleteFile</a> - 첨부파일 삭제</li>
             <li><a href="TaxinvoiceService/getFiles">GetFiles</a> - 첨부파일 목록 확인</li>
@@ -97,8 +97,8 @@
             <li><a href="TaxinvoiceService/getCertificateExpireDate">GetCertificateExpireDate</a> - 공동인증서 만료일 확인</li>
             <li><a href="TaxinvoiceService/checkCertValidation">CheckCertValidation</a> - 공동인증서 유효성 확인</li>
             <li><a href="TaxinvoiceService/getTaxCertInfo">GetTaxCertInfo</a> - 공동인증서 정보확인</li>
-            <li><a href="TaxinvoiceService/registTaxCert">registTaxCert</a> - 공동 인증서 등록</li>
-            <li><a href="TaxinvoiceService/registTaxCertPFX">registTaxCertPFX</a> - PFX 공동 인증서 등록</li>
+            <li><a href="TaxinvoiceService/registTaxCert">RegistTaxCert</a> - 공동 인증서 등록</li>
+            <li><a href="TaxinvoiceService/registTaxCertPFX">RegistTaxCertPFX</a> - PFX 공동 인증서 등록</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
@@ -108,18 +108,18 @@
             <li><a href="TaxinvoiceService/getChargeInfo">GetChargeInfo</a> - 과금정보 확인</li>
             <li><a href="BaseService/getBalance">GetBalance</a> - 연동회원 잔여포인트 확인</li>
             <li><a href="BaseService/getChargeURL">GetChargeURL</a> - 연동회원 포인트충전 URL</li>
-            <li><a href="BaseService/paymentRequest">paymentRequest</a> - 연동회원 무통장 입금신청</li>
+            <li><a href="BaseService/paymentRequest">PaymentRequest</a> - 연동회원 무통장 입금신청</li>
             <li><a href="BaseService/getSettleResult">GetSettleResult</a> - 연동회원 무통장 입금신청정보 확인</li>
             <li><a href="BaseService/getPaymentHistory">GetPaymentHistory</a> - 연동회원 포인트 결제내역</li>
             <li><a href="BaseService/getPaymentURL">GetPaymentURL</a> - 연동회원 포인트 결제내역 URL</li>
             <li><a href="BaseService/getUseHistory">GetUseHistory</a> - 연동회원 포인트 사용내역</li>
             <li><a href="BaseService/getUseHistoryURL">GetUseHistoryURL</a> - 연동회원 포인트 사용내역 URL</li>
-            <li><a href="BaseService/refund">refund</a> - 연동회원 포인트 환불 신청</li>
+            <li><a href="BaseService/refund">Refund</a> - 연동회원 포인트 환불 신청</li>
             <li><a href="BaseService/getRefundHistory">GetRefundHistory</a> - 연동회원 포인트 환불신청내역</li>
             <li><a href="BaseService/getPartnerBalance">GetPartnerBalance</a> - 파트너 잔여포인트 확인</li>
             <li><a href="BaseService/getPartnerURL">GetPartnerURL</a> - 파트너 포인트충전 URL</li>
             <li><a href="BaseService/getRefundInfo">getRefundInfo</a> - 환불 신청 상태 확인</li>
-            <li><a href="BaseService/getRefundableBalance">getRefundableBalance</a> - 환불가능 포인트 조회</li>
+            <li><a href="BaseService/getRefundableBalance">GetRefundableBalance</a> - 환불가능 포인트 조회</li>
         </ul>
     </fieldset>
     <fieldset class="fieldset1">
