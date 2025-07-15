@@ -38,9 +38,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-/**
- * 팝빌 문자메시지 API 예제.
- */
 @Controller
 @RequestMapping("MessageService")
 public class MessageServiceExample {

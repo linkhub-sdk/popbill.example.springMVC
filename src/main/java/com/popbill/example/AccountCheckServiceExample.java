@@ -21,9 +21,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-/**
- * 팝빌 예금주조회 API 예제.
- */
 @Controller
 @RequestMapping("AccountCheckService")
 public class AccountCheckServiceExample {

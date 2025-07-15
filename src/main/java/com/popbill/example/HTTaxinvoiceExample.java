@@ -33,9 +33,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-/**
- * 팝빌 홈택스연계 전자세금계산서 API 예제.
- */
 @Controller
 @RequestMapping("HTTaxinvoiceService")
 public class HTTaxinvoiceExample {

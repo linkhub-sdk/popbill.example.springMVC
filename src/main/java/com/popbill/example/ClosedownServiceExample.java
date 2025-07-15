@@ -21,9 +21,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-/**
- * 팝빌 사업자등록상태조회 (휴폐업조회) API 예제.
- */
 @Controller
 @RequestMapping("CloseDownService")
 public class ClosedownServiceExample {

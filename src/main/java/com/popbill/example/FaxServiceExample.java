@@ -35,9 +35,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-/**
- * 팝빌 팩스 API 예제.
- */
 @Controller
 @RequestMapping("FaxService")
 public class FaxServiceExample {
