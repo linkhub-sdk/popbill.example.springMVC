@@ -88,8 +88,10 @@ public class AccountCheckServiceExample {
 		String IdentityNumType = "";
 
 		/**
-		 * 실명번호 - IdentityNumType 값이 "B" 인 경우 (사업자번호(10)자리 입력) - IdentityNumType 값이 "P" 인 경우
-		 * (생년월일(6)자리 입력 (형식 : YYMMDD)) 하이픈 '-' 제외하고 입력
+		 * 실명번호
+		 * - IdentityNumType 값이 "B" 인 경우 (사업자번호(10)자리 입력)
+		 * - IdentityNumType 값이 "P" 인 경우 (생년월일(6)자리 입력 (형식 : YYMMDD))
+		 * - 하이픈 '-' 제외하고 입력
 		 */
 		String IdentityNum = "";
 

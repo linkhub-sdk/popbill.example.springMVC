@@ -75,7 +75,7 @@
                 <li>orgNTSConfirmNum (당초 국세청승인번호) : ${Taxinvoice.orgNTSConfirmNum}</li>
             </ul>
             <fieldset class="fieldset3">
-                <legend>detailList</legend>
+                <legend>detailList (상세항목)</legend>
                 <c:forEach items="${Taxinvoice.detailList}" var="TaxinvoiceDetail">
                     <ul>
                         <li>SerialNum (일련번호) : ${TaxinvoiceDetail.serialNum}</li>

@@ -15,12 +15,7 @@
         <ul>
             <c:forEach items="${EmailSendConfigs}" var="EmailSendConfig">
                 <c:if test="${EmailSendConfig.emailType == 'CSH_ISSUE'}">
-                    <li>${EmailSendConfig.emailType} (메일 전송 여부)
-                        : ${EmailSendConfig.sendYN}</li>
-                </c:if>
-
-                <c:if test="${EmailSendConfig.emailType == 'CSH_CANCEL'}">
-                    <li>${EmailSendConfig.emailType} (메일 전송 여부)
+                    <li>${EmailSendConfig.emailType} (전송 여부)
                         : ${EmailSendConfig.sendYN}</li>
                 </c:if>
             </c:forEach>

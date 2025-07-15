@@ -18,10 +18,10 @@
                 <ul>
                     <li>code (응답코드) : ${BulkResult.code}</li>
                     <li>message (응답메시지) : ${BulkResult.message}</li>
-                    <li>submitID (제출아이디) : ${BulkResult.submitID}</li>
-                    <li>submitCount (발행 접수건수) : ${BulkResult.successCount}</li>
-                    <li>successCount (발행 성공건수) : ${BulkResult.successCount}</li>
-                    <li>failCount (발행 실패건수) : ${BulkResult.failCount}</li>
+                    <li>submitID (접수 시점에 고객사에서 할당한 제출아이디) : ${BulkResult.submitID}</li>
+                    <li>submitCount (현금영수증 접수 건수) : ${BulkResult.successCount}</li>
+                    <li>successCount (현금영수증 발행 성공 건수) : ${BulkResult.successCount}</li>
+                    <li>failCount (현금영수증 발행 실패 건수) : ${BulkResult.failCount}</li>
                     <li>txState (접수상태) : ${BulkResult.txState}</li>
                     <li>txResultCode (접수 결과코드) : ${BulkResult.txResultCode}</li>
                     <li>txStartDT (발행처리 시작일시) : ${BulkResult.txStartDT}</li>
@@ -35,7 +35,7 @@
         <c:if test="${BulkResult.issueResult != null}">
             <c:forEach items="${BulkResult.issueResult}" var="CashbillInfo" varStatus="status">
                 <fieldset class="fieldset2">
-                    <legend>issueResult[${status.index}]</legend>
+                    <legend>발행결과 [${status.index}]</legend>
                     <ul>
                         <li>code (응답코드) : ${CashbillInfo.code}</li>
                         <li>message (응답메시지) : ${CashbillInfo.message}</li>

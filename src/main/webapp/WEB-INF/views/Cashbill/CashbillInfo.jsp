@@ -16,7 +16,7 @@
             <fieldset class="fieldset2">
                 <legend>CashbillInfo</legend>
                 <ul>
-                    <li>itemKey (팝빌번호) : ${CashbillInfo.itemKey}</li>
+                    <li>itemKey (팝빌에서 현금영수증 관리 목적으로 할당한 식별번호) : ${CashbillInfo.itemKey}</li>
                     <li>mgtKey (문서번호) : ${CashbillInfo.mgtKey}</li>
                     <li>tradeDate (거래일자) : ${CashbillInfo.tradeDate}</li>
                     <li>tradeDT (거래일시) : ${CashbillInfo.tradeDT}</li>
@@ -35,7 +35,7 @@
                     <li>identityNum (식별번호) : ${CashbillInfo.identityNum}</li>
                     <li>itemName (주문상품명) : ${CashbillInfo.itemName}</li>
                     <li>orderNumber (주문번호) : ${CashbillInfo.orderNumber}</li>
-                    <li>email (구매자 메일) : ${CashbillInfo.email}</li>
+                    <li>email (구매자 이메일) : ${CashbillInfo.email}</li>
                     <li>hp (구매자 휴대폰) : ${CashbillInfo.hp}</li>
                     <li>customerName (구매자(고객) 성명) : ${CashbillInfo.customerName}</li>
                     <li>confirmNum (국세청승인번호) : ${CashbillInfo.confirmNum}</li>
@@ -56,7 +56,7 @@
                 <fieldset class="fieldset2">
                     <legend>CashbillInfo : ${CashbillInfo.mgtKey}</legend>
                     <ul>
-                        <li>itemKey (팝빌번호) : ${CashbillInfo.itemKey}</li>
+                        <li>itemKey (팝빌에서 현금영수증 관리 목적으로 할당한 식별번호) : ${CashbillInfo.itemKey}</li>
                         <li>mgtKey (문서번호) : ${CashbillInfo.mgtKey}</li>
                         <li>tradeDate (거래일자) : ${CashbillInfo.tradeDate}</li>
                         <li>tradeDT (거래일시) : ${CashbillInfo.tradeDT}</li>
@@ -75,7 +75,7 @@
                         <li>identityNum (식별번호) : ${CashbillInfo.identityNum}</li>
                         <li>itemName (주문상품명) : ${CashbillInfo.itemName}</li>
                         <li>orderNumber (주문번호) : ${CashbillInfo.orderNumber}</li>
-                        <li>email (구매자 메일) : ${CashbillInfo.email}</li>
+                        <li>email (구매자 이메일) : ${CashbillInfo.email}</li>
                         <li>hp (구매자 휴대폰) : ${CashbillInfo.hp}</li>
                         <li>customerName (구매자(고객) 성명) : ${CashbillInfo.customerName}</li>
                         <li>confirmNum (국세청승인번호) : ${CashbillInfo.confirmNum}</li>

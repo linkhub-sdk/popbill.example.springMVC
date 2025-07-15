@@ -45,7 +45,7 @@
                         <li>remark3 (비고 3) : ${SearchInfo.remark3}</li>
                         <li>remark4 (비고 4) : ${SearchInfo.remark4}</li>
                         <li>regDT (등록일시) : ${SearchInfo.regDT}</li>
-                        <li>memo (메모) : ${SearchInfo.memo}</li>
+                        <li>memo (거래내역 메모) : ${SearchInfo.memo}</li>
                     </ul>
                 </fieldset>
             </c:forEach>
