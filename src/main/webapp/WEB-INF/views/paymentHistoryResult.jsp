@@ -28,7 +28,7 @@
         <c:if test="${PaymentHistoryResult.list != null}">
             <c:forEach items="${PaymentHistoryResult.list}" var="PaymentHistory" varStatus="status">
                 <fieldset class="fieldset2">
-                    <legend>[ ${status.index+1} / ${PaymentHistoryResult.perPage} ]</legend>
+                    <legend>결제내역 [ ${status.index+1} / ${PaymentHistoryResult.perPage} ]</legend>
                     <ul>
                         <li>productType (결제 내용) : ${PaymentHistory.productType}</li>
                         <li>productName (결제 상품명) : ${PaymentHistory.productName}</li>

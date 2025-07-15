@@ -15,10 +15,10 @@
         <fieldset class="fieldset2">
             <ul>
                 <li>ceoname (대표자 성명) : ${CorpInfo.ceoname}</li>
-                <li>corpName (상호) : ${CorpInfo.corpName}</li>
+                <li>corpName (회사명) : ${CorpInfo.corpName}</li>
                 <li>addr (주소) : ${CorpInfo.addr}</li>
                 <li>bizType (업태) : ${CorpInfo.bizType}</li>
-                <li>bizClass (업종) : ${CorpInfo.bizClass}</li>
+                <li>bizClass (종목) : ${CorpInfo.bizClass}</li>
             </ul>
         </fieldset>
     </fieldset>

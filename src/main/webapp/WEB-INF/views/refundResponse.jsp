@@ -13,9 +13,9 @@
     <fieldset class="fieldset1">
         <legend>${requestScope['javax.servlet.forward.request_uri']}</legend>
         <ul>
-            <li>응답코드 (Response.code) : ${Response.code}</li>
-            <li>응답메시지 (Response.message) : ${Response.message}</li>
-            <li>환불코드 (Response.message) : ${Response.refundCode}</li>
+            <li>응답코드 (code) : ${Response.code}</li>
+            <li>응답메시지 (message) : ${Response.message}</li>
+            <li>환불코드 (message) : ${Response.refundCode}</li>
         </ul>
     </fieldset>
 </div>
