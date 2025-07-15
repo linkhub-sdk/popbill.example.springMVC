@@ -19,9 +19,9 @@
                     <li> code (응답코드) : ${SearchResult.code}</li>
                     <li> message (응답 메시지) : ${SearchResult.message}</li>
                     <li> total (총 검색결과 건수) : ${SearchResult.total}</li>
-                    <li> perPage (페이지당 목록개수) : ${SearchResult.perPage}</li>
-                    <li> pageNum (페이지번호) : ${SearchResult.pageNum}</li>
-                    <li> pageCount (페이지수) : ${SearchResult.pageCount}</li>
+                    <li> perPage (페이지당 목록 건수) : ${SearchResult.perPage}</li>
+                    <li> pageNum (페이지 번호) : ${SearchResult.pageNum}</li>
+                    <li> pageCount (페이지 개수) : ${SearchResult.pageCount}</li>
                 </ul>
             </fieldset>
         </c:if>
@@ -29,7 +29,7 @@
         <c:if test="${SearchResult.list != null}">
             <c:forEach items="${SearchResult.list}" var="SearchInfo" varStatus="status">
                 <fieldset class="fieldset2">
-                    <legend>[ ${status.index+1} / ${SearchResult.perPage} ]</legend>
+                    <legend>현금영수증 상태/요약정보 [ ${status.index+1} / ${SearchResult.perPage} ]</legend>
                     <ul>
                         <li>itemKey (팝빌에서 현금영수증 관리 목적으로 할당한 식별번호) : ${SearchInfo.itemKey}</li>
                         <li>mgtKey (문서번호) : ${SearchInfo.mgtKey}</li>

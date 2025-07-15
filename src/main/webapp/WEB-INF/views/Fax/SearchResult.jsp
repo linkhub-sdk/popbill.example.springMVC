@@ -30,7 +30,7 @@
         <c:if test="${SearchResult.list != null}">
             <c:forEach items="${SearchResult.list}" var="SearchInfo" varStatus="status">
                 <fieldset class="fieldset2">
-                    <legend>[ ${status.index+1} / ${SearchResult.perPage} ]</legend>
+                    <legend>전송결과 정보 [ ${status.index+1} / ${SearchResult.perPage} ]</legend>
                     <ul>
                         <li>state (상태코드) : ${SearchInfo.state}</li>
                         <li>result (결과코드) : ${SearchInfo.result}</li>
@@ -49,8 +49,8 @@
                         <li>sendDT (전송일시) : ${SearchInfo.sendDT}</li>
                         <li>resultDT (전송결과 수신일시) : ${SearchInfo.resultDT}</li>
                         <li>fileNames (전송 파일명 리스트) : ${fn:join(SearchInfo.fileNames,", ")}</li>
-                        <li>receiptNum (접수번호) : ${SearchInfo.receiptNum}</li>
-                        <li>requestNum (요청번호) : ${SearchInfo.requestNum}</li>
+                        <li>receiptNum (팩스 전송요청시 팝빌로부터 반환 받은 접수번호) : ${SearchInfo.receiptNum}</li>
+                        <li>requestNum (팩스 전송요청시 파트너가 할당한 요청번호) : ${SearchInfo.requestNum}</li>
                         <li>interOPRefKey (파트너 지정키) : ${SearchInfo.interOPRefKey}</li>
                         <li>chargePageCnt (과금 페이지수) : ${SearchInfo.chargePageCnt}</li>
                         <li>refundPageCnt (환불 페이지수) : ${SearchInfo.refundPageCnt}</li>

@@ -19,7 +19,7 @@
                         <li>plusFriendID (검색용 아이디) : ${friendInfo.plusFriendID}</li>
                         <li>plusFriendName (채널명) : ${friendInfo.plusFriendName}</li>
                         <li>regDT (등록일시) : ${friendInfo.regDT}</li>
-                        <li>state (채널 상태) : ${friendInfo.state}</li>
+                        <li>state (등록상태) : ${friendInfo.state}</li>
                         <li>stateDT (채널 상태 일시) : ${friendInfo.stateDT}</li>
                     </ul>
                 </fieldset>

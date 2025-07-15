@@ -18,7 +18,7 @@
                 <ul>
                     <li>code (응답코드) : ${BulkResult.code}</li>
                     <li>message (응답메시지) : ${BulkResult.message}</li>
-                    <li>submitID (제출아이디) : ${BulkResult.submitID}</li>
+                    <li>submitID (접수 시점에 고객사에서 할당한 제출아이디) : ${BulkResult.submitID}</li>
                     <li>submitCount (세금계산서 접수 건수) : ${BulkResult.successCount}</li>
                     <li>successCount (세금계산서 발행 성공 건수) : ${BulkResult.successCount}</li>
                     <li>failCount (세금계산서 발행 실패 건수) : ${BulkResult.failCount}</li>

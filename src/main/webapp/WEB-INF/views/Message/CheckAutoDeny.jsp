@@ -15,7 +15,7 @@
         <c:if test="${CheckAutoDeny != null}">
             <fieldset class="fieldset2">
                 <ul>
-                    <li>smsdenyNumber (수신거부번호) : ${CheckAutoDeny.smsdenyNumber}</li>
+                    <li>smsdenyNumber (전용 080 번호) : ${CheckAutoDeny.smsdenyNumber}</li>
                     <li>regDT (등록일시) : ${CheckAutoDeny.regDT}</li>
                 </ul>
             </fieldset>

@@ -17,7 +17,7 @@
             <li>count (수집 건수) : ${SummaryResult.count}</li>
             <li>supplyCostTotal (공급가액 합계) : ${SummaryResult.supplyCostTotal}</li>
             <li>taxTotal (세액 합계) : ${SummaryResult.taxTotal}</li>
-            <li>amountTotal (총계) : ${SummaryResult.amountTotal}</li>
+            <li>amountTotal (총계 (공급가액 합계+세액 합계)) : ${SummaryResult.amountTotal}</li>
         </ul>
     </fieldset>
 </div>

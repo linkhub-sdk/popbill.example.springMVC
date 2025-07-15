@@ -29,7 +29,7 @@
         <c:if test="${SearchResult.list != null}">
             <c:forEach items="${SearchResult.list}" var="SearchInfo" varStatus="status">
                 <fieldset class="fieldset2">
-                    <legend>[ ${status.index+1} / ${SearchResult.perPage} ]</legend>
+                    <legend>세금계산서 상태/요약정보 [ ${status.index+1} / ${SearchResult.perPage} ]</legend>
                     <ul>
                         <li>itemKey (팝빌에서 할당한 식별번호) : ${SearchInfo.itemKey}</li>
                         <li>taxType (과세형태) : ${SearchInfo.taxType}</li>
@@ -51,7 +51,7 @@
                         <li>ntssendDT (국세청 전송일시) : ${SearchInfo.NTSSendDT}</li>
                         <li>ntsresultDT (국세청 결과 수신일시) : ${SearchInfo.NTSResultDT}</li>
                         <li>ntssendErrCode (결과코드) : ${SearchInfo.NTSSendErrCode}</li>
-                        <li>modifyCode (수정사유코드) : ${SearchInfo.modifyCode}</li>
+                        <li>modifyCode (수정세금계산서 발행시 입력한 사유코드) : ${SearchInfo.modifyCode}</li>
                         <li>interOPYN (연동문서 여부) : ${SearchInfo.interOPYN}</li>
                         <li>invoicerCorpName (공급자 상호) : ${SearchInfo.invoicerCorpName}</li>
                         <li>invoicerCorpNum (공급자 사업자번호) : ${SearchInfo.invoicerCorpNum}</li>

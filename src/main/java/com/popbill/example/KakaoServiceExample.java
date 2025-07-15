@@ -284,18 +284,18 @@ public class KakaoServiceExample {
 		// 1~36자리로 구성. 영문, 숫자, 하이픈(-), 언더바(_)를 조합하여 팝빌 회원별로 중복되지 않도록 할당.
 		String requestNum = "";
 
-		// 버튼 목록,  알림톡 버튼정보를 템플릿 신청시 기재한 버튼정보와 동일하게 전송하는 경우 null 처리.
+		// 버튼 목록, 알림톡 버튼정보를 템플릿 신청시 기재한 버튼정보와 동일하게 전송하는 경우 null 처리.
 		KakaoButton[] btns = null;
 
-		// 알림톡 버튼 URL에 #{템플릿변수}를 기재한경우 템플릿변수 영역을 변경하여 버튼정보 구성
+		// 버튼 목록, 알림톡 버튼 URL에 #{템플릿변수}를 기재한경우 템플릿변수 영역을 변경하여 버튼정보 구성
 		// KakaoButton[] btns = new KakaoButton[1];
 
 		// KakaoButton button = new KakaoButton();
 		// button.setN("버튼명"); // 버튼명
-		// button.setT("WL"); // 버튼타입
-		// button.setU1("https://www.popbill.com"); // 버튼링크1
-		// button.setU2("http://test.popbill.com"); // 버튼링크2
-		// button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
+		// button.setT("WL"); // 버튼 유형
+		// button.setU1("https://www.popbill.com"); // 버튼링크
+		// button.setU2("http://test.popbill.com"); // 버튼링크
+		// button.setTg("out"); // 아웃 링크, 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		// btns[0] = button;
 
 		try {
@@ -344,29 +344,32 @@ public class KakaoServiceExample {
 			message.setReceiverName("수신자명" + i); // 수신자명
 			message.setMessage("[ 팝빌 ]\n" + "신청하신 #{템플릿코드}에 대한 심사가 완료되어 승인 처리되었습니다.\n" + "해당 템플릿으로 전송 가능합니다.\n\n"
 					+ "문의사항 있으시면 파트너센터로 편하게 연락주시기 바랍니다.\n\n" + "팝빌 파트너센터 : 1600-8536\n" + "support@linkhub.co.kr"
-					+ "To. 수신자" + i); // 알림톡 템플릿 내용, 최대 1000자
+					+ "To. 수신자" + i); // 알림톡/친구톡 내용, 최대 1000자
 			message.setAltSubject("대체문자 개별제목입니다." + i); // 대체문자 제목
 			message.setAltMessage("대체문자 개별내용입니다." + i); // 대체문자 내용
 
-			// 수신자별 개별 버튼정보
+			// 버튼 목록
 			// KakaoButton button = new KakaoButton();
 			// button.setN("타입1 버튼명"+i); // 버튼명
-			// button.setT("WL"); // 버튼타입
-			// button.setU1("http://"+i+"popbill.com"); // 버튼링크1
-			// button.setU2("http://"+i+"test.popbill.com"); // 버튼링크2
-			// button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
+			// button.setT("WL"); // 버튼 유형
+			// button.setU1("http://"+i+"popbill.com"); // 버튼링크
+			// button.setU2("http://"+i+"test.popbill.com"); // 버튼링크
+			// button.setTg("out"); // 아웃 링크, 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 
 			// KakaoButton button02 = new KakaoButton();
 			// button02.setN("타입2 버튼명"+i); // 버튼명
-			// button02.setT("WL"); // 버튼타입
-			// button02.setU1("http://"+i+"popbill.com"); // 버튼링크1
-			// button02.setU2("http://"+i+"test.popbill.com"); // 버튼링크2
-			// button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
+			// button02.setT("WL"); // 버튼 유형
+			// button02.setU1("http://"+i+"popbill.com"); // 버튼링크
+			// button02.setU2("http://"+i+"test.popbill.com"); // 버튼링크
+			// button.setTg("out"); // 아웃 링크,디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 
 			// 수신자별로 각기다른 버튼정보 추가.
 			// message.setBtns(new ArrayList<KakaoButton>());
 			// message.getBtns().add(button);
 			// message.getBtns().add(button02);
+
+			// 파트너 지정키
+			// message.setInterOPRefKey("");
 			receivers[i] = message;
 		}
 
@@ -382,15 +385,15 @@ public class KakaoServiceExample {
 		// 버튼 목록, 알림톡 버튼정보를 템플릿 신청시 기재한 버튼정보와 동일하게 전송하는 경우 null 처리.
 		KakaoButton[] btns = null;
 
-		// 알림톡 버튼 URL에 #{템플릿변수}를 기재한경우 템플릿변수 영역을 변경하여 버튼정보 구성
+		// 버튼 목록, 알림톡 버튼 URL에 #{템플릿변수}를 기재한경우 템플릿변수 영역을 변경하여 버튼정보 구성
 		// KakaoButton[] btns = new KakaoButton[1];
 
 		// KakaoButton button = new KakaoButton();
 		// button.setN("버튼명"); // 버튼명
-		// button.setT("WL"); // 버튼타입
-		// button.setU1("https://www.popbill.com"); // 버튼링크1
-		// button.setU2("http://test.popbill.com"); // 버튼링크2
-		// button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
+		// button.setT("WL"); // 버튼 유형
+		// button.setU1("https://www.popbill.com"); // 버튼링크
+		// button.setU2("http://test.popbill.com"); // 버튼링크
+		// button.setTg("out"); // 아웃 링크, 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		// btns[0] = button;
 
 		try {
@@ -449,7 +452,7 @@ public class KakaoServiceExample {
 			KakaoReceiver message = new KakaoReceiver();
 			message.setReceiverNum("010111222"); // 수신번호
 			message.setReceiverName("수신자명" + i); // 수신자명
-			message.setAltSubject("대체문자제목" + i); // 수신자명
+			// message.setInterOPRefKey(""); // 파트너 지정키
 			receivers[i] = message;
 		}
 
@@ -465,15 +468,15 @@ public class KakaoServiceExample {
 		// 버튼 목록, 알림톡 버튼정보를 템플릿 신청시 기재한 버튼정보와 동일하게 전송하는 경우 null 처리.
 		KakaoButton[] btns = null;
 
-		// 알림톡 버튼 URL에 #{템플릿변수}를 기재한경우 템플릿변수 영역을 변경하여 버튼정보 구성
+		// 버튼 목록, 알림톡 버튼 URL에 #{템플릿변수}를 기재한경우 템플릿변수 영역을 변경하여 버튼정보 구성
 		// KakaoButton[] btns = new KakaoButton[1];
 
 		// KakaoButton button = new KakaoButton();
 		// button.setN("버튼명"); // 버튼명
-		// button.setT("WL"); // 버튼타입
-		// button.setU1("https://www.popbill.com"); // 버튼링크1
-		// button.setU2("http://test.popbill.com"); // 버튼링크2
-		// button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
+		// button.setT("WL"); // 버튼 유형
+		// button.setU1("https://www.popbill.com"); // 버튼링크
+		// button.setU2("http://test.popbill.com"); // 버튼링크
+		// button.setTg("out"); // 아웃 링크, 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		// btns[0] = button;
 
 		try {
@@ -530,10 +533,10 @@ public class KakaoServiceExample {
 
 		KakaoButton button = new KakaoButton();
 		button.setN("버튼명"); // 버튼명
-		button.setT("WL"); // 버튼타입
-		button.setU1("http://www.popbill.com"); // 버튼링크1
-		button.setU2("http://test.popbill.com"); // 버튼링크2
-		button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
+		button.setT("WL"); // 버튼 유형
+		button.setU1("http://www.popbill.com"); // 버튼링크
+		button.setU2("http://test.popbill.com"); // 버튼링크
+		button.setTg("out"); // 아웃 링크, 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		btns[0] = button;
 
 		button = new KakaoButton();
@@ -541,7 +544,7 @@ public class KakaoServiceExample {
 		button.setT("WL");
 		button.setU1("http://www.popbill.com");
 		button.setU2("http://test.popbill.com");
-		button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
+		button.setTg("out"); // 아웃 링크, 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		btns[1] = button;
 
 		// 수신번호
@@ -606,32 +609,37 @@ public class KakaoServiceExample {
 			message.setReceiverName("수신자명" + i); // 수신자명
 			message.setMessage("[친구톡 테스트]\n\n" + "친구톡 개별내용입니다.\n" + "대체문자를 친구톡 메시지 내용 그대로 전송할 수 있습니다.\n"
 					+ "또는 대체문자 내용을 작송하여 전송할 수도 있습니다.\n" + "하지만 대체문자 내용이 길어지게 되면 LMS 로 전송될 수 있습니다.\n\n"
-					+ "수신을 원치 않으시면 1600-9854로 전화주시길 바랍니다.\n" + "To. 수신자" + i); // 친구톡 내용, 최대 1000자
+					+ "수신을 원치 않으시면 1600-9854로 전화주시길 바랍니다.\n" + "To. 수신자" + i); // 알림톡/친구톡 내용, 최대 1000자
 			message.setAltSubject("대체문자 개별제목" + i); // 대체문자 제목
 			message.setAltMessage("대체문자 개별내용" + i); // 대체문자 내용
 			message.setInterOPRefKey("");
 
 			KakaoButton button = new KakaoButton();
 			button.setN("타입1 버튼명" + i); // 버튼명
-			button.setT("WL"); // 버튼타입
-			button.setU1("http://" + i + "popbill.com"); // 버튼링크1
-			button.setU2("http://" + i + "test.popbill.com"); // 버튼링크2
-			button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
+			button.setT("WL"); // 버튼 유형
+			button.setU1("http://" + i + "popbill.com"); // 버튼링크
+			button.setU2("http://" + i + "test.popbill.com"); // 버튼링크
+			button.setTg("out"); // 아웃 링크, 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 
 			KakaoButton button02 = new KakaoButton();
 			button02.setN("타입2 버튼명" + i); // 버튼명
-			button02.setT("WL"); // 버튼타입
-			button02.setU1("http://" + i + "popbill.com"); // 버튼링크1
-			button02.setU2("http://" + i + "test.popbill.com"); // 버튼링크2
-			button02.setTg("out");  // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
+			button02.setT("WL"); // 버튼 유형
+			button02.setU1("http://" + i + "popbill.com"); // 버튼링크
+			button02.setU2("http://" + i + "test.popbill.com"); // 버튼링크
+			button02.setTg("out");  // 아웃 링크, 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 
 			// 수신자별로 각기다른 버튼정보 추가.
 			message.setBtns(new ArrayList<KakaoButton>());
 			message.getBtns().add(button);
 			message.getBtns().add(button02);
 
+			// message.setInterOPRefKey(""); // 파트너 지정키
+
 			receivers[i] = message;
 		}
+
+		// 버튼 목록
+		KakaoButton[] buttons = null;
 
 		// 전송 예약일시, 형태(yyyyMMddHHmmss)
 		// - 분단위 전송, 미입력 시 즉시 전송
@@ -649,7 +657,7 @@ public class KakaoServiceExample {
 
 		try {
 			String receiptNum = kakaoService.sendFTS(CorpNum, plusFriendID, senderNum, altSendType, receivers,
-					null, sndDT, adsYN, UserID, requestNum);
+					buttons, sndDT, adsYN, UserID, requestNum);
 			m.addAttribute("Result", receiptNum);
 		} catch (PopbillException e) {
 			m.addAttribute("Exception", e);
@@ -698,8 +706,9 @@ public class KakaoServiceExample {
 		KakaoReceiver[] receivers = new KakaoReceiver[2];
 		for (int i = 0; i < 2; i++) {
 			KakaoReceiver message = new KakaoReceiver();
-			message.setReceiverNum("010111222");
-			message.setReceiverName("수신자명" + i);
+			message.setReceiverNum("010111222"); // 수신번호
+			message.setReceiverName("수신자명" + i); // 수신자명
+			// message.setInterOPRefKey(""); // 파트너 지정키
 			receivers[i] = message;
 		}
 
@@ -708,10 +717,10 @@ public class KakaoServiceExample {
 
 		KakaoButton button = new KakaoButton();
 		button.setN("버튼명"); // 버튼명
-		button.setT("WL"); // 버튼타입
-		button.setU1("http://www.popbill.com"); // 버튼링크1
-		button.setU2("http://test.popbill.com"); // 버튼링크2
-		button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
+		button.setT("WL"); // 버튼 유형
+		button.setU1("http://www.popbill.com"); // 버튼링크
+		button.setU2("http://test.popbill.com"); // 버튼링크
+		button.setTg("out"); // 아웃 링크, 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		btns[0] = button;
 
 		button = new KakaoButton();
@@ -719,7 +728,7 @@ public class KakaoServiceExample {
 		button.setT("WL");
 		button.setU1("http://www.popbill.com");
 		button.setU2("http://test.popbill.com");
-		button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
+		button.setTg("out"); // 아웃 링크, 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		btns[1] = button;
 
 		// 전송 예약일시, 형태(yyyyMMddHHmmss)
@@ -791,10 +800,10 @@ public class KakaoServiceExample {
 
 		KakaoButton button = new KakaoButton();
 		button.setN("버튼명"); // 버튼명
-		button.setT("WL"); // 버튼타입
-		button.setU1("http://www.popbill.com"); // 버튼링크1
-		button.setU2("http://test.popbill.com"); // 버튼링크2
-		button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
+		button.setT("WL"); // 버튼 유형
+		button.setU1("http://www.popbill.com"); // 버튼링크
+		button.setU2("http://test.popbill.com"); // 버튼링크
+		button.setTg("out"); // 아웃 링크, 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		btns[0] = button;
 
 		button = new KakaoButton();
@@ -802,7 +811,7 @@ public class KakaoServiceExample {
 		button.setT("WL");
 		button.setU1("http://www.popbill.com");
 		button.setU2("http://test.popbill.com");
-		button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
+		button.setTg("out"); // 아웃 링크, 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		btns[1] = button;
 
 		// 수신번호
@@ -872,7 +881,9 @@ public class KakaoServiceExample {
 
 		// 전송정보, 최대 1000건
 		KakaoReceiver[] receivers = new KakaoReceiver[3];
+
 		for (int i = 0; i < 3; i++) {
+
 			KakaoReceiver message = new KakaoReceiver();
 			message.setReceiverNum("010111222"); // 수신번호
 			message.setReceiverName("수신자명" + i); // 수신자명
@@ -881,26 +892,28 @@ public class KakaoServiceExample {
 					+ "수신을 원치 않으시면 1600-9854로 전화주시길 바랍니다.\n" + "To. 수신자" + i); // 친구톡 내용, 최대 400자
 			message.setAltSubject("대체문자 개별제목" + i); // 대체문자 제목
 			message.setAltMessage("대체문자 개별내용" + i); // 대체문자 내용
-			receivers[i] = message;
 
 			// 수신자별 개별 버튼 정보
 			// KakaoButton button = new KakaoButton();
 			// button.setN("타입1 버튼명"+i); // 버튼명
-			// button.setT("WL"); // 버튼타입
-			// button.setU1("http://"+i+"popbill.com"); // 버튼링크1
-			// button.setU2("http://"+i+"test.popbill.com"); // 버튼링크2
+			// button.setT("WL"); // 버튼 유형
+			// button.setU1("http://"+i+"popbill.com"); // 버튼링크
+			// button.setU2("http://"+i+"test.popbill.com"); // 버튼링크
 
 			// KakaoButton button02 = new KakaoButton();
 			// button02.setN("타입2 버튼명"+i); // 버튼명
-			// button02.setT("WL"); // 버튼타입
-			// button02.setU1("http://"+i+"popbill.com"); // 버튼링크1
-			// button02.setU2("http://"+i+"test.popbill.com"); // 버튼링크2
+			// button02.setT("WL"); // 버튼 유형
+			// button02.setU1("http://"+i+"popbill.com"); // 버튼링크
+			// button02.setU2("http://"+i+"test.popbill.com"); // 버튼링크
 
 			// 수신자별로 각기다른 버튼정보 추가.
 			// message.setBtns(new ArrayList<KakaoButton>());
 			// message.getBtns().add(button);
 			// message.getBtns().add(button02);
 
+			// message.setInterOPRefKey(""); // 파트너 지정키
+
+			receivers[i] = message;
 		}
 
 		// 수신자별 동일 버튼 정보
@@ -909,10 +922,10 @@ public class KakaoServiceExample {
 
 		KakaoButton button = new KakaoButton();
 		button.setN("버튼명"); // 버튼명
-		button.setT("WL"); // 버튼타입
-		button.setU1("http://www.popbill.com"); // 버튼링크1
-		button.setU2("http://test.popbill.com"); // 버튼링크2
-		button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
+		button.setT("WL"); // 버튼 유형
+		button.setU1("http://www.popbill.com"); // 버튼링크
+		button.setU2("http://test.popbill.com"); // 버튼링크
+		button.setTg("out"); // 아웃 링크, 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		btns[0] = button;
 
 		button = new KakaoButton();
@@ -920,7 +933,7 @@ public class KakaoServiceExample {
 		button.setT("WL");
 		button.setU1("http://www.popbill.com");
 		button.setU2("http://test.popbill.com");
-		button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
+		button.setTg("out"); // 아웃 링크, 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		btns[1] = button;
 
 		// 전송 예약일시, 형태(yyyyMMddHHmmss)
@@ -1001,6 +1014,7 @@ public class KakaoServiceExample {
 			KakaoReceiver message = new KakaoReceiver();
 			message.setReceiverNum("010111222"); // 수신번호
 			message.setReceiverName("수신자명" + i); // 수신자명
+			// message.setInterOPRefKey(""); // 파트너 지정키
 			receivers[i] = message;
 		}
 
@@ -1010,10 +1024,10 @@ public class KakaoServiceExample {
 
 		KakaoButton button = new KakaoButton();
 		button.setN("버튼명"); // 버튼명
-		button.setT("WL"); // 버튼타입
-		button.setU1("http://www.popbill.com"); // 버튼링크1
-		button.setU2("http://test.popbill.com"); // 버튼링크2
-		button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
+		button.setT("WL"); // 버튼 유형
+		button.setU1("http://www.popbill.com"); // 버튼링크
+		button.setU2("http://test.popbill.com"); // 버튼링크
+		button.setTg("out"); // 아웃 링크, 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		btns[0] = button;
 
 		button = new KakaoButton();
@@ -1021,7 +1035,7 @@ public class KakaoServiceExample {
 		button.setT("WL");
 		button.setU1("http://www.popbill.com");
 		button.setU2("http://test.popbill.com");
-		button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
+		button.setTg("out"); // 아웃 링크, 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		btns[1] = button;
 
 		// 전송 예약일시, 형태(yyyyMMddHHmmss)
@@ -1103,10 +1117,10 @@ public class KakaoServiceExample {
 
 		KakaoButton button = new KakaoButton();
 		button.setN("버튼명"); // 버튼명
-		button.setT("WL"); // 버튼타입
-		button.setU1("http://www.popbill.com"); // 버튼링크1
-		button.setU2("http://test.popbill.com"); // 버튼링크2
-		button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
+		button.setT("WL"); // 버튼 유형
+		button.setU1("http://www.popbill.com"); // 버튼링크
+		button.setU2("http://test.popbill.com"); // 버튼링크
+		button.setTg("out"); // 아웃 링크, 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		btns[0] = button;
 
 		button = new KakaoButton();
@@ -1114,7 +1128,7 @@ public class KakaoServiceExample {
 		button.setT("WL");
 		button.setU1("http://www.popbill.com");
 		button.setU2("http://test.popbill.com");
-		button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
+		button.setTg("out"); // 아웃 링크, 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		btns[1] = button;
 
 		// 수신번호
@@ -1138,9 +1152,10 @@ public class KakaoServiceExample {
 		File file = new File("C:/Users/Public/Pictures/Image.jpg");
 		InputStream inputStream = new FileInputStream(file);
 
+		// 전송 이미지 파일의 객체정보
 		Attachment attachment = new Attachment();
-		attachment.setFileName(file.getName());
-		attachment.setFileData(inputStream);
+		attachment.setFileName(file.getName()); // 전송 이미지 파일명
+		attachment.setFileData(inputStream); // 전송 이미지 파일의 바이너리 데이터
 
 		// 이미지 링크 URL
 		// └ 수신자가 친구톡 상단 이미지 클릭시 호출되는 URL
@@ -1190,7 +1205,9 @@ public class KakaoServiceExample {
 
 		// 전송정보, 최대 1000건
 		KakaoReceiver[] receivers = new KakaoReceiver[3];
+
 		for (int i = 0; i < 3; i++) {
+
 			KakaoReceiver message = new KakaoReceiver();
 			message.setReceiverNum("010111222"); // 수신번호
 			message.setReceiverName("수신자명" + i); // 수신자명
@@ -1199,26 +1216,28 @@ public class KakaoServiceExample {
 					+ "수신을 원치 않으시면 1600-9854로 전화주시길 바랍니다.\n" + "To. 수신자" + i); // 친구톡 내용, 최대 400자
 			message.setAltSubject("대체문자 개별제목" + i); // 대체문자 제목
 			message.setAltMessage("대체문자 개별내용" + i); // 대체문자 내용
-			receivers[i] = message;
 
 			// 수신자별 개별 버튼 정보
 			// KakaoButton button = new KakaoButton();
 			// button.setN("타입1 버튼명"+i); // 버튼명
-			// button.setT("WL"); // 버튼타입
-			// button.setU1("http://"+i+"popbill.com"); // 버튼링크1
-			// button.setU2("http://"+i+"test.popbill.com"); // 버튼링크2
+			// button.setT("WL"); // 버튼 유형
+			// button.setU1("http://"+i+"popbill.com"); // 버튼링크
+			// button.setU2("http://"+i+"test.popbill.com"); // 버튼링크
 
 			// KakaoButton button02 = new KakaoButton();
 			// button02.setN("타입2 버튼명"+i); // 버튼명
-			// button02.setT("WL"); // 버튼타입
-			// button02.setU1("http://"+i+"popbill.com"); // 버튼링크1
-			// button02.setU2("http://"+i+"test.popbill.com"); // 버튼링크2
+			// button02.setT("WL"); // 버튼 유형
+			// button02.setU1("http://"+i+"popbill.com"); // 버튼링크
+			// button02.setU2("http://"+i+"test.popbill.com"); // 버튼링크
 
 			// 수신자별로 각기다른 버튼정보 추가.
 			// message.setBtns(new ArrayList<KakaoButton>());
 			// message.getBtns().add(button);
 			// message.getBtns().add(button02);
 
+			// message.setInterOPRefKey(""); // 파트너 지정키
+
+			receivers[i] = message;
 		}
 
 		// 수신자별 동일 버튼 정보
@@ -1227,10 +1246,10 @@ public class KakaoServiceExample {
 
 		KakaoButton button = new KakaoButton();
 		button.setN("버튼명"); // 버튼명
-		button.setT("WL"); // 버튼타입
-		button.setU1("http://www.popbill.com"); // 버튼링크1
-		button.setU2("http://test.popbill.com"); // 버튼링크2
-		button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
+		button.setT("WL"); // 버튼 유형
+		button.setU1("http://www.popbill.com"); // 버튼링크
+		button.setU2("http://test.popbill.com"); // 버튼링크
+		button.setTg("out"); // 아웃 링크, 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		btns[0] = button;
 
 		button = new KakaoButton();
@@ -1238,7 +1257,7 @@ public class KakaoServiceExample {
 		button.setT("WL");
 		button.setU1("http://www.popbill.com");
 		button.setU2("http://test.popbill.com");
-		button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
+		button.setTg("out"); // 아웃 링크, 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		btns[1] = button;
 
 		// 전송 예약일시, 형태(yyyyMMddHHmmss)
@@ -1256,9 +1275,10 @@ public class KakaoServiceExample {
 		File file = new File("C:/Users/Public/Pictures/Image.jpg");
 		InputStream inputStream = new FileInputStream(file);
 
+		// 전송 이미지 파일의 객체정보
 		Attachment attachment = new Attachment();
-		attachment.setFileName(file.getName());
-		attachment.setFileData(inputStream);
+		attachment.setFileName(file.getName()); // 전송 이미지 파일명
+		attachment.setFileData(inputStream); // 전송 이미지 파일의 바이너리 데이터
 
 		// 이미지 링크 URL
 		// └ 수신자가 친구톡 상단 이미지 클릭시 호출되는 URL
@@ -1324,6 +1344,7 @@ public class KakaoServiceExample {
 			KakaoReceiver message = new KakaoReceiver();
 			message.setReceiverNum("010111222"); // 수신번호
 			message.setReceiverName("수신자명" + i); // 수신자명
+			// message.setInterOPRefKey(""); // 파트너 지정키
 			receivers[i] = message;
 		}
 
@@ -1333,10 +1354,10 @@ public class KakaoServiceExample {
 
 		KakaoButton button = new KakaoButton();
 		button.setN("버튼명"); // 버튼명
-		button.setT("WL"); // 버튼타입
-		button.setU1("http://www.popbill.com"); // 버튼링크1
-		button.setU2("http://test.popbill.com"); // 버튼링크2
-		button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
+		button.setT("WL"); // 버튼 유형
+		button.setU1("http://www.popbill.com"); // 버튼링크
+		button.setU2("http://test.popbill.com"); // 버튼링크
+		button.setTg("out"); // 아웃 링크, 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		btns[0] = button;
 
 		button = new KakaoButton();
@@ -1344,7 +1365,7 @@ public class KakaoServiceExample {
 		button.setT("WL");
 		button.setU1("http://www.popbill.com");
 		button.setU2("http://test.popbill.com");
-		button.setTg("out"); // 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
+		button.setTg("out"); // 아웃 링크, 디바이스 기본 브라우저 사용 (공백(기본값) : 카카오톡 인앱 브라우저 사용)
 		btns[1] = button;
 
 		// 전송 예약일시, 형태(yyyyMMddHHmmss)
@@ -1362,9 +1383,10 @@ public class KakaoServiceExample {
 		File file = new File("C:/Users/Public/Pictures/Image.jpg");
 		InputStream inputStream = new FileInputStream(file);
 
+		// 전송 이미지 파일의 객체정보
 		Attachment attachment = new Attachment();
-		attachment.setFileName(file.getName());
-		attachment.setFileData(inputStream);
+		attachment.setFileName(file.getName()); // 전송 이미지 파일명
+		attachment.setFileData(inputStream); // 전송 이미지 파일의 바이너리 데이터
 
 		// 이미지 링크 URL
 		// └ 수신자가 친구톡 상단 이미지 클릭시 호출되는 URL

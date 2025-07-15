@@ -20,8 +20,8 @@
                 <li>taxType (과세형태) : ${Taxinvoice.taxType}</li>
                 <li>chargeDirection (과금방향) : ${Taxinvoice.chargeDirection}</li>
                 <li>serialNum (일련번호) : ${Taxinvoice.serialNum}</li>
-                <li>kwon (권) : ${Taxinvoice.kwon}</li>
-                <li>ho (호) : ${Taxinvoice.ho}</li>
+                <li>kwon (책번호 "권" 항목) : ${Taxinvoice.kwon}</li>
+                <li>ho (책번호 "호" 항목) : ${Taxinvoice.ho}</li>
                 <li>writeDate (작성일자) : ${Taxinvoice.writeDate}</li>
                 <li>purposeType (영수/청구) : ${Taxinvoice.purposeType}</li>
                 <li>supplyCostTotal (공급가액 합계) : ${Taxinvoice.supplyCostTotal}</li>
@@ -85,8 +85,8 @@
 
                 <li>modifyCode (수정 사유코드) : ${Taxinvoice.modifyCode}</li>
                 <li>orgNTSConfirmNum (당초 국세청승인번호) : ${Taxinvoice.orgNTSConfirmNum}</li>
-                <li>businessLicenseYN (사업자등록증 첨부 여부) : ${Taxinvoice.businessLicenseYN}</li>
-                <li>bankBookYN (통장사본 첨부 여부) : ${Taxinvoice.bankBookYN}</li>
+                <li>businessLicenseYN (팝빌에 등록된 사업자등록증 첨부 여부) : ${Taxinvoice.businessLicenseYN}</li>
+                <li>bankBookYN (팝빌에 등록된 통장사본 첨부 여부) : ${Taxinvoice.bankBookYN}</li>
             </ul>
             <fieldset class="fieldset3">
                 <legend>detailList (품목 상세정보)</legend>

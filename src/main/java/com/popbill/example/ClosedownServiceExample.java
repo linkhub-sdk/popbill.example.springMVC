@@ -50,6 +50,7 @@ public class ClosedownServiceExample {
          * - https://developers.popbill.com/closedown/java/api#CheckCorpNum
          */
 
+        // 조회할 사업자번호
         if (CheckCorpNum != null && !CheckCorpNum.equals("")) {
             try {
                 CorpState corpState = closedownService.CheckCorpNum(CorpNum, CheckCorpNum, UserID);

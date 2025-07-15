@@ -58,8 +58,8 @@
                 <li>receiverEmail (수신자 메일주소) : ${Statement.receiverEmail}</li>
                 <li>receiverFAX (수신자 팩스번호) : ${Statement.receiverFAX}</li>
 
-                <li>businessLicenseYN (사업자등록증 첨부여부) : ${Statement.businessLicenseYN}</li>
-                <li>bankBookYN (통장사본 첨부 여부) : ${Statement.bankBookYN}</li>
+                <li>businessLicenseYN (팝빌에 등록된 사업자등록증 첨부 여부) : ${Statement.businessLicenseYN}</li>
+                <li>bankBookYN (팝빌에 등록된 통장사본 첨부 여부) : ${Statement.bankBookYN}</li>
                 <li>smssendYN (알림문자 전송 여부) : ${Statement.smssendYN}</li>
 
             </ul>
@@ -75,7 +75,7 @@
             </fieldset>
             <c:forEach items="${Statement.detailList}" var="StatementDetail" varStatus="status">
                 <fieldset class="fieldset3">
-                    <legend>전자명세서 상세항목 [ ${status.index+1} ] </legend>
+                    <legend>거래 물품 상세정보 [ ${status.index+1} ] </legend>
                     <ul>
                         <li>serialNum (일련번호) : ${StatementDetail.serialNum}</li>
                         <li>purchaseDT (거래일자) : ${StatementDetail.purchaseDT}</li>

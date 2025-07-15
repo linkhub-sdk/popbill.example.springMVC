@@ -16,7 +16,7 @@
             <fieldset class="fieldset2">
                 <ul>
                     <li>serialNum (첨부파일 일련번호) : ${AttachedFile.serialNum}</li>
-                    <li>attachedFile (첨부파일 삭제시 사용) : ${AttachedFile.attachedFile}</li>
+                    <li>attachedFile (팝빌이 할당한 파일 식별번호) : ${AttachedFile.attachedFile}</li>
                     <li>displayName (파일명) : ${AttachedFile.displayName}</li>
                     <li>regDT (첨부일시) : ${AttachedFile.regDT}</li>
                 </ul>

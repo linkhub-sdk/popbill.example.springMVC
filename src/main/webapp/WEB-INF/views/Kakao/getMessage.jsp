@@ -34,18 +34,18 @@
             </fieldset>
         </c:if>
         <fieldset class="fieldset2">
-            <legend>버튼정보</legend>
+            <legend>버튼 목록</legend>
             <c:if test="${sentInfos.btns != null}">
                 <c:forEach items="${sentInfos.btns}" var="btnInfo" varStatus="status">
                     <fieldset class="fieldset3">
                         <legend>버튼정보 [ ${status.index+1} ]</legend>
                         <ul>
                             <li>n (버튼명) : ${btnInfo.n}</li>
-                            <li>t (버튼유형) : ${btnInfo.t}</li>
-                            <li>u1 (버튼링크1) : ${btnInfo.u1}</li>
-                            <li>u2 (버튼링크2) : ${btnInfo.u2}</li>
+                            <li>t (버튼 유형) : ${btnInfo.t}</li>
+                            <li>u1 (버튼링크) : ${btnInfo.u1}</li>
+                            <li>u2 (버튼링크) : ${btnInfo.u2}</li>
                             <c:if test="${btnInfo.tg != null}">
-                                <li>tg (아웃링크) : ${btnInfo.tg}</li>
+                                <li>tg (아웃 링크) : ${btnInfo.tg}</li>
                             </c:if>
                         </ul>
                     </fieldset>

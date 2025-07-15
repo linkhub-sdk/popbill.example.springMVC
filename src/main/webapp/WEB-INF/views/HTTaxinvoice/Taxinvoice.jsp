@@ -42,6 +42,7 @@
                 <li>invoicerBizType (공급자 업태) : ${Taxinvoice.invoicerBizType}</li>
                 <li>invoicerBizClass (공급자 종목) : ${Taxinvoice.invoicerBizClass}</li>
                 <li>invoicerContactName (공급자 담당자 성명) : ${Taxinvoice.invoicerContactName}</li>
+                <li>invoicerDeptName (공급자 담당자 부서명) : ${Taxinvoice.invoicerDeptName}</li>
                 <li>invoicerTEL (공급자 담당자 연락처) : ${Taxinvoice.invoicerTEL}</li>
                 <li>invoicerEmail (공급자 담당자 메일) : ${Taxinvoice.invoicerEmail}</li>
 
@@ -54,9 +55,14 @@
                 <li>invoiceeAddr (공급받는자 주소) : ${Taxinvoice.invoiceeAddr}</li>
                 <li>invoiceeBizType (공급받는자 업태) : ${Taxinvoice.invoiceeBizType}</li>
                 <li>invoiceeBizClass (공급받는자 종목) : ${Taxinvoice.invoiceeBizClass}</li>
-                <li>invoiceeContactName1 (공급받는자 담당자 성명) : ${Taxinvoice.invoiceeContactName1}</li>
-                <li>invoiceeTEL1 (공급받는자 담당자 연락처) : ${Taxinvoice.invoiceeTEL1}</li>
-                <li>invoiceeEmail1 (공급받는자 담당지 메일) : ${Taxinvoice.invoiceeEmail1}</li>
+                <li>invoiceeContactName1 (공급받는자 주 담당자 성명) : ${Taxinvoice.invoiceeContactName1}</li>
+                <li>invoiceeDeptName1 (공급받는자 주 담당자 부서명) : ${Taxinvoice.invoiceeDeptName1}</li>
+                <li>invoiceeTEL1 (공급받는자 주 담당자 연락처) : ${Taxinvoice.invoiceeTEL1}</li>
+                <li>invoiceeEmail1 (공급받는자 주 담당자 메일) : ${Taxinvoice.invoiceeEmail1}</li>
+                <li>invoiceeContactName2 (공급받는자 부 담당자 성명) : ${Taxinvoice.invoiceeContactName2}</li>
+                <li>invoiceeDeptName2 (공급받는자 부 담당자 부서명) : ${Taxinvoice.invoiceeDeptName2}</li>
+                <li>invoiceeTEL2 (공급받는자 부 담당자 연락처) : ${Taxinvoice.invoiceeTEL2}</li>
+                <li>invoiceeEmail2 (공급받는자 부 담당자 메일) : ${Taxinvoice.invoiceeEmail2}</li>
 
                 <li>trusteeCorpNum (수탁자 사업자번호) : ${Taxinvoice.trusteeCorpNum}</li>
                 <li>trusteeMgtKey (수탁자 문서번호) : ${Taxinvoice.trusteeMgtKey}</li>

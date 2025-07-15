@@ -17,14 +17,14 @@
             <fieldset class="fieldset2">
                 <legend>거래내역 검색결과 정보</legend>
                 <ul>
-                    <li> code (응답코드) : ${SearchResult.code}</li>
-                    <li> message (응답메시지) : ${SearchResult.message}</li>
-                    <li> total (총 검색결과 건수) : ${SearchResult.total}</li>
-                    <li> perPage (페이지 당 목록 건수) : ${SearchResult.perPage}</li>
-                    <li> pageNum (페이지 번호) : ${SearchResult.pageNum}</li>
-                    <li> pageCount (페이지 개수) : ${SearchResult.pageCount}</li>
-                    <li> lastScrapDT (최종 조회일시) : ${SearchResult.lastScrapDT}</li>
-                    <li> balance (현재잔액) : ${SearchResult.balance}</li>
+                    <li>code (응답코드) : ${SearchResult.code}</li>
+                    <li>message (응답메시지) : ${SearchResult.message}</li>
+                    <li>total (총 검색결과 건수) : ${SearchResult.total}</li>
+                    <li>perPage (페이지 당 목록 건수) : ${SearchResult.perPage}</li>
+                    <li>pageNum (페이지 번호) : ${SearchResult.pageNum}</li>
+                    <li>pageCount (페이지 개수) : ${SearchResult.pageCount}</li>
+                    <li>lastScrapDT (최종 조회일시) : ${SearchResult.lastScrapDT}</li>
+                    <li>balance (현재 잔액) : ${SearchResult.balance}</li>
                 </ul>
             </fieldset>
         </c:if>

@@ -29,12 +29,12 @@
         <c:if test="${SearchResult.list != null}">
             <c:forEach items="${SearchResult.list}" var="SearchInfo" varStatus="status">
                 <fieldset class="fieldset2">
-                    <legend>[ ${status.index+1} / ${SearchResult.perPage} ]</legend>
+                    <legend>전자명세서 상태/요약정보 [ ${status.index+1} / ${SearchResult.perPage} ]</legend>
                     <ul>
                         <li>itemCode (전자명세서 문서 유형) : ${SearchInfo.itemCode}</li>
                         <li>itemKey (팝빌번호) : ${SearchInfo.itemKey}</li>
                         <li>invoiceNum (팝빌 승인번호) : ${SearchInfo.invoiceNum}</li>
-                        <li>mgtKey (문서번호) : ${SearchInfo.mgtKey}</li>
+                        <li>mgtKey (파트너가 할당한 문서번호) : ${SearchInfo.mgtKey}</li>
                         <li>taxType (과세형태) : ${SearchInfo.taxType}</li>
                         <li>writeDate (작성일자) : ${SearchInfo.writeDate}</li>
                         <li>regDT (임시저장일시) : ${SearchInfo.regDT}</li>
@@ -49,7 +49,7 @@
                         <li>purposeType (영수/청구) : ${SearchInfo.purposeType}</li>
                         <li>issueDT (발행일시) : ${SearchInfo.issueDT}</li>
                         <li>stateCode (상태코드) : ${SearchInfo.stateCode}</li>
-                        <li>stateDT (상태변경 일시) : ${SearchInfo.stateDT}</li>
+                        <li>stateDT (상태 변경일시) : ${SearchInfo.stateDT}</li>
                         <li>stateMemo (상태메모) : ${SearchInfo.stateMemo}</li>
                         <li>openYN (개봉여부) : ${SearchInfo.openYN}</li>
                         <li>openDT (개봉 일시) : ${SearchInfo.openDT}</li>

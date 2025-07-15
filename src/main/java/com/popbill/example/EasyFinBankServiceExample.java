@@ -80,10 +80,10 @@ public class EasyFinBankServiceExample {
         // 인터넷뱅킹 아이디 (국민은행 필수)
         bankInfo.setBankID("");
 
-        // 조회전용 계정 아이디 (대구은행, 신협, 신한은행 필수)
+        // 조회전용 계정 아이디 (아이엠뱅크, 신한은행, 신협중앙회 필수)
         bankInfo.setFastID("");
 
-        // 조회전용 계정 비밀번호 (대구은행, 신협, 신한은행 필수)
+        // 조회전용 계정 비밀번호 (아이엠뱅크, 신한은행, 신협중앙회 필수)
         bankInfo.setFastPWD("");
 
         // 정액제 이용할 개월수, 1~12 입력가능
@@ -121,7 +121,7 @@ public class EasyFinBankServiceExample {
         // 수정할 계좌 정보
         UpdateEasyFinBankAccountForm BankAccountInfo = new UpdateEasyFinBankAccountForm();
 
-        // 계좌비밀번호
+        // 계좌 비밀번호
         BankAccountInfo.setAccountPWD("");
 
         // 계좌 별칭
@@ -130,10 +130,10 @@ public class EasyFinBankServiceExample {
         // 인터넷뱅킹 아이디 (국민은행 필수)
         BankAccountInfo.setBankID("");
 
-        // 조회전용 계정 아이디 (대구은행, 신협, 신한은행 필수)
+        // 조회전용 계정 아이디 (아이엠뱅크, 신한은행, 신협중앙회 필수)
         BankAccountInfo.setFastID("");
 
-        // 조회전용 계정 비밀번호 (대구은행, 신협, 신한은행 필수)
+        // 조회전용 계정 비밀번호 (아이엠뱅크, 신한은행, 신협중앙회 필수)
         BankAccountInfo.setFastPWD("");
 
         // 메모
@@ -332,7 +332,7 @@ public class EasyFinBankServiceExample {
          * - https://developers.popbill.com/reference/easyfinbank/java/api/job#GetJobState
          */
 
-        // 수집요청(requestJob API) 함수 호출 시 반환받은 작업아이디
+        // 작업아이디
         String jobID = "022021815000000001";
 
         try {
@@ -371,7 +371,7 @@ public class EasyFinBankServiceExample {
          * - https://developers.popbill.com/reference/easyfinbank/java/api/search#Search
          */
 
-        // 수집요청(requestJob API) 함수 호출 시 반환받은 작업아이디
+        // 작업아이디
         String jobID = "023011310000000008";
 
         // 거래유형 ("I" 와 "O" 중 선택, 다중 선택 가능)
@@ -391,7 +391,7 @@ public class EasyFinBankServiceExample {
         // 페이지당 표시할 목록 건수
         int PerPage = 10;
 
-        // 목록 정렬 방향 D-내림차순, A-오름차순
+        // 목록 정렬 방향, D-내림차순, A-오름차순
         String Order = "D";
 
         try {
@@ -413,7 +413,7 @@ public class EasyFinBankServiceExample {
          * - https://developers.popbill.com/reference/easyfinbank/java/api/search#Summary
          */
 
-        // 수집요청(requestJob API) 함수 호출 시 반환받은 작업아이디
+        // 작업아이디
         String jobID = "022021815000000001";
 
         // 거래유형 ("I" 와 "O" 중 선택, 다중 선택 가능)

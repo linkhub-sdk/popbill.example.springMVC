@@ -31,7 +31,7 @@
             <c:forEach items="${SearchResult.list}" var="SearchInfo" varStatus="status">
                 <fieldset class="fieldset2">
                     <ul>
-                        <li>ntsconfirmNum (국세청승인번호) : ${SearchInfo.ntsconfirmNum}</li>
+                        <li>ntsconfirmNum (전자세금계산서 국세청승인번호) : ${SearchInfo.ntsconfirmNum}</li>
                         <li>writeDate (작성일자) : ${SearchInfo.writeDate}</li>
                         <li>issueDate (발행일자) : ${SearchInfo.issueDate}</li>
                         <li>sendDate (전송일자) : ${SearchInfo.sendDate}</li>
@@ -41,7 +41,7 @@
                         <li>taxTotal (세액 합계) : ${SearchInfo.totalAmount}</li>
                         <li>totalAmount (합계금액) : ${SearchInfo.totalAmount}</li>
                         <li>remark1 (비고) : ${SearchInfo.remark1}</li>
-                        <li>invoiceType (세금계산서 유형) : ${SearchInfo.invoiceType}</li>
+                        <li>invoiceType (전자세금계산서 유형) : ${SearchInfo.invoiceType}</li>
 
                         <li>modifyYN (수정 전자세금계산서 여부) : ${SearchInfo.modifyYN}</li>
                         <li>orgNTSConfirmNum (당초 국세청승인번호) : ${SearchInfo.orgNTSConfirmNum}</li>
@@ -66,6 +66,7 @@
                         <li>invoiceeCorpName (공급받는자 상호) : ${SearchInfo.invoiceeCorpName}</li>
                         <li>invoiceeCEOName (공급받는자 대표자 성명) : ${SearchInfo.invoiceeCEOName}</li>
                         <li>invoiceeEmail1 (공급받는자 담당자 메일) : ${SearchInfo.invoiceeEmail1}</li>
+                        <li>invoiceeEmail2 (공급받는자 ASP 연계사업자 메일) : ${SearchInfo.invoiceeEmail2}</li>
 
                         <li>trusteeCorpNum (수탁자 사업자번호) : ${SearchInfo.trusteeCorpNum}</li>
                         <li>trusteeTaxRegID (수탁자 종사업장 식별번호) : ${SearchInfo.trusteeTaxRegID}</li>

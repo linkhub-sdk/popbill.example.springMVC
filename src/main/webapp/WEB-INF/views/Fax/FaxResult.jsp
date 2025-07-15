@@ -34,8 +34,8 @@
                     <li>sendDT (전송일시) : ${FaxResult.sendDT}</li>
                     <li>resultDT (전송결과 수신일시) : ${FaxResult.resultDT}</li>
                     <li>fileNames (전송 파일명 리스트) : ${fn:join(FaxResult.fileNames,", ")}</li>
-                    <li>receiptNum (접수번호) : ${FaxResult.receiptNum}</li>
-                    <li>requestNum (요청번호) : ${FaxResult.requestNum}</li>
+                    <li>receiptNum (팩스 전송요청시 팝빌로부터 반환 받은 접수번호) : ${FaxResult.receiptNum}</li>
+                    <li>requestNum (팩스 전송요청시 파트너가 할당한 요청번호) : ${FaxResult.requestNum}</li>
                     <li>interOPRefKey (파트너 지정키) : ${FaxResult.interOPRefKey}</li>
                     <li>chargePageCnt (과금 페이지수) : ${FaxResult.chargePageCnt}</li>
                     <li>refundPageCnt (환불 페이지수) : ${FaxResult.refundPageCnt}</li>

@@ -99,6 +99,7 @@ public class CashbillServiceExample {
         cashbill.setTradeUsage("소득공제용");
 
         // 거래유형, {일반, 도서공연, 대중교통} 중 기재
+        // 도서공연 : 도서, 공연, 박물관, 미술관, 수영장, 체력단련장, 신문구독료(종이신문), 영화관람료
         // - 미입력시 기본값 "일반" 처리
         cashbill.setTradeOpt("대중교통");
 
@@ -136,8 +137,8 @@ public class CashbillServiceExample {
         cashbill.setFranchiseTEL("07043042991");
 
         // 식별번호, 거래구분에 따라 작성
-        // └ 소득공제용 - 주민등록/휴대폰/카드번호(현금영수증 카드)/자진발급용 번호(010-000-1234) 기재가능
-        // └ 지출증빙용 - 사업자번호/주민등록/휴대폰/카드번호(현금영수증 카드) 기재가능
+        // └ 소득공제용 - 주민등록/휴대폰/카드번호/자진발급용 번호(010-000-1234) 입력
+        // └ 지출증빙용 - 사업자번호/휴대폰/카드번호 입력
         // └ 주민등록번호 13자리, 휴대폰번호 10~11자리, 카드번호 13~19자리, 사업자번호 10자리 입력 가능
         cashbill.setIdentityNum("0101112222");
 
@@ -186,7 +187,7 @@ public class CashbillServiceExample {
          * - https://developers.popbill.com/reference/cashbill/java/api/issue#BulkSubmit
          */
 
-        // 제출아이디, 대량 발행 접수를 구별하는 식별키
+        // 제출아이디
         // └ 최대 36자리 영문, 숫자, '-' 조합으로 구성
         String SubmitID = "20250711-MVC-BULK";
 
@@ -249,8 +250,8 @@ public class CashbillServiceExample {
             cashbill.setFranchiseTEL("07043042991");
 
             // 식별번호, 거래구분에 따라 작성
-            // └ 소득공제용 - 주민등록/휴대폰/카드번호(현금영수증 카드)/자진발급용 번호(010-000-1234) 기재가능
-            // └ 지출증빙용 - 사업자번호/주민등록/휴대폰/카드번호(현금영수증 카드) 기재가능
+            // └ 소득공제용 - 주민등록/휴대폰/카드번호/자진발급용 번호(010-000-1234) 입력
+            // └ 지출증빙용 - 사업자번호/휴대폰/카드번호 입력
             // └ 주민등록번호 13자리, 휴대폰번호 10~11자리, 카드번호 13~19자리, 사업자번호 10자리 입력 가능
             cashbill.setIdentityNum("0101112222");
 
@@ -274,6 +275,12 @@ public class CashbillServiceExample {
 
             // 구매자 알림문자 전송 여부
             cashbill.setSmssendYN(false);
+
+            // 현금영수증 상태 이력을 관리하기 위한 메모
+            cashbill.setMemo("");
+
+            // 현금영수증 발행 안내메일 제목
+            cashbill.setEmailSubject("");
 
             cashbillList.add(cashbill);
         }
@@ -336,7 +343,10 @@ public class CashbillServiceExample {
     @RequestMapping(value = "revokeRegistIssue", method = RequestMethod.GET)
     public String revokeRegistIssue(Model m) {
         /**
-         * 취소 현금영수증 데이터를 팝빌에 저장과 동시에 발행하여 "발행완료" 상태로 처리합니다.
+         * 당초 승인 현금영수증의 취소거래 발행 API 입니다.
+         * 작성된 취소 현금영수증 데이터를 팝빌에 저장과 동시에 발행하여 "발행완료" 상태로 처리합니다.
+         * 부분 취소 현금영수증을 발행하는 경우 'IsPartCancel' 값을 true 로 설정하여 주시기 바랍니다.
+         * 당초 국세청승인번호와 거래일자는 [GetInfo – 상태확인]함수를 통해 확인 가능합니다.
          * - 현금영수증 국세청 전송 정책 [https://developers.popbill.com/guide/cashbill/java/introduction/policy-of-send-to-nts]
          * - https://developers.popbill.com/reference/cashbill/java/api/issue#RevokeRegistIssue
          */
@@ -819,9 +829,8 @@ public class CashbillServiceExample {
     @RequestMapping(value = "sendSMS", method = RequestMethod.GET)
     public String sendSMS(Model m) {
         /**
-         * 현금영수증과 관련된 안내 SMS(단문) 문자를 재전송하는 함수로, 팝빌 사이트 [문자] > [결과] > [전송결과] 메뉴에서 전송결과를 확인 할 수 있습니다.
-         * - 메시지는 최대 90byte까지 입력 가능하고, 초과한 내용은 자동으로 삭제되어 전송합니다. (한글 최대 45자)
-         * - 함수 호출 시 포인트가 과금됩니다. (전송실패시 환불처리)
+         * 현금영수증과 관련된 안내 SMS(단문) 문자를 재전송하는 함수로, 팝빌 사이트 [ 문자 > 결과 > 전송결과 ] 메뉴에서 전송결과를 확인할 수 있습니다.
+         * 메시지는 최대 90byte까지 입력 가능하고, 초과한 내용은 자동으로 삭제되어 전송합니다. (한글 최대 45자)
          * - https://developers.popbill.com/reference/cashbill/java/api/etc#SendSMS
          */
 
@@ -851,8 +860,7 @@ public class CashbillServiceExample {
     @RequestMapping(value = "sendFAX", method = RequestMethod.GET)
     public String sendFAX(Model m) {
         /**
-         * 현금영수증을 팩스로 전송하는 함수로, 팝빌 사이트 [팩스] > [결과] > [전송결과] 메뉴에서 전송결과를 확인 할 수 있습니다.
-         * - 함수 호출 시 포인트가 과금됩니다. (전송실패시 환불처리)
+         * 현금영수증을 팩스로 전송하는 함수로, 팝빌 사이트 [ 팩스 > 결과 > 전송결과 ] 메뉴에서 전송결과를 확인할 수 있습니다.
          * - https://developers.popbill.com/reference/cashbill/java/api/etc#SendFAX
          */
 

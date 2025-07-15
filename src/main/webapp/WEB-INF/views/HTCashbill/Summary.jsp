@@ -18,7 +18,7 @@
             <li>supplyCostTotal (공급가액 합계) : ${SummaryResult.supplyCostTotal}</li>
             <li>taxTotal (세액 합계) : ${SummaryResult.taxTotal}</li>
             <li>serviceFeeTotal (봉사료 합계) : ${SummaryResult.serviceFeeTotal}</li>
-            <li>amountTotal (총계) : ${SummaryResult.amountTotal}</li>
+            <li>amountTotal (총계 (공급가액 합계+세액 합계)) : ${SummaryResult.amountTotal}</li>
         </ul>
     </fieldset>
 </div>

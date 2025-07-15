@@ -19,7 +19,7 @@
                     <li>itemCode (전자명세서 문서 유형) : ${StatementInfo.itemCode}</li>
                     <li>itemKey (팝빌번호) : ${StatementInfo.itemKey}</li>
                     <li>invoiceNum (팝빌 승인번호) : ${StatementInfo.invoiceNum}</li>
-                    <li>mgtKey (문서번호) : ${StatementInfo.mgtKey}</li>
+                    <li>mgtKey (파트너가 할당한 문서번호) : ${StatementInfo.mgtKey}</li>
                     <li>taxType (과세형태) : ${StatementInfo.taxType}</li>
                     <li>writeDate (작성일자) : ${StatementInfo.writeDate}</li>
                     <li>regDT (임시저장일시) : ${StatementInfo.regDT}</li>
@@ -49,7 +49,7 @@
                         <li>itemCode (전자명세서 문서 유형) : ${StatementInfo.itemCode}</li>
                         <li>itemKey (팝빌번호) : ${StatementInfo.itemKey}</li>
                         <li>invoiceNum (팝빌 승인번호) : ${StatementInfo.invoiceNum}</li>
-                        <li>mgtKey (문서번호) : ${StatementInfo.mgtKey}</li>
+                        <li>mgtKey (파트너가 할당한 문서번호) : ${StatementInfo.mgtKey}</li>
                         <li>taxType (과세형태) : ${StatementInfo.taxType}</li>
                         <li>writeDate (작성일자) : ${StatementInfo.writeDate}</li>
                         <li>regDT (임시저장일시) : ${StatementInfo.regDT}</li>
