@@ -13,10 +13,10 @@
     <fieldset class="fieldset1">
         <legend>${requestScope['javax.servlet.forward.request_uri']}</legend>
         <ul>
-            <li>응답코드 (Response.code) : ${Response.code}</li>
-            <li>응답메시지 (Response.message) : ${Response.message}</li>
-            <li>국세청승인번호 (confirmNum) : ${Response.confirmNum}</li>
-            <li>거래일자 (tradeDate) : ${Response.tradeDate}</li>
+            <li>code (응답코드) : ${Response.code}</li>
+            <li>message (응답메시지) : ${Response.message}</li>
+            <li>confirmNum (국세청승인번호) : ${Response.confirmNum}</li>
+            <li>tradeDate (거래일자) : ${Response.tradeDate}</li>
         </ul>
     </fieldset>
 </div>
