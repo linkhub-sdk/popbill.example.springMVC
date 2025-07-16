@@ -1234,7 +1234,7 @@ public class StatementServiceExample {
     @RequestMapping(value = "sendEmail", method = RequestMethod.GET)
     public String sendEmail(Model m) {
         /**
-         * "승인대기", "발행완료" 상태의 전자명세서와 관련된 발행 안내 메일을 재전송 합니다.
+         * 전자명세서와 관련된 안내 메일을 재전송 합니다.
          * - https://developers.popbill.com/reference/statement/java/api/etc#SendEmail
          */
 
