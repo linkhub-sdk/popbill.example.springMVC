@@ -72,7 +72,7 @@
                             <li>altContent (대체문자 내용) : ${msgInfo.altContent}</li>
                             <li>altContentType (대체문자 전송타입) : ${msgInfo.altContentType}</li>
                             <li>altSendDT (대체문자 전송일시) : ${msgInfo.altSendDT}</li>
-                            <li>altResult (통신사 결과코드) : ${msgInfo.altResult}</li>
+                            <li>altResult (대체문자 통신사 결과코드) : ${msgInfo.altResult}</li>
                             <li>altResultDT (대체문자 전송결과 수신일시) : ${msgInfo.altResultDT}</li>
                             <li>receiptNum (접수번호) : ${msgInfo.receiptNum}</li>
                             <li>requestNum (요청번호) : ${msgInfo.requestNum}</li>
