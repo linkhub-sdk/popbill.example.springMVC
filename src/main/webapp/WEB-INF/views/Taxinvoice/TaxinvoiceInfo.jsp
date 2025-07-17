@@ -35,7 +35,7 @@
                     <li>ntsresult (국세청 전송결과) : ${TaxinvoiceInfo.NTSResult}</li>
                     <li>ntssendDT (국세청 전송일시) : ${TaxinvoiceInfo.NTSSendDT}</li>
                     <li>ntsresultDT (국세청 결과 수신일시) : ${TaxinvoiceInfo.NTSResultDT}</li>
-                    <li>ntssendErrCode (결과코드) : ${TaxinvoiceInfo.NTSSendErrCode}</li>
+                    <li>ntssendErrCode (국세청 결과코드) : ${TaxinvoiceInfo.NTSSendErrCode}</li>
                     <li>modifyCode (수정세금계산서 발행시 입력한 사유코드) : ${TaxinvoiceInfo.modifyCode}</li>
                     <li>interOPYN (연동문서 여부) : ${TaxinvoiceInfo.interOPYN}</li>
 
@@ -82,7 +82,7 @@
                         <li>ntsresult (국세청 전송결과) : ${TaxinvoiceInfo.NTSResult}</li>
                         <li>ntssendDT (국세청 전송일시) : ${TaxinvoiceInfo.NTSSendDT}</li>
                         <li>ntsresultDT (국세청 결과 수신일시) : ${TaxinvoiceInfo.NTSResultDT}</li>
-                        <li>ntssendErrCode (결과코드) : ${TaxinvoiceInfo.NTSSendErrCode}</li>
+                        <li>ntssendErrCode (국세청 결과코드) : ${TaxinvoiceInfo.NTSSendErrCode}</li>
                         <li>modifyCode (수정 사유코드) : ${TaxinvoiceInfo.modifyCode}</li>
                         <li>interOPYN (연동문서 여부) : ${TaxinvoiceInfo.interOPYN}</li>
 
