@@ -16,9 +16,9 @@
         <ul>
             <li>count (수집 건수) : ${SummaryResult.count}</li>
             <li>supplyCostTotal (공급가액 합계) : ${SummaryResult.supplyCostTotal}</li>
-            <li>taxTotal (세액 합계) : ${SummaryResult.taxTotal}</li>
+            <li>taxTotal (부가세 합계) : ${SummaryResult.taxTotal}</li>
             <li>serviceFeeTotal (봉사료 합계) : ${SummaryResult.serviceFeeTotal}</li>
-            <li>amountTotal (총계 (공급가액 합계+세액 합계)) : ${SummaryResult.amountTotal}</li>
+            <li>amountTotal (거래금액 합계 (공급가액 합계+부가세 합계+봉사료 합계)) : ${SummaryResult.amountTotal}</li>
         </ul>
     </fieldset>
 </div>
