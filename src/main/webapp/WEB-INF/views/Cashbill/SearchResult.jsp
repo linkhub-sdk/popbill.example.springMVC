@@ -58,8 +58,8 @@
                         <li>orgTradeDate (당초 거래일자) : ${SearchInfo.orgTradeDate}</li>
                         <li>ntssendDT (국세청 전송일시) : ${SearchInfo.ntssendDT}</li>
                         <li>ntsresultDT (국세청 처리결과 수신일시) : ${SearchInfo.ntsresultDT}</li>
-                        <li>ntsresultCode (결과코드) : ${SearchInfo.ntsresultCode}</li>
-                        <li>ntsresultMessage (결과메시지) : ${SearchInfo.ntsresultMessage}</li>
+                        <li>ntsresultCode (국세청 결과코드) : ${SearchInfo.ntsresultCode}</li>
+                        <li>ntsresultMessage (국세청 결과메시지) : ${SearchInfo.ntsresultMessage}</li>
                         <li>printYN (인쇄여부) : ${SearchInfo.printYN}</li>
                         <li>interOPYN (연동문서 여부) : ${SearchInfo.interOPYN}</li>
                     </ul>
