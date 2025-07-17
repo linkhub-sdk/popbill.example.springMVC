@@ -26,7 +26,7 @@
                     <li>errorReason (오류메시지) : ${JobState.errorReason}</li>
                     <li>jobStartDT (작업 시작일시) : ${JobState.jobStartDT}</li>
                     <li>jobEndDT (작업 종료일시) : ${JobState.jobEndDT}</li>
-                    <li>collectCount (수집개수) : ${JobState.collectCount}</li>
+                    <li>collectCount (수집건수) : ${JobState.collectCount}</li>
                     <li>regDT (수집 요청일시) : ${JobState.regDT}</li>
                 </ul>
             </fieldset>
