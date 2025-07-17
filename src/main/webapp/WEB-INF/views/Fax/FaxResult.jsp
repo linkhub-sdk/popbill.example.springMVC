@@ -25,10 +25,6 @@
                     <li>receiveNumType (수신번호 유형) : ${FaxResult.receiveNumType}</li>
                     <li>receiveName (수신자명) : ${FaxResult.receiveName}</li>
                     <li>title (팩스제목) : ${FaxResult.title}</li>
-                    <li>sendPageCnt (전체 페이지수) : ${FaxResult.sendPageCnt}</li>
-                    <li>successPageCnt (성공 페이지수) : ${FaxResult.successPageCnt}</li>
-                    <li>failPageCnt (실패 페이지수) : ${FaxResult.failPageCnt}</li>
-                    <li>cancelPageCnt (취소 페이지수) : ${FaxResult.cancelPageCnt}</li>
                     <li>reserveDT (예약일시) : ${FaxResult.reserveDT}</li>
                     <li>receiptDT (접수일시) : ${FaxResult.receiptDT}</li>
                     <li>sendDT (전송일시) : ${FaxResult.sendDT}</li>
@@ -37,6 +33,10 @@
                     <li>receiptNum (팩스 전송요청시 팝빌로부터 반환 받은 접수번호) : ${FaxResult.receiptNum}</li>
                     <li>requestNum (팩스 전송요청시 파트너가 할당한 요청번호) : ${FaxResult.requestNum}</li>
                     <li>interOPRefKey (파트너 지정키) : ${FaxResult.interOPRefKey}</li>
+                    <li>sendPageCnt (전체 페이지수) : ${FaxResult.sendPageCnt}</li>
+                    <li>successPageCnt (성공 페이지수) : ${FaxResult.successPageCnt}</li>
+                    <li>failPageCnt (실패 페이지수) : ${FaxResult.failPageCnt}</li>
+                    <li>cancelPageCnt (취소 페이지수) : ${FaxResult.cancelPageCnt}</li>
                     <li>chargePageCnt (과금 페이지수) : ${FaxResult.chargePageCnt}</li>
                     <li>refundPageCnt (환불 페이지수) : ${FaxResult.refundPageCnt}</li>
                     <li>tiffFileSize (변환파일용량 (단위:byte)) : ${FaxResult.tiffFileSize}</li>
